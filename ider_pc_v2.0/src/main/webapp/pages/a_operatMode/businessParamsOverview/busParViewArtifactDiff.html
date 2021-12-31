@@ -1,0 +1,125 @@
+<div ng-controller="BPArtifactDiffCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemArtifact.operationMode"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.artifactNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.elementNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.instanCode1"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400007' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.instanCode2"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.instanCode3"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.instanCode4"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400013' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="itemArtifact.instanCode5"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400014' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" validator="number"
+							maxlength="2" ng-model="itemArtifact.performOrder" disabled >
+				</div>
+			</div>
+			
+			<!-- pcd实例化 -->
+			<div ng-show="pcdInstanShow">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH400015' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400016' | translate}}：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input" name="pcdNo" type="text" 
+							 ng-model="pcdExampleInf.pcdNo"  disabled
+							>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400030' | translate}}：</div>
+				<div class="wd190 float_left">
+						<select jf-select="segmentTypeArray" ng-model="segmentTypeInfo" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="pcdExampleInf.baseInstanCode"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400020' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="pcdExampleInf.optionInstanCode"  disabled>
+				</div>
+			</div>
+			
+			<div class="col_td"></div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'YYH400028' | translate}}</th>
+						<th>{{'YYH400021' | translate}}</th>
+						<th>{{'YYH400029' | translate}}</th>
+						<th>{{'YYH400022' | translate}}</th>
+						<th>{{'YYH400023' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in pcdInfTable track by $index">
+						<td align="center" ng-bind="item.segmentSerialNum"></td>
+						<td align="center" ng-bind="item.pcdType"></td>
+						<td align="center" ng-bind="item.segmentValue"></td>
+						<td align="center" ng-bind="item.pcdValue"></td>
+						<td align="center" ng-bind="item.pcdPoint"></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "pDUnitCd": "100000000018P00001",
+                    "pDObjCd": "MODP00011",
+                    "dsc": "银联金卡"
+                },
+                {
+                    "pDUnitCd": "100000000018P00002",
+                    "pDObjCd": "MODP00010",
+                    "dsc": "银联普卡"
+                },
+                {
+                    "pDUnitCd": "100000000018P00003",
+                    "pDObjCd": "MODP00012",
+                    "dsc": "VISA普卡"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 2
+        }
+        
+    },
+    "status": 200
+}

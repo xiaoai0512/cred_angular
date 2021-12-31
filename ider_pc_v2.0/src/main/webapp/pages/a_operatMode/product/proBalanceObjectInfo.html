@@ -1,0 +1,40 @@
+<div ng-controller="proBalanceObjectInfoCtrl">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'YYH510054' | translate}}</div>
+		<div jf-grid="balanceObjectInfo">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:22%">{{'YYH400031' | translate}}</th>
+						<th  align="left" style="width:47%">{{'YYH510004' | translate}}</th>
+						<th style="width:20%">{{'YYH510007' | translate}}</th>
+						<th style="width:15%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">
+					  		<div class="tdDivL">{{item.instanCode2}}</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc2}}</div>
+							<!-- <span>{{item.instanCode2}}{{item.instanDesc2}}</span> -->
+					  	</td>
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+						</td>
+						<td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryArtifactBP(item)" ng-if="item.pcdNo!=null && item.supportPcd == 'Y'">
+								{{'F00075' | translate}}</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<!-- <div class="col_tr text_center">
+		<button class="layui-btn layui-btn-radius"  ng-click="stepBackOne()">
+			<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+		</button>
+	</div> -->
+</div>

@@ -1,0 +1,35 @@
+<div ng-controller="authCodeInfoCtrl">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_tr">
+			<div class="col2 text_right">{{'F00077' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeInfo" disabled></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right">{{'SQH2500001' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="recordTypeArray" name="cardAssociationsN" ng-model="cardAssociationsInfo" disabled></select>
+				<!-- <input class="layui-input" name="recordTypeN" ng-model="itemInfo.recordType" validator="required" type="text"> -->
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right">{{'SQH2500002' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" type="text" name="externalResponseCodeN" ng-model="itemInfo.externalResponseCode" readonly>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right">{{'SQH2500003' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" type="text" name="priorityN" ng-model="itemInfo.priority" readonly>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right">{{'SQH2500004' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="responseDescN"  type="text" ng-model="itemInfo.responseDesc" readonly>
+			</div>
+		</div>
+	</form>
+</div>

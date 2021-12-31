@@ -1,0 +1,114 @@
+<div class="mainname">列表新旧版本修改点</div>
+<pre class="layui-code" lay-title="Code" >
+1、列表查询jf-grid写法修改
+    旧版：将列表的查询引用写在div里面：如：&lt;div jf-grid="用款申请列表" paging="true" search="search" resource="tableDemo.query" params="queryParam"&gt;
+    新版：在js中。html只需指定&lt;div jf-grid="demoList"&gt;（demoList为名称，可自己定义） 。jf-grid里面对div和tbody指定的样式也要去掉 
+            参数在js写法如下 
+      //列表初始化
+      $scope.demoList = {
+          checkType : 'radio', //当为checkbox时为多选
+          params : $scope.queryParam={}, //表格查询时的参数信息
+          paging : true ,//默认true,是否分页
+          resource : 'tableDemo.query' ,//列表的资源
+          callback : function() { //表格查询后的回调函数
+          }
+      };
+     
+2、按钮事件写法修改
+    2.1点击弹出按钮
+    旧版:ng-click="updateDiaDemo($event)",此外还需在按钮的上面加一个隐藏的弹框页面指定div.
+    如：&lt;div id="ddctDia" url="/sysmanage/ddct/addDdct.html"style="display: none;" title="" size="700px,400px"callback="addDdctSub"&gt;&lt;/div&gt;
+    新版：ng-click="updateDiaDemo()";剩下的直接在js的按钮触发事件中处理。无需加隐藏的弹窗div
+    如：$scope.updateDiaDemo=function(){
+            $scope.demoData={};//创建对象
+            //$scope.demoList.checkedList()获取当前选中的对象或集合（列表为单选获取到的是对象，多选获取到的是集合）
+            //校验是否选中
+            if (!$scope.demoList.validCheck()) {
+                return ;
+            }
+            $scope.demoData=$scope.demoList.checkedList()[0];//选中列值
+            //指定弹框url及参数
+            $scope.demoList.modal('/help/help-demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [$scope.modalCallback]});
+        };
+        
+    2.2点击跳转到大页面
+    旧版：ng-click="$goto($event, '/inputDemo')";
+    新版：ng-click="demoList.turn('/inputDemo')";//(demoList为上面jf-grid="demoList"定义的名称)
+    
+    2.3删除事件写法修改
+    旧版：ng-click="$del($event, '/usermg/delete?id')"
+    新版：ng-click="demoList.request('demo.delete?id')",之前不用配置路由直接写请求的action,现在要配置路由改用调用路由
+
+3.3查询按钮上层div的class修改
+    旧版：&lt;div class="search_button"&gt;
+    新版：&lt;div class="layui-inline"&gt;
+
+3.4查询触发事件
+    旧版：ng-click="search()"
+    新版：ng-click="demoList.search()"//(demoList为上面jf-grid="demoList"定义的名称)
+
+3.5重置按钮的icon图标修改
+    旧版：&lt;i class="layui-icon"&gt;&amp;#x1006;&lt;/i&gt; 重置
+    新版：&lt;i class="layui-icon"&gt;&amp;#x1002;&lt;/i&gt; 重置
+</pre>
+
+<div class="mainname">列表自定义选中事件用法</div>
+<blockquote class="layui-elem-quote">js</blockquote>
+<pre class="layui-code" lay-title="Code" >
+     //列表初始化
+      $scope.demoList = {
+          checkType : 'checkbox', //当为radio时为单选
+          params : $scope.queryParam={}, //表格查询时的参数信息
+          paging : true ,//默认true,是否分页
+          resource : 'tableDemo.query' ,//列表的资源
+          <span style="color:red">autoClick:true,//该事件默认的选中赋值要自己写。默认为false，自动加选中事件和对应的html</span>
+          callback : function() { //表格查询后的回调函数
+          },
+            <span style="color:red">checkBack:function(item){//行选中回调事件
+              //如果为单选框返回的是对象，复选框范回集合
+            $scope.checkedList=$scope.userList.checkedList(); 
+              }</span>
+      };
+      //autoClick:true时才需要用到该事件
+      $scope.selectCheck=function(row){
+            if(row._checked){
+                row._checked = false ;
+            }else{
+                row._checked = true ;
+            }
+        }
+</pre>
+<blockquote class="layui-elem-quote">html</blockquote>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     //列表初始化
+     <div jf-grid="userList">
+        <table>
+            <thead>
+                <tr>
+                    <!-- selectCheck(item)这行只有使用autoClick:true才会用到 -->
+                     <th align="center">选择</th>
+                    <th align="left">用户编号</th>
+                    <th align="left">登陆名称</th>
+                    <th align="left">姓名</th>
+                    <th align="left">性别</th>
+                    <th align="left">电话</th>
+                    <th align="left">地区</th>
+                    <th align="left">状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <!-- selectCheck(item)这行只有使用autoClick:true才会用到 -->
+                    <td align="center" ng-click="selectCheck(item)"><input type="checkbox" title=" " lay-skin="primary"  ng-checked="item._checked"></td>
+                    <td align="left" ng-bind="item.userNum"></td>
+                    <td align="left" ng-bind="item.loginName"></td>
+                    <td align="left" ng-bind="item.realname"></td>
+                    <td align="left" ng-bind="item.sexCd | jfConvert : 'dict' : 'Gnd'"></td>
+                    <td align="left"><input  ng-bind="item.mobile"></td>
+                    <td align="left" ng-bind="item.city |jfConvert:'address'"></td>
+                    <td align="left" ng-bind="item.statusCd |jfConvert:'dict':'StCd'"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div >
+</pre>

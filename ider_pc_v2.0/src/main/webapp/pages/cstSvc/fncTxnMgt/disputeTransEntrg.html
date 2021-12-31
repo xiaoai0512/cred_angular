@@ -1,0 +1,178 @@
+<div ng-controller="disputeTransEntrgCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	<form name="disputeForm">
+		<div class="mainname">{{'KHH1600001' | translate}}</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH1600002' | translate}}</th>
+						<th>{{'KHH1600003' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1600004' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" validator="required"
+					ng-model="disputeTransEntrgInfo.ecommEntryId"
+					name="ecommEntryId" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1600006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeTransEntrgInfo.ecommTransCurr" validator="required"
+					class="layui-input" jf-select="builder.option(ccy)" name="ecommTransCurr">
+				</select>
+				<!-- <input class="layui-input" ng-model="disputeTransEntrgInfo.ecommTransCurr"
+					name="ecommTransCurr" type="text"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span> {{'KHH1600007' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" validator="required"
+					ng-model="disputeTransEntrgInfo.ecommTransAmountRE"
+					name="ecommTransAmount" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1600008' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" validator="required"
+					ng-model="disputeTransEntrgInfo.ecommTransDate" jf-date-input
+					name="ecommTransDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1600009' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeTransEntrgInfo.ecommPostingCurr" validator="required"
+					class="layui-input" jf-select="builder.option(ccy)" name="id" lay-filter="getdisputeCurr">
+				</select>
+				<!-- 	<input class="layui-input" ng-model="disputeTransEntrgInfo.ecommPostingCurr"
+					name="ecommTransPostingCurr" type="text"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span> {{'KHH1600010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" validator="required"
+					ng-model="disputeTransEntrgInfo.ecommTransPostingAmountRE"
+					name="ecommTransPostingAmount" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommTransDesc"
+					name="ecommTransDesc" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+				<div class="col4 text_right">{{'KHH1600012' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" 
+						ng-model="disputeTransEntrgInfo.ecommOriTransDate" jf-date-input
+						name="ecommOriTransDate" type="text">
+				</div>
+			</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">授权码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommAuthCde"
+					name="ecommAuthCde" type="text">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">MCC ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommMcc" name="ecommMcc"
+					type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommTransCountryCde"
+					name="ecommTransCountryCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600014' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <select ng-model="disputeTransEntrgInfo.ecommTransCityCde" class="layui-input"
+					jf-select="builder.option(genderArray)" name="ecommTransCityCde">
+				</select> -->
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommTransCityCde"
+					name="ecommTransCityCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600015' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="bsnNumb" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommChannelCde"
+					name="ecommChannelCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommMerchantCde"
+					name="ecommMerchantCde" type="text">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1600018' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="disputeTransEntrgInfo.ecommBillReferenceNumbr"
+					name="ecommBillReferenceNumbr" type="text">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">交易模式 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeTransEntrgInfo.ecommPosEntryMode"
+					class="layui-input" jf-select="builder.option(posEntryModeArray)"
+					name="ecommPosEntryMode">
+				</select>
+			</div>
+		</div> -->
+
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius" validation-submit="disputeForm"
+				ng-click="saveRvlDbtTxnSplmtEntrgInfo()" type="button">
+				<i class="layui-icon">&#xe624;</i> {{'F00107' | translate}}
+			</button>
+		</div>
+	</form>
+	</div>
+</div>

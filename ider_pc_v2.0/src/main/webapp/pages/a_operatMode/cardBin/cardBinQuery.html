@@ -1,0 +1,61 @@
+<div class="layui-form" ng-controller="cardBinMaintCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+		<div class="allcontent">
+			<!-- 卡Bin查询 -->
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1000001' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardBinTable.params.corporationEntityNo" type="text" id="corporationEntityNoId">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1000002' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardBinTable.params.binNo" name="bin" type="text" maxlength="6">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="cardBinTable.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn" ng-click="addCardBinTable()" ng-show="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+			<!-- 卡BIN列表 -->
+			<div jf-grid="cardBinTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'PZH1000001' | translate}}</th>
+							<th>{{'PZH1000002' | translate}}</th>
+							<th>{{'PZH1000003' | translate}}</th>
+							<th>{{'PZH1000004' | translate}}</th>
+							<th>{{'PZH1000005' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.corporationEntityNo"></td>
+							<td align="center" ng-bind="item.binNo"></td>
+							<td align="center" ng-bind="item.cardSchemeDesc"></td>
+							<td align="center" ng-bind="item.cardTypDesc"></td>
+							<td align="center" ng-bind="item.settlementCurrencyDesc"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="updateCardBin(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="copyCardBin(item)" ng-show="addBtnFlag">
+									<i class="layui-icon">&#xe654;</i> {{'F00061' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

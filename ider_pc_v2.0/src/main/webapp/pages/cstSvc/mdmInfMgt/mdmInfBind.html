@@ -1,0 +1,139 @@
+<div ng-controller="mdmInfBindCtrl">
+	<!-- <div class="leftmenu_navtitle">媒介信息建立</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action=""  name="queryInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="mdmCusInfParams.idType"  lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="mdmCusInfParams.idNumber"    
+					name="idNumber"  id='mdmInfBind_idNumber' validator="noValidator"
+					type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo"  ng-model="mdmCusInfParams.externalIdentificationNo"  type="text">
+				</div>
+			</div>
+		
+			<div class="col_tr text_center">
+				<button class="layui-btn"  ng-click="searchMdmInfBindInfo()" validation-submit="queryInfForm">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		  </form>	
+	  </div>
+	<div class="clearboth"></div>
+	<!-- 客户媒介信息 -->
+	<div ng-show="showList">
+		<div class="section">
+			<div class="layui-tab-content">
+				<div class="mainname">{{'KHJ5600001' | translate}}</div>
+					<div class="" class="layui-form">
+						<div jf-grid="searchMdmInfListAll">
+							<table>
+								<thead>
+									<tr>
+									    
+										<th>{{'F00111' | translate}}</th>
+										<th>{{'KHH5600004' | translate}}</th>
+										<th>{{'KHH5600005' | translate}}</th>
+										<th>{{'KHH5600006' | translate}}</th>
+										<th>{{'KHH5600007' | translate}}</th>
+										<th>{{'KHH5600011' | translate}}</th>
+										<th>{{'F00017' | translate}}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td align="center" ng-bind="item.externalIdentificationNo"></td>
+										<td align="center" ng-bind="item.mediaUnitCode"></td>
+										<td align="center" ng-bind="item.mediaObjectCode"></td>
+										<td align="center" ng-bind="item.expirationDate"></td>
+										<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+										<td align="center" ng-bind="item.invalidFlagDesc"></td>
+										<td align="center">
+											<button class="layui-btn layui-btn-mini"
+												ng-click="viewMediaInf(item)">
+												<i class="layui-icon"></i>{{'F00009' | translate}}
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show = "mediaInfDiv" class="">
+		<form name="mdmInfoBindForm" class="allcontent layui-form">
+			<div class="mainname">{{'KHH5600003' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="mediaBindInf.externalIdentificationNo"  validator="required"   type="text" readonly />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5600004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="mediaBindInf.mediaUnitCode"  validator="required"   type="text" readonly />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5600005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="mediaBindInf.mediaObjectCode"  validator="required"   type="text" readonly />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5600006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="mediaBindInf.expirationDate"  validator="required"   type="text"  readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5600007' | translate}}：</div>
+				<div class="wd190 float_left">
+					 <select  jf-select="mainAttachmentArray" ng-model="mediaBindInf.mainSupplyIndicator" name="mainSupplyIndicator" id="mainSupplyIndicator" 
+					 disabled="disabled"></select>
+				</div>
+			</div>
+			<div class="col_td"></div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH5600008' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5600009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="mediaBindInf.bindId"  validator="required" maxlength="9"  type="text">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-if="mediaBindInf.invalidFlag == 'Y'"  ng-click="saveMdmBind(mainSupplyIndicator)"
+					type="button">
+					<i class="layui-icon">&#xe624;</i> {{'KHH5600024' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+			
+</div>

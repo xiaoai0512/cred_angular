@@ -1,0 +1,65 @@
+<div class="layout_body" ng-controller="tradScenarioCtrl">
+    <div class="subposition">
+        <i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+    </div>
+    <div class="allcontent">
+        <!-- 交易场景查询 -->
+        <div class="layui-form">
+            <div class="col_td">
+                <label class="col4 text_right">{{'SQH9100001' | translate}}：</label>
+                <div class="wd190 float_left">
+                    <select ng-model="operationMode" class="layui-input"
+                            jf-select="coArray" name="operationModeN" lay-search="" lay-filter="getTradScenario"></select>
+                </div>
+            </div>
+            <div class="col_td">
+                <label class="col4 text_right">{{'SQH9100002' | translate}}：</label>
+                <div class="wd190 float_left">
+                    <select class="layui-input" type="text" jf-select="transSceneArray" name="transSceneCodeN"
+                            ng-model="transSceneCode" lay-search=""></select>
+                </div>
+            </div>
+
+            <div class="col_tr text_center">
+                <button class="layui-btn" ng-click="selTradList()" ng-show="selBtnFlag">
+                    <i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+                </button>
+                <button class="layui-btn" ng-click="addScenarioAdd()" ng-show="addBtnFlag">
+                    <i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+                </button>
+            </div>
+        </div>
+        <!-- 交易场景列表 -->
+        <div ng-show="isShow">
+            <div jf-grid="itemList">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>{{'SQH9100003' | translate}}</th>
+                        <th>{{'SQH9100001' | translate}}</th>
+                        <th>{{'SQH9100005' | translate}}</th>
+                        <th>{{'SQH9100006' | translate}}</th>
+                        <th style="width:20%">{{'F00017' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td align="center" ng-bind="$index+1"></td>
+                        <td align="center" ng-bind="item.modeName"></td>
+                        <td align="center" ng-bind="item.transSceneCode"></td>
+                        <td align="center" ng-bind="item.transSceneDesc"></td>
+                        <td style="width:20%" align="center">
+                            <button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+                                <i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+                            </button>
+                            <button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="updBtnFlag">
+                                <i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

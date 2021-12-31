@@ -1,0 +1,37 @@
+<div ng-controller="lifeCycleNodeEstCtrl">
+	<!-- <div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div> -->
+	<div class="search_mian layui-form">
+		<form name="lifeCycleNodeInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH800001' | translate}}：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="lifeCycleNodeInf.nodeTyp"  validator = "required"
+					jf-select="nodeTypArr" name="nodeTyp"  maxlength="2">
+				</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH800002' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="number,min,max,minlength,maxlength,required" name="nodeSerialNumbr" min="0" max="99"   minlength="2" maxlength="2"
+						ng-model="lifeCycleNodeInf.nodeSerialNumbr">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH800003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="nodeDesc" maxlength="50"
+						ng-model="lifeCycleNodeInf.nodeDesc">
+				</div>
+			</div>
+			
+			<!-- <div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="saveLifeCycleNode()" validation-submit="lifeCycleNodeInfForm">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div> -->
+		</form>
+	</div>
+</div>

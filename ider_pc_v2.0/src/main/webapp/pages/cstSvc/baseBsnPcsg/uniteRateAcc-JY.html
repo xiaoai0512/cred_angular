@@ -1,0 +1,59 @@
+<div ng-controller="uniteRateAccCtrl-JYt">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div jf-grid="itemList">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:20%">{{'KHH4700004' | translate}}</th>
+									<th>{{'KHH4700014' | translate}}</th>
+									<th>{{'KHH4700047' | translate}}</th>
+									<th>{{'KHH4700048' | translate}}</th>
+									<th>{{'KHH4700049' | translate}}</th>
+									<th>{{'KHH4700050' | translate}}</th>
+									<th>{{'KHH4700051' | translate}}</th>
+									<th>{{'KHH4700052' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="width:20%" align="center" ng-bind="item.accountId"></td>
+									<td align="center" >
+											<span ng-if="item.currencyCode == '156'">{{'KHH4700020' | translate}}</span>
+									  		<span ng-if="item.currencyCode == '840'">{{'KHH4700021' | translate}}</span>
+									  		<span ng-if="item.currencyCode == 'CNY'">{{'KHH4700020' | translate}}</span>				
+									  		<span ng-if="item.currencyCode == 'USD'">{{'KHH4700021' | translate}}</span>		
+									  		<span ng-if="item.currencyCode == ' '"></span>	
+									</td>
+									<td align="center" ng-bind="item.businessTypeCode"></td>
+									<td align="center" ng-bind="item.productObjectCode"></td>
+									<td align="center" ng-bind="item.productDesc"></td>
+									<td align="center">
+										<span ng-if="item.accountOrganForm=='R'">{{'KHH4700053' | translate}}</span>
+										<span ng-if="item.accountOrganForm=='T'">{{'KHH4700054' | translate}}</span>
+									</td>
+									<td align="center">
+										<span ng-if="item.businessDebitCreditCode=='C'">{{'KHH4700055' | translate}}</span>
+										<span ng-if="item.businessDebitCreditCode=='D'">{{'KHH4700078' | translate}}</span>
+									</td>
+									<td align="center" style="width:12%">
+										<span ng-if="item.statusCode==1">{{'KHH4700077' | translate}}</span>
+										<span ng-if="item.statusCode==2">{{'KHH4700056' | translate}}</span>
+										<span ng-if="item.statusCode==3">{{'KHH4700057' | translate}}</span>
+										<span ng-if="item.statusCode==8">{{'KHH4700058' | translate}}</span>
+										<span ng-if="item.statusCode==9">{{'KHH4700059' | translate}}</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</div>

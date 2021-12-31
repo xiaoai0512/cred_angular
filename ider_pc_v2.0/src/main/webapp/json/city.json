@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "checked": false,
+      "id": "xia_men",
+      "name": "厦门市",
+      "open": false,
+      "pId": "fu_jian"
+    },
+    {
+      "checked": false,
+      "id": "fu_zhou",
+      "name": "福州市",
+      "open": false,
+      "pId": "fu_jian"
+    }
+  ],
+  "status": 200
+}

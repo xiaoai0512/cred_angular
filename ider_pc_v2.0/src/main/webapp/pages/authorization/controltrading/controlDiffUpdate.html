@@ -1,0 +1,336 @@
+<div ng-controller="controlDiffUpdateCtrl">
+		<form name="mdmInfoForm1"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700052' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700040' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="coArrayUpdate" name="operationModeNa" ng-model="operationModeUInfo" disabled></select>
+				</div>
+			</div>
+			<!--<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700095' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="creditNodeNoArrayUpdate" name="creditNodeNoN" ng-model="creditNodeNoUInfo" disabled></select>
+				</div>
+			</div>-->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700045' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="contrlSceneCodeN" ng-model="updateList.contrlSceneCode" type="text" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700081' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="difTypeUpdateArray" name="differentTypeN" ng-model="differentTypeU" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCustomerNoUpdate">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="idTypeUpdate" lay-filter="getIdType" id="idTypeAddId"
+						jf-select="certificateTypeArray" name="idTypeN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCustomerNoUpdate">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumberUpdate" id="conUpdate_idNumber" disabled>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isExterNoUpdate">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="externalIdentificationNoAddId" name="externalIdentificationNoN"  ng-model="externalIdentificationNoUpdate" disabled>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isriskLevelNoUpdate">
+				<label class="col4 text_right">{{'SQH1700076' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="riskLevelAddId" name="riskLevelN" ng-model="riskLevelUpdate" disabled>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isProNoUpdate">
+				<label class="col4 text_right">{{'SQJ1700029' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="projectCodeUpdate" lay-filter="getIdType" id="projectCodeAddId"
+                         jf-select="proArrayUpdate" name="projectCodeN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="inF">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700073' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="independentFlagU" class="layui-input"
+								jf-select="independentArray" name="independentFlagN"></select>
+				</div>
+			</div> 
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700046' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="contrlSceneDescN" id="contrlSceneDescId" ng-model="updateList.contrlSceneDesc" type="text" validator="required" autocomplete="off">
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm2"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700060' | translate}}</div>
+			<div class="col_td" ng-show = "isTimeUpdate">
+				<div class="col4 text_right">{{'F00189' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataName" id="DIFF_start_Update" type="text" ng-model="updateList.startDate" autocomplete="off"> 
+				</div>
+			</div>
+			<div class="col_td" ng-show = "isTimeUpdate">
+				<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="toDateName" id="DIFF_end_Update" type="text" ng-model="updateList.endDate" autocomplete="off"> 
+				</div>
+			</div>
+			<div class="col_td" ng-show = "isTimeUpdate">
+			<div class="col4 text_right">{{'SQH1700093' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="startTime"  type="text"  id="DIFF_startTime_Update" ng-model="updateList.startTime" autocomplete="off"> 
+			</div>
+		</div>
+		<div class="col_td" ng-show = "isTimeUpdate">
+		<div class="col4 text_right">{{'SQH1700094' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" name="endTime"  type="text"  id="DIFF_endTime_Update" ng-model="updateList.endTime" autocomplete="off"> 
+		</div>
+	</div>
+			<div class="col_td">    
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700061' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="overpayContrlFlagU" class="layui-input"
+								jf-select="OCFalgArray01" name="overpayContrlFalgN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isControl">    
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="contRelFlagU" class="layui-input"
+								jf-select="OCFalgArray02" name="contRelFlagN" validator="required" lay-filter="getContRelFlagU"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isControlSceneU">    
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700113' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="controlSceneCodeRelU" class="layui-input"
+									jf-select="controlSceneUArr" name="controlSceneCodeRelN"></select>
+				</div>
+			</div>
+			<div class="col_td"  ng-show="isControl">    
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700114' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="differentFlagU" class="layui-input"
+								jf-select="OCFalgArray05" name="differentFlagN" validator="required" lay-filter="getDifferentFlagU"></select>
+				</div>
+			</div>
+			<br>
+			<div class="col_tr" ng-show="isDifferentFlagU">
+				<div class="col2 text_right">{{'SQH1700119' | translate}} ：</div>
+				<div class="wdper75 float_left">
+					<input class="layui-input" jf-checkbox="builder.option(difFlagTypeArray)" name="differentFlagTypeN" ng-model="updateList.differentFlagType">  
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+		<div class=" clearboth"></div>
+		<form name="mdmInfoForm3"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700063' | translate}}</div>
+			<div class="col_td" ng-show="isListFlagUpdate">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700097' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="listDifferentFlagU" class="layui-input"
+							jf-select="OCFalgArray03" name="listDifferentTypeN" lay-filter="getListDifferentFlagUpdate"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCheckUpdate">
+				<div class="col4 text_right">{{'SQH1700064' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="pnListCheckFlagU"  class="layui-input"
+								jf-select="checkArray" name="pnListCheckFlagN" placeholder="检查标志" lay-filter="getRiskLimitUpdate"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show="isBUpdate">
+				<div class="col2 text_right">{{'SQH1700066' | translate}} ：</div>
+				<div class="wdper75 float_left">
+					<input class="layui-input" jf-checkbox="builder.option(negArray)" name="listCheckTypeN" ng-model="updateList.listCheckType">  
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm4"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700069' | translate}}</div>
+			<div class="col_td" ng-show="isTransFlagUpdate">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700097' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transDifferentFlagU" class="layui-input"
+							jf-select="OCFalgArray04" name="transLimitDifferentTypeN" lay-filter="gettransLimitDifferentTypeUpdate"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="transCheckUpdate">
+				<div class="col4 text_right">{{'SQH1700066' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transLimitLevU" class="layui-input"
+								jf-select="leveArray" name="transLimitLevN" placeholder="交易层级限制" lay-filter="getLimitLevUpdate"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isNUpdate">
+				<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transLimitCurrCodeU" class="layui-input"
+								jf-select="currcyArray" name="transLimitCurrCodeN" placeholder="限制币种" lay-filter="getLimitCurUpdate"></select>
+				</div>
+			</div>
+		</form>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoCUpdate">
+		<form name="mdmInfoForm5"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700088' | translate}}</div>
+				<div  ng-repeat="cusu in cusUpdateListTwo">
+					<div class="col_td" ng-if="updateOneCurr">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.currencyCode">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="itc in cur156Array" value="{{itc.accountCurrency}}" ng-selected="cusu.currencyCode == itc.accountCurrency">{{itc.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td" ng-if="updateTwoCurr">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.currencyCode" lay-filter="getCusCurUpdate">
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="itc in crrysUpdateArray" value="{{itc.currencyCode}}" ng-selected="cusu.currencyCode == itc.currencyCode">{{itc.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.mandatoryInspectionFlag" value="{{cusu.mandatoryInspectionFlag}}" >
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="yn in YNArray" value="{{yn.id}}" ng-selected="cusu.mandatoryInspectionFlag == yn.id">{{yn.name}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="cusTypeAddUpdate($index,cusu)">
+							{{'SQH1700089' | translate}}
+						</button>
+						<button class="layui-btn"  ng-click="cusTypeDelUpdate($index,cusu)">
+							{{'F00016' | translate}}
+						</button>
+					</div>
+				</div>
+				<div ng-show="isUpdateCusType">
+					<button class="layui-btn float_right" style="margin-right:10%" ng-click="listTypeCusUpdate()" >
+						{{'F00010' | translate}}
+					</button>
+				</div>
+		</form>
+	</div>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoEUpdate">
+		<form name="mdmInfoForm6"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700091' | translate}}</div>
+				<div  ng-repeat="extu in exterUpdateListTwo" >
+					<div class="col_td" ng-if="updateOneCurr">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+									<select class="layui-input" ng-model="extu.currencyCode" lay-filter="getCusCurUpdate">
+										<option value="">{{'SQH1700090' | translate}}</option>
+										<option ng-repeat="itc in cur156Array" value="{{itc.accountCurrency}}" ng-selected="extu.currencyCode == itc.accountCurrency">{{itc.currencyDesc}}</option> 
+									</select> 
+						</div>
+					</div>
+					<div class="col_td" ng-if="updateTwoCurr">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.currencyCode" value="{{extu.currencyCode}}" >
+							     <option value="">{{'SQH1700090' | translate}}</option>
+							     <option ng-repeat="me in crrysUpdateArray" value="{{me.currencyCode}}" ng-selected="me.currencyCode == extu.currencyCode">{{me.currencyDesc}}</option> 
+						    </select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.mandatoryInspectionFlag" value="{{extu.mandatoryInspectionFlag}}">
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="yn in YNArray" value="{{yn.id}}" ng-selected="extu.mandatoryInspectionFlag == yn.id">{{yn.name}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="exceUpdateAdd($index,extu)">
+							{{'SQH1700089' | translate}}
+						</button>
+						<button class="layui-btn"  ng-click="exceUpdateDel($index,extu)">
+							{{'F00016' | translate}}
+						</button>
+					</div>
+				</div>
+				<div ng-show="isUpdateExceType">
+					<button class="layui-btn float_right" style="margin-right:10%" ng-click="listTypeUpdate()" >
+						{{'F00010' | translate}}
+					</button>
+				</div>
+		</form>
+	</div>
+		<div class="clearboth"></div>
+	<div ng-show="isTwoPUpdate">
+		<form name="mdmInfoForm7"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700103' | translate}}</div>
+			<div  ng-repeat="pt in pUpdateListTwo" >
+				<div class="col_td" ng-if="updateOneCurr">
+					<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+					<div class="wd190 float_left">
+								<select class="layui-input" ng-model="pt.currencyCode" value="{{pt.currencyCode}}">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="itcpo in cur156Array" value="{{itcpo.accountCurrency}}" ng-selected="pt.currencyCode == itcpo.accountCurrency">{{itcpo.currencyDesc}}</option> 
+								</select> 
+					</div>
+				</div>
+				<div class="col_td" ng-if="updateTwoCurr">
+					<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="pt.currencyCode" value="{{pt.currencyCode}}" >
+						     <option value="">{{'SQH1700090' | translate}}</option>
+						     <option ng-repeat="mep in crrysUpdateArray" value="{{mep.currencyCode}}" ng-selected="mep.currencyCode == pt.currencyCode">{{mep.currencyDesc}}</option> 
+					    </select>
+					</div>
+				</div>
+				<div class="col_td"></div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="pt.mandatoryInspectionFlag" value="{{pt.mandatoryInspectionFlag}}">
+							<option value="">{{'SQH1700090' | translate}}</option>
+							<option ng-repeat="yn in YNArray" value="{{yn.id}}" ng-selected="pt.mandatoryInspectionFlag == yn.id">{{yn.name}}</option> 
+						</select> 
+					</div>
+				</div>
+				<div class="col_td">
+					<button class="layui-btn"  ng-click="pUpdateAdd($index,pt)">
+						{{'SQH1700089' | translate}}
+					</button>
+					<button class="layui-btn"  ng-click="pUpdateDel($index,pt)">
+						{{'F00016' | translate}}
+					</button>
+				</div>
+			</div>
+			<div ng-show="isUpdatePType">
+				<button class="layui-btn float_right" style="margin-right:10%" ng-click="listTypeUpdateP()" >
+					{{'F00010' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

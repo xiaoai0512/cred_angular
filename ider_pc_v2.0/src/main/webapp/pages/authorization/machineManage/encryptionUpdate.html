@@ -1,0 +1,38 @@
+<div ng-controller="encryptionUpdateCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNA" ng-model="operationModeInfo" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input" name="recordTypeN" ng-model="itemUpdate.recordType" validator="required" type="text" autocomplete="off"> -->
+				<select ng-model="cardAssociationsU" class="layui-input" name="cardAssociationsN" jf-select="cardAssociationsArray" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input" name="paramDescN"  type="text" ng-model="itemUpdate.paramDesc" validator="required" autocomplete="off"> -->
+				<select ng-model="cipherTypeU" class="layui-input" jf-select="cipherTypeArray" name="cipherTypeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000003' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="cipherIdN"  type="text" ng-model="itemUpdate.cipherId" validator="required,minlength,maxlength,number" minlength="3" maxlength="3" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00091' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="keyDescN"  type="text" ng-model="itemUpdate.keyDesc" validator="required" autocomplete="off">
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

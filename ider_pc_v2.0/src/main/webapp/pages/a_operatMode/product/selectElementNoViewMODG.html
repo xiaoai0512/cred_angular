@@ -1,0 +1,87 @@
+<div ng-controller="selectElementNoViewMODGCtrl">
+	<div class="">
+		<form   class="layui-form">
+		<!-- pcd实例化 -->
+		 <div ng-show="pcdInstanShow">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH400015' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400016' | translate}}：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input" name="pcdNo" type="text" 
+							 ng-model="pcdExampleInf.pcdNo"  disabled
+							>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400030' | translate}}：</div>
+				<div class="wd190 float_left">
+						<select jf-select="segmentTypeArray" ng-model="segmentTypeInfoT" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'YYH400017' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="baseInstanDimenViewD"
+						class="layui-input" jf-select="businessValueArr01"
+						name="baseInstanDimen" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label" style="padding-right: 0;">{{'YYH400018' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="baseInstanCode" type="text"
+							maxlength="50" ng-model="pcdExampleInf.baseInstanCode" disabled>
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'YYH400019' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="optionInstanDimenViewD"
+						class="layui-input" jf-select="businessValueArr02"
+						name="optionInstanDimen" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label" style="padding-right: 0;">{{'YYH400020' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="optionInstanCode" type="text"
+							maxlength="50" ng-model="pcdExampleInf.optionInstanCode" disabled>
+					</div>
+				</div>
+			</div>
+			<div class="col_td"></div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'YYH400028' | translate}}</th>
+						<th>{{'YYH400021' | translate}}</th>
+						<th>{{'YYH400029' | translate}}</th>
+						<th>{{'YYH400022' | translate}}</th>
+						<th>{{'YYH400023' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in pcdInfTable track by $index">
+						<td align="center" ng-bind="item.segmentSerialNum"></td>
+						<td align="center" ng-bind="item.pcdType"></td>
+						<td align="center" ng-bind="item.segmentValue"></td>
+						<td align="center" ng-bind="item.pcdValue"></td>
+						<td align="center" ng-bind="item.pcdPoint"></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</form>
+	</div>
+</div>

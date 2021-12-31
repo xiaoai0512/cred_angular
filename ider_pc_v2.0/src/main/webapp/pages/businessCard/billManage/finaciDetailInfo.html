@@ -1,0 +1,226 @@
+<div ng-controller="finaciDetailInfoCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.eventNo" name="eventNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800022' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.activityNo" name="activityNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.externalIdentificationNo" name="externalIdentificationNo"
+				 type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800023' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.entityKey" name="entityKey" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transDate" name="transDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<!-- <div class="col4 text_right">发生日期 ：</div> -->
+			<div class="col4 text_right">{{'KHH1800010' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.occurrDate" name="occurrDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transCurrCde" name="transCurrCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transAmount" name="transAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800042' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.postingCurrencyCode" name="postingCurrencyCode" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.postingAmount" name="postingAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800025' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.settlementCurrencyCode" name="settlementCurrencyCode"
+				 type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800026' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.settlementAmount" name="settlementAmount" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800027' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.postingConvertRate" name="postingConvertRate" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800012' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transDesc" name="transDesc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.balanceType" name="balanceType" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800028' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.customerNo" name="customerNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800029' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800030' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transState" name="transState" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800031' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.businessTypeCode" name="businessTypeCode" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800032' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.balanceObjectCode" name="balanceObjectCode" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800033' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.authCde" name="authCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800034' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.sourceCde" name="sourceCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800035' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transCountryCde" name="transCountryCde" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800036' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transCityCde" name="transCityCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800037' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800038' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.channelCde" name="channelCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800039' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.mcc" name="mcc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800040' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.merchantCde" name="merchantCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800041' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" style="width: 260px;" ng-model="transDetailInfo.globalSerialNumbr" name="globalSerialNumbr"
+				 type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_tr text_center">
+
+			<div class="layui-btn-group">
+				<!-- 全部退货 -->
+				<button class="layui-btn" ng-if="(transDetailInfo.eventNo=='ISS.PT.40.0001' || transDetailInfo.eventNo=='ISS.PT.40.0002'   || transDetailInfo.eventNo=='ISS.XT.00.0006' 
+				 || transDetailInfo.eventNo=='ILS.XT.00.0001'  || transDetailInfo.eventNo=='ILS.XT.00.0003'  || transDetailInfo.eventNo=='ILS.XT.00.0004'  || transDetailInfo.eventNo=='ILS.XT.00.0005')
+				 && transDetailInfo.transState == 'NOR'  "
+				 ng-click="returnedPurchase(transDetailInfo)">{{'F00048' | translate}}</button>
+				<!-- 部分退货 -->
+				<button class="layui-btn" ng-if="(transDetailInfo.eventNo=='ISS.PT.40.0001' || transDetailInfo.eventNo=='ISS.PT.40.0002'   || transDetailInfo.eventNo=='ISS.XT.00.0006' 
+				 || transDetailInfo.eventNo=='ILS.XT.00.0001'  || transDetailInfo.eventNo=='ILS.XT.00.0003'  || transDetailInfo.eventNo=='ILS.XT.00.0004'  || transDetailInfo.eventNo=='ILS.XT.00.0005')
+				 && (transDetailInfo.transState == 'NOR' || transDetailInfo.transState == 'PRT') "
+				 ng-click="partReturnedPurchase(transDetailInfo)">{{'F00191' | translate}}</button>
+				<!-- <button class="layui-btn "
+			    ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001' " 
+				ng-click="transStage(transDetailInfo)">{{'F00053' | translate}}</button>
+				<button class="layui-btn "
+			    ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001'  && transDetailInfo.transState == 'NOR'" 
+				ng-click="disputeRegist(transDetailInfo)">争议登记</button>
+				<button class="layui-btn "
+			    ng-if="transDetailInfo.eventNo=='ISS.PT.40.0002'  && transDetailInfo.transState == 'NOR'" 
+				ng-click="disputeRegist(transDetailInfo)">无争议登记</button>
+				
+				<button class="layui-btn "
+			    ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001' &&  transDetailInfo.transState == 'DIS' " 
+				ng-click="disputeReleaseCst(transDetailInfo)">争议释放（有利于客户）</button>
+				<button class="layui-btn "
+			    ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001' &&  transDetailInfo.transState == 'DIS' " 
+				ng-click="disputeReleaseBank(transDetailInfo)">争议释放（有利于银行）</button> -->
+
+			</div>
+		</div>
+	</div>
+</div>

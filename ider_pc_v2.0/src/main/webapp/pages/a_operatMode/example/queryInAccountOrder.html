@@ -1,0 +1,37 @@
+<div ng-controller="queryInAccountOrderCtrl">
+	<div jf-grid="paymentOrderSettingsTable202">
+		<table>
+			<thead>
+				<tr>
+					<th>执行顺序</th>
+					<th>{{'YYH400001' | translate}}</th>
+					<th align="left" >元件编号及描述</th>
+					<th align="left" >{{'YYH400005' | translate}}</th>
+					<th align="left">{{'YYH400007' | translate}}</th>
+					<th>{{'F00030' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.performOrder"></td>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="left">
+						<span>{{item.elementNo}}  {{item.elementDesc}}</span>
+					</td>
+					<td align="left">
+						<span>{{item.instanCode1}}  {{item.instanDesc1}}</span>
+					</td>
+					<td align="left">
+						<span>{{item.instanCode2}}  {{item.instanDesc2}}</span>
+					</td>
+					<td align="center" width="5%">
+						<div class="table_arrow">
+							<a class="arrow_up" ng-click="exchangeSeqNoUp(item)"></a>
+							<a class="arrow_down" ng-click="exchangeSeqNoDown(item)"></a> 
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

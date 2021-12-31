@@ -1,0 +1,65 @@
+<div ng-controller="channelBulidCtrl">
+	<div>
+		<form name="channelInfForm"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="channelInf.operationMode" class="layui-input" jf-select="operationModeArr" name="operationModeN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'QFH100001' | translate}}ID：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="channelInf.channelId" maxlength="5" validator="required" autocomplete="off" name="channelId" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'QFH100002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="channelInf.channelDescription" maxlength="50" validator="required" autocomplete="off" name="channelDescription" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'QFH100003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="channelInf.channelFileRecognition" maxlength="8" autocomplete="off"
+						name="channelFileRecognition" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'QFH100004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="channelInf.dataReceivingMode"   jf-select="builder.option(dataReceivingModeArr)"name="dataReceivingMode" maxlength="1" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'QFH100005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " ng-model="channelInf.transRetainDays"  validator="number,required"maxlength="3"
+					name="transRetainDays" type="text"> 
+			</div>
+		</div>
+		<div class="col_td">
+		<div class="col4 text_right"><span class="red">*</span>{{'QFH100009' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input " ng-model="channelInf.recheckDays"  validator="number,required" maxlength="3"
+				name="recheckDays" type="text"> 
+		</div>
+	</div>
+	<div class="col_td">
+	<div class="col4 text_right"><span class="red">*</span>{{'QFH100010' | translate}}：</div>
+	<div class="wd190 float_left">
+		<input class="layui-input " ng-model="channelInf.rejTrasnRetainDays "  validator="number,required" maxlength="3"
+			name="recheckDays" type="text"> 
+	</div>
+</div>
+			<!-- <div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" validation-submit="channelInfForm"
+					ng-click="saveChannelInf()">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div> -->
+		</form>
+	</div>
+</div>

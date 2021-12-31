@@ -1,0 +1,28 @@
+<div ng-controller="userAndRoleManageCtrl">
+	<div class="centermenu_navtitle_line" style="margin: 0"></div>
+	<div jf-grid="grid" name="userAndRoleRelMang">
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>角色名称</th>
+						<th>角色用户关联状态</th>
+						<th>是否默认角色</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.roleName"></td>
+						<td align="center"
+							ng-bind="item.statusCd | jfConvert : 'dict' : 'StCd'"></td>
+						<td align="center"
+							ng-bind="item.defaultInd | jfConvert : 'dict' : 'BoolType'"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="scrbtn">
+	 	<button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x1006;</i> 返回</button>
+	</div>
+</div>

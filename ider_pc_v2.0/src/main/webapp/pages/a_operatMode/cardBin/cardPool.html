@@ -1,0 +1,75 @@
+<div  class="layui-form" ng-controller="cardPoolCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div >
+	<form>
+		<div class="allcontent">
+			<!-- 卡号池查询 -->
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1000016' | translate}}：</label>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" ng-model="cardPoolTable.params.cardBin" 
+					 type="text"  maxlength="9" id="corporationEntityNoId" > -->
+					 <select ng-model="paramsNo.cardBin" class="layui-input" 
+					 	jf-select=cardBinArr name="cardBinN" lay-search="">
+				 	</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1000017' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="cardStatus"  lay-filter="cardStatus"
+						jf-select="cardStatusArr" name="cardStatus" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1000018' | translate}}：</label>
+				<div class="wd190 float_left">
+				<input class="layui-input" ng-model="paramsNo.cardNumber"
+				 name="cardNumber" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1000022' | translate}}：</label>
+				<div class="wd190 float_left">
+				<input class="layui-input" ng-model="paramsNo.totalCount" name="cardNumber" type="text" disabled>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="availableCard(paramsNo)">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="deleteCardPollTable()">
+					<i class="layui-icon">&#xe654;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+			<!-- 卡号池列表 -->
+			<div jf-grid="cardPoolTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'PZH1000016' | translate}}</th>
+							<th>{{'PZH1000001' | translate}}</th>
+							<th>{{'PZH1000018' | translate}}</th>
+							<th>{{'PZH1000019' | translate}}</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.cardBin"></td>
+							<td align="center" ng-bind="item.corporationEntityNo"></td>
+							<td align="center" ng-bind="item.cardNumber"></td>
+							<td align="center">
+								<span  ng-if="item.cardStatus == 'Y'">{{'PZH1000020' | translate}}</span>
+								<span  ng-if="item.cardStatus == 'N'">{{'PZH1000021' | translate}}</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

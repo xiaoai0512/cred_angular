@@ -1,0 +1,63 @@
+<div ng-controller="oprtInstEnqrAndMntCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：运营机构查询及维护
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">机构号：</div>
+			<div class="wd190 float_left">
+			<form name="seleBalanceForm">
+				<input class="layui-input" ng-model="operatMechTable.params.organNo"
+					validator="maxlength"  maxlength="10" name="actionCode" type="text">
+					</form>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="operatMechTable.search()"  validation-submit="seleBalanceForm">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="operatMechTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+
+		<div jf-grid="operatMechTable">
+			<table>
+				<thead>
+					<tr>
+						<th>机构号</th>
+						<th>机构名称</th>
+						<th>上级机构号</th>
+						<th>运营模式</th>
+						<th>所属国家</th>
+						<th>所属城市</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.organNo"></td>
+						<td align="center" ng-bind="item.organName"></td>
+						<td align="center" ng-bind="item.upperOrganNo"></td>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.countryCde"></td>
+						<td align="center" ng-bind="item.cityCde"></td>
+						<td align="center" ng-if="item.organNo != '' && item.organNo != null">
+<!-- 						<button class="layui-btn layui-btn-mini"
+									ng-click="updateOrganNo(item)" type="button">
+									<i class="layui-icon layui-icon-more">&#xe642;</i>
+								</button> -->
+						<button class="layui-btn layui-btn-mini" ng-click="updateOrganNo(item)">
+							<i class="layui-icon"></i> 修改
+						</button>
+					</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

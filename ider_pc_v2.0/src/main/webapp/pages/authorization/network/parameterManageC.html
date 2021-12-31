@@ -1,0 +1,62 @@
+<div ng-controller="pManagementCtrlC">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form name="infoFormC"  class="layui-form">
+				<div class="mainname titleInfo">CUP{{'SQH2900018' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900003' | translate}}ID ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input " name="instIdC" ng-model="itemUC.instId" type="text" validator="required,maxlength" maxlength="11" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="logIsoMsgIndU" value="logIsoMsgIndU" class="layui-input"
+							jf-select="saveArray" name="logIsoMsgIndC" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2900008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="refNbrC" ng-model="itemUC.refNbr" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900012' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="tranMacProcessIndU" value="tranMacProcessIndU" class="layui-input"
+							jf-select="ecommFieldArray01" name="tranMacProcessIndN" validator="required" lay-filter="getMACid" ></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900013' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="cipherMacProcessIndU" value="cipherMacProcessIndU" class="layui-input"
+							jf-select="ecommFieldArray02" name="cipherMacProcessIndN" validator="required" lay-filter="getiscipherId" ></select>
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div ng-show="isMac">
+					<div class="mainname titleInfo">{{'SQH2900014' | translate}}</div>
+					<div class="col_tr">
+						<div class="col2 text_right">{{'SQH2900015' | translate}}：</div>
+						<div class="wdper75 float_left">
+							 <input jf-checkbox="macEFArray01" name="checkboxMAC" ng-model="tranMacProcessFieldU" value="tranMacProcessFieldU">  
+						</div>
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div ng-show="iscipherMac">
+					<div class="mainname titleInfo">{{'SQH2900016' | translate}}</div>
+					<div class="col_tr">
+						<div class="col2 text_right">{{'SQH2900017' | translate}} ：</div>
+						<div class="wdper75 float_left">
+							 <input jf-checkbox="macEFArray02" name="checkboxMACn" ng-model="cipherMacProcessFieldU" value="cipherMacProcessFieldU">  
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

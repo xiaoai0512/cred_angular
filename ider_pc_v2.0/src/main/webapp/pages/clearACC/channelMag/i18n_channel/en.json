@@ -1,0 +1,16 @@
+{
+"QFH100001": "Channel",
+"QFH100002": "Channel Description",
+"QFH100003": "Channel file identification",
+"QFH100004": "Data receiving mode",
+"QFH100005": "Transaction retention days",
+"QFH100006": "Daily Receive",
+"QFH100007": "Workday receive",
+"QFH100008": "Irregular receive",
+"QFH100009":"Repeat inspection days",
+"QFH100010": "Reject transaction retention days",
+"QFJ100001": "Channel ID Establishment",
+"QFJ100002": "Channel Copy",
+"QFJ100003": "Update channel",
+"QFJ100004": "View Channel"
+}

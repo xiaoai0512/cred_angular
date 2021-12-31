@@ -1,0 +1,66 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {	
+		    		"oprtMode" : "A01",
+		    		"balObjNumb": "MODB00001",
+                    "balTp": "本金",
+                    "intEntracctBalObj":"MODB10001",
+                    "repyPrty":"1",
+                    "dsc":"消费本金一",
+                    "stDt":"2018/1/1",
+                    "edDt":"2018/12/31"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"balObjNumb": "MODB00002",
+                    "balTp": "本金",
+                    "intEntracctBalObj":"MODB10002",
+                    "repyPrty":"2",
+                    "dsc":"取现本金一",
+                    "stDt":"2018/1/1",
+                    "edDt":"2019/1/1"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"balObjNumb": "MODB00003",
+                    "balTp": "本金",
+                    "intEntracctBalObj":"MODB10001",
+                    "repyPrty":"2",
+                    "dsc":"消费本金二",
+                    "stDt":"2018/1/1",
+                    "edDt":"2018/12/31"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"balObjNumb": "MODB00004",
+                    "balTp": "本金",
+                    "intEntracctBalObj":"MODB10002",
+                    "repyPrty":"1",
+                    "dsc":"取现本金二",
+                    "stDt":"2018/1/1",
+                    "edDt":"2019/1/1"
+                }
+                
+            ],
+            "navigatePages": 0,
+            "nextPage": 0,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 0,
+            "startRow": 0,
+            "total": 21	
+        }
+    },
+    "status": 200
+}

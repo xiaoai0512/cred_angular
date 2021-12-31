@@ -1,0 +1,74 @@
+<div ng-controller="SourceDirectoryListCtrl" class="layui-form">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'YYH1600001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="sourceDirectoryQuery.params.corporationEntityNo" 
+					 name="corporationEntityNo" type="text" maxlength="10" id="corporation">
+			</div>
+		</div> -->
+		  <div class="col_td">
+			<div class="col4 text_right">{{'YYH1600003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="sourceDirectoryQuery.params.originList" class="layui-input" 
+				 	jf-select="sourceDirectoryQueryArr" name="getoriginList" lay-search></select>
+			</div>
+		</div> 
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'YYH1600003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="sourceDirectoryQuery.params.originList"
+					jf-select="redOriginFlag" name="originFlag">
+				</select>
+			</div>
+		</div> -->
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="sourceDirectoryQuery.search()" >
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			
+			<button class="layui-btn" ng-click="addSourceDirectoryInfo(corporationEntityNo)" >
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		<div jf-grid="sourceDirectoryQuery">
+			<table>
+				<thead>
+					<tr>
+						<!-- <th>{{'YYH1600001' | translate}}</th> -->
+						<!--  <th>{{'YYH1600002' | translate}}</th> -->
+						<th>{{'YYH1600003' | translate}}</th>
+						<th>{{'YYH1600005' | translate}}</th>
+						<!-- <th>{{'YYH1600004' | translate}}</th>  -->
+						<th width="20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<!--  <td align="center" ng-bind="item.corporationEntityNo"></td> -->
+						<!-- <td align="center" ng-bind="item.transOrigin"></td> -->
+						<td align="center" ng-bind="item.originList"></td>
+						<td align="center" ng-bind="item.listDesc"></td>
+						<!-- <td align="center" ng-bind="item.originCode"></td> -->
+						<td align="center">
+							<!-- <button class="layui-btn layui-btn-mini"
+								ng-click="sourceDirectoryDetails(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button> -->
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateSourceDirectory(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="deleteSourceDirectory(item)">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

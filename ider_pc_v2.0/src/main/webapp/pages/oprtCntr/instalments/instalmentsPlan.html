@@ -1,0 +1,81 @@
+<div ng-controller="instalmentsPlanCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：分期计划查询
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">分期类型 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="instalPlanTable.params.appType"
+					class="layui-unselect" name="appType">
+					<option value="">请选择</option>
+					<option value="00">账单分期</option>
+					<option value="01">专项分期</option>
+					<option value="02">自动分期</option>
+					<option value="03" disabled>商户分期 </option>
+					<option value="04" disabled>现金分期</option>
+					<option value="05" disabled>交易分期</option>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">分期计划名称 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="instalPlanTable.params.stageControlName">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="instalPlanTable.search()">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="instalPlanTable.params={}">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</div>
+
+		<!-- <div class="clearboth"></div>
+		<div class="mainname">2选择产品对象</div> -->
+		<div jf-grid="instalPlanTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 20%;">分期计划名称</th>
+						<th>分期期数</th>
+						<th>基础费率(%)</th>
+						<th>发卡业务类型</th>
+						<th>手续费收取方式</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 20%;" align="center" ng-bind="item.stageControlName"></td>
+						<td align="center" ng-bind="item.period"></td>
+						<td align="center" ng-bind="item.feeRate"></td>
+						<td align="center">
+							<span ng-if="item.projectType == '00'">账单分期</span>
+							<span ng-if="item.projectType == '01'">专项分期</span> 
+							<span ng-if="item.projectType == '02'">自动分期</span>
+							<span ng-if="item.projectType == '03'">商户分期</span>
+							<span ng-if="item.projectType == '04'">现金分期</span>
+							<span ng-if="item.projectType == '05'">交易分期</span>
+						</td>
+						<td align="center"><span ng-if="item.feeCollectType == '0'">首期一次性收取</span>
+							<span ng-if="item.feeCollectType == '1'">分期收取</span></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="instalmentsPlanDetailInfo(item.id)">
+								<i class="layui-icon"></i> 查询
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

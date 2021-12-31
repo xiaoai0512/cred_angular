@@ -1,0 +1,107 @@
+<style>
+ .layui-form-radio span {
+    display: inline-block; 
+}
+</style>
+<div ng-controller="viewAccSubSceneCtrl">
+	<div class=" ">
+		<form name="accSubSceneFormee"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="updateOperationMode"  jf-select="operationModeArr" name="operationMode"
+					disabled maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400046' | translate}}：</div>
+				<div class="wd190 float_left">
+				<input class="layui-input" type="text" name="subTableSequence" readonly
+					ng-model="accSubSceneInf.subTableSequence" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400057' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="subTableSequenceDesc"  readonly
+						ng-model="accSubSceneInf.subTableSequenceDesc" maxlength="50">
+				</div>
+			</div>
+			<!--核算状态  -->
+			<!-- <div class="col_td"></div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400094' | translate}}：</div>
+				<div class="wd190 float_left"> 
+	                <input class="layui-input"  name=radio1 ng-model="vwstateUseFlag" 
+	                	jf-radio="builder.option(stateUseFlagArray)" id="isSupport" disabled/> 
+	          	</div> 
+			</div>
+			<div class="col_td"></div>
+			<div class="col_td" ng-if="accSubSceneInf.stateUseFlag=='Y'">
+				<div class="col4 text_right">{{'YYH5400095' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="lastSettleStateArr" name="lastSettleState" ng-model="vwlastSettleState" disabled >
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="accSubSceneInf.stateUseFlag=='Y'">
+				<div class="col4 text_right">{{'YYH5400096' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="settleStateArr" name="settleState" ng-model="vwsettleState" disabled>
+					</select>
+				</div>
+			</div> -->
+			<!--核算状态  -->
+		<div class="col_td"></div>
+		<div class="col_td layui-form-item" style="width:60%">
+			<div class="col4 text_right" style="width:33.5%;">{{'YYH5400094' | translate}}：</div>
+			<div class="wd290 float_left" > 
+			 	<input class="layui-input" type="radio" ng-model="vwenableLogo" 
+                	jf-radio="builder.option(stateUseFlagArray)" lay-filter="enableRadio" disabled/> 
+             </div> 
+		</div>
+		<div ng-show="stateDiv">
+			<div class="col_td" >
+				<div class="col4 text_right">{{'YYH5400095' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="lastSettleStateArr" name="lastSettleState" ng-model="vwlastSettleState" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400096' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="settleStateArr" name="settleState" ng-model="vwsettleState" disabled>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showDiv">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400102' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="OriginalAssetsArr" name="lastSettleState11" ng-model="vwstartAssetTransitionPhase" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400103' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="targetAssetsArr" name="settleState12" ng-model="vwtargetAssetTransitionPhase" disabled>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div ng-show="currencyDivI">
+			<div class="col_td layui-form-item" style="width:60%">
+				<div class="col4 text_right" style="width:33.5%;">{{'YYJ5400052' | translate}}：</div>
+				<div class="wd290 float_left" > 
+				 	<input class="layui-input" type="radio" ng-model="sameCurrencyview" 
+                	jf-radio="builder.option(sameCurrencyArrayI)" disabled />
+	             </div> 
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

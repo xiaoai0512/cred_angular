@@ -1,0 +1,310 @@
+<div ng-controller="proObjectEstCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent ">
+		<form name="proObjInfoForm"  class="layui-form">
+		<div ng-show="productShow">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH300001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjInf.operationMode"   jf-select="operationModeArr"name="operationMode" maxlength="3" lay-filter="getOperation">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH300002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<span style="display: inline-block;width:23%">MODP</span><input style="display: inline-block;width: 77%;" class="layui-input"  type="text" name="productObjectCode"  ng-model="proObjInf.productObjectCodeHalf" validator="required,minlength,maxlength,number" minlength="5" maxlength="5" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="productDesc"  ng-model="proObjInf.productDesc" maxlength="50" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjInf.productType"   jf-select="builder.option(productTypeArr)" name="productType"  >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjInf.binNo"   jf-select="cardBinArr"name="binNo" maxlength="9"  lay-filter="getBinNo">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="paymentPriority"  ng-model="proObjInf.paymentPriority" validator="number" maxlength="3" >
+			</div>
+			<div class="search_button">
+					<button class="layui-btn" ng-click="choseBtnPriority()" >
+						<i class="layui-icon">&#xe615;</i>查询
+					</button>
+			</div>
+		</div>
+		
+		<div ng-show="isShowSeg">
+			<div class="col_td">
+				<div class="col4 text_right">特殊号码段号：</div>
+				<div class="wd190 float_left">
+					<select  ng-model="proObjInf.segmentNumber"   jf-select="segmentNumberArr" name="segmentNumber"  >
+					</select>
+				
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH300007' | translate}}</div>
+		<div class="layui-form-item">
+			<!-- <div class="layui-inline" style="margin-left: 50px">
+				<div class="layui-form-label">运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="operationMode" type="text"
+						ng-model="busListTable.params.operationMode" disabled="disabled">
+				</div>
+			</div> -->
+			<div class="layui-inline" style="margin-left: 50px">
+				<div class="layui-form-label">{{'YYH300008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="businessPattern" type="text"
+						maxlength="9" ng-model="busListTable.params.businessTypeCode">
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-left: 50px">
+				<div class="layui-form-label">{{'YYH300009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="bsnNumb" type="text"
+						maxlength="50" ng-model="busListTable.params.businessDesc">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="busListTable.search()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="saveSelect()">
+						<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+					</button>
+				</div>
+			</div>
+			
+		</div>
+
+		<div jf-grid="busListTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH300001' | translate}}</th>
+						<th>{{'YYH300008' | translate}}</th>
+						<th>{{'YYH300009' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.businessProgramNo"></td>
+						<td align="center" ng-bind="item.programDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="mainname">{{'YYH300010' | translate}}</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+							<th>{{'YYH300001' | translate}}</th>
+							<th>{{'YYH300008' | translate}}</th>
+							<th>{{'YYH300009' | translate}}</th>
+							<th style="width: 150px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in treeSelect1 track by $index">
+						<td align="center" ng-bind="items.operationMode"></td>
+							<td align="center" ng-bind="items.businessProgramNo"></td>
+							<td align="center" ng-bind="items.programDesc"></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		<!-- 可选卡版面 -->
+		<div class="clearboth"></div>
+		<div class="mainname marTop30">可选卡版面</div>
+		<div class="layui-form-item">
+			<div class="layui-inline" style="margin-left: 50px">
+				<div class="layui-form-label">卡版面代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="formatCode" type="text" maxlength="4"
+					ng-model="cardLayoutListTable.params.formatCode">
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-left: 50px">
+				<div class="layui-form-label">卡版面描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="description" type="text"
+						maxlength="50" ng-model="cardLayoutListTable.params.description">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="cardLayoutListTable.search()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="saveCardLaySelect()">
+						<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+					</button>
+				</div>
+			</div>
+			
+		</div>
+		<div jf-grid="cardLayoutListTable">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>卡版面代码</th>
+						<th>卡版面描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.formatCode"></td>
+						<td align="center" ng-bind="item.formatDescribe"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="mainname">已选卡版面</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>卡版面代码</th>
+						<th>卡版面描述</th>
+						<th style="width: 150px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in cardLayoutSelect1 track by $index">
+						<td align="center" ng-bind="items.operationMode"></td>
+							<td align="center" ng-bind="items.formatCode"></td>
+							<td align="center" ng-bind="items.formatDescribe"></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeCardLaySelect($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="col_tr text_center" style="margin-top: 20px;">
+			<button class="layui-btn layui-btn-radius"  
+				ng-click="saveProObj()" validation-submit="proObjInfoForm">
+				<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+			</button>
+		</div>
+		</div>
+		<div ng-show="instanProductShow">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH300011' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH300001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <input class="layui-input"  type="text" name="operationMode"  ng-model="proObjInstan.operationMode"  disabled maxlength="3" > 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH300002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="productObjectCode"  ng-model="proObjInstan.productObjectCode" disabled   maxlength="9" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH300003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="productDesc"  ng-model="proObjInstan.productDesc" disabled   maxlength="50" >
+				</div>
+			</div>
+		<div jf-grid="queryMODP">
+				<table>
+					<thead>
+						<tr>
+							<th align="left" style="width:60%">参数选项编号及描述</th>
+							<!-- <th>PCD描述</th> -->
+							<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="right">
+								<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+							</td>
+							<td align="left">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="updateSelectA(item,$index)">
+									<i class="layui-icon"></i> 替换参数
+								</button>
+								<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+									ng-click="setSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00082' | translate}}
+								</button>
+								<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+									ng-click="setSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center" style="margin-top: 20px;">
+				<button class="layui-btn layui-btn-radius"  
+					ng-click="saveProInstan()" >
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div>
+			</div>
+		</form>
+	</div>
+</div>

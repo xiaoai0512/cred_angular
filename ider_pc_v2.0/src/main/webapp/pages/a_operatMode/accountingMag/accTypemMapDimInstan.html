@@ -1,0 +1,95 @@
+<div ng-controller="accTypemMapDimInstanCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="accTypemMapDimTable.params.operationMode" jf-select="operationModeArr" name="operationMode" maxlength="3">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5400001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="accTypemMapDimTable.params.accountingType" name="artifactCode" type="text">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">元件编号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="artifactTable.params.elementNo" 
+					name="instanCode" type="text">
+			</div>
+		</div> -->
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="accTypemMapDimTable.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<button class="layui-btn" ng-click="accTypemMapDimAdd()" ng-show="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+
+		<div jf-grid="accTypemMapDimTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH400001' | translate}}</th>
+						<th>{{'YYH5400001' | translate}}</th>
+						<th>{{'YYH400005' | translate}}</th>
+						<th>{{'YYH400007' | translate}}</th>
+						<th>{{'YYH400009' | translate}}</th>
+						<th>{{'YYH400011' | translate}}</th>
+						<th>{{'YYH400013' | translate}}</th>
+						<th style="width:21%">{{'F00017' | translate}} </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="left">
+							<span width="60px" ng-bind="item.accountingType"></span>&nbsp;
+							<span ng-bind="item.accountingDesc"></span>
+						</td>
+						<td align="left">
+							<span ng-bind="item.instanCode1"></span>&nbsp;
+							<span ng-bind="item.instanDesc1"></span>
+						</td>
+						<td align="left">
+							<span ng-bind="item.instanCode2"></span>&nbsp;
+							<span ng-bind="item.instanDesc3"></span>
+						</td>
+						<td align="left">
+							<span ng-bind="item.instanCode3"></span>&nbsp;
+							<span ng-bind="item.instanDesc3"></span>
+						</td>
+						<td align="left">
+							<span ng-bind="item.instanCode4"></span>&nbsp;
+							<span ng-bind="item.instanDesc5"></span>
+						</td>
+						<td align="left">
+							<span ng-bind="item.instanCode5"></span>&nbsp;
+							<span ng-bind="item.instanDesc5"></span>
+						</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="queryAccTypemMapDimInstanInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i>{{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateAccTypemMapDimInstanInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="deleteAccTypemMapDimInstanInf(item)" ng-show="delBtnFlag">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

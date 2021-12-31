@@ -1,0 +1,63 @@
+<div class="layout_body" ng-controller="controlTradListCtrl">
+	<div class="search_mian layui-form">
+			<div class="layui-form-item" style="width: 100%;">
+				<!--<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH1700095' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input  bnone" type="text" ng-model="itemscen.creditNodeNoDesc"  readonly>
+					</div>
+				</div>-->
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH1700047' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input  bnone" type="text" ng-model="itemscen.contrlSceneCode"  readonly>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH1700046' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input bnone" type="text" ng-model="itemscen.contrlSceneDesc" readonly>
+					</div>
+				</div>
+				<div class="layui-inline" style="float: right;" ng-show="isY">
+					<div class="search_button">
+						<button class="layui-btn" style="margin-right:30px" ng-click="addSceneInfo(itemscen)">
+							<i class="layui-icon">&#xe654;</i>{{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div jf-grid="itemListTwo">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'SQH1700043' | translate}}</th>
+					<th>{{'F00189' | translate}}</th>
+					<th>{{'F00190' | translate}}</th>
+					<th>{{'SQH1700104' | translate}}</th>
+					<th  style="width:30%">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center"  ng-bind="$index+1"></td>
+					<td align="center" ng-bind="item.startDate"></td>
+					<td align="center" ng-bind="item.endDate"></td>
+					<td align="center" ng-bind="item.invalidFlagDesc"></td>
+					<td align="center"  style="width:30%">
+						<button class="layui-btn layui-btn-mini" ng-click="selectListTrad(item)">
+							<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+						</button ><!-- ng-show="twoBtnUpdFlag" -->
+						<button class="layui-btn layui-btn-mini" ng-click="updateControl(item)" ng-show="twoBtnUpdFlag">
+							<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+						</button ><!-- ng-show="twoBtnUpdFlag" -->
+						<button class="layui-btn layui-btn-mini" ng-click="delControl(item)" ng-show="twoBtnUpdFlag">
+							<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<div ng-controller="clearSceneEventCtrl">
+	<form class="layui-form" >
+		<div class="col_td" style="margin-bottom:15px;">
+			<div class="col4 text_right">{{'QFH200008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="eventNo" type="text" ng-model="eventListTable.params.eventId">
+			</div>
+		</div>
+		<div class="col_td" style="margin-bottom:15px;">
+			<div class="col4 text_right">{{'QFH200009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="eventDesc" type="text" ng-model="eventListTable.params.eventDesc">
+			</div>
+		</div>
+		<div class="col_td" style="margin-bottom:15px;">
+			<div class="col4 text_right">{{'QFH200010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="sceneEventNoN" type="text" ng-model="sceneEventNo" readonly>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="eventListTable.search()" type="button">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<button class="layui-btn cancel-btn" type="button" ng-click="eventListTable.params={}">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div jf-grid="eventListTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'QFH200008' | translate}}</th>
+						<th>{{'QFH200009' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

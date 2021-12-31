@@ -1,0 +1,258 @@
+<div ng-controller="userAccessHistQueryCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1200001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="userAccessHistList.customerNo"  class="layui-input" jf-select="customerNoArr" name="customerNo" maxlength="10" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1200002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="userAccessHistList.modifyType" class="layui-input" 
+				jf-select="builder.option(demoArray1)" name="modifyType"  maxlength="3"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1200003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="userAccessHistList.logLevel" class="layui-input" jf-select="builder.option(demoArray2)" name="logLevelN" maxlength="4"></select>
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1200004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="userAccessHistList.startDate" class="layui-input"
+					name="startDate"  id="userAccessHistList_zs" type="text" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1200005' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="userAccessHistList.endDate" class="layui-input"
+					name="endDate"  id="userAccessHistList_ze" type="text" />
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="queryUserAccessHistQuery()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div ng-show="showCUserAccessHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 15%">{{'KHH1200006' | translate}}</th>
+								<th style="width: 22%">{{'KHH1200007' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200008' | translate}}</th>
+								<th style="width: 10%">{{'KHH1200009' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200010' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200011' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left" ng-bind="item.relativeTableName"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="left" ng-bind="item.modifyFieldName"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkuserAccessHistInf(item)">
+										<i class="layui-icon">&#xe60b;</i> {{'KHH1200016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showAUserAccessHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 15%">{{'KHH1200006' | translate}}</th>
+								<th style="width: 22%">{{'KHH1200012' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200008' | translate}}</th>
+								<th style="width: 10%">{{'KHH1200009' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200010' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200011' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left" ng-bind="item.relativeTableName"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="left" ng-bind="item.modifyFieldName"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkuserAccessHistInf(item)">
+										<i class="layui-icon"></i> {{'KHH1200016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>		
+		<div ng-show="showPUserAccessHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 15%">{{'KHH1200006' | translate}}</th>
+								<th style="width: 22%">{{'KHH1200013' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200008' | translate}}</th>
+								<th style="width: 10%">{{'KHH1200009' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200010' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200011' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left" ng-bind="item.relativeTableName"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="left" ng-bind="item.modifyFieldName"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkuserAccessHistInf(item)">
+										<i class="layui-icon"></i> {{'KHH1200016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showMUserAccessHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 15%">{{'KHH1200006' | translate}}</th>
+								<th style="width: 22%">{{'KHH1200014' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200008' | translate}}</th>
+								<th style="width: 10%">{{'KHH1200009' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200010' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200011' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left" ng-bind="item.relativeTableName"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="left" ng-bind="item.modifyFieldName"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkuserAccessHistInf(item)">
+										<i class="layui-icon"></i> {{'KHH1200016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showDUserAccessHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 15%">{{'KHH1200006' | translate}}</th>
+								<th style="width: 22%">{{'KHH1200015' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200008' | translate}}</th>
+								<th style="width: 10%">{{'KHH1200009' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200010' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200011' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left" ng-bind="item.relativeTableName"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="left" ng-bind="item.modifyFieldName"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkuserAccessHistInf(item)">
+										<i class="layui-icon"></i> {{'KHH1200016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>				
+		<div ng-show="showRUserAccessHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 16%">{{'KHH1200006' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200008' | translate}}</th>
+								<th style="width: 10%">{{'KHH1200009' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200010' | translate}}</th>
+								<th style="width: 13%">{{'KHH1200011' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left" ng-bind="item.relativeTableName"></td>
+								<td align="left" ng-bind="item.modifyFieldName"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkuserAccessHistInf(item)">
+										<i class="layui-icon"></i> {{'KHH1200016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+</div>

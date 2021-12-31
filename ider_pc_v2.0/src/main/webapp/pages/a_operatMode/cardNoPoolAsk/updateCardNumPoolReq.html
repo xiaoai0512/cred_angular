@@ -1,0 +1,84 @@
+<div class="layui-form" ng-controller="updateCardNumPoolReqCtrl">
+	<form name="upCardNumPoolReqForm">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="upCardNumPoolReq.corporationEntityNo" validator="required" name="corporationEntityNo"
+				 type="text" maxlength="10" id="corporationEntityNo" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="upCardNumPoolReq.binNo" name="binNo" id="binNo" validator="required" type="text"
+				 maxlength="6" disabled />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" ng-model="upenableIdentification" jf-select="enableIdentificationArr" name="enableIdentification"
+				 validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" ng-model="upautomaticGenerateFlag" jf-select="automaticGenerateFlagArr" validator="required"
+				 name="automaticGenerateFlag">
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'YYH1700006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="upCardNumPoolReq.prevDate" name="prevDate" id="update_prevDate"
+				 maxlength="10" type="text" disabled />
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="upCardNumPoolReq.calorimeterValue" name="calorimeterValue" validator="required,number"
+				 maxlength="8" type="text" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" type="text" ng-model="upCardNumPoolReq.nextDate" name="nextDate" jf-date-input
+				 validator="required" maxlength="10" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1700009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" ng-model="upCardNumPoolReq.everyTimeGenCardnum" validator="required,number"
+				 maxlength="8" name="everyTimeGenCardnum" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1700003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="upCardNumPoolReq.surplusAvailableCardnum" name="surplusAvailableCardnum"
+				 validator="number" maxlength="8" type="text" disabled />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1700007' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="upCardNumPoolReq.prevCardnum" name="prevCardnum" validator="number" maxlength="8"
+				 type="text" disabled />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1700010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" type="text" ng-model="upCardNumPoolReq.generateCardnum" validator="number" maxlength="8"
+				 name="generateCardnum" disabled />
+			</div>
+		</div>
+		
+	</form>
+</div>

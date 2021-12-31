@@ -1,0 +1,162 @@
+<div ng-controller="scenarioUpdateCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeInfo" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500060' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="authSceneCodeN" ng-model="item.authSceneCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500078' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="sceneDescN"  type="text" ng-model="item.sceneDesc" validator="required" >
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1500079' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500063' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="triggerNoN" ng-model="item.triggerNo"  type="text" validator="minlength,maxlength,required" minlength="14" maxlength="14">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500081' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="transSourceU" class="layui-input" jf-select="transSourcArr" name="transSourceN" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500064' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="transIdentifiNoArray" name="transIdentifiNoN" ng-model="transIdentifiNoInfo" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500065' | translate}}：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input" name="transPostingFlagN" ng-model="item.transPostingFlag"  type="text" validator="required,rangeyn"  rangeyn="[Y|N]"> -->
+				<select ng-model="transPostingFlagU" class="layui-input"
+							jf-select="transPostingArray" name="transPostingFlagN"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show = "retainDaysInfo">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500066' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="transRetainDaysN" ng-model="item.transRetainDays"  type="text" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500071' | translate}}：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input" name="authTypeN" ng-model="item.authType"  type="text"   validator="minlength,maxlength,number" minlength="2" maxlength="2"> -->
+				<select ng-model="authTypeU" class="layui-input"
+							jf-select="authTypeArray" name="authTypeN" validator="required" lay-filter="gettype"></select>
+			</div>
+		</div>
+		<!--<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500068' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="contrlSceneCodeN" ng-model="item.contrlSceneCode"  type="text">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500067' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="postingRetainFlagU" class="layui-input"
+							jf-select="YNArray04" name="postingRetainFlagN" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500072' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="creditOccupyModeU" class="layui-input"
+							jf-select="creditArray" name="operationModeNa" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1500069' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="forceAuthFlagU" class="layui-input"
+								jf-select="YNArray01" name="forceAuthFlagN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1500070' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="rvTransFlagU" class="layui-input"
+								jf-select="YNArray02" name="toleranceN" validator="required"></select>
+				</div>
+			</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500073' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="authCodeFlagU" class="layui-input"
+							jf-select="YNArray03" name="authCodeFlagN" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500099' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="priorityN" ng-model="item.priority"  type="text" validator="required" maxlength="4">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500098' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="sceneTypeU" class="layui-input"
+						jf-select="sceneTypeArray" name="sceneTypeNa" validator="required" ></select>
+			</div>
+		</div>
+			<div ng-show="instanSceneShow">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'SQH1500082' | translate}}</div>
+		<div jf-grid="queryMODP">
+			<table>
+				<thead>
+					<tr>
+						<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+						<!-- <th>PCD描述</th> -->
+						<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+							
+						</td>
+						<td align="left">
+							
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="updateSelectAUpdate(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+							
+							<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+								ng-click="setSelectAUpdate(item,$index)">
+								<i class="layui-icon"></i> {{'F00082' | translate}}
+							</button>
+							<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+								ng-click="setSelectAUpdate(item,$index)">
+								<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		
+     </form>
+	</div>
+</div>

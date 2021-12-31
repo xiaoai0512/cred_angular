@@ -1,0 +1,48 @@
+<div ng-controller="oprtInstEnqrAndMntCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">机构号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  type="text" ng-model="items.organNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">机构名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.organName"  maxlength="50" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">上级机构号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.upperOrganNo"  maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.operationMode"  maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">所属国家：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.countryCde"  maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">所属城市：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.cityCde"  maxlength="10">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

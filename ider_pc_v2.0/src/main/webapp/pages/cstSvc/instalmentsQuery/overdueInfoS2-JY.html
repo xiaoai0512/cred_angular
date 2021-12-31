@@ -1,0 +1,75 @@
+<div class="layui-form" ng-controller="overInfosS2Ctrl-JY">
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="overdueList.ecommEntryId" name="ecommEntryIdN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">客户号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="overdueList.customerNo" name="customerNoN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">应还总额 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="overdueList.allAmt" jf-format-input="money" name="throwpriN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还本金 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="overdueList.throwpri" name="throwpriN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还利息：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="overdueList.throwInterest" name="throwInterestN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还费用 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="overdueList.throwFee" name="throwFeeN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还罚息：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="overdueList.penaltyInterest" name="penaltyInterestN" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+		<div class="col_tr float_left">逾期明细</div>
+		<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+				<tr style="background-color: #DCDCDC;">
+					<th>期数</th>
+					<th>账户号</th>
+					<th>{{'KHH4600032' | translate}}</th>
+					<th>{{'KHH4600027' | translate}}</th>
+					<th>{{'KHH4600028' | translate}}</th>
+					<th>{{'KHH4600033' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat = "item in ORepaymentListInfos" ng-show = "infoIShave">
+					<td align="center" ng-bind="item.period"></td>
+					<td align="center" ng-bind="item.ecommPostingAcctNmbr"></td>
+					<td align="center" ng-bind="item.allAmt | number:2"></td>
+					<td align="center" ng-bind="item.throwpri | number:2"></td>
+					<td align="center" ng-bind="item.throwInterest | number:2"></td>
+					<td align="center" ng-bind="item.penaltyInterest | number:2"></td>
+				</tr>
+				<tr ng-show = "infoIsShow">
+					<td colspan='6' align="center">暂无数据</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

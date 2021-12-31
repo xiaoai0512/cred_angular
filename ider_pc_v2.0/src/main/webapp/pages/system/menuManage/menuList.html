@@ -1,0 +1,72 @@
+<div class="layout_body" ng-controller="menuListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 菜单管理查询 -->
+		<div class="search_mian layui-form">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500036' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="itemList.params.menuName" autocomplete="off">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500037' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="menuLevel" name="levelN" ng-model="itemList.params.menuLevel"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500038' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="menuFlag" name="menuFlagN" ng-model="itemList.params.displayFlag"></select>
+					</div>
+				</div>
+				<div class="layui-inline" style="width:100%;text-align: center; margin-bottom: 10px;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="itemList.search()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="addMenu()" ng-show="addBtnFlag">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 菜单管理列表 -->
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00013' | translate}}</th>
+						<th>{{'YWH5500036' | translate}}</th>
+						<th>{{'YWH5500037' | translate}}</th>
+						<th>{{'YWH5500039' | translate}}</th>
+						<th>{{'YWH5500038' | translate}}</th>
+						<th  style="width:20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.menuName"></td>
+						<td align="center" class="intercept" ng-bind="item.menuLevelDesc"></td>
+						<td align="center" ng-bind="item.link"></td>
+						<td align="center"  ng-bind="item.displayFlagDesc"></td>
+						<td align="center"  style="width:20%">
+							<button class="layui-btn layui-btn-mini" ng-click="updateMenu(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="eventSet(item)" ng-show="item.lowerMenuFlag == '0' && setBtnFlag">
+								<i class="layui-icon">&#xe602;</i> {{'YWH5500043' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+</div>

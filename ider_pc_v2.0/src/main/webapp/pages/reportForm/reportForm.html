@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>IDER CreditX</title>
+<style type="text/css">
+	@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+</style>
+ <script>
+ctx = getContextPath();
+console.log(ctx);
+function getContextPath(){
+    var pathName = document.location.pathname;
+    var index = pathName.substr(1).indexOf("/");
+    var result = pathName.substr(0,index+1);
+    return result;
+}
+function getRequestURL() {
+	var localHref = window.location.href;
+	var requestURL = '' ;
+	if(localHref.indexOf('#') >= 0){
+		requestURL = localHref.split("#")[1];
+	}else {
+		requestURL = document.location.pathname ;
+	}
+	return requestURL ;
+}
+document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/js/main\"> <\/script>");
+document.write("<base href=\""+ ctx + "/\"" + ">");
+document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider/ider.css\" type=\"text/css\"/>");
+
+
+/* document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/layui/layui.js\" <\/script>"); */
+</script>
+
+</head>
+<!--<body class="ng-cloak" ng-cloak>
+ <div ng-include="ctx+'/pages/template/admin_header.html'"></div>
+<div class="bodyer">
+	<div class="body_mg20 layui-form layui-form-pane">
+		<div ui-view=""></div>
+	</div>
+</div> 
+	
+	
+</body>-->
+<body class="idre">
+	<div class="layui-container panelContainer" ng-controller="panelCtrl">
+		<div ng-include="ctx+'/pages/template/iderHeader.html'"></div> 
+		
+		<div class="panelPage">
+            <div class="panel_left" >
+                <div class="sub_menu main_menu_05"><i class="layui-icon layui-icon-template"></i><span>报表中心</span></div>
+                <ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
+                    <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+                      <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:" class="">统计报表</a>
+                        <!-- <dl class="layui-nav-child">
+                          <dd><a href="javascript:;">选项1</a></dd>
+                          <dd><a href="javascript:;">选项2</a></dd>
+                          <dd><a href="javascript:;">跳转</a></dd>
+                        </dl> -->
+                      </li>
+                      <li class="layui-nav-item">
+                        <a href="javascript:">预警报表</a>
+                        <!-- <dl class="layui-nav-child">
+                          <dd><a href="">业务形态清单</a></dd>
+                          <dd><a href="">业务类型清单</a></dd>
+                          <dd><a href="">产品对象清单</a></dd>
+                        </dl> -->
+                      </li>
+                      <li class="layui-nav-item"><a href="">风险报表</a></li>
+                      <li class="layui-nav-item"><a href="">监控报表</a></li>
+                    </ul>
+            </div>
+            <div class="panel_right">
+                    <div class="layui-tab" lay-allowClose="true">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">统计报表</li>
+                                <li>预警报表</li>
+                                <li>风险报表</li>
+                                <li>监控报表</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                              <div class="layui-tab-item layui-show">
+                                    统计报表统计报表
+                              	
+                              	<!-- ------------------------------面板内容开始 ----------------------->
+	
+
+
+                                <!-- ------------------------------面板内容结束 ----------------------->
+
+
+                              </div>
+                              <div class="layui-tab-item">2</div>
+                              <div class="layui-tab-item">3</div>
+                              <div class="layui-tab-item">4</div>
+                              <div class="layui-tab-item">5</div>
+                              <div class="layui-tab-item">6</div>
+                            </div>
+                    </div>
+
+            </div>
+        </div>
+	</div>
+	
+</body>
+
+</html>

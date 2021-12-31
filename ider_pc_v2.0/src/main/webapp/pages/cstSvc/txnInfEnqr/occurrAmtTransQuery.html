@@ -1,0 +1,141 @@
+<div ng-controller="occurrAmtTransCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form" >
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="accListForm.idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType" >
+				</select>
+			</div>
+		</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00112' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"  id="occurrAmtTrans_idNumber"  validator="" ng-model="accListForm.idNumber">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00111' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"  ng-model="accListForm.externalIdentificationNo" maxlength="19">
+					</div>
+				</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="accListForm.customerNo"
+						name="customerNo" type="text">
+				</div>
+			</div> -->
+				
+				<div class="col_tr text_center">
+					<button class="layui-btn" ng-click="searchAccountList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+		
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+				
+				<div ng-show="showQueryInfoBtn">
+				<div class="clearboth"></div>
+				<div class="mainname">{{'KHH2000003' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH2000004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text"  ng-model="balanceUnitInfo.accountId" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH2000005' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text"  ng-model="balanceUnitInfo.balanceUnitCode" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH2000006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text"  ng-model="balanceUnitInfo.balance" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH2000007' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text"  ng-model="balanceUnitInfo.currencyCode" disabled="disabled">
+					</div>
+				</div>
+				<div class="clearboth"></div>
+				<div class="mainname">{{'KHH2000057' | translate}}</div>
+				<div jf-grid="queryOccurrAmtTable">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'KHH2000005' | translate}}</th>
+								<th>{{'KHH2000008' | translate}}</th>
+								<th>{{'KHH2000021' | translate}} </th>
+								<th>{{'KHH2000022' | translate}}</th>
+								<th>{{'KHH2000023' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.balanceUnitCode"></td>
+								<td align="center" >
+									<span ng-if="item.nodeTyp == 'DR'">{{'KHH2000024' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'CR'">{{'KHH2000025' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'PY'">{{'KHH2000026' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'NI'">{{'KHH2000027' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'RV'">{{'KHH2000051' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'NO'">{{'KHH2000052' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'CB'">{{'KHH2000053' | translate}}</span>
+								</td>
+								<td align="center" ng-bind="item.interestStartDate"></td>
+								<td align="center" ng-bind="item.createDate"></td>
+								<td align="center" ng-bind="item.occurrAmount"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="clearboth"></div>
+				<div class="mainname">{{'KHH2000056' | translate}}</div>
+				<div jf-grid="interestCtrlChainTable">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'KHH2000005' | translate}}</th>
+								<th>{{'KHH2000008' | translate}}</th>
+								<th>{{'KHH2000010' | translate}}</th>
+								<th>{{'KHH2000011' | translate}} </th>
+								<th>{{'KHH2000012' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.balanceUnitCode"></td>
+								<td align="center" >
+									<span ng-if="item.nodeTyp == 'WI'">{{'KHH2000013' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'BI'">{{'KHH2000014' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'DI'">{{'KHH2000054' | translate}}</span>
+									<span ng-if="item.nodeTyp == 'VI'">{{'KHH2000055' | translate}}</span>
+								</td>
+							<td align="center" >
+								<span ng-if="item.nodeStatus == 'W0'">{{'KHH2000015' | translate}}</span>
+								<span ng-if="item.nodeStatus == 'W1'">{{'KHH2000016' | translate}}</span>
+								<span ng-if="item.nodeStatus == 'B0'">{{'KHH2000017' | translate}}</span>
+								<span ng-if="item.nodeStatus == 'B1'">{{'KHH2000018' | translate}}</span>
+								<span ng-if="item.nodeStatus == 'B9'">{{'KHH2000019' | translate}}</span>
+							</td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.currInterestAmount | number :2"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

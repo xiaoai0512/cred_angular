@@ -1,0 +1,21 @@
+<div ng-controller="accountHistListCtrl">
+	<div jf-grid="accountHistList">
+		<table>
+			<thead>
+				<tr>
+					<th>账户代码</th>
+					<th>币种</th>
+					<th>产品对象代码</th>
+					<th>所属业务类型</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accountId"></td>
+					<td align="center" ng-bind="item.currencyCode"></td>
+					<td align="center" ng-bind="item.productId"></td>
+					<td align="center" ng-bind="item.businessTypeId"></td>
+				</tr>
+			</tbody>
+	</div>
+</div>

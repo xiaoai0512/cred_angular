@@ -1,0 +1,63 @@
+<div ng-controller="tradingCreditHistoryCtrl">
+	<div class="mainname titleInfo">{{'SQH2700026' | translate}}</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'SQH2700023' | translate}} ：</div>
+		<div class="wd250 float_left">
+			<input class="layui-input bnone"  type="text"
+				ng-model="item.customerNo" readonly>
+		</div>
+	</div>
+	<div class=" clearboth"></div>
+	<div class="mainname titleInfo">{{'F00014' | translate}}</div>
+	<div ng-if="item.nodeTypeL=='L'">
+	     <table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+	        <thead>
+	           <tr>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700093' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700097' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700092' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700094' | translate}}</th>
+	           </tr>
+	        </thead>
+	        <tbody>
+	           <tr ng-repeat = "lItem in lItems">
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="lItem.creditNodeNo"></td>
+	              <td align="center">
+	                <span ng-if="lItem.debitCreditFlag == 'C'">{{'SQH2700099' | translate}}</span>
+			  		<span ng-if="lItem.debitCreditFlag == 'D'">{{'SQH2700098' | translate}}</span>
+	              </td>
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="lItem.creditOccupyCurrCode"></td>
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="lItem.totalAmt"></td>
+	           </tr>
+	        </tbody>
+	     </table>
+	</div>
+	<div class=" clearboth"></div>
+	<div ng-if="item.nodeTypeB=='B'">
+	    <table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+	        <thead>
+	           <tr>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700091' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700095' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700097' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700092' | translate}}</th>
+	             <th style="padding: 0px 5px; width:17%">{{'SQH2700094' | translate}}</th>
+	           </tr>
+	        </thead>
+	        <tbody>
+	           <tr ng-repeat = "bItem in bItems">
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="bItem.creditNodeNo"></td>
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="bItem.appObjectCode"></td>
+	              <td align="center">
+	                <span ng-if="bItem.debitCreditFlag == 'C'">{{'SQH2700099' | translate}}</span>
+			  		<span ng-if="bItem.debitCreditFlag == 'D'">{{'SQH2700098' | translate}}</span>
+	              </td>
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="bItem.creditOccupyCurrCode"></td>
+	              <td style="padding: 0px 5px; width:17%" align="center" ng-bind="bItem.totalAmt"></td>
+	           </tr>
+	        </tbody>
+	     </table>
+	</div>
+</div>

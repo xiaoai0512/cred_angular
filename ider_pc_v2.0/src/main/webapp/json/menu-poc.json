@@ -1,0 +1,1150 @@
+{
+    "status": 200,
+    "data": [
+        {
+        "id": "RES101666",
+        "img": "iconmenu01",
+        "url":"/ider/pages/panel/panelPage.html",
+        "menu": [
+          {
+            "id": "RES1016661",
+            "img": "submenu_bg_01",
+            "url":"/json/beta/evLstList",
+            "submenuFlag":false,
+            "menu": [
+              
+            ],
+            "text": "事件清单"
+          },
+          {
+              "id": "RES1016662",
+              "img": "submenu_bg_02",
+              "url":"/json/beta/avyList",
+              "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "活动清单"
+            },
+            {
+              "id": "RES1016663",
+              "img": "submenu_bg_03",
+              "url":"/beta/elmList",
+              "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "构件清单"
+            },
+            {
+              "id": "RES1016664",
+              "img": "submenu_bg_04",
+              "url":"/beta/eventConfig",
+              "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "事件配置管理"
+            },
+            {
+              "id": "RES1016665",
+              "img": "submenu_bg_05",
+              "url":"/beta/actConfig",
+              "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "活动配置管理"
+            },
+            {
+              "id": "RES1016666",
+              "img": "submenu_bg_06",
+              "url":"/beta/elmCfgMgt",
+              "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "构件配置管理"
+            },
+            {
+              "id": "RES1016667",
+              "img": "submenu_bg_07",
+              "url":"/beta/serialList",
+              "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "序号清单"
+            }
+        ],
+        "text": "BETA",
+        "width": 650
+      },
+      {
+        "id": "RES101667",
+        "img": "iconmenu02",
+        "url":"/ider/pages/panel/panelPage.html",
+        "menu": [
+          {
+            "id": "RES1016671",
+            "img": "submenu_bg_01",
+            "url":"#",
+            "submenuFlag":true,
+            "menu": [
+                {
+                  "id": "RES10166711",
+                  "img": "",
+                  "text": "业务形态实例化",
+                  "url": "/proPubCnter/businessFormInst"
+                },
+                {
+                  "id": "RES10166712",
+                  "img": "",
+                  "text": "业务类型实例化",
+                  "url": "/other/newBsnTpCfg"
+                },
+                {
+                  "id": "RES10166713",
+                  "img": "",
+                  "text": "产品对象实例化",
+                  "url": "/other/newPDCfg"
+                },
+                {
+                  "id": "RES10166714",
+                  "img": "",
+                  "text": "余额对象实例化",
+                  "url": "/proPublishCenter/balanceObjInst"
+                },
+                {
+                  "id": "RES10166715",
+                  "img": "",
+                  "text": "媒介对象实例化",
+                  "url": "/proPublishCenter/mediaObjInstant"
+                },
+                {
+                  "id": "RES10166716",
+                  "img": "",
+                  "text": "非对象实例化",
+                  "url": "/oprtCntr/nonObjectInst"
+                }
+            ],
+            "text": "产品发布中心"
+          },
+          {
+              "id": "RES1016672",
+              "img": "submenu_bg_02",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                    "id": "RES10166721",
+                    "img": "",
+                    "text": "业务形态管理",
+                    "url": "/oprtCntr/busPatMan"
+                  },
+                  {
+                      "id": "RES10166722",
+                      "img": "",
+                      "text": "业务类型管理",
+                      "url": "/oprtCntr/bsnTpMgt"
+                    },
+                    {
+                      "id": "RES10166723",
+                      "img": "",
+                      "text": "产品对象管理",
+                      "url": "/oprtCntr/productObject"
+                    },
+                    {
+                      "id": "RES10166724",
+                      "img": "",
+                      "text": "余额对象管理",
+                      "url": "/oprtCntr/balObjList"
+                    },
+                    {
+                      "id": "RES10166725",
+                      "img": "",
+                      "text": "媒介对象管理",
+                      "url": "/oprtCntr/mediaObject"
+                    },
+               		 {
+		              "id": "RES10166727",
+		              "img": "",
+		              "text": "非对象管理",
+		              "url": "/oprtCntr/noObjectComManag"
+               		 },
+               		 {
+		              "id": "RES10166728",
+		              "img": "",
+		              "text": "产品业务范围管理",
+		              "url": "/oprtCntr/productBusinessScope"
+               		 }
+              ],
+              "text": "产品管理中心"
+            },
+            {
+              "id": "RES1016673",
+              "img": "submenu_bg_03",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                    "id": "RES10166731",
+                    "img": "",
+                    "text": "运营机构建立",
+                    "url": "/operatMech/operatMech"
+                  },
+                  {
+                    "id": "RES10166735",
+                    "img": "",
+                    "text": "运营机构查询及维护",
+                    "url": "/operatMech/oprtInstEnqrAndMnt"
+                  },
+                   
+                  	{
+	                  "id": "RES10166732",
+	                  "img": "",
+	                  "text": "运营模式建立",
+	                  "url": "/operatMech/operationMode"
+	                },
+	                {
+	                  "id": "RES10166736",
+	                  "img": "",
+	                  "text": "运营模式查询及维护",
+	                  "url": "/operatMech/oprtModeEnqrAndMnt"
+	                },
+	                {
+	                  "id": "RES10166717",
+	                  "img": "",
+	                  "text": "活动余额对象建立",
+	                  "url": "/oprtCntr/avyBalObjEnqr"
+                	},
+                	{
+		              "id": "RES10166726",
+		              "img": "",
+		              "text": "活动余额对象查询及维护",
+		              "url": "/oprtCntr/avyBalObjMgt"
+               		 },
+	                {
+	                  "id": "RES10166733",
+	                  "img": "",
+	                  "text": "交易费用建立",
+	                  "url": "/overdraftCost/setting"
+	                },
+	                {
+	                  "id": "RES10166734",
+	                  "img": "",
+	                  "text": "交易费用查询及维护",
+	                  "url": "/overdraftCost/management"
+	                }
+              ],
+              "text": "运营管理"
+            },
+            {
+              "id": "RES1016674",
+              "img": "submenu_bg_04",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id": "RES10166741",
+                      "img": "",
+                      "text": "封锁码场景建立",
+                      "url": "/oprtCntr/blockCDScnEstb"
+                    },
+                    {
+                      "id": "RES10166742",
+                      "img": "",
+                      "text": "封锁码场景查询及维护",
+                      "url": "/oprtCntr/blockCDScnMgt"
+                    }
+              ],
+              "text": "封锁码场景管理"
+            },
+            {
+              "id": "RES1016675",
+              "img": "submenu_bg_05",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                   {
+                      "id": "RES10166726",
+                      "img": "",
+                      "text": "定价标签建立",
+                      "url": "/oprtCntr/lblObjExmp"
+                    },
+                   {
+                      "id": "RES10166727",
+                      "img": "",
+                      "text": "定价标签查询及维护",
+                      "url": "/other/lblObjList"
+                    }
+                    
+              ],
+              "text": "定价标签管理"
+            },
+            {
+              "id": "RES1016676",
+              "img": "submenu_bg_06",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                  "id":"RES10166701",
+                  "img":"",
+                   "url":"/cardBin/cardBinEst",
+                  "text":"卡BIN建立"
+              	  },
+              	  {
+                  "id":"RES10166702",
+                  "img":"",
+                    "url":"/cardBin/cardBinMaintQuery",
+                  "text":"卡BIN查询及维护"
+              	  }
+              ],
+              "text": "卡BIN管理"
+            },
+            {
+              "id": "RES1016677",
+              "img": "submenu_bg_07",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                  "id":"RES10166801",
+                  "img":"",
+                  "url":"/currency/currencyEst",
+                  "text":"货币建立"
+              	  },
+              	  {
+                  "id":"RES10166802",
+                  "img":"",
+                  "url":"/currency/currencyMaintQuery",
+                  "text":"货币查询及维护"
+              	  }
+              ],
+              "text": "货币表"
+            },
+            {
+              "id": "RES1016678",
+              "img": "submenu_bg_08",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                {
+                  "id":"RES10166811",
+                  "img":"",
+                  "url":"/oprtCntr/newExRt",
+                  "text":"汇率建立"
+              	},
+              	{
+                  "id":"RES10166812",
+                  "img":"",
+                  "url":"/oprtCntr/enqrMntExRt",
+                  "text":"汇率查询及维护"
+              	}
+              ],
+              "text": "汇率管理"
+            },
+            {
+              "id": "RES1016679",
+              "img": "submenu_bg_09",
+              "url":"",
+             "submenuFlag":true,
+              "menu": [
+                {
+                  "id":"RES10166791",
+                  "img":"",
+                  "url":"/financeCenter/accountEntryQuery",
+                  "text":"会计分录查询"
+              	},
+              	{
+                  "id":"RES10166792",
+                  "img":"",
+                  "url":"/financeCenter/accountTemplateAdd",
+                  "text":"会计分录模板建立"
+              	},
+              	{
+                  "id":"RES10166793",
+                  "img":"",
+                  "url":"/financeCenter/accountTemplate",
+                  "text":"会计分录模板管理"
+              	},
+              	{
+                  "id":"RES10166794",
+                  "img":"",
+                  "url":"/financeCenter/accountSceneAdd",
+                  "text":"核算场景建立"
+              	},
+              	{
+                  "id":"RES10166795",
+                  "img":"",
+                  "url":"/financeCenter/accountScene",
+                  "text":"核算场景管理"
+              	},
+              	{
+                  "id":"RES10166796",
+                  "img":"",
+                  "url":"/financeCenter/subjectConfigAdd",
+                  "text":"科目信息建立"
+              	},
+              	{
+                  "id":"RES10166797",
+                  "img":"",
+                  "url":"/financeCenter/subjectConfigQuery",
+                  "text":"科目信息管理"
+              	}
+              ],
+              "text": "财务中心"
+            },
+            {
+              "id": "RES1016680",
+              "img": "submenu_bg_10",
+              "url":"/oprtCntr/instalmentsPlan",
+             "submenuFlag":false,
+              "menu": [
+                
+              ],
+              "text": "分期计划"
+            }
+        ],
+        "text": "运营中心",
+        "width": 650
+      },
+      {
+        "id": "RES101668",
+        "img": "iconmenu03",
+        "url":"/ider/pages/panel/panelPage.html",
+        "menu": [
+          {
+            "id": "RES1016681",
+            "img": "submenu_bg_01",
+            "url":"",
+            "submenuFlag":true,
+            "menu": [
+             {
+                  "id":"RES10166810",
+                  "img":"",
+                  "url":"/cstSvc/fastBuildCard",
+                  "text":"客户一键制卡"
+              },
+              {
+                  "id":"RES10166811",
+                  "img":"",
+                  "url":"/cstSvc/csInfEstb",
+                  "text":"客户信息建立"
+              },
+              
+              {
+                  "id":"RES10166812",
+                  "img":"",
+                  "url":"/cstSvc/cstAdrInfEstb",
+                  "text":"客户地址信息建立"
+              },
+              {
+                  "id":"RES10166813",
+                  "img":"",
+                  "url":"/cstSvc/csInfEnqrAndMnt",
+                  "text":"客户信息查询及维护"
+              },
+              {
+                  "id":"RES10166814",
+                  "img":"",
+                  "url":"/cstSvc/cstAdrQuery",
+                  "text":"客户地址信息查询及维护"
+              },
+               {
+                  "id":"RES10166815",
+                  "img":"",
+                  "url":"/cstSvc/csrUnifyInf",
+                  "text":"客户级统一信息查询"
+              }
+            ],
+            "text": "客户信息管理"
+          },
+          {
+              "id": "RES1016682",
+              "img": "submenu_bg_02",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                 {
+                      "id":"RES10166821",
+                      "img":"",
+                      "url":"/cstSvc/pDInfEstb",
+                      "text":"产品信息建立"
+                  },
+                  {
+                      "id":"RES10166822",
+                      "img":"",
+                      "url":"/cstSvc/pDInfEnqrAndMnt",
+                      "text":"产品信息查询及维护"
+                  }
+              ],
+              "text": "产品信息管理"
+            },
+            {
+              "id": "RES1016683",
+              "img": "submenu_bg_03",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                 {
+                      "id":"RES10166831",
+                      "img":"",
+                      "url":"/cstSvc/mdmInfEstb",
+                      "text":"媒介信息建立及绑定"
+                  },
+                  {
+                      "id":"RES10166832",
+                      "img":"",
+                      "url":"/cstSvc/mdmInfEnqrAndMnt",
+                      "text":" 媒介信息查询及维护"
+                  }
+              ],
+              "text": "媒介信息管理"
+            },
+            {
+              "id": "RES1016684",
+              "img": "submenu_bg_04",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id":"RES10166841",
+                      "img":"",
+                      "url":"/cstSvc/accBscInf",
+                      "text":"账户基本信息"
+                  },
+                  {
+                      "id":"RES10166843",
+                      "img":"",
+                      "url":"/cstSvc/acBaObjInf",
+                      "text":"账户余额对象信息"
+                  },
+                  {
+                      "id":"RES10166842",
+                      "img":"",
+                      "url":"/cstSvc/acbaUnitList",
+                      "text":"账户余额单元信息"
+                  },
+                  {
+                      "id":"RES10166844",
+                      "img":"",
+                      "url":"/cstSvc/depositInf",
+                      "text":"存款账户信息"
+                  },
+                  {
+                      "id":"RES10166845",
+                      "img":"",
+                      "url":"/cstSvc/instalQuery",
+                      "text":"分期账户信息"
+                  },
+                  {
+                      "id":"RES10166846",
+                      "img":"",
+                      "url":"/cstSvc/disputeQuery",
+                      "text":"争议账户信息"
+                  },
+                   {
+                      "id":"RES10166847",
+                      "img":"",
+                      "url":"/cstSvc/interestQuery",
+                      "text":"利息查询"
+                  }
+              ],
+              "text": "账务信息管理"
+            },
+            {
+              "id": "RES1016685",
+              "img": "submenu_bg_05",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id":"RES10166851",
+                      "img":"",
+                      "url":"/cstSvc/unifiedVisualManage/blockCodeView",
+                      "text":"客户管控视角"
+                  },
+                  {
+                      "id":"RES10166852",
+                      "img":"",
+                      "url":"/cstSvc/unifiedVisualManage/cstAccountList",
+                      "text":"客户账户列表"
+                  },
+                  {
+                      "id":"RES10166853",
+                      "img":"",
+                      "url":"/cstSvc/unifiedVisualManage/cstProductList",
+                      "text":"客户产品列表"
+                  },
+                  {
+                      "id":"RES10166854",
+                      "img":"",
+                      "url":"/cstSvc/unifiedVisualManage/cstMediaList",
+                      "text":"客户媒介列表"
+                  }
+              ],
+              "text": " 统一视角管理"
+            },
+            {
+              "id": "RES1016686",
+              "img": "submenu_bg_06",
+              "url":"",
+              "submenuFlag":false,
+              "menu": [
+  
+              ],
+              "text": " 生命周期管理"
+            },
+            {
+              "id": "RES1016687",
+              "img": "submenu_bg_07",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+               		{
+                      "id":"RES10166872",
+                      "img":"",
+                      "url":"/cstSvc/cstBsTypeLbSet",
+                      "text":"客户定价标签设置"
+                  },
+                  {
+                      "id":"RES10166871",
+                      "img":"",
+                      "url":"/cstSvc/cstPrcgLblEnqr",
+                      "text":"客户定价标签查询及维护"
+                  }
+              ],
+              "text": " 定价信息管理"
+            },
+            {
+              "id": "RES1016688",
+              "img": "submenu_bg_08",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id":"RES10166881",
+                      "img":"",
+                      "url":"/cstSvc/mdmActvt",
+                      "text":"媒介激活"
+                  },
+                  {
+                      "id":"RES10166882",
+                      "img":"",
+                      "url":"/cstSvc/mediaLoss",
+                      "text":"媒介挂失"
+                  },
+                  {
+                      "id":"RES10166883",
+                      "img":"",
+                      "url":"/cstSvc/mediaDmgRsu",
+                      "text":"媒介毁损补发"
+                  },
+                  {
+                      "id":"RES10166884",
+                      "img":"",
+                      "url":"",
+                      "text":"媒介注销"
+                  },
+                  {
+                      "id":"RES10166885",
+                      "img":"",
+                      "url":"/cstSvc/blockCodeMag",
+                      "text":"封锁码管理"
+                  },
+                  {
+                      "id":"RES10166886",
+                      "img":"",
+                      "url":"/cstSvc/deleteBlockCode",
+                      "text":"去除封锁码"
+                  },
+                  {
+                      "id":"RES10166887",
+                      "img":"",
+                      "url":"/cstSvc/reviseBillDay",
+                      "text":"修改账单日"
+                  },
+                  {
+                      "id":"RES10166888",
+                      "img":"",
+                      "url":"/cstSvc/rlTmMkCrd",
+                      "text":"实时制卡"
+                  }
+              ],
+              "text": " 基础业务受理"
+            },
+            {
+              "id": "RES1016689",
+              "img": "submenu_bg_09",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id":"RES10166891",
+                      "img":"",
+                      "url":"/cstSvc/rvlDbtTxnSplmtEntrg",
+                      "text":"循环借记交易补录"
+                  },
+                  {
+                      "id":"RES10166892",
+                      "img":"",
+                      "url":"/cstSvc/rvlCrTxnSplmtEntrg",
+                      "text":"循环贷记交易补录"
+                  },
+                  {
+                      "id":"RES10166893",
+                      "img":"",
+                      "url":"/cstSvc/rpyTxnSplmtEntrg",
+                      "text":"还款交易补录"
+                  },
+                  {
+                      "id":"RES10166894",
+                      "img":"",
+                      "url":"/cstSvc/disputeTransEntrg",
+                      "text":"争议交易补录"
+                  }
+              ],
+              "text": " 金融交易管理"
+            },
+            {
+              "id": "RES10166810",
+              "img": "submenu_bg_10",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+              	  {
+                      "id":"RES101668101",
+                      "img":"",
+                      "url":"/cstSvc/billEnqr",
+                      "text":"账单查询"
+                  },
+                  {
+                      "id":"RES101668102",
+                      "img":"",
+                      "url":"/cstSvc/transQuery",
+                      "text":"金融交易查询"
+                  },
+                  {
+                      "id":"RES101668103",
+                      "img":"",
+                      "url":"/cstSvc/occurrAmtTransQuery",
+                      "text":"发生额节点交易查询"
+                  },
+                  {
+                      "id":"RES101668104",
+                      "img":"",
+                      "url":"/cstSvc/txnCgyAvyLogEnqr",
+                      "text":"活动日志查询"
+                  },
+                  {
+                      "id":"RES101668105",
+                      "img":"",
+                      "url":"/cstSvc/txnCgyAvyLogEnqr",
+                      "text":"拒绝交易查询"
+                  },
+                  {
+                      "id":"RES101668106",
+                      "img":"",
+                      "url":"/cstSvc/txnCgyAvyLogEnqr",
+                      "text":"争议交易查询"
+                  },
+                  {
+                      "id":"RES101668107",
+                      "img":"",
+                      "url":"/cstSvc/accRepyHistEnqr",
+                      "text":"账户还款历史查询"
+                  }
+              ],
+              "text": " 交易信息查询"
+            }
+        ],
+        "text": "客户服务",
+        "width": 650
+      },
+      {
+        "id": "RES101669",
+        "img": "iconmenu04",
+        "url":"/ider/pages/panel/panelPage.html",
+        "menu": [
+          {
+            "id": "RES1016691",
+            "img": "submenu_bg_01",
+            "url":"",
+            "submenuFlag":true,
+            "menu": [
+            	{
+                    "id": "RES10166911",
+                    "img": "",
+                    "url":"/auth/scenarioAdd",
+                    "text": "授权场景建立"
+                },
+                {
+                    "id": "RES10166912",
+                    "img": "",
+                    "url":"/auth/scenarioQuery",
+                    "text": "授权场景查询及维护"
+                }
+            ],
+            "text": "授权场景管理"
+          },
+          {
+            "id": "RES1016692",
+            "img": "submenu_bg_02",
+            "url":"",
+            "submenuFlag":true,
+            "menu": [
+                {
+                    "id": "RES10166921",
+                    "img": "",
+                    "url":"/auth/controltradAdd",
+                    "text": "管控场景建立"
+                },
+                {
+                    "id": "RES10166922",
+                    "img": "",
+                    "url":"/auth/controlQuery",
+                    "text": "管控场景查询及维护"
+                },
+                {
+                    "id": "RES10166923",
+                    "img": "",
+                    "url":"/auth/difftradAdd",
+                    "text": "交易管控建立"
+                },
+                {
+                    "id": "RES10166924",
+                    "img": "",
+                    "url":"/auth/diffQuery",
+                    "text": "交易管控查询及维护"
+                },
+                {
+                    "id": "RES10166925",
+                    "img": "",
+                    "url":"/auth/tradModelAdd",
+                    "text": "交易模式建立"
+                },
+                {
+                    "id": "RES10166926",
+                    "img": "",
+                    "url":"/auth/tradModelQuery",
+                    "text": "交易模式查询及维护"
+                },
+                {
+                    "id": "RES10166927",
+                    "img": "",
+                    "url":"/auth/riskAdd",
+                    "text": "高风险列表建立"
+                },
+                {
+                    "id": "RES10166928",
+                    "img": "",
+                    "url":"/auth/riskQuery",
+                    "text": "高风险列表查询及维护"
+                },
+                 {
+                    "id": "RES10166929",
+                    "img": "",
+                    "url":"/auth/negativeAdd",
+                    "text": "正负面清单建立"
+                },
+                {
+                    "id": "RES10166930",
+                    "img": "",
+                    "url":"/auth/negativeQuery",
+                    "text": "正负面清单查询及维护"
+                },
+                 {
+                    "id": "RES10166931",
+                    "img": "",
+                    "url":"/auth/limitAdd",
+                    "text": "交易限制建立"
+                },
+                {
+                    "id": "RES10166932",
+                    "img": "",
+                    "url":"/auth/limitQuery",
+                    "text": "交易限制查询及维护"
+                },
+                {
+                    "id": "RES10166933",
+                    "img": "",
+                    "url":"/auth/quotaTradQuery",
+                    "text": "交易累计查询"
+                }
+            ],
+              "text": "交易管控管理"
+            },
+            {
+              "id": "RES1016693",
+              "img": "submenu_bg_03",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id":"RES10166931",
+                      "img":"",
+                      "url":"/auth/manageList",
+                      "text":"发卡例外名单"
+                  },
+                  {
+                    "id":"RES10166932",
+                    "img":"",
+                    "url":"/auth/exceptionList",
+                    "text":"授权例外名单"
+                },
+                {
+                    "id":"RES10166933",
+                    "img":"",
+                    "url":"/auth/fraudList",
+                    "text":"授权欺诈名单"
+                }
+                ],
+              "text": "例外名单管理"
+            },
+            {
+              "id": "RES1016694",
+              "img": "submenu_bg_04",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                  {
+                      "id":"RES10166941",
+                      "img":"",
+                      "url":"/auth/artificialAuth",
+                      "text":"人工授权"
+                  },
+                  {
+                      "id":"RES10166942",
+                      "img":"",
+                      "url":"/auth/mandatoryAuth",
+                      "text":"强制授权"
+                  }
+                ],
+              "text": "授权特别操作"
+            },
+            {
+              "id": "RES1016695",
+              "img": "submenu_bg_05",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                 {
+                    "id":"RES10166951",
+                    "img":"",
+                    "url":"/auth/authEntry",
+                    "text":"授权交易录入"
+                }
+              ],
+              "text": "授权交易录入"
+            },
+            {
+              "id": "RES1016696",
+              "img": "submenu_bg_06",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                {
+                    "id":"RES10166961",
+                    "img":"",
+                    "url":"/auth/tradingNowP",
+                    "text":"当日交易查询"
+                },
+                {
+                    "id":"RES10166962",
+                    "img":"",
+                    "url":"/auth/tradingHistoryP",
+                    "text":"历史交易查询"
+                },
+                 {
+                    "id":"RES10166963",
+                    "img":"",
+                    "url":"/auth/authNo",
+                    "text":"未达授权查询"
+                }
+              ],
+              "text": "授权交易查询"
+            },
+            {
+              "id": "RES1016697",
+              "img": "submenu_bg_06",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                    {
+                        "id":"RES10166971",
+                        "img":"",
+                        "url":"/auth/authCusInfo",
+                        "text":"授权客户信息查询"
+                    }
+                ],
+              "text": "授权客户信息管理"
+            },
+            {
+              "id": "RES1016698",
+              "img": "submenu_bg_07",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                    {
+                        "id":"RES10166981",
+                        "img":"",
+                        "url":"/auth/quotaQuery",
+                        "text":"客户额度查询"
+                    },
+                    {
+                        "id":"RES10166982",
+                        "img":"",
+                        "url":"/auth/adjustCustomer",
+                        "text":"业务节点额度调整"
+                    },
+                    {
+                        "id":"RES10166983",
+                        "img":"",
+                        "url":"/auth/adjustAccount",
+                        "text":"应用节点额度调整"
+                    },
+                     {
+                        "id":"RES10166984",
+                        "img":"",
+                        "url":"/auth/quotaCustomer",
+                        "text":"业务节点额度授信"
+                    },
+                    {
+                        "id":"RES10166985",
+                        "img":"",
+                        "url":"/auth/quotaAccount",
+                        "text":"应用节点额度授信"
+                    },
+                    {
+                        "id":"RES10166986",
+                        "img":"",
+                        "url":"",
+                        "text":"调额历史查询"
+                    },
+                    {
+                        "id":"RES10166987",
+                        "img":"",
+                        "url":"/auth/rltmBalEnqr",
+                        "text":"实时余额信息"
+                    }
+                ],
+              "text": "客户额度管理"
+            },
+            {
+              "id": "RES1016699",
+              "img": "submenu_bg_08",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+               		
+                    {
+                        "id":"RES10166991",
+                        "img":"",
+                        "url":"/auth/quotatreeQuery",
+                        "text":"额度节点查询及维护"
+                    },
+                    {
+                        "id":"RES10166992",
+                        "img":"",
+                        "url":"/auth/quotatreeAdd",
+                        "text":"额度节点建立"
+                    },
+                     {
+                        "id":"RES10166993",
+                        "img":"",
+                        "url":"/auth/quotaTree",
+                        "text":"额度树查询"
+                    }
+                ],
+              "text": "额度树管理"
+            },
+            {
+              "id": "RES10166910",
+              "img": "submenu_bg_09",
+              "url":"",
+              "submenuFlag":true,
+              "menu": [
+                {
+                    "id":"RES101669101",
+                    "img":"",
+                    "url":"/auth/networkVP",
+                    "text":"VISA参数查询及维护"
+                },
+                {
+                    "id":"RES101669102",
+                    "img":"",
+                    "url":"/auth/networkVL",
+                    "text":"VISA网络连接维护"
+                },
+                {
+                    "id":"RES101669103",
+                    "img":"",
+                    "url":"/auth/networkMP",
+                    "text":"MC参数查询及维护"
+                },
+                {
+                    "id":"RES101669104",
+                    "img":"",
+                    "url":"/auth/networkML",
+                    "text":"MC网络连接维护"
+                }
+              ],
+              "text": "网络管理"
+            }
+        ],
+        "text": "授权中心",
+        "width": 650
+      },
+      {
+        "id": "RES101670",
+        "img": "iconmenu05",
+        "url":"/ider/pages/panel/panelPage.html",
+        "menu": [
+          {
+            "id": "RES1016701",
+            "img": "submenu_bg_01",
+            "url":"",
+            "submenuFlag":false,
+            "menu": [
+  
+            ],
+            "text": "统计报表"
+          },
+          {
+              "id": "RES1016702",
+              "img": "submenu_bg_02",
+              "url":"",
+              "submenuFlag":false,
+              "menu": [
+    
+              ],
+              "text": "预警报表"
+            },
+            {
+              "id": "RES1016703",
+              "img": "submenu_bg_03",
+              "url":"",
+              "submenuFlag":false,
+              "menu": [
+    
+              ],
+              "text": "风险报表"
+            },
+            {
+              "id": "RES1016704",
+              "img": "submenu_bg_04",
+              "url":"",
+              "submenuFlag":false,
+              "menu": [
+    
+              ],
+              "text": "监控报表"
+            }
+        ],
+        "text": "报表中心",
+        "width": 650
+      }
+    ]
+  }

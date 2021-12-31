@@ -1,0 +1,46 @@
+<div class="layout_body" ng-controller="subjectConfigCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：科目配置查询
+	</div>
+	<div class="search_mian layui-form">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">科目编号：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="itemList.params.subjectNbr">
+								<!-- <select ng-model="itemList.params.subjectNbr" class="layui-input"
+								jf-select="builder.option(coArray)" name="subjectNbr" placeholder="运营模式"></select> -->
+					</div>
+				</div>
+				<div class="layui-inline float_right">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="itemList.search()">
+							<i class="layui-icon">&#xe615;</i> 查询
+						</button>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div jf-grid="itemList">
+		<table>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>科目编号</th>
+					<th>科目描述</th>
+					<th>父级科目编号</th>
+					<th>余额方向</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center"  ng-bind="$index+1"></td>
+					<td align="center" ng-bind="item.subjectNbr"></td>
+				  <td align="center" ng-bind="item.subjectNme"></td>
+				  <td align="center" ng-bind="item.upperSubjectNbr"></td>
+				  <td align="center" ng-bind="item.balanceDirection"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

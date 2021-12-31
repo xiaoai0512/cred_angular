@@ -1,0 +1,43 @@
+<div ng-controller="addSourceDirectoryCtrl">
+	<div class="">
+		<form name="transIdentyAddForm" class="layui-form">
+			<div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right">{{'YYH1600001' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+						ng-model="addInfo.corporationEntityNo" maxlength="10" >
+					</div>
+				</div> -->
+				<!-- <div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH1600002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+						ng-model="addInfo.transOrigin" maxlength="8" >
+					</div>
+				</div> -->
+				<div class="col_tr">
+					<div class="col2 text_right"><span class="red">*</span>{{'YYH1600003' | translate}}：</div>
+					<div class="col4 float_left">
+						<input class="layui-input" type="text"
+						ng-model="addInfo.originList" maxlength="4" validator="required">
+					</div>
+				</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right">{{'YYH1600004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="addInfo.originCode"
+							name="transIdentifiDesc" type="text"  maxlength="8" id="addOriginCode">
+					</div>
+				</div> -->
+				<div class="col_tr">
+					<div class="col2 text_right"><span class="red">*</span>{{'YYH1600005' | translate}}：</div>
+					<div class="col4 float_left">
+						<input class="layui-input" ng-model="addInfo.listDesc"
+							name="transIdentifiDesc" type="text"  maxlength="50" validator="required">
+					</div>
+				</div>
+			</div>
+		</form>	
+	</div>
+</div>

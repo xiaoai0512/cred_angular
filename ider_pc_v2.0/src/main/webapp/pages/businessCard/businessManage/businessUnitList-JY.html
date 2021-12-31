@@ -1,0 +1,160 @@
+<div class="layout_body" ng-controller="businessUnitListCtr-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="cusInfoForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumber" id="cusInfo_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cusInfoForm"  ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfo">
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.listCode" type="text" readonly>
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.customerNo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.mobilePhone" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00158' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="idTypeInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.idNumber" type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH100024' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.institutionId" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100026' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="operationModeInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100027' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.customerName" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100028' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="customerStatusInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100029' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="customerTypeInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100030' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="customerBalanceStatusInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100031' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="paymentMarkInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100032' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="customerAccountingStatusInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100033' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.customerRiskGroup" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100034' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="item.createDate" type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH100039' | translate}}</div>
+		<div class="col_td">
+		<div class="col4 text_right">{{'SQH100035' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.city" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100036' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="item.contactAddress" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100037' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="item.contactPostCode" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100038' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="item.contactMobilePhone" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_tr " >
+			<button class="layui-btn float_right" style="margin-right: 48%;" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+			</button>
+		</div>
+	</div>
+</div>

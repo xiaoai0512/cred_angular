@@ -1,0 +1,18 @@
+<div ng-controller="viewStageAdjustCtrl" class="layui-form">
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600018' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="stageAdjustItem.feeRate" name="ecommFeeRate" type="text"  />
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600036' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="stageAdjustItem.loanTerm"
+						class="layui-input" jf-select="builder.option(periodArr)"
+						name="ecommInstallmentPeriod" ></select>
+			</div>
+		</div>
+</div>

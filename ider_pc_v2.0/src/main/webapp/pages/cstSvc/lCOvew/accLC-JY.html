@@ -1,0 +1,69 @@
+
+<div ng-controller="lCOvewCtrlaccLC">
+	<div>
+		<div class="section">
+			<div class="layui-tab-content">
+				<div class="layui-form">
+					<div class="mainname">账户基本信息</div>
+					<div class="col_td">
+						<div class="col4 text_right">账户代码：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="oprtMode" type="text"
+								value="100000000021A00001">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">币种：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="ccy"
+								ng-model="temp1.ccy" type="text">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">业务类型：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="pDCd"
+								ng-model="temp1.pDCd" type="text">
+						</div>
+					</div>
+					<div class="mainname" style="margin-top: 80px">生命周期信息</div>
+					<div jf-grid="accLCTable">
+						<table>
+							<thead>
+								<tr>
+									<th>节点</th>
+									<th>日期</th>
+									<th>时间</th>
+									<th>生命周期名称</th>
+									<th>余额单元代码</th>
+									<th>余额对象</th>
+									<th>描述</th>
+									<th>操作</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.t1"></td>
+									<td align="center" ng-bind="item.time1"></td>
+									<td align="center" ng-bind="item.time2"></td>
+									<td align="center" ng-bind="item.type"></td>
+									<td align="center" ng-bind="item.balUnitCd"></td>
+									<td align="center" ng-bind="item.balObj"></td>
+									<td align="center" ng-bind="item.dsc"></td>
+									<td align="center">
+										<button class="layui-btn layui-btn-mini"
+											ng-click="checkAccLCInfo(item)">
+											<i class="layui-icon layui-icon-more">&#xe65f;</i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>

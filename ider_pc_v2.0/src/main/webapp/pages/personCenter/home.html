@@ -1,0 +1,266 @@
+<style>
+	.personContaier {
+				width: 90%;
+				margin-left: 5%;
+				margin-right: 5%;
+				display: flex;
+				justify-content: center;
+			}
+			.personContaier .left {
+				display: flex;
+				flex-direction: column;
+				padding: 0;
+			}
+			.personContaier .lfTop {
+				height: 355px;
+				background: rgb(246,234,215);
+				cursor: pointer;
+			}
+			
+			
+		.lfTop {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.lfTop .weatherOne, .lfTop  .weatherTwo, .lfTop  .weatherThree {
+				margin-left: 70px;
+				margin-right: 70px;
+				font-size: 20px;
+			}
+			.lfTop .weatherOne {
+				margin-top: 60px;
+			}
+			.lfTop .weatherTwo, .weatherThree {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.weatherTwo .temp, .weatherThree .pos, .weatherThree .tempRange {
+					font-size: 20px;
+			}
+			.lfTop .weatherThree {
+				margin-bottom: 70px;
+			}
+			
+			/* 公告 */
+			.personContaier .lfBot {
+				height: 170px;
+				background: rgb(249,225,215);
+				cursor: pointer;
+				display:flex;
+			}
+			.noticeImg {
+				width:50px;
+				display:flex;
+				flex-direction:column;
+				justify-content:space-around;
+			}
+			.noticeImg span{
+				display:inline-block;
+				width:100%;
+				text-align:center;
+				font-size: 18px;
+   				font-weight: 700;
+			}
+			.noticee {
+				/*单行显示，超出隐藏*/
+				/* height: 235px; */
+				/*固定公告栏显示区域的高度*/
+				/* padding: 0 30px;
+				background-color: #b3effe; */
+				margin:10px 0 ;
+				overflow: hidden;
+			}
+			
+			.noticee ul li {
+				list-style: none;
+				line-height: 35px;
+				/*以下为了单行显示，超出隐藏*/
+				display: block;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			
+			.tempImg {
+				width: 85px;
+				height: 85px;
+				background: url(../../ider/theme/default/images/ider/personImg/0.png) no-repeat;
+				background-size: cover;
+				
+			}
+			.personContaier .right {
+				padding: 0;
+				margin-left: 15px;
+				/* display: flex; */
+			/* 	flex-wrap:wrap; */
+				/*flex-direction: column;*/
+			/* 	justify-content: space-between; */
+				
+				    display: inline-block;
+				    float: left;
+				
+			}
+			.item {
+				/* padding: 0;
+				height: 170px;
+				width: 24%;
+				 background: rgb(221,236,234);
+				margin-bottom: 15px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				cursor: pointer; */
+				padding: 0;
+			    height: 170px;
+			    width: 23%;
+			    background: rgb(221,236,234);
+			    margin-bottom: 15px;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    cursor: pointer;
+			    margin-left: 10px;
+			    float: left;
+			}
+			
+			.right .item .itemImg {
+				width: 85px;
+				height: 85px;
+				margin-top: 30px;
+				margin-bottom: 15px;
+			}
+			.right .item .itemDesc  {
+				font-size: 16px;
+			    color: #333;
+			    height: 25px;
+			    line-height: 25px;
+			}
+			
+			.quickMenuBg01 {
+				background: url(../../ider/theme/default/images/ider/menu_01.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg02 {
+				background: url(../../ider/theme/default/images/ider/menu_02.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg03 {
+				background: url(../../ider/theme/default/images/ider/menu_03.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg04 {
+				background: url(../../ider/theme/default/images/ider/menu_04.png) no-repeat;
+				background-size: cover;
+			}
+			
+			.quickMenuBg05 {
+				background: url(../../ider/theme/default/images/ider/menu_05.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg06 {
+				background: url(../../ider/theme/default/images/ider/menu_06.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg07 {
+				background: url(../../ider/theme/default/images/ider/menu_07.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg08 {
+				background: url(../../ider/theme/default/images/ider/menu_08.png) no-repeat;
+				background-size: cover;
+			}
+			
+			.quickMenuBg09 {
+				background: url(../../ider/theme/default/images/ider/menu_09.png) no-repeat;
+				background-size: cover;
+			}
+			.quickMenuBg10 {
+				background: url(../../ider/theme/default/images/ider/menu_10.png) no-repeat;
+				background-size: cover;
+			}
+			.addImg {
+				background: url(../../ider/theme/default/images/ider/personImg/add.png) no-repeat;
+				background-size: cover;
+			}
+			.marBot15 {
+				margin-bottom: 15px;
+			}
+			.marTop15 {
+				margin-top: 15px;
+			}
+			
+			.marBot25 {
+				margin-bottom: 25px;
+			}
+			.marLf15 {
+				margin-left: 15px;
+			}
+</style>
+<div class="personContaier col-md-12 " ng-controller="personCenterCtrl">
+	<div class="left  layui-col-md4">
+				<div class="lfTop marBot15">
+					<div class="weatherOne">大雪</div>
+					<div class="weatherTwo"> 
+						<div class="temp">
+							3度
+						</div>
+						<div class="tempImg">
+							
+						</div>
+					</div>
+					<div class="weatherThree">
+						<div class="pos">
+							beijing
+						</div>
+						<div class="tempRange">
+							-3 -- 7
+						</div>
+					</div>
+				</div>
+				<div class="lfBot" >
+					<div class="noticeImg col-md-3" >
+						<span>公</span>
+						<span>告</span>
+					</div>
+					<div class="noticee col-md-9" id="timeMsg">
+						<ul>
+							<li>第1条公告第1条公告第1条公告第1条公告第1条公告第1条公告</li>
+							<li>第2条公告第2条公告第2条公告第2条公告第2条公告第2条公告</li>
+							<li>第3条公告第3条公告第3条公告第3条公告第3条公告第3条公告</li>
+							<li>第4条公告第4条公告第4条公告第4条公告第4条公告第4条公告</li>
+							
+							<li>第5条公告第5条公告第1条公告第1条公告第1条公告第1条公告</li>
+							<li>第6条公告第6条公告第2条公告第2条公告第2条公告第2条公告</li>
+							<li>第7条公告第7条公告第3条公告第3条公告第3条公告第3条公告</li>
+							<li>第8条公告第8条公告第4条公告第4条公告第4条公告第4条公告</li>
+							<li>第9条公告第9条公告第1条公告第1条公告第1条公告第1条公告</li>
+							<li>第10条公告第10条公告第2条公告第2条公告第2条公告第2条公告</li>
+							<li>第11条公告第11条公告第3条公告第3条公告第3条公告第3条公告</li>
+							<li>第12条公告第12条公告第4条公告第4条公告第4条公告第4条公告</li>
+							
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+	<div class="right  col-lg-12 layui-col-md8">
+		<div class="item"  ng-repeat="quickMenu in quickMenuList"  ng-click="clickQuickMenu(quickMenu)">
+			<div class="itemImg" ng-class ="{iconmenu01:'quickMenuBg01',iconmenu02:'quickMenuBg02',iconmenu03:'quickMenuBg03',iconmenu04:'quickMenuBg04',iconmenu05:'quickMenuBg05',
+			iconmenu06:'quickMenuBg06',iconmenu07:'quickMenuBg07',iconmenu08:'quickMenuBg08',iconmenu09:'quickMenuBg09',
+			iconmenu10:'quickMenuBg10',iconmenu11:'quickMenuBg11',iconmenu12:'quickMenuBg12'}[quickMenu.iconOrder]"></div>
+			<div class="itemDesc">
+				{{quickMenu.menuName}}
+			</div>
+		</div>
+		<div class="item" ng-click = "quickMenuBtn()">
+			<div class="itemImg addImg"></div>
+			<div class="itemDesc">
+				添加快捷菜单
+			</div>
+		</div>
+		
+	</div>
+</div>

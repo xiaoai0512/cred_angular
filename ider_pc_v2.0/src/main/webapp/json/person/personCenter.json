@@ -1,0 +1,100 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+        	"baseFlag":	"base01",
+			"icon":"iconmenu01",
+			"id":"671907e986b54a119411732b3c117436",
+			"menuLevel":"1",
+			"link":"/ider/pages/panel/panelPage.html",
+			"lowerMenuFlag":"1",
+			"menuDesc":"系统灵活运转，事件快速组装",
+			"menuName":"配置中心",
+			"menuNo":"RES101666",
+			"sort":1,
+			"childMenus":[{
+				"id": "e3343ac5673c4c16b83e3e1810208018",
+				"menuNo": "RES1016661", 
+				"menuName": "事件清单",
+				"icon":"submenu_bg_01",
+				"menuLevel":"2",
+				"link":"/json/beta/evLstList",
+				"lowerMenuFlag":"0"
+			}]
+   		},
+   		
+   		
+   		{
+        	"baseFlag":	"base01",
+			"icon":"iconmenu02",
+			"id":"fb2c30d5177d4e13961a519b8b36b161",
+			"menuLevel":"1",
+			"link":"/ider/pages/panel/panelPage.html",
+			"lowerMenuFlag":"1",
+			"menuDesc":"产品迅速实现，业务随时配置",
+			"menuName":"运营中心",
+			"menuNo":"RES101667",
+			"sort":2,
+			"childMenus":[{
+				"id": "f011e020ca9a43ad9e0e96edd1d034cb",
+				"menuNo": "RES1016671", 
+				"menuName": "业务项目管理",
+				"icon":"submenu_bg_01",
+				"menuLevel":"2",
+				"link":null,
+				"lowerMenuFlag":"1",
+				"upperMenuNo":"RES101667",
+				"childMenus":[{
+					"id": "f4463f7ca313441989bfd365250a5baa",
+					"menuNo": "RES10166711", 
+					"menuName": "业务项目建立",
+					"icon":null,
+					"menuLevel":"3",
+					"link":"/product/proLineEst",
+					"lowerMenuFlag":"0",
+					"upperMenuNo":"RES1016671"
+				}]
+			}]
+   		},
+   		
+   		
+   		{
+        	"baseFlag":"base01",
+			"icon":"iconmenu03",
+			"id":"4564bbf353114582be5b2b6fbddb2d62",
+			"menuLevel":"1",
+			"link":"/ider/pages/panel/panelPage.html",
+			"lowerMenuFlag":"1",
+			"menuDesc":"以客户为中心，提供全生命周期管理",
+			"menuName":"客户服务",
+			"menuNo":"RES101668",
+			"sort":3,
+			"childMenus":[{
+				"id": "0fdee51cba574a9f8e0b6854a0a910e5",
+				"menuNo": "RES1016681", 
+				"menuName": "客户信息管理",
+				"icon":"submenu_bg_01",
+				"menuLevel":"2",
+				"link":null,
+				"lowerMenuFlag":"1",
+				"upperMenuNo":"RES101668",
+				"childMenus":[{
+					"id": "fe26962af474406badb59ddcc72bf66e",
+					"menuNo": "RES101668100", 
+					"menuName": "客户快捷申请",
+					"icon":null,
+					"menuLevel":"3",
+					"link":"/cstSvc/fastBuildCard",
+					"lowerMenuFlag":"0",
+					"upperMenuNo":"RES1016681"
+				}]
+			}]
+       	}]
+    }
+}

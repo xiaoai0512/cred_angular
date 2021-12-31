@@ -1,0 +1,229 @@
+<div ng-controller="elmCfgMgtCtrl">
+	<div class="">
+		<!--web_body-->
+		<form name="cardBinForm1" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH600001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="artifactNo" validator="required"
+						ng-model="artifactInfo.artifactNo" type="text" maxlength="3" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="artifactDesc"
+						ng-model="artifactInfo.artifactDesc" type="text" maxlength="50">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600003' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactInfo.instanDimen1" class="layui-input" name="instanDimen1"
+						jf-select="instanDimen1Arr" maxlength="4"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600004' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<select ng-model="artifactInfo.instanDimen2" class="layui-input" name="instanDimen2"
+						jf-select="instanDimen1Arr" maxlength="4"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactInfo.instanDimen3" class="layui-input" name="instanDimen3"
+						jf-select="instanDimen1Arr" maxlength="4"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactInfo.instanDimen4" class="layui-input" name="instanDimen4"
+						jf-select="instanDimen1Arr" maxlength="4"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600007' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactInfo.instanDimen5" class="layui-input" name="instanDimen5"
+						jf-select="instanDimen1Arr" maxlength="4"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactInfo.delayEffectiveSign" class="layui-input" name="delayEffectiveSign"
+						jf-select="delEffArr" ></select>
+				</div>
+			</div>
+		</form>
+		<div ng-if="showNonObjInstanDimen">
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactInfo.nonObjInstanDimen"
+						class="layui-input"
+						jf-select="nonObjInstanDimenArray"
+						name=nonObjInstanDimen placeholder="非对象实例化维度"></select>
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="search_mian">
+			<div class="mainname">{{'PZH600010' | translate}}</div>
+		</div>
+		<div style="margin-bottom: 15px;margin-left: 5%;">
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'PZJ600024' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="elementNo"  ng-model="artifactInfo.elementNo" maxlength="50" >
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label Wd150">{{'PZJ600025' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="elementDesc"  ng-model="artifactInfo.elementDesc" maxlength="50">
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-left: 5%;">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryElementList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="modalmain" >
+			<div class="row">
+				<div class="colFive">
+					<h7>{{'PZJ600026' | translate}}</h7>
+				</div>
+				<div class="colSix">
+					<h7>{{'PZJ600027' | translate}}</h7>
+				</div>
+				<div class="clearboth"></div>
+			</div>
+			<div class="row">
+				<div class="colOne">
+					<select name="s39" size="10" multiple="multiple" id="s39" class="form_selectgro">
+						
+					</select>
+				</div>
+				<div class="colTwo4 text-center">
+					<button type="button" class="layui-btn mb15" name="add" id="add39" value="">
+						{{'F00036' | translate}}<i class="layui-icon">&#xe602;</i>
+					</button>
+					<br />
+					<button type="button" class="layui-btn mb15" name="addall" id="addall39" value="">
+						{{'F00120' | translate}}<i class="layui-icon">&#xe65b;</i>
+					</button>
+					<br />
+					<button type="button" name="remove" id="remove39" class="layui-btn mb15">
+						<i class="layui-icon">&#xe603;</i>{{'F00122' | translate}}
+					</button>
+					<br />
+					<button type="button" name="removeall" id="removeall39" value="" class="layui-btn mb15">
+						<i class="layui-icon">&#xe65a;</i>{{'F00123' | translate}} 
+					</button>
+				</div>
+				<div class="colThree">
+					<select name="s40" size="10" multiple="multiple" id="s40" class="form_selectgro">
+					</select>
+				</div>
+				<div class="clearboth"></div>
+			</div>
+		</div>	
+		<!-- <div class="col_td">
+				<div class="col4 text_right">{{'PZH600011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="elmListTableCfg.params.elementNo" maxlength="15">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH600012' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="elmListTableCfg.params.elementDesc" maxlength="50">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="searchelmList()">
+					<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="saveSelect()">
+					<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+				</button>
+			</div>
+		
+		<div jf-grid="elmListTableCfg">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH600011' | translate}}</th>
+						<th>{{'PZH600012' | translate}}</th>
+						<th>{{'PZH600013' | translate}}</th>
+						<th>{{'PZH600014' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.elementNo"></td>
+						<td align="center" ng-bind="item.elementDesc"></td>
+						<td align="center" ng-bind="item.pcdNo"></td>
+						<td align="center" ng-bind="item.pcdDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="mainname">{{'PZH600015' | translate}}</div>
+
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'PZH600016' | translate}}</th>
+						<th>{{'PZH600011' | translate}}</th>
+						<th>{{'PZH600012' | translate}}</th>
+						<th>{{'PZH600013' | translate}}</th>
+						<th>{{'PZH600014' | translate}}</th>
+						<th>{{'F00030' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in treeSelect track by $index">
+						<td align="center" ng-bind="$index + 1"></td>
+						<td align="center" ng-bind="items.elementNo"></td>
+						<td align="center" ng-bind="items.elementDesc"></td>
+						<td align="center" ng-bind="items.pcdNo"></td>
+						<td align="center" ng-bind="items.pcdDesc"></td>
+						<td align="center" width="5%">
+							<div class="table_arrow">
+								<a class="arrow_up" ng-click="exchangeSeqNoUp(items)"></a> <a
+									class="arrow_down" ng-click="exchangeSeqNoDown(items)"></a>
+							</div>
+						</td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+		<!-- <div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="saveArtiEleRel()" validation-submit="cardBinForm1">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+		</div> -->
+	</div>
+</div>

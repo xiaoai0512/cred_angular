@@ -1,0 +1,31 @@
+<div ng-controller="tradScenarioDelCtrl">
+    <form name="mdmInfoForm" class="layui-form">
+        <div class="col_tr">
+            <div class="col2 text_right">{{'F00077' | translate}} ：</div>
+            <div class="wdper70 float_left">
+                <select class="layui-input" jf-select="coArray" name="operationModeNa" ng-model="operationModeInfo"
+                        disabled></select>
+            </div>
+        </div>
+        <div class="col_tr" style="display: none">
+            <div class="col2 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+            <div class="wdper70 float_left">
+                <input class="layui-input" type="hidden" name="id" readonly
+                       ng-model="itemDel.id" validator="required"/>
+            </div>
+        </div>
+        <div class="col_tr">
+            <div class="col2 text_right"><span class="red">*</span>{{'SQH9100005' | translate}} ：</div>
+            <div class="wdper70 float_left">
+                <input class="layui-input" type="text" name="transSceneCode" ng-model="itemDel.transSceneCode"
+                       readonly/>
+            </div>
+        </div>
+        <div class="col_tr">
+            <div class="col2 text_right"><span class="red">*</span>{{'SQH9100006' | translate}}：</div>
+            <div class="wdper70 float_left">
+                <input class="layui-input" type="text" name="transSceneDesc" ng-model="itemDel.transSceneDesc" readonly>
+            </div>
+        </div>
+    </form>
+</div>

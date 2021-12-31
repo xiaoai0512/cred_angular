@@ -1,0 +1,133 @@
+<div class="layout_body" ng-controller="budOutQueryCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="cusInfoForm">
+			
+			<div class="col_td">
+				<label class="col4 text_right">{{'GWH100016' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="topParams.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'KHH4500008' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" jf-date-input ng-model="topParams.billDay">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cusInfoForm"  ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfo">
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.listCode" type="text" readonly>
+			</div>
+		</div> -->
+		
+		
+		<div class="mainname">{{'GWH800001' | translate}}</div>
+		
+		<div jf-grid="unitBillOutList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'GWH800002' | translate}}</th>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'KHH4500010' | translate}}</th>
+						<th>{{'KHH4500011' | translate}}</th>
+						<th>{{'KHH4500009' | translate}}</th>
+						<th>{{'GWH800003' | translate}}</th>
+						<!-- <th>操作</th> -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerName"></td>
+					
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.currentCycleNumber"></td>
+						<td align="center" ng-bind="item.postingAmount"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.productDesc"></td>
+						<!-- <td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewDetail(item)"  >
+								<i class="layui-icon"></i> 查询
+							</button>
+						</td> -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'GWH800004' | translate}}</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="peoCollectInfo.postingAmount" jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500026' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="peoCollectInfo.principalAmount" jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500028' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="peoCollectInfo.interestAamount " jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500027' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="peoCollectInfo.feeAmount " jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'GWH800005' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="unitCollectInfo.postingAmount" jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500026' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="unitCollectInfo.principalAmount" jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500028' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="unitCollectInfo.interestAmount" jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500027' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone " name="listCodeN" ng-model="unitCollectInfo.feeAmount" jf-format-input="money" type="text" readonly>
+			</div>
+		</div>
+		
+		<!-- <div class="col_tr " >
+			<button class="layui-btn float_right" style="margin-right: 48%;" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+			</button>
+		</div> -->
+	</div>
+</div>

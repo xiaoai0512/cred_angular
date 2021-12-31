@@ -1,0 +1,73 @@
+<div ng-controller="billInstalCtrl">
+	<div class="allcontent">
+		<form action="" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">账户代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input layui-disabled" name="accountId" ng-model="billInstallment.accountId" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">币种 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input layui-disabled" name="currencyCode" ng-model="billInstallment.currencyCode" type="text" readonly>
+					<!-- <select ng-model="elmListTable.params.artifactType"
+						class="layui-input" jf-select="builder.option()"
+						name="artifactType" placeholder="构件类型" disabled></select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">可分期最大金额 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input layui-disabled" name="billPrincipalBalance" ng-model="billInstallment.billPrincipalBalance" type="text" readonly>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">分期可用额度 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input layui-disabled" name="eventNo" type="text" readonly>
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right">分期金额 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommTransAmount" type="text" ng-model="billInstallment.ecommTransAmount">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">分期期数 ：</div>
+				<div class="wd190 float_left">
+					<select jf-select="builder.option(periodArray)"
+					ng-model="billInstallment.ecommInstallmentPeriod"></select>
+					
+					<!-- 
+					<input class="layui-input" name="postingPeriod" type="text" ng-model="billInstallment.ecommInstallmentPeriod"> 
+					
+					<select ng-model="billInstallment.postingPeriod"
+						class="layui-input" name="postingPeriod" >
+						<option value="3">3</option>
+						<option value="6">6</option>
+						<option value="12">12</option>
+					</select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易日期 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="ecommTransDate"  id="ecommTransDate" type="text" ng-model="ecommTransDate"
+					jf-date-input="{'format': 'yyyy-MM-dd'}">
+				</div>
+			</div>
+			<!-- <div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn layui-btn-radius" ng-click="resetInfo()">
+					<i class="layui-icon">&#x1006;</i> 取消
+				</button>
+				<button class="layui-btn layui-btn-radius"
+					style="margin-right: 75px" ng-click="saveControlInfo()">
+					<i class="layui-icon">&#x1005;</i> 确定
+				</button>
+			</div> -->
+				
+		</form>
+	</div>
+</div>

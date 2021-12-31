@@ -1,0 +1,52 @@
+<div class="layout_body" ng-controller="bsnTpTplCtrl">
+	<div class="search_mian">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">业务类型代码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="bsnTpList.params.businessTypeCode">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">业务类型描述：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="bsnTpList.params.businessDesc">
+				</div>
+			</div>
+		</div>
+		<div class="search_button">
+			<button class="layui-btn" ng-click="bsnTpList.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="bsnTpList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div jf-grid="bsnTpList">
+		<table>
+			<thead>
+				<tr>
+					<th>运营模式</th>
+					<th>业务类型代码</th>
+					<th>业务类型描述</th>
+					<th>所属业务形态</th>
+					<th>交易识别代码</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.businessTypeCode"></td>
+					<td align="center" ng-bind="item.businessDesc"></td>
+					<td align="center" ng-bind="item.businessPattern"></td>
+					<td align="center" ng-bind="item.transIdentifiNo"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

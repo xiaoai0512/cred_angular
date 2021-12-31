@@ -1,0 +1,45 @@
+<div ng-controller="userOrgRelManageCtrl">
+	<div>
+		<div class="button_contain">
+			<button class="layui-btn layui-btn-primary"
+				ng-click="grid.turn('/helpInputDemo')">
+				<i class="layui-icon">&#xe61f;</i> 新 增
+			</button>
+			<input type="hidden" ng-model="userNum">
+			<button class="layui-btn layui-btn-primary"
+				ng-click="grid.turn('/helpInputDemo')">
+				<i class="layui-icon">&#xe640;</i> 删 除
+			</button>
+			<button class="layui-btn layui-btn-primary"
+				ng-click="grid.turn('/helpInputDemo')">
+				<i class="layui-icon">&#xe642;</i> 修 改关联状态和默认
+			</button>
+		</div>
+		<div class="centermenu_navtitle_line" style="margin: 0"></div>
+		<div jf-grid="grid" name="userAndOrgRelMang">
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th>机构名称</th>
+							<th>机构用户关联状态</th>
+							<th>是否默认机构</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.orgName"></td>
+							<td align="center"
+								ng-bind="item.statusCd | jfConvert : 'dict' : 'StCd'"></td>
+							<td align="center"
+								ng-bind="item.defaultInd | jfConvert : 'dict' : 'BoolType'"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="scrbtn">
+	 		<button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x1006;</i> 返回</button>
+		</div>
+	</div>
+</div>

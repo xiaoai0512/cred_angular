@@ -1,0 +1,36 @@
+<div ng-controller="tnAcInfoCtrl-JY">
+	<div class="leftmenu_navtitle">交易账户信息</div>
+	<div jf-grid="tnAcListTable">
+		<table>
+			<thead>
+				<tr>
+					<th>账户代码</th>
+					<th>币种</th>
+					<th>本金余额</th>
+					<th>利息余额</th>
+					<th>费用余额</th>
+					<th>计息年利率</th>
+					<th>累计利息</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accCd"></td>
+					<td align="center" ng-bind="item.ccyCd"></td>
+					<td align="center" ng-bind="item.pnpBal"></td>
+					<td align="center" ng-bind="item.intBal"></td>
+					<td align="center" ng-bind="item.epsBal"></td>
+					<td align="center" ng-bind="item.intArYrIntRt"></td>
+					<td align="center" ng-bind="item.acmInt"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="detailCstCprsvInfEnqr(item)">
+							<i class="layui-icon layui-icon-more">&#xe65f;</i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

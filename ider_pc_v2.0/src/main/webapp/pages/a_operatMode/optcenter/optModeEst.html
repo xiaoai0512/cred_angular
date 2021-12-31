@@ -1,0 +1,224 @@
+<div ng-controller="optModeEstCtrl">
+	<div class=" ">
+		<form name="optModeInfForm"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step1I"  type="text" name="operationMode"  ng-model="optModeInf.operationMode"  validator="required" maxlength="3" >
+					<!-- <select  class="layui-input" ng-model="optModeInf.operationMode" jf-select="operationModeArr" name="operationMode"   validator="required" maxlength="3">
+					</select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input step1S" ng-model="optModeInf.corporationEntityNo" jf-select="corporationEntityNoArr" name="corporationEntityNo"     validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step1I"  type="text" name="modeName"  ng-model="optModeInf.modeName"  maxlength="50"  validator="required" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input"  type="text" name="accountCurrency"  ng-model="optModeInf.accountCurrency" maxlength="3" > -->
+					<select  class="layui-input step1S" ng-model="optModeInf.accountCurrency" jf-select="currencyArr" name="accountCurrency"   maxlength="3"  validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH900004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step1I"  type="text" name="creditTreeId"  ng-model="optModeInf.creditTreeId" maxlength="3" >
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'YYH900005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="optModeInf.overpayBusinessType" jf-select="busTypeArr" name="overpayBusinessType"   maxlength="9">
+					</select>
+					<input class="layui-input"  type="text" name="overpayBusinessType"  ng-model="optModeInf.overpayBusinessType" maxlength="9" >
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH900006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input step1S" ng-model="optModeInf.dateType" jf-select="dataTypeArray" name="dateType"   maxlength="2">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input step1S" ng-model="optModeInf.defaultFlag" jf-select="defaultFlagArray" name="defaultFlag"   maxlength="1" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input step1S" ng-model="optModeInf.batchDateProcessType" jf-select="batchDateProcessTypeArray" name="batchDateProcessType"   maxlength="3" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_tr text_center" ng-show="step1Btn">
+				<button class="layui-btn layui-btn-radius" ng-click="nextStep1()" validation-submit="optModeInfForm">
+					<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+				</button>
+			</div>
+		</form>
+		<div ng-show="isInfo">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH900019' | translate}}</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH900020' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="currencyCode"  ng-model="optModeInf.currencyCode" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH900021' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="currencyDesc"  ng-model="optModeInf.currencyDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryAddCurrencyList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+				<div class="row">
+					<div class="colFive">
+						<h7>{{'YYH900007' | translate}}</h7>
+					</div>
+					<div class="colSix">
+						<h7>{{'YYH900012' | translate}}</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s13" size="10" multiple="multiple" id="s19" class="form_selectgro" lay-search="">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add19" value="">
+							{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+						</button>
+						<br />
+						<!-- <button type="button" class="layui-btn mb15" name="addall" id="addall19" value="">
+							{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+						</button>
+						<br /> -->
+						<button type="button" name="remove" id="remove19" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+						</button>
+						<br />
+						<!-- <button type="button" name="removeall" id="removeall19" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+						</button> -->
+						<button type="button" name="paymentPriorityN" id="paymentPriorityCurry" class="layui-btn mb15">
+							{{'YYH900025' | translate}}
+						</button>
+					</div>
+					<div class="colThree">
+						<select name="s14" size="10" multiple="multiple" id="s20" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius"  ng-click="stepBackOne()">
+					<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+				</button>
+				<!-- <button class="layui-btn" ng-click="saveOptMode()" validation-submit="optModeInfForm" >
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button> -->
+			</div>
+		</div>
+<!-- 			<div class="layui-form-item">
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label">{{'YYH900008' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="currencyCode" type="text"
+							 ng-model="currencyTable.params.currencyCode">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="currencyTable.search()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="saveSelect()">
+							<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+
+			
+		<div jf-grid="currencyTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH900008' | translate}}</th>
+						<th>{{'YYH900009' | translate}}</th>
+						<th>{{'YYH900010' | translate}}</th>
+						<th>{{'YYH900011' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.currencyDesc"></td>
+						<td align="center" ng-bind="item.decimalPosition"></td>
+						<td align="center" ng-bind="item.referred"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+			<div class="mainname">{{'YYH900012' | translate}}</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+							<th>{{'YYH900008' | translate}}</th>
+							<th>{{'YYH900013' | translate}}</th>
+							<th style="width: 150px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in treeSelect track by $index">
+						<td align="center" ng-bind="items.currencyCode"></td>
+						<td align="center" ng-bind="items.paymentPriority"></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="updateSelect(items,$index)">
+								<i class="layui-icon"></i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+</div>

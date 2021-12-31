@@ -1,0 +1,51 @@
+<div ng-controller="currencyEstCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：货币建立
+	</div>
+	<div class="allcontent layui-form">
+		<form name="balanceForm">
+			<div class="mainname">新增货币</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>货币代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="currency.currencyCode"
+						validator="required" name="currencyCode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>货币描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="currency.description"
+						validator="required" name="description" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>小数位位数：</div>
+				<div class="wd190 float_left">
+				<input class="layui-input" ng-model="currency.decimalPlaces"
+						validator="required" name="decimalPlaces" type="text">
+					<!-- <select ng-model="currency.decimalDigit" class="layui-input"
+						jf-select="builder.option(currencyArr)" name="actCde"
+						validator="required">
+					</select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>货币简称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" validator="required"
+					ng-model="currency.referred"
+						name="referred" type="text">
+				</div>
+			</div>
+
+		</form>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius"
+				ng-click="saveCurrency()" validation-submit="balanceForm">
+				<i class="layui-icon"></i> 保存
+			</button>
+		</div>
+
+	</div>
+</div>

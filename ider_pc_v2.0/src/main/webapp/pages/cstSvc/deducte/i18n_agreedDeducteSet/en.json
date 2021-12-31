@@ -1,0 +1,28 @@
+{
+"KHH1000003": "Direct Debit Information",
+"KHH1000004": "Customer Number",
+"KHH1000005": "Business Program Code",
+"KHH1000006": "cycle day",
+"KHH1000007": "Next Statement date",
+"KHH1000008": "Direct Debit Status",
+"KHH1000009": "Direct Debit Method ",
+"KHH1000010": "Direct Debit Bank Number",
+"KHH1000011": "Direct Debit account Nbr",
+"KHH1000012": "Not set",
+"KHH1000013": "Has been set",
+"KHH1000014": "Minimum payment",
+"KHH1000015": "Full payment",
+"KHH1000016": "Direct Debit bank number",
+"KHH1000017": "Direct Debit account Nbr",
+"KHH1000018": "foreign currency Exchange Payment flag",
+"KHH1000019": "foreign currency Exchange Payment",
+"KHH1000020": "No foreign currency Exchange Payment",
+
+
+"KHJ1000001": "Not set",
+"KHJ1000002": "Has been set",
+"KHJ1000003": "Minimum payment",
+"KHJ1000004": "Full payment",
+"KHJ1000005": "Please enter the ID number or External PAN",
+"KHJ1000006": "Direct Debit detail"
+}

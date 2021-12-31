@@ -1,0 +1,150 @@
+<div class="layout_body" ng-controller="newLabelSetCtrl">
+	<div class=" layui-form">
+		<div class="clearboth"></div>
+		<div ng-show="isShowCstBsDiv">
+			<div class="mainname">1. {{'KHH5300004' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHJ5300017' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBsTypeLbSetTable.params.pricingObject"
+						jf-select="pricingTypeArray" name="pricingObject" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5300005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="cstBsTypeLbSetTable.params.pricingObjectCode" maxlength="15">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="cstBsTypeLbSetTable.search()">
+					 {{'F00019' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="resetPrice()">
+					 {{'F00018' | translate}}
+				</button>
+			</div>
+			<div class="clearboth"></div>
+			<div jf-grid="cstBsTypeLbSetTable">
+              <table>
+                  <thead>
+                      <tr>
+                          <th>{{'KHH5300014' | translate}}</th>
+                          <th>{{'KHJ5300017' | translate}}</th>
+                          <th>{{'KHH5300008' | translate}}</th>
+                          <th>{{'KHH5300015' | translate}}</th>
+                          <th>{{'KHH5300006' | translate}}</th>
+                          <th>{{'KHH5300009' | translate}}</th>
+                          <th>{{'KHH5300016' | translate}}</th>
+                          <th>{{'KHH5300017' | translate}}</th>
+                          <th width="12%">{{'F00017' | translate}}</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  	<tr>
+                       <td align="center" ng-bind="item.operationMode"></td>
+                       <td align="center" ng-bind="item.pricingObject"></td>
+                       <td align="center">
+                       		<span>{{item.pricingObjectCode}}</span><span>{{item.pricingObjectDesc}}</span>
+                       </td>
+                       <td align="center" ng-bind="item.pricingTag"></td>
+                       <td align="center" ng-bind="item.pricingDesc"></td>
+                       <td align="center" ng-bind="item.pricingTypeDesc"></td>
+                       <td align="center" ng-bind="item.performOrder"></td>
+                        <td align="center" ng-bind="item.pricingMethodDesc"></td>
+                       <td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkPrcObjDetail(item)" type="button">
+								 {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="choseCstInf(item)"
+								type="button" >
+								 {{'F00036' | translate}}
+							</button>
+						</td>
+                      </tr>
+                  </tbody>
+              </table>
+          	</div>
+			<div class="clearboth"></div>
+			<div class="mainname">2. {{'KHH5300007' | translate}}</div>
+			<form name="mdmInfoForm" class="layui-form">
+			
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300015' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="csInf.pricingTag"
+							disabled="disabled" name="tag" type="text">
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300022' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="csInf.pricingDesc"
+							disabled="disabled" name="tag" type="text">
+					</div>
+				</div>
+			
+			
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300008' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="csInf.pricingObjectCodeTrans"
+							disabled="disabled" name="tag" type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300009' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select jf-select="priceAreaArray"
+							ng-model="csInf.pricingType" disabled="disabled"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300010' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date" 
+							ng-model="custTagEffectiveDate" type="text" id="lay_custTagEffectiveDate" validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300011' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date" 
+							ng-model="custTagExpirationDate" type="text" id="lay_custTagExpirationDate" validator="required">
+					</div>
+				</div>
+				
+				<div class="clearboth"></div>
+				<div class="mainname">4. {{'KHH5300012' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5100062' | translate}}：</div>
+					<div class="wd190 float_left" >
+							<select  class="layui-input" ng-model="csInf.pricingLevel" 
+							 name="pricingLevel" jf-select="priceArr" lay-filter="pricingLev" validator="required" >
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5100063' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="csInf.pricingLevelCode"  validator="required"
+							jf-select="labelScopeArr" name="pricingLevelCode">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300029' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="csInf.pricingScope" 
+							jf-select="currencyArr" name="pricingScope">
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

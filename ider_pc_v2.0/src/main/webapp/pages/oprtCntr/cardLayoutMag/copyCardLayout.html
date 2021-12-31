@@ -1,0 +1,29 @@
+<div ng-controller="cardLayoutBuildCtrlCopy">
+	<div class=" layui-form">
+		<form name="cardLayoutInfForm" >
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH700001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="cardLayoutInfCopy.operationModeUp" 
+							jf-select="operationModeArr" name="operationMode"  maxlength="3" >
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00155' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardLayoutInfCopy.formatCode" maxlength="4" 
+						name="formatCode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00131' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardLayoutInfCopy.formatDescribe" maxlength="50" 
+						name="description" type="text">
+				</div>
+			</div>
+			
+		</form>
+	</div>
+</div>

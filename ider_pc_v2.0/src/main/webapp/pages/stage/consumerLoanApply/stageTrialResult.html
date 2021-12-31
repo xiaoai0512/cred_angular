@@ -1,0 +1,64 @@
+<div ng-controller="stageTrialsCtrl">
+	<div class="col_td">
+				<div class="col4 text_right">{{'FQH200023' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name=" loanAmt" ng-model="stageInf.loanAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="loanRate" ng-model="stageInf.loanRate" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="feeRate" ng-model="stageInf.feeRate" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600020' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="term" ng-model="stageInf.term" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600019' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="allFeeAmt" ng-model="stageInf.allFeeAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200024' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="allIntAmt" ng-model="stageInf.allIntAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH4600074' | translate}}</div>
+			<div class="clearboth"></div>
+			<div jf-grid="cashTrailList">
+				<table>
+						<thead>
+							<tr>
+								<th >{{'KHH4600025' | translate}}</th>
+								<th >{{'KHH4600026' | translate}}</th>
+								<th>{{'KHH4600027' | translate}}</th>
+								<th>{{'KHH4600028' | translate}}</th>
+								<th>{{'KHH4600029' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.termNo"></td>
+								<td align="center" ng-bind="item.throwDate"></td>
+								<td align="center" ng-bind="item.principalAmount | number:2"></td>
+								<td align="center" ng-bind="item.interestAmount | number:2"></td>
+								<td align="center" ng-bind="item.feeAmount | number:2"></td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+</div>

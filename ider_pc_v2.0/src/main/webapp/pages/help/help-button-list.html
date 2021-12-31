@@ -1,0 +1,118 @@
+<div class="mainname">按钮操作说明 - 入门指南</div>
+<blockquote class="layui-elem-quote">
+新增，修改，删除按钮说明</br>
+&nbsp;&nbsp;&nbsp;&nbsp;页签新增:ng-click="grid.turn('/inputDemo')"  //inputDemo为路由请求</br>
+&nbsp;&nbsp;&nbsp;&nbsp;弹窗新增:ng-click="grid.modal('url',{title :'标题',buttons : ['按钮名称1','按钮名称2'],size : ['宽','高'],callbacks : [回调函数]})"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;如：ng-click="grid.modal('/demo/demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [modalCallback]})"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;只有url是必填，其他可为空。如ng-click="grid.modal('url')</br>
+&nbsp;&nbsp;&nbsp;&nbsp;页签修改：ng-click="grid.turn('/helpInputDemo?preEndDate&processTitle&processDefineName')"url和路由（两边都要设置，不然会无效）后面可配置传递参数，['/helpInputDemo?preEndDate&processTitle&processDefineName','devdemo/help-demo-input.html','devDemoController.js']</br>
+&nbsp;&nbsp;&nbsp;&nbsp;设置完参数后可在控制域中用$stateParams.字段名获取参数值</br>
+&nbsp;&nbsp;&nbsp;&nbsp;弹框修改：ng-click="updateDiaDemo()"指定一个点击事件
+&nbsp;&nbsp;&nbsp;&nbsp;删除：ng-click="grid.request('demo.delete?id')"指定一个删除事件demo.delete为配置的路由
+</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="listDemoCtrl">
+	<div class="button_contain">
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo')"><i class="layui-icon">&#xe61f;</i> 页签新增</button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [modalCallback]})">弹窗新增</button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo?preEndDate&processTitle&processDefineName')"><i class="layui-icon">&#xe642;</i> 页签修改</button>
+        <button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()"><i class="layui-icon">&#xe642;</i> 弹窗修改</button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.request('demo.delete?id')"><i class="layui-icon">&#xe640;</i> 删 除</button>
+	</div>
+<div jf-grid="grid">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th>融资日期</th>
+                    <th>上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  //列表初始化
+  $scope.grid = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : true ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      }
+  };
+  //弹窗修改页面初始化
+  $scope.updateDiaDemo=function(){
+		$scope.demoData={};//创建对象
+		if($scope.grid.checkedList().length <= 0){
+				jfLayer.alert('请至少选中一条记录');
+				return false ;
+			}
+		$scope.demoData=$scope.grid.checkedList()[0];//选中列值
+		$scope.grid.modal('/help/help-demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [$scope.modalCallback]});
+	};
+	//页签修改页面初始化
+	Tansun.controller('helpInputDemoCtrl',function($scope,$stateParams){
+    	if($stateParams.processTitle){
+	    	$scope.demoData = {
+	    			processTitle : $stateParams.processTitle,
+	    			preEndDate : $stateParams.preEndDate,
+	    			processDefineName : $stateParams.processDefineName
+	    		}
+    	}
+	}) ;
+</pre>
+<div class="mainname">列表例子</div>
+<div ng-controller="listDemoCtrl">
+	<div class="button_contain">
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo')"><i class="layui-icon">&#xe61f;</i> 页签新 增</button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [modalCallback]})">弹窗新 增</button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo?preEndDate&processTitle&processDefineName')"><i class="layui-icon">&#xe642;</i> 页签修 改</button>
+        <button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()"><i class="layui-icon">&#xe642;</i> 弹窗修 改</button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo?test=1&id')"><i class="layui-icon">&#xe640;</i> 删 除</button>
+	</div>
+<div jf-grid="grid">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th>融资日期</th>
+                    <th>上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</div>

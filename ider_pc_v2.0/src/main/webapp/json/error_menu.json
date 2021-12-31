@@ -1,0 +1,413 @@
+{
+  "status": 200,
+  "data": [
+  	{
+      "id": "RES101666",
+      "img": "iconmenu01",
+      "menu": [
+        {
+          "id": "RES10152",
+          "img": "",
+          "text":"事件清单",
+          "menu": [
+            {
+              "id": "RES10150",
+              "img": "",
+              "text": "事件清单",
+              "url": "/json/beta/evLstList"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "活动清单",
+              "url": "/json/beta/avyList"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "构建清单",
+              "url": "/beta/elmList"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "装配工程",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "顺序号",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "事件配置管理",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "活动配置管理",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "构建配置管理",
+              "url": "/beta/elmCfgMgt"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "货币表",
+              "url": "/noticeUpgrade"
+            }
+          ]
+        }
+      ],
+      "text": "BETA",
+      "width": 650
+    },
+    {
+      "id": "RES101666",
+      "img": "iconmenu02",
+      "menu": [
+        {
+          "id": "RES10152",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10153",
+              "img": "",
+              "text": "产品中心",
+              "url": "/oprtCntr/balObjList"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "产品实例化",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "运营查询",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "汇率表维护",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "发行卡BIN管理",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "封锁码场景管理",
+              "url": "/oprtCntr/blockCDScnMgt"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "定价标签设置",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "财务中心",
+              "url": "/noticeUpgrade"
+            }
+          ],
+          "text": "运营中心"
+        }
+      ],
+      "text": "运营中心",
+      "width": 650
+    },
+    {
+      "id": "RES101666",
+      "img": "iconmenu03",
+      "menu": [
+        {
+          "id": "RES10152",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10153",
+              "img": "",
+              "text": "客户资料新增",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "客户资料维护",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "产品媒介服务",
+              "url": "/cstSvc/cstMediaList"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "客户统一视图",
+              "url": "/cstSvc/cstMgtandcntlViewEnqr"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "客户综合信息查询",
+              "url": "/cstSvc/cstCprsvInfEnqr"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "财务查询",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "余额体系查询",
+              "url": "/cstSvc/acbaUnitList"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "定价体系查询",
+              "url": "/cstSvc/cstPrcgLblEnqr"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "生命周期概览",
+              "url": "/cstSvc/lCOvew"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "历史查询",
+              "url": "/cstSvc/rltmBalEnqr"
+            }
+          ],
+          "text": "客户服务"
+        }
+      ],
+      "text": "客户服务",
+      "width": 650
+    },
+    {
+      "id": "RES101666",
+      "img": "iconmenu04",
+      "menu": [
+        {
+          "id": "RES10152",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10153",
+              "img": "",
+              "text": "授权场景管理",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "授权黑名单管理",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "授权流量管控",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "差异化管理",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "授权交易查询",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "客户额度调整",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "客户额度树查询",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "调额历史查询",
+              "url": "/noticeUpgrade"
+            }
+          ],
+          "text": "授权中心"
+        }
+      ],
+      "text": "授权中心",
+      "width": 650
+    },
+    {
+      "id": "RES101666",
+      "img": "iconmenu05",
+      "menu": [
+        {
+          "id": "RES10152",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10153",
+              "img": "",
+              "text": "统计报表",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "预警报表",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "风险报表",
+              "url": "/noticeUpgrade"
+            },
+	    {
+              "id": "RES10153",
+              "img": "",
+              "text": "监控报表",
+              "url": "/noticeUpgrade"
+            }
+          ],
+          "text": "报表中心"
+        }
+      ],
+      "text": "报表中心",
+      "width": 650
+    },
+    {
+      "id": "RES10156",
+      "img": "iconmenu03",
+      "menu": [
+        {
+          "id": "RES10147",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10148",
+              "img": "",
+              "text": "ui用户教程 1.1",
+              "url": "/helpDemo"
+            }
+          ],
+          "text": "ui"
+        }
+      ],
+      "text": "帮助文档",
+      "width": 650
+    },
+    {
+      "id": "RES10155",
+      "img": "iconmenu02",
+      "menu": [
+        {
+          "id": "RES10142",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10143",
+              "img": "",
+              "text": "查询列表实例",
+              "url": "/listDemo"
+            },
+            {
+              "id": "RES10144",
+              "img": "",
+              "text": "信息页面实例",
+              "url": "/bigPageDemo"
+            }
+          ],
+          "text": "开发实例"
+        }
+      ],
+      "text": "开发实例",
+      "width": 650
+    },
+    {
+      "id": "RES101566",
+      "img": "iconmenu07",
+      "menu": [
+        {
+          "id": "RES10142",
+          "img": "",
+          "menu": [
+            {
+              "id": "RES10143",
+              "img": "",
+              "text": "客户产品列表",
+              "url": "/other/cstPDList"
+            },
+            {
+              "id": "RES10144",
+              "img": "",
+              "text": "客户管控视角查询",
+              "url": "/bigPageDemo"
+            },
+            {
+              "id": "RES10143",
+              "img": "",
+              "text": "标签对象查询",
+              "url": "/other/lblObjList"
+            },
+            {
+              "id": "RES10143",
+              "img": "",
+              "text": "构件元件选择",
+              "url": "/listDemo"
+            },
+            {
+              "id": "RES10143",
+              "img": "",
+              "text": "新业务类型配置",
+              "url": "/other/newBsnTpCfg"
+            },
+            {
+              "id": "RES10143",
+              "img": "",
+              "text": "新产品配置",
+              "url": "/other/newPDCfg"
+            }
+          ],
+          "text": "三四级菜单入口"
+        }
+      ],
+      "text": "三四级菜单入口",
+      "width": 650
+    }
+  ]
+}

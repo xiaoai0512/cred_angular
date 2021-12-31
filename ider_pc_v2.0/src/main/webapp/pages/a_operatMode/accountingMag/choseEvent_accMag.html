@@ -1,0 +1,48 @@
+<div ng-controller="choseEvent_accMagCtrl">
+
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div class="col_td">
+		<div class="col4 text_right">{{'F00162' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+				ng-model="itemList.params.eventId" maxlength="14">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'F00163' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+				ng-model="itemList.params.eventDesc" maxlength="50">
+		</div>
+	</div>
+	<div class="col_tr text_center">
+		<button class="layui-btn" ng-click="itemList.search()" type="button">
+			<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+		</button>
+
+		<button class="layui-btn cancel-btn" type="button"
+			ng-click="itemList.params={}">
+			<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+		</button>
+	</div>
+	<div jf-grid="itemList">
+		<!-- <table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob"> -->
+		<table>
+			<thead>
+				<tr>
+					<th>{{'F00162' | translate}}</th>
+					<th>{{'F00163' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr ng-repeat="items in treeSelectAdd track by $index"> -->
+				<tr>
+					<td align="center" ng-bind="item.eventNo"></td>
+					<td align="center" ng-bind="item.eventDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</form>
+</div>

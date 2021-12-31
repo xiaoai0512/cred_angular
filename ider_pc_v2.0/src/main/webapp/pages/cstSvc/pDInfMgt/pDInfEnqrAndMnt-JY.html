@@ -1,0 +1,121 @@
+<div ng-controller="pDInfEnqrAndMntCtrl">
+	<!-- <div class="leftmenu_navtitle">产品信息查询及维护</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div  class="allcontent layui-form">
+	<div >
+	<form action="" name="pDInfMntForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="pDInfEnqrAndMntInfo.idType"
+					jf-select="builder.option(certificateTypeArray1)" name="idType" lay-filter="getIdType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH3800001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="pDInfEnqrAndMntInfo.idNumber"  type="text"
+				id="pDInfMnt_idNumber"   validator="noValidator">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="pDInfEnqrAndMntInfo.externalIdentificationNo"
+					name="externalIdentificationNo" type="text">
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<button class="layui-btn"  validation-submit="pDInfMntForm"  ng-click="searchPDInfEnqrAndMntInfo()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+	</div>
+	</form>
+	<div class="clearboth"></div>
+	<div ng-if="showPDInfEnqrAndMntInfoBtn">
+		<div class="mainname" >1. {{'KHH3800002' | translate}}</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'KHH3800003' | translate}}：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="operationMode"  disabled>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'KHH3800004' | translate}}：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="customerNo2"  disabled>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'KHH3800005' | translate}}：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="idNumber"  disabled>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'KHH3800006' | translate}}：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="customerName"  disabled>
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+			<div class="mainname" >2. {{'KHH3800007' | translate}}</div>
+
+			<div jf-grid="cstPDInfTable">
+				<table>
+					<thead>
+						<tr>
+							<!-- <th>产品单元代码</th> -->
+							<th>{{'KHH3800008' | translate}}</th>
+							<th>{{'KHH3800009' | translate}}</th>
+							<th>{{'KHH3800010' | translate}}</th>
+							<th>{{'KHH3800011' | translate}}</th>
+							<th>公务卡预算单位编码</th>
+							<th>{{'KHH3800012' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<!-- <td align="center" ng-bind="item.productUnitCode"></td> -->
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+							<td align="center">
+								<span ng-if="item.productType=='CRD'">{{'KHH3800013' | translate}}</span> 
+								<span ng-if="item.productType=='RLN'">{{'KHH3800014' | translate}}</span> 
+					         </td>
+							<td align="center" ng-bind="item.coBrandedNo"></td>
+							<td align="center" ng-bind="item.budgetOrgCode"></td>
+							<td align="center" >
+							     <span ng-if="item.statusCode =='1'">{{'KHH3800015' | translate}}</span>
+							     <span ng-if="item.statusCode == '8'">{{'KHH3800016' | translate}}</span> 
+							</td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="updateProInf(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,106 @@
+{
+"KHH3300001": "Customer Basic Information",
+"KHH3300002": "Institution number",
+"KHH3300003": "Customer Name",
+"KHH3300006": "Personal company logo",
+"KHH3300007": "Billing Day",
+"KHH3300008": "Repayment option",
+"KHH3300009": "City",
+
+"KHH3300017": "Customer Personal Information",
+"KHH3300018": "Branch Number",
+"KHH3300019": "Birthday",
+"KHH3300020": "Gender",
+"KHH3300021": "Mobile number",
+"KHH3300022": "Home Phone",
+"KHH3300023": "Company Phone",
+"KHH3300024": "Postcode",
+"KHH3300025": "Contact Name",
+"KHH3300026": "Contact Phone",
+"KHH3300027": "Become a member year",
+"KHH3300028": "Customer comes to source code",
+"KHH3300029": "Behavior score",
+"KHH3300030": "Customer Level",
+"KHH3300031": "Marriage status",
+"KHH3300032": "Working Industry Code",
+"KHH3300033": "Title Level Code",
+"KHH3300034": "Title Code",
+"KHH3300035": "working years",
+"KHH3300036": "Hobbies",
+"KHH3300037": "Guarantor logo",
+"KHH3300038": "Marketer Code",
+"KHH3300039": "Type of Social Security Number for Cardholders",
+"KHH3300040": "Social Security Account",
+
+"KHH3300041": "Address Type",
+"KHH3300042": "Contact Address",
+"KHH3300043": "Contact Zip Code",
+"KHH3300044": "Designated phone",
+"KHH3300045": "City in the city",
+
+"KHH3300050": "Customer Remarks Information",
+"KHH3300051": "Remarks information",
+"KHH3300052": "Additional remarks",
+
+"KHH3300060": "Submit",
+
+"KHH3300061": "Annual income",
+"KHH3300062": "Residential nature",
+"KHH3300065":"Type of previous certificate",
+"KHH3300066":"Previous Certificate Number",
+"KHH3300063": "Customer Address Information",
+"KHH3300064": "Next",
+"KHJ3300001": "Enter query conditions",
+"KHJ3300002": "Accounting Choice",
+
+"KHJ3300003": "Self-purchasing",
+"KHJ3300004": "Borrow",
+"KHJ3300005": "rental",
+
+"KHJ3300010": "ID card",
+
+"KHJ3300011": "High",
+"KHJ3300012": "中中",
+"KHJ3300013": "Beginning",
+
+"KHJ3300018": "No guarantee",
+"KHJ3300019": "Already exists",
+"KHJ3300020": "There is potential",
+
+"KHJ3300025": "Unmarried",
+"KHJ3300026": "Married",
+"KHJ3300027": "Divorced",
+
+"KHJ3300028": "Unknown",
+
+"KHJ3300033": "Female",
+"KHJ3300034": "Men",
+
+"KHJ3300038": "Mailing address",
+"KHJ3300039": "Home Address",
+"KHJ3300040": "Unit Address",
+
+"KHJ3300041": "RMB",
+
+"KHJ3300045": "Full penalty interest",
+"KHJ3300046": "Non-full penalty interest rate",
+
+"KHJ3300051": "Personal Customer",
+"KHJ3300052": "Company customers",
+
+"KHJ3300057": "No agreement deduction",
+"KHJ3300058": "Bill balance",
+"KHJ3300059": "Minimum repayment amount",
+
+"KHJ3300064": "The Bank",
+"KHJ3300065": "He walks",
+
+"KHJ3300069": "Buy remittance",
+"KHJ3300070": "No purchase repayment",
+
+"KHJ3300075": "Unified repayment",
+"KHJ3300076": "Separate repayment",
+
+"KHJ3300081": "Please enter at least one type of address information",
+"KHJ3300082" : "This customer already exists and cannot be created again!"
+}

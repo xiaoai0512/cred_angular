@@ -1,0 +1,143 @@
+<div class="mainname">树形列表新旧版本修改点</div>
+<blockquote class="layui-elem-quote">树形列表jf-tree写法修改</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    旧版：div中：&lt;div jf-ztree="demotree" node-click="nodeClick" reload="reloadTree" resource="org.query" params="treeParams"&gt;（demotree为对应树的名称，可自己定义）。
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新版：div中：&lt;div jf-tree="demotree"&gt;（demotree为对应树的名称，可自己定义）。
+
+    1).旧版需要在标签里添加属性，如node-click, 然后在controller里声明对应的方法。直接在demotree里配置
+    2).新版reload写在指令中，直接使用$scope.demotree.reload()方法即可
+</pre>
+<div class="mainname">js代码</div>
+<blockquote class="layui-elem-quote">js代码示例</blockquote>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+//新版tree配置示例
+$scope.demotree = {
+    isCheck : false,
+    params : {},
+    resource : 'roleMenu.query',
+    nodeClick : function(treeNode) {
+        alert(treeNode.name);
+    }
+}
+
+//树的重新加载方法
+$scope.demotree.reload();
+</pre>
+<div class="mainname">左右结构代码</div>
+<blockquote class="layui-elem-quote">树形列表和页签放在两个同级div中</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    旧版：div中：只将下拉树放入一个div：&lt;div class="maintree_contain"&gt;另一部分则没有放入同级div中
+    新版：分别将树和代码放入两个同级的div中：分别为右边:&lt;div class="maintree_contain"&gt;
+                                            左边:&lt;div class="maintree_right"&gt;
+ </pre>                                                
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div class="layout_body" ng-controller="treeTapCtrl">
+     <div class="subposition" ng-bind-html="getCurrentLoaction('')">
+        </div>
+        <div class="layui-form">
+             <div class="maintree_contain">
+                       <!--添加下拉树列表-->
+             </div>
+            <div class="maintree_right">
+                       <!--添加页签内容-->
+            </div>
+     </div>
+</div>
+</pre> 
+<div class="mainname">页签内容</div>
+<blockquote class="layui-elem-quote">3、左侧&lt;div class="maintree_right"&gt;页签内容</blockquote>
+    <div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div class="maintree_right">
+    <div id="container">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this">页签1</li>
+                <li>页签2</li>
+                <li>页签3</li>
+                <li>页签4</li>
+            </ul>
+                <div class="layui-tab-content">
+                <!-- 添加页签div -->
+                  <div class="layui-tab-item layui-show">
+                       <!--添加页面内容 -->
+                  </div>
+                  <div class="layui-tab-item">
+                       <!--添加页面内容 -->
+                  </div>
+                  <div class="layui-tab-item">
+                       <!--添加页面内容 -->
+                  </div>
+                  <div class="layui-tab-item">
+                       <!--添加页面内容 -->
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+</pre>                                                 
+<div class="mainname">下拉树页签页面例子</div>
+<div ng-controller="treetapDemoCtrl">
+	     <div class="subposition" ng-bind-html="getCurrentLoaction('')">
+        </div>
+        <div class="layui-form">
+             <div  class="maintree_contain">
+                <div class="maintree_title">复选菜单树</div>
+        			<div class="maintree_content" jf-tree="checkTreeDemo"></div>
+             </div>
+            <div class="maintree_right">
+            	    <div id="container">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this">页签1：单选树示例</li>
+                <li>页签2：列表示例</li>
+            </ul>
+                <div class="layui-tab-content">
+                <!-- 添加页签div -->
+                  <div class="layui-tab-item layui-show">
+                  	  <div class="maintree_title">单选菜单树</div>
+    					    <div class="maintree_content" jf-tree="radioTreeDemo"></div>
+                  </div>  	
+                  <div class="layui-tab-item">
+                  <div class="mainname">列表例子</div>
+					<div class="button_contain">
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo')"><i class="layui-icon">&#xe61f;</i> 页签新 增</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [modalCallback]})">弹窗新 增</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo?preEndDate&processTitle&processDefineName')"><i class="layui-icon">&#xe642;</i> 页签修 改</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()"><i class="layui-icon">&#xe642;</i> 弹窗修 改</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo?test=1&id')"><i class="layui-icon">&#xe640;</i> 删 除</button>
+							</div>
+						<div jf-grid="grid">
+						     <table>
+						          <thead>
+						              <tr>
+						                    <th>流程名称</th>
+						                    <th>主题</th>
+						                    <th>融资人</th>
+						                    <th>融资日期</th>
+						                    <th>上一环节</th>
+						                    <th>当前所在环节</th>
+						                    <th>提示</th>
+						              </tr>
+						          </thead>
+						          <tbody>
+						              <tr>
+						                    <td align="left"  ng-bind="item.processDefineName"></td>
+						                    <td align="left"  ng-bind="item.processTitle"></td>
+						                    <td align="left"  ng-bind="item.preUserName"></td>
+						                    <td align="left"  ng-bind="item.preEndDate"></td>
+						                    <td align="left"  ng-bind="item.preActivitiName"></td>
+						                    <td align="left"  ng-bind="item.activityName"></td>
+						                    <td align="left"  ng-bind="item.processDefineName"></td>
+						              </tr>
+						          </tbody>
+						     </table>
+						</div>
+                  </div>
+            </div>
+        </div>
+    </div>
+            </div>
+     </div>
+</div>

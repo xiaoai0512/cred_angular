@@ -1,0 +1,121 @@
+<div ng-controller="transDisputeAccDetailCtrl">
+	<div class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4400003' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.currencyCode" name="currencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4400012' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.oldGlobalSerialNumbr" name="oldGlobalSerialNumbr" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.disputeAmount"  name="disputeAmount" jf-format-input="money"  type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4400007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.blanceAmount" name="blanceAmount" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4400008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.overpayFreezeAmount"  name="overpayFreezeAmount" jf-format-input="money"  type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeInf.overpayFreezeStatus"
+					jf-select="overpayFreezeStatusArr" name="overpayFreezeStatus"  disabled="disabled">
+				</select>
+			
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400009' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.freeDate" name="freeDate" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400014' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.interestExpirationDate"  name="interestExpirationDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400015' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.interestAmt" name="interestAmt" jf-format-input="money"  type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400016' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeInf.amtOccFlag"
+					jf-select="amtOccFlagArr" name="amtOccFlag" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" ng-model="disputeInf.businessProgramNo" name="businessProgramNo" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.businessProgramNo}}</span> <span>{{disputeInf.programDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400010' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone"  ng-model="disputeInf.businessTypeCode" name="businessTypeCode" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.businessTypeCode}}</span> <span>{{disputeInf.businessDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" ng-model="disputeInf.customerNo" name="customerNo" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.customerNo}}</span> 
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400018' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone"  ng-model="disputeInf.organNo" name="organNo" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.organNo}}</span> <span>{{disputeInf.organName}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400023' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeInf.statusCode"
+					jf-select="statusCodeArr" name="statusCode" disabled>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>

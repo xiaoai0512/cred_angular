@@ -1,0 +1,141 @@
+<div ng-controller="BPTypeCtrl">
+	<div class="section  layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200002' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="itemType.businessTypeCode"
+					 name="businessTypeCode" type="text" validator="required" maxlength="9" disabled >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200003' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="itemType.businessDesc"
+					name="businessDesc" type="text"  maxlength="50" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200007' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone"  ng-model="itemType.creditTreeNode"   disabled
+				 name="creditTreeNode" type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200008' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone " ng-model="itemType.paymentPriority"  disabled
+				 name="paymentPriority" type="text"  validator="number" maxlength="3">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200004' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="transIdentificationCodeView" class="layui-input"
+					jf-select="transIdenArr"
+					name="transIdentificationCode" validator="required" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200005' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="itemType.businessFormView" class="layui-input" disabled
+					jf-select="businessFormArray"
+					name="businessForm" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200006' | translate}} ：</div>
+			<div class="wd330 float_left">
+					<select ng-model="businessDebitCreditCodeView" class="layui-input" disabled
+					jf-select="businessNatureArr"
+					name="businessDebitCreditCode" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200009' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="itemType.defaultPrincipalBalanceObjTemp"  disabled  jf-select="prinBalanceObject" name="defaultPrincipalBalanceObj" maxlength="9" >
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200010' | translate}}：</div>
+			<div class="wd330 float_left">
+			<select ng-model="itemType.defaultInterestBalanceObjTemp" disabled   jf-select="intBalanceObject" name="defaultInterestBalanceObj" maxlength="9" >
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200011' | translate}}：</div>
+			<div class="wd330 float_left">
+			<select ng-model="itemType.defaultFeeBalanceObjTemp" disabled   jf-select="feeBalanceObject" name="defaultFeeBalanceObj" maxlength="9" >
+					</select>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+	<div class="mainname">{{'YYH510054' | translate}}：</div>
+		<div jf-grid="typeBPView">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:30%">{{'YYJ400003' | translate}}</th>
+						<th  align="left" style="width:45%">{{'YYH510004' | translate}}</th>
+						<th style="width:15%">{{'YYH510007' | translate}}</th>
+						<th style="width:10%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">
+					  		<div class="tdDivL">{{item.instanCode1}}</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc1}}</div>
+					  	</td>
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+						</td>
+						<td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryArtifactBP(item)" ng-if="item.pcdNo!=null && item.supportPcd == 'Y'">
+								{{'F00075' | translate}}</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearboth"></div>
+	<div class="mainname">{{'YYH510055' | translate}}</div>
+		<div jf-grid="typeBTPView">
+			<table>
+				<thead>
+					<tr>
+						<!-- <th style="width:12%">业务类型</th> -->
+						<th  align="left" style="width:50%">{{'YYH510004' | translate}}</th>
+						<th style="width:35%">{{'YYH510007' | translate}}</th>
+						<th style="width:15%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<!-- <td align="center" ng-bind="item.instanCode1"></td> -->
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+						</td>
+						<td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryArtifactBP(item)" ng-if="item.pcdNo!=null && item.supportPcd == 'Y'">
+								{{'F00075' | translate}}</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,68 @@
+<div class="layout_body" ng-controller="exceptionInfoCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 正负面清单查询 -->
+			<from class="layui-form">
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH2200001' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="operationMode" class="layui-input"
+									jf-select="coArray" name="aatype" lay-filter="getOperationMode"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH2200003' | translate}}：</label>
+						<div class="wd190 float_left">
+							<!-- <input class="layui-input" type="text" ng-model="listCode"> -->
+							<select ng-model="listCode" class="layui-input" jf-select="listCodeArr" name="aatype"></select>
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<div class="search_button">
+							<button class="layui-btn" ng-click="seachQuota()" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn" ng-click="addException()" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+							</button>
+						</div>
+					</div>
+			</from>
+		<!-- 正负面清单列表 -->
+		<div ng-show="isEshow">
+			<div jf-grid="exceptionMList" >
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH2200004' | translate}}</th>
+							<th>{{'SQH2200002' | translate}}</th>
+							<th>{{'SQH2200003' | translate}}</th>
+							<th>{{'SQH2200006' | translate}}</th>
+							<th>{{'SQH2200007' | translate}}</th>
+							<th style="width:20%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.listCode"></td>
+							<td align="center" ng-bind="item.listTypDesc"></td>
+							<td align="center" ng-bind="item.listDesc"></td>
+							<td style="width:20%" align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

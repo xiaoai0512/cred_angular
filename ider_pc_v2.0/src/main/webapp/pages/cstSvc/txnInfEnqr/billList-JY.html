@@ -1,0 +1,26 @@
+<div ng-controller="billListCtrl">
+	<div jf-grid="billingInfoList">
+		<table>
+			<thead>
+				<tr>
+					<th style="width:150px">账户代码</th>
+					<th>币种</th>
+					<th>周期号</th>
+					<th>产品对象代码</th>
+					<th>账单日期</th>
+					<th>账单金额</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accountId"></td>
+					<td align="center" ng-bind="item.currency"></td>
+					<td align="center" ng-bind="item.currPeriod"></td>
+					<td align="center" ng-bind="item.productId"></td>
+					<td align="center" ng-bind="item.billDate"></td>
+					<td align="center" ng-bind="item.billAmount"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

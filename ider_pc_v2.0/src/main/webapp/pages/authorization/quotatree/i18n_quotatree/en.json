@@ -1,0 +1,22 @@
+{
+"SQH2100060": "Operatation Mode",
+"SQH2100061": "Credit Limit Mesh ID",
+"SQH2100062": "Serial number",
+"SQH2100063": "Credit Limit Mesh Description",
+"SQH2100067": "Add Limit Node",
+"SQH2100068": "Delete Limit Node",
+"SQH2100069": "Parent Node",
+"SQH2100070": "Limit Node Parameter",
+"SQJ2100001": "No limit node data ",
+"SQJ2100002": "Credit Limit Tree Details",
+"SQJ2100003": "Insuffiecient authority",
+"SQJ2100004": "Update Credit Limit Tree",
+"SQJ2100005": "Update successfully",
+"SQJ2100006": "Update failed",
+"SQJ2100007": "Add credit limit tree",
+"SQJ2100008": "Create successfully",
+"SQJ2100009": "create failed",
+"SQJ2100010": "Credit limit tree already exists!",
+"SQJ2100011": "Please select the parent node first",
+"SQH2100071":"Effective Date"
+}

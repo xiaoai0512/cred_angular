@@ -1,0 +1,101 @@
+<div ng-controller="tradModelCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<!-- <div class="col_td" ng-show='adminFlagAuth == "1"'> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1600060' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="trads.operationMode" validator="required"></select>
+			</div>
+		</div>
+	    <div class="col_td">  
+		    <div class="col4 text_right"><span class="red">*</span>{{'SQH1600076' | translate}}：</div>
+		    <div class="wd190 float_left">
+			      <input class="layui-input" name="transModeCodeN"  type="text" ng-model="trads.transSceneCode " validator="required,maxlength,minlength" maxlength="4" minlength="4">
+		    </div>
+	    </div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1600077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="appArray" name="operationModeNa" ng-model="trads.applicationRange" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1600061' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="transModeDescN"  type="text" ng-model="trads.transSceneDesc" validator="required">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname" style="display: inline;">{{'SQH1600068' | translate}}</div>
+				<div class="layui-inline float_right">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="addTrads()">
+							<i class="layui-icon">&#xe654;</i>  {{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+		<div style="margin-bottom:20px" >
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th align="center" style="width:5%">{{'SQH1600062' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600073' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600069' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600075' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600070' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600071' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600075' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600072' | translate}}</th>
+						<th align="center" style="width:10%"> {{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="trad in tradsAddList" >
+						<td align="center" style="width:5%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="width:15%;padding-top: 5px;padding-right: 5px;" align="center">
+							<div>
+								 <select ng-model="trad.cardAssociations" class="layui-input" jf-select="cardAssociationsArray" validator="required"></select>
+							</div>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" >
+							<div>
+							<select ng-model="trad.field1" class="layui-input"
+							   jf-select="field1Array" validator="required" ></select> 
+						    </div>
+					    </td>
+					    <td align="center" style="width:10%;padding-top: 5px;padding-left: 5px;" align="center">
+							<div>
+								 <select ng-model="trad.relative1" class="layui-input" jf-select="relativeArray" validator="required"></select>
+							</div>
+						</td>
+						<td align="center" style="width:10%;padding-top: 5px;" align="center" >
+							<div><input class="layui-input" name="bsnN{{$index+1}}" style="width: 90%;display: inline-block;"  ng-model="trad.field1Value " validator="required" ></div>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" >
+						    <div>
+						    <select ng-model="trad.field2" class="layui-input"
+							   jf-select="field1Array" ></select>
+							</div>
+					    </td>
+					    <td align="center" style="width:10%;padding-top: 5px;padding-left: 5px;" align="center">
+							<div>
+								 <select ng-model="trad.relative2" class="layui-input" jf-select="relativeArray" validator="required"></select>
+							</div>
+						</td>
+					<td align="center" style="width:10%;padding-top: 5px;" align="center" >
+						<div><input class="layui-input" name="bsnN{{$index+1}}" style="width: 90%;display: inline-block;"  ng-model="trad.field2Value " ></div>
+					</td>
+						<td align="center"  style="width:10%">
+							<button class="layui-btn layui-btn-mini" ng-click="delTrads(item,$index)">
+								 {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,143 @@
+<div class="layout_body" ng-controller="uniteRateCtrl">
+	<!-- <div class="leftmenu_navtitle">账户余额单元信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+	<form action="" name="accFinaForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="queryAccountForm.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" ng-model="queryAccountForm.idNumber"
+					id="accFina_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="externalIdentificationNo"  name="externalIdentificationNo" type="text" ng-model="queryAccountForm.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="accFinaForm"  ng-click="searchAccount()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 财务信息 -->	
+	<div class="section" ng-show="showList">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div jf-grid="itemList">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:20%">{{'KHH4700004' | translate}}</th>
+									<th>{{'KHH4700014' | translate}}</th>
+									<th>{{'KHH4700047' | translate}}</th>
+									<th>{{'KHH4700048' | translate}}</th>
+									<th>{{'KHH4700049' | translate}}</th>
+									<th>{{'KHH4700050' | translate}}</th>
+									<th>{{'KHH4700051' | translate}}</th>
+									<th>{{'KHH4700052' | translate}}</th>
+									<th>{{'F00017' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="width:20%" align="center" ng-bind="item.accountId"></td>
+									<td align="left" >
+										<span ng-bind="item.currencyCode"></span>
+									  	<span ng-bind="item.currencyDesc"></span>
+									</td>
+									<td align="center" ng-bind="item.businessTypeCode"></td>
+									<td align="center" ng-bind="item.productObjectCode"></td>
+									<td align="center" ng-bind="item.productDesc"></td>
+									<td align="center" ng-bind="item.accountOrganFormDesc"></td>
+									<td align="center" ng-bind="item.businessDebitCreditCodeDesc"></td>
+									<td align="center" style="width:12%" ng-bind="item.statusCodeDesc"></td>
+									<td align="center">
+										<a class="layui-btn layui-btn-mini" ng-click="viewBalanceInf(item)">
+											<i class="layui-icon"></i>{{'F00009' | translate}}
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>	
+	<!-- 账户余额对象信息 -->
+	<div class="allcontent"  ng-show = "isShow">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH4700012' | translate}}</div>
+		<div jf-grid="accBalObjTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:15%">{{'KHH4700013' | translate}}</th>
+						<th>{{'KHH4700014' | translate}}</th>
+						<th>{{'KHH4700015' | translate}}</th>
+						<th>{{'KHH4700016' | translate}}</th>
+						<th>{{'KHH4700017' | translate}}</th>
+						<th>{{'KHH4700018' | translate}}</th>
+						<th>{{'KHH4700019' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width:15%" align="center" ng-bind="item.accountId"></td>
+						<td align="left" >
+							<span ng-bind="item.currencyCode"></span>
+						  	<span ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.balanceObjectCode"></td>
+						<td align="center" ng-bind="item.interestRate"></td>
+						<td align="center" ng-bind="item.rateChangeFlagDesc"></td>
+						<td align="center" ng-bind="item.pendingInterestRate"></td>
+						<td align="center" ng-bind="item.overpayRateChangeFlagDesc"></td>
+						<td align="center">
+						<button class="layui-btn layui-btn-mini" ng-click="checkAcBaObj(item)" type="button">
+								<i class="layui-icon">&#xe60b;</i> {{'F00041' | translate}}
+						</button>
+					</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<form action="" name="interestRateForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH47000225' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"   name="interestRate" type="text" ng-model="accInfo.interestRate" validator="required,sevenDecimals">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" validation-submit="interestRateForm" 
+					ng-click="saveUinteRate()" type="button">
+					<i class="layui-icon"></i> {{'F00031' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

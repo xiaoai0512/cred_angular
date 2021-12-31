@@ -1,0 +1,67 @@
+<div ng-controller="unitResultInfoCtrl">
+	<div class="">
+		<form name="mdmInfoForm" class="layui-form">
+			<div class=" clearboth"></div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'SQH600006' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="userNoN" ng-model="resInfo.customerNo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'F00111' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="jobNumberN" ng-model="resInfo.externalIdentificationNo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'SQH320001' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="nameN" ng-model="resInfo.creditNodeNosInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'GWH400006' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="nameN" ng-model="resInfo.adjustTypeInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'SQH300008' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="idNumberN" ng-model="resInfo.currencyCodeInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'SQH320014' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.tempLimitInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td" ng-show="tempResult">
+				<div class="col3 text_right">{{'GWH400007' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.startDateInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td" ng-show="tempResult">
+				<div class="col3 text_right">{{'GWH400008' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.endDataInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col3 text_right">{{'SQH320015' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.returnCodeInfo" type="text">
+				</div>
+			</div>
+			<div class="col_td" ng-show="isNO" style="height:60px">
+				<div class="col3 text_right">{{'SQH600008' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<textarea class="layui-input bnone" name="loginNameN" style="height:60px" ng-model="resInfo.returnMsgInfo"></textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

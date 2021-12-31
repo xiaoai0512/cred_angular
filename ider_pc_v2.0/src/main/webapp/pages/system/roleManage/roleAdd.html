@@ -1,0 +1,64 @@
+<div ng-controller="roleAddCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<!-- <div class="mainname titleInfo">基本信息</div> -->
+		<!-- <div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>运营模式：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="operationModeN"  type="text" ng-model="radd.operationMode">
+				<select class="layui-input" jf-select="coArray" name="operationModeN" ng-model="radd.operationMode"></select>
+			</div>
+		</div> -->
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500001' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<!-- <input class="layui-input" name="operationOrganN" ng-model="radd.operationOrgan"  type="text"> -->
+				<select class="layui-input" jf-select="operationOrganArray" name="operationOrganN" ng-model="radd.operationOrgan"></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500032' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="departmentNoN"  type="text" ng-model="radd.departmentNo">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500029' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="departmentNameN"  type="text" ng-model="radd.departmentName">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500030' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="departmentDescN" ng-model="radd.departmentDesc"  type="text">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500033' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="departmentAddressN" ng-model="radd.departmentAddress"  type="text">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500034' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="departmentLeaderN" ng-model="radd.departmentLeader"  type="text">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500035' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="phoneN" ng-model="radd.phone"  type="text"  maxlength="11">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right">{{'YWH5500031' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="departmentStatusArr" name="departmentStatus" ng-model="radd.departmentStatus"></select>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

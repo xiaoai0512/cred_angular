@@ -1,0 +1,68 @@
+<div ng-controller="viewSpecialSitEventCtrl">
+	<div class="section layui-form">
+		<div class="mainname titleInfo">{{'PZH100072' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH100070' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" type="text" ng-model="itemPos.eventNo" id="eventNo"
+					disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH100071' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" type="text" ng-model="itemPos.eventDesc"
+					disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH100042' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="itemPoseffectivenessCodeTypeInfo1" class="layui-input"
+					jf-select="blockTpyeArray1" disabled
+					name="effectivenessCodeTypeN"   ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH400038' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select  class="layui-input" ng-model="itemPossceneTriggerObjectInfo1"
+					jf-select="blockCodeRangeArr1" name="sceneTriggerObjectN" disabled>
+				</select> 
+			</div>
+		</div>
+		<div class="clearboth"></div>	
+		<!-- 反向事件 -->
+		<div class="mainname titleInfo">{{'PZH100074' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH100073' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" type="text" ng-model="itemRes.eventNo" id="eventNo"
+					disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH100071' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" type="text" ng-model="itemRes.eventDesc"
+					disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH100042' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="itemReseffectivenessCodeTypeInfo2" class="layui-input"
+					jf-select="blockTpyeArray2" disabled
+					name="effectivenessCodeType2N"   ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH400038' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select  class="layui-input" ng-model="itemRessceneTriggerObjectInfo2"
+					jf-select="blockCodeRangeArr2" name="sceneTriggerObject2N" disabled>
+				</select> 
+			</div>
+		</div>
+	</div>
+</div>

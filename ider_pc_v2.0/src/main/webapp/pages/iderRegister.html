@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>IDER CreditX</title>
+<style type="text/css">
+	@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+</style>
+<script>
+        ctx = getContextPath();
+        function getContextPath() {
+            var pathName = document.location.pathname;
+            var index = pathName.substr(1).indexOf("/");
+            var result = pathName.substr(0, index + 1);
+            return result;
+        }
+        
+       function getRequestURL() {
+           var localHref = window.location.href;
+           var requestURL = '';
+           if (localHref.indexOf('#') >= 0) {
+               requestURL = localHref.split("#")[1];
+           } else {
+               requestURL = document.location.pathname;
+           }
+           return requestURL;
+       }
+		document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/js/main\"> <\/script>");
+		document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider_login.css\" type=\"text/css\"/>");
+		// document.write("<base href=\""+ ctx + "/login\"" + ">");
+    </script>
+</head>
+<body class="login_body" >
+    <div class="login_container">
+        <div class="login_logo"></div>
+        <form class="layui-form" action="">
+            <div class="layui-form-item layui-row">
+                <div class="layui-col-md8 layui-col-md-offset2">
+                  <input type="text" name="title" required  lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class=" layui-col-md8 layui-col-md-offset2">
+                  <input type="text" name="title" required  lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                  <button class="layui-btn layui-col-md8 layui-col-md-offset2 loginBtn" lay-submit lay-filter="formDemo">登录</button>
+            </div>
+            <div class="layui-form-item">
+                <div class=" layui-col-md8 layui-col-md-offset2 noaccount">
+                    <span>还没有账号？</span>
+                    <a href="">立即注册</a>
+                </div>
+            </div>
+        </form>
+       
+    </div>
+</body>
+</html>

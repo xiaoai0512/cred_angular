@@ -1,0 +1,78 @@
+<div ng-controller="viewAccTypeDefyCtrl">
+	<div class=" ">
+		<form name="accTypeDefyFormee" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewOperationMode" jf-select="operationModeArr" name="operationMode"
+					 validator="required,maxlength" maxlength="3" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5400001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="accountingType" ng-model="accTypeDefyInfo.accountingType" maxlength="7"
+					 validator="required,maxlength" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="accountingDesc" ng-model="accTypeDefyInfo.accountingDesc" maxlength="50">
+				</div>
+			</div>
+
+			<div ng-show="isShowInstan1">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400003' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="accTypeDefyInfo.instanDimen1" jf-select="instanDimenArr" name="instanDimen1"
+						 maxlength="4" disabled>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowInstan2">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="accTypeDefyInfo.instanDimen2" jf-select="instanDimenArr" name="instanDimen2"
+						 maxlength="4" disabled>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowInstan3">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="accTypeDefyInfo.instanDimen3" jf-select="instanDimenArr" name="instanDimen3"
+						 maxlength="4" disabled>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowInstan4">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="accTypeDefyInfo.instanDimen4" jf-select="instanDimenArr" name="instanDimen4"
+						 maxlength="4" disabled>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowInstan5">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400007' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="accTypeDefyInfo.instanDimen5" jf-select="instanDimenArr" name="instanDimen5"
+						 maxlength="4" disabled>
+						</select>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

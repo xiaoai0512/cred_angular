@@ -1,0 +1,100 @@
+<div class="layout_body" ng-controller="pStatusInfoCtrl">
+	<div class="">
+		<form name="mdmInfoFormAdd"  class="layui-form">
+			<div class="col_td"><!--远程系统标识-->
+				<label class="col4 text_right"><span class="red">*</span>{{'SQH3200009' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="remoteSystemIndInfo" class="layui-input" name="remoteSystemIndName"
+							jf-select="cardAssociationsArray" lay-filter="getInfoCard" disabled></select>
+				</div>
+			</div>
+			<div class="col_td"><!--服务器客户端标识-->
+			   <label class="col4 text_right"><span class="red">*</span>{{'SQH3200002' | translate}}：</label>
+			    <div class="wd190 float_left">
+				  <select ng-model="connModelInfo" class="layui-input" name="serverClientIndName" lay-filter="getInfoServer"
+						jf-select="connctModelArray" disabled ></select>
+			    </div>
+		   </div>
+		   <div class="col_td"><!--编码-->
+		       <label class="col4 text_right"><span class="red">*</span>{{'SQH3200011' | translate}}：</label>
+		       <div class="wd190 float_left">
+			   <select ng-model="charCodeInfo" class="layui-input" name="charCodeName"
+					jf-select="charCodeAllArray"  disabled></select>
+		      </div>
+	       </div>
+	       <div class="col_td"><!--报文头-->
+	           <label class="col4 text_right"><span class="red">*</span>{{'SQH3200012' | translate}}：</label>
+	           <div class="wd190 float_left">
+		           <select ng-model="includeHeaderIndInfo" class="layui-input" lay-filter="getHeaderLength"
+				        jf-select="headArray" disabled ></select>
+	            </div>
+          </div>
+          <div class="col_td"><!--报文长度-->
+              <label class="col4 text_right"><span class="red">*</span>{{'SQH3200013' | translate}}：</label>
+              <div class="wd190 float_left">
+			         <input class="layui-input" type="text" name="headerLength" ng-model="item.headerLength"  readonly  autocomplete="off">
+             </div>
+          </div>
+          <div class="col_td"><!--授权事件号-->
+          <label class="col4 text_right"><span class="red">*</span>{{'SQH3200014' | translate}}：</label>
+          <div class="wd190 float_left">
+		         <input class="layui-input" type="text" name="eventNo" ng-model="item.eventNo" readonly>
+         </div>
+      </div>
+	     <div class="col_td"><!--重连次数-->
+	           <label class="col4 text_right"><span class="red">*</span>{{'SQH3200015' | translate}} ：</label>
+			  <div class="wd190 float_left">
+				   <input class="layui-input" type="text" name="readTimeout" ng-model="item.readTimeout" readonly>
+			  </div>
+          </div>
+          <div ng-show="localN">
+          <div class=" clearboth" ></div>
+  		<div class="mainname titleInfo">{{'SQH3200003' | translate}}</div>
+			<div class="col_td"><!--本地IP-->
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH3200003' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input" type="text" name="localIp" ng-model="item.localIp" readonly>
+				</div>
+		   </div>
+			<div class="col_td"><!--本地端口-->
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH3200004' | translate}} ：</div>
+					<div class="wdper60 float_left">
+						<input class="layui-input" type="text" name="localPort" ng-model="item.localPort" readonly>
+					</div>
+			</div>
+			</div>
+			<div ng-show="remoteN">
+			 <div class=" clearboth" ></div>
+		  		<div class="mainname titleInfo">{{'SQH3200006' | translate}}</div>
+		   <div class="col_td"><!--远程IP-->
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH3200006' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input" type="text" name="remoteIp" ng-model="item.remoteIp" readonly>
+				</div>
+	      </div>
+		  <div class="col_td"><!--远程端口-->
+			    <div class="col4 text_right"><span class="red">*</span>{{'SQH3200007' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input" type="text" name="remotePort" ng-model="item.remotePort" readonly>
+				</div>
+		 </div>
+		 </div>
+		 <div ng-show="timeN">
+		 <div class=" clearboth"></div>
+	  	  <div class="mainname titleInfo">{{'SQH3200010' | translate}}</div>
+		 <div class="col_td"><!--重连间隔时间-->
+		    <div class="col4 text_right"><span class="red">*</span>{{'SQH3200010' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input" type="text" name="reconnInterval" ng-model="item.reconnInterval" readonly >
+			</div>
+	     </div>
+		  <div class="col_td"><!--重连次数-->
+			    <div class="col4 text_right"><span class="red">*</span>{{'SQJ3200001' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input" type="text" name="maxCount" ng-model="item.maxCount" readonly>
+				</div>
+		</div>
+        </div>
+		</form>
+		</div>
+</div>

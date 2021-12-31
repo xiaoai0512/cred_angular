@@ -1,0 +1,66 @@
+<div ng-controller="creditNodeMeshUpdateCtrl">
+	<div class="">
+		<form name="mdmInfoFormI"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00077' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="operationModeAa" class="layui-input"
+							jf-select="coArray" name="operationModeNd" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH2000065' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" type="text" ng-model="itemUpdate.creditTreeId"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH2000061' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" type="text" ng-model="itemUpdate.creditNodeNo"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH2000067' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" ng-model="itemUpdate.creditDesc" readonly>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo"></div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000087' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="relativeNodeTypU" class="layui-input" lay-search=""
+								jf-select="relativeTypArray" name="relativeNodeTypN"  placeholder="关联类型" lay-filter="getRelativeNodeTypU"   validator="required" id="relativeNodeTypId" ></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000088' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="relativeNodeNoU" class="layui-input" lay-search=""
+								jf-select="relativeNodeNoArrayU" name="relativeNodeNoN" placeholder="关联节点" validator="required"></select>
+				</div>
+			</div>
+
+			<div ng-if="shareRelativeIndShowU">
+
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2000099' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="shareRelativeCodeUpdate" class="layui-input" lay-search=""
+									jf-select="shareRelativeCodeArrayU" name="shareRelativeCodeN"  placeholder="共享交易场景" validator="required" lay-filter="getShareRelativeCodeU"></select>
+					</div>
+				</div>
+
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2000107' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="shareAvailIndUpdate" class="layui-input" lay-search=""
+									jf-select="shareAvailIndArrayU" name="shareAvailIndN"  placeholder="可用额度独立" validator="required" lay-filter="getShareAvailIndU"></select>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

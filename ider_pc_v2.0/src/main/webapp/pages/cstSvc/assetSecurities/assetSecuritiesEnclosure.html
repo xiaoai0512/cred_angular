@@ -1,0 +1,88 @@
+<div ng-controller="assetSecuritiesEnclosureCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="packetItemForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}}： </div>
+				<div class="wd190 float_left">
+					<select ng-model="packetForm.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" ng-model="packetForm.idNumber" 
+					id="packet_idNumber"   validator="noValidator" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="packetForm.externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="packetItemForm"  ng-click="queryPacketInf()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		<!-- 账户信息表 -->
+		<div class="clearboth"></div>
+		<div class="layui-form" ng-show="isShow">
+			<div class="mainname" >{{'KHH6000001' | translate}}</div>
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th width="17%;">{{'KHH6000002' | translate}}</th>
+							<th>{{'KHH6000003' | translate}}</th>
+							<th width="16%;">{{'KHH6000004' | translate}}</th>
+							<th width="16%;">{{'KHH6000005' | translate}}</th>
+							<th width="16%;">{{'KHH6000006' | translate}}</th>
+							<th>{{'KHH6000007' | translate}}</th>
+							<th>{{'KHH6000008' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.currencyDesc"></td>
+							<td align="center" >
+								<span>{{item.businessProgramNo}}{{item.programDesc}}</span>
+							</td>
+							<td align="center" >
+								<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.totalBalance | number:2" 
+								style="padding-left:3px;padding-right:3px">
+							</td>
+							<td align="center" ng-bind="item.absStatusDesc"></td>
+							<td align="center" >
+								<button ng-if="item.operation=='true'" class="layui-btn layui-btn-mini" type="button"
+									ng-click="editPacketInf(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'KHH6000015' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

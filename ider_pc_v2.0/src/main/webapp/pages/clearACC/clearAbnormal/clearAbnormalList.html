@@ -1,0 +1,70 @@
+<div ng-controller="clearAbnormalListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="clearAbnormalList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_td">
+			  <div class="col4 text_right">{{'QFH300070' | translate}}：</div>
+			  <div class="wd190 float_left">
+				<input class="layui-input" name="fileName" ng-model="clearAbnormalList.params.fileName" type="text">
+			  </div>
+		    </div>
+		    <div class="col_tr">
+			   <div class="col2 text_right">{{'SQH2700027' | translate}}：</div>
+				<div class="float_left" style="width:400px">
+					<input class="layui-input icon_date" style="width:48.5%;float:left;" name="fromDataName" id="LAY_start_CAdd" type="text" ng-model="itemList.params.startDate">
+					<div class="col4 text_right" style="width:50%;display:-webkit-box;">
+						<span>~</span>	
+						<input class="layui-input icon_date" style="width:90%;" name="toDateName" id="LAY_end_CAdd" type="text" ng-model="itemList.params.endDate"> 
+					</div>
+					</div>
+         </div>
+			<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="queryList()">
+			<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+		</button>
+			</div>
+		</div>
+		<!-- 清算场景管理列表 -->
+		<div jf-grid="clearAbnormalList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'QFH300070' | translate}}</th>
+						<th>{{'QFH400001' | translate}}</th>
+						<th>{{'QFH400002' | translate}}</th>
+						<th>{{'QFH400003' | translate}}</th>
+						<th>{{'QFH400004' | translate}}</th>
+						<th style="width:24%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.fileName"></td>
+						<td align="center" ng-bind="item.purchaseDate"></td>
+						<td align="center" ng-bind="item.sourceAmount"></td>
+						<td align="center" ng-bind="item.rejectionReasonCode"></td>
+						<td align="center" ng-bind="item.rejectionReasonDesc"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="queryCsceneInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button> 
+							<button class="layui-btn layui-btn-mini" ng-click="updateClearScene(item)" ng-if ="(item.repostingInd == '0') && (item.rejectionReasonCode =='002' || item.rejectionReasonCode =='004' || item.rejectionReasonCode =='006')">
+								<i class="layui-icon">&#xe642;</i> {{'QFH400005' | translate}}
+							</button>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

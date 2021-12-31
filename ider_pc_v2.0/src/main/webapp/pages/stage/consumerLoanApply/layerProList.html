@@ -1,0 +1,26 @@
+<div ng-controller="queryProCtrl">
+	<div class="section">
+			<div jf-grid="proList">
+				<table>
+					<thead>
+						<tr>
+							<th>产品对象代码</th>
+							<th>产品描述</th>
+							<th>产品类型</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+							<td align="center" >
+								<span ng-if="item.productType=='CRD'" >信用卡产品</span>
+								<span ng-if="item.productType=='RLN'" >消费信贷产品</span>
+			         		</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		
+	</div>
+</div>

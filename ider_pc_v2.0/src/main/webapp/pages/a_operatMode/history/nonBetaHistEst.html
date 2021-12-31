@@ -1,0 +1,62 @@
+<div class="layui-form" ng-controller="nonBetaHistEstCtrl">
+    <form name="nonBetaHistInfoForm">
+        <div class="col_td">
+            <div class="col4 text_right">{{'YYH1800001' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <select ng-model="nonBetaHistInfo.operationMode" class="layui-input"  validator="required"
+                        jf-select="operationModeArray" name="operationMode" lay-filter="getOperationMode">
+                </select>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'YYH1800002' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <select ng-model="nonBetaHistInfo.type" class="layui-input"
+                        jf-select="typeArray" name="type" lay-filter="getType">
+                </select>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'YYH1800003' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <select ng-model="nonBetaHistInfo.logLevel" class="layui-input"
+                        jf-select="logLevelArray" name="logLevel" lay-filter="getLogLevel">
+                </select>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'YYH1800004' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <!--<select ng-model="nonBetaHistInfo.enName" class="layui-input"
+                        jf-select="enNameArr" name="enName" lay-filter="getEnName">
+                </select>-->
+                <input class="layui-input"  type="text" name="enName"
+                       ng-model="nonBetaHistInfo.enName"  maxlength="100">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'YYH1800005' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <!--<select ng-model="nonBetaHistInfo.cnName" class="layui-input"
+                        jf-select="cnNameArr" name="cnName" lay-filter="getCnName">
+                </select>-->
+                <input class="layui-input"  type="text" name="cnName"
+                       ng-model="nonBetaHistInfo.cnName"  maxlength="100">
+            </div>
+        </div>
+        <div class="col_td" ng-if="nonBetaHistInfo.type == 'T'">
+            <div class="col4 text_right">{{'YYH1800006' | translate}}：</div>
+            <div class="wd190 float_left" >
+                <input class="layui-input"  type="text" name="savePeriod"
+                       ng-model="nonBetaHistInfo.savePeriod"  maxlength="2"  validator="required,number" >
+            </div>
+        </div>
+        <div class="col_td" ng-if="nonBetaHistInfo.type == 'F'">
+            <div class="col4 text_right">{{'YYH1800006' | translate}}：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input"  type="text" name="savePeriod"
+                       ng-model="nonBetaHistInfo.savePeriod"  maxlength="2"  validator="number" >
+            </div>
+        </div>
+    </form>
+</div>

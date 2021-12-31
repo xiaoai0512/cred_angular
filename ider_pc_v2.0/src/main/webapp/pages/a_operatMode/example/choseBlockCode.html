@@ -1,0 +1,63 @@
+<div ng-controller="choseBlockCodeCtrl">
+
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div class="search_mian layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH700002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="blockTypeArr"
+					ng-model="blockCDScnMgtTable.params.blockCodeType"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH700041' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="blockCodeRangeArr"
+					ng-model="blockCDScnMgtTable.params.blockCodeScope"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH700014' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="blockCDScnMgtTable.params.blockCodeDesc"
+					>
+			</div>
+		</div>
+
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="blockCDScnMgtTable.search()" type="button">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="blockCDScnMgtTable.params={}">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+
+		<div jf-grid="blockCDScnMgtTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH700001' | translate}}</th>
+						<th>{{'YYH700002' | translate}}</th>
+						<th>{{'YYH700003' | translate}}</th>
+						<th>{{'YYH700014' | translate}}</th>
+						<th>{{'YYH700005' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.effectivenessCodeType"></td>
+						<td align="center" ng-bind="item.effectivenessCodeScene"></td>
+						<td align="center" ng-bind="item.effectivenessCodeDesc"></td>
+						<td align="center" ng-bind="item.effectivenessCodeScopeDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</form>
+</div>

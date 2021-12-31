@@ -1,0 +1,289 @@
+<div ng-controller="controlDiffViewCtrl">
+		<form name="mdmInfoForm1"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700052' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700040' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="coArrayInfo" name="operationModeNa" ng-model="operationModeUInfo" disabled></select>
+				</div>
+			</div>
+			<!--<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700095' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="creditNodeNoArrayInfo" name="creditNodeNoN" ng-model="creditNodeNoUInfo" disabled></select>
+				</div>
+			</div>-->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="contrlSceneCodeN" ng-model="infoList.contrlSceneCode" type="text" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700081' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="difTypeInfoArray" name="differentTypeN" ng-model="differentTypeInfo" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCustomerNoInfo">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="idTypeInfo" lay-filter="getIdType" id="idTypeAddId"
+						jf-select="certificateTypeArray" name="idTypeN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCustomerNoInfo">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumberInfo" id="conInfo_idNumber" disabled>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isExterNoInfo">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="externalIdentificationNoAddId" name="externalIdentificationNoN"  ng-model="externalIdentificationNoInfo" disabled>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isriskLevelNoInfo">
+				<label class="col4 text_right">{{'SQH1700076' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="riskLevelAddId" name="riskLevelN" ng-model="riskLevelInfo" disabled>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isProNoInfo">
+				<label class="col4 text_right">{{'SQJ1700029' | translate}}：</label>
+				<div class="wd190 float_left">
+					<!--<input class="layui-input" type="text" id="projectCodeId" name="projectCodeN" ng-model="projectCodeInfo" disabled>-->
+					<select class="layui-input" ng-model="projectCodeInfo"
+		                      jf-select="proArray" name="projectCodeN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isDiffType">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700073' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="independentFlagInfo" class="layui-input"
+								jf-select="independentArray" name="independentFlagN" disabled></select>
+				</div>
+			</div> 
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700046' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="contrlSceneDescN" id="contrlSceneDescId" ng-model="infoList.contrlSceneDesc" type="text" disabled>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm2"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700060' | translate}}</div>
+			<div class="col_td" ng-show = "isTimeInfo">
+				<div class="col4 text_right">{{'F00189' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataName" type="text" ng-model="infoList.startDate" disabled> 
+				</div>
+			</div>
+			<div class="col_td" ng-show = "isTimeInfo">
+				<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="toDateName" type="text" ng-model="infoList.endDate" disabled> 
+				</div>
+			</div>
+			<div class="col_td" ng-show = "isTimeInfo">
+			<div class="col4 text_right">{{'SQH1700093' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateName" type="text" ng-model="infoList.startTime" disabled> 
+			</div>
+		 </div>
+		 <div class="col_td" ng-show = "isTimeInfo">
+			<div class="col4 text_right">{{'SQH1700094' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateName" type="text" ng-model="infoList.endTime" disabled> 
+			</div>
+		 </div>
+			<div class="col_td">    
+				<div class="col4 text_right">{{'SQH1700061' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="overpayContrlFlagInfo" class="layui-input"
+								jf-select="OCFalgArray01" name="overpayContrlFalgN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isDiffType">    
+				<div class="col4 text_right">{{'SQH1700112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="contRelFlagInfo" class="layui-input"
+								jf-select="OCFalgArraycr" name="contRelFlagN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isControlSceneInfo">    
+				<div class="col4 text_right">{{'SQH1700113' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="controlSceneCodeRelInfo" class="layui-input"
+									jf-select="controlSceneInfoArr" name="controlSceneCodeRelN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isDiffType">    
+				<div class="col4 text_right">{{'SQH1700114' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="differentFlagI" class="layui-input"
+								jf-select="OCFalgArray05" name="differentFlagN" disabled></select>
+				</div>
+			</div>
+			<br>
+			<div class="col_tr" ng-show="isDifferentFlagI">
+				<div class="col2 text_right">{{'SQH1700119' | translate}} ：</div>
+				<div class="wdper75 float_left">
+					<input class="layui-input" jf-checkbox="builder.option(difFlagTypeArray)" name="differentFlagTypeN" ng-model="infoList.differentFlagType" disabled>  
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm3"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700063' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700081' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="listDifferentTypeInfo" class="layui-input"
+							jf-select="difTypeInfoArray02" name="listDifferentTypeN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCheckInfo">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700064' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="pnListCheckFlagInfo"  class="layui-input"
+								jf-select="checkArray" name="pnListCheckFlagN" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show="isBInfo">
+				<div class="col2 text_right">{{'SQH1700066' | translate}} ：</div>
+				<div class="wdper75 float_left">
+					<input class="layui-input" jf-checkbox="builder.option(negArray)" name="listCheckTypeN" ng-model="infoList.listCheckType" disabled>  
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+		<div class=" clearboth"></div>
+		<form name="mdmInfoForm4"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700069' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700081' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transDifferentTypeInfo" class="layui-input"
+							jf-select="difTypeInfoArray03" name="transLimitDifferentTypeN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="transCheckInfo">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700066' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transLimitLevInfo" class="layui-input"
+								jf-select="leveArray" name="transLimitLevN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isNInfo">
+				<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transLimitCurrCodeInfo" class="layui-input"
+								jf-select="currcyArray" name="transLimitCurrCodeN" disabled></select>
+				</div>
+			</div>
+		</form>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoCInfo">
+		<form name="mdmInfoForm5"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700088' | translate}}</div>
+				<div  ng-repeat="cusu in customerLimitListInfo">
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.currencyCode" value="{{cusu.currencyCode}}" disabled>
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="itc in crrysInfoArray" value="{{itc.currencyCode}}" ng-selected="cusu.currencyCode == itc.currencyCode">{{itc.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.mandatoryInspectionFlag" disabled>
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option value="Y">{{'SQJ1700010' | translate}}</option>
+								<option value="N">{{'SQJ1700011' | translate}}</option>
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="cusTypeSelTwoInfo($index,cusu)">
+							{{'SQH1700089' | translate}}
+						</button>
+					</div>
+				</div>
+		</form>
+	</div>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoEInfo">
+		<form name="mdmInfoForm6"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700091' | translate}}</div>
+				<div  ng-repeat="extu in mediaLimitListInfo" >
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.currencyCode" value="{{extu.currencyCode}}" disabled>
+							     <option value="">{{'SQH1700090' | translate}}</option>
+							     <option ng-repeat="me in crrysInfoArray" value="{{me.currencyCode}}" ng-selected="me.currencyCode == extu.currencyCode">{{me.currencyDesc}}</option> 
+						    </select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.mandatoryInspectionFlag" disabled>
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option value="Y">{{'SQJ1700010' | translate}}</option>
+								<option value="N">{{'SQJ1700011' | translate}}</option>
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="exceSel($index,extu)">
+							{{'SQH1700089' | translate}}
+						</button>
+					</div>
+				</div>
+		</form>
+	</div>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoPInfo">
+		<form name="mdmInfoForm7"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700103' | translate}}</div>
+				<div  ng-repeat="pu in productLimitListInfo" >
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="pu.currencyCode" value="{{pu.currencyCode}}" disabled>
+							     <option value="">{{'SQH1700090' | translate}}</option>
+							     <option ng-repeat="mep in crrysInfoArray" value="{{mep.currencyCode}}" ng-selected="mep.currencyCode == pu.currencyCode">{{mep.currencyDesc}}</option> 
+						    </select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="pu.mandatoryInspectionFlag" disabled>
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option value="Y">{{'SQJ1700010' | translate}}</option>
+								<option value="N">{{'SQJ1700011' | translate}}</option>
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="pSel($index,pu)">
+							{{'SQH1700089' | translate}}
+						</button>
+					</div>
+				</div>
+		</form>
+	</div>
+</div>

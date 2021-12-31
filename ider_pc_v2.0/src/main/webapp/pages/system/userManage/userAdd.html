@@ -1,0 +1,100 @@
+<div ng-controller="userAddCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<!-- <div class="mainname titleInfo">基本信息</div> -->
+		<!-- <div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>运营模式：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="coArray" name="operationModeN" ng-model="uadd.operationMode"></select>
+			</div>
+		</div> -->
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500001' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="operationOrganArray" name="operationOrganN" ng-model="uadd.organization" validator="required"></select>
+			</div>
+		</div>
+<!-- 		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>用户编号 ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="userNoN" ng-model="uadd.userNo"  type="text">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>工号：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="jobNumberN" ng-model="uadd.jobNumber"  type="text" >
+			</div>
+		</div> -->
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500003' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="nameN" ng-model="uadd.name"  type="text" validator="required" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500012' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="idNumberN" ng-model="uadd.idNumber"  type="text"  validator="required" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500002' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="loginNameN" ng-model="uadd.loginName"  type="text" validator="required" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500013' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="password" ng-model="password"  type="password" validator="required,password" required-error-message="请输入登录密码" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500014' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="passwordConfirm" ng-model="equalspassword"  type="password" validator="required,equals,password" equals="password" autocomplete="off" required-error-message="请输入确认登录密码" equals-error-message="确认密码必须与登录密码一致"
+>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500015' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="authroleArray" name="departmentN" ng-model="uadd.department" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500016' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="authjobArray" name="postN" ng-model="uadd.post" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500017' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="userLanageArr" name="userlanguageN" ng-model="uadd.userLanguage" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500004' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<!-- <input class="layui-input" name="contrlSceneCodeN" ng-model="uadd.contrlSceneCode"  type="text"> -->
+				<select class="layui-input" jf-select="userFlag" name="statusN" ng-model="uadd.status" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_tr" ng-show="stopFlag">
+			<div class="col2 text_right">{{'YWH5500018' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input icon_date" name="contrlSceneCodeN" jf-date-input="endDate" ng-model="uadd.contrlSceneCode"  type="text" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'YWH5500019' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="adminFlagArry" name="adminFlagN" ng-model="uadd.adminFlag" validator="required"></select>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

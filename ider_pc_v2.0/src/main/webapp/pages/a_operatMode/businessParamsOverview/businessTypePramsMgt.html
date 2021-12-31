@@ -1,0 +1,186 @@
+<div ng-controller="businessTypePramsMgtCtrl">
+	<div ng-show="step1">
+		<form name="businessTypesFormoooo" class="layui-form">
+			<div class="mainname">{{'YYH200020' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH200002' | translate}}：</div>
+				<div class="wd330 float_left">
+					<span style="display: inline-block;width:23%">MODT</span><input style="display: inline-block;width: 77%;" class="layui-input step1I" ng-model="busTypeInfo.businessTypeCodeHalf"
+						 name="businessTypeCodeN" type="text" validator="required,minlength,maxlength,number" minlength="5" maxlength="5">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH200003' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input step1I" ng-model="busTypeInfo.businessDesc"
+						name="businessDescN" type="text"  maxlength="50" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH200004' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="busTypeInfo.transIdentificationCode" class="layui-input step1S"
+						jf-select="transIdenArr" name="transIdentificationCodeN" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH200005' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="busTypeInfo.businessForm" class="layui-input step1S"
+						jf-select="businessFormArray" name="businessFormN" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH200006' | translate}} ：</div>
+				<div class="wd330 float_left">
+						<select ng-model="busTypeInfo.businessDebitCreditCode" class="layui-input step1S"
+						jf-select="businessNatureArr" name="businessDebitCreditCodeN" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH200007' | translate}}：</div>
+				<div class="wd330 float_left">
+					<!-- <select ng-model="busTypeInfo.creditTreeNode"   jf-select="creditTreeNode" name="defaultPrincipalBalanceObj" maxlength="9" >
+						</select> -->
+					<input class="layui-input step1I"  ng-model="busTypeInfo.creditTreeNode"  
+					 name="creditTreeNode" type="text" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH200008' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input step1I" ng-model="busTypeInfo.paymentPriority" 
+					 name="paymentPriority" type="text"  validator="number" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH200009' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="busTypeInfo.defaultPrincipalBalanceObj" class="layui-input step1S"  jf-select="prinBalanceObject" name="defaultPrincipalBalanceObjN" 
+					 validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH200010' | translate}}：</div>
+				<div class="wd330 float_left">
+				<select ng-model="busTypeInfo.defaultInterestBalanceObj"  class="layui-input step1S" jf-select="intBalanceObject" name="defaultInterestBalanceObjN"
+				 validator="required">
+				</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH200011' | translate}}：</div>
+				<div class="wd330 float_left">
+				<select ng-model="busTypeInfo.defaultFeeBalanceObj" class="layui-input step1S"  jf-select="feeBalanceObject" name="defaultFeeBalanceObjN"
+				 validator="required">
+				</select>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="col_tr text_center" style="margin-top: 10px;" ng-show="btnStep1">
+				<button class="layui-btn layui-btn-radius"  
+					ng-click="stepTo2BTPM()" validation-submit="businessTypesFormoooo">
+					<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+				</button>
+			</div>
+		</form>
+		<div ng-show="step12">
+			<div class="clearboth"></div>
+			<div class="mainname" style="margin-bottom: 10px;">{{'YYH200021' | translate}}
+				<button class="layui-btn" style="margin-left:2%" ng-click="addBalanceObjectb()">
+					<i class="layui-icon">&#xe654;</i> {{'YYH600020' | translate}}
+				</button>
+			</div>
+			<div jf-grid="queryBalanceObject">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'YYH600010' | translate}}</th>
+							<th>{{'YYH600004' | translate}}</th>
+							<th>{{'YYH600003' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.balanceObjectCode"></td>
+							<td align="center" ng-bind="item.objectTypeDesc"></td>
+							<td align="center" ng-bind="item.objectDesc"></td>
+							<td align="center">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="setBalanceBTPM(item,$index)">
+									<i class="layui-icon">&#xe614;</i> {{'YYH200022' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button  ng-show="backShow" class="layui-btn layui-btn-radius" ng-click="stepBack1()" >
+					<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+				</button>
+				<button class="layui-btn layui-btn-radius" ng-click="stepTo3()" >
+					<i class="layui-icon">&#xe61a;</i>{{'F00085' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+	<div ng-show="step2">
+		<div class="mainname">{{'YYH200012' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="businessTypeCode"  ng-model="busEstN.businessTypeCode" disabled   maxlength="9" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200013' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="businessDesc"  ng-model="busEstN.businessDesc" disabled   maxlength="50" >
+			</div>
+		</div>
+		<div jf-grid="queryMODT">
+			<table>
+				<thead>
+					<tr>
+						<th align="left" style="width:60%">{{'YYH510004' | translate}}</th>
+						<!-- <th>PCD描述</th> -->
+						<th align="left" style="width:40%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+						</td>
+						<td align="left">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="updateTypeEstA(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+								ng-click="setTypeEstA(item,$index)">
+								<i class="layui-icon"></i> {{'F00082' | translate}}
+							</button>
+							<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+								ng-click="setTypeEstA(item,$index)">
+								<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+		<div class="col_tr text_center">
+			<button  class="layui-btn layui-btn-radius" ng-click="stepBack2()" >
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button>
+		</div>
+	</div>
+</div>

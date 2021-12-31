@@ -1,0 +1,15 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 1,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rows": [{
+            "id": "d7ca83c2a9324ad7842b663bcfc79873",
+            "askName": "申请新产品新卡片",
+            "askFlag": 1
+        }]
+    }
+}

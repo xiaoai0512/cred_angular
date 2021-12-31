@@ -1,0 +1,184 @@
+<style>
+.disN {
+	display:none;
+}
+.disB {
+	display:block;
+}
+
+</style>
+
+<div ng-controller="rlTmMkCrdCtrl">
+	<!-- <div class="leftmenu_navtitle">实时制卡</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action="" name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="searchParams.idType"  lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+				id='rlTmMkCrd_idNumber'name="idNumber" validator="noValidator"
+					ng-model="searchParams.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="searchParams.externalIdentificationNo">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="searchParams.customerNo"
+					name="customerNo" type="text">
+			</div>
+		</div> -->
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchCstProductTableInfo()" validation-submit="queryInfForm">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+	  </form>
+	</div>
+	<!-- 客户基本信息 -->
+	<div class="allcontent layui-form" style="padding-top: 0px; padding-bottom: 0px;">
+		<div class="allcontent" ng-show="showProductInfo">
+		<div class="mainname">{{'KHH900003' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" 
+							ng-model="rlTmMkCrdInfo.idType" disabled>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'F00112' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="rlTmMkCrdInfo.idNumber">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'KHH900006' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" ng-model="rlTmMkCrdInfo.customerName"
+							type="text">
+					</div>
+				</div>
+			</div>
+			<!-- <div class="clearboth"></div>
+			<div class="mainname">产品列表信息</div>
+			<div jf-grid="cstProductTable">
+				<table>
+					<thead>
+						<tr>
+							<th>产品单元代码</th>
+							<th>产品对象代码</th>
+							<th>联名号</th>
+							<th>选择</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productUnitCode"></td>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.jointNameCode"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="selectMediaList(item)" type="button">
+									<i class="layui-icon layui-icon-more">选择</i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+
+		</div>
+		<div ng-show="showCstMdmInfTable">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH900007' | translate}}</div>
+			<div jf-grid="cstMdmInfTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH900008' | translate}}</th>
+							<th>{{'F00111' | translate}}</th>
+							<th>{{'KHH900009' | translate}}</th>
+							<th>{{'KHH900010' | translate}}</th>
+							<th>{{'KHH900011' | translate}}</th>
+							<th>{{'KHH900023' | translate}}</th>
+							<th>{{'KHH900024' | translate}}</th>
+							<th>{{'KHH900025' | translate}}</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+				
+						<tr >
+							<td align="center" ng-bind="item.mediaObjectCode"></td>
+							<td align="center" ng-bind="item.externalIdentificationNo"></td>
+							<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+							<td align="center" ng-bind="item.mediaObjectDesc"></td>
+							<td align="center" ng-bind="item.productionCodeDesc"></td>
+							<td align="center" ng-bind="item.productionDate"></td>
+							<td align="center" ng-bind="item.embosserName1"></td>
+							<td align="center">	
+								<span ng-if="item.formatCode =='1001'">{{'KHH900026' | translate}}</span>
+								<span ng-if="item.formatCode =='1002'">{{'KHH900027' | translate}}</span> 
+								<span ng-if="item.formatCode =='1003'">{{'KHH900028' | translate}}</span>
+								<span ng-if="item.formatCode =='1004'">{{'KHH900029' | translate}}</span> 
+								<span ng-if="item.formatCode =='4001'">{{'KHH900030' | translate}}</span>
+								<span ng-if="item.formatCode =='4002'">{{'KHH900031' | translate}}</span>
+								<span ng-if="item.formatCode =='4003'">{{'KHH900032' | translate}}</span>
+								<span ng-if="item.formatCode =='4004'">{{'KHH900033' | translate}}</span>
+								<span ng-if="item.formatCode =='4004'">{{'KHH900034' | translate}}</span>
+							</td>
+							
+							<td>
+								<div class="title_messages">
+									<div class="tablemore"></div>
+									<div class="title_content">
+										<span class="text_color">{{'KHH900019' | translate}}：</span>{{item.expirationDate}}<br>
+										<span class="text_color">{{'KHH900020' | translate}}：</span>{{item.cardScheme}}<br>
+										<span class="text_color">{{'KHH900021' | translate}}：</span>{{item.formatCode}}<br>
+										<span class="text_color">{{'KHH900022' | translate}}：</span>{{item.mediaUserName}}<br>
+										<!-- <span class="text_color">制卡标识：</span>{{item.makeCardSigns}}<br> -->
+									</div>
+								</div>
+							</td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius"
+					ng-click="submitRlTmMkCrd()">
+					<i class="layui-icon"></i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

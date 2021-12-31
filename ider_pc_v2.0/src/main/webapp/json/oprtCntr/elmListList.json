@@ -1,0 +1,67 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+               {
+                    "elmID": "801",
+                    "elmDsc": "最低还款控制",
+                    "elmTp": "余额类构件",
+                    "exmpYPts":"801AAA0100",
+                    "YPtsDsc":"按最低收取",
+                    "pcd":"801AAA01"
+                },
+                {
+                    "elmID": "802",
+                    "elmDsc": "宽限期控制",
+                    "elmTp": "余额类构件",
+                    "exmpYPts":"802AAA0100",
+                    "YPtsDsc":"有宽限期",
+                    "pcd":"802AAA01"
+                },
+                {
+                    "elmID": "803",
+                    "elmDsc": "BCU组织维度",
+                    "elmTp": "余额类构件",
+                   "exmpYPts":"803AAA0100",
+                    "YPtsDsc":"CYCLE与利率",
+                    "pcd":""
+                },
+                {
+                    "elmID": "804",
+                    "elmDsc": "计息控制",
+                    "elmTp": "余额类构件",
+                   "exmpYPts":"804AAA0100",
+                    "YPtsDsc":"计息",
+                    "pcd":"804AAA01"
+                },
+                {
+                    "elmID": "805",
+                    "elmDsc": "免息控制",
+                    "elmTp": "余额类构件",
+                    "exmpYPts":"805AAA0100",
+                    "YPtsDsc":"有免息期",
+                    "pcd":"805AAA01"	
+                }
+
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 6
+        }
+        
+    },
+    "status": 200
+}

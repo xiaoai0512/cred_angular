@@ -1,0 +1,79 @@
+<div ng-controller="cstIDNoChangeCtrl">
+	<!-- <div class="leftmenu_navtitle">客户信息查询及维护</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+	<form action=""  name="cstInfMntQueryForm">
+		<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="csInfParams.idType" 
+						jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInfParams.idNumber" id="csInfEnqr_idNumber"   validator="noValidator"
+						name="idNumber" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"
+						ng-model="csInfParams.externalIdentificationNo"
+						name="externalIdentificationNo" type="text">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" validation-submit="cstInfMntQueryForm"   ng-click="queryCstInfo()" >
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+	</form>
+	</div>
+	<div class="clearboth"></div>
+	<div class="allcontent layui-form" ng-show="resultSel">
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00158' | translate}}</th>
+						<th>{{'F00112' | translate}}</th>
+						<th>{{'F00175' | translate}}</th>
+						<th>{{'F00182' | translate}}</th>
+						<th>{{'KHH3300065' | translate}}</th>
+						<th>{{'KHH3300066' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.idTypeDesc"></td>
+						<td align="center" ng-bind="item.idNumber"></td>
+						<td align="center" ng-bind="item.customerName"></td>
+						<td align="center" ng-bind="item.customerNo"></td>
+						<td align="center" ng-bind="item.previousIdTypeDesc"></td>
+						<td align="center" ng-bind="item.previousIdNumber"></td>
+						<td align="center">
+						<!-- ng-show="updBtnFlag" -->
+							<button class="layui-btn layui-btn-primary" 
+								ng-click="updateCstID(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,112 @@
+<div class="layout_body" ng-controller="quotaTradListCtrl">
+	<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+				<tr style="background-color: #DCDCDC;">
+					<th style="width:25%">{{'SQH1100001' | translate}}</th>
+					<th style="width:25%">{{'SQH1100002' | translate}}</th>
+					<th style="width:25%">{{'SQH1100003' | translate}}</th>
+					<th style="width:25%">{{'SQH1100004' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width:25%" align="center" ng-bind="item.accumultIndentitCde"></td>
+					<td style="width:25%" align="center" ng-bind="item.accumultTypDesc"></td>
+					<td style="width:25%" align="center" >{{item.transLimitCode}}{{item.transLimitDesc}}</td>
+					<td style="width:25%" align="center" ng-bind="item.currencyCode"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1100008' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100009' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accumultDayTransN" ng-model="item.accumultDayTrans"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100010' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="accumultCycleTransN" ng-model="item.accumultCycleTrans" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100011' | translate}}：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accumultMonthTrans"  ng-model="item.accumultMonthTrans" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100012' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="accumultHalfYearTransN" ng-model="item.accumultHalfYearTrans" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100013' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accumultYearTransN" ng-model="item.accumultYearTrans" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100014' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="accumuliLifeCycleTransN" ng-model="item.accumultLifeCycleTrans" type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1100015' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100016' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accumultDayTransNumN" ng-model="item.accumultDayTransNum"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100017' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="accumultCycleTransNumN" ng-model="item.accumultCycleTransNum" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100018' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accumultMonthTransNumN"  ng-model="item.accumultMonthTransNum" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100019' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="accumultHalfYearTransNumN" ng-model="item.accumultHalfYearTransNum" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100020' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accumultYearTransNumN" ng-model="item.accumultYearTransNum" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100021' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="accumultLifeCycleTransNumN" ng-model="item.accumultLifeCycleTransNum" type="text" readonly>
+			</div>
+		</div>
+			<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1100022' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100023' | translate}}：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="currAccumultDateN" ng-model="item.currAccumultDate"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1100024' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="cycleAccumultDateN" ng-model="item.cycleAccumultDate" type="text" readonly>
+			</div>
+		</div>
+</div>

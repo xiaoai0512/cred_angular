@@ -1,0 +1,86 @@
+<div ng-controller="protestFormVisaQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="protestForm">
+		<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="protestFormVisaQueryTable.params.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"  id="protestFormVisa_idNumber"  name="idNumber"  validator="noValidator"
+					 ng-model="protestFormVisaQueryTable.params.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="ecommEntryIdId" name="externalIdentificationNo"  ng-model="protestFormVisaQueryTable.params.externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="protestForm"   ng-click="queryitemList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="refact()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		
+		</form>
+		
+		<div ng-show="isShow">
+		<div jf-grid="protestFormVisaQueryTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'ZYH200001' | translate}}</th>
+						<th>{{'ZYH100001' | translate}}</th>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'ZYH100002' | translate}}</th>
+						<th>{{'ZYH100003' | translate}}</th>
+						<th>{{'ZYH100004' | translate}}</th>
+						<th>{{'ZYH200008' | translate}}</th>
+						<th>{{'ZYH100005' | translate}}</th>
+						<th style="width:20%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerNo"></td>
+						<td align="center" ng-bind="item.transactionCode"></td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.acquireReferenceNumbr"></td>
+						<td align="center" ng-bind="item.acquirerBusinessId"></td>
+						<td align="center" ng-bind="item.gmtDate"></td>
+						<td align="center" ng-bind="item.transAmt"></td>
+						<td align="center" ng-bind="item.transCurrCode"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewProtestFormInf(item)">
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateProtestFormInf(item)">
+								<i class="layui-icon"></i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</div>
+</div>

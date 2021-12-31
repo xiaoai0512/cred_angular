@@ -1,0 +1,90 @@
+<div class="layout_body" ng-controller="mediaObjInstantCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：媒介对象实例化
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form" name="meiObjForm">
+			<div class="mainname">1.填写媒介对象代码</div>
+			<div class="col_td">
+				<div class="col4 text_right">运营模式 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="operationMode" type="text"
+					maxlength="3" validator="required"
+						ng-model="mediaObj.operationMode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">媒介对象：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="mediaObjectCode" type="text"
+					maxlength="9" validator="required"
+						ng-model="mediaObj.mediaObjectCode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="mediaObjectMsg" type="text"
+					maxlength="50"
+						ng-model="mediaObj.mediaObjectMsg">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">媒介类型：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaObj.mediaObjectType" class="layui-input"
+					validator="required"
+						jf-select="builder.option(mediaObjectType1)" 
+						name="mediaObjectType">
+					</select>
+				</div>
+			</div>
+		</form>
+		<div class="clearboth"></div>
+		<div class="mainname">2. 可选构件</div>
+		<div jf-grid="selAvyList">
+			<table>
+				<thead>
+					<tr>
+						<th style="display: none;">序号</th>
+						<th>构件编号</th>
+						<th>构件描述</th>
+						<th>元件</th>
+						<th>元件描述</th>
+						<th>pcd</th>
+						<th style="width: 150px;">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="$index+1"  style="display: none;"></td>
+						<td align="center" ng-bind="item.artifactNo"></td>
+						<td align="center" ng-bind="item.artifactDesc"></td>
+						<td align="center" ng-bind="item.elementNo"></td>
+						<td align="center" ng-bind="item.elementDesc"></td>
+						<td align="center" ng-bind="item.pcdNo"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" type="button"
+								ng-click="checklCOvewInfo(item,$index)">
+								<i class="layui-icon"></i> 替换
+							</button>
+							<button class="layui-btn layui-btn-mini" type="button"
+								ng-click="updatePcdValue(item,$index)">
+								<i class="layui-icon"></i> 修改
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col_tr text_center" style="margin-top: 20px">
+			<button class="layui-btn" ng-click="saveMediaObject()" 
+			validation-submit="meiObjForm">
+				<i class="layui-icon"></i> 确认
+			</button>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,275 @@
+<style>
+/* .paymentDate,.layui-textarea {
+    width: 40%;
+}
+.paymentAmount,.layui-textarea {
+ 	width: 40%;
+} */
+</style>
+<div class="layout_body" ng-controller="accFinancialInfCtrl">
+	<!-- <div class="leftmenu_navtitle">账户余额单元信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<!-- 外部识别号查询 -->
+	<div class="allcontent layui-form">
+		<div class="search_mian">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommEntryIdN" type="text" ng-model="queryProForm.ecommEntryId">
+				</div>
+				<!-- <div class="wd190 float_left" ng-show = "">
+					<input class="layui-input" name="ecommEntryIdNN" type="text" ng-model="ecommEntryIdHidden" readonly>
+				</div> -->
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="searchProiList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--1. 客户产品信息  -->
+	<div class="allcontent "  ng-show="isShow">
+		<form class="layui-form" name="loanForm">
+			<div class="clearboth"></div>
+			<div class="mainname" >1. {{'FQH200001' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommCustNameN" type="text" ng-model="proInf.ecommCustName" validator="required" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommCustIdN" type="text" ng-model="proInf.ecommCustId" validator="required" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00158' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idTypeN" type="text" ng-model="proInf.idType" validator="required" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumberN" type="text" ng-model="proInf.idNumber" validator="required" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200004' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="productObjectCode" type="text" ng-model="proInf.productObjectCode" validator="required" readonly>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'FQH200005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="productDesc" type="text" ng-model="proInf.productDesc" readonly>
+				</div>
+			</div> -->
+			<!-- 2. 申请放款信息 -->
+			<div class="clearboth"></div>
+			<div class="mainname" >2. {{'FQH200006' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200007' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="loanNumN" type="text" ng-model="loanInf.loanNum" validator="required" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4600016' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommTransAmountN" type="text" ng-model="loanInf.ecommTransAmount" validator="required" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200008' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<!--  <input class="layui-input" name="ecommTransPostingCurrN" type="text" ng-model="" validator="required" > -->
+					<select ng-model="loanInf.ecommTransPostingCurr" class="layui-input"
+						jf-select="ccy" name="ecommTransPostingCurrN" validator="required"></select> 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="repayModeList" name="repayModeN" ng-model="loanInf.repayMode" validator="required" lay-filter="getrepayMode"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="loanInf.repayMode==14 || loanInf.repayMode==15">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200047' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="balloonPeriod" type="text" ng-model="loanInf.balloonPeriod" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200010' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="loanInf.rateInd" class="layui-input"
+						jf-select="rateIndArray" name="rateIndN">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200045' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" id="loanRateId" name="loanRateN" type="text" ng-model="loanInf.loanRate" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="monthSupplyPeriod" type="text" ng-model="loanInf.monthSupplyPeriod" validator="required,number" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200012' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="payLoanDateN" id="fromData" type="text" jf-date-input ng-model="loanInf.payLoanDate"> 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200013' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="repayPrincipalN" type="text" ng-model="loanInf.repayPrincipal" validator="number">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200014' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="loanInf.repayPrincipalUnit" class="layui-input"
+						jf-select="repayPrincipalUnitArray" name="repayPrincipalUnitN"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600044' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="freeDaysN" type="text" ng-model="loanInf.freeDays" validator="number">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200015' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="repaymentDateTypeList" name="repaymentDateTypeN" ng-model="loanInf.repaymentDateType" lay-filter="getrepayPrincipal" ></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200016' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="repayDayN" type="text" ng-model="loanInf.repayDay" validator="number">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="firstRepayDateN" type="text" jf-date-input ng-model="loanInf.firstRepayDate"> 
+				</div>
+			</div>
+			<!-- 广超要求注释 -->
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'FQH200018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="loanEndDateN" type="text" jf-date-input ng-model="loanInf.loanEndDate" > 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200019' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="penaltyUpN" type="text" ng-model="loanInf.penaltyUp">
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4600046' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="loanInf.ecommSourceCde" class="layui-input"
+						jf-select="associArray" name="ecommSourceCdeN"  validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200020' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="accountBankNo" type="text" ng-model="loanInf.accountBankNo" validator="required,maxlength,number"  maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4600051' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="receiveAccount" type="text" ng-model="loanInf.receiveAccount" validator="required,maxlength,number" maxlength="25" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200021' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="accountBankNoN" type="text" ng-model="loanInf.loanInstitutionNo" validator="required" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH200022' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="receiveAccountN" type="text" ng-model="loanInf.corporateNo" validator="required" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH200030' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="loanInf.paymentPlan" class="layui-input"
+						jf-select="paymentPlan" name="paymentPlan" >
+					</select> 
+				</div>
+			</div>
+			<!-- 支付计划 -->
+			<div style="margin-bottom:20px" ng-if="loanInf.paymentPlan=='3'">
+				<div class="clearboth"></div>
+				<div class="mainname" >3. {{'FQH200041' | translate}}</div>
+				<button class="layui-btn"  ng-click="tradTypeAdd()" type="button" style="float: right;margin-bottom: 8px;">
+					{{'F00010' | translate}}
+				</button>
+				<table style="width:100%">
+					<thead>
+						<tr style="background-color: #DCDCDC;">
+							<th align="center" style="width:40%">{{'FQH200031' | translate}}</th>
+							<th align="center" style="width:40%">{{'FQH200032' | translate}}</th>
+							<th align="center" style="width:10%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="list in dateAmount track by $index">
+							<!-- <td align="center" style="padding: 2px 18px;" ng-bind="$index+1"></td> -->
+							<td align="center">
+								<div style="display: inline-block;padding: 2px 18px;width:50%;"><input class="layui-input icon_date paymentDate " name="paymentDate"  type="text" jf-date-input  ng-model="list.paymentDate" validator="required"></div>
+							</td>
+							<td align="center">
+								<div style="display: inline-block;padding: 2px 18px;width:50%;"><input class="layui-input paymentAmount" name="paymentAmount"  type="text"  ng-model="list.paymentAmount" validator="required"></div>
+							</td>
+						 	<td align="center" style="padding: 2px 18px;">
+								<button class="layui-btn" style="" ng-click="dateAmountDel(list,$index)">
+									{{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 试算&&确认btn事件 --> 
+			<div class="clearboth"></div>
+			<div class="btnCenter">
+				<button class="layui-btn" ng-click="stageTrialClick()" type="button" validation-submit="loanForm" >
+					 {{'KHH4600070' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="sureHanle()" type="button" validation-submit="loanForm" >
+					{{'F00125' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

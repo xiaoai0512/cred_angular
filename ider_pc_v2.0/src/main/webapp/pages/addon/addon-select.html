@@ -1,0 +1,49 @@
+<!-- 下拉框组件 -->
+<div class="title" ng-click="open()" ng-bind="selected"></div>
+<ul ng-show="isOpen && options.length > 0">
+	<li ng-repeat="item in options" ng-bind="item.name" ng-click="choose(item)">女</li>
+</ul>
+
+<script>
+	$scope.options = [] ;
+
+	$scope.open = function() {
+		$scope.isOpen = true ;
+	};
+	
+	$scope.close = function() {
+		$scope.isOpen = false ;
+	};
+
+	$scope.choose = function(item){
+		jfModel.set(scope,ngModel,item.value) ;
+		$scope.selected = item.text ;
+		$scope.close();
+	};
+	
+	angular.element(document).click(function() {
+		$scope.close();
+		$scope.apply();
+	}) ;
+</script>
+
+
+<!-- //select 下拉菜单
+    $(".select-wrap .title").click(function(){
+        $(this).parent().find("ul").toggle();
+        $(".select-wrap li").click(function(){
+            $(this).parent().hide();
+        })
+    })
+    $(document).bind("click",function(e){
+        var target = $(e.target);
+        if(target.closest(".select-wrap .title").length == 0 ){
+            $(".select-wrap ul").hide();
+        }else{
+            if(target.closest(".select-wrap .title").length > 0 && $(".select-wrap ul").is(":visible") ){
+                $(this).next().show();
+            }else{
+                $(this).next().hide();
+            }
+        }
+    }) -->

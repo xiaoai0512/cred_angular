@@ -1,0 +1,17 @@
+{
+"PZH900001": "Currency",
+"PZH900002": "Currency Description",
+"PZH900003": "Decimal point",
+"PZH900004": "Currency abbreviation",
+"PZH900005": "Convertible indicator",
+"PZH900006": "Country Code",
+"PZH900007": "Currency Information",
+"PZH900008": "Non-convertible indicator",
+"PZJ900001": "RMB",
+"PZJ900002": "USD",
+"PZJ900003": "Not allowed",
+"PZJ900004": "Allow",
+"PZJ900005": "Non-convertible",
+"PZJ900006": "Convertible",
+"PZJ900007": "Please enter the country code"
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>供应链业务管理系统</title>
+<style type="text/css">
+	@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+</style>
+ <script>
+ctx = getContextPath();
+console.log(ctx);
+function getContextPath(){
+    var pathName = document.location.pathname;
+    var index = pathName.substr(1).indexOf("/");
+    var result = pathName.substr(0,index+1);
+    return result;
+}
+
+function getRequestURL() {
+	var localHref = window.location.href;
+	var requestURL = '' ;
+	if(localHref.indexOf('#') >= 0){
+		requestURL = localHref.split("#")[1];
+	}else {
+		requestURL = document.location.pathname ;
+	}
+	return requestURL ;
+}
+document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/js/main\"> <\/script>");
+document.write("<base href=\""+ ctx + "/\"" + ">");
+document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider.css\" type=\"text/css\"/>");
+
+</script>
+
+</head>
+<!--<body class="ng-cloak" ng-cloak>
+ <div ng-include="ctx+'/pages/template/admin_header.html'"></div>
+<div class="bodyer">
+	<div class="body_mg20 layui-form layui-form-pane">
+		<div ui-view=""></div>
+	</div>
+</div> 
+	
+	
+</body>-->
+<body class="idre">
+	<div class="layui-container mainMenu_container">
+		<div ng-include="ctx+'/pages/template/ider_header.html'"></div> 
+		
+		
+		 <div class="index_content"  ng-controller="mainMenuCtrl" >
+			  <ul class="menuUL" >
+			      <!-- BEAT -->
+			      <li class="menu_list">
+			          <div class="main_menu_name main_menu_01 float_left">
+			              <span class="menu_span">B</span>
+			              <span class="menu_span">E</span>
+			              <span class="menu_span">T</span>
+			              <span class="menu_span">A</span>
+			          </div>
+			          <div class="menu_right float_left" >
+			              <div class="mai_menu_logo float_left menu_logo01"></div>
+			              <ul class="min_lis float_left">
+			                  <li ng-repeat="submenu in menu.menu"><a href=""> <div class="list_ta float_left">事件清单</div></a></li>
+			                  <a href=""><div class="list_ta float_left">活动清单</div></a>
+			                  <a href=""><div class="list_ta float_left">构件清单</div></a>
+			                  <a href=""><div class="list_ta float_left">装配工厂</div></a>
+			                  <a href=""><div class="list_ta float_left">顺序号</div></a>
+			                  <a href=""><div class="list_ta float_left">事件配置管理</div></a>
+			                  <a href=""><div class="list_ta float_left">活动配置管理</div></a>
+			                  <a href=""> <div class="list_ta float_left">构件配置管理</div></a>
+			                 <a href=""><div class="list_ta float_left">货币够</div></a>
+			              </ul>
+			          </div>
+			      </li>
+			      <!--运营中心 -->
+			      <li class="menu_list" style="margin-top: 15px;">
+			              <div class="main_menu_name main_menu_02 float_left">
+			                  <span class="menu_span">运</span>
+			                  <span class="menu_span">营</span>
+			                  <span class="menu_span">中</span>
+			                  <span class="menu_span">心</span>
+			              </div>
+			              <div class="menu_right float_left">
+			                  <div class="mai_menu_logo float_left menu_logo02"></div>
+			                  <div class="min_lis float_left">
+			                      <a href=""><div class="list_ta float_left">产品中心</div></a>
+			                      <a href=""><div class="list_ta float_left">产品实例化</div></a>
+			                      <a href=""> <div class="list_ta float_left">运营查询</div></a>
+			                     <a href=""><div class="list_ta float_left">汇率表维护</div></a>
+			                      <a href=""> <div class="list_ta float_left">发行卡BIN管理</div></a>
+			                     <a href=""><div class="list_ta float_left">封锁码场景管理</div></a>
+			                      <a href=""><div class="list_ta float_left">定价标签管理</div></a>
+			                      <a href=""><div class="list_ta float_left">财务中心</div></a>
+			                  </div>
+			              </div>
+			      </li>
+			      <!-- 客户服务 -->
+			      <li class="menu_list" style="margin-top: 15px;">
+			          <div class="main_menu_name main_menu_03 float_left">
+			              <span class="menu_span">客</span>
+			              <span class="menu_span">户</span>
+			              <span class="menu_span">服</span>
+			              <span class="menu_span">务</span>
+			          </div>
+			          <div class="menu_right float_left">
+			              <div class="mai_menu_logo float_left menu_logo03">
+			              </div>
+			              <div class="min_lis float_left">
+			                      <a href=""><div class="list_ta float_left">产品中心</div></a>
+			                      <a href=""><div class="list_ta float_left">产品实例化</div></a>
+			                      <a href=""> <div class="list_ta float_left">运营查询</div></a>
+			                     <a href=""><div class="list_ta float_left">汇率表维护</div></a>
+			                      <a href=""> <div class="list_ta float_left">发行卡BIN管理</div></a>
+			                     <a href=""><div class="list_ta float_left">封锁码场景管理</div></a>
+			                      <a href=""><div class="list_ta float_left">定价标签管理</div></a>
+			                      <a href=""><div class="list_ta float_left">财务中心</div></a>
+			              </div>
+			          </div>
+			      </li>
+			       <!-- 授权中心 -->
+			       <li class="menu_list" style="margin-top: 15px;">
+			              <div class="main_menu_name main_menu_04 float_left">
+			                  <span class="menu_span">授</span>
+			                  <span class="menu_span">权</span>
+			                  <span class="menu_span">中</span>
+			                  <span class="menu_span">心</span>
+			              </div>
+			              <div class="menu_right float_left">
+			                  <div class="mai_menu_logo float_left menu_logo04">
+			                  </div>
+			                  <div class="min_lis float_left">
+			                          <a href=""><div class="list_ta float_left">产品中心</div></a>
+			                          <a href=""><div class="list_ta float_left">产品实例化</div></a>
+			                          <a href=""> <div class="list_ta float_left">运营查询</div></a>
+			                         <a href=""><div class="list_ta float_left">汇率表维护</div></a>
+			                          <a href=""> <div class="list_ta float_left">发行卡BIN管理</div></a>
+			                         <a href=""><div class="list_ta float_left">封锁码场景管理</div></a>
+			                          <a href=""><div class="list_ta float_left">定价标签管理</div></a>
+			                          <a href=""><div class="list_ta float_left">财务中心</div></a>
+			                  </div>
+			              </div>
+			          </li> 
+			           <!-- 授权中心 -->
+			          <li class="menu_list" style="margin-top: 15px;">
+			                <div class="main_menu_name main_menu_05 float_left">
+			                    <span class="menu_span">授</span>
+			                    <span class="menu_span">权</span>
+			                    <span class="menu_span">中</span>
+			                    <span class="menu_span">心</span>
+			                </div>
+			                <div class="menu_right float_left">
+			                    <div class="mai_menu_logo float_left menu_logo05">
+			                    </div>
+			                    <div class="min_lis float_left">
+			                            <a href=""><div class="list_ta float_left">产品中心</div></a>
+			                            <a href=""><div class="list_ta float_left">产品实例化</div></a>
+			                            <a href=""> <div class="list_ta float_left">运营查询</div></a>
+			                           <a href=""><div class="list_ta float_left">汇率表维护</div></a>
+			                            <a href=""> <div class="list_ta float_left">发行卡BIN管理</div></a>
+			                           <a href=""><div class="list_ta float_left">封锁码场景管理</div></a>
+			                            <a href=""><div class="list_ta float_left">定价标签管理</div></a>
+			                            <a href=""><div class="list_ta float_left">财务中心</div></a>
+			                    </div>
+			                </div>
+			            </li>    
+			    </ul>
+			</div>
+	</div>
+	
+</body>
+</html>

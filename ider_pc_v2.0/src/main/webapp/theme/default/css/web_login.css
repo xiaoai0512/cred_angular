@@ -1,0 +1,233 @@
+/*
+Design:liangguichang
+Date:2017-12-13
+Use to:supply system
+*/
+
+body {
+	font-family: Microsoft Yahei,Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:26px;
+	color:#555;
+	height:100%;
+	margin:0;
+    padding:0;
+	min-width:1000px;
+	background:#F8F8F8;
+	min-width:1000px;
+	background:#4470DA;
+	background-image: url(../images/login/bground.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+html {
+	scrollbar-face-color: #C1C1C1;
+	scrollbar-highlight-color: #C1C1C1;
+	scrollbar-shadow-color: #C1C1C1;
+	scrollbar-3DLIGHT-color: #C1C1C1;
+	scrollbar-arrow-color: #505050;
+	scrollbar-track-color: #F1F1F1;
+	scrollbar-darkshadow-color: #F1F1F1;
+	scrollbar-base-color: #F1F1F1;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+img {
+	vertical-align:middle;
+}
+
+.login_logo {
+	width:1000px;
+	margin:0 auto;
+	height:80px;
+	background-image: url(../images/login/logo_login.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.logon_contain { 
+    position:absolute; 
+    top:43%; 
+    left:50%; 
+    margin:-150px 0 0 -200px; 
+    width:340px; 
+    height:400px;
+	background:#FFF;
+	padding:20px;
+} 
+.webtitle {
+	width:340px;
+	height:64px;
+}
+.webtitle p {
+	width:220px;
+	height:64px;
+	line-height:36px;
+	font-size:16px;
+	font-weight:bold;
+	color:#333;
+	float:left;
+}
+.webbtn {
+	width:120px;
+	height:64px;
+	display:block;
+	float:left;
+	cursor:pointer;
+	background-image: url(../images/login/webcat.png);
+	background-repeat: no-repeat;
+}
+.webbtn:hover {
+	width:120px;
+	height:64px;
+	background-image: url(../images/login/webcat_hover.png);
+	background-repeat: no-repeat;
+}
+.webcatbtn {
+	width:120px;
+	height:64px;
+	display:block;
+	float:left;
+	cursor:pointer;
+	background-image: url(../images/login/web.png);
+	background-repeat: no-repeat;
+}
+.webcatbtn:hover {
+	width:120px;
+	height:64px;
+	background-image: url(../images/login/web_hover.png);
+	background-repeat: no-repeat;
+}
+.webcat_pic {
+	width:340px;
+	height:130px;
+	margin-top:50px;
+	display:table;
+	background-image: url(../images/login/webcat_pic.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.webcat_text {
+	width:340px;
+	height:36px;
+	line-height:36px;
+	text-align:center;
+}
+.webcontent {
+	width:340px;
+	height:40px;
+	margin-bottom:13px;
+}
+.reuser {
+	width:340px;
+	height:25px;
+	margin-bottom:13px;
+}
+.inputtype {
+	width:308px;
+	padding-left:30px;
+	height:38px;
+	line-height:35px;
+	border:solid 1px #D7D8DA;
+	background-image: url(../images/login/icon_type.png) !important;
+	background-repeat: no-repeat !important;
+	background-position: left center !important;
+	color:#666;
+}
+.inputtype:hover {
+	border:solid 1px #00C2DE;
+}
+.inputuser {
+	width:308px;
+	padding-left:30px;
+	height:38px;
+	line-height:35px;
+	border:solid 1px #D7D8DA !important;
+	background-image: url(../images/login/icon_user.png) !important;
+	background-repeat: no-repeat !important;
+	background-position: left center !important;
+	color:#666;
+}
+.inputuser:hover {
+	border:solid 1px #00C2DE;
+}
+.inputpasswod {
+	width:308px;
+	padding-left:30px;
+	height:38px;
+	line-height:35px;
+	border:solid 1px #D7D8DA !important;
+	background-image: url(../images/login/icon_password.png) !important;
+	background-repeat: no-repeat !important;
+	background-position: left center !important;
+	color:#666;
+}
+.inputpasswod:hover {
+	border:solid 1px #00C2DE;
+}
+.btnlogin {
+	width:340px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	color:#FFF;
+	background:#00C2DE;
+	border:0px;
+	font-size:16px;
+	cursor:pointer;
+}
+.btnlogin:hover {
+	background:#00B2DE;
+}
+.warninger {
+	width:303px;
+	padding-left:35px;
+	height:32px;
+	line-height:32px;
+	color:#F25532;
+	border:solid 1px #F25532;
+	background-color: #FEEFEC;
+	background-image: url(../images/login/warning.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	white-space:nowrap;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis; 
+	cursor:pointer; 
+    -o-text-overflow: ellipsis; /*--4 opera--*/
+}
+.textcolor {
+	color:#666;
+}
+.repw {
+	float:right;
+}
+a:link,a:visited {
+	font-size:12px;
+	color:#555;
+	text-decoration: none;
+}
+a:hover {
+	font-size:12px;
+	color:#155ABB;
+	text-decoration: none;
+}
+/* 验证码样式 */
+.inputcode {
+	width:130px;
+	padding-left:45px;
+	height:38px;
+	line-height:35px;
+	border:solid 1px #D7D8DA;
+	background-image: url(../images/login/icon_code.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	color:#666;
+	/* float:left; */
+}
+.inputcode:hover{
+	border:solid 1px #00C2DE;
+}
+

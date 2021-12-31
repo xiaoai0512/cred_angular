@@ -1,0 +1,23 @@
+{
+"FQH100001": "Transaction amount",
+"FQH100002": "Transaction currency",
+"FQH100003": "Installment terms",
+"FQH100004": "posting amount",
+"FQH100005": "Posting currency",
+"FQH100006": "Fee collect method",
+"FQH100007": "Receipt bank number",
+"FQH100008": "Receipt Account Nbr",
+"FQH100009": "Instalment  trial",
+"FQH100010": "Cash instalment",
+"FQH100011": "Amount",
+"FQH100012": "Customer delinquency status",
+"FQH100013": "Scheduled trial results",
+"FQJ100001": "Normal mode",
+"FQJ100002": "Quick Payment",
+"FQJ100003": "Mobile Banking",
+"FQJ100004": "Local",
+"FQJ100005": "UnionPay",
+"FQJ100006": "Please enter the  ID number or External PAN",
+"FQJ100007": "Cash instalment is successful",
+"FQJ100008": "The terms of installments cannot be empty"
+}

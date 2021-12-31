@@ -1,0 +1,59 @@
+<div ng-controller="balanceObjectOneCtrl">
+	<form name="balanceObjOneForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH600002' | translate}}：</div>
+				<div class="wd330 float_left">
+					<span style="display: inline-block;width:23%">MODB</span><input style="display: inline-block;width: 77%;" class="layui-input" ng-model="balanceObjInf.balanceObjectCodeHalf"
+						 name="balanceObjectCode" type="text" validator="required,minlength,maxlength,number"   minlength="5" maxlength="5" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH600003' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="balanceObjInf.objectDesc" validator="required"
+						name="objectDesc" type="text"  maxlength="50" validator="required" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH600004' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="balanceObjInf.objectType"   jf-select="objectTypeArr" name="objectType" maxlength="9" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH600005' | translate}} ：</div>
+				<div class="wd330 float_left">
+						<select ng-model="balanceObjInf.interestPostingBalanceObject"   jf-select="interestPostingBalanceObjectArr" name="interestPostingBalanceObject" validator="required">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600006' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input "  ng-model="balanceObjInf.paymentPriority"  validator="number" 
+					 name="paymentPriority" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600007' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input icon_date" id="beginDateId" ng-model="balanceObjInf.beginDate" 
+					 name="beginDate" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600008' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input icon_date" id="endDateId"  ng-model="balanceObjInf.endDate" 
+					name="endDate" type="text" autocomplete="off">
+				</div>
+			</div>
+			<!-- <div class="col_tr text_center" style="margin-top: 30px;">
+				<button class="layui-btn layui-btn-radius"
+					ng-click="saveBalanceObject()" validation-submit="balanceObjOneForm">
+					<i class="layui-icon">&#xe624;</i> 下一步
+				</button>
+			</div> -->
+	</form>
+</div>

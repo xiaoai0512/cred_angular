@@ -1,0 +1,182 @@
+<div ng-controller="confirmAppVisaFormCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400027' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.transactionCode" name="transactionCode" type="text" maxlength="2" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400028' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.customerNo" name="customerNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400030' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400031' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.acquirerBusinessId" name="acquirerBusinessId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400032' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.gmtDate" name="gmtDate" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400033' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.transAmt" name="transAmt" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400034' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.transCurrCode" name="transCurrCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400035' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.merchantName" name="merchantName" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000141' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.city" name="city" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000142' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.countryCode" name="countryCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000143' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.mcc" name="mcc" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000144' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.merchantZip" name="merchantZip" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400040' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.stateCode" name="stateCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400041' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="appVisaFormInf.issuerControlNumber" name="issuerControlNumber" type="text" maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4400042' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="appVisaFormInf.requestReasonCode" name="requestReasonCode" type="text" maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400043' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.settlementFlag" name="settlementFlag" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.nationalReimburseFee" name="nationalReimburseFee" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td" style="display:none">
+				<div class="col4 text_right">{{'KHH4400045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.accountSelection" name="accountSelection" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.retrievalRequestId" name="retrievalRequestId" type="text" maxlength="12" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.settlementDate" name="settlementDate" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td" style="display:none">
+				<div class="col4 text_right">{{'KHH4400048' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.reimburseAttribute" name="reimbursettribute" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400049' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="appVisaFormInf.faxNumber" name="faxNumber" type="text" maxlength="12">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input bnone"  ng-model="appVisaFormInf.requestedFulfllmentMethod" name="requestedFulfllmentMethod" type="text" disabled="disabled"> -->
+					<select ng-model="appVisaFormInf.requestedFulfllmentMethod" class="layui-input" jf-select="typeArray"  name="requestedFulfllmentMethod" maxlength="1"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400051' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input bnone"  ng-model="appVisaFormInf.establishedFulfllmentMethod" name="establishedFulfllmentMethod" type="text" disabled="disabled"> -->
+					<select ng-model="appVisaFormInf.establishedFulfllmentMethod" class="layui-input" jf-select="typeArray1"  name="establishedFulfllmentMethod" maxlength="1"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400052' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.clearCurrCode" name="clearCurrCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400053' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.clearAmount" name="clearAmount" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400054' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.transIdentifier" name="transIdentifier" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4400012' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appVisaFormInf.oldGlobalSerialNumbr" name="oldGlobalSerialNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

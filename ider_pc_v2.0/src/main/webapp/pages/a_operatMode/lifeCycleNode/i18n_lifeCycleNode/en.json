@@ -1,0 +1,20 @@
+{
+"PZH800001": "Node type",
+"PZH800002": "Node number",
+"PZH800003": "Node Description",
+"PZH800004": "Customer Life Cycle",
+"PZH800005": "Product Life Cycle",
+"PZH800006": "Media Life Cycle",
+"PZH800007": "Account Lifecycle",
+"PZH800008": "Balance component object life cycle",
+"PZH800009": "Balance component unit life cycle",
+"PZJ800001": "Customer Life Cycle",
+"PZJ800002": "Product Life Cycle",
+"PZJ800003": "Media Life Cycle",
+"PZJ800004": "Account Lifecycle",
+"PZJ800005": "Balance component object life cycle",
+"PZJ800006": "Balance component unit life cycle",
+"PZJ800007": "Lifecycle Node detail",
+"PZJ800008": "Update lifecycle node",
+"PZJ800009": "New Lifecycle Node"
+}

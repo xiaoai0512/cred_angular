@@ -1,0 +1,141 @@
+<div ng-controller="paramsViewCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>类型名称：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="groupsCodeDesc" ng-model="itemInfo.groupsCodeDesc" type="text" validator="required" readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>类型代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="groupsCode" ng-model="itemInfo.groupsCode" type="text" validator="required" readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>参数种类：</div>
+			<div class="wd190 float_left">
+				<!-- <select ng-model="itemInfo.type" class="layui-input"
+						jf-select="builder.option(differentTypeArray)" name="differentTypeN" lay-filter="getDifferentTypeAdd" validator="required"></select> -->
+				<input class="layui-input" name="type" ng-model="itemInfo.type" type="text" validator="required" readonly/>
+			</div>
+		</div>
+		
+		<div class=" clearboth"></div>
+		<div class="mainname" style="display: inline;">参数详细信息</div>
+				<!-- <div class="layui-inline float_right">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="addParamsInfo()">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+				</div> -->
+		<div style="margin-bottom:20px" >
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th align="center">序号</th>
+						<th align="center">参数名称</th>
+						<th align="center">参数值</th>
+						<!-- <th align="center">类型名称</th>
+						<th align="center">类型代码</th>
+						<th align="center">参数种类</th> 
+						<th align="center">操作</th>-->
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="params in paramsAddList">
+						<td align="center" style="width:4%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="padding-top: 5px;" align="center" >
+							<div style="width: 90%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="params.detailDesc" type="text" readonly></div>
+						</td>
+						<td align="center" style="padding-top: 5px;" align="center" >
+							<div style="width: 90%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="params.codes" type="text" readonly></div>
+						</td>
+						<!-- <td align="center" style="padding-top: 5px;" align="center" >
+							<div style="display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="params.groupsCodeDesc" type="text" readonly></div>
+						</td>
+						<td align="center" style="padding-top: 5px;" align="center" >
+							<div style="display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="params.groupsCode" type="text" readonly></div>
+						</td>
+						<td align="center" style="padding-top: 5px;" align="center" >
+							<div style="display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="params.type" type="text" readonly></div>
+						</td> -->
+						
+						
+						<!-- <td align="center" style="padding-top: 5px;" align="center" >
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="params.listProject1" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b02{{$index+1}}" ng-model="params.listProject2" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b03{{$index+1}}" ng-model="params.listProject3" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b04{{$index+1}}" ng-model="params.listProject4" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b05{{$index+1}}" ng-model="params.listProject5" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b06{{$index+1}}" ng-model="params.listProject6" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b07{{$index+1}}" ng-model="params.listProject7" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b08{{$index+1}}" ng-model="params.listProject8" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b09{{$index+1}}" ng-model="params.listProject9" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b10{{$index+1}}" ng-model="params.listProject10" type="text"></div>
+						</td> -->
+						<!-- <td align="center"  style="width:5%">
+							<button class="layui-btn layui-btn-mini" ng-click="delParamsAdd(item,$index)">
+								{{'F00016' | translate}}
+							</button>
+						</td> -->
+					</tr>
+	 				<!-- <tr ng-repeat="neg in negasAddList" ng-show="listTypInfo == 'MH'">
+						<td align="center" style="width:4%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="padding-top: 5px;" class="nine9" align="center" >
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b01{{$index+1}}" ng-model="neg.listProject1"  type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b02{{$index+1}}" ng-model="neg.listProject2" type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b03{{$index+1}}" ng-model="neg.listProject3" type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b04{{$index+1}}" ng-model="neg.listProject4"  type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b05{{$index+1}}" ng-model="neg.listProject5" type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b06{{$index+1}}" ng-model="neg.listProject6" type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b07{{$index+1}}" ng-model="neg.listProject7" type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b08{{$index+1}}" ng-model="neg.listProject8"  type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b09{{$index+1}}" ng-model="neg.listProject9" type="text" minlength="0" maxlength="15"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b10{{$index+1}}" ng-model="neg.listProject10" type="text" minlength="0" maxlength="15"></div>
+						</td>
+						<td align="center"  style="width:5%">
+							<button class="layui-btn layui-btn-mini" ng-click="delNegasAdd(item,$index)">
+								{{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+					<tr ng-repeat="neg in negasAddList" ng-show="listTypInfo == 'TM'">
+						<td align="center" style="width:4%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="padding-top: 5px;" class="nine9" align="center" >
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b01{{$index+1}}" ng-model="neg.listProject1"  type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b02{{$index+1}}" ng-model="neg.listProject2" type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b03{{$index+1}}" ng-model="neg.listProject3" type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b04{{$index+1}}" ng-model="neg.listProject4"  type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b05{{$index+1}}" ng-model="neg.listProject5" type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b06{{$index+1}}" ng-model="neg.listProject6" type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b07{{$index+1}}" ng-model="neg.listProject7" type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b08{{$index+1}}" ng-model="neg.listProject8"  type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b09{{$index+1}}" ng-model="neg.listProject9" type="text" minlength="0" maxlength="8"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input lengNum" name="b10{{$index+1}}" ng-model="neg.listProject10" type="text" minlength="0" maxlength="8"></div>
+						</td>
+						<td align="center"  style="width:5%">
+							<button class="layui-btn layui-btn-mini" ng-click="delNegasAdd(item,$index)">
+								{{'F00016' | translate}}
+							</button>
+						</td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+		<!-- <div class="col_tr text_center" style="margin-top:10px">
+			<button class="layui-btn layui-btn-radius" style="margin-right:75px"
+				ng-click="saveNegaInfo()" validation-submit="mdmInfoForm">
+				<i class="layui-icon">&#xe624;</i> 保存
+			</button>
+			<button class="layui-btn layui-btn-radius"
+				ng-click="resetInfo()">
+				<i class="layui-icon">&#xe624;</i> 取消
+			</button>
+		</div> -->
+		<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

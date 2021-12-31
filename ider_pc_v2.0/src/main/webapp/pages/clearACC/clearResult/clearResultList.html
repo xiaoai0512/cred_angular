@@ -1,0 +1,127 @@
+<div ng-controller="clearResultCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="search_mian layui-form" >
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="clearFileList.params.operationMode" class="layui-input" jf-select="operationModeArr" name="operationModeN" lay-filter="getChannelSelId"></select>
+				</div>
+			</div> -->
+			<div class="col_td" style="width:30%">
+				<div class="col4 text_right">{{'QFH300002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="channelId" class="layui-input" jf-select="channelIdArr" name="channelIdN" ></select>
+				</div>
+			</div>
+			<div class="col_td" style="width:30%">
+				<div class="col4 text_right">{{'QFH300070' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="fileName" ng-model="fileName" type="text">
+				</div>
+			</div>
+			<div class="col_td" style="width:30%">
+				<div class="col4 text_right">{{'QFH300003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="dateOfFileDelivery" ng-model="dateOfFileDelivery" type="text" jf-date-input>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="queryList()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="resetPar()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+		<div ng-show = "isTwo">
+			<div jf-grid="clearHandleList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'QFH300061' | translate}}</th>
+							<th>{{'QFH300062' | translate}}</th>
+							<th >{{'QFH300063' | translate}}</th>
+							<th >{{'QFH300064' | translate}}</th>
+							<th>{{'QFH300065' | translate}}</th>
+							<th>{{'QFH300066' | translate}}</th>
+							<th>{{'QFH300067' | translate}}</th>
+							<th >{{'QFH300068' | translate}}</th>
+							<th >{{'QFH300069' | translate}}</th>
+							<th>{{'QFH300071' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.channelId"></td>
+							<td align="center" ng-bind="item.fileName"></td>
+							<td align="center" ng-bind="item.stProcessDate"></td>
+							<td align="center" ng-bind="item.stProcessTime"></td>
+							<td align="center">
+								<span ng-if="item.processStatus == 'R'">{{'QFH300082' | translate}}</span>
+								<span ng-if="item.processStatus == 'P'">{{'QFH300081' | translate}}</span>
+								<span ng-if="item.processStatus == 'F'">{{'QFH300083' | translate}}</span>
+							</td>
+							<td align="center" ng-bind="item.totalCount"></td>
+							<td align="center" ng-bind="item.failCount"></td>
+							<td align="center" ng-bind="item.endProcessDate"></td>
+							<td align="center" ng-bind="item.endProcessTime"></td>
+							<td align="center" ng-bind="item.rejectReason"></td>
+							<td align="center">
+								<button ng-if="item.failCount !='0'" class="layui-btn layui-btn-mini" ng-click="viewDetails(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'QFH300021' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div ng-show = "isThree">
+			<div class="mainname">{{'QFH300022' | translate}}</div>
+			<div jf-grid="refuseInfoList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00111' | translate}}</th>
+							<th>{{'QFH300013' | translate}}</th>
+							<th>{{'QFH300014' | translate}}</th>
+							<th>{{'QFH300015' | translate}}</th>
+							<th>{{'QFH300016' | translate}}</th>
+							<th>{{'QFH300017' | translate}}</th>
+							<th>{{'QFH300018' | translate}}</th>
+							<th>{{'QFH300019' | translate}}</th>
+							<th>{{'QFH300020' | translate}}</th>
+							<th>{{'QFH300010' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.externalIdentificationNo"></td>
+							<td align="center" ng-bind="item.sourceCurrencyCode"></td>
+							<td align="center" ng-bind="item.sourceAmount"></td>
+							<td align="center" ng-bind="item.purchaseDate"></td>
+							<td align="center" ng-bind="item.destinationCurrencyCode"></td>
+							<td align="center" ng-bind="item.destinationAmount"></td>
+							<td align="center" ng-bind="item.centralProcessingDate"></td>
+							<td align="center" ng-bind="item.postingAmount"></td>
+							<td align="center" ng-bind="item.sourceCode"></td>
+							<td align="center" ng-bind="item.rejectionReasonDesc"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="handleInfo(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'QFH300021' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

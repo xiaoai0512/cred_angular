@@ -1,0 +1,147 @@
+<div ng-controller="cstControlViewCtrl" >
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name='cstControlViewForm'>
+			<div class="col_td">
+					<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+					<div class="wd190 float_left">
+						<select ng-model="queryBlockView.idType" lay-filter="getIdType"
+							jf-select="certificateTypeArray" name="idType" >
+						</select>
+					</div>
+				</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{' F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" ng-model="queryBlockView.idNumber" 
+					id="cstCtrlView_idNumber"   validator="noValidator" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="queryBlockView.externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5200011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="queryBlockView.queryFlag" lay-filter="myselect" name="queryFlag"
+							jf-select="queryFlagArray" name="queryFlag" >
+						</select>
+				</div>
+			</div>
+			<div ng-if="isShowQuery" >
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red disN">*</span>{{'KHH5200014' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select jf-select="builder.option(demoArray2)" name="contrlLevel" validator="required"
+						ng-model="queryBlockView.contrlLevel"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red disN">*</span>{{'KHH700004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date" name="startDate"  type="text" ng-model="queryBlockView.startDate" id="blockView_zs"
+						 validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red disN">*</span>{{'KHH700005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date" name="endDate"  type="text" ng-model="queryBlockView.endDate"  id="blockView_ze" validator="required"
+							>
+					</div>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" validation-submit="cstControlViewForm"    ng-click="queryListBlockView()" type="button">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+	<!-- 1 客户基本信息 -->
+	<div ng-show="isShowCstDiv">
+		<div class="allcontent layui-form">
+			<div class="clearboth"></div>
+			<div class="mainname">1 {{'KHH5200003' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" ng-model="cstInfo.idType" disabled >
+						</select>
+					</div>
+				</div>
+				
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00112' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" 
+							ng-model="cstInfo.idNumber" disabled="disabled">
+					</div>
+				</div>	
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'KHH5200016' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+								ng-model="cstInfo.customerName" disabled="disabled">
+					</div>
+				</div>	
+			
+			</div>
+			<!-- 2 客户管控视图 -->
+			<div class="clearboth"></div>
+			<div class="mainname">2 {{'KHH5200005' | translate}}</div>
+			  <div jf-grid="cstMdmInfTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH5200006' | translate}}</th>
+							<th>{{'KHH5200046' | translate}}</th>
+							<th>{{'KHH5200014' | translate}}</th>
+							<th>{{'KHH5200017' | translate}}</th>
+<!-- 							<th>{{'F00111' | translate}}</th> -->
+							<th>{{'KHH5200019' | translate}}</th>
+							<th>{{'KHH5200020' | translate}}</th>
+							<th>{{'KHH5200021' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="left">
+								<span ng-bind="item.controlProjectNo"></span>
+								<span ng-bind="item.controlDesc" ></span>
+							</td>
+							<td align="center">
+								{{item.effectivenessCodeType}}&nbsp;&nbsp;{{item.effectivenessCodeScene}}
+							</td>
+							<td align="center" ng-bind="item.contrlLevelDesc"></td>
+							<td align="center" ng-bind="item.levelCode"></td>
+							<td align="center">{{item.currencyCode}}{{item.currencyDesc}}</td>
+							<td align="center" ng-bind="item.contrlStartDate"></td>
+							<td align="center" ng-bind="item.contrlEndDate"></td>
+							<td align="left"  style="width:32%">
+								<button class="layui-btn layui-btn-mini" ng-click="eventClick(item)" ng-if="item.controlMode == 'E'">
+									{{'KHH5200048' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="codeClick(item)">
+									{{'KHH5200049' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="parentCtrl">
+	<!-- 这个parentNav对象定义在parentCtrl中，可以需要改变时可直接修改参数 -->
+	<div jf-nav="parentNav">
+		<div url="/bigpagedemo/personBaseInfo.html" title="新增修改用户"  ></div>
+		<div load url="/bigpagedemo/personOrg.html" title="所属机构"  valiParam="loginName"></div>
+		<div load url="/bigpagedemo/personDepar.html" title="所属部门" valiParam="loginName"></div>
+		<div load url="/bigpagedemo/personRole.html" title="角色" valiParam="id"></div>
+		<div load url="/common/doc.html" title="相关文档" valiParam="id&loginName"></div>
+	</div>
+</div>

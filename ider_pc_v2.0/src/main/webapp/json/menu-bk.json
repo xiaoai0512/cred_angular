@@ -1,0 +1,89 @@
+{
+"status" : 200,
+"data" :
+[{
+		    "id": "RES10154",
+		    "img": "iconmenu01",
+		    "menu": [{
+		        "id": "RES10136",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES10137",
+		            "img": "",
+		            "text": "表单",
+		            "url": "/inputDemo"
+		        },
+		        {
+		            "id": "RES10138",
+		            "img": "",
+		            "text": "图表",
+		            "url": "/chartsDemo"
+		        },
+		        {
+		            "id": "RES10139",
+		            "img": "",
+		            "text": "列表",
+		            "url": "/tableDemo"
+		        },
+		        {
+		            "id": "RES10140",
+		            "img": "",
+		            "text": "表单校验",
+		            "url": "/formDemo"
+		        },
+		        {
+		            "id": "RES10141",
+		            "img": "",
+		            "text": "大页面",
+		            "url": "/bigPage"
+		        },
+		        {
+		            "id": "RES10142",
+		            "img": "",
+		            "text": "树形",
+		            "url": "/treeDemo"
+		        }],
+		        "text": "实例"
+		    }],
+		    "text": "使用示例",
+		    "width": 650
+		},{
+		    "id": "RES10155",
+		    "img": "iconmenu02",
+		    "menu": [{
+		        "id": "RES10142",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES10143",
+		            "img": "",
+		            "text": "查询列表实例",
+		            "url": "/listDemo"
+		        },
+		        {
+		            "id": "RES10144",
+		            "img": "",
+		            "text": "信息页面实例",
+		            "url": "/listDemo"
+		        }],
+		        "text": "开发实例"
+		    }],
+		    "text": "开发实例",
+		    "width": 650
+		},{
+		    "id": "RES10156",
+		    "img": "iconmenu03",
+		    "menu": [{
+		        "id": "RES10147",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES10148",
+		            "img": "",
+		            "text": "帮助文档",
+		            "url": "/helpDemo"
+		        }],
+		        "text": "帮助"
+		    }],
+		    "text": "帮助文档",
+		    "width": 650
+		}]
+}

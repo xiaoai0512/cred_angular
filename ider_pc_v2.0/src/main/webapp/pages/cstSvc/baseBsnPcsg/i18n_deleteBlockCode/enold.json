@@ -1,0 +1,19 @@
+{
+"KHH600002":"externalIdentificationNo",
+"KHH600003":"contrlLevel",
+"KHH600004":"select block code",
+"KHH600005":"blockCodeType",
+"KHH600006":"blockCodeScene",
+"KHH600007":"contrlLevel",
+"KHH600008":"levelCode",
+"KHH600009":"currencyCode",
+"KHH600010":"customer class",
+"KHH600011":"class of service type",
+"KHH600012":"product grade",
+"KHH600013":"medium level",
+"KHJ600001":"c-customer class",
+"KHJ600002":"a-class of service type",
+"KHJ600003":"p-product grade",
+"KHJ600004":"m-medium level",
+"KHJ600005":"please enter any condition for query"
+}

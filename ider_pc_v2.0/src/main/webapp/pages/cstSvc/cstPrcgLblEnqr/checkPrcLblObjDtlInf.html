@@ -1,0 +1,87 @@
+<div ng-controller="checkPrcObjInfCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="" class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300014' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"
+								ng-model="blockCDScnMgtInfo.operationMode" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300021' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.pricingTag"
+								disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHJ5300017' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.pricingObject" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300005' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.pricingObjectCode" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300022' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.pricingDesc" disabled="disabled"
+								>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300009' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select jf-select="priceAreaArray" ng-model="blockCDScnMgtInfo.pricingType"  disabled="disabled"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300016' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.performOrder"  disabled="disabled"
+								>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300017' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select jf-select="priceModelArray" ng-model="blockCDScnMgtInfo.pricingMethod"  disabled="disabled" ></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300018' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select jf-select="valTypArray" ng-model="blockCDScnMgtInfo.pcdType" disabled="disabled"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300019' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"  disabled="disabled"
+								ng-model="blockCDScnMgtInfo.pcdValue" >
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH5300023' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.pcdPoint"   disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHJ5300018' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="blockCDScnMgtInfo.supplementBaseFee"   disabled="disabled">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

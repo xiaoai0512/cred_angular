@@ -1,0 +1,159 @@
+<div ng-controller="cstBsnisItemQueryCtrl">
+	<!-- <div class="leftmenu_navtitle">客户地址信息查询及维护</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	<form action="" name="cstBsnisItemForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="cstBsnisForm.idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" id="cstBsnisItem_idNumber"   validator="noValidator"
+					ng-model="cstBsnisForm.idNumber" name="idNumber" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="cstBsnisForm.externalIdentificationNo"
+					name="externalIdentificationNo" type="text">
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<button class="layui-btn" validation-submit="cstBsnisItemForm"  ng-click="searchCstBsnisItem()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+	</form>
+		<div class="clearboth"></div>
+		<div ng-show="showItemList">
+			<div class="mainname" >{{'KHH4800029' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" ng-model="custInf.idType" disabled >
+						</select>
+					</div>
+				</div>
+				
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00112' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="custInf.idNumber"  disabled>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'KHH4800030' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="custInf.customerName"  disabled>
+					</div>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">2.{{'KHH4800003' | translate}}</div>
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4800023' | translate}}</th>
+							<th>{{'KHH4800026' | translate}}</th>
+							<th>{{'KHH4800007' | translate}}</th>
+							<th>{{'KHH4800008' | translate}}</th>
+							<th>{{'KHH4800009' | translate}}</th>
+							<th>{{'KHH4800010' | translate}}</th>
+							<th>{{'KHH4800011' | translate}}</th>
+							<th>{{'KHH4800012' | translate}}</th>
+							<th>{{'KHH4800013' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style=" width: 20%;" align="center">
+								<span>{{item.businessProgramNo}}</span><span>{{item.programDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.cycleModelDesc"></td>
+							<td align="center" ng-bind="item.billDay"></td>
+							<td align="center" ng-bind="item.nextBillDate"></td>
+							<td align="center" ng-bind="item.currentCycleNumber"></td>
+							<td align="center" ng-bind="item.directDebitStatusDesc"></td>
+							<td align="center" ng-bind="item.directDebitModeDesc"></td>
+							<td align="center" ng-bind="item.directDebitBankNo"></td>
+							<td align="center" ng-bind="item.directDebitAccountNo"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-primary"
+									ng-click="viewCstBsnisItemInfo(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'KHH4800031' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div ng-show="showUnifiedDateDiv">
+			<div class="mainname">3.{{'KHH4800018' | translate}}</div>
+			<div jf-grid="unifiedDateList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4800023' | translate}}</th>
+							<th>{{'KHH4800024' | translate}}</th>
+							<!-- <th>{{'KHH4800004' | translate}}</th> -->
+							<th>{{'KHH4800019' | translate}}</th>
+							<th>{{'KHH4800020' | translate}}</th>
+							<th>{{'KHH4800021' | translate}}</th>
+							<th>{{'KHH4800022' | translate}}</th>
+							
+							
+							<th>{{'KHH4800025' | translate}}</th>
+							<!-- <th>操作</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">
+								<span>{{item.businessProgramNo}}</span><span>{{item.programDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.cycleNumber"></td>
+							<!-- <td align="center"  ng-bind="item.customerNo"></td> -->
+							
+							<td style=" width: 20%;" align="center" ng-bind="item.statementDate"></td>
+							<td align="center" ng-bind="item.paymentDueDate"></td>
+							<td align="center" ng-bind="item.graceDate"></td>
+							<td align="center" ng-bind="item.delinquencyDate"></td>
+							
+							
+							<td align="center" ng-bind="item.directDebitDate"></td>
+							<!-- <td align="center">
+								<button class="layui-btn layui-btn-primary"
+									ng-click="updateCstBsnisItemInfo(item)">
+									<i class="layui-icon"></i> 修改
+								</button>
+							</td> -->
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- showUnifiedDateDiv -->
+	</div>
+</div>

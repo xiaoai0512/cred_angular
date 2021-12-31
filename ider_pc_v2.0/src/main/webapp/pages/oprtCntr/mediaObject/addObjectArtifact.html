@@ -1,0 +1,40 @@
+<div ng-controller="artiEleCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：媒介对象管理
+	</div>
+	
+	<div jf-grid="artiEleTable">
+		<table>
+			<thead>
+				<tr>
+					<th>运营模式</th>
+					<th>媒介对象代码</th>
+					<th>媒介类型</th>
+					<th>媒介对象描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.mediaObjectCode"></td>
+					<!-- <td align="center" ng-bind="item.mediaObjectType"></td> -->
+					<!-- <td align="center" ng-if="item.mediaObjectType == 'R'">实体卡</td>
+					<td align="center" ng-if="item.mediaObjectType == 'V'">虚拟卡</td>
+					<td align="center" ng-if="item.mediaObjectType == ''"></td> -->
+					<td align="center"><span ng-if="item.mediaObjectType == 'R'">实体卡</span>
+						<span ng-if="item.mediaObjectType == 'V'">虚拟卡</span> <span
+						ng-if="item.mediaObjectType == ''"></span></td>
+					<td align="center" ng-bind="item.mediaObjectMsg"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkBalObjElmDtl(item)">
+							<i class="layui-icon"></i> 查询
+						</button>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

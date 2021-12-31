@@ -1,0 +1,124 @@
+<div ng-controller="balTypePostingCtrl">
+	<div class="layui-form">
+		<div jf-grid="balTypePostingTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 16%;">{{'KHH1900016' | translate}}</th>
+						<th>{{'KHH1900045' | translate}}</th>
+						<th>{{'KHH1900017' | translate}}</th>
+						<th>{{'KHH1900047' | translate}}</th>
+						<th>{{'KHH1900015' | translate}}</th>
+						<th width="16%">{{'KHH1900048' | translate}}</th>
+						<th width="25%"> {{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center">
+							<span>{{item.businessTypeCode}}{{item.businessDesc}}</span>
+						</td>
+						<td align="center" ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.postingAmount"></td>
+						<td align="center" ng-bind="item.actualPostingAmount"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryBalUnitInfo(item)">
+								<i class="layui-icon"></i> {{'F00052' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)">
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div ng-show="isShowBalUnit">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1900023' | translate}}</div>
+		<div jf-grid="balUnitInfoTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH1900049' | translate}}</th>
+						<th style="width: 150px;">{{'KHH1900024' | translate}}</th>
+						<th>{{'KHH1900050' | translate}}</th>
+						<th>{{'KHH1900017' | translate}}</th>
+						<th>{{'KHH1900019' | translate}}</th>
+						<th width="15%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.cycleNumber"></td>
+						<td align="center" ng-bind="item.entityKey"></td>
+						<td align="left">{{item.balanceObjectCode}}{{item.objectDesc}}</td>
+						<td align="center" ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.actualPostingAmount"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)"  >
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="tradInfo(item)"  >
+								<i class="layui-icon"></i> {{'KHH1900057' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div ng-show="isShowtrad">
+		<div jf-grid="tradTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:14%">{{'KHH1800005' | translate}}</th>
+						<th style="width:7%">{{'KHH1800006' | translate}}</th>
+						<th>{{'KHH1800007' | translate}}</th>
+						<th>{{'KHH1800008' | translate}}</th>
+						<th>{{'KHH1800009' | translate}}</th>
+						<th>{{'KHH1800010' | translate}}</th>
+						<th>{{'KHH1800011' | translate}}</th>
+						<th>{{'KHH1800012' | translate}}</th>
+						<th width="10%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-model="item.externalIdentificationNo">
+							<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+							<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+							<span
+							ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+						</td>
+
+						<td align="left" >
+							<span ng-bind="item.transCurrCde"></span>
+							<span ng-bind="item.postingCurrencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.transAmount | number :2"></td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.postingAmount | number:2"></td>
+						<td align="center" ng-bind="item.occurrDate"></td>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)">
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

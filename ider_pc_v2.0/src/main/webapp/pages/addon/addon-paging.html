@@ -1,0 +1,24 @@
+<div class="tablepage">
+	<div class="layui-box layui-laypage layui-laypage-default">
+		<span class="layui-laypage-count">{{'F00101' | T}}</span>
+		<span class="layui-laypage-count" ng-bind="pageConf.totalItems"></span>
+		<span class="layui-laypage-count">{{'F00102' | T}}</span>
+		<a href="javascript:" class="layui-laypage-prev" ng-class="{'layui-disabled':pageConf.pageNum <= 1}" ng-click="prevPage()">{{'F00103' | T}}</a>
+		<div ng-repeat="item in pageList track by $index" style="display: inline-block;">
+			<a href="javascript:" ng-bind="item" ng-if="item != pageConf.pageNum && item != '...'" ng-click="changePageNum(item)"></a>
+			<span class="layui-laypage-curr" ng-if="item == pageConf.pageNum">
+				<em class="layui-laypage-em"></em><em ng-bind="item"></em>
+			</span>
+			<span class="layui-laypage-spr" ng-if="item == '...'">…</span>
+		</div>
+		<a href="javascript:" class="layui-laypage-next" ng-class="{'layui-disabled':pageConf.pageNum >= pageConf.numberOfPages}" ng-click="nextPage()">{{'F00104' | T}}</a>
+		<span class="layui-laypage-limits">
+			<select style="display: block;" lay-ignore ng-change="pageConf.onChangeaPage()" ng-options="item for item in pageConf.perPageOptions" ng-model="pageConf.pageSize">
+			</select>
+		</span>
+		<span class="layui-laypage-skip">{{'F00105' | T}}
+			<input type="text" min="1" class="layui-input" ng-model="pageConf.jumpPageNum">{{'F00106' | T}}
+			<button type="button" class="layui-laypage-btn" ng-click="jumpToPage()">{{'F00107' | T}}</button>
+		</span>
+	</div>
+</div>

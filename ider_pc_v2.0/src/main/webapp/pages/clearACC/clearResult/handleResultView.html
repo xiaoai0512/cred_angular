@@ -1,0 +1,286 @@
+<div ng-controller="handleViewCtrl">
+	<div  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300023' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.processingReferenceNumber"  type="text" readonly>			
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300024' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.customerNo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300025' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.triggerEventNumber"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.externalIdentificationNo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300026' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.transactionProcessingCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300015' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.purchaseDate"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300027' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.purchaseTime"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300013' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.sourceCurrencyCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300014' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.sourceAmount"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300018' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.centralProcessingDate"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300016' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.destinationCurrencyCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300017' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.destinationAmount"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300019' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.postingAmount"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300028' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.postingCurrencyCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300029' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.conversionRateDecimal"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300030' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.conversionRate"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300031' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.acquirerReferenceNumber"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">MCC：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.merchantCategoryCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300032' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.merchantCountryCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300033' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.posEntryMode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300034' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.posTerminalCapability"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300035' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.cardSequenceNumber"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300036' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.acquirersBusinessId"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300037' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.authorizationCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300038' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.terminalId"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300039' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.cardAcceptorId"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300040' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.merchantState"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300041' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.merchantCity"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300042' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.merchantName"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300043' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.merchantZipCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300044' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.transactionDesc"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300045' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.globalTransSerialNo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300046' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.lendingDirection"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300047' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.sourceCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300048' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.dccIndicator"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300049' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.multipleClearingSequenceNumber"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300050' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.multipleClearingSequenceCount"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300051' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.transactionIdentifier"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300052' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.mcNetworkReferenceNumber"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300053' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.mcNetworkDate"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300054' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.mcPartialFinalFlag"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300055' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.transactionSequenceNumber"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300056' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.oldGlobalSerialNumbr"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300057' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.originalTransactionCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300058' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.markUpTranFlag"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300059' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.rejectionReasonDesc"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH300060' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input bnone" ng-model="handleItem.rejectionReasonCode"  type="text" readonly>
+			</div>
+		</div>
+	</div>
+</div>

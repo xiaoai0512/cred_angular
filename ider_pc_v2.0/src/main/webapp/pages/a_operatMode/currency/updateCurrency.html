@@ -1,0 +1,47 @@
+<div ng-controller="currencyUpdateCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH900001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" ng-model="items.currencyCode"  readonly/ >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH900002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.currencyDesc" maxlength="50" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH900003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.decimalPosition"  validator="number" maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH900004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.referred" maxlength="3"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH900008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="freeExchangeFlag" class="layui-input"
+						jf-select="freeExchangeFlagArrays" maxlength="1"
+						name="freeExchangeFlag"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH900006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="countryCode"  ng-model="items.countryCode" maxlength="3" >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<div ng-controller="relatedTransLayerCtrl">
+	<div jf-grid="relatedPartyTransactionsTable">
+		<table>
+			<thead>
+				<tr>
+					<th style="width: 150px;">{{'KHH2500004' | translate}} </th>
+					<th>{{'KHH2500007' | translate}} </th>
+					<th>{{'KHH2500042' | translate}}</th>
+					<th>{{'KHH2500005' | translate}} </th>
+					<th>{{'KHH2500008' | translate}} </th>
+					<th>{{'KHH2500006' | translate}} </th>
+					<th>{{'KHH2500043' | translate}}</th>
+					<th style="width: 10%;">{{'KHH2500009' | translate}} </th>
+					<th width="15%">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accountId"></td>
+					<td align="center" ng-bind="item.transDate"></td>
+					<td align="center" ng-bind="item.transAmount"></td>
+					<td align="center" ng-bind="item.transCurrCde"></td>
+					<td align="center" ng-bind="item.occurrDate"></td>
+					<td align="center" ng-bind="item.postingAmount"></td>
+					<td align="left">
+						<span  ng-bind="item.postingCurrencyCode"></span>
+						<span  ng-bind="item.postingCurrencyDesc"></span>
+					</td>
+					<td align="center" ng-bind="item.transDesc"></td>
+					<td align="center" style="padding: 0px 0px;">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkCalculationDetails(item)">
+							<i class="layui-icon"></i> {{'F00041' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

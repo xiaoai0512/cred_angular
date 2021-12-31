@@ -1,0 +1,287 @@
+<div ng-controller="updatePayProExaCtrl">
+
+	<div class="layui-form ">
+	<div >
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="updateProExaOpr" jf-select="operationModeArr" name="operationMode"   validator="required" maxlength="3" disabled>
+				</select>
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="feeItemNo" type="text"  validator="required"
+							maxlength="8" ng-model="payProExampleInf2.feeItemNo" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="instanCode1" type="text" readonly
+							maxlength="50" ng-model="payProExampleInf2.instanCode1">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="instanCode2" type="text" readonly
+							maxlength="50" ng-model="payProExampleInf2.instanCode2">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="instanCode3" type="text" readonly
+							maxlength="50" ng-model="payProExampleInf2.instanCode3">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="instanCode4" type="text" readonly
+							maxlength="50" ng-model="payProExampleInf2.instanCode4">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1300012' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="instanCode5" type="text" readonly
+							maxlength="50" ng-model="payProExampleInf2.instanCode5">
+			</div>
+		</div>
+		<div class="col_td" style="display:none;" >
+			<div class="col4 text_right">{{'YYH1300041' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="feeItemArr" name="feeType" disabled
+					ng-model="payProExampleInf2.feeType" ></select>
+			</div>
+		</div>
+		<div class="col_td"></div>
+			
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300013' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="assessmentMethodArr" name="payType" lay-filter="method"
+					ng-model="assessmentMethod" disabled></select>
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300014' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="baseFee"  ng-model="payProExampleInf2.baseFee" validator="decimals"  maxlength="17" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300015' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="supplementBaseFee"  ng-model="payProExampleInf2.supplementBaseFee" validator="decimals"  maxlength="17"  />
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="minFeeAmt"  ng-model="payProExampleInf2.minFeeAmt" validator="decimals"  maxlength="17"  />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300017' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="maxFeeAmt"  ng-model="payProExampleInf2.maxFeeAmt" validator="decimals"  maxlength="17"  />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300048' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="feeCollectTypeArr" 
+					ng-model="feeCollectType" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300049' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="waiveCycleArr" 
+					ng-model="waiveCycle"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="waiveCount"  ng-model="payProExampleInf2.waiveCount" validator="decimals"  maxlength="3"  />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300053' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="feeStartPeriod"  ng-model="payProExampleInf2.feeStartPeriod" validator="decimals"  maxlength="3" />
+			</div>
+		</div>
+		
+		</div>
+		<div class="clearboth"></div>
+		<div  ng-show="methodShow">
+		<div class="mainname">{{'YYH1300018' | translate}}</div>
+		<div class="col_td_half">
+			<div class="col4 text_right">{{'YYH1300019' | translate}}：</div>
+			<div class="wd150 float_left">
+				<select jf-select="feeFlagArr" name="feeFlag"
+					ng-model="feeFlag"></select>
+			</div>
+		</div>
+		<div class="col_td_half"></div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300020' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="matrixAppModeArry" name="matrixAppMode"
+					ng-model="matrixAppMode" ></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300051' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="feeMatrixApplicationDimensionArry" name="feeMatrixApplicationDimension" id="feeMatrixApplicationDimension"
+					ng-model="feeMatrixApplicationDimension" disabled></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300021' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transCount1"  ng-model="payProExampleInf2.transCount1" validator="number"  value="0" maxlength="7" >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300022' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="matchRelationArr" name="rate"
+					ng-model="matchRelation1"  maxlength="3" ></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300023' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transAmount1"  ng-model="payProExampleInf2.transAmount1" 
+					 value="0" validator="decimals"  maxlength="17"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300024' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input ztdecimals"  type="text" name="feeRate1"  ng-model="payProExampleInf2.feeRate1" 
+				 maxlength="10"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300025' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transCount2"  ng-model="payProExampleInf2.transCount2" validator="number" value="0" maxlength="7" >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300026' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="matchRelationArr" name="rate"
+					ng-model="matchRelation2"  maxlength="3" ></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300027' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transAmount2"  ng-model="payProExampleInf2.transAmount2" 
+					 value="0" validator="decimals"  maxlength="17"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300028' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input ztdecimals"  type="text" name="feeRate2"  ng-model="payProExampleInf2.feeRate2" 
+				 maxlength="10"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300029' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transCount3"  ng-model="payProExampleInf2.transCount3" validator="number" value="0" maxlength="7" >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300030' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="matchRelationArr" name="rate"
+					ng-model="matchRelation3"  maxlength="3" ></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300031' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transAmount3"  ng-model="payProExampleInf2.transAmount3" 
+					 value="0" validator="decimals"  maxlength="17"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300032' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input ztdecimals"  type="text" name="feeRate3"  ng-model="payProExampleInf2.feeRate3" 
+				  maxlength="10"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300033' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transCount4"  ng-model="payProExampleInf2.transCount4" validator="number" value="0" maxlength="7" >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300034' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="matchRelationArr" name="rate"
+					ng-model="matchRelation4"  maxlength="3" ></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300035' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transAmount4"  ng-model="payProExampleInf2.transAmount4" 
+					 value="0" validator="decimals"  maxlength="17"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300036' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input ztdecimals"  type="text" name="feeRate4"  ng-model="payProExampleInf2.feeRate4" 
+				  maxlength="10"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300037' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transCount5"  ng-model="payProExampleInf2.transCount5" validator="number" value="0" maxlength="7" >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300038' | translate}}：</div>
+				<div class="wd150 float_left">
+					<select jf-select="matchRelationArr" name="rate"
+					ng-model="matchRelation5"  maxlength="3" ></select>
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300039' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input"  type="text" name="transAmount5"  ng-model="payProExampleInf2.transAmount5" 
+					 value="0" validator="decimals"  maxlength="17"  >
+				</div>
+			</div>
+			<div class="col_td_half">
+				<div class="col4 text_right">{{'YYH1300040' | translate}}：</div>
+				<div class="wd150 float_left">
+					<input class="layui-input ztdecimals"  type="text" name="feeRate5"  ng-model="payProExampleInf2.feeRate5" 
+				  maxlength="10"  >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,284 @@
+<div ng-controller="rateOperationCtrl">
+	<div class="">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">分期计划名称：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input layui-disabled" type="text"
+						ng-model="rateOperaInfo.stageControlName" value="分期计划1" disabled>
+				</div>
+			</div>
+			
+			<!-- <div class="layui-inline">
+				<button class="layui-btn" ng-click="instalPlanTable.search()">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+			</div> -->
+		</div>
+		<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th width="48px">客群</th>
+					<th width="48px">产品</th>
+					<th width="30px">操作</th>
+					<th width="48px">地区</th>
+					<th width="30px">操作</th>
+					<th>MCC</th>
+					<th width="30px">操作</th>
+					<th>商户ID</th>
+					<th width="30px">操作</th>
+					<th>费率(%)</th>
+					<th width="48px">费率标识</th>
+					<th>优先级</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr ng-repeat="item in rateOperaTable track by $index">
+					<td align="center" ng-bind="item.differValue"></td>
+					<td align="center" ng-bind="item.productType"></td>
+					<td align="center" ng-if="item.differValue != undefined">
+						<button class="layui-btn" ng-click="choiceProductInfo()">
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center" ng-bind="item.area"></td>
+					<td align="center" ng-if="item.differValue != undefined">
+						<button class="layui-btn" ng-click="choiceProductInfo()">
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center" ng-bind="item.mcc"></td>
+					<td align="center" ng-if="item.differValue != undefined">
+						<button class="layui-btn" ng-click="choiceProductInfo()">
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center" ng-bind="item.merchantId"></td>
+					<td align="center" ng-if="item.differValue != undefined">
+						<button class="layui-btn" ng-click="rateOperationInfo()">
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center" ng-bind="item.feeRate"></td>
+					<td align="center" >
+						<span ng-if="item.feeRateType == '0'">相对费率</span>
+						<span ng-if="item.feeRateType == '1'">绝对费率</span>
+					</td>
+					<td align="center" ng-bind="item.priority"></td>
+				</tr> -->
+				<tr>
+					<td align="center">金卡群</td>
+					<td align="center">产品组1</td>
+					<td align="center">
+						<button class="layui-btn" ng-click="choiceProductInfo()">
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">地区组1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">餐饮类1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">商户组1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">80</td>
+					<td align="center" >相对</td>
+					<td align="center">90</td>
+				</tr>
+				<tr>
+					<td align="center">白金卡群</td>
+					<td align="center">产品组2</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">BJ</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">餐饮类1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">商户组1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">4</td>
+					<td align="center" >绝对</td>
+					<td align="center">00</td>
+				</tr>
+				<tr>
+					<td align="center">白金卡群</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">3.7</td>
+					<td align="center" >绝对</td>
+					<td align="center">90</td>
+				</tr>
+				<tr>
+					<td align="center"></td>
+					<td align="center">产品组2</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">3.9</td>
+					<td align="center" >绝对</td>
+					<td align="center">70</td>
+				</tr>
+				<tr>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">BJ</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">4.1</td>
+					<td align="center" >绝对</td>
+					<td align="center">50</td>
+				</tr>
+				<tr>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">餐饮类1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">4.5</td>
+					<td align="center" >绝对</td>
+					<td align="center">30</td>
+				</tr>
+				<tr>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center"></td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">商户组1</td>
+					<td align="center">
+						<button class="layui-btn layui-disabled" >
+							<i class="layui-icon">选择</i>
+						</button>
+					</td>
+					<td align="center">5</td>
+					<td align="center" >绝对</td>
+					<td align="center">10</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,119 @@
+<div ng-controller="controlTradViewCtrl">
+	<div class="layui-form">
+		<div class="mainname titleInfo">{{'SQH1700052' | translate}}</div>
+		<div class="col_td"> 
+			<div class="col4 text_right">{{'SQH1700040' | translate}} ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="operationModeN" ng-model="item.modeName"  type="text" readonly>
+			</div>
+		</div>
+		<!--<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700095' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone"  name="creditDescN"  ng-model="item.creditNodeNoDesc" type="text" readonly>
+			</div>
+		</div>-->
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700045' | translate}}：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="contrlSceneCodeN" ng-model="item.contrlSceneCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700046' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone"  name="contrlSceneDescN"  ng-model="item.contrlSceneDesc" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"></span>{{'SQH1700082' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="invalidFlagInfos" class="layui-input"
+							jf-select="invalidFlagInfo" type="text" disabled></select> 
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700053' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00189' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="fromDataName" type="text" ng-model="item.startDate"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="toDateName"  type="text" ng-model="item.endDate"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700057' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="transLocationInfo" class="layui-input"
+							jf-select="countriesArrayI" name="transLocationN" disabled></select>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700096' | translate}}</div>
+		<div class="col_td" ng-repeat="card in cardList" ng-show="cardSelinfoY">
+			<div class="col4 text_right">{{'SQH1700096' | translate}}：</div>
+			<div class="wd190 float_left">
+				<div class="layui-form">
+					<select class="layui-input"  jf-select="cardArray"  id="cardTypeo{{$index}}" value="card.cardAssociations" ng-model="card.cardAssociations" type="text" disabled></select>
+				</div>
+			</div>
+		</div>
+		<div ng-show="cardSelinfoN">
+		   <div class="col10 text_center">{{'SQH1700059' | translate}}</div>
+	    </div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700054' | translate}}</div>
+		<div class="col_td" ng-repeat="trad in tradInfoList" ng-show="tradSelinfoY">
+			<div class="col4 text_right">{{'SQH1700055' | translate}}：</div>
+			<div class="wd190 float_left">
+				<div class="layui-form">
+					<!-- <select class="layui-input"  jf-select="tradArray" id="tradTypeo{{$index}}" value="trad.transMode" ng-model="trad.transMode" disabled></select> -->
+				
+					<select class="layui-input" ng-model="trad.transScene" value="{{trad.transScene}}" disabled>
+						<option value="">{{'SQH1700090' | translate}}</option>
+						<option ng-repeat="tal in tradArray" value="{{tal.transSceneCode}}" ng-selected="tal.transSceneCode == trad.transScene">{{tal.transSceneDesc}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div ng-show="tradSelinfoN">
+			<div class="col10 text_center">{{'SQH1700059' | translate}}</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700058' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700105' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="excpListFlagInfo"  class="layui-input"
+							jf-select="listFlagArray" name="excpListFlagN" disabled></select>
+			</div>
+		</div>
+		<div class="col_tr" ng-show="isEFlagI">
+			<div class="col2 text_right">{{'SQH1700100' | translate}} ：</div>
+			<div class="wdper75 float_left">
+				<input class="layui-input" jf-checkbox="builder.option(contListArray)" name="excpListTypeN" ng-model="item.excpListType" disabled>  
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700106' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700107' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="contListFlagInfo"  class="layui-input"
+							jf-select="contFlagArray" name="contListFlagN" disabled></select>
+			</div>
+		</div>
+		<div class="col_tr" ng-show="isCFlagI">
+			<div class="col2 text_right">{{'SQH1700100' | translate}} ：</div>
+			<div class="wdper75 float_left">
+				<input class="layui-input" jf-checkbox="builder.option(contListArray)" name="contListTypeN" ng-model="item.contListType" disabled>  
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+	</div>
+</div>

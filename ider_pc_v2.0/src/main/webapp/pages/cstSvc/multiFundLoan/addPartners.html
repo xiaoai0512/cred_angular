@@ -1,0 +1,176 @@
+<div ng-controller="addPartnersCtrl">
+	<div class="">
+		<form name="addPartnersAddForm" class="layui-form">
+			<div>
+				<div class="mainname titleInfo">{{'FQH700026' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'FQH700032' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input step1S" ng-model="addInfo.operationMode" id="operationModeId" jf-select="operationModeArr"name="operationModeN" validator="required" lay-filter="getoperationMods">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700037' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.partnerCategory"
+							jf-select="fundlegalPersonTypeArray" name="partnerCategory">
+						</select>
+					</div>
+				</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.partnerCategory"
+							jf-select="partnerTypeArray" name="partnerCategory">
+						</select>
+					</div>
+				</div> -->
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700033' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="corporationEntityNo"
+							   validator="required,maxlength" ng-model="addInfo.corporationEntityNo" maxlength="12">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700034' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="corporationEntityName"
+						ng-model="addInfo.corporationEntityName" >
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700009' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="addInfo.legalSocialNum"
+							type="text" validator="required,maxlength"  name="legalSocialNum" maxlength="18">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'FQH700017' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.status"
+							jf-select="statusArray" name="status">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'FQH700029' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="corporationEntityNo"
+							ng-model="addInfo.repayPerformOrder">
+						</input>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700035' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.purposeFunds"
+							jf-select="purposeFundsArr" name="originFlag">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700036' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.isBankFunds"
+							jf-select="isBankFundsArr" name="originFlag">
+						</select>
+					</div>
+				</div>
+				<!--法人信息  -->
+				<div class=" clearboth"></div>
+				<div class="mainname titleInfo"><div style="width:10%"></div>{{'FQH700027' | translate}}</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700001' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="corporationEntityNo"
+							ng-model="addInfo.corporationEntityNo">
+						</input>
+					</div>
+				</div> -->
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700010' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="legalCompName"
+						ng-model="addInfo.legalCompName" >
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700011' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="legalSocialName"
+						ng-model="addInfo.legalSocialName" >
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700012' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.legalIdType" jf-select="legalIdTypeArray" 
+							validator="required" lay-filter="legalIdType"  name="legalIdType">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700013' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="legalIdNo"
+						ng-model="addInfo.legalIdNo">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700014' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="legalMobile"
+						ng-model="addInfo.legalMobile">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700015' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="legalPhone"
+						ng-model="addInfo.legalPhone">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'FQH700016' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" ng-model="addInfo.legalEmail">
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'FQH700028' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700018' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="fundTelName"
+						ng-model="addInfo.fundTelName">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700019' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="fundTelMobile"
+						ng-model="addInfo.fundTelMobile" >
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700020' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" validator="required"  name="fundTelEmail"
+						ng-model="addInfo.fundTelEmail" >
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH700021' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.fundTelType" validator="required"
+							jf-select="fundTelTypeArray" name="fundTelType">
+						</select>
+					</div>
+				</div>
+			</div>
+		</form>	
+	</div>
+</div>

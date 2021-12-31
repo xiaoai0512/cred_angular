@@ -1,0 +1,66 @@
+<div ng-controller="accountSceneAddCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：核算场景
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div class="mainname">核算场景建立</div>
+		<form  class="layui-form"  name="AsaForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>核算场景编码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"
+						ng-model="accountSceneObj.accountingScene"  validator="required,maxlength"   maxlength="8"
+						name="accountingScene" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">个人/公司标识 ：</label>
+				<div class="wd190 float_left">
+						<select ng-model="accountSceneObj.personalCompanyType" class="layui-input"
+						jf-select="builder.option(PCflagArr)" name="personalCompanyType">
+					</select>
+				</div>
+			</div>
+			<div class=col_td> 
+	          <label class="col4 text_right">交易状态：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(tradeStateArray)" name="transStatus" ng-model="accountSceneObj.transStatus">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">核算状态：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(accountStateArray)" name="acctStatus" ng-model="accountSceneObj.acctStatus">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">资产属性：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(assetAttributeArray)" name="assetAttributes" ng-model="accountSceneObj.assetAttributes">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">还款类型 ：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(repayTypeArray)" name="paymentType" ng-model="accountSceneObj.paymentType">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">清算标志 ：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(clearSignArray)" name="clearingSign" ng-model="accountSceneObj.clearingSign">
+              </div> 
+	     </div> 
+	     
+	     		<div class=" clearboth"></div>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius" ng-click="saveAccountScene()" validation-submit="AsaForm"
+				type="button">
+				<i class="layui-icon">&#xe624;</i> 确定
+			</button>
+		</div>
+		</form>
+		</div>
+		
+	</div>

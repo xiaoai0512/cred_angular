@@ -1,0 +1,33 @@
+<div ng-controller="viewProLineUnifyDateCtrl-JY">
+	<!-- <div class="leftmenu_navtitle">客户级统一信息查询</div> -->
+	
+	
+		<div jf-grid="proLineUnifyDateList">
+			<table>
+				<thead>
+					<tr>
+						<th>本次账单日期</th>
+						<th>本次最后还款日期</th>
+						<th>本次宽限日期</th>
+						<th>本次迟缴费收取日期</th>
+						<th>产品线</th>
+						<th>周期号</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.statementDate"></td>
+						<td align="center" ng-bind="item.paymentDueDate"></td>
+						<td align="center" ng-bind="item.graceDate"></td>
+						<td align="center" ng-bind="item.delinquencyDate"></td>
+						<td align="center" ng-bind="item.productLineCode"></td>
+						<td align="center" ng-bind="item.cycleNumber"></td>
+						
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,106 @@
+<div ng-controller="stagTypeParaEstCtrl">
+	<form name="stagTypeParaAddForm" class="layui-form" ng-show="firstDiv">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH5500001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="stagTypeParaAdd.operationMode"   jf-select="operationModeArr" name="operationMode" maxlength="3" validator="required" lay-filter="getOperationModeAdd" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td" id="stageTypeCode">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH5500002' | translate}}：</div>
+			<div class="wd190 float_left" >
+				<div class="layui-inline wd85">
+					<div>
+						<select  name="stageTypeCode1" ng-model="stagTypeParaAdd.stageTypeCode1" validator="required" jf-select="stageTypeCodeArr" >
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline" style="width: 95px;">
+					<div>
+						<input  class="layui-input"  type="text" name="stageTypeCode2"  ng-model="stagTypeParaAdd.stageTypeCode2" validator="required,minlength,maxlength,number" minlength="4" maxlength="4" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH5500003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select name="transIdentificationCode" ng-model="stagTypeParaAdd.transIdentificationCode" validator="required" jf-select="transIdentificationCodeArr" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5500004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="stageTypeDesc"  ng-model="stagTypeParaAdd.stageTypeDesc" validator="required"  maxlength="50" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5500011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select name="stageType" ng-model="stagTypeParaAdd.stageType" jf-select="stageTypeArr" validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_tr text_center" style="margin-top: 20px;">
+			<button class="layui-btn layui-btn-radius"  
+				ng-click="nextStep()" validation-submit="stagTypeParaAddForm">
+				 <i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+			</button>
+		</div>
+	</form>
+	<div class=" clearboth"></div>
+	<div ng-show="twoDiv">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5500002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="stageTypeCode"  ng-model="stagTypeParaAdd.stageTypeCode" disabled />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5500004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="stageTypeDesc"  ng-model="stagTypeParaAdd.stageTypeDesc" disabled / >
+			</div>
+		</div>
+		<div jf-grid="queryMODP">
+			<table>
+				<thead>
+					<tr>
+						<th align="left" style="width:60%">{{'YYH5500005' | translate}}</th>
+						<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+						</td>
+						<td align="left">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="updateSelectA(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+								ng-click="setSelectA(item,$index)">
+								<i class="layui-icon"></i> {{'F00082' | translate}}
+							</button>
+							<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+								ng-click="setSelectA(item,$index)">
+								<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col_tr text_center" style="margin-top: 20px;">
+			<button class="layui-btn layui-btn-radius"  
+				ng-click="backBtn()" >
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button>
+		</div>
+	</div>
+</div>

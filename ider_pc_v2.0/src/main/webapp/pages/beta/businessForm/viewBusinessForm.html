@@ -1,0 +1,24 @@
+<div ng-controller="viewBusinessFormCtrl">
+
+	<div class="section layui-form">
+		<div class="search_mian ">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>业务形态 ：</div>
+					<div class="wd190 float_left">
+							<!-- <select ng-model="businessFormItem.businessPattern" class="layui-input" validator="required"  name="businessPattern"
+						jf-select="builder.option(businessPatternArr)" maxlength="2"></select> -->
+							<input class="layui-input bnone" type="text"  name="businessPattern" maxlength="50" 
+							ng-model="businessFormItem.businessPattern" disabled/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>描述 ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"  name="patternDesc" maxlength="50"
+							ng-model="businessFormItem.patternDesc" disabled/>
+					</div>
+				</div>
+				
+	</div>
+</div>
+</div>

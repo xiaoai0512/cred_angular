@@ -1,0 +1,77 @@
+<div class="layui-form" ng-controller="cardNoPoolAskListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 卡号池请求表查询  -->
+		<div class="col_td">
+			<label class="col4 text_right">{{'YYH1700001' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="cardNumPoolReqList.params.corporationEntityNo" type="text" id="corporationEntityNoId">
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right">{{'YYH1700002' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="cardNumPoolReqList.params.binNo" name="bin" type="text" maxlength="6">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="cardNumPoolReqList.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn" ng-click="addCardNumPoolReq()" ng-show="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		<!-- 卡号池请求表列表 -->
+		<div jf-grid="cardNumPoolReqList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH1700001' | translate}}</th>
+						<th>{{'YYH1700002' | translate}}</th>
+						<th>{{'YYH1700012' | translate}}</th>
+						<th>{{'YYH1700005' | translate}}</th>
+						<th>{{'YYH1700003' | translate}}</th>
+						<th>{{'YYH1700004' | translate}}</th>
+						<th>{{'YYH1700008' | translate}}</th>
+						<th>{{'YYH1700009' | translate}}</th>
+						<th>{{'YYH1700006' | translate}}</th>
+						<th>{{'YYH1700007' | translate}}</th>
+						<th>{{'YYH1700010' | translate}}</th>
+						<th width="15%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.corporationEntityNo"></td>
+						<td align="center" ng-bind="item.binNo"></td>
+						<td align="center">
+							<span>{{item.enableIdentificationDesc}}</span>
+						</td>
+						<td align="center" >
+							<span>{{item.automaticGenerateFlagDesc}}</span>
+						</td>
+						<td align="center" ng-bind="item.surplusAvailableCardnum"></td>
+						<td align="center" ng-bind="item.calorimeterValue"></td>
+						<td align="center" ng-bind="item.nextDate"></td>
+						<td align="center" ng-bind="item.everyTimeGenCardnum"></td>
+						<td align="center" ng-bind="item.prevDate"></td>
+						<td align="center" ng-bind="item.prevCardnum"></td>
+						<td align="center" ng-bind="item.generateCardnum"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="viewCardNumPoolReq(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateCardNumPoolReq(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

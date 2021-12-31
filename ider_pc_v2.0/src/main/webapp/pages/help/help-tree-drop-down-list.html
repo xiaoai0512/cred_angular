@@ -1,0 +1,64 @@
+<div class="mainname">下拉展示树使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">树形结构展示下拉框，包含多选和单选。</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="col_td">
+        <div class="col4 text_right">多选框树形选择器：</div>
+        <div class="wd190 float_left">
+            &lt;input class="layui-input" type="text"  ng-model="checkboxTreeVals" selector="demoCheckboxTreeSelector">
+        </div>
+   </div>
+    <div class="col_td">
+        <div class="col4 text_right">单选框树形选择器：</div>
+        <div class="wd190 float_left">
+            &lt;input class="layui-input" type="text"  ng-model="radioTreeVal" selector="demoRadioTreeSelector">
+        </div>
+   </div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    //多选框树形选择器
+    $scope.demoCheckboxTreeSelector = {
+        checkType : 'checkbox', //展现类型：checkbox(复选框)；radio(默认，单选框)
+        layout:'tree', //布局展示，有两种：tree(树形布局)；table(表格布局)
+        params:{a:1},  //查询参数
+        disableParent:true,//已勾选的父节点无法编辑。默认为true。
+        check:{
+               enable: true, // 显示多选框按钮
+               chkStyle:"checkbox", // 添加生效
+               chkboxType :{ "Y" : "ps", "N" : "s" }
+             },//修改check事件"Y"勾选,"N"不勾选,"p"影响父节点,"s"影响子节点。注意大小写
+        resource:'roleMenu.query', //资源查询
+        callback:function(data){
+            console.log(data);
+            console.log($scope.demoCheckboxTreeSelector.tree.getChecked('name'));
+            console.log($scope.demoCheckboxTreeSelector.tree.getChecked('id'));
+            $scope.checkboxTreeVals = $scope.demoCheckboxTreeSelector.tree.getChecked('name');
+        }
+    };
+    //单选框树形选择器
+    $scope.demoRadioTreeSelector = {
+        checkType : 'radio',
+        layout:'tree',
+        params:{a:1},
+        resource:'roleMenu.query',
+        callback:function(data){
+            $scope.radioTreeVal = data.name;
+        }
+    }
+</pre>
+<div class="mainname">示例</div>
+<div style="height:200px" ng-controller="selectListDemoCtrl"class="allcontent">
+    <div class="col_td">
+        <div class="col4 text_right">多选框树形选择器：</div>
+        <div class="wd190 float_left">
+            <input class="layui-input" type="text"  ng-model="checkboxTreeVals" selector="demoCheckboxTreeSelector">
+        </div>
+    </div>
+    <div class="col_td">
+        <div class="col4 text_right">单选框树形选择器：</div>
+        <div class="wd190 float_left">
+            <input class="layui-input" type="text"  ng-model="radioTreeVal" selector="demoRadioTreeSelector">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="layout_body" ng-controller="chartsDemoCtrl">
+	<div class="body_mg20">
+		<div>
+		    <div class="section">
+		        <div class="leftmenu_navtitle">
+		           	图表示例 
+		        </div>
+		        <form name="fncApplyForm">
+		            <div class="allcontent layui-form">
+		            	<div jf-charts="charts" style="width: 600px;height: 300px"></div>
+		            </div>
+		        </form>
+		        <button class="layui-btn layui-btn-radius" ng-click="charts.type='pie'">饼图</button>
+		        <button class="layui-btn layui-btn-radius" ng-click="charts.type='bar'">柱形图</button>
+		        <button class="layui-btn layui-btn-radius" ng-click="charts.type='line'">折线图</button>
+		    </div>
+		</div>
+	</div>
+</div>

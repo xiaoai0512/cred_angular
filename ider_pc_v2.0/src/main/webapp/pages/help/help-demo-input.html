@@ -1,0 +1,26 @@
+<div ng-controller="helpInputDemoCtrl">
+	<div id="container">
+       	<div class="allcontent">
+       		<form name="fncApplyForm">
+	         	<div class="col_td">
+	                 <label class="col4 text_right">流程名称：</label>
+	                 <div class="wd190 float_left">
+	                 	<input class="layui-input"  ng-model="demoData.processDefineName" class="layui-input">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	             	<label class="col4 text_right">主题：</label>
+	                 <div class="wd190 float_left">
+	                 	<input class="layui-input"  ng-model="demoData.processTitle" class="layui-input">
+	                 </div>
+	             </div>
+				<div class="col_td">
+	                 <label class="col4 text_right">融资日期：</label>
+	                 <div class="wd190 float_left">
+	                 	 <input class="layui-input icon_date seadate" name="preEndDate" type="text" jf-date-input ng-model="demoData.preEndDate">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

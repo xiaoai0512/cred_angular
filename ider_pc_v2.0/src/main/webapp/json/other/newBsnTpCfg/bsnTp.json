@@ -1,0 +1,45 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+				"oprtMode": "A01",
+				"bsnTpcd" :"MODT00001",
+				"bsnTpds":"信用卡消费业务类型一",
+				"blngBsnMdlty": "MODX00001",
+				"txnIdCd" :"R001",
+				"crpndLmtNode": "R001",
+				"repyPrty": "2"
+                },
+                {
+				"oprtMode": "A01",
+				"bsnTpcd" :"MODT00002",
+				"bsnTpds":"信用卡取现业务类型一",
+				"blngBsnMdlty": "MODX00002",
+				"txnIdCd" :"C001",
+				"crpndLmtNode": "C002",
+				"repyPrty": "3"
+                }
+               
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 2
+        }
+        
+    },
+    "status": 200
+}

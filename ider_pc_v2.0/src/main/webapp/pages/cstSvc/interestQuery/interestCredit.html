@@ -1,0 +1,100 @@
+<div ng-controller="interestCreditCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="costInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="costSearch.idType"
+						jf-select="certificateTypeArray" name="idType" lay-filter="getIdType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text"
+					 id="costInfQuery_idNumber"  validator="noValidator"
+						ng-model="costSearch.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo"
+						type="text" ng-model="costSearch.externalIdentificationNo">
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryCostList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+	
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		<div ng-show="resultDiv">
+		
+			<div jf-grid="costInfList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH6100001' | translate}}</th>
+							<th>{{'KHH6100002' | translate}}</th>
+							<th>{{'KHH6100003' | translate}}</th>
+							<th>{{'KHH6100004' | translate}}</th>
+							<th>{{'KHH6100005' | translate}}</th>
+							<th>{{'KHH6100006' | translate}}</th>
+							<th>{{'KHH6100007' | translate}}</th>
+							<th>{{'KHH6100008' | translate}}</th>
+							<th>{{'KHH6100009' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr nf-if="item.eventNo =='PT.60' ">
+							<td align="center" ng-model="item.externalIdentificationNo">
+								<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+								<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+								<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+							</td>
+							<td align="center" >
+								<span ng-bind="item.transCurrCde"></span>
+								<span ng-bind="item.transCurrDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.transAmount | number :2"></td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="center" ng-bind="item.postingAmount | number:2"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center" ng-bind="item.transStateDesc"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="adjustAmtBtn(item)">
+									<i class="layui-icon">&#xe60b;</i>{{'KHH6100017' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		
+		
+		</div>
+
+
+
+
+
+
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<div class="layout_body" ng-controller="marketingScenceDistinCtrl">
+		<from class="layui-form">
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00077' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select  class="layui-input"
+								jf-select="coArray" name="aatype" placeholder="运营模式" name="operationModeNa" ng-model="operationModeiden" disabled></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<label class="col4 text_right">{{'SQH310002' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" ng-model="item.marketingSceneCode" >
+					</div>
+				</div>
+				<!--<div class="col_td">
+					<label class="col4 text_right">{{'SQH310001' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" ng-model="item.authSceneCode" >
+					</div>
+				</div>-->
+				<div class="col_tr text_center">
+					<div class="search_button">
+						<button class="layui-btn" style="margin-right:30px" ng-click="addIdentify(item)" ng-show="twoBtnAddFlag">
+							<i class="layui-icon">&#xe654;</i>{{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+		</from>
+	<div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH310029' | translate}}</th>
+						<th>{{'SQH310030' | translate}}</th>
+						<th>{{'SQH310031' | translate}}</th>
+						<th>{{'SQH310032' | translate}}</th>
+						<th style="width:35%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.transLocationDesc"></td>
+						<td align="center" ng-bind="item.channelListCode"></td>
+						<td align="center" ng-bind="item.merchantListCode"></td>
+						<td align="center" ng-bind="item.productListCode"></td>
+						<td style="width:30%" align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="selectListInfo(item)" ng-show="twoBtnSelFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="twoBtnUpdFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="twoBtnUpdFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+{
+"KHH2800003":"Customer No.",
+"KHH2800004":"Fee Item ID",
+"KHH2800005":"Account No./Medium Unit/Product Object",
+"KHH2800006":"Currency",
+"KHH2800007":"Waive Cycle ",
+"KHH2800008":"Executed Number",
+"KHH2800009":"Waived count",
+"KHH2800010":"First Waive Date",
+"KHH2800011":"Last Waive Date ",
+"KHH2800012":"Last Waive Amount",
+"KHH2800013":"Total Waive Amount",
+"KHH2800014": "Charge Dimensions 1",
+"KHH2800015": "Charge Dimensions 2",
+"KHH2800016": "Charge Dimensions 3",
+"KHH2800017": "Charge Dimensions 4",
+"KHH2800018": "Charge Dimensions 5",
+"KHJ2800001":"Please enter the id number or external identification number"
+}

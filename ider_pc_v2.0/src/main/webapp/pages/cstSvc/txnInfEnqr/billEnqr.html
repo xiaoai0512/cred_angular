@@ -1,0 +1,99 @@
+<div ng-controller="billEnqrCtrl">
+	<!-- <div class="leftmenu_navtitle">账单查询</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="billQueryForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="billingInfoList.params.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" ng-model="billingInfoList.params.idNumber" type="text"  
+					id="billEnqr_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" ng-model="billingInfoList.params.externalIdentificationNo" type="text" maxlength="19">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500003' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="billDate" ng-model="billingInfoList.params.billDate" type="text" jf-date-input="{'format': 'yyyy-MM'}">
+				</div>
+			</div>
+
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="billQueryForm"  ng-click="billSearch()" >
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+	</form>
+		
+		<div  ng-show="isShowBillingInfo">
+			<div jf-grid="billingInfoList">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:120px">{{'KHH4500005' | translate}}</th>
+								<th style="width: 150px;">{{'KHH4500006' | translate}}</th>
+								<th>{{'KHH4500008' | translate}}</th>
+								<th>{{'KHH4500085' | translate}}</th>
+								<th>{{'KHH4500009' | translate}}</th>
+								<th>{{'KHJ4500018' | translate}}</th>
+								<th>{{'KHH4500011' | translate}}</th>
+								<th >{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" >{{item.businessProgramNo}}{{item.programDesc}}</td>
+								<td align="center" >{{item.productObjectCode}}{{item.productDesc}}</td>
+								<td align="center" ng-bind="item.billDate"></td>
+								<td align="center" ng-bind="item.paymentDueDate"></td>
+								<td align="center" >
+									<span  ng-bind="item.currencyCode"></span>
+									<span  ng-bind="item.currencyDesc"></span>
+								</td>
+								<td align="center" ng-bind="item.currentCycleNumber"></td>
+								<td align="center" ng-bind="item.postingAmount | number:2"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkItem(item)">
+									<!-- 	<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}} -->
+										<i class="layui-icon"></i> {{'F00009' | translate}}
+									</button>	
+									
+								</td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		
+		
+		
+		
+		
+	
+	</div>
+</div>

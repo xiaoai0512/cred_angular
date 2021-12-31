@@ -1,0 +1,37 @@
+<div ng-controller="deleteBlockLayerCtrl">
+	<div class="section layui-form">
+		<!-- <div class="col_td">
+			<div class="col4 text_right">外部识别号：</div>
+			<div class="wd190 float_left">
+				<select id="externalIdentificationNo"
+					ng-model="externalIdentificationNo"></select>
+			</div>
+		</div> -->
+		
+		<div>
+				<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>外部识别号</th>
+							<th>选择</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in layerData track by $index">
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.externalIdentificationNo"></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini"
+								ng-click="callback()">
+								<i class="layui-icon"></i> 选择
+							</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		
+	</div>
+</div>

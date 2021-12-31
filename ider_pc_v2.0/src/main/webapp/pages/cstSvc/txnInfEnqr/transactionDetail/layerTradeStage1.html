@@ -1,0 +1,80 @@
+<div ng-controller="layerTradeStage1Ctrl"><!-- 分期管理 -->
+	<div class="  ">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'FQH900001' | translate}}</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'FQH900002' | translate}}</th>
+						<th>{{'FQH900003' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<form  class="layui-form"  name="stagingInfor">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'FQH900004' | translate}}</div>
+			<div >
+				<!--外部识别号&&产品对象代码 -->
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="stagingInfo.externalIdentificationNo" 
+							name="ecommEntryId" type="text" validator="required" disabled>
+					</div>
+				</div>
+				<!-- 分期期数 -->
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'FQH900009' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select jf-select="termArr" name="ecommInstallmentPeriod" validator="required" 
+							ng-model="stagingInfo.ecommInstallmentPeriod"></select>
+					</div>
+				</div>
+				<!-- 分期金额 -->
+				<div class="col_td">
+					<div class="col4 text_right">{{'FQH900021' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input " 
+							ng-model="stagingInfo.transAmount" 
+							name="ecommTransAmount" type="text" disabled>
+					</div>
+				</div>
+				<!-- 入账币种 -->
+				<div class="col_td">
+					<div class="col4 text_right">{{'FQH900010' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="stagingInfo.postingCurrencyCode"  
+							class="layui-input" jf-select="ccy" name="ecommField49" disabled>
+						</select>
+					</div>
+				</div>
+				<div class="col_td"><!-- 费用收取方式 -->
+					<div class="col4 text_right">{{'FQH900013' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="stagingInfo.ecommFeeCollectType" 
+							class="layui-input" jf-select="ectypeArray" name="ecommFeeCollectType">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<!--分期试算 -->
+				<button class="layui-btn layui-btn-radius"  validation-submit="stagingInfor"  ng-click="trialByStagesInfo()"  >
+					<i class="layui-icon">&#xe624;</i> {{'FQH900029' | translate}}
+				</button>
+			 	<!--确定分期申请 -->
+				<button class="layui-btn layui-btn-radius"  validation-submit="stagingInfor"  ng-click="saveRpyTxnSplmtEntrgInfo()"  >
+					<i class="layui-icon">&#xe624;</i> {{'FQH900030' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

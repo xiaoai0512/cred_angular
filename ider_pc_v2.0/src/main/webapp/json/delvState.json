@@ -1,0 +1,20 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 2,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "collectionValue": "0",
+            "collectionMethod":  "一次性收取 "
+        },
+       {
+            "collectionValue": "1",
+            "collectionMethod":  "分期收取 "
+        }
+        ]
+    }
+}

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>供应链金融业务系统</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+        <link rel="stylesheet" href="../layui/css/modify_layui.css" media="all" />
+        <link rel="stylesheet" href="../css/web_blue.css" media="all" />
+        <script src="../js/jquery-1.11.1.min.js"></script> 
+        <script src="../js/public.page.js"></script>    
+        <script src="../layui/layui.js"></script>  
+    </head>
+    
+    <body>
+        <!--header-->
+        <div class="header">
+        
+             <div class="webinfo">
+                  <div class="logo"></div>
+                  <div class="useinfo">
+                       <div class="usead">
+                               <ul>
+                                    <li><a href="#"><i class="icon_top01"></i> 退出</a></li>
+                                    <li><a href="#"><i class="icon_top02"><span class="numall">10</span></i> 消息</a>
+                                         <ul style="width:280px; left:-120px">
+	                                          <li><a href="#"><p>湖南长沙喜地食品有限融资余额到期提醒报告列表</p> <span>2017-11-23</span></a></li>	
+                                              <li><a href="#"><p>您下午3点30分在多功能会议室有会议</p> <span>2017-11-23</span></a></li>
+                                              <li><a href="#"><p>您有新的好友信息提醒</p> <span>2017-11-23</span></a></li>
+                                              <li><a href="#"><p>您有新的审批到您的待办事项列表</p> <span>2017-11-23</span></a></li>	
+	                                     </ul>
+                                    </li>
+                                    <li><a href="#"><i class="icon_top04"></i> 欢迎：系统管理员 </a>
+                                         <ul>
+	                                           <li><a href="#">机构：信贷管理部</a></li>	
+                                               <li><a href="#">角色：审批岗</a></li>				
+	                                     </ul>
+                                    </li>
+                                    <li><a href="#"><i class="icon_top03"></i> 返回首页</a></li>
+                               </ul>
+                           </div><!--web_info-->
+                  </div>
+             </div>
+             
+             
+             <div class="web_menu" id="web_menu">
+             
+                 <div class="menuer">
+                    <div class="menu_navbox">                 
+	                         <div class="menu_nav">  
+                                <li class="drop-menu-effect"><a href="#"><span><i class="iconmenu00"></i>客户管理</span></a></li>
+		                        <li class="drop-menu-effect"><a href="#"><span><i class="iconmenu01"></i>业务管理</span></a>
+			                        <ul class="submenu" style="left:-140px;">
+				                        <li><span>客户管理 > </span>
+                                            <ul>
+                                                <li><a href="#">客户信息管理</a></li>
+                                                <li><a href="#">客户移交</a></li>
+                                                <li><a href="#">黑名单管理</a></li>
+                                                <li><a href="#">受托支付名单管理</a></li>
+                                                <li><a href="#">监管员登记</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>圈链管理 > </span>
+                                            <ul>
+                                                <li><a href="#">圈链管理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>项目方案 > </span>
+                                            <ul>
+                                                <li><a href="#">项目方案维护</a></li>
+                                                <li><a href="#">项目方案变更</a></li>
+                                                <li><a href="#">项目方案查询</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>合同管理 > </span>
+                                            <ul>
+                                                <li><a href="#">合同维护</a></li>
+                                                <li><a href="#">合同变更</a></li>
+                                                <li><a href="#">合同查询</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>融资管理 > </span>
+                                            <ul>
+                                                <li><a href="#">融资申请</a></li>
+                                                <li><a href="#">融资申请受理</a></li>
+                                                <li><a href="#">收款确认</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>费用管理 > </span>
+                                            <ul>
+                                                <li><a href="#">费用管理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>还款管理 > </span>
+                                            <ul>
+                                                <li><a href="#">买方付款</a></li>
+                                                <li><a href="#">卖方还款</a></li>
+                                            </ul>
+                                        </li>
+                                        
+			                        </ul>
+		                        </li>
+                                
+		                        <li class="drop-menu-effect">
+			                        <a href="#"><span><i class="iconmenu02"></i>风控/风控管理</span></a>
+			                        <ul class="submenu" style="left:-280px;">
+				                        <li><span>评级管理 > </span>
+                                            <ul>
+                                                <li><a href="#">客户评级维护</a></li>
+                                                <li><a href="#">客户评级变更</a></li>
+                                                <li><a href="#">客户评级查询</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>授信申请受理 > </span>
+                                            <ul>
+                                                <li><a href="#">授信申请受理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>授信额度管理 > </span>
+                                            <ul>
+                                                <li><a href="#">授信额度管理</a></li>
+                                                <li><a href="#">额度冻结</a></li>
+                                                <li><a href="#">额度解冻</a></li>
+                                                <li><a href="#">额度终止</a></li>
+                                                <li><a href="#">额度变更</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>交易风险限额管理 > </span>
+                                            <ul>
+                                                <li><a href="#">交易风险限额管理</a></li>
+                                                <li><a href="#">额度冻结</a></li>
+                                                <li><a href="#">额度解冻</a></li>
+                                                <li><a href="#">额度终止</a></li>
+                                                <li><a href="#">额度变更</a></li>
+                                            </ul>
+                                        </li>
+			                        </ul>
+		                        </li>
+                                
+		                        <li class="drop-menu-effect">
+			                        <a href="#"><span><i class="iconmenu03"></i>押品管理</span></a>
+			                        <ul class="submenu" style="left:-420px;">
+				                        <li><span>应收账款管理 > </span>
+                                            <ul>
+                                                <li><a href="#">应收账款录入</a></li>
+                                                <li><a href="#">应收账款转让</a></li>
+                                                <li><a href="#">应收账款确认</a></li>
+                                                <li><a href="#">应收账款调整</a></li>
+                                                <li><a href="#">争议管理</a></li>
+                                                <li><a href="#">应收账款销账/质押解除</a></li>
+                                                <li><a href="#">应收账款催收</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>组合账款信息 > </span>
+                                            <ul>
+                                                <li><a href="#">组合账款信息</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>链条管理 > </span>
+                                            <ul>
+                                                <li><a href="#">链条签发确认</a></li>
+                                                <li><a href="#">链条垫付</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>池管理 > </span>
+                                            <ul>
+                                                <li><a href="#">入池管理</a></li>
+                                                <li><a href="#">出池管理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>采购订单管理 > </span>
+                                            <ul>
+                                                <li><a href="#">订单登记</a></li>
+                                                <li><a href="#">订单变更</a></li>
+                                                <li><a href="#">订单信息确认</a></li>
+                                                <li><a href="#">订单查询</a></li>
+                                                <li><a href="#">发货登记</a></li>
+                                                <li><a href="#">发货申请受理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>现货管理 > </span>
+                                            <ul>
+                                                <li><a href="#">质物入库</a></li>
+                                                <li><a href="#">质物入库受理</a></li>
+                                                <li><a href="#">提/赎货申请</a></li>
+                                                <li><a href="#">提/赎货申请受理</a></li>
+                                                <li><a href="#">质物更新</a></li>
+                                                <li><a href="#">质物更新受理</a></li>
+                                                <li><a href="#">质物价值维护</a></li>
+                                                <li><a href="#">最低控货价值维护</a></li>
+                                                <li><a href="#">商品目录设置</a></li>
+                                                <li><a href="#">市场价管理</a></li>
+                                                <li><a href="#">核定价管理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>仓储管理 > </span>
+                                            <ul>
+                                                <li><a href="#">盘库</a></li>
+                                                <li><a href="#">核库</a></li>
+                                                <li><a href="#">移库</a></li>
+                                            </ul>
+                                        </li>
+			                        </ul>
+		                        </li>
+                                
+		                        <li class="drop-menu-effect">
+			                        <a href="#"><span><i class="iconmenu04"></i>贷后管理</span></a>
+			                        <ul class="submenu" style="left:-560px;">
+				                        <li><span>风险提示 > </span>
+                                            <ul>
+                                                <li><a href="#">风险提示</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>风险预警 > </span>
+                                            <ul>
+                                                <li><a href="#">风险预警</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>差额退款 > </span>
+                                            <ul>
+                                                <li><a href="#">差额退款</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>到期及逾期管理 > </span>
+                                            <ul>
+                                                <li><a href="#">到期及逾期管理</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>尾款转出 > </span>
+                                            <ul>
+                                                <li><a href="#">尾款转出</a></li>
+                                            </ul>
+                                        </li>
+			                        </ul>
+		                        </li>
+                                
+		                        <li class="drop-menu-effect">
+			                        <a href="#"><span><i class="iconmenu05"></i> 综合查询</span></a>
+		                            <ul class="submenu" style="left:-700px;">
+                                         <li><span>业务信息查询 > </span>
+                                            <ul>
+                                                <li><a href="#">授信申请信息查询</a></li>
+                                                <li><a href="#">客户信息查询</a></li>
+                                                <li><a href="#">额度查询</a></li>
+                                                <li><a href="#">产品查询</a></li>
+                                                <li><a href="#">项目方案查询</a></li>
+                                                <li><a href="#">合同查询</a></li>
+                                                <li><a href="#">融资申请查询</a></li>
+                                                <li><a href="#">费用台账查询</a></li>
+                                                <li><a href="#">商品信息查询</a></li>
+                                                <li><a href="#">核定价变更历史查询</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>押品信息查询 > </span>
+                                            <ul>
+                                                <li><a href="#">组合账款查询</a></li>
+                                                <li><a href="#">回款查询</a></li>
+                                                <li><a href="#">应收账款台账查询</a></li>
+                                                <li><a href="#">应收账款对账查询</a></li>
+                                                <li><a href="#">池查询</a></li>
+                                                <li><a href="#">质物出库查询</a></li>
+                                                <li><a href="#">提货申请查询</a></li>
+                                                <li><a href="#">库存查询</a></li>
+                                                <li><a href="#">仓单查询</a></li>
+                                                <li><a href="#">链条查询</a></li>
+                                                <li><a href="#">采购订单查询</a></li>
+                                            </ul>
+                                        </li>
+		                            </ul>
+		                        </li> 
+                                
+                                <li class="drop-menu-effect">
+			                        <a href="#"><span><i class="iconmenu06"></i> 我的设置</span></a>
+		                            <ul class="submenu" style="left:-840px;">
+                                         <li><span>常用组件 > </span>
+                                            <ul>
+                                                <li><a href="button.html">按钮组件</a></li>
+                                                <li><a href="form.html">表单组件</a></li>
+                                                <li><a href="table.html">表格组件</a></li>
+                                                <li><a href="tab.html">Tab组件</a></li>
+                                                <li><a href="loading.html">进度条组件</a></li>
+                                                <li><a href="accord.html">折叠面板</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>辅助组件 > </span>
+                                            <ul>
+                                                <li><a href="dialog.html">弹出框</a></li>
+                                                <li><a href="alert.html">操作提示</a></li>
+                                                <li><a href="file.html">文件上传</a></li>
+                                                <li><a href="date.html">日期控件</a></li>
+                                                <li><a href="icon.html">icon图标</a></li>
+                                                <li><a href="step_model.html">向导式模板</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span>开发实例 > </span>
+                                            <ul>
+                                                <li><a href="search.html">查询列表实例</a></li>
+                                                <li><a href="messages.html">信息页面实例</a></li>
+                                                <li><a href="tree.html">树型结构实例</a></li>
+                                                <li><a href="step.html">向导式实例</a></li>
+                                                <li><a href="treetable.html">表格树实例</a></li>
+                                                <li><a href="douselect.html">双向选择实例</a></li>
+                                            </ul>
+                                        </li>
+		                            </ul>
+		                        </li>
+	                         </div><!--menu_nav_end-->
+	                    </div><!--menu_navbox_end-->
+             
+                  </div>
+             
+                 <div class="menutab">
+                    <div class="menutab_con">
+                       <div class="tabmenu_active">
+                            <p class="menutext" onClick="location='index.html'"><i class="icon_home"></i>系统首页</p>
+                            <ul class="tablemenu">
+                                <li class="select_listmenu meactived"><a href="#"></a>
+                                    <ul>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭当前窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭其他窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭全部</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                       </div>
+                       <div class="tabmenu_link">
+                            <p class="menutext" onClick="location='index.html'">客户信息管理</p> 
+                            <ul class="tablemenu">
+                                <li class="select_listmenu"><a href="#"></a>
+                                    <ul>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭当前窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭其他窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭全部</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                       </div>
+                       <div class="tabmenu_link">
+                            <p class="menutext" onClick="location='index.html'">押品登记</p> 
+                            <ul class="tablemenu">
+                                <li class="select_listmenu"><a href="#"></a>
+                                    <ul>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭当前窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭其他窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭全部</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                       </div>
+                       <div class="tabmenu_link">
+                            <p class="menutext" onClick="location='index.html'">额度查询</p> 
+                            <ul class="tablemenu">
+                                <li class="select_listmenu"><a href="#"></a>
+                                    <ul>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭当前窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭其他窗口</a></li>
+                                         <li><a href="#"><i class="closetab">&#x1007;</i> 关闭全部</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                       </div>
+                   </div>    
+               </div>
+            </div>
+        </div>
+        
+        <!--border-->
+        <div class="bodyer">
+             <div class="body_mg20">
+                  <div class="subposition"><i class="position_icon"></i>当前位置：系统首页</div>  
+             </div>
+        </div>
+        
+        
+        
+        <script type="text/javascript">
+            $(function(){
+	            slidemenu(".drop-menu-effect");
+				//$('.layout_body').jScrollPane();
+            });
+            function slidemenu(_this){
+	            $(_this).each(function(){
+		            var $this = $(this);
+		            var theMenu = $this.find(".submenu");
+		            var tarHeight = theMenu.height();
+		            theMenu.css({height:0});
+		            $this.hover(
+			            function(){
+				            $(this).addClass("hover_menu");
+				            theMenu.stop().show().animate({height:tarHeight},400);
+			            },
+			            function(){
+				            $(this).removeClass("hover_menu");
+				            theMenu.stop().animate({height:0},400,function(){
+					            $(this).css({display:"none"});
+				            });
+			            }
+		            );
+	            });
+            }
+         </script>
+         
+         
+         <script type="text/javascript">
+           window.onload = function(){
+           menuFixed('web_menu');
+           } 
+	     </script>
+         
+         
+    </body>    
+</html>

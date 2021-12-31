@@ -1,0 +1,47 @@
+<div ng-controller="checkGuarantorCstAdrQueryCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right">类型 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.typeTrans" name="typeTrans" type="text" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">城市：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.city" name="city" type="text" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">联系邮编 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.contactPostCode" name="contactPostCode" type="text" maxlength="9">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">指定电话 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.contactMobilePhone" name="contactMobilePhone" type="text" maxlength="18">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">担保人证件类型 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.guarantorCertType" name="guarantorCertType" type="text" maxlength="1">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">担保人证件号码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.guarantorCertNo" name="guarantorCertNo" type="text" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td" style="width:100%">
+			<div class="col2 text_right">联系地址 ：</div>
+			<div class="float_left" style="width:74%">
+				<textarea  class="layui-textarea"  ng-model="csInfEstbInfo.contactAddress" name="contactAddress" style="min-height: 60px;"></textarea>
+			</div>
+		</div>
+		
+	</div>
+</div>

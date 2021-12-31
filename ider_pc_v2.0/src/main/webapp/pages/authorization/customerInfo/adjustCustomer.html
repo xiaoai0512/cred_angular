@@ -1,0 +1,229 @@
+<div class="layout_body" ng-controller="adjustInfoCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form search_mian" name="adjustCustomerForm">
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="operationMode" class="layui-input"
+								jf-select="coArray" name="aatype" placeholder="运营模式" lay-filter="getoperation"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH320001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <select ng-model="creditNodeNo" class="layui-input"
+								jf-select="quoteArray" name="aatype" placeholder="额度节点" lay-filter="getquote"></select> 
+				</div>
+			</div> -->
+			<div class="col_tr">
+				<label class="col2 text_right"><span class="red">*</span>调整种类：</label>
+				<div class="wd190 float_left">
+					<select ng-model="adjusClass" jf-select="adjusClassArray" name="adjusClass" validator="required" lay-filter="getAdjusClass">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="idDiv">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+							jf-select="certificateTypeArray" name="idType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="idDiv">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumber" id="adjustCustomer_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td" ng-show="exterDiv">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center" >
+				<div class="search_button">
+					<button class="layui-btn" type="button"   ng-click="getCreditNode($event)" moreClick>
+						<i class="layui-icon">&#xe61a;</i> {{'SQH300007' | translate}}
+					</button>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="search_width" style="display: none;" id="search_width1">
+				<div class="col_tr">
+					<div class="col2 text_right">{{'SQH300007' | translate}} ：</div><!-- 额度节点 -->
+					<div class="wd190 float_left">
+						<select ng-model="creditNodeNo" jf-select="quotaNodeArr" name="creditNodeNo" ></select>
+					</div>
+					<div class="search_button">
+						<button class="layui-btn" style="margin-left: 10%;" validation-submit="adjustCustomerForm"  ng-click="selectList()">
+							{{'F00107' | translate}}
+						</button>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="search_width" style="display: none;" id="search_width1">
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH300007' | translate}} ：</div>额度节点
+					<div class="wd190 float_left">
+						 <select ng-model="creditNodeNo" jf-select="quotaNodeArr" name="creditNodeNo" ></select> 
+					</div>
+				</div>
+				<div class="search_button">
+					<button class="layui-btn" type="button" validation-submit="adjustCustomerForm"  ng-click="selectList()">
+						{{'F00107' | translate}}
+					</button>
+				</div>
+			</div> -->
+		</form>
+	</div>
+	<div class="allcontent" style="margin-top: 20px;" ng-show="resultInfo">
+		<form name="creditForm"  class="layui-form">
+			<!-- <div class="col_td">
+                <div class="col4 text_right">{{'SQH600006' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input bnone" name="listTwoN" ng-model="customerNoInfo" type="text" readonly>
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'F00111' | translate}} ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input bnone" name="CodeTwoN" ng-model="accountIdInfo" type="text" readonly>
+                </div>
+            </div>
+
+            <div class="col_td">
+                <div class="col4 text_right">{{'SQH320001' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input bnone" name="creditTwoN" ng-model="creditTypeInfo" type="text" readonly>
+                </div>
+            </div> -->
+			<div class="clearboth"></div>
+			<div class="mainname">{{'SQH320002' | translate}}</div>
+			<div style="margin-bottom:20px">
+				<table style="width:100%">
+					<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width: 10%;background-color: #DCDCDC;" align="center">{{'SQH320001' | translate}}</th>
+						<th align="center" style="width: 5%;background-color: #DCDCDC;">{{'SQH320003' | translate}}</th>
+						<th style="width:7%;background-color: #DCDCDC;" align="center">{{'SQH320004' | translate}}</th>
+						<th style="width:5%;background-color: #DCDCDC;" align="center">{{'SQH320005' | translate}}</th>
+						<th style="width:7%;background-color: #DCDCDC;" align="center">{{'SQH320006' | translate}}</th>
+						<th style="width: 11%;background-color: #DCDCDC;" align="center">{{'SQH320007' | translate}}</th>
+						<th style="width: 11%;background-color: #DCDCDC;" align="center">{{'SQH320008' | translate}}</th>
+						<th style="width: 9%;background-color: #DCDCDC;" align="center">{{'SQH320009' | translate}}</th>
+						<th style="width: 9%;background-color: #DCDCDC;" align="center">{{'SQH320010' | translate}}</th>
+						<th style="width: 9%;background-color: #DCDCDC;" align="center">{{'SQH320016' | translate}}</th>
+						<th align="center" style="width:5%;background-color: #DCDCDC;">{{'SQH320011' | translate}}</th>
+						<th align="center" style="width: 10%;background-color: #DCDCDC;">{{'F00017' | translate}}</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat = "item in quotaListB">
+						<td style="width: 10%;" align="center" ng-bind="item.creditDesc"></td>
+						<td align="center" style="width: 5%;" ng-bind="item.currencyCode"></td>
+						<td style="width:7%" align="center" ng-bind="item.permLimit"></td>
+						<td style="width:5%" align="center" ng-bind="item.toleranceAmt"></td>
+						<td style="width:7%" align="center" ng-bind="item.tempLimit"></td>
+						<td style="width: 11%;" align="center" ng-bind="item.tempLimitEffectvDate"></td>
+						<td style="width: 11%;" align="center" ng-bind="item.tempLimitExpireDate"></td>
+						<td style="width: 9%;" align="center" ng-bind="item.outstandingAmt"></td>
+						<td style="width: 9%;" align="center" ng-bind="item.balance"></td>
+						<td style="width: 9%;" align="center" ng-bind="item.paymentOutstandingAmt"></td>
+						<td style="width:5%" align="center" ng-bind="item.usableAmt"></td>
+						<td style="width:10%" align="center" >
+					  		<span ng-if="item.creditNodeTyp == 'B'">
+					  			<a href="javascript:" ng-click="checkElmInfo(item)" ><span> [{{'SQH320012' | translate}}] </span></a>
+					  		</span>
+							<span ng-if="item.creditNodeTyp != 'B'"></span>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div ng-show="showNodeDatail" style="margin-top:20px;">
+				<div class="mainname">{{'SQH320012' | translate}}：  {{creditNodeNoInfo}}</div>
+				<div  jf-grid="nodeTable">
+					<table>
+						<thead>
+						<tr>
+							<th>{{'SQH320003' | translate}}</th>
+							<th>{{'SQH320013' | translate}}</th>
+							<th>{{'SQH320004' | translate}}</th>
+							<th>{{'SQH320005' | translate}}</th>
+							<th>{{'SQH320006' | translate}}</th>
+							<th style="width: 11%;">{{'SQH320007' | translate}}</th>
+							<th style="width: 11%;">{{'SQH320008' | translate}}</th>
+							<th style="width: 11%;">{{'SQH320009' | translate}}</th>
+							<th style="width: 11%;">{{'SQH320010' | translate}}</th>
+							<th style="width: 11%;">{{'SQH320016' | translate}}</th>
+							<th>{{'SQH320011' | translate}}</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.permLimit"></td>
+							<td align="center" ng-bind="item.toleranceAmt"></td>
+							<td align="center" ng-bind="item.tempLimit"></td>
+							<td align="center" ng-bind="item.tempLimitEffectvDate"></td>
+							<td align="center" ng-bind="item.tempLimitExpireDate"></td>
+							<td align="center" ng-bind="item.outstandingAmt"></td>
+							<td align="center" ng-bind="item.balance"></td>
+							<td align="center" ng-bind="item.paymentOutstandingAmt"></td>
+							<td align="center" ng-bind="item.usableAmt"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH500005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="adjustType" class="layui-input"
+							jf-select="adjustTypeArray" name="currencyTypeN" lay-filter="getcurrencyType" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH320003' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input bnone" name="creditTwocurrencyN" ng-model="creditTwocurrency" type="text" > -->
+					<select ng-model="currencyCode" class="layui-input"
+							jf-select="creditcurrencyArray" name="creditcurrencyN" placeholder="授信币种" lay-filter="getcurrency" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="permInfo">
+				<div class="col4 text_right">{{'SQH600003' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input type="text" class="layui-input" name="creditLimitN" ng-model="creditLimit" >
+				</div>
+			</div>
+			<div class="col_td" ng-show="tempInfo">
+				<div class="col4 text_right">{{'SQH320007' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNames" type="text" ng-model="limitEffectvDate" id="LAYCA_startDate">
+				</div>
+			</div>
+			<div class="col_td" ng-show="tempInfo">
+				<div class="col4 text_right">{{'SQH320008' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="toDateNames" type="text" ng-model="limitExpireDate" id="LAYCA_endDate">
+				</div>
+			</div>
+			<div class="col_tr" style="text-align: center;" >
+				<button class="layui-btn " ng-click="sureTwoInfo()" validation-submit="creditForm">
+					{{'F00107' | translate}}
+				</button>
+				<button class="layui-btn " ng-click="closeTwoInfo()">
+					{{'F00012' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

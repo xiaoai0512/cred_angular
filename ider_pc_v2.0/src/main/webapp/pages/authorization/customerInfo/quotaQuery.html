@@ -1,0 +1,261 @@
+<div class="layout_body" ng-controller="quotaQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="quotaQueryForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+							jf-select="certificateTypeArray" name="idType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumber" id="quotaQuery_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="quotaQueryForm"  ng-click="queryQuota()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn" validation-submit="quotaQueryForm"  ng-click="queryCredit()" type="button">
+						{{'SQH300028' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		<div class="clearboth"></div>
+		<!-- 额度查询 -->
+		<div class="" ng-show="showQuotaTable" >
+			<div class="mainname">{{'SQH300006' | translate}}</div><!--汇总节点-->
+			<div style="margin-bottom:20px">
+				<table style="width:100%">
+					<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:15%;" align="center">{{'SQH300007' | translate}}</th>
+						<th style="width:15%;" align="center">{{'SQH300008' | translate}}</th>
+						<th style="width:15%;" align="center">{{'SQH300027' | translate}}</th>
+						<th style="width:15%;" align="center">{{'SQH300026' | translate}}</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat = "item in quotaListL">
+						<td style="width:15%;" align="center" ng-bind="item.creditDesc"></td>
+						<td style="width:10%;" align="center" ng-bind="item.currencyCode"></td>
+						<td style="width:10%;" align="center" ng-bind="item.creditAmt"></td>
+						<td style="width:10%;" align="center" ng-bind="item.occupyAmt"></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mainname">{{'SQH300013' | translate}}</div><!--业务节点额度-->
+			<div style="margin-bottom:20px">
+				<table style="width:100%">
+					<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width: 10%;padding:0 5px" align="center">{{'SQH300007' | translate}}</th>
+						<th align="center" style="width: 6%;padding:0 5px">{{'SQH300008' | translate}}</th>
+						<th style="width:6%;padding:0 5px" align="center">{{'SQH300014' | translate}}</th>
+						<th style="width:6%;padding:0 5px" align="center">{{'SQH300015' | translate}}</th>
+						<th style="width:6%;padding:0 5px" align="center">{{'SQH300016' | translate}}</th>
+						<th style="width:10%;padding:0 5px" align="center">{{'SQH300017' | translate}}</th>
+						<th style="width:10%;padding:0 5px" align="center">{{'SQH300018' | translate}}</th>
+						<th style="width:9%;padding:0 5px" align="center">{{'SQH300024' | translate}}</th>
+						<th style="width:9%;padding:0 5px" align="center">{{'SQH300010' | translate}}</th>
+						<th style="width:9%;padding:0 5px" align="center">{{'SQH300011' | translate}}</th>
+						<th style="width:8%;padding:0 5px" align="center">{{'SQH300026' | translate}}</th>
+						<th align="center" style="width: 25%;padding:0 5px">{{'F00017' | translate}}</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat = "item in quotaListB">
+						<td style="width: 10%;" align="center" ng-bind="item.creditDesc"></td>
+						<td align="center" style="width: 6%;" ng-bind="item.currencyCode"></td>
+						<td style="width:6%" align="center" ng-bind="item.permLimit"></td>
+						<td style="width:6%" align="center" ng-bind="item.toleranceAmt"></td>
+						<td style="width:6%" align="center" ng-bind="item.tempLimit"></td>
+						<td style="width: 10%;" align="center" ng-bind="item.tempLimitEffectvDate"></td>
+						<td style="width: 10%;" align="center" ng-bind="item.tempLimitExpireDate"></td>
+						<td style="width: 9%;" align="center" ng-bind="item.paymentOutstandingAmt"></td>
+						<td style="width: 9%;" align="center" ng-bind="item.outstandingAmt"></td>
+						<td style="width: 9%;" align="center" ng-bind="item.balance"></td>
+						<td style="width: 8%;" align="center" ng-bind="item.occupyAmt"></td>
+						<td style="width:25%" align="center" >
+							<a href="javascript:" ng-click="getBusAvaQuotaInfo(item)" ><span> [{{'SQH300012' | translate}}] </span></a>
+							<span ng-if="item.creditNodeTyp == 'B'">
+								<a href="javascript:" ng-click="getAppQuotaInfo(item)" ><span> [{{'SQH300020' | translate}}] </span></a>
+							</span>
+							<span ng-if="item.creditNodeTyp != 'B'"></span>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="clearboth"></div>
+		<!-- 业务节点可用额度查询 -->
+		<div class="" ng-show="showBusAvaQuotaTable" style="margin-top:20px;">
+			<div class="mainname">{{'SQH300012' | translate}}</div>
+			<table style="width:100%" ng-repeat = "item in quotaAvaList">
+				<thead>
+				<tr>
+					<th align="center" ng-if="item.creditDesc != '' && item.creditDesc != null && $index != 0" colspan="7">
+						<br>
+					</th>
+				</tr>
+				<tr style="background-color: #DCDCDC;">
+					<th align="center" ng-if="item.creditDesc != '' && item.creditDesc != null"><span ng-bind="item.creditDesc" ></span></th>
+				</tr>
+				<tr style="background-color: #DCDCDC;" ng-if="item.productObjectCode == '' || item.productObjectCode == null">
+					<th style="width:14%;padding:0 5px" align="center">{{'SQH300021'|translate}}</th><!--应用对象-->
+					<th style="width:4%;padding:0 5px" align="center">{{'SQH300008' | translate}}</th><!--币种-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300014' | translate}}</th><!--固定额度-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300015' | translate}}</th><!--容差额度-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300016' | translate}}</th><!--临时额度-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300017' | translate}}</th><!--临时额度生效日-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300018' | translate}}</th><!--临时额度失效日-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300024' | translate}}</th><!--还款未入账-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300010' | translate}}</th><!--未入账额度-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300011' | translate}}</th><!--已入账额度-->
+					<th style="width:8%;padding:0 5px" align="center">{{'SQH300026' | translate}}</th><!--额度占用金额-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300012' | translate}}</th><!--可用额度-->
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<!--<td style="width:13%" align="center">{{item.productObjectCode}} {{item.productObjectCodeDesc}}</td>-->
+					<td style="width:14%" align="center">{{item.productObjectCode}} {{item.productDesc}}</td>
+					<td align="center" style="width: 4%;" ng-bind="item.currencyCode"></td>
+					<td style="width:6%" align="center" ng-bind="item.permLimit"></td>
+					<td style="width:6%" align="center" ng-bind="item.toleranceLimit"></td>
+					<td style="width:6%" align="center" ng-bind="item.tempLimit"></td>
+					<td style="width:9%" align="center" ng-bind="item.tempLimitEffectvDate"></td>
+					<td style="width:9%" align="center" ng-bind="item.tempLimitExpireDate"></td>
+					<td style="width:9%" align="center" ng-bind="item.paymentOutstandingAmt"></td>
+					<td style="width: 9%;" align="center" ng-bind="item.outstandingAmt"></td>
+					<!--<td style="width: 8%;" align="center" ng-bind="item.balanceAmt"></td>-->
+					<td style="width: 9%;" align="center" ng-bind="item.balance"></td>
+					<td style="width: 8%;" align="center" ng-bind="item.occupyAmt"></td>
+					<td style="width: 6%;" align="center" ng-bind="item.availableLimit"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="clearboth"></div>
+		<!-- 应用节点额度查询 -->
+		<div class="" ng-show="showAppQuotaTable" style="margin-top:20px;">
+			<div class="mainname">{{'SQH300020' | translate}}：  {{creditNodeNoInfo}}</div>
+			<div  jf-grid="nodeTable">
+				<table>
+					<thead>
+					<tr>
+						<th style="width: 5%;">{{'SQH300008' | translate}}</th>
+						<th style="width: 16%;">{{'SQH300021' | translate}}</th>
+						<th style="width: 7%;">{{'SQH300014' | translate}}</th>
+						<th style="width: 7%;">{{'SQH300015' | translate}}</th>
+						<th style="width: 7%;">{{'SQH300016' | translate}}</th>
+						<th style="width: 10%;">{{'SQH300017' | translate}}</th>
+						<th style="width: 10%;">{{'SQH300018' | translate}}</th>
+						<th style="width: 10%;">{{'SQH300024' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300010' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300011' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300026' | translate}}</th>
+						<th style="width: 9%;">{{'F00017' | translate}}</th>
+						<!-- <th>{{'SQH300012' | translate}}</th>-->
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center">
+							<span ng-if="item.productObjectCode == '999999999'"></span>
+							<span ng-if="item.productObjectCode != '999999999'">
+						  		<div >{{item.productObjectCode}} {{item.productDesc}}</div>
+					  		</span>
+						</td>
+						<td align="center" ng-bind="item.permLimit"></td>
+						<td align="center" ng-bind="item.toleranceAmt"></td>
+						<td align="center" ng-bind="item.tempLimit"></td>
+						<td align="center" ng-bind="item.tempLimitEffectvDate"></td>
+						<td align="center" ng-bind="item.tempLimitExpireDate"></td>
+						<td align="center" ng-bind="item.paymentOutstandingAmt"></td>
+						<td align="center" ng-bind="item.outstandingAmt"></td>
+						<td align="center" ng-bind="item.balance"></td>
+						<td align="center" ng-bind="item.occupyAmt"></td>
+						<td align="center" >
+							<span>
+								<a href="javascript:" ng-click="getAppAvaQuotaInfo(item)" ><span> [{{'SQH300012' | translate}}] </span></a>
+							</span>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="clearboth"></div>
+		<!-- 应用节点可用额度查询 -->
+		<div class="" ng-show="showAppAvaQuotaTable" style="margin-top:20px;">
+			<div class="mainname">{{'SQH300012' | translate}}</div>
+			<table style="width:100%" ng-repeat = "item in quotaAppAvaList">
+				<thead>
+				<tr>
+					<th align="center" ng-if="item.creditDesc != '' && item.creditDesc != null && $index != 0" colspan="7">
+						<br>
+					</th>
+				</tr>
+				<tr style="background-color: #DCDCDC;">
+					<th align="center" ng-if="item.creditDesc != '' && item.creditDesc != null"><span ng-bind="item.creditDesc" ></span></th>
+				</tr>
+				<tr style="background-color: #DCDCDC;" ng-if="item.productObjectCode == '' || item.productObjectCode == null">
+					<th style="width:14%;padding:0 5px" align="center">{{'SQH300021'|translate}}</th><!--应用对象-->
+					<th style="width:4%;padding:0 5px" align="center">{{'SQH300008' | translate}}</th><!--币种-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300014' | translate}}</th><!--固定额度-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300015' | translate}}</th><!--容差额度-->
+					<th style="width:7%;padding:0 5px" align="center">{{'SQH300016' | translate}}</th><!--临时额度-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300017' | translate}}</th><!--临时额度生效日-->
+					<th style="width:9%;padding:0 5px" align="center">{{'SQH300018' | translate}}</th><!--临时额度失效日-->
+					<th style="width:8%;padding:0 5px" align="center">{{'SQH300024' | translate}}</th><!--还款未入账-->
+					<th style="width:8%;padding:0 5px" align="center">{{'SQH300010' | translate}}</th><!--未入账额度-->
+					<th style="width:8%;padding:0 5px" align="center">{{'SQH300011' | translate}}</th><!--已入账额度-->
+					<th style="width:7%;padding:0 5px" align="center">{{'SQH300026' | translate}}</th><!--额度占用金额-->
+					<th style="width:6%;padding:0 5px" align="center">{{'SQH300012' | translate}}</th><!--可用额度-->
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<!--<td style="width:13%" align="center">{{item.productObjectCode}} {{item.productObjectCodeDesc}}</td>-->
+					<td style="width:14%" align="center">{{item.productObjectCode}} {{item.productDesc}}</td>
+					<td align="center" style="width: 4%;" ng-bind="item.currencyCode"></td>
+					<td style="width:6%" align="center" ng-bind="item.permLimit"></td>
+					<td style="width:6%" align="center" ng-bind="item.toleranceLimit"></td>
+					<td style="width:7%" align="center" ng-bind="item.tempLimit"></td>
+					<td style="width:9%" align="center" ng-bind="item.tempLimitEffectvDate"></td>
+					<td style="width:9%" align="center" ng-bind="item.tempLimitExpireDate"></td>
+					<td style="width:8%" align="center" ng-bind="item.paymentOutstandingAmt"></td>
+					<td style="width: 8%;" align="center" ng-bind="item.outstandingAmt"></td>
+					<!--<td style="width: 8%;" align="center" ng-bind="item.balanceAmt"></td>-->
+					<td style="width: 8%;" align="center" ng-bind="item.balance"></td>
+					<td style="width: 7%;" align="center" ng-bind="item.occupyAmt"></td>
+					<td style="width: 6%;" align="center" ng-bind="item.availableLimit"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+	</div>
+</div>

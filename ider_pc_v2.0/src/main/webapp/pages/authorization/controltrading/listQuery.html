@@ -1,0 +1,127 @@
+<div class="layout_body" ng-controller="listTradListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 清单限制查询 -->
+			<from class="layui-form">
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1900060' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="operationMode" class="layui-input"
+									jf-select="coArray" name="operationModeN" lay-filter="getOperationMode"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1900061' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="listLimitCode" class="layui-input" jf-select="listCodeArr" name="aatype"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1900062' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="levelFlag" class="layui-input"
+									jf-select="commArray" name="aatype" placeholder="限制层级"></select>
+						</div>
+					</div>
+					 <div class="col_td">
+						<label class="col4 text_right">{{'SQH1900063' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" ng-model="differentCode">
+						</div>
+					</div> 
+					<div class="col_tr text_center">
+						<div class="search_button">
+							<button class="layui-btn" ng-click="seachQuota()" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn" ng-click="addList()" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+							</button>
+						</div>
+					</div>
+			</from>
+		<!-- 清单限制列表 -->
+		<div ng-show="isshowb">
+			<div jf-grid="itemListb">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH1900064' | translate}}</th>
+							<th>{{'SQH1900060' | translate}}</th>
+							<th>{{'SQH1900061' | translate}}</th>
+							<th>{{'SQH1900062' | translate}}</th>
+							<th>{{'SQH1900065' | translate}}</th>
+							<th>{{'SQH1900063' | translate}}</th>
+							<th style="width:30%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.listLimitCode"></td>
+							<td align="center" ng-bind="item.levelFlagDesc"></td>
+							<td align="center" ng-bind="item.currencyCode">
+							</td>
+							<td align="center" ng-bind="item.differentCode">
+							</td>
+							<td style="width:20%" align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="delBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div ng-show="isshowa">
+			<div jf-grid="itemLista">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH1900064' | translate}}</th>
+							<th>{{'SQH1900060' | translate}}</th>
+							<th>{{'SQH1900061' | translate}}</th>
+							<th>{{'SQH1900062' | translate}}</th>
+							<th>{{'SQH1900065' | translate}}</th>
+							<th>{{'SQH1900063' | translate}}</th>
+							<th style="width:30%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.transLimitCode"></td>
+							<td align="center" ng-bind="item.levelFlagDesc"></td>
+							<td align="center" ng-bind="item.currencyCode">
+							</td>
+							<td align="center" ng-bind="item.differentCode">
+							</td>
+							<td style="width:20%" align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="delBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

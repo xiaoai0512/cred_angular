@@ -1,0 +1,136 @@
+<div ng-controller="repurchaseCorporationCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent" style="margin-bottom:0;">
+		<form class="layui-form" name="assignmentItemForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6000025' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="basicInfo.operationMode"
+						jf-select="operationModeArr" name="operationModeN" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="basicInfo.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idTypeName" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="basicInfo.externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumberName" type="text" ng-model="basicInfo.idNumber" 
+					id="assignment_idNumber"   validator="noValidator" maxlength="30">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="assignmentItemForm"  ng-click="queryPacketInf()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+		<div class="clearboth"></div>
+		<div class="section allcontent1" ng-show='isDiv'>
+			<!-- 循环账户信息表 -->
+			<div>
+				<div class="mainname">{{'KHH47000103' | translate}}</div>
+				<!-- 查询主账户 -->			
+				<div class="page-wrapper">
+					<table id="revoleAccTreeTableRep"></table>
+				</div>
+				<!-- page -->
+	     		<div id="secRevPage" style="margin:0 auto;  text-align: right;"></div>
+			</div>
+			<div class="clearboth"></div>
+			<!-- 交易账户信息表 -->
+			<div>
+				<div class="mainname">{{'KHH47000115' | translate}}</div>
+				<!-- 查询主账户 -->			
+				<div class="page-wrapper">
+					<table id="transAccTreeTableRep"></table>
+				</div>
+				<!-- page -->
+	    		<div id="secTransPage" style="margin:0 auto;  text-align: right;"></div>
+			</div>
+		</div>
+		<!-- <!-- ABS计划表
+		<div class="clearboth"></div>
+ 		<div class="layui-form" ng-show="isShow">
+			<div class="mainname" >{{'KHH6000020' | translate}}</div>
+			<div jf-grid="ABSList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH6000025' | translate}}</th>
+							<th>{{'KHH6000023' | translate}}</th>
+							<th>{{'KHH6000024' | translate}}</th>
+							<th>{{'KHH6000010' | translate}}</th>
+							<th>{{'KHH6000022' | translate}}</th>
+							<th>{{'KHH6000009' | translate}}</th>
+							<th>{{'KHH6000041' | translate}}</th>
+							<th width="20%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.planId"></td>
+							<td align="center" ng-bind="item.planDesc"></td>
+							<td align="center" ng-bind="item.capitalOrganizationCode"></td>
+							<td align="center" ng-bind="item.accountTypeDesc"></td>
+							<td align="center" ng-bind="item.capitalStageDesc"></td>
+							<td align="center" ng-bind=""></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" type="button"
+								ng-click="viewInfClick(item)">
+								<i class="layui-icon">&#xe60b;</i> {{'F00066' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div> -->
+		<!-- ABS计划下的子账户 -->
+		<!-- <div class="layui-form" ng-show="isDiv">
+			<div class="mainname" >{{'KHH6000031' | translate}}</div>
+			<div jf-grid="sonInfoList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH6000027' | translate}}</th>
+							<th>{{'KHH6000028' | translate}}</th>
+							<th>{{'KHH6000029' | translate}}</th>
+							<th>{{'KHH6000042' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.currentTotalBalance"></td>
+							<td align="center" ng-bind="item.accountingStatusCodeDesc"></td>
+							<td align="center" ng-bind="item.fundNum"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div> -->
+	
+</div>

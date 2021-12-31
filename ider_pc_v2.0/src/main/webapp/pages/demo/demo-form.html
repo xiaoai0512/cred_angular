@@ -1,0 +1,203 @@
+<div class="body_mg20">
+	<div class="subposition"></div>
+	<form class="layui-form layui-form-pane" name="demoForm">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">必填項</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="required" ng-model="required" type="text" validator="required">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">最小、大值</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="minmax" type="text" ng-model="minmax"  validator="required,min,max" min="1" max="100">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">长度范围</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="minlength" type="text" ng-model="minlength"  title="最小、最大长度" validator="required,minlength,maxlength" minlength="6" maxlength="6">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">范围值</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="range" type="text" ng-model="range"  validator="range" range="0">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">范围长度</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="rangelength" type="text" ng-model="rangelength" validator="rangelength" rangelength="0">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">身份证</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="idcard" validator="required,idcard" ng-model="idcard" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">密码</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="password" type="password" ng-model="password" validator="required,password" required-error-message="请输入登录密码" password-error-message="密码必须由6-20个字母、数字或符号组成">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">确认密码</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="equalspassword" type="password" ng-model="equalspassword" validator="required,equals,password" equals="password"  password-error-message="密码必须由6-20个字母、数字或符号组成" equals-error-message="确认密码必须与登录密码一致">
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">数的整倍数</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="mul" validator="mul" mul="10" ng-model="mul" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">特殊符号</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="noSpecialStr" validator="noSpecialStr" ng-model="noSpecialStr" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">中文姓名</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="name" validator="name" ng-model="name" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">url地址</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="url" validator="url" ng-model="url" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">电子邮箱</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="email" validator="email" ng-model="email" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">正整数</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="number" validator="number" ng-model="number" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">手机号码</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="phone" validator="phone" ng-model="phone" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">小数点两位</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="decimals" validator="decimals" ng-model="decimals" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">小数两位>0</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="gt_decimals" validator="gt_decimals" ng-model="gt_decimals" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">QQ号码</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="qq" validator="qq" ng-model="qq" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">用户名</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="username" type="text" validator="username" ng-model="username" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">电话号码</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="tel" type="text" validator="tel" ng-model="tel" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">电话或手机</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="telephone" validator="telephone" ng-model="telephone" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">邮编格式</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" type="text" name="noreqcode" validator="noreqcode" ng-model="noreqcode" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+                 <label class="layui-form-label">数字或字母</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="intOrEng" type="text" validator="intOrEng" ng-model="intOrEng" >
+                 </div>
+            </div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">	
+                 <label class="layui-form-label">社会信用码</label>
+                 <div class="layui-input-inline">
+                     <input class="layui-input" name="creditCode" type="text" validator="creditCode" ng-model="creditCode" >
+                 </div>
+            </div>
+		</div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                 <button class="layui-btn" lay-filter="demo1" lay-submit="" validation-submit="demoForm">立即提交</button>
+                 <button class="layui-btn layui-btn-primary" validation-reset="demoForm">重置</button>
+            </div>
+        </div>
+	</form>
+</div>

@@ -1,0 +1,169 @@
+<div ng-controller="limitExceAddCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH1800068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1800062' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transLimitCodeN" ng-model="excelimitSel.levelFlagInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1800065' | translate}} ：</div>
+			<div class="wd190 float_left" >
+				<select id="d" ng-model="currencyCodeInfo" class="layui-input"
+								jf-select="crrysArray" name="currencyCodeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700083' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transLimitCodeN" ng-model="excelimitSel.transLimitCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700081' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="differentTypeN" ng-model="differentTypeExceInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isCustomerNoEAdd">
+			<label class="col4 text_right">{{'F00158' | translate}}：</label>
+			<div class="wd190 float_left">
+				<select ng-model="idTypeEAdd" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idTypeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isCustomerNoEAdd">
+			<label class="col4 text_right">{{'F00112' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text"	ng-model="idNumberEAdd" id="limit_idNumber"  readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isExterNoEAdd">
+			<label class="col4 text_right">{{'F00111' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="externalIdentificationNoEAdd" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isriskLevelNoEAdd">
+			<label class="col4 text_right">{{'SQH1700076' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="riskLevelEAdd" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isProNoEAdd">
+			<label class="col4 text_right">{{'SQJ1700029' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="proEAdd" readonly>
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show="isSupplyControlFlagEAdd">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1800084' | translate}} ：</div>
+			<div class="wd190 float_left" >
+				<select id="d" ng-model="excelimit.supplyControlFlag" class="layui-input"
+								jf-select="supplyControlFlagAdd" name="supplyControlFlag" placeholder="副卡管控标志"></select>
+			</div>
+		</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH1800063' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="differentCodeN"  ng-model="differentCodeAdd" type="text" autocomplete="off">
+			</div>
+		</div> -->
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1800069' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800070' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitSingleTransN" ng-model="excelimit.limitSingleTrans" validator="required,number"  type="text"  autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800071' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitDayTransN" ng-model="excelimit.limitDayTrans" validator="required,number"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800072' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitCycleTransN" ng-model="excelimit.limitCycleTrans" validator="required,number"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800073' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitMonthTransN" ng-model="excelimit.limitMonthTrans" validator="required,number"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800074' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitHalfYearTransN" ng-model="excelimit.limitHalfYearTrans" validator="required,number"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800075' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitYearTransN" ng-model="excelimit.limitYearTrans" validator="required,number"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800076' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitLifeCycleTransN" ng-model="excelimit.limitLifeCycleTrans" validator="required,number"  type="text" autocomplete="off">
+				</div>
+			</div>
+		<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'SQH1800077' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800078' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="numberDayTransN" ng-model="excelimit.numberDayTrans" validator="required,number" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800079' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="numberCycleTransN"  ng-model="excelimit.numberCycleTrans" validator="required,number" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800080' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="numberMonthTransN" ng-model="excelimit.numberMonthTrans" validator="required,number" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800081' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="numberHalfYearTransN" ng-model="excelimit.numberHalfYearTrans" validator="required,number" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800082' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="numberYearTransN"  ng-model="excelimit.numberYearTrans" validator="required,number" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800083' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="numberLifeCycleTransN" ng-model="excelimit.numberLifeCycleTrans" validator="required,number" type="text" autocomplete="off">
+				</div>
+			</div>
+	<!-- 		<div class="col_tr text_center" style="margin-top:20px">
+				<button class="layui-btn layui-btn-radius" style="margin-right:75px"
+					ng-click="saveLimitInfo()" validation-submit="mdmInfoForm">
+					<i class="layui-icon">&#xe624;</i> 保存
+				</button>
+				<button class="layui-btn layui-btn-radius"
+					ng-click="resetInfo()">
+					<i class="layui-icon">&#xe624;</i> 取消
+				</button>
+			</div> -->
+			<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

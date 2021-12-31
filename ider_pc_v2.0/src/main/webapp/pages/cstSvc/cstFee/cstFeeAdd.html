@@ -1,0 +1,191 @@
+<div ng-controller="cstFeeAddCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaActivatyParams.idType"
+						jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+					   id='mdmActvt_idNumber'name="idNumber" validator="noValidator"
+						ng-model="mediaActivatyParams.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="mediaActivatyParams.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH7000001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaActivatyParams.periodicFeeIdentifier" class="layui-input" 
+								 jf-select="periodArray" lay-filter="getProduct" lay-search></select>
+				</div>
+			</div>
+			<div ng-show='productShow'>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH510001' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" ng-model="addedServiceFeeInf.productObjectCode">
+					</div>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryitemList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+			<!-- 增值服务费   -->
+			<div class="clearboth"></div>
+			<div ng-show="isShow">
+				<form action="" name="addedServiceFeeForm">
+					<div class="leftmenu_navtitle">{{'KHH7000032' | translate}}</div>
+					<div class="clearboth"></div>
+					<div class="mainname">1. {{'KHH3200063' | translate}}</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3200064' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="addedServiceFeeInf.customerNo"
+								type="text" readonly="readonly">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3200006' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="addedServiceFeeInf.customerName"
+								type="text" readonly="readonly">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'F00112' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="addedServiceFeeInf.idNumber"
+								type="text" readonly="readonly">
+						</div>
+					</div>
+					
+					<div ng-show="cstFeeShow">
+					<div class="clearboth"></div>
+					<div class="mainname">2. {{'KHH7000033' | translate}}</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'F00177' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"
+								ng-model="chooseFeePro.params.feeItemNo" maxlength="8">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'F00178' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"
+								ng-model="chooseFeePro.params.feeDesc" maxlength="50">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<button class="layui-btn" ng-click="chooseFeePro.search()" type="button">
+							<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+						</button>
+		
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="saveSelect()">
+							<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+						</button>
+					</div>
+					
+					
+					<div jf-grid="chooseFeePro">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'KHH7000005' | translate}}</th>
+								<th>{{'YYH1200002' | translate}}</th>
+								<th>{{'YYH1200003' | translate}}</th>
+								<th>{{'YYH1200004' | translate}}</th>
+								<th>{{'YYH1200005' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.feeItemNo"></td>
+								<td align="center" ng-bind="item.feeTypeDesc"></td>
+								<td align="center" ng-bind="item.feeDesc"></td>
+								<td align="center" ng-bind="item.instanCode1Desc"></td>
+								<td align="center" ng-bind="item.instanCode2Desc"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>	
+				<!-- 已选中关联收费项目 -->
+					<div class="clearboth"></div>
+					<div class="mainname">{{count}}.{{'F00180' | translate}}</div>
+					<div style="margin-bottom:20px">
+						<table style="width:100%">
+							<thead>
+								<tr style="background-color: #DCDCDC;">
+									<th align="center">{{'KHH7000005' | translate}}</th>
+									<th align="center">{{'YYH1200003' | translate}}</th>
+									<th align="center">{{'KHH7000006' | translate}}</th>
+									<th align="center">{{'KHH7000007' | translate}}</th>
+									<th align="center" style="width:21%;">{{'F00017' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in treeSelect track by $index" ng-show = "antiInfoIsShow">
+									<td align="center" ng-bind="item.feeItemNo"></td>
+									<td align="center" ng-bind="item.feeDesc"></td>
+									<td align="center" >
+										<span ng-if="item.periodicFeeIdentifier=='C'" >{{'KHH7000008' | translate}}</span>
+										<span ng-if="item.periodicFeeIdentifier=='P'" >{{'KHH7000009' | translate}}</span>
+										<span ng-if="item.periodicFeeIdentifier=='N'" >{{'KHH7000010' | translate}}</span>
+									</td>
+									<td align="center" ng-bind="item.expirationDate"></td>
+									<td align="center">
+										<!-- <button class="layui-btn cancel-btn" ng-click="queryCustFeeInfo(item)" type="button">
+											<i class="layui-icon"></i>{{'F00009' | translate}}
+										</button> -->
+										<button class="layui-btn cancel-btn" type="button"  ng-if="item.periodicFeeIdentifier=='C' && (item.expirationDate==null || item.expirationDate=='')"
+											ng-click="removeSelect($index)">
+											<i class="layui-icon"></i> {{'F00016' | translate}}
+										</button>
+									</td>
+								</tr>
+								<tr ng-show = "infoIsShow">
+									<td colspan='6' align="center">{{'F000161' | translate}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				
+				<div ng-show="cstFeeShow">
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							ng-click="addFeeItem()" type="button">
+							<i class="layui-icon">&#xe624;</i> {{'F00107' | translate}}
+						</button>
+					</div>
+				</div>
+				</form>
+			</div>
+		</form>
+	</div>
+</div>

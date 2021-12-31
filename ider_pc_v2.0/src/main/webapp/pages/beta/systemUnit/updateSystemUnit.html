@@ -1,0 +1,175 @@
+<div ng-controller="updateSystemUnitCtrl">
+
+	<div class="section">
+		<div class="search_mian ">
+			<form name="bsFormInfForm" class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'PZH1300001' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"  name="systemUnitNo" maxlength="3" 
+							ng-model="systemUnitItem.systemUnitNo" disabled/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'PZH1300002' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input" type="text"  name="systemUnitName" maxlength="50"
+							ng-model="systemUnitItem.systemUnitName" />
+					</div>
+				</div>
+				 <div class="col_td">
+					<div class="col4 text_right">{{'PZH1300003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="lastProcessDate" 
+							jf-date-input="{'format': 'yyyy-MM-dd'}"
+							ng-model="systemUnitItem.lastProcessDate" > 
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="currProcessDate" 
+							jf-date-input="{'format': 'yyyy-MM-dd'}"
+							ng-model="systemUnitItem.currProcessDate" > 
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="nextProcessDate" 
+							jf-date-input="{'format': 'yyyy-MM-dd'}"
+							ng-model="systemUnitItem.nextProcessDate" > 
+					</div>
+				</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right">{{'PZH1300006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="operationDate" 
+							jf-date-input="{'format': 'yyyy-MM-dd'}"
+							ng-model="systemUnitItem.operationDate" > 
+					</div>
+				</div> -->
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300007' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="systemOperateStateUpdate" class="layui-input"   name="systemOperateStateUpdate"
+						jf-select="systemOperateArr" maxlength="3"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300008' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="currLogFlagUpdate" class="layui-input"   name="currLogFlagUpdate"
+						jf-select="logFlagArr" maxlength="1"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300009' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="nextLogFlagUpdate" class="layui-input"   name="nextLogFlagUpdate"
+						jf-select="islogFlagArr" maxlength="1"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300010' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="holidayNoTemp" class="layui-input"   name="holidayNo"
+						jf-select="holidayNoArr" maxlength="5"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300011' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="systemEnvironmentFlagUpdate" class="layui-input"   name="systemEnvironmentFlagUpdate"
+						jf-select="systemEnvironmentFlagArr" maxlength="4"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'PZH1300012' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="nonProDayBatchFlagUpdate" class="layui-input"   name="nonProDayBatchFlagNS"
+						jf-select="nonProDayBatchFlagArr" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300014' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="panEncryptFlagUpdate" class="layui-input"   name="panEncryptFlagUpdate"  disabled
+						  jf-select="panEncryptArr">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300015' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="externalHideMethodN" maxlength="19" minlength="19"   disabled
+							ng-model="systemUnitItem.externalHideMethod" validator="exShow,maxlength,minlength"/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1300016' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="encryptInstrumentUpdate" class="layui-input"   name="encryptInstrumentUpdate" disabled
+						 jf-select="encryptArr"> 
+						</select>
+					</div>
+				</div>
+				<div class="col_td" style="display:none">
+					<div class="col4 text_right">{{'PZH1300013' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="systemProcessDayFlag" class="layui-input"   name="systemProcessDayFlag"
+						jf-select="builder.option(systemProcessDayFlagArr)"></select>
+					</div>
+				</div>
+				
+				<div class="col_tr">
+					<div class="col2 text_right"><span class="red">*</span>{{'PZH1300013' | translate}}：</div>
+					<div class="wdper80 float_left">
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周一</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio1 ng-model="systemUnitItem.radio1" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">
+							</div>
+						</div>
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周二</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio2 ng-model="systemUnitItem.radio2" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">  
+							</div>
+						</div>
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周三</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio3 ng-model="systemUnitItem.radio3" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">  
+							</div>
+						</div>
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周四</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio4 ng-model="systemUnitItem.radio4" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">  
+							</div>
+						</div>
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周五</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio5 ng-model="systemUnitItem.radio5" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">  
+							</div>
+						</div>
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周六</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio6 ng-model="systemUnitItem.radio6" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">  
+							</div>
+						</div>
+						<div class="col_td_ten">
+							<div class="wdper90" style="padding-left: 17%;">周日</div>
+							<div class="wdper90 float_left">
+								<INPUT name=radio7 ng-model="systemUnitItem.radio7" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)">  
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+	</div>
+</div>
+</div>

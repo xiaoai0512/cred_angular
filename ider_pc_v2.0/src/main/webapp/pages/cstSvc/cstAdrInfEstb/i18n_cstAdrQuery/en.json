@@ -1,0 +1,19 @@
+{
+"KHH3600003": "Customer Address Information",
+"KHH3600004": "Address Type",
+"KHH3600005": "Contact Address",
+"KHH3600006": "Contact Zip Code",
+"KHH3600007": "Phone Number",
+"KHH3600008": "City",
+"KHH3600009": "POST ADDRESS",
+"KHH3600010": "Home Address",
+"KHH3600011": "COMPANY ADDRESS",
+"KHH3600012": "Guarantor Address",
+"KHH3600013": "Type",
+"KHH3600014": "City",
+"KHJ3600001": "Please enter the ID number or External PAN",
+"KHJ3600002": "Details",
+"KHJ3600003": "Add address information",
+"KHJ3600004": "Please enter the type of guarantor's ID",
+"KHJ3600005": "Please enter the guarantor's ID number"
+}

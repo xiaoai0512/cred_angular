@@ -1,0 +1,29 @@
+<div ng-controller="pDinfModCtrl">
+	<div class="section">
+		<div class="layui-form">
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3800008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"   type="text" ng-model="item.productObjectCode"  disabled>
+				</div>
+			</div>
+			<div class="col_td"></div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3800011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"   type="text"  ng-model="item.coBrandedNo" 
+						  id="coBrandedNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">公务卡预算单位编码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"   type="text"  ng-model="item.budgetOrgCode" 
+						  id="budgetOrgCode">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

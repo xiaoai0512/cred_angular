@@ -1,0 +1,138 @@
+<div ng-controller="checkEventCtrl">
+	<div>
+		<div class="section">
+			<div class="layui-tab-content">
+				<div class="layui-form">
+					<div class="layui-form">
+						<!--web_body-->
+						<div class="mainname titleInfo">{{'PZH300021' | translate}}</div>
+						
+						
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300001' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="artifactNo"
+									ng-model="eventInfo.artifactNo" type="text" readonly>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300002' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="artifactDesc"
+									ng-model="eventInfo.artifactDesc" type="text" readonly>
+							</div>
+						</div>
+						
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300004' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen1" class="layui-input" name="instanDimen1"
+									jf-select="instanDimen1Arr" maxlength="4" disabled></select>
+							</div>
+						</div>
+						<div class="col_td" >
+							<div class="col4 text_right" >{{'PZH300005' | translate}} ：</div>
+							<div class="wd190 float_left">
+									<select ng-model="instanDimen2" class="layui-input" name="instanDimen2"
+									jf-select="instanDimen1Arr" maxlength="4" disabled></select>
+							</div>
+						</div>
+						<div class="col_td" >
+							<div class="col4 text_right">{{'PZH300006' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen3" class="layui-input" name="instanDimen3"
+									jf-select="instanDimen1Arr" maxlength="4" disabled></select>
+							</div>
+						</div>
+						<div class="col_td" >
+							<div class="col4 text_right">{{'PZH300007' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen4" class="layui-input" name="instanDimen4"
+									jf-select="instanDimen1Arr" maxlength="4" disabled></select>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300008' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen5" class="layui-input" name="instanDimen5"
+									jf-select="instanDimen1Arr" maxlength="4" disabled></select>
+							</div>
+						</div>
+						<div class="col_td">
+						<div class="col4 text_right">{{'PZH300022' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="delayEffectiveSign" class="layui-input" name="delayEffectiveSign"
+								jf-select="delEffArr" disabled></select>
+						</div>
+					</div>
+						
+						
+						<!-- <div class="col_td">
+							<div class="col4 text_right">{{'PZH300001' | translate}}：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="artifactNo"
+									ng-model="eventInfo.artifactNo" type="text" readonly>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300002' | translate}}：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="artifactDesc"
+									ng-model="eventInfo.artifactDesc" type="text" readonly>
+							</div>
+						</div> -->
+						<!-- <div class="col_td">
+							<div class="col4 text_right">{{'PZH300038' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select  class="layui-input" ng-model="eventInfo.logLevel" 
+									name="logLevel"  maxlength="1" disabled>
+								</select>
+							</div>
+						</div> -->
+						<!-- <div class="col_td">
+							<div class="col4 text_right">{{'PZH300039' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select  class="layui-input" ng-model="eventInfo.logType" 
+							  		name="logType"  maxlength="1" disabled>
+								</select>
+							</div>
+						</div> -->
+						<!-- <div class="col_td">
+							<div class="col4 text_right">{{'PZH300040' | translate}}：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="lifecycleNode" ng-model="eventInfo.lifecycleNode"
+									type="text" readonly>
+							</div>
+						</div> -->
+						<!-- <div class="col_td">
+							<div class="col4 text_right">{{'PZH300041' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select  class="layui-input" ng-model="eventInfo.accountingUseFlag" disabled
+									name="accountingUseFlag"  maxlength="1">
+								</select>
+							</div>
+						</div> -->
+						<div class="clearboth"></div>
+						<div class="mainname" >{{'PZH300042' | translate}}</div>
+						<div jf-grid="itemList">
+							<table class="layui-table" lay-even lay-skin="nob">
+								<thead>
+									<tr>
+										<th>{{'PZH300043' | translate}}</th>
+										<th>{{'PZH300044' | translate}}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td align="center" ng-bind="item.eventNo"></td>
+										<td align="center" ng-bind="item.eventDesc"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

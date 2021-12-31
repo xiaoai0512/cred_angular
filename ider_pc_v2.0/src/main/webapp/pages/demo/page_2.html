@@ -1,0 +1,70 @@
+<div class="section" id="leftmenuid02" ng-controller="page2Ctrl">
+     <div class="leftmenu_navtitle">客户信息</div>
+     <div class="allcontent">
+     	<form name="infoForm2">
+           <div class="col_td">
+                <div class="col4 text_right">客户编号：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" autocomplete="off" validator="intOrEng"   ng-model="mparams.cstNub" ></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">客户名称：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" autocomplete="off" ng-model="mparams.cstNm" ></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right"><i class="red_input">*</i>申请人：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" autocomplete="off" ng-model="mparams.cstNm" ></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right"><i class="red_input">*</i>申请期限：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" autocomplete="off" ng-model="mparams.cstDate"></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right"><i class="red_input">*</i>是否有效：</div>
+                <div class="wd190 float_left"><input name="close" type="checkbox" lay-skin="switch" lay-text="是|否"></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">性别：</div>
+                <div class="wd190 float_left">
+                    <input title="男" name="sex" value="男" CHECKED="" type="radio">
+                    <input title="女" name="sex" value="女" type="radio">
+                </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">申请日期：</div>
+                <div class="wd190 float_left"><input id="date1" class="layui-input" onclick="layui.laydate({elem: this})" type="text"></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">状态：</div>
+                <div class="wd190 float_left">
+                     <select name="select" id="select">
+                        <option>请选择</option>
+                        <option>有效</option>
+                        <option>无效</option>
+                     </select>
+               </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">申请模式：</div>
+                <div class="wd190 float_left">
+                     <select name="select" id="select">
+                        <option>请选择</option>
+                        <option>线上申请</option>
+                        <option>线下申请</option>
+                     </select>
+               </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">申请额度（万元）：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" autocomplete="off"></div>
+           </div>
+           <div class="col_tr">
+                <div class="col2 text_right">申请额度（万元）：</div>
+                <div class="col3 float_left"><textarea class="layui-textarea" placeholder="请输入内容"></textarea></div>
+           </div>
+         </form>
+     </div>
+    <div class="scrbtn">
+          <button class="layui-btn"  validation-submit="infoForm2" ng-click="editInfo()"><i class="layui-icon">&#x1005;</i> 提 交</button>
+          <button class="layui-btn"> <i class="layui-icon">&#x1006;</i> 取消</button>
+    </div>
+</div>

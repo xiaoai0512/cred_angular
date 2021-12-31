@@ -1,0 +1,144 @@
+<div ng-controller="adjustResultInfoCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH600006' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="userNoN" ng-model="resInfo.customerNo"  type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'F00111' | translate}}：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="jobNumberN" ng-model="resInfo.externalIdentificationNo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH320001' | translate}}：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="nameN" ng-model="resInfo.creditNodeNosInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH500005' | translate}}：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="nameN" ng-model="resInfo.adjustTypeInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH320003' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="idNumberN" ng-model="resInfo.currencyCodeInfo"  type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH320014' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.tempLimitInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td" ng-show="tempResult">
+			<div class="col3 text_right">{{'SQH320007' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.startDateInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td" ng-show="tempResult">
+			<div class="col3 text_right">{{'SQH320008' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.endDataInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH320015' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resInfo.returnCodeInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td" ng-show="isNO" style="height:60px">
+			<div class="col3 text_right">{{'SQH600008' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<textarea class="layui-input bnone" name="loginNameN" style="height:60px" ng-model="resInfo.returnMsgInfo"  ></textarea>
+			</div>
+		</div>
+		</form>
+	</div>
+	<div class="clearboth"></div>
+		<div class="mainname">{{'SQH320002' | translate}}</div>
+		<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+				<tr style="background-color: #DCDCDC;">
+					<th style="width: 10%;" align="center">{{'SQH320001' | translate}}</th>
+					<th align="center" style="width: 5%;">{{'SQH320003' | translate}}</th>
+                    <th style="width:10%" align="center">{{'SQH320004' | translate}}</th>
+                    <th style="width:5%" align="center">{{'SQH320005' | translate}}</th>
+                    <th style="width:9%" align="center">{{'SQH320006' | translate}}</th>
+                    <th style="width: 13%;" align="center">{{'SQH320007' | translate}}</th>
+                    <th style="width: 13%;" align="center">{{'SQH320008' | translate}}</th>
+                    <th style="width: 10%;" align="center">{{'SQH320009' | translate}}</th>
+                    <th style="width: 10%;" align="center">{{'SQH320010' | translate}}</th>
+                    <th align="center" style="width:5%">{{'SQH320011' | translate}}</th>
+                    <th align="center" style="width: 10%;">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat = "item in quotaResultListB">
+					<td style="width: 10%;" align="center" ng-bind="item.creditDesc"></td>
+	                    <td align="center" style="width: 5%;" ng-bind="item.currencyCode"></td>
+                        <td style="width:10%" align="center" ng-bind="item.permLimit"></td>
+                        <td style="width:5%" align="center" ng-bind="item.toleranceAmt"></td>
+                        <td style="width:9%" align="center" ng-bind="item.tempLimit"></td>
+	                    <td style="width: 13%;" align="center" ng-bind="item.tempLimitEffectvDate"></td>
+	                    <td style="width: 13%;" align="center" ng-bind="item.tempLimitExpireDate"></td>
+	                    <td style="width: 10%;" align="center" ng-bind="item.outstandingAmt"></td>
+	                    <td style="width: 10%;" align="center" ng-bind="item.balance"></td>
+	                    <td style="width:5%" align="center" ng-bind="item.usableAmt"></td>
+	                    <td style="width:10%" align="center" >
+					  		<span ng-if="item.creditNodeTyp == 'B'">
+					  			<a href="javascript:" ng-click="resultElmInfo(item)" ><span> [{{'SQH320012' | translate}}] </span></a>
+					  		</span>
+					  		<span ng-if="item.creditNodeTyp != 'B'"></span>						
+						</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+		<div ng-show="showNodeResult" style="margin-top:20px;">
+	<div class="mainname">{{'SQH320012' | translate}}：  {{creditNodeNoInfo}}</div>
+		<div  jf-grid="nodeTables">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH320003' | translate}}</th>
+						<th>{{'SQH320013' | translate}}</th>
+	                    <th>{{'SQH320004' | translate}}</th>
+	                    <th>{{'SQH320005' | translate}}</th>
+	                    <th>{{'SQH320006' | translate}}</th>
+	                    <th style="width: 11%;">{{'SQH320007' | translate}}</th>
+	                    <th style="width: 11%;">{{'SQH320008' | translate}}</th>
+	                    <th style="width: 11%;">{{'SQH320009' | translate}}</th>
+	                    <th style="width: 11%;">{{'SQH320010' | translate}}</th>
+	                    <th>{{'SQH320011' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					   <td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+                        <td align="center" ng-bind="item.permLimit"></td>
+                        <td align="center" ng-bind="item.toleranceAmt"></td>
+                        <td align="center" ng-bind="item.tempLimit"></td>
+	                    <td align="center" ng-bind="item.tempLimitEffectvDate"></td>
+	                    <td align="center" ng-bind="item.tempLimitExpireDate"></td>
+	                    <td align="center" ng-bind="item.outstandingAmt"></td>
+	                    <td align="center" ng-bind="item.balance"></td>
+	                    <td align="center" ng-bind="item.usableAmt"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

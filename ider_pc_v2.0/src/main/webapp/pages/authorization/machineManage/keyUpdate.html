@@ -1,0 +1,76 @@
+<div ng-controller="keyUpdateCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeInfo" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="recordTypeArray" name="keyTypeN" ng-model="keyTypeU" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000003' | translate}}ID ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" name="keyIdN" ng-model="itemUpdate.keyId" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00091' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="paramDescN"  type="text" ng-model="itemUpdate.keyDesc" validator="required">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">KEY{{'SQH3000005' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="logIsoMsgIndU" class="layui-input"
+							jf-select="threeArray" name="logIsoMsgIndN" lay-filter="getTypethree"></select>
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH3000007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="algorithmTypeU" class="layui-input"
+							jf-select="algorithmTypeArray" name="algorithmTypeN"></select>
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000008' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="keySingleN"  type="text" ng-model="itemUpdate.checkValue" validator="required,maxlength" maxlength="16">
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000009' | translate}}1 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="keySingleN"  type="text" ng-model="itemUpdate.keySingle" validator="required,maxlength" maxlength="16">
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td"  ng-show = "istwoValuep">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000009' | translate}}2 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="keyDoubleN"  type="text" ng-model="itemUpdate.keyDouble" validator="maxlength" maxlength="16">
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td"  ng-show = "istreeValuep">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH3000009' | translate}}3 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="keyTripleN"  type="text" ng-model="itemUpdate.keyTriple" validator="maxlength" maxlength="16">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

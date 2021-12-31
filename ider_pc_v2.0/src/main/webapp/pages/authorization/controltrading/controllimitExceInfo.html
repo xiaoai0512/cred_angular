@@ -1,0 +1,151 @@
+<div ng-controller="limitExceInfosCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH1800068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1800062' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transLimitCodeN" ng-model="excelimitSelInfo.levelFlagInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1800065' | translate}} ：</div>
+			<div class="wd190 float_left" >
+				<select id="d" ng-model="currencyCodeInfo" class="layui-input"
+								jf-select="crrysArray" name="currencyCodeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700083' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transLimitCodeN" ng-model="excelimitSelInfo.transLimitCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700081' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="differentTypeN" ng-model="differentTypeExceInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isCustomerNoEInfo">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text"	ng-model="isCustomerNoInfo"  readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isExterNoEInfo">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="externalIdentificationNoEInfo" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isriskLevelNoEInfo">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="riskLevelEInfo" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isProNoEInfo">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="proEInfo" readonly>
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show="isSupplyControlFlagEInfo">
+			<div class="col4 text_right">{{'SQH1800084' | translate}} ：</div>
+			<div class="wd190 float_left" >
+				<input class="layui-input bnone" type="text" ng-model="excelimitSelInfo.supplyControlFlag" readonly>
+			</div>
+		</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH1800063' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="differentCodeN"  ng-model="differentCodEInfo" type="text" readonly>
+			</div>
+		</div> -->
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1800069' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800070' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitSingleTransN" ng-model="excelimitSelInfo.limitSingleTrans"   type="text"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800071' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitDayTransN" ng-model="excelimitSelInfo.limitDayTrans"   type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800072' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitCycleTransN" ng-model="excelimitSelInfo.limitCycleTrans"   type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800073' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitMonthTransN" ng-model="excelimitSelInfo.limitMonthTrans"   type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800074' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitHalfYearTransN" ng-model="excelimitSelInfo.limitHalfYearTrans"   type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800075' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitYearTransN" ng-model="excelimitSelInfo.limitYearTrans"   type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800076' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitLifeCycleTransN" ng-model="excelimitSelInfo.limitLifeCycleTrans"   type="text" readonly>
+				</div>
+			</div>
+		<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'SQH1800077' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800078' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberDayTransN" ng-model="excelimitSelInfo.numberDayTrans"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800079' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberCycleTransN"  ng-model="excelimitSelInfo.numberCycleTrans"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800080' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberMonthTransN" ng-model="excelimitSelInfo.numberMonthTrans"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800081' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberHalfYearTransN" ng-model="excelimitSelInfo.numberHalfYearTrans"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800082' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberYearTransN"  ng-model="excelimitSelInfo.numberYearTrans"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1800083' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberLifeCycleTransN" ng-model="excelimitSelInfo.numberLifeCycleTrans"  type="text" readonly>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,314 @@
+<div ng-controller="viewAbnormalCtrl" class="layui-form">
+	<div class="col_td">
+		<div class="col4 text_right"> {{'KHH1700021' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.customerNo" name="customerNo" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right"> {{'KHH1700022' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone icon_date"  ng-model="abnorItem.processingDate" name="processingDate" type="text" readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700023' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" ng-model="abnorItem.processingTime" name="processingTime" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700024' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.accountId" name="accountId" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700025' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.currencyCode" name="currencyCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700014' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.eventNo" name="eventNo" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.externalIdentificationNo" name="externalIdentificationNo" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700008' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transDate" name="transDate" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700026' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transTime" name="transTime" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700027' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transCurrDecimal" name="transCurrDecimal" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700009' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transCurrCode" name="transCurrCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700010' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transAmount" name="transAmount" type="text"  readonly>
+		</div>
+	</div>
+	
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700015' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transDesc" name="transDesc" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700028' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.businessTypeCode" name="businessTypeCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700029' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.operationMode" name="operationMode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700030' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.currDeciaml" name="currDeciaml" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700031' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.currPrincipalBalance" name="currPrincipalBalance" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700032' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.billPrincipalBalance" name="billPrincipalBalance" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700033' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.currInterestBalance" name="currInterestBalance" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700034' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.billInterestBalance" name="billInterestBalance" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700035' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.currCostBalance" name="currCostBalance" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700036' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.billCostBalance" name="billCostBalance" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700037' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.postingCurrDecimal" name="postingCurrDecimal" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700012' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.postingCurrCode" name="postingCurrCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700013' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.postingAmt" name="postingAmt" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700038' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.postingExchangeRate" name="postingExchangeRate" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700039' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.clearCurrDecimal" name="clearCurrDecimal" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700040' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.clearCurrCode" name="clearCurrCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700041' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.clearAmount" name="clearAmount" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700042' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.authCode" name="authCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">MCC ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.mcc" name="mcc" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700043' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transCountryCde" name="transCountryCde" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700044' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transCityCde" name="transCityCde" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700045' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.sourceCde" name="sourceCde" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700046' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700047' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.channelCde" name="channelCde" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700048' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.merchantCde" name="merchantCde" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700049' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transOpponentName" name="transOpponentName" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700050' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.transOpponentBankNo" name="transOpponentBankNo" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700051' | translate}} ：</div>
+		<div class="float_left" syle="width: 250px;">
+			<input class="layui-input bnone"  ng-model="abnorItem.globalTransSerialNo" name="globalTransSerialNo" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700052' | translate}} ：</div>
+		<div class="float_left" syle="width: 250px;">
+			<input class="layui-input bnone"  ng-model="abnorItem.oriGlobalTransSerialNo" name="oriGlobalTransSerialNo" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700005' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<select  class="layui-input bnone" ng-model="viewtransBillingState" disabled
+					jf-select="transBillingStateArr" name="transBillingState"  >
+			</select>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700053' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<!-- <input class="layui-input bnone"  ng-model="abnorItem.refuseSource" name="refuseSource" type="text"  readonly> -->
+			<select  class="layui-input bnone" ng-model="viewrefuseSource" 
+					jf-select="refuseSourceArr" name="refuseSource" disabled >
+			</select>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700054' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.overpayAmount" name="overpayAmount" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700055' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.overpayCurrCode" name="overpayCurrCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700056' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.oriTransPostingAccountId" name="oriTransPostingAccountId" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700057' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.oriTransPostingCurrCode" name="oriTransPostingCurrCode" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700006' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.failureReason" name="failureReason" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700011' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.postingDate" name="postingDate" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700058' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.postingTime" name="postingTime" type="text"  readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700059' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="abnorItem.messagePostingAmt" name="messagePostingAmt" type="text"  readonly>
+		</div>
+	</div>
+</div>

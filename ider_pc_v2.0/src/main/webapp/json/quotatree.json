@@ -1,0 +1,13 @@
+{
+"data":
+[
+{"id":"001","name":"顶层额度","open":true,"pId":"000"},
+{"id":"002","name":"日常消费额度","open":true,"pId":"001"},
+{"id":"007","name":"专项分期额度","open":true,"pId":"001"},
+{"id":"003","name":"日常循环额度","open":true,"pId":"001"},
+{"id":"004","name":"取现额度","open":true,"pId":"002"},
+{"id":"005","name":"分期额度","open":true,"pId":"002"},
+{"id":"006","name":"现金分期额度","open":true,"pId":"005"}
+],
+"status":200
+}

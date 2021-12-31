@@ -1,0 +1,224 @@
+<style>
+	.layui-btn-group .layui-btn {
+		margin-right: 5px !important
+	}
+</style>
+<div ng-controller="noOutBillDetailCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right">事件编号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.eventNo" name="eventNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">活动编号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.activityNo" name="activityNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.externalIdentificationNo" name="externalIdentificationNo"
+				 type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">账户号/余额单元号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.entityKey" name="entityKey" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易日期：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transDate" name="transDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<!-- <div class="col4 text_right">发生日期 ：</div> -->
+			<div class="col4 text_right">入账日期 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.occurrDate" name="occurrDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易币种：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transCurrCde" name="transCurrCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易金额 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transAmount" name="transAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">入账币种 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.postingCurrencyCode" name="postingCurrencyCode" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">入账金额：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.postingAmount" name="postingAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">清算币种 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.settlementCurrencyCode" name="settlementCurrencyCode"
+				 type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">清算金额 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.settlementAmount" name="settlementAmount" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">入账转换汇率 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.postingConvertRate" name="postingConvertRate" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易描述 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transDesc" name="transDesc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">余额类型 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.balanceType" name="balanceType" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">客户号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.customerNo" name="customerNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">账户代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易状态 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transState" name="transState" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">业务类型代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.businessTypeCode" name="businessTypeCode" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">余额对象代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.balanceObjectCode" name="balanceObjectCode" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">授权码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.authCde" name="authCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">来源码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.sourceCde" name="sourceCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易国家代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transCountryCde" name="transCountryCde" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易城市代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.transCityCde" name="transCityCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">收单参考号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text"
+				 disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">渠道代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.channelCde" name="channelCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">商户类别码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.mcc" name="mcc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">商户代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="transDetailInfo.merchantCde" name="merchantCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">全局流水号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" style="width: 260px;" ng-model="transDetailInfo.globalSerialNumbr" name="globalSerialNumbr"
+				 type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="layui-btn-group">
+				<!-- 全部退货 -->
+				<button class="layui-btn" ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001' || transDetailInfo.eventNo=='ISS.PT.40.0002'   || transDetailInfo.eventNo=='ISS.XT.00.0006' 
+				 || transDetailInfo.eventNo=='ILS.XT.00.0001'  || transDetailInfo.eventNo=='ILS.XT.00.0003'  || transDetailInfo.eventNo=='ILS.XT.00.0004'  || transDetailInfo.eventNo=='ILS.XT.00.0005' 
+				 && (transDetailInfo.transState == 'NOR' )"
+				 ng-click="returnedPurchase(transDetailInfo)">{{'F00048' | translate}}</button>
+				 <!-- 部分退货 -->
+				 <button class="layui-btn" ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001' || transDetailInfo.eventNo=='ISS.PT.40.0002'   || transDetailInfo.eventNo=='ISS.XT.00.0006' 
+				  || transDetailInfo.eventNo=='ILS.XT.00.0001'  || transDetailInfo.eventNo=='ILS.XT.00.0003'  || transDetailInfo.eventNo=='ILS.XT.00.0004'  || transDetailInfo.eventNo=='ILS.XT.00.0005'
+				  && (transDetailInfo.transState == 'NOR' || transDetailInfo.transState == 'PRT' ) "
+				  ng-click="partReturnedPurchase(item)">{{'F00191' | translate}}</button>
+				  
+				<button class="layui-btn " ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001' && transDetailInfo.transState == 'NOR' "
+				 ng-click="transStage(transDetailInfo)">{{'F00053' | translate}}</button>
+				<button class="layui-btn " ng-if="transDetailInfo.eventNo=='ISS.PT.40.0001'  && transDetailInfo.transState == 'NOR'"
+				 ng-click="disputeRegist(transDetailInfo)">争议登记</button>
+				<!-- <button class="layui-btn "
+			    ng-if="transDetailInfo.eventNo=='ISS.PT.40.0002'  && transDetailInfo.transState == 'NOR'" 
+				ng-click="disputeRegist(transDetailInfo)">无争议登记</button> -->
+
+				<button class="layui-btn " ng-if="transDetailInfo.transState == 'DIS' " ng-click="disputeReleaseCst(transDetailInfo)">争议释放（有利于客户）</button>
+				<button class="layui-btn " ng-if="transDetailInfo.transState == 'DIS' " ng-click="disputeReleaseBank(transDetailInfo)">争议释放（有利于银行）</button>
+
+			</div>
+		</div>
+	</div>
+</div>

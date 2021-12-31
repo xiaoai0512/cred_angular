@@ -1,0 +1,109 @@
+<div ng-controller="quotaAddOneACtrl">
+	<div>
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2000064' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="itemAdd.operationMode" class="layui-input" lay-search=""
+							jf-select="coArray" name="operationModeNa" placeholder="运营模式" validator="required" lay-filter="getoperation" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000065' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="quotaTreeIdN" ng-model="itemAdd.creditTreeId"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000066' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="creditNodeNoN" ng-model="qAddOne.creditNodeNo"  type="text"  validator="required,minlength,maxlength,number" minlength="3" maxlength="3" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000067' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="creditDescN"  ng-model="qAddOne.creditDesc"  type="text" validator="required">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2000068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000069' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="qAddOne.creditNodeTyp" class="layui-input" lay-search=""
+							jf-select="nodeArray" name="creditNodeTypN"  lay-filter="getRiskLimits"   placeholder="节点类型" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000070' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="upperNodeNoN"  ng-model="quota.upperNodeNo"  type="text"  validator="required,minlength,maxlength,number" minlength="3" maxlength="3" > -->
+				 	 <select ng-model="upperNodeNoInfo" class="layui-input" lay-search=""
+							jf-select="upperArray" name="upperNodeNoN" placeholder="上层节点" disabled></select>
+				</div> 
+			</div>
+		</div>
+		<div class="col_td" ng-show="isL">
+			<div class="col4 text_right">{{'SQH2000071' | translate}}：</div>
+			<div class="wd190 float_left">
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="upperNodeNoN"  ng-model="quota.upperNodeNo"  type="text"  validator="required,minlength,maxlength,number" minlength="3" maxlength="3" > -->
+				 	 <select ng-model="qAddOne.creditComputeMode" class="layui-input" lay-search=""
+							jf-select="sumArray" name="creditComputeModeN" placeholder="额度计算方式"></select>
+				</div> 
+			</div>
+		</div>
+		<div class="col_td" ng-show="isb">
+			<div class="col4 text_right">{{'SQH2000072' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input" name="affiliatUpperNodeNoN"  type="text"  ng-model="quota.affiliatUpperNodeNo" validator="minlength,maxlength,number" minlength="3" maxlength="3" >  -->
+				<select ng-model="qAddOne.doubleCheckNodeCode" class="layui-input" lay-search=""
+							jf-select="upperArray" name="affiliatUpperNodeNoN" placeholder="双重检查节点编号"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isb">
+			<div class="col4 text_right">{{'SQH2000073' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="qAddOne.creditCategory" class="layui-input" lay-search=""
+							jf-select="typeArray" name="creditCategoryN" placeholder="额度种类"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isb">
+			<div class="col4 text_right">{{'SQH2000074' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="qAddOne.creditProperty" class="layui-input" lay-search=""
+						jf-select="natureArray" name="creditPropertyN" placeholder="额度性质"></select> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000076' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="creditCheckFlagArray" lay-search="" name="creditCheckFlagN" ng-model="qAddOne.creditCheckFlag" validator="required"></select>
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show="isb">
+			<div class="col4 text_right">{{'SQH2000075' | translate}}：</div>
+			<div class="wd190 float_left">
+				 <input class="layui-input" name="transIdentifiNoN" id="transIdentifiNoId"  type="text"  ng-model="quota.transIdentifiNo"  validator="minlength,maxlength" minlength="4" maxlength="4" > 
+				<select class="layui-input" jf-select="transIdentifiNoArray" name="transIdentifiNoN" ng-model="qAddOne.transIdentifiNo"></select>
+			</div>
+		</div> -->
+		<div class=" clearboth"></div>
+		<!--<div class="col_tr text_center" style="margin-top:20px">
+			<button class="layui-btn layui-btn-radius" style="margin-right:75px" 
+				ng-click="saveQuotaInfo()" validation-submit="mdmInfoForm">
+				<i class="layui-icon">&#xe624;</i> 保存
+			</button>
+			<button class="layui-btn layui-btn-radius"
+				ng-click="resetInfo()">
+				<i class="layui-icon">&#xe624;</i> 取消
+			</button>
+		</div>
+		<div class=" clearboth"></div> -->
+		</form>
+	</div>
+</div>

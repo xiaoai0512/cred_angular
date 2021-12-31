@@ -1,0 +1,83 @@
+<div ng-controller="enqrMntExRtCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：查询维护汇率
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="curRatListTable.params.operationMode" minlength="3" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">日期 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="rateIssueDate"
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="curRatListTable.params.rateIssueDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">报价货币 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="curRatListTable.params.referCurrency" minlength="3" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">基准货币 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="curRatListTable.params.baseCurrency" minlength="3" maxlength="3">
+				</div>
+			</div>
+
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="curRatListTable.search()"
+					type="button">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="curRatListTable.params={}">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+			<div jf-grid="curRatListTable">
+				<table>
+					<thead>
+						<tr>
+							<th>运营模式</th>
+							<th>报价货币</th>
+							<th>基准货币</th>
+							<th>日期</th>
+							<th>买入价</th>
+							<th>卖出价</th>
+							<th>Mark up</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.referCurrency"></td>
+							<td align="center" ng-bind="item.baseCurrency"></td>
+							<td align="center" ng-bind="item.rateIssueDate"></td>
+							<td align="center" ng-bind="item.buyingPrice"></td>
+							<td align="center" ng-bind="item.sellingPrice"></td>
+							<td align="center" ng-bind="item.markUp"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="checkCurrencyRate(item)" >
+									<i class="layui-icon"></i> 修改
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

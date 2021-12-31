@@ -1,0 +1,71 @@
+<div ng-controller="userAddCtrl">
+	<div class="leftmenu_navtitle">
+		用户信息 <i class="follow_icon" title="关注该业务"></i>
+	</div>
+	<form name="userForm">
+		<div class="allcontent">
+			<div class="col_td">
+				<div class="col4 text_right">登录名:：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="loginName"
+						ng-model="user.loginName" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">姓名：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="realname"
+						ng-model="user.realname" validator="required">
+				</div>
+			</div>
+			<div class="col_td" ng-if="!user.userNum">
+				<div class="col4 text_right">
+					<i class="red_input">*</i>密码：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="password" name="password"
+						ng-model="user.password" validator="required">
+				</div>
+			</div>
+			<div class="col_td" ng-if="!user.userNum">
+				<div class="col4 text_right">
+					<i class="red_input">*</i>密码确认:：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="password" name="repassword"
+						ng-model="user.repassword" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<i class="red_input">*</i>性别:：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="user.sexCd"
+						jf-select="builder.option(demoArray,'id','name')"
+						class="layui-input" name="statusCd" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">移动电话：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="user.mobile"
+						validator="telephone" tel-error-message="移动电话号码输入格式错误">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">固定电话：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="user.telephone"
+						validator="tel" tel-error-message="固定电话号码输入格式错误">
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div class="scrbtn">
+		<button class="layui-btn"  validation-submit="userForm"
+				ng-click="save($event)" button-type="saveBizInf"> <i class="layui-icon">&#x1005;</i> 保存</button>
+	 	<button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x1006;</i> 返回</button>
+	</div>
+</div>

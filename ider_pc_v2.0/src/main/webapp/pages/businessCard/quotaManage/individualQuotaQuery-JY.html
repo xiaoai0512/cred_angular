@@ -1,0 +1,99 @@
+<div class="layout_body layui-form" ng-controller="individualQuotaCtr-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="cusInfoForm">
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfo">
+			<div class="mainname">1. 预算单位基础信息</div>
+			<div class="col_td">
+				<div class="col4 text_right">机构号：</div>
+				<div class="wd190 float_left">
+					<select ng-model="individ.institutionId" jf-select="institutionIdArr" name="institutionId" disabled >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="customerName" ng-model="individ.customerName" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">证件类型：</div>
+				<div class="wd190 float_left">
+					<select ng-model="individ.idType"
+						jf-select="builder.option(certificateTypeArray)" name="idType"disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">证件号码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="listCodeN" ng-model="individ.idNumber" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户类型：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="builder.option(personalCompanyType)"
+						ng-model="individ.customerType" name="customerType" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">账单日：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="customerName" ng-model="individ.billDay" type="text" readonly>
+				</div>
+			</div>
+			
+			
+			<div class="clearboth"></div>
+			<div class="mainname">2.预算单位附加信息</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">预算管理层级：</div>
+				<div class="wd190 float_left">
+					<select ng-model="individ.manageLevelCode" 
+						jf-select="builder.option(manageLevelArray)" name="manageLevelCode" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">单位公务卡总授信额度：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="city" ng-model="individ.orgAllQuota" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">个人公务卡最大授信额度：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="city" ng-model="individ.personMaxQuota" type="text" readonly>
+				</div>
+			</div>
+		<!-- <div class="col_tr " >
+			<button class="layui-btn float_right" style="margin-right: 48%;" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+			</button>
+		</div> -->
+	</div>
+</div>

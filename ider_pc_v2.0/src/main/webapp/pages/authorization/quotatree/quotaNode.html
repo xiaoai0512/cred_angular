@@ -1,0 +1,80 @@
+<div class="layout_body" ng-controller="quotaNodeCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+        <div class="allcontent">
+        <form class="layui-form" name="quotaNodeForm">
+            <div class="col_td">
+                <label class="col4 text_right">{{'F00077' | translate}}：</label>
+                <div class="wd190 float_left">
+                    <select ng-model="itemList.params.operationMode" class="layui-input" lay-search=""
+					jf-select="coArray" name="operationModeN" placeholder="运营模式"></select>
+                </div>
+            </div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH2000061' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.creditNodeNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="seachQuota()" ng-show="selBtnFlag01">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn" ng-click="addControl()" >
+						<i class="layui-icon">&#xe654;</i> {{'SQH2100067' | translate}}
+					</button>
+					<!-- <button class="layui-btn" ng-click="addQuota()" ng-show="addBtnFlag">
+						<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+					</button>  addBtnNodeFlag-->
+				</div>
+			</div>
+		</form>
+		<div class="allcontent promptInfo" ng-show="isprompt">{{'SQH2000062' | translate}}</div>
+		<div ng-show="isShow">
+			<div jf-grid="itemList" >
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH2000061' | translate}}</th>
+							<th>{{'SQH2000063' | translate}}</th>
+							<!-- <th>上层节点</th> -->
+							<th  style="width:39%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.creditNodeNo"></td>
+						  	<td align="center" ng-bind="item.creditDesc">	</td>
+						   <!-- <td align="center" ng-bind="item.upperNodeNo"></td> -->
+							<td align="center"  style="width:35%">
+								<!--详情-->
+								<button class="layui-btn layui-btn-mini" ng-click="authCreditNodeInfo(item)" ng-show="selBtnFlag01">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<!--修改-->
+								<button class="layui-btn layui-btn-mini" ng-click="authCreditNodeUpdate(item)" ng-show="updBtnFlag01">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<!-- 删除额度节点 -->
+								<button class="layui-btn layui-btn-mini" ng-click="authCreditNodeDelete(item)">
+									<i class="layui-icon">&#xe640;</i> {{'SQH2100068' | translate}}
+								</button>
+								<span ng-if = "item.creditNodeTyp == 'B'">
+									<!--额度关系-->
+									<button class="layui-btn layui-btn-mini" ng-click="selectCreditMeshList(item)" ng-show="selBtnFlag02">
+										<i class="layui-icon">&#xe60b;</i>{{'SQH2000101' | translate}}
+									</button>
+									<!--交易识别-->
+									<button class="layui-btn layui-btn-mini" ng-click="identifyConList(item)" ng-show="selBtnFlag03">
+										<i class="layui-icon">&#xe60b;</i>{{'SQH2000080' | translate}}
+									</button>
+								</span><!--delBtnFlag02-->
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

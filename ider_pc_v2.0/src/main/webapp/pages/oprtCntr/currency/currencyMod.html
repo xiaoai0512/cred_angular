@@ -1,0 +1,33 @@
+<div ng-controller="currencyMaintCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">货币代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="items.currencyCode"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">货币描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.description"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">小数位位数：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.decimalPlaces"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">货币简称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.referred"  >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

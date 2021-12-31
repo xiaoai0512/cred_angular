@@ -1,0 +1,77 @@
+<div ng-controller="mediaLossIsReplaceLayerCtrl">
+	<form name="isReplaceForm" class="section layui-form">
+		<div class="mainname">{{'KHH5800055' | translate}}</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'KHH5800056' | translate}}：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" ng-model="isReplaceInf.cardBin" name="cardBin" type="text" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'KHH5800057' | translate}}：</label>
+				<div class="layui-input-inline">
+					<select ng-model="segmentNumberList.params.segmentNumber" class="layui-input" jf-select="segmentNumberArr" name="segmentNumber" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="layui-inline">
+					<button class="layui-btn" ng-click="segmentNumberList.search()" validation-submit="isReplaceForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button" ng-click="resetSegmentNum()" >
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+		<div ng-show="isShow">
+			<div jf-grid="segmentNumberList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH5800057' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.segmentNumber"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="checkCardNumInf(item)" type="button">
+									<i class="layui-icon"></i> {{'F00196' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show='isShowCardNumDiv'>
+			<div class="mainname">{{'KHH5800059' | translate}}</div>
+			<div jf-grid="cardNumberList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH5800060' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.cardNumberStr"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH5800063' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" ng-model="isReplaceInf.newExpirationDate" name="newExpirationDate" 
+					 jf-date-input="{'format': 'yyyy-MM'}">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

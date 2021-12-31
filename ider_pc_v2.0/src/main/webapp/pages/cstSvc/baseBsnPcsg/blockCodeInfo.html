@@ -1,0 +1,43 @@
+<div ng-controller="codeControlCtrl">
+	<div class="layui-form">
+		<div class="mainname">{{'KHH500075' | translate}}</div>
+		<div jf-grid="itemControlList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH500076' | translate}}{{'F00107' | translate}}</th>
+						<th>{{'KHH500077' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.controlProjectNo"></td>
+						<td align="center" ng-bind="item.controlDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="search_mian">
+			<div class="mainname">已选定价标签</div>
+		</div>
+		<div jf-grid="controlBlockList">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>定价标签编号</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.controlProjectNo"></td>
+						<td align="center" ng-bind="item.controlDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

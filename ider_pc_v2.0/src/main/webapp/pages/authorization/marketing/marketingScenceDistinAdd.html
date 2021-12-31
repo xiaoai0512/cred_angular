@@ -1,0 +1,73 @@
+<div class="layout_body" ng-controller="marketingScenceDistinAddCtrl">
+	<form class="layui-form" name="markAddform">
+		<div class="search_mian">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00077' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select  class="layui-input"
+								jf-select="coArray" name="aatype" placeholder="运营模式" name="operationModeFlag" ng-model="item.operationModeiden" disabled></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH310002' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="item.marketingSceneCode" readonly>
+					</div>
+				</div>
+				<!--<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH310001' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="item.authSceneCode" readonly>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<div>
+		<div class="mainname titleInfo">{{'SQH310033' | translate}}</div>
+		<!--<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH310034' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="priorityN"  ng-model="item.priority"  type="text"  validator="required,number,maxlength,range"maxlength="3" range="[0|999]">  
+				</div>
+			</div>-->
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00189' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataName" id="LAY_start_Add" type="text" ng-model="item.startDate" autocomplete="off"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateName" id="LAY_end_Add" type="text" ng-model="item.endDate" autocomplete="off"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310029' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="item.transLocation" class="layui-input"
+								jf-select="countriesArray" name="listTypAddM" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310030' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="channelCodeN"  type="text" ng-model="item.channelListCode" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310031' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="merchantCodeN"  type="text" ng-model="item.merchantListCode" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310032' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="productCodeN"  type="text" ng-model="item.productListCode">
+			</div>
+		</div>
+   	 </div>
+    </form>
+</div>   

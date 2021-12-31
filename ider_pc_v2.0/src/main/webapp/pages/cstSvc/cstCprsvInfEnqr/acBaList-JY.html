@@ -1,0 +1,31 @@
+<div ng-controller="acBaListCtrl-JY">
+	<div class="leftmenu_navtitle">账户余额信息</div>
+	<div jf-grid="acBaListTable">
+		<table>
+			<thead>
+				<tr>
+					<th>账户代码</th>
+					<th>币种</th>
+					<th>余额对象代码</th>
+					<th>余额</th>
+					<th>累计利息</th>
+					<th>当期最低还款</th>
+					<th>生效利率</th>
+					<th>利率变更标志</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accCd"></td>
+					<td align="center" ng-bind="item.ccyCd"></td>
+					<td align="center" ng-bind="item.balObjCd"></td>
+					<td align="center" ng-bind="item.bal"></td>
+					<td align="center" ng-bind="item.acmInt"></td>
+					<td align="center" ng-bind="item.crnPrdLwstRepy"></td>
+					<td align="center" ng-bind="item.effIntRt"></td>
+					<td align="center" ng-bind="item.intRtMdfInd"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

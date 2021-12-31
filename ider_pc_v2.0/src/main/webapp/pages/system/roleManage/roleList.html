@@ -1,0 +1,69 @@
+<div class="layout_body" ng-controller="roleListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 部门管理查询 -->
+		<div class="search_mian layui-form">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500001' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="operationOrganArray" name="operationModeN" ng-model="itemList.params.operationOrgan"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500029' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="itemList.params.departmentName">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500031' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="departmentStatusArr" name="departmentStatus" ng-model="itemList.params.departmentStatus"></select>
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-bottom: 10px;width:100%;text-align: center;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="itemList.search()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="addRole()" ng-show="addBtnFlag">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 部门管理列表 -->
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00013' | translate}}</th>
+						<th>{{'YWH5500001' | translate}}</th>
+						<th>{{'YWH5500029' | translate}}</th>
+						<th>{{'YWH5500030' | translate}}</th>
+						<th>{{'YWH5500031' | translate}}</th>
+						<th  style="width:30%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.operationOrgan"></td>
+						<td align="center" ng-bind="item.departmentName"></td>
+						<td align="center" ng-bind="item.departmentDesc"></td>
+						<td align="center" ng-bind="item.departmentStatusDesc"></td>
+						<td align="center"  style="width:30%">
+							<button class="layui-btn layui-btn-mini" ng-click="updateRole(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

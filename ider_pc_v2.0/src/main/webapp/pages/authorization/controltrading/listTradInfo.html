@@ -1,0 +1,33 @@
+<div class="layout_body" ng-controller="listTradListCtrl">
+	<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+				<tr style="background-color: #DCDCDC;">
+					<th style="width:20%">{{'SQH1900060' | translate}}</th>
+					<th style="width:20%">{{'SQH1900061' | translate}}</th>
+					<th style="width:20%">{{'SQH1900062' | translate}}</th>
+					<th style="width:20%">{{'SQH1900065' | translate}}</th>
+					<th style="width:20%">{{'SQH1900063' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width:20%" align="center" ng-bind="item.operationMode"></td>
+					<td style="width:20%" align="center" ng-bind="item.listLimitCode"></td>
+					<td style="width:20%" align="center" ng-bind="item.levelFlagDesc"></td>
+					<td style="width:20%" align="center" ng-bind="item.currencyCode"></td>
+					<td style="width:20%" align="center" ng-bind="item.differentCode"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1900070' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1900071' | translate}}：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="limitSingleTransN" ng-model="item.limitSingleTrans" type="text" readonly>
+			</div>
+		</div>
+		
+</div>

@@ -1,0 +1,22 @@
+<div ng-controller="porLineModCtrl">
+	<div jf-grid="influenceList">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'YYH300008' | translate}}</th>
+					<th>{{'YYH300009' | translate}}</th>
+					<th>{{'YYH300002' | translate}}</th>
+					<th>{{'F00157' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.businessProgramNo"></td>
+					<td align="center" ng-bind="item.businessDesc"></td>
+					<td align="center" ng-bind="item.productObjectCode"></td>
+					<td align="center" ng-bind="item.productObjectDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

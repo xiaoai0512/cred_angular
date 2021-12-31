@@ -1,0 +1,72 @@
+<div ng-controller="menuEventCtrl">
+	<div class="layui-form">
+		<div class="mainname titleInfo">{{'YWH5500050' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00162' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="itemList.params.eventId" maxlength="14" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00163' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="itemList.params.eventDesc" maxlength="50" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="itemList.search()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="saveSelect()">
+				<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+			</button>
+		</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00162' | translate}}</th>
+						<th>{{'F00163' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+					<!-- 已选中关联事件 -->
+			<div class="mainname titleInfo">{{'YWH5500051' | translate}}</div>
+			<div>
+				<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<th>{{'F00013' | translate}}</th>
+							<th>{{'F00162' | translate}}</th>
+							<th>{{'F00163' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="items in treeSelect track by $index">
+							<td align="center" ng-bind="$index + 1"></td>
+							<td align="center" ng-bind="items.eventNo"></td>
+							<td align="center" ng-bind="items.eventDesc"></td>
+							<td align="center">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="removeSelect($index)">
+									<i class="layui-icon"></i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>

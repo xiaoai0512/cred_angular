@@ -1,0 +1,397 @@
+<style>
+/* 树形表格样式 */
+.allcontent {
+	margin-bottom : 0;
+}
+.allcontent1 {
+	width: 98%;
+    padding: 1%;
+    background: #F9F9F9;
+    margin-bottom: 20px;
+}
+.layui-table td, .layui-table th, .layui-table-header, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=row], .layui-table[lay-skin=line] {
+	border: none;
+}
+.ew-tree-table-box table thead > tr {
+    font-weight: bold;
+}
+</style>
+<div ng-controller="accRepyHistEnqrCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<input type="text" class="disN"   ng-model = "hide_accRepyHistEnqr.idType" />
+	<input type="text" class="disN"   ng-model = "hide_accRepyHistEnqr.idNumber" />
+	<input type="text" class="disN"   ng-model = "hide_accRepyHistEnqr.externalIdentificationNo" />
+	<div>
+		<form class="layui-form allcontent" name="accountHistForm" >
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="accRepayHisTable.params.idType"  lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber"
+					 id="accRepyHistEnqr_idNumber"  validator=""
+					ng-model="accRepayHisTable.params.idNumber" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" ng-model="accRepayHisTable.params.externalIdentificationNo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00171' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="startDate" ng-model="accRepayHisTable.params.startDate" type="text" id="LAY_demorange_zs">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00172' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="endDate" ng-model="accRepayHisTable.params.endDate" type="text"  id="LAY_demorange_ze">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryBalanceUnitHis()">
+						<i class="layui-icon">&#xe615;</i>  {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+
+		<div  class="allcontent" ng-show="isShowDiv">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH1900005' | translate}}</div>
+			<div jf-grid="accRepayHisTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:15%">{{'KHH1900006' | translate}}</th>
+							<th>{{'KHH1900007' | translate}}</th>
+							<th>{{'KHH1900008' | translate}}</th>
+							<th>{{'KHH1900009' | translate}}</th>
+							<th>{{'KHH1900010' | translate}}</th>
+							<th>{{'KHH1900011' | translate}}</th>
+							<th>{{'KHH1900012' | translate}}</th>
+							<th style="width:32%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" >
+								<span ng-show="item.externalIdentificationNo" ng-bind="item.externalIdentificationNo"></span>
+								<span ng-show="!item.externalIdentificationNo" ng-bind="item.accountId"></span>
+							</td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="left" >
+								<span ng-bind="item.transCurrCde"></span>
+								<span ng-bind="item.transCurrDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.transAmount"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.transStateDesc"></td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center">
+								<!-- 原明细
+								<button class="layui-btn layui-btn-mini"
+									ng-click="viewRepayHisSameTransList(item)">
+									<i class="layui-icon"></i>  {{'KHJ1900004' | translate}}
+								</button> -->
+								<button class="layui-btn layui-btn-mini"
+									ng-click="queryMainAndChildAcc(item)">
+									<i class="layui-icon"></i> {{'KHJ1900004' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="viewRepaymentHisDetail(item)">
+									<i class="layui-icon"></i> {{'F00041' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="revocation(item)">
+									<i class="layui-icon"></i> {{'F00049' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="distributeOrder(item)">
+									<i class="layui-icon"></i> {{'KHH1900058' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+	<!-- 还款分配列表 -->
+	<div  class="allcontent1" ng-show="isShowSameSource">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1900013' | translate}}</div>
+		<!-- 查询主账户 -->
+		<div class="page-wrapper">
+			<table id="repayDistributeTreeTable"></table>
+			<div id="repayPage"  style="margin: 0 auto;  text-align: right;"></div>
+		</div>
+		<!-- <div jf-grid="sameSourceTransTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 18%;">{{'KHH1900014' | translate}}</th>
+						<th >{{'KHH1900045' | translate}}</th>
+						<th >{{'KHH1900008' | translate}}</th>
+						<th >{{'KHH1900009' | translate}}</th>
+						<th >{{'KHH1900007' | translate}}</th>
+						<th >{{'KHH1900047' | translate}}</th>
+						<th >{{'KHH1900015' | translate}}</th>
+						<th >{{'KHH1900010' | translate}}</th>
+						<th >{{'KHH1900012' | translate}}</th>
+						<th width="20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center">
+							<span>{{item.businessTypeCode}}{{item.businessDesc}}</span>
+						</td>
+						<td align="left" >
+							<span ng-bind="item.transCurrCde"></span>
+							<span ng-bind="item.transCurrDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.transAmount"></td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.postingAmount"></td>
+						<td align="center" ng-bind="item.occurrDate"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini" ng-click="queryBalTypePosting(item)">
+								<i class="layui-icon"></i> {{'F00051' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewRepaymentHisDetail(item)">
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+	<!-- 账户间分配顺序 -->
+	<div  class="allcontent" ng-show="isShowDistributeOrder">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1900059' | translate}}</div>
+		<div jf-grid="accDistributeOrderTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH1900058' | translate}}</th>
+						<th style="width: 15%;">{{'KHH1900045' | translate}}</th>
+						<th>{{'KHH1900072' | translate}}</th>
+						<th>{{'KHH1900061' | translate}}</th>
+						<th>{{'KHH1900065' | translate}}</th>
+						<th style="width: 18%;">{{'KHH1900045' | translate}}</th>
+						<th>{{'KHH1900017' | translate}}</th>
+						<th>{{'KHH1900062' | translate}}</th>
+						<th width="16%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="{{$index+1}}"></td>
+						<td align="center">
+							<span>{{item.businessTypeCode}}</span>
+							<span>{{item.businessDesc}}</span>
+						</td>
+						<td align="center" ng-bind="item.transIdentifiNo"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.currBillFlagDesc"></td>
+						<td align="center" ng-bind="item.businessDesc"></td>
+						<td align="center" ng-bind="item.balanceType"></td>
+						<td align="center" ng-bind="item.balanceAmt | number :2"></td>
+
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewBalanceOrder(item)">
+								<i class="layui-icon"></i> {{'KHH1900063' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- 余额单元分配顺序 -->
+	<div  class="allcontent" ng-show="isShowBalanceOrder">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1900064' | translate}}</div>
+		<div jf-grid="balanceOrderTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH1900058' | translate}}</th>
+						<th>{{'KHH1900049' | translate}}</th>
+						<th>{{'KHH1900024' | translate}}</th>
+						<th>{{'KHH1900050' | translate}}</th>
+						<th>{{'KHH1900017' | translate}}</th>
+						<th>{{'KHH1900062' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.distributionOrder"></td>
+						<td align="center" ng-bind="item.cycleNumber"></td>
+						<td align="center" ng-bind="item.balanceUnitCode"></td>
+						<td align="center">
+							<span>{{item.balanceObjectCode}}</span><span>{{item.balanceObjectDesc}}</span>
+						</td>
+						<td align="center" ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.distributionAmount | number :2"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- 余额类型入账情况  -->
+	<div class="allcontent" ng-show="isBalTypePosting">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHJ1900001' | translate}}</div>
+		<div jf-grid="balTypePostingTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 16%;">{{'KHH1900016' | translate}}</th>
+						<th>{{'KHH1900045' | translate}}</th>
+						<th>{{'KHH1900017' | translate}}</th>
+						<th>{{'KHH1900047' | translate}}</th>
+						<th>{{'KHH1900015' | translate}}</th>
+						<th width="16%">{{'KHH1900048' | translate}}</th>
+						<th width="25%"> {{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center">
+							<span>{{item.businessTypeCode}}{{item.businessDesc}}</span>
+						</td>
+						<td align="center" ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.postingAmount"></td>
+						<td align="center" ng-bind="item.actualPostingAmount"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryBalUnitInfo(item)">
+								<i class="layui-icon"></i> {{'F00052' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)">
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="allcontent" ng-show="isShowBalUnit">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1900023' | translate}}</div>
+		<div jf-grid="balUnitInfoTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH1900049' | translate}}</th>
+						<th style="width: 150px;">{{'KHH1900024' | translate}}</th>
+						<th>{{'KHH1900050' | translate}}</th>
+						<th>{{'KHH1900017' | translate}}</th>
+						<th>{{'KHH1900019' | translate}}</th>
+						<th width="15%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.cycleNumber"></td>
+						<td align="center" ng-bind="item.entityKey"></td>
+						<td align="left">{{item.balanceObjectCode}}{{item.objectDesc}}</td>
+						<td align="center" ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.actualPostingAmount"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="tradInfo(item)"  >
+								<i class="layui-icon"></i> {{'KHH1900057' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)"  >
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="allcontent" ng-show="isShowtrad">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1900071' | translate}}</div>
+		<div jf-grid="tradTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:14%">{{'KHH1800005' | translate}}</th>
+						<th style="width:7%">{{'KHH1800006' | translate}}</th>
+						<th>{{'KHH1800007' | translate}}</th>
+						<th>{{'KHH1800008' | translate}}</th>
+						<th>{{'KHH1800009' | translate}}</th>
+						<th>{{'KHH1800010' | translate}}</th>
+						<th>{{'KHH1800011' | translate}}</th>
+						<th>{{'KHH1800012' | translate}}</th>
+						<th width="10%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-model="item.externalIdentificationNo">
+							<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+							<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+							<span
+							ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+						</td>
+
+						<td align="left" >
+							<span ng-bind="item.transCurrCde"></span>
+							<span ng-bind="item.postingCurrencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.transAmount | number :2"></td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.postingAmount | number:2"></td>
+						<td align="center" ng-bind="item.occurrDate"></td>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)">
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+</div>

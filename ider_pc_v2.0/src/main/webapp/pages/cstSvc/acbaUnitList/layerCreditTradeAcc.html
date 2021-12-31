@@ -1,0 +1,196 @@
+<div ng-controller="layerCreditTradeAccCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4600004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4600015' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.loanType" name="loanType" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4600016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.loanAmount" jf-format-input="money"  name="loanAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="currencyCodeInfo" name="currencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.loanRate" jf-format-input="money" name="loanRate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600018' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.feeRate" jf-format-input="money" name="feeRate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600019' | translate}}：：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.feeAmount" jf-format-input="money" name="feeAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.loanTerm"  name="loanTerm" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600021' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.remainFeeAmount" jf-format-input="money" name="remainFeeAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600022' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.remainPeriod"  name="remainPeriod" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600023' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.remainPrincipalAmount" jf-format-input="money" name="remainPrincipalAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600059' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="totalBalance"  name="totalBalance" jf-format-input="money"   type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600024' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.nextThrowDate"  name="nextThrowDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600039' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.loanNum"  name="loanNumN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600040' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="repayModeInfo"  name="repayModeN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600041' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.loanStartDate"  name="loanStartDateN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600042' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.loanEndDate"  name="loanEndDateN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600043' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.startIntDate"  name="startIntDateN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600044' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.freeDays"  name="freeDaysN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600045' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.repayPrincipalCycle"  name="repayPrincipalCycleN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4600046' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.nextThrowDate"  name="nextThrowDate" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600047' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.loanRate"  name="loanRateN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600048' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.penaltyUp"  name="penaltyUpN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600049' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.interAmount"  jf-format-input="money" name="interAmountN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.remainInterAmount" jf-format-input="money" name="remainInterAmountN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600051' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.directDebitAccountNo"  name="directDebitAccountNoN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600052' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.directDebitBankNo"  name="directDebitBankNoN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600053' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="statusInfo"  name="statusN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div jf-grid="tradeDetailList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4600025' | translate}}</th>
+						<th>{{'KHH4600026' | translate}}</th>
+						<th>{{'KHH4600027' | translate}}</th>
+						<th>{{'KHH4600028' | translate}}</th>
+						<th>{{'KHH4600029' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.termNo"></td>
+						<td align="center" ng-bind="item.throwDate"></td>
+						<td align="center" ng-bind="item.principalAmount | number:2"></td>
+						<td align="center" ng-bind="item.interestAmount | number:2"></td>
+						<td align="center" ng-bind="item.feeAmount | number:2"></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>

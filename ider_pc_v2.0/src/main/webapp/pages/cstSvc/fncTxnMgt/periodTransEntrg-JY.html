@@ -1,0 +1,170 @@
+<div ng-controller="periodTransEntrgCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：分期交易管理
+	</div>
+	<div class="allcontent layui-form">
+			
+		<div class="mainname">1选择交易事件类型</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>事件编号</th>
+						<th>事件描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">2输入交易详细信息</div>
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommEntryId"
+					name="ecommEntryId" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易币种 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCurr"
+					class="layui-input" jf-select="builder.option(ccy)" name="id">
+				</select>
+				<!-- <input class="layui-input" ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCurr"
+					name="ecommTransCurr" type="text"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易金额 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransAmount"   validator="maxlength,decimals"  maxlength="17"
+					name="ecommTransAmount" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易日期 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransDate" jf-date-input
+					name="ecommTransDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">入账币种 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommPostingCurr"
+					class="layui-input" jf-select="builder.option(ccy)" name="id">
+				</select>
+				<!-- 	<input class="layui-input" ng-model="rvlDbtTxnSplmtEntrgInfo.ecommPostingCurr"
+					name="ecommTransPostingCurr" type="text"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">入账金额 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransPostingAmount"  validator="maxlength,decimals"  maxlength="17"
+					name="ecommTransPostingAmount" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易描述 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransDesc"
+					name="ecommTransDesc" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">授权码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommAuthCde"
+					name="ecommAuthCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">MCC ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommMcc" name="ecommMcc"
+					type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易国家代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCountryCde"
+					name="ecommTransCountryCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易城市代码 ：</div>
+			<div class="wd190 float_left">
+				<!-- <select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCityCde" class="layui-input"
+					jf-select="builder.option(genderArray)" name="ecommTransCityCde">
+				</select> -->
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCityCde"
+					name="ecommTransCityCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易描述信息 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="bsnNumb" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">渠道代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommChannelCde"
+					name="ecommChannelCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">商户编号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommMerchantCde"
+					name="ecommMerchantCde" type="text">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">收单参考号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommBillReferenceNumbr"
+					name="ecommBillReferenceNumbr" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易模式 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommPosEntryMode"
+					class="layui-input" jf-select="builder.option(posEntryModeArray)"
+					name="ecommPosEntryMode">
+				</select>
+			</div>
+		</div>
+
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius"
+				ng-click="saveRvlDbtTxnSplmtEntrgInfo()" type="button">
+				<i class="layui-icon">&#xe624;</i> 确定
+			</button>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,52 @@
+<div ng-controller="blockCodeMagLayerCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="" class="layui-form">
+					 <div class="col_td">
+		                <div class="col4 text_right">{{'KHH500060' | translate}} ：</div>
+		                <div class="wd190 float_left">
+		                    <select  class="layui-input" ng-model="layerOperationMode" 
+						jf-select="operationModeArr" name="layerOperationMode"  maxlength="3" disabled="disabled"  ></select>
+		                </div>
+		            </div>
+		            <div class="col_td">
+		                <div class="col4 text_right">{{'KHH500056' | translate}}：</div>
+		                <div class="wd190 float_left">
+		                    <select jf-select="builder.option(demoArray)"
+							ng-model="blockCDScnMgtInfo.blockCodeType" disabled="disabled"  ></select> 
+		                </div>
+		            </div>
+		             <div class="col_td">
+		                <div class="col4 text_right">{{'KHH500057' | translate}} ：</div>
+		                <div class="wd190 float_left">
+		                	<select jf-select="builder.option(demoArray2)"
+								ng-model="blockCDScnMgtInfo.blockCodeType" disabled="disabled"  ></select>
+		                </div>
+		                <div class="col_td"></div>
+		            </div>
+		            <div class="col_td">
+		                <div class="col4 text_right">{{'KHH500058' | translate}} ：</div>
+		                <div class="wd190 float_left">
+		                    <input class="layui-input bnone"  ng-model="blockCDScnMgtInfo.blockCodeScene" name="blockCodeScene" type="text" disabled="disabled"  > 
+		                </div>
+		            </div>
+		            <div class="col_td">
+		                <div class="col4 text_right">{{'KHH500008' | translate}} ：</div>
+		                <div class="wd190 float_left">
+		                    <input class="layui-input bnone"  ng-model="blockCDScnMgtInfo.blockCodePrioriy" name="blockCodePrioriy" type="text" disabled="disabled"  > 
+		                </div>
+		            </div>
+		            <div class="col_td">
+		                <div class="col4 text_right">{{'KHH500059' | translate}} ：</div>
+		                <div class="wd190 float_left">
+		                    <input class="layui-input bnone" ng-model="blockCDScnMgtInfo.blockCodeDesc" name="blockCodeDesc" type="text" disabled="disabled"  > 
+		                </div>
+		            </div>
+		           
+		            
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

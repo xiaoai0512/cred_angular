@@ -1,0 +1,46 @@
+<div class="layui-form" ng-controller="adjustDelinquencyCtrl">
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4100048' | translate}}：</div>
+		<div class="wd190 float_left">
+			<select ng-model="adjustItem.adjustType" jf-select="adjustTypeArr" name="adjustType" lay-filter="getAdjustType">
+			</select>
+		</div>
+	</div>
+	<div class="col_td" ng-show="amountSum">
+		<div class="col4 text_right">{{'KHH4100051' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" name="proportion" type="text" ng-model="adjustItem.adjustedAmoun"/>
+		</div>
+	</div>
+	<div class="col_td" ng-show="ratioDiv">
+		<div class="col4 text_right">{{'KHH4100049' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" name="proportion" type="text" ng-model="adjustItem.proportion" />
+		</div>
+	</div>
+	<div class="clearboth"></div>
+	<div ng-show="amountDiv">
+		<div class="mainname">{{'KHH4100050' | translate}}</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'KHH4100009' | translate}}</th>
+						<th>{{'KHH4100020' | translate}}</th>
+						<th>{{'KHH4100051' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in adjustList track by $index">
+						<td align="center" ng-bind="item.cycleNo"></td>
+						<td align="center"  ng-bind="item.currCyclePaymentMin | number :2"></td>
+						<td align="center">
+							<input class="layui-input" name="adjustedAmoun" type="text" ng-model="item.adjustedAmoun" ng-blur="checkAdjust($index,item)" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

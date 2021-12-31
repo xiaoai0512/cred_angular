@@ -1,0 +1,54 @@
+<div ng-controller="checkbusPatArtCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+					<div jf-grid="elmListTable">
+						<table>
+							<thead>
+								<tr>
+									<th>构件编号</th>
+									<th>构件描述</th>
+									<th>构件类型</th>
+									<th>非对象实例化维度</th>
+									<!-- <th>操作</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.artifactNo"></td>
+									<td align="center" ng-bind="item.artifactDesc"></td>
+									<td align="center"><span ng-if="item.artifactType=='A'">账户类构件</span>
+										<span ng-if="item.artifactType=='B'">余额类构件</span> <span
+										ng-if="item.artifactType=='T'">技术类构件</span> <span
+										ng-if="item.artifactType=='P'">产品类构件</span> <span
+										ng-if="item.artifactType=='X'">非对象类构件</span> <span
+										ng-if="item.artifactType=='M'">媒介类构件</span></td>
+									<td align="center"><span
+										ng-if="item.nonObjInstanDimen=='D'">核算状态</span> <span
+										ng-if="item.nonObjInstanDimen=='E'">事件</span>
+										<span ng-if="item.nonObjInstanDimen=='A'">授权场景</span>
+										<span ng-if="item.nonObjInstanDimen=='L'">额度节点</span></td>
+									<!-- <td align="center">
+										<button class="layui-btn layui-btn-mini"
+											ng-click="checkElmInfo(item)">
+											<i class="layui-icon layui-icon-more">&#xe65f;</i>
+										</button>
+										
+									</td> -->
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="search_mian">
+						<div class="col_td">
+							<div class="wd190 float_left">
+								<input class="layui-input" type="hidden" id="artifactType"
+									ng-model="elmListTable.params.artifactType">
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+</div>

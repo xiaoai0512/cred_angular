@@ -1,0 +1,19 @@
+{
+"SQH800001": "External PAN",
+"SQH800002": "Customer number",
+"SQH800003": "Business Program",
+"SQH800004": "Product ",
+"SQH800005": "Transaction Identification Code",
+"SQH800006": "Bosting currency ",
+"SQH800007": "Serial number",
+"SQH800008": "Authorization Response",
+"SQH800009": "RMB",
+"SQH800010": "USD",
+"SQH800011": "Reject debit transaction",
+"SQH800012": "Reject all transactions",
+"SQH800013":"Amount freeze",
+"SQJ800001": "RMB",
+"SQJ800002": "USD",
+"SQJ800003": "Modify information",
+"SQJ800004": "ID number and external PAN can only be input into one of them"
+}

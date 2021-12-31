@@ -1,0 +1,87 @@
+<div ng-controller="specialNumUpdateCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="itemUpdate.cardBin" type="text" name="cardBinN" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" ng-model="itemUpdate.numberType" name="numberType" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" ng-model="itemUpdate.numberBit" name="numberBit" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="itemUpdate.numberRange" type="text" name="numberRange" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300033' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="updatecriticalFlag" class="layui-input" jf-select="criticalFlagArry" name="criticalFlagN"></select>
+				</div>
+			</div>
+			<div class="col_td"></div>
+			<div class=" clearboth"></div>
+			<div class="mainname" style="display: inline;">{{'YYH5300018' | translate}}</div>
+			<div class="layui-inline float_right">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="addSpecNumUpdate()">
+						<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+					</button>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div style="margin-bottom:20px">
+				<table style="width:100%">
+					<thead>
+						<tr style="background-color: #DCDCDC;">
+							<th align="center" style="width:10%">{{'YYH5300012' | translate}}</th>
+							<th align="center" style="width:80%">{{'YYH5300016' | translate}}</th>
+							<th align="center" style="width:10%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cardNums in ruleUpdateList track by $index">
+							<td align="center" style="padding: 2px 18px;" ng-bind="$index+1"></td>
+							<td align="center">
+								<div style="display: inline-block;padding: 2px 18px;"><input class="layui-input" ng-model="cardNums.cardNumber"
+									 id="cardNumber{{$index}} " type="text" name="cardNumber" validator="required"></div>
+							</td>
+							<td align="center" style="padding: 2px 18px;">
+								<button class="layui-btn layui-btn-mini" ng-click="delcardNumUpdate(item,$index)">
+									{{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn layui-btn-radius" ng-click="addSpecNum()">
+						<i class="layui-icon">&#xe654;</i> 新增
+					</button>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div class="col_td" ng-repeat="cardNumItem in ruleItem.arranges track by $index">
+				<div class="col4 text_right">特殊号码：</div>
+				<div class="wd190 float_left">
+					 <input class="layui-input" ng-model="cardNumItem.cardNumber" id="cardNumber{{$index}} " type="text" 
+					name="cardNumber"  maxlength="10" >
+				</div>
+			</div> -->
+		</div>
+	</div>
+</div>

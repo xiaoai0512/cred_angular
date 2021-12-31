@@ -1,0 +1,72 @@
+<div class="mainname">列表排序使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">
+在列表的th中设置order排序树形，order="字段名" </br>
+如：按融资日期升降序可写为： <th order="preEndDate">融资日期</th>
+</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div jf-grid="grid">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th order="preEndDate">融资日期</th>
+                    <th order="preActivitiName">上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  $scope.grid = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : true ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      }
+  };
+</pre>
+<div class="mainname">列表例子</div>
+<div jf-grid="grid" ng-controller="listDemoCtrl">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th order="preEndDate">融资日期</th>
+                    <th order="preActivitiName">上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>

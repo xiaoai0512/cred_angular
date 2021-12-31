@@ -1,0 +1,154 @@
+<div class="layout_body" ng-controller="busOutBillQueryCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="cusInfoForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'GWH100016' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="idNumberN"	ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="busBillInf.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoTrans">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH600001' | translate}}</div>
+		<div jf-grid="busCardBillTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:150px">{{'KHH4500004' | translate}}</th>
+						<th style="width:120px">{{'KHH4500005' | translate}}</th>
+						<th style="width: 120px;">{{'KHH4500006' | translate}}</th>
+						<th style="width: 120px;">{{'KHH4500007' | translate}}</th>
+						<th>{{'KHH4500008' | translate}}</th>
+						<th>{{'KHH4500009' | translate}}</th>
+						<th>{{'KHH4500010' | translate}}</th>
+						<th>{{'KHH4500011' | translate}}</th>
+						<th >{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerNo"></td>
+						<td align="center" ng-bind="item.businessProgramNo"></td>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.productDesc"></td>
+						<td align="center" ng-bind="item.billDate"></td>
+						<td align="center" ng-bind="item.currencyCode">
+							<!-- <span ng-if="item.currencyCode ==  '156' ">{{'KHH4500012' | translate}}</span>
+						<span ng-if="item.currencyCode ==  '840' ">{{'KHH4500013' | translate}}</span> -->
+						</td>
+						<td align="center" ng-bind="item.currentCycleNumber"></td>
+						<td align="center" ng-bind="item.postingAmount | number:2"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkItemNo(item)">
+							<!-- 	<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}} -->
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoNum">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH600002' | translate}}</div>
+		<div jf-grid=busCardBillTableNum>
+			<table>
+				<thead>
+					<tr>
+						<th>{{'GWH500013' | translate}}</th>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'F00158' | translate}}</th>
+						<th>{{'F00112' | translate}}</th>
+						<th>{{'GWH500014' | translate}}</th>
+						<th>{{'GWH500015' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerName"></td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.idTypeDesc"></td>
+						<td align="center" ng-bind="item.idNumber"></td>
+						<td align="center" ng-bind="item.officialCardType"></td>
+						<td align="center" ng-bind="item.invalidFlagDesc"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="checkElmInfo(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00009' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultList">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH600003' | translate}}</div>
+		<div jf-grid='nodeTables'>
+			<table>
+				<thead>
+					<tr>
+						<th style="width:150px">{{'KHH4500004' | translate}}</th>
+						<th style="width:120px">{{'KHH4500005' | translate}}</th>
+						<th style="width: 120px;">{{'KHH4500006' | translate}}</th>
+						<th style="width: 120px;">{{'KHH4500007' | translate}}</th>
+						<th>{{'KHH4500008' | translate}}</th>
+						<th>{{'KHH4500009' | translate}}</th>
+						<th>{{'KHH4500010' | translate}}</th>
+						<th>{{'KHH4500011' | translate}}</th>
+						<th >{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerNo"></td>
+						<td align="center" ng-bind="item.businessProgramNo"></td>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.productDesc"></td>
+						<td align="center" ng-bind="item.billDate"></td>
+						<td align="center" ng-bind="item.currencyCode">
+							<!-- <span ng-if="item.currencyCode ==  '156' ">{{'KHH4500012' | translate}}</span>
+						<span ng-if="item.currencyCode ==  '840' ">{{'KHH4500013' | translate}}</span> -->
+						</td>
+						<td align="center" ng-bind="item.currentCycleNumber"></td>
+						<td align="center" ng-bind="item.postingAmount | number:2"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkItemNo(item)">
+							<!-- 	<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}} -->
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

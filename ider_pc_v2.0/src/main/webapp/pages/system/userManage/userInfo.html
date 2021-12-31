@@ -1,0 +1,87 @@
+<div ng-controller="userInfoCtrl">
+	<div class="">
+		<form name="updateForm"  class="layui-form">
+			<!-- <div class="col_tr">
+				<div class="col2 text_right"><span class="red">*</span>运营模式：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="sceneDescN"  type="text" ng-model="item.sceneDesc">
+					<select class="layui-input" jf-select="coArray" name="operationModeN" ng-model="operationModeInfo" disabled></select>
+				</div>
+			</div> -->
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500001' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<!-- <input class="layui-input" name="triggerNoN" ng-model="item.triggerNo"  type="text"> -->
+					<select class="layui-input" jf-select="operationOrganArray" name="operationOrganN" ng-model="operationOrganInfo" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500020' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input bnone" name="userNoN" ng-model="item.userNo"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500021' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input bnone" name="jobNumberN" ng-model="item.jobNumber"  type="text" readonly>
+				</div>
+			</div> 
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500003' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input bnone" name="nameN" ng-model="item.name"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500006' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input bnone" name="loginNameN" ng-model="item.loginName"  type="text" readonly>
+				</div>
+			</div>
+			 <!-- <div class="col_tr">
+				<div class="col2 text_right">登录密码 ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input bnone" name="contrlSceneCodeN" ng-model="item.password"  type="text" readonly>
+				</div>
+			</div> -->
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500015' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="authroleArray" name="departmentN" id="departmentId" ng-model="departmentInfo" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500016' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="authjobArray" name="postN" id="postId" ng-model="postInfo" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500017' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="userLanageArr" name="userlanguageN" ng-model="viewuserLanguage" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500004' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<!-- <input class="layui-input" name="contrlSceneCodeN" ng-model="item.contrlSceneCode"  type="text"> -->
+					<select class="layui-input" jf-select="userFlag" name="statusN" ng-model="viewuserFlag" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show="stopFlag">
+				<div class="col2 text_right">{{'YWH5500018' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input icon_date bnone" name="contrlSceneCodeN" jf-date-input="endDate" ng-model="contrlSceneCode"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500019' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="adminFlagArry" name="adminFlagN" ng-model="viewadminFlag" disabled></select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

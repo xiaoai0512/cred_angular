@@ -1,0 +1,107 @@
+<div ng-controller="accountTemplateInfoCtrl">
+	<div class="layui-form">
+		<div class="mainname titleInfo">基础信息</div>
+		<div class="col_td">
+			<div class="col4 text_right">模板名称 ：</div>
+			<div class="wd190 float_left " >
+				<input class="layui-input bnone" name="temName" ng-model="item.temName"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">核算场景 ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="accountScene" ng-model="item.accountScene"  type="text" readonly>
+			</div>
+		</div>
+ 		<!-- <div class="col_td">
+			<div class="col4 text_right">增值税税率 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-if="item.eventNo=='CRD.AC.00.0030'" value="6%" type="text" readonly>
+				<input class="layui-input bnone"  ng-if="item.eventNo!='CRD.AC.00.0030'" value="" type="text" readonly>
+			</div>
+		</div>  -->
+<!-- 		<div class="col_td">
+			<div class="col4 text_right">所属分组 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  name="bsnNumb" ng-model="item.differentCode"  type="text" readonly>
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">事件编号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone"  name="bsnNumb" ng-model="item.eventNo"  type="text" readonly>
+			</div>
+		</div>  
+		<div class="col_all" >
+			<div class="col2 text_right">参数说明 ：</div>
+			<div class="float_left" style="width:70%">
+				<!-- <input class="layui-input bnone"  name="paramDesc" ng-model="item.paramDesc"  type="text" readonly> -->
+				<label>{{item.paramDesc}}</label> 
+			</div>
+		</div> 
+	</div>
+	<div class=" clearboth"></div>
+	<div>
+		<div class="mainname titleInfo">借贷配置信息</div>
+			<div >
+		<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th>借贷方向</th>
+					<th>科目编号</th>
+					<th>借贷科目/内部账</th>
+					<th>业务类型</th>
+					<th>币种</th>
+					<th>金融符号</th>
+					<th>金额类型</th>
+					<th>摘要配置方式</th>
+					<th>摘要配置内容</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in detaillistTable track by $index">
+					<td align="center" >
+						<span ng-if="item.debitCreditFlag == 'D'">借</span>
+				  		<span ng-if="item.debitCreditFlag == 'C'">贷</span>
+				  		<span ng-if="item.debitCreditFlag == 'R'">收</span>
+				  		<span ng-if="item.debitCreditFlag == 'P'">付</span>
+				  		<span ng-if="item.debitCreditFlag == ' '"></span>
+					</td>
+				   <td align="center" ng-bind="item.itemId"></td>
+				   <td align="center" ng-bind="item.itemNme"></td>
+					<td align="center" ng-bind="item.businessTyp"></td>
+					<td align="center" >
+						<span ng-if="item.currencyCde == 'CNY'">人民币</span>
+				  		<span ng-if="item.currencyCde == 'USD'">美元</span>
+				  		<span ng-if="item.currencyCde == ' '"></span>
+					</td>
+				   <td align="center" >
+				   		<span ng-if="item.fundDirectFlag == '0'">+</span>
+				  		<span ng-if="item.fundDirectFlag == '1'">-</span>
+				  		<span ng-if="item.fundDirectFlag == ' '"></span>
+				   </td>
+				   <td align="center" >
+				   		<span ng-if="item.amountType == '1'">本金金额</span>
+				  		<span ng-if="item.amountType == '2'">利息金额</span>
+				  		<span ng-if="item.amountType == '3'">交易金额</span>
+				  		<span ng-if="item.amountType == '4'">税后利息</span>
+				  		<span ng-if="item.amountType == '5'">税金金额</span>
+				  		<span ng-if="item.amountType == ' '"> </span>
+				   </td>
+					<td align="center" >
+						<span ng-if="item.summaryConfigTyp == '0'">手工配置</span>
+				  		<span ng-if="item.summaryConfigTyp == '1'">动态配置</span>
+				  		<span ng-if="item.summaryConfigTyp == ' '"></span>
+					</td>
+					<td align="center" ng-bind="item.summaryContent"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div ng-show="tradSelinfo">
+			<div class="col10 text_center">暂无数据</div>
+		</div>
+	</div>
+	</div>
+	<div class=" clearboth"></div>
+</div>

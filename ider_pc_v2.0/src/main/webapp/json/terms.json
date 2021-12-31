@@ -1,0 +1,27 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "1",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "termNo": "3"
+        },
+        {
+            "termNo": "6"
+        },
+        {
+            "termNo": "9"
+        },
+        {
+            "termNo": "12"
+        },
+        {
+            "termNo": "24"
+        }
+        ]
+    }
+}

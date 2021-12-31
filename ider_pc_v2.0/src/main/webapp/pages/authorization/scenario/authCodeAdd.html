@@ -1,0 +1,38 @@
+<div ng-controller="authCodeAddCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<!-- <div class="col_tr" ng-show='adminFlagAuth == "1"'> -->
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="authcadd.operationMode" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'SQH2500001' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="recordTypeArray" name="cardAssociationsN" ng-model="authcadd.cardAssociations" validator="required"></select>
+				<!-- <input class="layui-input" name="recordTypeN" ng-model="authcadd.recordType" validator="required" type="text"> -->
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'SQH2500002' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" type="text" name="externalResponseCodeN" ng-model="authcadd.externalResponseCode" validator="required,number" minlength="2" maxlength="2" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'SQH2500003' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" type="text" name="priorityN" ng-model="authcadd.priority" validator="required,number"  maxlength="3" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'SQH2500004' | translate}} ：</div>
+			<div class="wdper70 float_left">
+				<input class="layui-input" name="responseDescN"  type="text" ng-model="authcadd.responseDesc" validator="required" autocomplete="off">
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

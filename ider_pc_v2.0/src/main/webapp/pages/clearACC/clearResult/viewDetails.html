@@ -1,0 +1,36 @@
+<div ng-controller="viewDetailsCtrl">
+	<div>
+		<div jf-grid="liquidationList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'QFH300006' | translate}}</th>
+						<th>{{'QFH300072' | translate}}</th>
+						<th>{{'QFH300015' | translate}}</th>
+						<th>{{'QFH300073' | translate}}</th>
+						<th>{{'QFH300014' | translate}}</th>
+						<th>{{'QFH300013' | translate}}</th>
+						<th>{{'QFH300074' | translate}}</th>
+						<th>{{'QFH300075' | translate}}</th>
+						<th>{{'QFH300076' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.batchHeader"></td>
+						<td align="center" ng-bind="item.sequenceNumber"></td>
+						<td align="center" ng-bind="item.purchaseDate"></td>
+						<td align="center" ng-bind="item.transactionProcessingCode"></td>
+						<td align="center" ng-bind="item.sourceAmount"></td>
+						<td align="center" ng-bind="item.sourceCurrencyCode"></td>
+						<td align="center" ng-bind="item.authorizationCode"></td>
+						<td align="center" ng-bind="item.rejectionReasonCode"></td>
+						<td align="center" ng-bind="item.rejectionReasonDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

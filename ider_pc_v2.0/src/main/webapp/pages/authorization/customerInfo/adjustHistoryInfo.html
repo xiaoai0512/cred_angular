@@ -1,0 +1,56 @@
+<div class="layout_body" ng-controller="adjustHistoryInfoCtrl">
+<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH500002' | T}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH500003' | T}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="creditDescN"  type="text" ng-model="itemHinfo.creditDesc" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH500004' | T}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="creditNodeTypInfoN" ng-model="creditNodeTypInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH300021' | T}} ：</div>
+			<div class="wd190 float_left">
+				 <input class="layui-input bnone" name="productObjectCodeN" ng-model="productObjectCodeInfo"  type="text" readonly>
+			</div>
+		</div>
+		</form>
+	<div jf-grid="itemInfoList">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'SQH300008' | T}}</th>
+					<th>{{'SQH500005' | T}}</th>
+					<th>{{'SQH500006' | T}}</th>
+					<th>{{'SQH500007' | T}}</th>
+					<th>{{'SQH500008' | T}}</th>
+					<th>{{'SQH500009' | T}}</th>
+					<th>{{'SQH500010' | T}}</th>
+					<th>{{'SQH500011' | T}}</th>
+					<th>{{'SQH500012' | T}}</th>
+					<th>{{'SQH500013' | T}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.currencyCode"></td>
+					<td align="center" ng-bind="item.creditAdjustFlagDesc"></td>
+					<td align="center" ng-bind="item.adjustForeheadCredit"></td>
+					<td align="center" ng-bind="item.adjustAfterCredit"></td>
+					<td align="center" ng-bind="item.adjustBeforeEffectDate"></td>
+					<td align="center" ng-bind="item.adjustAfterEffectDate"></td>
+					<td align="center" ng-bind="item.adjustBeforeExpireDate"></td>
+					<td align="center" ng-bind="item.adjustAfterExpireDate"></td>
+					<td align="center" ng-bind="item.operatorId"></td>
+					<td align="center" ng-bind="item.operatorDate"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

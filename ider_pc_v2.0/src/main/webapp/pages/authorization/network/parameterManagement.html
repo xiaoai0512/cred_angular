@@ -1,0 +1,197 @@
+<div class="layout_body" ng-controller="pManagementCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="mdmInfoFormS"  class="layui-form">
+	<!-- 国际组织参数管理查询 -->
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="operationMode" class="layui-input"
+								jf-select="coArray" name="aatype" ></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'SQH2900001' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="cardAssociations" class="layui-input"
+							jf-select="cardAssociationsArray" lay-filter="getInfoCard" ></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn cancel-btn" type="button" ng-click="selException()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button" ng-click="updateException()" ng-show="updBtnFlag">
+					<i class="layui-icon">&#xe642;</i> {{'F00057' | translate}}
+				</button>
+			</div>
+		</form>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoV">
+			<div class="mainname titleInfo">VISA{{'SQH2900002' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900003' | translate}}ID：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="instIdV" ng-model="itemV.instId" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="logIsoMsgIndV" ng-model="logIsoMsgIndInfov" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="referralRespInV" ng-model="referralRespInInfoV" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="referralMsgV" ng-model="itemV.referralMsg" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">CAVV：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="cavvOptV" ng-model="cavvOptInfoV" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900007' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="avsSupportIndV" ng-model="avsSupportIndInfoV" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+			<div class="col4 text_right">{{'SQH2900008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" name="refNbrV" ng-model="itemV.refNbr" type="text" readonly>
+				</div>
+			</div>
+			 <div class="col_tr text-center">
+				<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+				</button>
+			</div>
+		</div>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoM">
+			<div class="mainname titleInfo">MC{{'SQH2900002' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900003' | translate}}ID：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="instIdM" ng-model="itemM.instId" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="logIsoMsgIndM" ng-model="logIsoMsgIndInfoM" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="referralRespInM" ng-model="referralRespInInfoM" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="referralMsgM" ng-model="itemM.referralMsg" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="authSecCodeM" ng-model="itemM.authSecCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900010' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="fileSecCodeM" ng-model="itemM.fileSecCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="avsSupportIndM" ng-model="avsSupportIndInfoM" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="refNbrM" ng-model="itemM.refNbr" type="text" readonly>
+				</div>
+			</div>
+			 <div class="col_tr text-center">
+				<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+				</button>
+			</div>
+		</div>
+			<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoC">
+			<div class="mainname titleInfo">CUP{{'SQH2900002' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900003' | translate}}ID：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="instIdC" ng-model="itemC.instId" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="logIsoMsgIndC" ng-model="logIsoMsgIndInfoC" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2900008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="refNbrC" ng-model="itemC.refNbr" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2900012' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="tranMacProcessIndC" ng-model="tranMacProcessIndInfoC" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2900013' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="cipherMacProcessIndN" ng-model="cipherMacProcessIndInfoC" type="text" readonly>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div ng-show="isMac">
+				<form name="mdmInfoFormCUPS"  class="layui-form">
+					<div class="mainname titleInfo">{{'SQH2900014' | translate}}</div>
+					<div class="col_tr">
+						<div class="col2 text_right">{{'SQH2900015' | translate}} ：</div>
+						<div class="wdper75 float_left">
+							 <input jf-checkbox="macCUPArray" name="tranMacProcessFieldMAC" ng-model="itemC.tranMacProcessField" disabled>  
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class=" clearboth"></div>
+			<div ng-show="iscipherMac">
+				<form name="mdmInfoFormCUPS"  class="layui-form">
+					<div class="mainname titleInfo">{{'SQH2900016' | translate}}</div>
+					<div class="col_tr">
+						<div class="col2 text_right">{{'SQH2900017' | translate}} ：</div>
+						<div class="wdper75 float_left">
+							 <input jf-checkbox="macCUPArray" name="cipherMacProcessFieldMAC" ng-model="itemC.cipherMacProcessField" disabled>  
+						</div>
+					</div>
+				</form>
+			</div>
+			 <div class="col_tr text-center">
+				<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

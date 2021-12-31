@@ -1,0 +1,139 @@
+<div class="layout_body layui-form" ng-controller="unitQuotaQueryCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="cusInfoForm">
+
+			<div class="col_td">
+				<label class="col4 text_right">{{'GWH100016' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="idNumber">
+				</div>
+			</div>
+
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfo">
+		<div class="col_td">
+			<!-- <div class="col4 text_right">预算单位名称：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="customerNoN" ng-model="unitInfo.customerName" type="text" readonly>
+			</div> -->
+			<div class="col4 text_right">{{'GWH100008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="orgAllQuotaN" ng-model="unitInfo.orgAllQuota" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'GWH400001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="orgAllQuotaN" ng-model="unitInfo.orgRestQuota" type="text" readonly>
+			</div>
+		</div>
+
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH400002' | translate}}</div>
+		<div jf-grid="unitQuotaTable">
+			<table>
+				<thead>
+					<tr>
+						<!-- <th>预算单位编号</th> -->
+						<th>{{'GWH300028' | translate}}</th>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'F00158' | translate}}</th>
+						<th>{{'F00112' | translate}}</th>
+						<th>{{'GWH300029' | translate}}</th>
+						<th>{{'GWH300030' | translate}}</th>
+						<!-- <th>持卡人信息所在片区</th> -->
+						<th style='width:21%;'>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<!-- <td align="center" ng-bind="item.productUnitCode"></td> -->
+						<!-- <td align="center" ng-bind="item.budgetOrgCode"></td> -->
+						<td align="center" ng-bind="item.customerName"></td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.idTypeDesc"></td>
+						<td align="center" ng-bind="item.idNumber"></td>
+						<td align="center" ng-bind="item.officialCardType"></td>
+						<td align="center" ng-bind="item.invalidFlagDesc">
+							<!-- <span ng-if="item.invalidFlag == 'Y' ">{{'GWH300031' | translate}}</span>
+							<span ng-if="item.invalidFlag == 'N' ">{{'GWH300032' | translate}}</span> -->
+						</td>
+						<!-- <td align="center" ng-bind="item.customerArea"></td> -->
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkElmInfo(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="getCredit(item)">
+								<i class="layui-icon">&#xe642;</i> {{'GWH400003' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="adjustQuota(item)">
+								<i class="layui-icon">&#xe642;</i> {{'GWH400004' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- 额度查询 -->
+	<div class="allcontentFFF" ng-show="showNodeDatail" style="margin-top:20px;">
+		<div class="mainname">{{'GWH400005' | translate}}</div>
+		<div jf-grid="nodeTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH300007' | translate}}</th>
+						<th>{{'SQH300021' | translate}}</th>
+						<th>{{'SQH300008' | translate}}</th>
+						<th>{{'SQH300014' | translate}}</th>
+						<th>{{'SQH300015' | translate}}</th>
+						<th>{{'SQH300016' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300017' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300018' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300010' | translate}}</th>
+						<th style="width: 9%;">{{'SQH300011' | translate}}</th>
+						<th>{{'SQH300012' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.creditDesc"></td>
+						<td align="center">
+							<span ng-if="item.productObjectCode == '999999999'"></span>
+							<span ng-if="item.productObjectCode != '999999999'">{{item.productObjectCode}}</span>
+						</td>
+						<td align="center">
+							<span ng-if="item.currencyCode == '156'">{{'SQH300022' | translate}}</span>
+							<span ng-if="item.currencyCode == '840'">{{'SQH300023' | translate}}</span>
+							<span ng-if="item.currencyCode == 'CNY'">{{'SQH300022' | translate}}</span>
+							<span ng-if="item.currencyCode == 'USD'">{{'SQH300023' | translate}}</span>
+							<span ng-if="item.currencyCode == ' '"></span>
+						</td>
+						<td align="center" ng-bind="item.permLimit"></td>
+						<td align="center" ng-bind="item.toleranceAmt"></td>
+						<td align="center" ng-bind="item.tempLimit"></td>
+						<td align="center" ng-bind="item.tempLimitEffectvDate"></td>
+						<td align="center" ng-bind="item.tempLimitExpireDate"></td>
+						<td align="center" ng-bind="item.outstandingAmt"></td>
+						<td align="center" ng-bind="item.balance"></td>
+						<td align="center" ng-bind="item.usableAmt"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

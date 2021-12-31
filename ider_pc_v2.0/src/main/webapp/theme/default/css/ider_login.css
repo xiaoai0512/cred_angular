@@ -1,0 +1,115 @@
+/* 登录注册 */
+.login_body {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/ider/bg.jpg);
+     background-image: url(../images/ider/bg.jpg)\9; /* IE 8 及低于IE8版本 */
+    *background-image: url(../images/ider/bg.jpg); /* IE 7 及低于IE7版本 */
+    _background-image: url(../images/ider/bg.jpg); /* IE 6 */
+    background-repeat: no-repeat;
+	background-size: cover; 
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover;
+}
+.login_container, .regist_container{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 350px;
+    height: 330px;
+    margin-top:-123px;
+    margin-left:-150px;
+    background: rgba(0,0,0,0.7);
+}
+
+.login_logo{
+    width: 100%;
+	height: 50px;
+    margin-left: 32px;
+    margin-top: 15px;
+    background: url(../images/ider/logo.png) no-repeat;
+    background-size: contain;
+    	
+    background: url(../images/ider/logo.png) no-repeat\9; /* IE 8 及低于IE8版本 */
+    *background: url(../images/ider/logo.png) no-repeat; /* IE 7 及低于IE7版本 */
+    _background: url(../images/ider/logo.png) no-repeat; /* IE 6 */
+    
+      background-size: contain\9; /* IE 8 及低于IE8版本 */
+    *background-size: contain; /* IE 7 及低于IE7版本 */
+    _background-size: contain; /* IE 6 */
+    
+}
+ .loginForm {
+    padding-top: 20px
+}
+.login_body .layui-form-item{
+    float: none !important;
+}
+.layui-form-item input {
+	position: relative;
+}
+.layui-form-item i.user_bg,i.password_bg{
+	display: inline-block;
+	width: 21px;
+	height: 25px;
+	position: absolute;
+	top: 5px;
+    right: 5px;;
+}
+.layui-form-item i.user_bg {
+	background: url(../images/ider/user_bg.png) no-repeat;
+	background-size:18px 18px;
+}
+.layui-form-item i.password_bg{
+	background: url(../images/ider/password_bg.png) no-repeat;
+	background-size: 18px 19px;
+}
+ .login_body .loginBtn {
+	height: 35px;
+    margin-top: 25px;
+    background-color: #e16b36;
+    font-size: 14px;
+}
+.login_body .registBtn{
+    margin-top: 5px;
+    background-color: #e16b36;
+}
+.noaccount span , a{
+    font-size: 12px;
+}
+.noaccount span{
+    color: #fff;
+}
+#goRegist ,#goLogin{
+    color: #556392;
+}
+.noaccount  #goRegist:hover {
+    color: #e16b36;
+}
+.noaccount  #goLogin:hover {
+    color: #e16b36;
+}
+
+.regist_container .reg_logo {
+    padding: 5px 0 ;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+}
+.getIdifyCode {
+    width: 50px;
+    height: 28px;
+    line-height: 27px;
+    text-align: center;
+    color: turquoise;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.login_container  input{
+	height:30px;
+	line-height:30px;
+}
+

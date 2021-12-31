@@ -1,0 +1,59 @@
+<div ng-controller="queryAccountObjCtrl-JY">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div jf-grid="itemList">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:20%">账户代码</th>
+									<th>币种</th>
+									<th>所属业务类型</th>
+									<th>产品对象代码</th>
+									<th>产品对象描述</th>
+									<th>账户组织形式</th>
+									<th>账户性质</th>
+									<th>状态码</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="width:20%" align="center" ng-bind="item.accountId"></td>
+									<td align="center" >
+											<span ng-if="item.currencyCode == '156'">人民币</span>
+									  		<span ng-if="item.currencyCode == '840'">美元</span>
+									  		<span ng-if="item.currencyCode == 'CNY'">人民币</span>				
+									  		<span ng-if="item.currencyCode == 'USD'">美元</span>		
+									  		<span ng-if="item.currencyCode == ' '"></span>	
+									</td>
+									<td align="center" ng-bind="item.businessTypeCode"></td>
+									<td align="center" ng-bind="item.productObjectCode"></td>
+									<td align="center" ng-bind="item.productDesc"></td>
+									<td align="center">
+										<span ng-if="item.accountOrganForm=='R'">循环</span>
+										<span ng-if="item.accountOrganForm=='T'">交易</span>
+									</td>
+									<td align="center">
+										<span ng-if="item.businessDebitCreditCode=='C'">贷记账户</span>
+										<span ng-if="item.businessDebitCreditCode=='D'">借记账户</span>
+									</td>
+									<td align="center" style="width:12%">
+										<span ng-if="item.statusCode==1">活跃账户</span>
+										<span ng-if="item.statusCode==2">非活跃账户</span>
+										<span ng-if="item.statusCode==3">冻结账户</span>
+										<span ng-if="item.statusCode==8">关闭账户</span>
+										<span ng-if="item.statusCode==9">待删除账户</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</div>

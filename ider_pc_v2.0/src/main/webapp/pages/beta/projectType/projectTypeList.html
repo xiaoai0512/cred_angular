@@ -1,0 +1,66 @@
+<div ng-controller="projectTypeQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1700001' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"  name="businessPattern" maxlength="2"
+						ng-model="projectTypeList.params.businessPattern" />
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1700002' | translate}}：</label>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="patternDesc" maxlength="50"
+						ng-model="projectTypeList.params.patternDesc" />
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="" >
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th align="center">{{'PZH1700001' | translate}}</th>
+						<th align="center">{{'PZH1700002' | translate}}</th>
+						<th align="center">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">CRD</td>
+						<td align="center">{{'PZH1700003' | translate}}</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkBsRemArti('CRD')" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateBsRemArti('CRD')">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">RLN</td>
+						<td align="center">{{'PZH1700004' | translate}}</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkBsRemArti('RLN')" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateBsRemArti('RLN')">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

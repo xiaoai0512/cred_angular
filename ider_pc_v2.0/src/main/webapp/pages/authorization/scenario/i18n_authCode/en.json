@@ -1,0 +1,16 @@
+{
+"SQH2500001": "Card scheme",
+"SQH2500002": "Authorization Response Code",
+"SQH2500003": "Priority",
+"SQH2500004": "Description",
+"SQH2500005": "Authorization Error Code",
+"SQH2500006": "Response Code",
+"SQJ2500001": "Allow",
+"SQJ2500002": "Not allowed",
+"SQJ2500003": "Please select the operation mode!",
+"SQJ2500004": "New Authorization Response Code",
+"SQJ2500005": "Maintenance Information",
+"SQJ2500006": "Details",
+"SQJ2500007": "Confirm delete",
+"SQJ2500010": "Delete Successfully"
+}

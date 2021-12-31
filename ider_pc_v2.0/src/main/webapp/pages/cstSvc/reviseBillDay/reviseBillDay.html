@@ -1,0 +1,78 @@
+<div ng-controller="reviseBillDayCtrl">
+	<!-- <div class="leftmenu_navtitle">客户级统一信息查询</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action="" name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="reviseBillDayList.params.idType"  lay-filter="getIdType"
+					jf-select="builder.option(certificateTypeArray1)" name="idType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" 
+				id='reviseBillDay_idNumber'name="idNumber" validator="noValidator"
+				ng-model="reviseBillDayList.params.idNumber" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+							ng-model="reviseBillDayList.params.externalIdentificationNo">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="reviseBillDayList.params.customerNo"
+					name="customerNo" type="text">
+			</div>
+		</div> -->
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="queryAccountInf()" validation-submit="queryInfForm">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+	  </form>	
+	<div class="clearboth"></div>
+<div ng-show="isShow">
+		<div jf-grid="reviseBillDayList">
+			<table>
+					<thead>
+						<tr>
+							<th>{{'KHH800003' | translate}}</th>
+							<th>{{'KHH800004' | translate}}</th>
+							<th>{{'KHH800005' | translate}}</th>
+							<th>{{'KHH800006' | translate}}</th>
+							<th style="width:13%;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="item.customerNo"></td>
+							<td style=" width: 20%;" align="center" ng-bind="item.businessProgramNo"></td>
+							<td align="center" ng-bind="item.billDay"></td>
+							<td align="center" ng-bind="item.nextBillDate"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-primary"
+									ng-click="updateBillDay(item)">
+									<i class="layui-icon"></i> {{'KHJ800002' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+		</div>
+	</div>
+</div>

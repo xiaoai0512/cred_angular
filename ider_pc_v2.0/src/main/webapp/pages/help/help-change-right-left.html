@@ -1,0 +1,71 @@
+<div class="mainname">左右结构新旧版本修改</div>
+<blockquote class="layui-elem-quote">1、将左右结构的页面在两个同级div中</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    旧版：div中：只将下拉树放入一个div：&lt;div class="maintree_contain"&gt;另一部分则没有放入同级div中
+    新版：分别将树和代码放入两个同级的div中：分别为右边:&lt;div class="maintree_contain"&gt;
+                                            左边:&lt;div class="maintree_right"&gt;
+ </pre>                                                
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div class="layout_body" ng-controller="treeTapCtrl">
+     <div class="subposition" ng-bind-html="getCurrentLoaction('')">
+        </div>
+        <div class="layui-form">
+             <div class="maintree_contain">
+                       <!--添加页面内容-->
+             </div>
+            <div class="maintree_right">
+                       <!--添加页面内容-->
+            </div>
+     </div>
+</div>
+</pre>                                                
+<div class="mainname">下拉树页签页面例子</div>
+<div ng-controller="treetapDemoCtrl">
+	     <div class="subposition" ng-bind-html="getCurrentLoaction('')">
+        </div>
+        <div class="layui-form">
+             <div  class="maintree_contain">
+                <div class="maintree_title">复选菜单树</div>
+        			<div class="maintree_content" jf-tree="checkTreeDemo"></div>
+             </div>
+            <div class="maintree_right">
+            	    <div id="container">
+                  <div class="mainname">列表例子</div>
+					<div class="button_contain">
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo')"><i class="layui-icon">&#xe61f;</i> 页签新 增</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html',{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [modalCallback]})">弹窗新 增</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo?preEndDate&processTitle&processDefineName')"><i class="layui-icon">&#xe642;</i> 页签修 改</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()"><i class="layui-icon">&#xe642;</i> 弹窗修 改</button>
+						        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo?test=1&id')"><i class="layui-icon">&#xe640;</i> 删 除</button>
+							</div>
+						<div jf-grid="grid">
+						     <table>
+						          <thead>
+						              <tr>
+						                    <th>流程名称</th>
+						                    <th>主题</th>
+						                    <th>融资人</th>
+						                    <th>融资日期</th>
+						                    <th>上一环节</th>
+						                    <th>当前所在环节</th>
+						                    <th>提示</th>
+						              </tr>
+						          </thead>
+						          <tbody>
+						              <tr>
+						                    <td align="left"  ng-bind="item.processDefineName"></td>
+						                    <td align="left"  ng-bind="item.processTitle"></td>
+						                    <td align="left"  ng-bind="item.preUserName"></td>
+						                    <td align="left"  ng-bind="item.preEndDate"></td>
+						                    <td align="left"  ng-bind="item.preActivitiName"></td>
+						                    <td align="left"  ng-bind="item.activityName"></td>
+						                    <td align="left"  ng-bind="item.processDefineName"></td>
+						              </tr>
+						          </tbody>
+						     </table>
+						</div>
+                  </div>
+              </div>
+    </div>
+            </div>

@@ -1,0 +1,128 @@
+<div ng-controller="specialNumberRuleEstCtrl" style="padding-bottom: 60px;">
+	<div class="">
+		<form class="layui-form" name="specNoRuleObjForm">
+			<div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH5300004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="resSpecialNoRulePrams.corporationEntityNo" validator="required" name="corporationEntityNoN"
+						 type="text" maxlength="10" id="corporationNo">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH5300002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="resSpecialNoRulePrams.cardBin" class="layui-input" jf-select=cardBinArr name="cardBin"
+						 validator="required" lay-search="" lay-filter="getCardBin">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'F00128' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input ng-model="resSpecialNoRulePrams.segmentNumber" class="layui-input" name="segmentNumber" type="text"
+						 minlength="3" maxlength="3" validator="required,minlength,maxlength,number">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH5300006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="resSpecialNoRulePrams.numberType" class="layui-input" jf-select="numberTypeArry"
+						 name="numberTypeN" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH5300008' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="resSpecialNoRulePrams.numberBit" validator="required,minlength,maxlength,number"
+						 name="numberBit" type="text" minlength="1" maxlength="1">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH5300009' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="resSpecialNoRulePrams.numberRange" validator="required,maxlength" name="numberRange"
+						 type="text" maxlength="10">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH5300033' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="resSpecialNoRulePrams.criticalFlag" class="layui-input" jf-select="criticalFlagArry"
+						 validator="required" name="criticalFlagN"></select>
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn" ng-click="jsSaveSpecNoRuleObj()" validation-submit="specNoRuleObjForm">
+						<i class="layui-icon">&#xe624;</i> {{'YYH5300010' | translate}}
+					</button>
+				</div>
+			</div> <!-- addRuleDiv -->
+		</form>
+		<!-- 预留号规则表隐藏 -->
+		<div class="clearboth" ng-if="hide"></div>
+		<div class="mainname" ng-if="hide">{{'YYH5300011' | translate}}</div>
+		<div jf-grid="specNoRuleTable" ng-if="hide">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH5300012' | translate}}</th>
+						<th>{{'F00128' | translate}}</th>
+						<th>{{'YYH5300006' | translate}}</th>
+						<th>{{'YYH5300008' | translate}}</th>
+						<th width="24%;">{{'YYH5300009' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.segmentNumber"></td>
+						<td align="center" ng-bind="item.numberType"></td>
+						<td align="center" ng-bind="item.numberBit"></td>
+						<td align="center" ng-bind="item.numberRange"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH5300013' | translate}}</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0" class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'YYH5300005' | translate}}</th>
+						<th>{{'F00128' | translate}}</th>
+						<th>{{'YYH5300006' | translate}}</th>
+						<th>{{'YYH5300008' | translate}}</th>
+						<th>{{'YYH5300009' | translate}}</th>
+						<th width="22%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in ruleList track by $index">
+						<!-- <td align="center" ng-bind="$index+1"></td> -->
+						<td align="center" ng-bind="item.cardBin"></td>
+						<td align="center" ng-bind="item.segmentNumber"></td>
+						<td align="center" ng-bind="item.numberType"></td>
+						<td align="center" ng-bind="item.numberBit"></td>
+						<td align="center" ng-bind="item.numberRange"></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button" ng-click="addCardBtn(item,$index)">
+								<i class="layui-icon">&#xe654;</i> {{'YYH5300014' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" type="button" ng-click="removeSpeNumRule($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div class="col_tr text_center" style="padding-top: 15px" ng-show= "saveRuleBtn">
+				 <button class="layui-btn"
+					ng-click="saveSpeNumberRule()">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}规则
+				</button>	
+			</div> -->
+	</div>
+</div>

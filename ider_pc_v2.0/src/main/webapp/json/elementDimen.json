@@ -1,0 +1,22 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "id": "d7ca83c2a9324ad7842b663bcfc79873",
+            "elementNo": "419AAA0100",
+            "elementDesc":  "占额"
+        },
+        {
+            "id": "5ccf83544bc7499e958b091971297369",
+            "elementNo": "419AAA0199",
+            "elementDesc":  "不占额"
+        }
+        ]
+    }
+}

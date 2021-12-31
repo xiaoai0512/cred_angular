@@ -1,0 +1,47 @@
+<div ng-controller="transInstalQueryCtrl">
+	<div class="layui-form">
+			<div jf-grid="creditTradeInstalList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4600156' | translate}}</th>
+							<th  width="18%" >{{'KHH4600004' | translate}}</th>
+							<th>{{'KHH4600157' | translate}}</th>
+							<th>{{'KHH4600062' | translate}}</th>
+							<th>{{'KHH4600006' | translate}}</th>
+							<th>{{'KHH4600036' | translate}}</th>
+							<th>{{'KHH4600008' | translate}}</th>
+							<th>{{'KHH4600158' | translate}}</th>
+							<th  width="10%" >{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.loanTypeDesc"></td>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.loanAmount | number:2" ></td>
+							<td align="center" ng-bind="item.remainPrincipalAmount | number:2"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.loanTerm"></td>
+							<td align="center" ng-bind="item.startIntDate"></td>
+							<td align="center">
+								<span ng-if="item.status == '0' ">{{'F00144' | translate}}</span>
+								<span ng-if="item.status == '2' ">{{'F00145' | translate}}</span>
+								<span ng-if="item.status == '1' ">{{'F00146' | translate}}</span>
+								<span ng-if="item.status == '3' ">{{'F00147' | translate}}</span>
+								<span ng-if="item.status == '4' ">{{'F00148' | translate}}</span>
+							</td>
+							<td align="center" style="padding: 0px 0px;">
+								<div>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoInstalTrans(item)">
+										 {{'F00041' | translate}}  <!-- 查看 -->
+									</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>	

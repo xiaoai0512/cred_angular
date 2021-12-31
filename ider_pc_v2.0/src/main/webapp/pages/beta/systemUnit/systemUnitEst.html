@@ -1,0 +1,181 @@
+<div ng-controller="systemUnitEstCtrl">
+	<!-- <div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div> -->
+	<div class="search_mian ">
+		<form name="bsFormInfForm" class="layui-form">
+			 <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300001' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="systemUnitNo" maxlength="3" validator="required" 
+						ng-model="sysInf.systemUnitNo" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300002' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="systemUnitName" maxlength="50" validator="required"
+						ng-model="sysInf.systemUnitName" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300003' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="lastProcessDate" validator="required" 
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="sysInf.lastProcessDate" > 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300004' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="currProcessDate" validator="required" 
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="sysInf.currProcessDate" > 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="nextProcessDate" validator="required"
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="sysInf.nextProcessDate" > 
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300006' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="operationDate" validator="required" 
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="sysInf.operationDate" > 
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300007' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.systemOperateState" class="layui-input"   name="systemOperateState" validator="required"
+					jf-select="systemOperateArr" maxlength="3"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.currLogFlag" class="layui-input"   name="currLogFlag" validator="required"
+					jf-select="logFlagArr" maxlength="1"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.nextLogFlag" class="layui-input"   name="nextLogFlag" validator="required"
+					jf-select="logFlagArr" maxlength="1"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1300010' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<select ng-model="sysInf.holidayNo" class="layui-input"   name="holidayNo"
+						jf-select="holidayNoArr" maxlength="5"></select>
+				</div>
+			</div> 
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1300011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.systemEnvironmentFlag" class="layui-input"   name="systemEnvironmentFlag"
+					jf-select="systemEnvironmentFlagArr" maxlength="4"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1300012' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.nonProDayBatchFlag" class="layui-input"   name="nonProDayBatchFlagNa"
+					jf-select="nonProDayBatchFlagArr" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="text_right" style="width:42%;float: left;">{{'PZH1300014' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.panEncryptFlag" class="layui-input" lay-filter="encryptFlag"   name="panEncryptFlag"
+					 maxlength="1" jf-select="panEncryptArr">
+					</select>
+				</div>
+			</div>
+			<div ng-show="passWohs">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'PZH1300015' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"   name="externalHideMethod" maxlength="19" minlength="19"  
+							ng-model="sysInf.externalHideMethod" validator="exShow,maxlength,minlength" id="externalHideMethod"/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'PZH1300016' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="sysInf.encryptInstrument" class="layui-input"   name="encryptInstrument" id="encryptInstrument"
+						 maxlength="1" jf-select="encryptArr">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col_td"  style="display:none">
+				<div class="col4 text_right"></span>{{'PZH1300013' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sysInf.systemProcessDayFlag" class="layui-input"   name="systemProcessDayFlag"
+					jf-select="builder.option(systemProcessDayFlagArr)" maxlength="7"></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right"><span class="red">*</span>{{'PZH1300013' | translate}}：</div>
+				<div class="wdper80 float_left">
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周一</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio1 ng-model="d.radio1" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">
+						</div>
+					</div>
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周二</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio2 ng-model="d.radio2" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">  
+						</div>
+					</div>
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周三</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio3 ng-model="d.radio3" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">  
+						</div>
+					</div>
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周四</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio4 ng-model="d.radio4" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">  
+						</div>
+					</div>
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周五</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio5 ng-model="d.radio5" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">  
+						</div>
+					</div>
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周六</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio6 ng-model="d.radio6" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">  
+						</div>
+					</div>
+					<div class="col_td_ten">
+						<div class="wdper90" style="padding-left: 17%;">周日</div>
+						<div class="wdper90 float_left">
+							<INPUT name=radio7 ng-model="d.radio7" showtype="list" jf-radio="builder.option(systemProcessDayFlagArr)" validator="required">  
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="saveBsForm()" validation-submit="bsFormInfForm">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div> -->
+		</form>
+	</div>
+</div>

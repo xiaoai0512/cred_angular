@@ -1,0 +1,191 @@
+<div class="layout_body" ng-controller="financeQueryCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form  name="cusInfoForm" class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'GWH100016' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="idNumberN"	ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo" name="externalIdentificationNoN">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00171' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="startDate"
+					ng-model="startDate" type="text"
+					id="LAY_demorange_zs">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00172' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="endDate"
+					ng-model="endDate" type="text"
+					id="LAY_demorange_ze">
+				</div>
+			</div>  
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cusInfoForm"  ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 直接输入外部识别号查询交易信息 -->
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoTrans">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH500003' | translate}}</div>
+		<!-- 查询主账户 -->			
+		<div class="page-wrapper">
+			<table id="busCardTransTable"></table>
+			<div id="pageBusCardTrans"  style="margin: 0 auto;  text-align: right;"></div>
+		</div>
+		<!-- <div jf-grid="busCardTransTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'GWH500004' | translate}}</th>
+						<th>{{'GWH500005' | translate}}</th>
+						<th>{{'GWH500006' | translate}}</th>
+						<th>{{'GWH500007' | translate}}</th>
+						<th>{{'GWH500008' | translate}}</th>
+						<th>{{'GWH500009' | translate}}</th>
+						<th width="13%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">
+							<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+							<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+		  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+						</td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.transAmount" ></td>
+						<td align="center" ng-bind="item.transCurrCde"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+						<td align="center">
+							<span ng-if="item.reimburseStatus == 'Y' ">{{'GWH500010' | translate}} </span>
+							<span ng-if="item.reimburseStatus == 'N' ||  item.reimburseStatus == '' || item.reimburseStatus == null">{{'GWH500011' | translate}}</span>
+						</td>
+						<td align="center" ng-bind="item.merchantCde"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewBusCardTrans(item)"  >
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="reimburse(item)">
+								<i class="layui-icon"></i> {{'GWH500008' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+	<!-- 使用预算单位编码查询公务卡列表 -->
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="cardListDiv">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH500012' | translate}}</div>
+		<div jf-grid="busCardIdNumTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'GWH500013' | translate}}</th>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'F00158' | translate}}</th>
+						<th>{{'F00112' | translate}}</th>
+						<th>{{'GWH500014' | translate}}</th>
+						<th>{{'GWH500015' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerName"></td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.idTypeDesc"></td>
+						<td align="center" ng-bind="item.idNumber"></td>
+						<td align="center" ng-bind="item.officialCardType"></td>
+						<td align="center" ng-bind="item.invalidFlagDesc"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="queryTransByUintList(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00009' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- 根据预算单位然后识别号 查询交易信息 -->
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="transByCardDiv">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH500003' | translate}}</div>
+		<!-- 查询主账户 -->			
+		<div class="page-wrapper">
+			<table id="transByUintList"></table>
+			<div id="pageTransByUint"  style="margin: 0 auto;  text-align: right;"></div>
+		</div>
+		<!-- <div jf-grid='queryTransByUintList'>
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'GWH500004' | translate}}</th>
+						<th>{{'GWH500005' | translate}}</th>
+						<th>{{'GWH500006' | translate}}</th>
+						<th>{{'GWH500007' | translate}}</th>
+						<th>{{'GWH500008' | translate}}</th>
+						<th>{{'GWH500009' | translate}}</th>
+						<th width="13%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">
+							<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+							<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+		  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+						</td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.transAmount" ></td>
+						<td align="center" ng-bind="item.transCurrCde"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+						<td align="center">
+							<span ng-if="item.reimburseStatus == 'Y' ">{{'GWH500010' | translate}} </span>
+							<span ng-if="item.reimburseStatus == 'N' ||  item.reimburseStatus == '' || item.reimburseStatus == null">{{'GWH500011' | translate}} </span>
+						</td>
+						<td align="center" ng-bind="item.merchantCde"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewBusCardTransByUint(item)"  >
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="reimburse(item)">
+								<i class="layui-icon"></i> {{'GWH500008' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+</div>

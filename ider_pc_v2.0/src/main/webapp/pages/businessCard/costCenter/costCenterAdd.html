@@ -1,0 +1,246 @@
+<div class="layout_body layui-form" ng-controller="costCenterAddCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+    <div class="allcontent">
+        <form class="layui-form" name="centerInfoForm">
+            <div class="col_td">
+                <label class="col4 text_right">{{'GWH101020' | translate}}：</label>
+                <div class="wd190 float_left">
+                    <input class="layui-input" type="text" ng-model="itemList.params.socialCreditCode"  name="socialCreditCode" id="centerInfo_socialCreditCode">
+                </div>
+            </div>
+            <div class="col_tr text_center">
+                <div class="search_button">
+                    <button class="layui-btn cancel-btn" type="button" ng-click="insert()">
+                        <i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+                    </button>
+                    <button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+                        <i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div  style="margin-top: 20px;" ng-show="showItemList">
+        <div class="clearboth"></div>
+        <div class="mainname">{{'GWH101021' | translate}}</div>
+        <div jf-grid="itemList">
+            <table>
+                <thead>
+                <tr>
+                    <th>{{'GWH101004' | translate}}</th>
+                    <th>{{'GWH101019' | translate}}</th>
+                    <th>{{'GWH101011' | translate}}</th>
+                    <th>{{'GWH101012' | translate}}</th>
+                    <th>{{'GWH101013' | translate}}</th>
+                    <th>{{'GWH101014' | translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td align="center" ng-bind="item.socialCreditCode"></td>
+                    <td align="center" ng-bind="item.statusCodeDesc"></td>
+                    <td align="center" ng-bind="item.billDay"></td>
+                    <td align="center" ng-bind="item.statementFlagDesc"></td>
+                    <td align="center" ng-bind="item.corporationVipFlagDesc"></td>
+                    <td align="center" ng-bind="item.registerDate"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+	<div class="allcontent" ng-show="showAddItem">
+		<form name="costCenterForm">
+			<div class="mainname">1.{{'GWH101001' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'GWH101002' | translate}}：</div>
+				<div class="wd190 float_left">
+                    <select ng-model="costCenterInf.institutionId" jf-select="institutionIdArr" name="institutionId" validator="required">
+                    </select>
+				</div>
+			</div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101019' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <select ng-model="costCenterInf.statusCode" jf-select="companyStatus" name="statusCode" validator="required">
+                    </select>
+                </div>
+            </div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'GWH101003' | translate}}：</div>
+				<div class="wd190 float_left">
+                    <select ng-model="costCenterInf.idType" jf-select="certificateTypeArray" name="idType" validator="required">
+                    </select>
+				</div>
+			</div>
+            <div class="col_td">
+                <div class="col4 text_right"><span class="red">*</span>{{'GWH101004' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="socialCreditCode" ng-model="costCenterInf.socialCreditCode" type="text" validator="required" disabled="disabled" maxlength="18">
+                </div>
+            </div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH101005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="costCenterInf.personalDutyFlag" jf-select="yesOrNo" name="personalDutyFlag" >
+					</select>
+				</div>
+			</div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101006' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <select ng-model="costCenterInf.corporationDutyFlg" jf-select="yesOrNo" name="corporationDutyFlg" >
+                    </select>
+                </div>
+            </div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH101007' | translate}}：</div>
+				<div class="wd190 float_left">
+                    <input class="layui-input " name="baseIssueBank" ng-model="costCenterInf.baseIssueBank" type="text" maxlength="75" >
+                </div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH101008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="baseAccount" ng-model="costCenterInf.baseAccount" type="text" maxlength="35">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH101009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="fxIssueBank" ng-model="costCenterInf.fxIssueBank" type="text" maxlength="75">
+				</div>
+			</div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101010' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="fxAccount" ng-model="costCenterInf.fxAccount" type="text" maxlength="35">
+                </div>
+            </div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'GWH101011' | translate}}：</div>
+				<div class="wd190 float_left">
+                    <select ng-model="costCenterInf.billDay" jf-select="billDayArray" name="billDay" validator="required">
+                    </select>
+                </div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH101012' | translate}}：</div>
+				<div class="wd190 float_left">
+                    <select ng-model="costCenterInf.statementFlag" jf-select="yesOrNo" name="statementFlag">
+                    </select>
+				</div>
+			</div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101013' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <select ng-model="costCenterInf.corporationVipFlag" jf-select="yesOrNo" name="corporationVipFlag" >
+                    </select>
+                </div>
+            </div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH101014' | translate}}：</div>
+				<div class="wd190 float_left">
+                    <input class="layui-input icon_date"
+                           ng-model="costCenterInf.registerDate" jf-date-input
+                           name="registerDate" type="text">
+                </div>
+			</div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101015' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <select ng-model="costCenterInf.industry" jf-select="ndustryList" name="industry">
+                    </select>
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101018' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <select ng-model="costCenterInf.corporationCategory" jf-select="TypeOfCompany"
+                            name="corporationCategory" >
+                    </select>
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101016' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" name="employeeNumber" ng-model="costCenterInf.employeeNumber" type="text"
+                           validator="decimals" maxlength="7">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101017' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" name="totalAssets" ng-model="costCenterInf.totalAssets" type="text"
+                           validator="decimals"  maxlength="8">
+                </div>
+            </div>
+
+
+
+            <div class="clearboth"></div>
+            <div class="mainname">2.{{'GWH101022' | translate}}</div>
+            <div class="col_td">
+                <div class="col4 text_right"><span class="red">*</span>{{'GWH101023' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="principalName" ng-model="costCenterInf.principalName" type="text" validator="required" maxlength="30">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right"><span class="red">*</span>{{'GWH101024' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="principalMobilePhone" ng-model="costCenterInf.principalMobilePhone" type="text" validator="required" maxlength="12">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right"><span class="red">*</span>{{'GWH101025' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="chineseName" ng-model="costCenterInf.chineseName" type="text" validator="required" maxlength="150">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101026' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="englishName" ng-model="costCenterInf.englishName" type="text" maxlength="150">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101027' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="phone" ng-model="costCenterInf.phone" type="text" maxlength="12">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101028' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="phoneExt" ng-model="costCenterInf.phoneExt" type="text" maxlength="6">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101029' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="postCode" ng-model="costCenterInf.postCode" type="text" maxlength="6">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101030' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="city" ng-model="costCenterInf.city" type="text" maxlength="75">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'GWH101031' | translate}}：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input " name="address" ng-model="costCenterInf.address" type="text" maxlength="150">
+                </div>
+            </div>
+
+            <div class="col_tr text_center">
+                <button class="layui-btn layui-btn-radius" validation-submit="costCenterForm" ng-click="savecostCenterInfo()">
+                    <i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+                </button>
+            </div>
+		</form>
+	</div>
+</div>

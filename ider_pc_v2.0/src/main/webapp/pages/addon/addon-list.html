@@ -1,0 +1,28 @@
+<div class="layui-form addborder scrolltable jfGrid" id="{{grid.id}}">
+	<table border="0" cellspacing="0" cellpadding="0" class="layui-table dataTable no-footer" lay-even lay-skin="nob" name="{{grid.title}}">
+		<thead>
+			<tr>
+			<th ng-if="grid.checkType=='radio' && grid.autoClick==false" width="5%" align="center">{{'F00036' | translate}}</th>
+			<th ng-if="grid.checkType=='checkbox'&& grid.autoClick==false" align="center" width="5%" ng-click="checkedAll()" ><input type="checkbox" check_id="{{grid.id}}" lay-skin="primary"></th>
+			<th jf-compile="{{gridHeader}}"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in grid.data" ng-show="grid.autoClick==true">
+				<td jf-compile="{{gridBody}}" ></td>
+			<tr>
+			<tr ng-repeat="item in grid.data" ng-show="grid.autoClick==false" ng-click="checked(item)">
+				<td ng-if="grid.checkType" align="center" >
+					<input type="radio" title=" " lay-skin="primary" name="{{grid.id}}" ng-if="grid.checkType=='radio'" ng-checked="item._checked">
+					<input type="checkbox" lay-skin="primary" name="{{grid.id}}" ng-if="grid.checkType=='checkbox'" ng-checked="item._checked">
+				</td>
+				<td jf-compile="{{gridBody}}" ></td>
+			</tr>
+			<tr ng-if="!grid.data || grid.data.length <= 0">
+				<td align="center"  colspan="{{colNum}}" ng-bind="grid.message"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- page -->
+<page jf-page="grid.page" ng-if="grid.paging && grid.data.length > 0"/>

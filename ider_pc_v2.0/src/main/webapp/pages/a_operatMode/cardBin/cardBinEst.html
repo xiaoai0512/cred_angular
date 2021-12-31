@@ -1,0 +1,51 @@
+<div ng-controller="cardBinEstCtrl">
+	<div class="layui-form">
+		<form name="cardBinForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1000001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardBin.corporationEntityNo" validator="required" name="corporationEntityNo"
+					 type="text" maxlength="10" ng-click="chosecorporation()" id="corporationEntityNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1000002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardBin.binNo" id="binNo" validator="required" name="binNo" type="text"
+					 maxlength="6">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1000003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.cardScheme" class="layui-input" jf-select="cardSchemeArrary" name="cardScheme"
+					 validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1000004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.cardTyp" class="layui-input" jf-select="cardTypeArrary" name="cardTyp"
+					 validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1000005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="cardBin.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"
+					 maxlength="3" validator="required">
+					</select>
+				</div>
+			</div>
+
+			<!-- <div class="col_tr text_center">
+				<button class="layui-btn"
+					ng-click="saveCardBin()" validation-submit="cardBinForm">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div> -->
+		</form>
+
+	</div>
+</div>

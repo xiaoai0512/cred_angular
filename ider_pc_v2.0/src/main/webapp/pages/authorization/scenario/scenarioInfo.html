@@ -1,0 +1,137 @@
+<div class="layout_body" ng-controller="scenarioInfoCtrl">
+<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeInfo" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+		<div class="col4 text_right">{{'SQH1500060' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="bsnNumb" ng-model="item.authSceneCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500078' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="bsnNumb"  type="text" ng-model="item.sceneDesc" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1500079' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500063' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="bsnNumb" ng-model="item.triggerNo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500081' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="transSourceInfo" class="layui-input" jf-select="transSourcArr" name="transSourceN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500064' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="transIdentifiNoArray" name="transIdentifiNoN" ng-model="transIdentifiNoInfo" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500065' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" name="bsnNumb" ng-model="item.transPostingFlag"  type="text" readonly> -->
+				<select ng-model="transPostingFlagInfo" class="layui-input"
+							jf-select="transPostingArray" name="transPostingFlagN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="retainDaysInfo">
+			<div class="col4 text_right">{{'SQH1500066' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="bsnNumb" ng-model="item.transRetainDays"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500071' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="authTypeInfo" class="layui-input"
+							jf-select="authTypeArray" name="authTypeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500067' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="postingRetainFlagInfo" class="layui-input"
+							jf-select="YNArray04" name="postingRetainFlagN"  disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500072' | translate}}  ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="creditOccupyModeInfo" class="layui-input"
+							jf-select="creditArray" name="operationModeNa"  disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+				<div class="col4 text_right">{{'SQH1500069' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="forceAuthFlagInfo" class="layui-input"
+								jf-select="YNArray01" name="forceAuthFlagN" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1500070' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="rvTransFlagInfo" class="layui-input"
+								jf-select="YNArray02" name="toleranceN" disabled></select>
+				</div>
+			</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1500073' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="authCodeFlagInfo" class="layui-input"
+							jf-select="YNArray03" name="authCodeFlagN"  disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1500099' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="priority" ng-model="item.priority"  type="text"  readonly>
+			</div>
+		</div>
+	<div class="col_td">
+		<div class="col4 text_right"><span class="red">*</span>{{'SQH1500098' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<select ng-model="sceneType" class="layui-input"
+					jf-select="sceneTypeArray" name="sceneTypeN" disabled></select>
+		</div>
+	</div>
+		<div class="clearboth"></div>
+		<div ng-show="artInfo" >
+				<div class="mainname">{{'SQH1500083' | translate}}</div>
+				<div jf-grid="artifactView">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:40%">{{'YYH510004' | translate}}</th>
+								<th>{{'YYH510007' | translate}}</th>
+								<th>{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left">{{item.artifactDesc}}:{{item.elementNo}} {{item.elementDesc}}</td>
+								<td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="queryArtifactBP(item)" ng-if="item.pcdNo!=null && item.supportPcd == 'Y'">
+										{{'F00075' | translate}}</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+		</form>
+</div>

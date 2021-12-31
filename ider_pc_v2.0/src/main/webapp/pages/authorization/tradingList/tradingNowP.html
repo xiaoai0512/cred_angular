@@ -1,0 +1,81 @@
+<div class="layout_body" ng-controller="tradingNowCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="queryInfForm"  class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+							jf-select="certificateTypeArray" name="idType"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						   id='tradingNowP_idNumber'name="idNumber" validator="noValidator"
+						   ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH1500060' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select class="layui-input"	jf-select="authSceneArray" name="authSceneCode" ng-model="itemList.params.authSceneCode" lay-search=""></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="layui-inline">
+					<button class="layui-btn" ng-click="selectList()" validation-submit="queryInfForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		<div ng-show="showQuotaTable" >
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+					<tr>
+						<th style="padding: 0px 5px; width:13%">{{'SQH2700001' | translate}}</th>
+						<th style="padding: 0px 5px; width:8%">{{'SQH2700027' | translate}}</th>
+						<th style="padding: 0px 5px; width:8%" >{{'SQH2700028' | translate}}</th>
+						<th style="padding: 0px 5px; width:8%"">{{'SQH2700004' | translate}}</th>
+						<th style="padding: 0px 5px; width:8%" >{{'SQH2700005' | translate}}</th>
+						<th style="padding: 0px 5px; width:14%">{{'SQH2700006' | translate}}</th>
+						<th style="padding: 0px 5px; width:10%">{{'SQH2700007' | translate}}</th>
+						<th style="padding: 0px 5px; width:8%">{{'SQH2700008' | translate}}</th>
+						<th style="padding: 0px 5px; width:8%">{{'SQH2700010' | translate}}</th>
+						<th style="padding: 0px 10px;width:15%">{{'F00017' | translate}}</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td style="padding: 0px 5px;"  align="center" ng-bind="item.temTransNo"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.processingDate"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.processingTime"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.temCurrencyCode"></td>
+						<td style="padding: 0px 5px;"   align="center" ng-bind="item.temTransAmount"></td>
+						<td style="padding: 0px 5px;" align="center" width="20%">{{item.authSceneCode}}{{item.sceneDesc}}</td>
+						<td style="padding: 0px 5px; " align="center" ng-bind="item.authTransMessage.ecommField38"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.authTransMessage.ecommField39">
+						<td align="center" ng-bind="item.transTypeDesc"></td>
+						<td style="padding: 0px 10px;width:13%" align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="selectInfo(item)">
+								<i class="layui-icon"></i> {{'F00014' | translate}}
+							</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,257 @@
+<div ng-controller="loanPaymentInfoCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="loanList.params.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600060' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="startDate" id="LAY_startDate"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600061' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateNs" type="text" ng-model="endDate" id="LAY_endDate"> 
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchBtn()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+		<input style="display:none;" class="layui-input" ng-model="hideIdNumber"  type="text">
+		<input style="display:none;" class="layui-input" ng-model="hideIdType"  type="text">
+		<div ng-show ="isShowloanList">
+			<div jf-grid="loanList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4600156' | translate}}</th>
+							<th>{{'KHH4600004' | translate}}</th>
+							<th>{{'KHH4600157' | translate}}</th>
+							<th>{{'KHH4600062' | translate}}</th>
+							<th>{{'KHH4600210' | translate}}</th>
+							<th>{{'KHH4600006' | translate}}</th>
+							<th>{{'KHH4600036' | translate}}</th>
+							<th>{{'KHH4600008' | translate}}</th>
+							<th>{{'KHH4600158' | translate}}</th>
+							<th  width="30%" >{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.loanTypeDesc"></td>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.loanAmount | number:2" ></td>
+							<td align="center" ng-bind="item.remainPrincipalAmount | number:2"></td>
+							<td align="center" ng-bind="item.prepaidAmount | number:2"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.loanTerm"></td>
+							<td align="center" ng-bind="item.startIntDate"></td>
+							<td align="center" ng-bind="item.statusDesc"></td>
+							<!--<span ng-if="item.status == '0' ">{{'F00144' | translate}}</span>
+								<span ng-if="item.status == '2' ">{{'F00145' | translate}}</span>
+								<span ng-if="item.status == '1' ">{{'F00146' | translate}}</span>
+								<span ng-if="item.status == '3' ">{{'F00147' | translate}}</span>
+								<span ng-if="item.status == '4' ">{{'F00148' | translate}}</span> --> -->
+							</td>
+							<td align="center" style="padding: 0px 0px;">
+								
+								<!-- 1商户分期 -->
+								<div ng-if="item.loanType == 'MERH'">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoCash(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="returnedPurchase(item)">
+										<i class="layui-icon"></i> {{'F00149' | translate}}  <!-- 退货 -->
+									</button>
+										<button class="layui-btn layui-btn-mini"
+										ng-click="revokePurchase(item)">
+										<i class="layui-icon"></i> {{'F00150' | translate}}  <!-- 分期撤销 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="preHandler(item)">
+										<i class="layui-icon"></i> {{'KHJ4600002' | translate}}  <!-- 提前结清 -->
+									</button>
+									
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deferredStage(item)">
+										<i class="layui-icon"></i> {{'F00151' | translate}}   <!-- 延期分期 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="pauseStage(item)">
+										<i class="layui-icon"></i> {{'F00152' | translate}}  <!-- 暂停分期 -->
+									</button>
+									
+								</div>
+								<!-- 2自动分期 -->
+								<div ng-if="item.loanType == 'TXAT'">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoCash(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="returnedPurchase(item)">
+										<i class="layui-icon"></i> {{'F00149' | translate}}  <!-- 退货 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="revokePurchase(item)">
+										<i class="layui-icon"></i> {{'F00150' | translate}}  <!-- 分期撤销 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="preHandler(item)">
+										<i class="layui-icon"></i> {{'KHJ4600002' | translate}}  <!-- 提前结清 -->
+									</button>
+									
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deferredStage(item)">
+										<i class="layui-icon"></i> {{'F00151' | translate}}   <!-- 延期分期 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="pauseStage(item)">
+										<i class="layui-icon"></i> {{'F00152' | translate}}  <!-- 暂停分期 -->
+									</button>
+								</div>
+								<!-- 3现金分期 -->
+								<div ng-if="item.loanType == 'CASH'">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoCash(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="revokePurchase(item)">
+										<i class="layui-icon"></i> {{'F00150' | translate}}  <!-- 分期撤销 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="preHandler(item)">
+										<i class="layui-icon"></i> {{'KHJ4600002' | translate}}  <!-- 提前结清 -->
+									</button>
+									
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deferredStage(item)">
+										<i class="layui-icon"></i> {{'F00151' | translate}}   <!-- 延期分期 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="pauseStage(item)">
+										<i class="layui-icon"></i> {{'F00152' | translate}}  <!-- 暂停分期 -->
+									</button>
+								</div>
+								<!--4 账单分期-->
+								<div ng-if="item.loanType == 'STMT'">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoCash(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="revokePurchase(item)">
+										<i class="layui-icon"></i> {{'F00150' | translate}}  <!-- 分期撤销 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="preHandler(item)">
+										<i class="layui-icon"></i> {{'KHJ4600002' | translate}}  <!-- 提前结清 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deferredStage(item)">
+										<i class="layui-icon"></i> {{'F00151' | translate}}   <!-- 延期分期 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="pauseStage(item)">
+										<i class="layui-icon"></i> {{'F00152' | translate}}  <!-- 暂停分期 -->
+									</button>
+								</div>
+								<!-- 5交易分期 -->
+								<div ng-if="item.loanType == 'TRAN'" >
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoCash(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="returnedPurchase(item)">
+										<i class="layui-icon"></i> {{'F00149' | translate}}   <!-- 退货 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="revokePurchase(item)">
+										<i class="layui-icon"></i> {{'F00150' | translate}}  <!-- 分期撤销 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="preHandler(item)">
+										<i class="layui-icon"></i> {{'KHJ4600002' | translate}}  <!-- 提前结清 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="orginTransInfBtn(item)">
+										<i class="layui-icon"></i> {{'KHH4600067' | translate}}  <!-- 原交易信息 -->
+									</button>
+									
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deferredStage(item)">
+										<i class="layui-icon"></i> {{'F00151' | translate}}   <!-- 延期分期 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="pauseStage(item)">
+										<i class="layui-icon"></i> {{'F00152' | translate}}  <!-- 暂停分期 -->
+									</button>
+								</div>
+								<!-- 6专项分期 -->
+								<div ng-if="item.loanType == 'SPCL'">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoCash(item)"> 
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="returnedPurchase(item)">
+										<i class="layui-icon"></i> {{'F00149' | translate}}  <!-- 退货 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="revokePurchase(item)">
+										<i class="layui-icon"></i> {{'F00150' | translate}}  <!-- 分期撤销 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="preHandler(item)">
+										<i class="layui-icon"></i> {{'KHJ4600002' | translate}}  <!-- 提前结清 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deferredStage(item)">
+										<i class="layui-icon"></i> {{'F00151' | translate}}   <!-- 延期分期 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="pauseStage(item)">
+										<i class="layui-icon"></i> {{'F00152' | translate}}  <!-- 暂停分期 -->
+									</button>
+									
+								</div>
+								<!-- 7信贷分期 -->
+								<div ng-if="item.loanType == 'LOAN'">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfo(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}  <!-- 查询 -->
+									</button>
+									<button class="layui-btn layui-btn-mini"  ng-click="loanPaymentClick(item)">
+										<i class="layui-icon"></i> {{'KHH4600163' | translate}}     <!-- 贷款支付 -->
+									</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>	

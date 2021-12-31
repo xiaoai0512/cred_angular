@@ -1,0 +1,20 @@
+<div class="layui-form" ng-controller="layerPartReturnedCtrl">
+	<div class="col_td">
+		<div class="col4 text_right">原交易金额 ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" ng-model="partReturnedInf.transAmount" name="globalSerialNumbr" type="text" disabled="disabled">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'F00192' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" ng-model="partReturnedInf.rejectedAmount" name="globalSerialNumbr" type="text" disabled="disabled">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">退货金额 ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" ng-model="partReturnedInf.ecommTransPostingAmount" name="ecommTransPostingAmount" type="text" />
+		</div>
+	</div>
+</div>

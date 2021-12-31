@@ -1,0 +1,108 @@
+<div ng-controller="disputeAccontInfoCtrl-JY">
+	<!-- <div class="leftmenu_navtitle">争议账户信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+		
+	<input type="text" class="disN"   ng-model = "hide_disputeQuery.idType" />
+		<input type="text" class="disN"   ng-model = "hide_disputeQuery.idNumber" />
+		<input type="text" class="disN"   ng-model = "hide_disputeQuery.externalIdentificationNo" />
+	
+	
+	<div class="allcontent layui-form">
+	<form action="" name="disputeForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeQueryTable.params.idType" lay-filter="getIdType"
+					jf-select="builder.option(certificateTypeArray1)" name="idType"  >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+		<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="idNumber" type="text"  id="disputeQuery_idNumber"   validator="noValidator" ng-model="disputeQueryTable.params.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" id="ecommEntryIdId" name="externalIdentificationNo"  ng-model="disputeQueryTable.params.externalIdentificationNo" maxlength="19">
+			</div>
+		</div>
+	
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn"  validation-submit="disputeForm"  ng-click="instalSel()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+	
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="reset()">
+							<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+						</button>
+				</div>
+			</div>
+		</form>
+		<!-- <div class="clearboth"></div>
+		<div class="mainname">2选择产品对象</div> -->
+		<div ng-show="isShow">
+		<div jf-grid="disputeQueryTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:18%">{{'KHH4400003' | translate}}</th>
+						<th>{{'KHH4400004' | translate}}</th>
+						<th style="width:17%">{{'F00111' | translate}}</th>
+						<th>{{'KHH4400006' | translate}}</th>
+						<th>{{'KHH4400007' | translate}}</th>
+						<th>{{'KHH4400008' | translate}}</th>
+						<th style="width:10%">{{'KHH4400079' | translate}}</th>
+						<th style="width:10%">{{'KHH4400009' | translate}}</th>
+						<th style="width:10%">{{'KHH4400080' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="left">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.disputeAmount"></td>
+						<td align="center" ng-bind="item.blanceAmount"></td>
+						<td align="center" ng-bind="item.overpayFreezeAmount"></td>
+						<td align="center" ng-bind="item.createDate"></td>
+						<td align="center" ng-bind="item.freeDate"></td>
+						<td align="center">
+							<span ng-if="item.statusCode=='D'">登记未释放</span>
+							<span ng-if="item.statusCode=='C'">已释放利于客户</span>
+							<span ng-if="item.statusCode=='B'">已释放利于银行</span>
+						</td>
+						<!-- <td align="center" ng-bind="item.businessTypeCode"></td>
+						<td align="center" ng-bind="item.customerNo"></td> -->
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="viewDisputeViewInf(item)">
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							<!-- <button class="layui-btn layui-btn-mini"
+								ng-click="disputeDataDetailsInfo(item)">
+								<i class="layui-icon"></i> 客户
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="disputeDataDetailsInfo2(item)">
+								<i class="layui-icon"></i> 银行
+							</button> -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</div>
+</div>

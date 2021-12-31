@@ -1,0 +1,50 @@
+<div ng-controller="updateResSpecialNumCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" ng-model="resSpecialNumInf.corporationEntityNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" ng-model="resSpecialNumInf.cardBin"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00128' | translate}}：</div>
+				<div class="wd190 float_left">
+					 <input class="layui-input bnone" ng-model="resSpecialNumInf.segmentNumber" validator="required,number"  type="text" 
+					name="segmentNumber"  maxlength="10" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300020' | translate}}：</div>
+				<div class="wd190 float_left">
+					  <input class="layui-input" ng-model="resSpecialNumInf.calorimeterValue" name="calorimeterValue" maxlength="8" type="text"  validator="number" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300021' | translate}}：</div>
+				<div class="wd190 float_left"><!-- icon_date ,id="lay_resSpeci_zs"-->
+					  <input class="layui-input " ng-model="resSpecialNumInf.prevDate" name="prevDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300022' | translate}}：</div>
+				<div class="wd190 float_left">
+					  <input class="layui-input icon_date" ng-model="resSpecialNumInf.nextDate" id="lay_resSpeci_zn" name="nextDate" type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300023' | translate}}：</div>
+				<div class="wd190 float_left">
+					  <input class="layui-input" ng-model="resSpecialNumInf.createCalorimeter" name="createCalorimeter" validator="required,number"  type="text"  maxlength="8">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {	
+                	"t1" : "CP00",
+		    		"time1" : "2018/2/14",
+		    		"time2": "13:08:09",
+                    "type": "客户创建",
+                    "pDCd":"",
+                    "dsc":"",
+                    "ccy":""
+                },
+                {	
+                	"t1" : "CP05",
+		    		"time1" : "2018/2/14",
+		    		"time2": "13:08:09",
+                    "type": "产品申请",
+                    "pDCd":"MODP00010",
+                    "dsc":"银联普卡",
+                    "ccy":""
+                },
+                 {	
+                 	"t1" : "CP10",
+		    		"time1" : "2018/2/22",
+		    		"time2": "10:56:00",
+                    "type": " 账户创建",
+                    "pDCd":"MODT00001",
+                    "dsc":"信用卡消费业务类型一",
+                    "ccy":"156"
+                },
+                 {	
+                 	"t1" : "CP10",
+		    		"time1" : "2018/3/15",
+		    		"time2": "17:01:00",
+                    "type": "账户创建",
+                    "pDCd":"MODT00002",
+                    "dsc":"信用卡取现业务类型一",
+                    "ccy":"156"
+                },
+                {	
+                 	"t1" : "CP05",
+		    		"time1" : "2018/3/24",
+		    		"time2": "11:23:00",
+                    "type": "产品申请",
+                    "pDCd":"MODP00011",
+                    "dsc":"银联金卡",
+                    "ccy":""
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 0,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 0,
+            "startRow": 0,
+            "total": 5	
+        }
+    },
+    "status": 200
+}

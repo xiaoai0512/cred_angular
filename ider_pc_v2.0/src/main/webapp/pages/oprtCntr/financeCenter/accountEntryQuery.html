@@ -1,0 +1,101 @@
+<div ng-controller="accountEntryQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：会计分录查询
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<!-- <div class="mainname">会计分录查询</div> -->
+
+		<div class="col_td">
+			<div class="col4 text_right">账号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="accountEntryTable.params.accountId" 
+					name="accountNo" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">流水编号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="accountEntryTable.params.acctSerialNbr"   name="acctSerialNbr" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">开始时间：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" jf-date-input ng-model="accountEntryTable.params.startDate" 
+					name="beginDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">截止时间 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date"  jf-date-input ng-model="accountEntryTable.params.endDate"
+					name="endDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">事件编号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="accountEntryTable.params.eventNo" 
+					name="eventNo" type="text">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="accountEntryTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="accountEntryTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+
+		<div jf-grid="accountEntryTable">
+			<table>
+				<thead>
+					<tr>
+						<th>流水编号</th>
+						<th style="width:8%">科目编号</th>
+						<th>账号</th>
+						<th style="width:6%">借贷</th>
+						<th style="width:10%">金额</th>
+						<th style="width:8%">币种</th>
+						<th style="width:12%">记账日期</th>
+						<th>摘要</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" >{{item.acctSerialNbr+'-'+item.seqNbr}}</td>
+						<td align="center" ng-bind="item.itemId"></td>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center" >
+							<span ng-if="item.debitCreditFlag == 'D'">借</span>
+							<span ng-if="item.debitCreditFlag == 'C'">贷</span>
+							<span ng-if="item.debitCreditFlag == 'R'">收</span>
+							<span ng-if="item.debitCreditFlag == 'P'">付</span>
+						</td>
+						<td align="center" ng-bind="item.amount"></td>
+						<td align="center" ng-bind="item.currencyCde"></td>
+						<td align="center" ng-bind="item.financialDate"></td>
+						<td align="center" ng-bind="item.summary"></td>
+						
+						
+						
+						<!-- <td align="center" ng-if="item.currencyCode != '' && item.currencyCode != null">
+							
+							<button class="layui-btn layui-btn-mini" ng-click="updateCurrency(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+						</td> -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

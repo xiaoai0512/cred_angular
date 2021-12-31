@@ -1,0 +1,18 @@
+{
+	"SQH600001": "Credit Type",
+	"SQH600002": "Credit Currency",
+	"SQH600003": "credit limit",
+	"SQH600006": "Customer Number",
+	"SQH600007": "credit result",
+	"SQH600008": "The reason for failure",
+	"SQJ600001": "Permanent quota",
+	"SQJ600002": "Temporary quota",
+	"SQJ600003": "Please enter the operation mode and the quota node!",
+	"SQJ600004": "Please enter the ID number or External PAN!",
+	"SQJ600005": "ID number and external PAN can only be input into one of them",
+	"SQJ600006": "There is no credit currency for this account, please verify customer information!",
+	"SQJ600007": "Success",
+	"SQJ600008": "Failed",
+	"SQJ600009": "credit result information",
+	"SQJ600010": "Please enter the effective date and expiration date!"
+}

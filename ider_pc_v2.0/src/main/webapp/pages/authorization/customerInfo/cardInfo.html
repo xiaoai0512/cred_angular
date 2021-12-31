@@ -1,0 +1,181 @@
+<div class="layout_body" ng-controller="cardListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center" >
+				<div class="search_button">
+					<button class="layui-btn" ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfo">
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listCodeN" ng-model="item.externalIdentificationNo" type="text" readonly>
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200040' | translate}}(MMYY)：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.expirationDate" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200067' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.productObjectCode" type="text" readonly>
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200041' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="invalidFlagN" ng-model="invalidFlagInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200042' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="invalidReasonN" ng-model="invalidReasonInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200043' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodesN" ng-model="activationFlagInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200044' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.activationDate" type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH100024' | translate}}</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200046' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.mainCustomerNo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200047' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="mainSupplyIndicatorInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200048' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.supplyCustomerNo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200049' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.countryCode" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="mediaTypeInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200060' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.mainProductForm" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200061' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.productForm" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200062' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.chipLockStatus" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200063' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.scriptProcessRslt" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200064' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="item.budgetOrgCode" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200065' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="listCodeN" ng-model="verifyPswFlagInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200066' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="retailVerifyPswAmountN" ng-model="smallAvoidPswFlagInfo" type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH200059' | translate}}</div>
+		<!--<div class="col_td">
+		<div class="col4 text_right">{{'SQH200053' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="passwordOffsetN" ng-model="item.passwordOffset" type="text" readonly>
+			</div>
+		</div>-->
+		<!--<div class="col_td">
+			<div class="col4 text_right">{{'SQH200054' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="previousPasswordOffsetN" ng-model="item.previousPasswordOffset" type="text" readonly>
+			</div>
+		</div>-->
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200055' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="pswErrorNumTodayN" ng-model="item.pswErrorNumToday" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200056' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="pswErrorDateN" ng-model="item.pswErrorDate" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200057' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="cvvErrorNumN" ng-model="item.cvvErrorNum" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH200058' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input  bnone" name="cvv2ErrorNumN" ng-model="item.cvv2ErrorNum" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_tr " >
+			<button class="layui-btn float_right" style="margin-right: 48%;" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+			</button>
+		</div>
+	</div>
+</div>

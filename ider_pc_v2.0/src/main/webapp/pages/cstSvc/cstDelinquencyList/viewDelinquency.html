@@ -1,0 +1,115 @@
+<div class="layui-form" ng-controller="viewDelinquencyCtrl">
+		<div >
+			<div class="clearboth"></div>
+			<!-- <div class="mainname">{{'KHH4700003' | translate}}</div> -->
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100021' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="customerNoN" type="text" ng-model="viewItem.customerNo" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="delinquencyLevelN" type="text" ng-model="delinquencyLevelInfo" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="levelCodeN" type="text" ng-model="viewItem.levelCode" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100022' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="productObjectNoN" type="text" ng-model="viewItem.productObjectNo" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currencyCodeN" type="text" ng-model="viewItem.currencyDesc" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100009' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="cycleNoN" type="text" ng-model="viewItem.cycleNo" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100023' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currCyclePaymentMinN" type="text" ng-model="viewItem.currCyclePaymentMin" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100024' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currCycleBeginPaymentMinN" type="text" ng-model="viewItem.currCycleBeginPaymentMin" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100025' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="cycleDueNumN" type="text" ng-model="viewItem.cycleDueNum" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100026' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="cycleDueDayNumN" type="text" ng-model="viewItem.cycleDueDayNum" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100027' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currCyclePaymentDateN" type="text" ng-model="viewItem.currCyclePaymentDate" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100028' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="payOffDateN" type="text" ng-model="viewItem.payOffDate" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100029' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="latestEstimateDateN" type="text" ng-model="viewItem.latestEstimateDate" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100030' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="statusN" type="text" ng-model="statusInfo" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100031' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="blockCodeN" type="text" ng-model="viewItem.blockCode" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100032' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="blockCodeSetDateN" type="text" ng-model="viewItem.blockCodeSetDate" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100033' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="accountingStatusCodeN" type="text" ng-model="viewItem.accountingStatusCode" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH4100034' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="accountingStatusSetDateN" type="text" ng-model="viewItem.accountingStatusSetDate" readonly>
+					</div>
+				</div>
+				
+		</div>
+</div>

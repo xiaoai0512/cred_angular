@@ -1,0 +1,122 @@
+<div ng-controller="updateProObjectCtrl">
+	<div class="section  layui-form">
+		<form name=""  class="">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH300001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text" name="operationMode"  ng-model="proObjectInf.operationMode"   maxlength="3" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH300002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text" name="productObjectCode"  ng-model="proObjectInf.productObjectCode" maxlength="9" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="productDesc"  ng-model="proObjectInf.productDesc" maxlength="50" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjectInf.productType"   jf-select="builder.option(productTypeArr)" name="productType"  >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjectInf.binNoUpdate"   jf-select="cardBinArr"name="binNoUpdate" maxlength="9" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH300006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="paymentPriority"  ng-model="proObjectInf.paymentPriority" validator="number" maxlength="3" >
+			</div>
+		</div>
+		<div class="clearboth"></div>
+			<div class="mainname">{{'YYH300007' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label">{{'YYH300008' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="businessPattern" type="text"
+							maxlength="9" ng-model="busListTable.params.businessProgramNo">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label">{{'YYH300009' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="bsnNumb" type="text"
+							maxlength="50" ng-model="busListTable.params.programDesc">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="busListTable.search()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="saveSelect()">
+							<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+						</button>
+					</div>
+				</div>
+				
+			</div>
+
+			<div jf-grid="busListTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'YYH300001' | translate}}</th>
+							<th>{{'YYH300008' | translate}}</th>
+							<th>{{'YYH300009' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.businessProgramNo"></td>
+							<td align="center" ng-bind="item.businessDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH300010' | translate}}</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+							<th>{{'YYH300001' | translate}}</th>
+							<th>{{'YYH300008' | translate}}</th>
+							<th>{{'YYH300009' | translate}}</th>
+							<th style="width: 150px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in treeSelect1 track by $index">
+						<td align="center" ng-bind="items.operationMode"></td>
+							<td align="center" ng-bind="items.businessProgramNo"></td>
+							<td align="center" ng-bind="items.businessDesc"></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</form>
+	</div>
+</div>

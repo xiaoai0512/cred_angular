@@ -1,0 +1,97 @@
+<div ng-controller="cstFeeWaiveListCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="itemList.params.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" 
+					id="cstFeeWaiveList_idNumber"  validator="noValidator"
+					type="text" ng-model="itemList.params.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryitemList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+			<div ng-show = "isShow">
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:13%">{{'KHH2800003' | translate}}</th>
+							<th>{{'KHH2800004' | translate}}</th>
+							<!-- <th style="width:15%">{{'KHH2800005' | translate}}</th> -->
+							<th>{{'KHH2800014' | translate}}</th>
+							<th>{{'KHH2800015' | translate}}</th>
+							<th>{{'KHH2800016' | translate}}</th>
+							<th>{{'KHH2800017' | translate}}</th>
+							<th>{{'KHH2800018' | translate}}</th>
+							<th>{{'KHH2800006' | translate}}</th>
+							<th>{{'KHH2800007' | translate}}</th>
+							<th>{{'KHH2800008' | translate}}</th>
+							<th>{{'KHH2800009' | translate}}</th>
+							<th>{{'KHH2800010' | translate}}</th>
+							<th>{{'KHH2800011' | translate}}</th>
+							<th>{{'KHH2800012' | translate}}</th>
+							<th>{{'KHH2800013' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.customerNo"></td>
+							<td align="center" >
+								<span ng-bind="item.feeItemNo"></span>
+								<span ng-bind="item.feeDesc"></span>
+								
+							</td>
+							<!-- <td align="center" ng-bind="item.entityKey"></td> -->
+							<td align="center" ng-bind="item.instanDesc1"></td>
+							<td align="center" ng-bind="item.instanDesc2"></td>
+							<td align="center" ng-bind="item.instanDesc3"></td>
+							<td align="center" ng-bind="item.instanDesc4"></td>
+							<td align="center" ng-bind="item.instanDesc5"></td>
+							<td align="left">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.waiveCycleNo"></td>
+							<td align="center" ng-bind="item.executedNum"></td>
+							<td align="center" ng-bind="item.waivedNum"></td>
+							<td align="center" ng-bind="item.firstWaiveDate"></td>
+							<td align="center" ng-bind="item.lastWaiveDate"></td>
+							<td align="center" ng-bind="item.lastWaiveAmt"></td>
+							<td align="center" ng-bind="item.accumultWaiveAmt"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,118 @@
+<div ng-controller="proCancelCtrl">
+	<!-- <div class="leftmenu_navtitle">媒介激活</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  	<form action=""  name="queryInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaCancelParams.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"  
+					id='mdmCancel_idNumber'name="idNumber" validator="noValidator"
+					ng-model="mediaCancelParams.idNumber">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="mediaCancelParams.externalIdentificationNo">
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="mediaCancelParams.customerNo"
+						name="customerNo" type="text">
+				</div>
+			</div>		 -->
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryMedia()" type="button" validation-submit="queryInfForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+	
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+	  	</form>
+	</div>
+	<!-- 客户基本信息 -->	
+	<div  ng-show="isShowCstDiv">
+		<div class="allcontent ">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH400003' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" 
+							ng-model="customerInfo.idType" disabled>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'F00112' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" 
+							ng-model="customerInfo.idNumber" disabled="disabled">
+					</div>
+				</div>	
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'KHH400025' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+								ng-model="customerInfo.customerName" disabled="disabled">
+					</div>
+				</div>	
+			</div>
+			<div class="clearboth"></div>
+			<!-- 客户产品信息 -->
+			<div class="mainname">{{'KHH400030' | translate}}</div>
+			<div jf-grid="cstMdmInfTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH400031' | translate}}</th>
+							<th>{{'KHH400032' | translate}}</th>
+							<th>{{'KHH400033' | translate}}</th>
+							<th>{{'KHH400034' | translate}}</th>
+							<th>{{'KHH400035' | translate}}</th>
+							<th>{{'KHH400036' | translate}}</th>
+							<th>{{'KHH400037' | translate}}</th>
+							<th>{{'KHH400038' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+							<td align="center" ng-bind="item.productTypeDesc"></td>
+							<td align="center" ng-bind="item.coBrandedNo"></td>
+							<td align="center" ng-bind="item.budgetOrgCode"></td>
+							<td align="center" ng-bind="item.statusCodeDesc"></td>
+							<td align="center" ng-bind="item.createDate"></td>
+							<td align="center" ng-bind="item.productCancelDate"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-click="cancelMdm()" type="button">
+					<i class="layui-icon"></i>{{'KHH400024' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

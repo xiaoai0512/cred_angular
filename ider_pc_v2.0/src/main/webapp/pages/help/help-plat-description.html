@@ -1,0 +1,38 @@
+<div class="mainname">平台简介</div>
+<blockquote class="layui-elem-quote">
+1. ui框架主要使用到的技术 如angluar1.3.9版本，layui2.1.5版本等等<br/>
+2. 支持的浏览器为谷歌浏览器（Chrome）、360浏览器极速模式（兼容模式需本地IE浏览器版本为9及以上版本）、火狐浏览器（Firefox）、IE9、IE10、IE11、edge<br/><br/>
+友情链接:  <a href="http://www.runoob.com/angularjs/angularjs-tutorial.html" target="_blank">AngularJS 教程|菜鸟教程</a>
+ </blockquote>
+<div class="mainname">目录结构</div>
+<pre class="layui-code" lay-title="Code" >
+	├─js //用于存放项目所有js文件
+	│  └─app
+	│      │─configuration //用于存放resful资源配置文件以及route路由配置文件
+	│      │    │─demo  //demo模块的配置文件
+	│      │    │─resful-config.js //资源配置文件，负责将所有模块的资源配置
+	│      │    │─route-config.js //路由配置文件，负责引用所有模块的路由配置
+	│      │    └─route-service.js //路由初始化服务提供者文件
+	│      │─controller //用户存放
+	│      └─common.js //全局的js
+	├─theme //主题
+	│  └─default //默认主题
+	│      │─images //存放默认主题的图片
+	│      └─css  //存放默认主题的css样式
+	└─pages //用于存放项目中所需要的html文件
+</pre>
+
+
+<div class="mainname">maven依赖</div>
+<pre class="layui-code" lay-title="Code" >
+	&lt;dependency>
+		&lt;groupId>com.jeedev.tui&lt;/groupId>
+		&lt;artifactId>tui-bg-v1&lt;/artifactId>
+		&lt;type>war&lt;/type>
+		&lt;version>1.1.0-SNAPSHOT&lt;/version>
+	&lt;/dependency>
+</pre>
+
+
+
+

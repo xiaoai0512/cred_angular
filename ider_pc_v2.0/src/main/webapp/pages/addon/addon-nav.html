@@ -1,0 +1,49 @@
+<!-- <div class="layui-form" >
+	<div class="close_position" ng-click="showIcon($event, true)"><i class="close_icon"></i></div>
+	<div class="leftmenu_content" >
+		<ul id="leftmenu_nav" class="menu_nav_ul">
+			<div  ng-if="!iconShow">
+				<li ng-repeat="item in navList.values()" ng-if="showTab(item.index, addNavRule)" ng-class="pageNum == item.index ? 'current' : ''"><a href="javascript:void(0);" ng-click="showPage(item.index, item.valiParam)">{{item.title}}</a></li>
+			</div>
+			<div  ng-if="iconShow">
+				<li ng-repeat="item in navList.values()" ng-if="showTab(item.index, addNavRule)"  ng-class="pageNum == item.index ? 'current' : ''" title="{{item.title}}"><a href="javascript:void(0);" ng-click="showPage(item.index, item.valiParam)"><i class="big_icon">{{item.icon}}</i></a></li>
+		        <li class="leftmenuhover"><a href="javascript:void(0);" ng-click="showIcon($event, false)">展开</a></li>
+			</div>
+		</ul>
+	</div>
+	
+	<div id="container" >
+		<div ng-repeat="item in navList.values()" >
+			<div ng-if="item.load">
+				<div ng-if="pageNum == item.index" ng-include="ctx + item.url"></div>
+			</div>
+			<div ng-if="!item.load">
+				<div ng-show="pageNum == item.index" ng-include="ctx + item.url"></div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<div ng-init="initNav()">
+	<div class="leftmenu_content">
+	     <ul id="leftmenu_nav">
+	         <li class="leftmenu_top">&nbsp;</li>
+	         <li ng-class="{'current' : item.active}" title="{{item.title}}" ng-repeat="item in nav.navs" ng-click="nav.changeNav(item)" ng-if="item.show">
+	         	<a href="javascript:void(0)" ng-bind="item.title"></a>
+	         </li>
+	         <li class="leftmenu_bottom">&nbsp;</li>
+	     </ul>
+	</div>
+	<div id="{{nav.id}}" ng-switch="nav.mode" class="container">
+		<div ng-switch-when="scroll">
+			<div ng-repeat="item in nav.navs" ng-include="item.url" id="{{item.id}}" ng-if="item.show" style="margin-bottom: 70px;">
+			</div>
+			
+		</div>
+		<div ng-switch-when="toggle" ng-repeat="item in nav.navs" id="{{item.id}}">
+			<div ng-if="item.load && item.active" ng-include="item.url">
+			</div>
+			<div ng-if="!item.load" ng-show="item.active" ng-include="item.url">
+			</div>
+		</div>
+	</div>
+</div>

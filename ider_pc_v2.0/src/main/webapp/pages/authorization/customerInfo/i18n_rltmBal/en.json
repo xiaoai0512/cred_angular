@@ -1,0 +1,17 @@
+{
+"SQH400001":"Account Nbr",	
+"SQH400002":"Product code",
+"SQH400003":"Business program code",
+"SQH400004":"Business type code",
+"SQH400005":"Transaction identification code",
+"SQH400006":"Balance details",
+"SQH400007":"Current credit balance",
+"SQH400008":"Credit balance account suspend amount",
+"SQH400009":"Ccycle-to-date principal",
+"SQH400010":"Statemented principal",
+"SQH400011":"Cycle-to-date interest",
+"SQH400012":"Statemented interest",
+"SQH400013":"Cycle-to-date fee",
+"SQH400014":"Statemented fee",
+"SQH400015":"CreditNodeNo"
+}

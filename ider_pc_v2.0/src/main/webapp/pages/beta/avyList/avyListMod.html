@@ -1,0 +1,110 @@
+<div ng-controller="avyListModCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<!--web_body-->
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH200001' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="activityNo" ng-model="avyUpdate.activityNo"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH200002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="activityDesc"
+							ng-model="avyUpdate.activityDesc" type="text" maxlength="50">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH200003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="uplogLevel" 
+					jf-select="logLevelArr" name="logLevel"  maxlength="1" >
+				</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH200004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="uplogType" 
+					jf-select="logTypeArr" name="logType"  maxlength="1" >
+				</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH200005' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="upLifecycleNode" 
+								jf-select="lifecycleNodeArr" name="lifecycleNode"  >
+							</select>
+					</div>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'PZH200017' | translate}}</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'PZH200018' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactNoN"  ng-model="artifactNo" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'PZH200019' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactDescN"  ng-model="artifactDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryArtifactUpdate()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+				<div class="row">
+					<div class="colFive">
+						<h7>{{'PZH200047' | translate}}</h7>
+					</div>
+					<div class="colSix">
+						<h7>{{'PZH200037' | translate}}</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s15" size="10" multiple="multiple" id="s53" class="form_selectgro">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add53" value="">
+							{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+						</button>
+						<br />
+						<button type="button" class="layui-btn mb15" name="addall" id="addall53" value="">
+							{{'F00120' | translate}}<i class="layui-icon">&#xe65b;</i>
+						</button>
+						<br />
+						<button type="button" name="remove" id="remove53" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+						</button>
+						<br />
+						<button type="button" name="removeall" id="removeall53" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i>{{'F00123' | translate}}
+						</button>
+					</div>
+					<div class="colThree">
+						<select name="s16" size="10" multiple="multiple" id="s54" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

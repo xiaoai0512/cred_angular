@@ -1,0 +1,25 @@
+<div ng-controller="viewAssociatedEventsCtrl">
+	<div class="search_mian layui-form">
+		<form name="blockCodeItemForm">
+			<div class="search_mian">
+				<div class="mainname">{{'YYH700034' | translate}}</div>
+			</div>
+			<div jf-grid="eventNoBlockCodeList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00162' | translate}}</th>
+							<th>{{'F00163' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.eventDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

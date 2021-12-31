@@ -1,0 +1,69 @@
+<div ng-controller="checkArtifactEleInfCtrl">
+	<div>
+		<div class="section">
+			<div class="layui-tab-content">
+				<div class="layui-form">
+					<div class="layui-form">
+						<!--web_body-->
+
+						<div class="col_td">
+							<div class="col4 text_right">构件编号 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="artifactNo"
+									ng-model="avyInfo.artifactNo" type="text" readonly>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">构件描述 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input bnone" name="artifactDesc"
+									ng-model="avyInfo.artifactDesc" type="text" readonly>
+							</div>
+						</div>
+						<div class="clearboth"></div>
+						<div class="mainname">构件基础元件</div>
+						<div jf-grid="itemList">
+							<table class="layui-table" lay-even lay-skin="nob">
+								<thead>
+									<tr>
+										<th>元件编号</th>
+										<th>元件描述</th>
+										<th>PCD编号</th>
+										<th>PCD描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										  <td align="center" ng-bind="item.elementNo"></td>
+                     					  <td align="center" ng-bind="item.elementDesc"></td>
+                     					   <td align="center" ng-bind="item.pcdNo"></td>
+                     					  <td align="center" ng-bind="item.pcdMsg"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="clearboth"></div>
+						<div class="mainname">构件元件列表</div>
+						<div jf-grid="itemChoiceList">
+							<table class="layui-table" lay-even lay-skin="nob">
+								<thead>
+									<tr>
+										<th>元件编号</th>
+										<th>元件描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										  <td align="center" ng-bind="item.elementNo"></td>
+                     					  <td align="center" ng-bind="item.elementDesc"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

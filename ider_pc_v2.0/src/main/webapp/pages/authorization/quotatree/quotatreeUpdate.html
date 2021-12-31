@@ -1,0 +1,25 @@
+<div ng-controller="quotatreeSUpdateCtrl">
+	<div class="">
+		<form name="updateForm"  class="layui-form">
+			<div class=" clearboth"></div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'F00077' | translate}}：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="coArray" lay-search="" name="operationModeN" ng-model="operationMode" lay-filter="getoperation" disabled></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'SQH2100061' | translate}}：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input bnone" name=""  type="text" ng-model="itemUpdate.creditTreeId" readonly>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'SQH2100063' | translate}}：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name=""  type="text" ng-model="itemUpdate.creditTreeDesc" validator="required">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

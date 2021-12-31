@@ -1,0 +1,112 @@
+<div ng-controller="actConfigCtrl">
+	<div class="section">
+		<div class="">
+			<!--web_body-->
+			<form name="actConfigForm" class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'PZH500001' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="activityNo" ng-model="avyInfo.activityNo"  validator="required"
+							type="text" maxlength="8">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH500002' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="activityDesc"
+							ng-model="avyInfo.activityDesc" type="text" maxlength="50">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH500003' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="avyInfo.logLevel" 
+							jf-select="logLevelArr" name="logLevel"  maxlength="1" >
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH500004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="avyInfo.logType" 
+							jf-select="logTypeArr" name="logType"  maxlength="1" >
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH500005' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="avyInfo.lifecycleNode" 
+							jf-select="lifecycleNodeArr" name="lifecycleNode"  maxlength="4">
+						</select>
+					</div>
+				</div>
+			</form>
+			<div class="clearboth"></div>
+			<div class="search_mian">
+				<div class="mainname">{{'PZH500007' | translate}}</div>
+			</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'PZJ500014' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactNo"  ng-model="avyInfo.artifactNo" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'PZH500009' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactDesc"  ng-model="avyInfo.artifactDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryAddComponent()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain" >
+				<div class="row">
+					<div class="colFive">
+						<h7>{{'PZJ500015' | translate}}</h7>
+					</div>
+					<div class="colSix">
+						<h7>{{'PZJ500016' | translate}}</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s29" size="10" multiple="multiple" id="s29" class="form_selectgro">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add29" value="">
+							{{'F00036' | translate}}<i class="layui-icon">&#xe602;</i>
+						</button>
+						<br />
+						<button type="button" class="layui-btn mb15" name="addall" id="addall29" value="">
+							{{'F00120' | translate}}<i class="layui-icon">&#xe65b;</i>
+						</button>
+						<br />
+						<button type="button" name="remove" id="remove29" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i>{{'F00122' | translate}}
+						</button>
+						<br />
+						<button type="button" name="removeall" id="removeall29" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i>{{'F00123' | translate}}
+						</button>
+					</div>
+					<div class="colThree">
+						<select name="s30" size="10" multiple="multiple" id="s30" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>

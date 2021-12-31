@@ -1,0 +1,74 @@
+<div ng-controller="accObjDetailCtrl">
+	<div class="section layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700013' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.accountId"
+					readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700014' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.currencyCode"
+					readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700015' | translate}} ：</div>
+			<div class="wd200 float_left">
+				<span>{{item.balanceObjectCode}}</span><span>{{item.balanceObjectDesc}}</span>
+			</div>
+		</div>
+		 <div class="col_td">
+			<div class="col4 text_right">{{'KHH4700032' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.balance"
+					readonly>
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700034' | translate}}	 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text"
+					ng-model="item.accumulatedInterest" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700035' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.currentDue"
+					readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700016' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.interestRate"
+					readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700017' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.rateChangeFlag"
+					readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700018' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.pendingInterestRate"
+					readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700019' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.overpayRateChangeFlag"
+					readonly>
+			</div>
+		</div>
+	</div>
+</div>

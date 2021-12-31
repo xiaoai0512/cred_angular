@@ -1,0 +1,72 @@
+<div ng-controller="operatMechCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：运营机构
+	</div>
+
+	<div class="allcontent layui-form">
+		<form name="balanceForm">
+			<div class="mainname">新增运营机构</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>机构号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="operatMech.organNo"
+						 name="organNo" type="text"
+						validator="required,minlength,maxlength" minlength="1" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>机构名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="operatMech.organName"
+						validator="required,minlength,maxlength" minlength="1" maxlength="50" name="organName" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>上级机构号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" validator="required,minlength,maxlength" minlength="1" maxlength="10"
+						ng-model="operatMech.upperOrganNo" name="upperOrganNo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" validator="required,maxlength" maxlength="3"
+						ng-model="operatMech.operationMode" name="operationMode"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>所属国家：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" validator="required,maxlength" maxlength="3"
+						ng-model="operatMech.countryCde" name="countryCde"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>所属城市：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" validator="required,maxlength" maxlength="10"
+						ng-model="operatMech.cityCde" name="cityCde"
+						type="text">
+				</div>
+			</div>
+			<!-- 多余字段、表中不存的字段<div class="col_td">
+				<div class="col4 text_right">描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="desc" ng-model="operatMech.desc"
+						type="text">
+				</div>
+			</div> -->
+
+		</form>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius"
+				ng-click="saveOperatMech()" validation-submit="balanceForm">
+				<i class="layui-icon"></i> 保存
+			</button>
+		</div>
+
+	</div>
+</div>

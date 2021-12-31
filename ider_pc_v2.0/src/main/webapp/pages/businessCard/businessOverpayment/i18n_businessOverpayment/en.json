@@ -1,0 +1,16 @@
+{
+"GWH900001": "offical card overpayment amout transfer-out",
+"GWH900002": "Account Code",
+"GWH900003": "Currency",
+"GWH900004": "current balance",
+"GWH900005": "Deposit Rate",
+"GWH900006": "the last year billed interest amount",
+"GWH900007": "overpayment amout transfer-out",
+"GWH900008": "Transfer out amount",
+"GWH900009": "Destination Branch",
+"GWH900010": "Destination Account",
+"GWJ900001": "Transfer successfully",
+"GWJ900002": "Transfer failed",
+"GWJ900003": "One-time charge",
+"GWJ900004": "Instalment Collection"
+}

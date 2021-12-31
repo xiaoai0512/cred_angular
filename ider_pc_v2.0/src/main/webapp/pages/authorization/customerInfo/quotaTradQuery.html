@@ -1,0 +1,76 @@
+<div class="layout_body" ng-controller="quotaTradListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+			<form class="layui-form">
+				
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00158' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="idType" jf-select="certificateTypeArray" name="idTypeN"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00112' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"	ng-model="idNumber">
+					</div>
+				</div>
+				<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			   </div>
+				<div class="col_tr text_center">
+					<div class="search_button">
+					  <button class="layui-btn" type="button"   ng-click="getCreditNodeList($event)" moreClick>
+					      <i class="layui-icon">&#xe61a;</i> {{'SQH1100003' | translate}}
+				      </button>
+						<button class="layui-btn" ng-click="selectList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+				<div class="search_width"  style="display: none;" id="search_width">
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1100003' | translate}} ：</div>
+					<div class="wd190 float_left">
+						 <select ng-model="contrlSceneType" class="layui-input"
+									jf-select="contrlSceneArray" name="aatype" ></select> 
+					</div>
+				</div>
+				</div>
+			</form>
+	<div ng-show="showQuotaTable" >	
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH1100001' | translate}}</th>
+						<th>{{'SQH1100005' | translate}}</th>
+						<th>{{'SQH1100003' | translate}}</th>
+						<th>{{'SQH1100004' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accumultIndentitCde"></td>
+						<td align="center" ng-bind="item.accumultTypDesc"></td>
+						<td align="center">{{item.transLimitCode}} {{item.transLimitDesc}}</td>
+						<td align="center" ng-bind="item.currencyCode">
+					  	</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="selectInfo(item)">
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</div>
+</div>

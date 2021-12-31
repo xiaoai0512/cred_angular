@@ -1,0 +1,33 @@
+<div ng-controller="addTransactionSourceCtrl">
+	<div class="">
+		<form name="transIdentyAddForm" class="layui-form">
+			<div>
+				<div class="col_tr">
+					<div class="col2 text_right"><span class="red">*</span>{{'YYH1600002' | translate}}：</div>
+					<div class="col4 float_left">
+						<input class="layui-input" type="text"
+						ng-model="addInfo.transOrigin" maxlength="8" validator="required">
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col2 text_right"><span class="red">*</span>{{'YYH1600003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="addInfo.originList"
+							jf-select="redOriginFlag" name="originFlag" validator="required" lay-search>
+						</select>
+					</div>
+					<button class="layui-btn" ng-click="addSourceDirectory()" style="margin-left:15px">
+							<i class="layui-icon">&#xe654;</i> 新增来源目录
+					</button>
+				</div>
+				<div class="col_tr">
+					<div class="col2 text_right"><span class="red">*</span>{{'YYH1600005' | translate}}：</div>
+					<div class="col4 float_left">
+						<input class="layui-input" ng-model="addInfo.originDesc"
+							name="transIdentifiDesc" type="text"  maxlength="50" validator="required">
+					</div>
+				</div>
+			</div>
+		</form>	
+	</div>
+</div>

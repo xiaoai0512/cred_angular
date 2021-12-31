@@ -1,0 +1,36 @@
+<div ng-controller="choseAcstCtrl">
+
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div jf-grid="accountStateTable">
+		<table >
+			<thead>
+				<tr>
+					<th>核算状态</th>
+					<th>描述</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accountingStatus"></td>
+					<td align="center" ng-bind="item.accountingDesc"></td>
+				</tr>
+				<!-- <tr>
+					<td align="center" >   <input type="radio" ></td>
+					<td align="center" ng-model="state">000</td>
+					<td align="center" >正常</td>
+				</tr>
+				<tr>
+					<td align="center" >   <input type="radio" ></td>
+					<td align="center" ng-model="state">001</td>
+					<td align="center" >非应计</td>
+				</tr>
+				<tr>
+					<td align="center" >   <input type="radio" ></td>
+					<td align="center" ng-model="state">002</td>
+					<td align="center" >核销</td>
+				</tr> -->
+			</tbody>
+		</table>
+	</div>
+	</form>
+</div>

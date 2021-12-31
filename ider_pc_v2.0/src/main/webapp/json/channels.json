@@ -1,0 +1,96 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "1",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "channelDesc": "本行本地",
+            "channelCode":  "L00"
+        },
+        {
+            "channelDesc": "本行异地",
+            "channelCode":  "L01"
+        },
+        {
+            "channelDesc": "本行国内",
+            "channelCode":  "L02"
+        },
+          {
+            "channelDesc": "本行海外",
+            "channelCode":  "L03"
+        },
+        {
+            "channelDesc": "本行ALL",
+            "channelCode":  "L04"
+        },
+          {
+            "channelDesc": "银联本地",
+            "channelCode":  "C00"
+        },
+        {
+            "channelDesc": "银联异地",
+            "channelCode":  "C01"
+        },
+          {
+            "channelDesc": "银联国内",
+            "channelCode":  "C02"
+        },
+        {
+            "channelDesc": "银联海外",
+            "channelCode":  "C03"
+        },
+          {
+            "channelDesc": "银联ALL",
+            "channelCode":  "C04"
+        },
+        {
+            "channelDesc": "VISA本地",
+            "channelCode":  "V00"
+        },
+          {
+            "channelDesc": "VISA异地",
+            "channelCode":  "V01"
+        },
+        {
+            "channelDesc": "VISA国内",
+            "channelCode":  "V02"
+        },
+         {
+            "channelDesc": "VISA海外",
+            "channelCode":  "V03"
+        },
+        {
+            "channelDesc": "VISA ALL",
+            "channelCode":  "V04"
+        },
+          {
+            "channelDesc": "MC本地",
+            "channelCode":  "M00"
+        },
+        {
+            "channelDesc": "MC异地",
+            "channelCode":  "M01"
+        },
+         {
+            "channelDesc": "MC国内",
+            "channelCode":  "M02"
+        },
+        {
+            "channelDesc": "MC海外",
+            "channelCode":  "M03"
+        },
+          {
+            "channelDesc": "MC ALL",
+            "channelCode":  "M04"
+        },
+        {
+            "channelDesc": "ALL",
+            "channelCode":  "000"
+        }
+        ]
+    }
+}

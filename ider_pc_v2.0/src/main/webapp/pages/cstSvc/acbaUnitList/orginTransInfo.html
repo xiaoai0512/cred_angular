@@ -1,0 +1,220 @@
+
+<style>
+	.layui-btn-group .layui-btn {
+		margin-right: 5px !important
+	}
+</style>
+<div ng-controller="orginTransInfoCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.eventNo" name="eventNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800022' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.activityNo" name="activityNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800023' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.entityKey" name="entityKey" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.transDate"  name="transDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<!-- <div class="col4 text_right">发生日期 ：</div> -->
+			<div class="col4 text_right">{{'KHH1800010' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.occurrDate" name="occurrDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.transCurrCde"  name="transCurrCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.transAmount"  name="transAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800042' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.postingCurrencyCode" name="postingCurrencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.postingAmount"  name="postingAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800025' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.settlementCurrencyCode" name="settlementCurrencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800026' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.settlementAmount" name="settlementAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800027' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.postingConvertRate" name="postingConvertRate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800012' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.transDesc" name="transDesc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<span ng-if="orginTransInfo.balanceType=='P'">{{'KHH4700036' | translate}}</span>
+				<span ng-if="orginTransInfo.balanceType=='I'">{{'KHH4700037' | translate}}</span>
+				<span ng-if="orginTransInfo.balanceType=='F'">{{'KHH4700038' | translate}}</span>
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800028' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.customerNo" name="customerNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800029' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="orginTransInfo.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800030' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<span  ng-if="orginTransInfo.transState == 'NOR'">{{'KHH47000127' | translate}} </span>
+				<span  ng-if="orginTransInfo.transState == 'INS'">{{'KHH47000137' | translate}}{{'KHH4700004' | translate}}</span>
+				<span  ng-if="orginTransInfo.transState == 'REV'">{{'KHH47000138' | translate}} </span>
+				<span  ng-if="orginTransInfo.transState == 'FRT'">{{'KHH47000129' | translate}}</span>
+				<span  ng-if="orginTransInfo.transState == 'PRT'">{{'KHH47000139' | translate}}  </span>
+				<span  ng-if="orginTransInfo.transState == 'DIS'">{{'KHH47000140' | translate}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800031' | translate}} ：</div>
+			<div class="wd190 float_left">
+			<span>{{orginTransInfo.businessTypeCode}}</span><span>{{orginTransInfo.businessDesc}}</span>
+				<input class="layui-input bnone"  ng-model="orginTransInfo.businessTypeCode" name="businessTypeCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800032' | translate}} ：</div>
+			<div class="wd210 float_left">
+				<span>{{orginTransInfo.balanceObjectCode}}</span><span>{{orginTransInfo.objectDesc}}</span>
+				<!-- <input class="layui-input bnone"  ng-model="orginTransInfo.balanceObjectCode" name="balanceObjectCode" type="text" disabled="disabled"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800033' | translate}}  ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.authCde" name="authCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800034' | translate}}  ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.sourceCde" name="sourceCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800035' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.transCountryCde" name="transCountryCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800036' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.transCityCde" name="transCityCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800037' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800038' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.channelCde" name="channelCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800039' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.mcc" name="mcc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800040' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="orginTransInfo.merchantCde" name="merchantCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1800041' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  style="width: 260px;" ng-model="orginTransInfo.globalSerialNumbr" name="globalSerialNumbr" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<!-- <div class="col_tr text_center">
+			
+			<div class="layui-btn-group">
+			    <button class="layui-btn"
+			    ng-if="orginTransInfo.eventNo=='ISS.PT.40.0001' || orginTransInfo.eventNo=='ISS.PT.40.0002'   || orginTransInfo.eventNo=='ISS.XT.00.0006' 
+				 || orginTransInfo.eventNo=='ILS.XT.00.0001'  || orginTransInfo.eventNo=='ILS.XT.00.0003'  || orginTransInfo.eventNo=='ILS.XT.00.0004'  || orginTransInfo.eventNo=='ILS.XT.00.0005' "
+					ng-click="returnedPurchase(orginTransInfo)">{{'F00048' | translate}}</button>
+			    <button class="layui-btn "
+			    ng-if="orginTransInfo.eventNo=='ISS.PT.40.0001' " 
+				ng-click="transStage(orginTransInfo)">{{'F00053' | translate}}</button>
+				<button class="layui-btn" ng-if="'Y' == disputeFlagInfo && orginTransInfo.transState == 'NOR'" ng-click="disputeRegist(orginTransInfo)">争议登记</button>
+				
+				<button class="layui-btn "
+			    ng-if="orginTransInfo.transState == 'DIS' " 
+				ng-click="disputeReleaseCst(orginTransInfo)">争议释放（有利于客户）</button>
+				<button class="layui-btn "
+			    ng-if="orginTransInfo.transState == 'DIS' " 
+				ng-click="disputeReleaseBank(orginTransInfo)">争议释放（有利于银行）</button>
+				
+			  </div>
+		</div> -->
+	</div>
+</div>

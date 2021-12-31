@@ -1,0 +1,122 @@
+<div ng-controller="exceptionAddVCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form name="mdmInfoFormV"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="externalIdentificationNoV" ng-model="exceV.externalIdentificationNo" type="text" validator="required" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2600002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="cardAssociationsV" ng-model="exceV.cardAssociations" type="text" readonly validator="required" autocomplete="off">
+					</div>
+				</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right">报告日期：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="contrlReportDateV" ng-model="exceV.contrlReportDate" type="text" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">报告时间：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="contrlReportTmV" ng-model="exceV.contrlReportTm" type="text" autocomplete="off">
+					</div>
+				</div> -->
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="contrlDescV" ng-model="exceV.contrlDesc" type="text" autocomplete="off">
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'SQH2600007' | translate}}</div>
+				<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2600008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="contrlReasonV" ng-model="exceV.contrlReason" type="text" ng-focus="getInfo1()" ng-blur="closeInfo1()" validator="required" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2600009' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="actCodeV" ng-model="exceV.actCode" type="text"  ng-focus="getInfo2()" ng-blur="closeInfo2()" validator="required" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col_td" style="height: 100%;" ng-show="info1">
+						<div class="col4 text_right">{{'SQH2600019' | translate}}：</div>
+						<div class="wd190 float_left">
+							<span class="red">L={{'SQH2600020' | translate}}</span><br/>
+							<span class="red">S={{'SQH2600021' | translate}}</span><br/>
+							<span class="red">F={{'SQH2600022' | translate}}</span><br/>
+							<span class="red">X={{'SQH2600023' | translate}}</span><br/>
+							<span class="red">U={{'SQH2600024' | translate}}</span><br/>
+							<span class="red">P={{'SQH2600025' | translate}}</span><br/>
+							<span class="red">O={{'SQH2600026' | translate}}</span>
+						</div>
+					</div>
+					<div class="col_td" style="height: 100%;float: right;" ng-show="info2">
+						<div class="col4 text_right">{{'SQH2600019' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<span class="red">01={{'SQH2600027' | translate}}</span><br/>
+							<span class="red">04={{'SQH2600028' | translate}}</span><br/>
+							<span class="red">05={{'SQH2600029' | translate}}</span><br/>
+							<span class="red">07={{'SQH2600030' | translate}}</span><br/>
+							<span class="red">11={{'SQH2600031' | translate}}</span><br/>
+							<span class="red">41={{'SQH2600032' | translate}}</span><br/>
+							<span class="red">43={{'SQH2600033' | translate}}</span><br/>
+							<span class="red">A1~A9={{'SQH2600034' | translate}}</span><br/>
+							<span class="red">XA={{'SQH2600035' | translate}}</span><br/>
+							<span class="red">XD={{'SQH2600036' | translate}}</span>
+						</div>
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div class="col_tr" ng-show="addressInfo">
+					<div class="col2 text_right">{{'SQH2600010' | translate}}：</div>
+					<div class="wd60 float_left" style="margin-right:10px" ng-repeat="cpc in czcList">
+						<input class="layui-input " name="cwbZoneCodeV{{$index}}" ng-model="cpc.cwbZoneCode1" type="text" validator="maxlength,upperLetterCode" maxlength="1" autocomplete="off">
+					</div><br/>
+					<div class="col2 text_right" style="width:20%;height:26px"></div>
+					<div class="wd60 float_left" style="margin-right:10px" ng-repeat="cpc in czcList">
+						<button class="layui-btn" style="width:100%" ng-click="czcDel(this,$index)"><i class="layui-icon">&#xe640;</i>{{'F00016' | translate}}</button>
+					</div>
+					<!-- <div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode2" type="text">
+					</div>
+					<div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode3" type="text" readonly>
+					</div>
+					<div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode4" type="text" readonly>
+					</div>
+					<div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode5" type="text" readonly>
+					</div>
+					<div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode6" type="text" readonly>
+					</div>
+					<div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode7" type="text" readonly>
+					</div>
+					<div class="wd60 float_left" style="margin-right:5px">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode8" type="text" readonly>
+					</div>
+					<div class="wd60 float_left">
+						<input class="layui-input bnone " name="listCodeN" ng-model="exceV.contactPostCode9" type="text" readonly>
+					</div> -->
+				</div>
+				<div class="col_td" ng-show="czcBtn" >
+					<div class="col4 text_right"></div>
+					<div class="wd190 float_right">
+						<button class="layui-btn"  ng-click="czcAdd()"><i class="layui-icon">&#xe654;</i> {{'SQH2600018' | translate}}</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

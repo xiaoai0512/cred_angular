@@ -1,0 +1,87 @@
+<div ng-controller="updateProjectTypeCtrl">
+	<div class="search_mian ">
+		<form name="bsProjectTypeForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1700001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text"  name="businessPattern" 
+					ng-model="businessPattern" disabled/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1700002' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text"  name="patternDesc" 
+					ng-model="patternDesc" disabled/>
+				</div>
+			</div>	
+		</form>
+			<div class="search_mian">
+				<div class="mainname">{{'PZH1700008' | translate}}</div>
+			</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'PZH1700006' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactNo"  ng-model="removebusArtiItem.artifactNo" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'PZH1700007' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactDesc"  ng-model="removebusArtiItem.artifactDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryModify()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+				<div class="row">
+					<div class="colFive">
+						<h7>{{'PZH1700009' | translate}}</h7>
+					</div>
+					<div class="colSix">
+						<h7>{{'PZH1700010' | translate}}</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s47" size="10" multiple="multiple" id="s47" class="form_selectgro">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add47" value="">
+							{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+						</button>
+						<br />
+						<button type="button" class="layui-btn mb15" name="addall" id="addall47" value="">
+							{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+						</button>
+						<br />
+						<button type="button" name="remove" id="remove47" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+						</button>
+						<br />
+						<button type="button" name="removeall" id="removeall47" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+						</button>
+						<!-- <button type="button" name="proInfoN" id="proInfoId" value="" class="layui-btn mb15">
+							查看业务项目详情
+						</button> -->
+					</div>
+					<div class="colThree">
+						<select name="s48" size="10" multiple="multiple" id="s48" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+	</div>
+</div>

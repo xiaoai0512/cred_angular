@@ -1,0 +1,63 @@
+<div ng-controller="mediaObjListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：媒介对象管理
+	</div>
+	<div class="search_mian layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">媒介对象代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="mediaListTable.params.mediaObjectCode" maxlength="9">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">媒介对象描述 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="50"
+					ng-model="mediaListTable.params.mediaObjectMsg">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="mediaListTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="mediaListTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div jf-grid="mediaListTable">
+		<table>
+			<thead>
+				<tr>
+					<th>运营模式</th>
+					<th>媒介对象代码</th>
+					<th>媒介类型</th>
+					<th>媒介对象描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.mediaObjectCode"></td>
+					<td align="center">
+						<span ng-if="item.mediaObjectType == 'R'">实体卡</span>
+						<span ng-if="item.mediaObjectType == 'V'">虚拟卡</span> 
+						<span ng-if="item.mediaObjectType == ''"></span>
+					</td>
+					<td align="center" ng-bind="item.mediaObjectMsg"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkMediaObjElmDtl(item)">
+							<i class="layui-icon"></i> 维护
+						</button>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

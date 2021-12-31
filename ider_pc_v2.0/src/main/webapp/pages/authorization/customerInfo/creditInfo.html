@@ -1,0 +1,113 @@
+<div class="layout_body" ng-controller="creditInfoCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form search_mian" name="creditInfoForm">
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'SQH100026' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="operationMode" class="layui-input" 
+								jf-select="coArray" name="aatype"  lay-filter="getoperation"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH300007' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <select ng-model="creditNodeNo" class="layui-input"
+								jf-select="quoteArray" name="aatype" ></select> 
+				</div>
+			</div> -->
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" id="creditInfo_idNumber"   validator="noValidator" type="text"	ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" type="button"   ng-click="getCreditNode($event)" moreClick>
+						<i class="layui-icon">&#xe61a;</i> {{'SQH300007' | translate}}
+					</button>
+				</div>
+			</div>
+			<div class="search_width" style="display: none;" id="search_width222">
+				<div class="col_tr">
+					<div class="col2 text_right">{{'SQH300007' | translate}} ：</div><!-- 额度节点 -->
+					<div class="wd190 float_left">
+						 <select ng-model="creditNodeNo" jf-select="quotaAvailableArr" name="creditNodeNo" ></select> 
+					</div>
+					<div class="search_button">
+						<button class="layui-btn" style="margin-left: 10%;" validation-submit="creditInfoForm"  ng-click="selectList()">
+							 {{'F00107' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontent" style="margin-top: 20px;" ng-show="resultTwoInfo">
+	<form name="creditForm2"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listTwoN" ng-model="resultTwocustomerNo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="CodeTwoN" ng-model="resultTwoaccountId" type="text" readonly>
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH600002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" name="creditTwocurrencyN" ng-model="creditTwocurrency" type="text" > -->
+				<select ng-model="creditTwocurrency" class="layui-input"
+						jf-select="creditcurrencyArray" name="creditTwocurrencyN" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH600003' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="creditTwoquotaN" ng-model="creditTwoquota" type="text" validator="required">
+			</div>
+		</div>
+		<div class="col_td" ng-show="isT">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00189' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="startDate" id="LAYCI_startDate"> 
+			</div>
+		</div>
+		<div class="col_td" ng-show="isT">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00190' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateNs" type="text" ng-model="endDate" id="LAYCI_endDate"> 
+			</div>
+		</div>
+		<div class="col_tr" style="text-align: center;" >
+			<button class="layui-btn " ng-click="sureTwoInfo()" validation-submit="creditForm2">
+				{{'F00107' | translate}}
+			</button>
+			<button class="layui-btn " ng-click="closeTwoInfo()">
+				{{'F00012' | translate}}
+			</button>
+		</div>
+		</form>
+	</div>
+</div>

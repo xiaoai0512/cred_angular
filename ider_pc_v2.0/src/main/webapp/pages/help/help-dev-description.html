@@ -1,0 +1,134 @@
+<div class="mainname">Tansun类方法</div>
+<blockquote class="layui-elem-quote">
+在使用本框架的所有js文件中，均可以使用Tansun类，该JS类将提供一系列模仿java实现的类以及简化代码的公共方法。
+</blockquote>
+<div class="mainname">Tansun.Map</div>
+<blockquote class="layui-elem-quote">
+主要为了满足我们在前端开发中如果需要用到类似java中的Map对象而实现，其主要以key+value形式存取值，并且key值不重复。
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+	var map = Tansun.Map(); //通过该方法可获得一个Map对象
+	map.put('a','测试') ; //将数据以key,value的形式存入map中
+	map.get('a') ; //获取map中key为a的value
+	map.values() ;//将获得['测试']，将存在map中的value以数组形式返回
+	map.remove('a') ; //移除key为a的value
+	map.removeAll(); //移除map中所有value
+	map.keySet(); //获取map中的所有key
+	map.containsKey('a') ;//判断map中是否存在key为a的value，结果返回true或者false
+	map.containsValue('测试') ;//判断map中是否存在value为测试，结果返回true或者false
+</pre>
+<div class="mainname">Tansun.GUID</div>
+<blockquote class="layui-elem-quote">
+可以生成一个不重复的编号，参数为方法的前缀
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+	var guid = Tansun.GUID('prefix') ;//获得一个不重复的随机编号，可传入参数，代表编号的前缀
+</pre>
+<div class="mainname">Tansun.param</div>
+<blockquote class="layui-elem-quote">
+主要用于将JavaScript对象序列化为url参数
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+	var param = { a : 1 , b : 2} ;
+	Tansun.param(param) ; //对param进行url参数序列化，得到的结果为a=1&b=2
+</pre>
+<div class="mainname">Tansun.helper</div>
+<blockquote class="layui-elem-quote">
+开发过程中我们可能会涉及到获取数据字典，获取公共参数，那么Tansun.helper将简化获取过程
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+	Tansun.helper.getDict(key); //根据数据字典的key获取对象key的数据字典
+</pre>
+<div class="mainname">Tansun.cache</div>
+<blockquote class="layui-elem-quote">
+设置缓存数据，登录超时页签不打开新页签，是否默认将当前位置传递到后台等
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+	//登录超时在当前页面刷新不打开新页签
+	Tansun.cache._refreshTab=true;
+	//是否默认将当前位置传递到后台
+	Tansun.cache.autoGetMenu=true;
+<div class="mainname">Tansun.controller</div>
+</pre>
+
+<blockquote class="layui-elem-quote">
+用于定义angular页面控制器，也是前端业务代码主要实现
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+	Tansun.controller('controller名称',function($scope){
+	}) ;
+</pre>
+<div class="mainname">scope作用域中自带方法</div>
+<blockquote class="layui-elem-quote">
+在开发controller过程中，controller的作用域scope中会自带一些对作用域进行操作的方法。
+</blockquote>
+<div class="mainname">$scope.safeApply</div>
+<blockquote class="layui-elem-quote">
+为什需要进行apply，详见http://blog.csdn.net/dm_vincent/article/details/38705099。使用此方法，无需关心angular是否已进行脏值检测
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+scope.safeApply();
+</pre>
+<div class="mainname">$scope.theme</div>
+<blockquote class="layui-elem-quote">
+使用此方法，将对系统样式主题进行切换。
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+$scope.theme('blue') ; //切换至蓝色主题的样式
+</pre>
+<div class="mainname">$scope.theme</div>
+<blockquote class="layui-elem-quote">
+使用此方法，将对系统样式主题进行切换。
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+$scope.theme('blue') ; //切换至蓝色主题的样式
+</pre>
+<div class="mainname">$scope.builder</div>
+<blockquote class="layui-elem-quote">
+$scope.builder是作用域中提供的一个对象，本对象将会提供一些构建页面组件的方法
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+//构建下拉框选项
+$scope.builder.option([array],'value','text') ;//当第一个参数为数组时，第二个参数便传入选项的值对应的属性名，而第三个参数代表文本对应的属性名
+$scope.builder.option('dictKey','dictGroup') ;//当第一个参数为字符串时，将会从数据字典中查找出对应key值得数据字典，第二个参数为数据字典的分组，如不传代表没有分组
+</pre>
+<div class="mainname">$scope.getUrlParam</div>
+<blockquote class="layui-elem-quote">
+$scope.getUrlParam可以将url中需要的参数从数组数据中取出，并返回对象
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+$scope.getUrlParam('url',[array]) ;
+</pre>
+<div class="mainname">$scope.turn</div>
+<blockquote class="layui-elem-quote">
+$scope.turn主要用于页面的跳转
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+//如果是与列表结合使用，请参考第4点《列表》中的使用示例
+$scope.turn('url?param1=1&param',[array]) ;
+</pre>
+<div class="mainname">$scope.modal</div>
+<blockquote class="layui-elem-quote">
+$scope.modal主要用于弹出一个模态窗口
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+//如果是与列表结合使用，请参考第4点《列表》中的使用示例
+$scope.modal(url,datas,option) ;//参数一为url参数，参数二为数组代表你要传输的数据，第三个参数为模态窗口的配置
+</pre>
+<div class="mainname">$scope.back</div>
+<blockquote class="layui-elem-quote">
+所有页面中，均可直接调用back方法返回至上一个页面
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+//javascript
+$scope.back() ;
+//html写法
+ng-click="back()"
+</pre>
+<div class="mainname">自定义指令</div>
+<blockquote class="layui-elem-quote">
+如果项目中需要自己开发一些较为个性的指令，可在common.js中使用Tansun.directive进行定义
+</blockquote>
+<pre class="layui-code" lay-title="Code" >
+Tansun.directive(name,object) ;
+</pre>

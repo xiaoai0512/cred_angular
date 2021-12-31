@@ -1,0 +1,61 @@
+<div ng-controller="accessSetCtrl2">
+	<div class="modal-body" style="max-height:400px">
+		<div class="row" style="padding-bottom:5px;">
+			<div class="col-xs-5">
+				<h5>可分配权限</h5>
+			</div>
+			<div class="col-xs-2 text-center">
+				<h5>操作</h5>
+			</div>
+			<div class="col-xs-5">
+				<h5>已分配权限</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-5" >
+				<div style="overflow-y: auto;height: 379px;border: 1px solid #ccc;">
+					<ul id="roleTree" class="ztree"></ul>
+				</div>
+			</div>
+			<div class="col-xs-2 text-center">
+				<button type="button" name="addall" id="addall" value=""
+					class="btn btn-info mb15">
+					全部添加 <i class="layui-icon">&#xe65b;</i>
+				</button>
+				<br />
+				<button type="button" name="add" id="add" value="" ng-click='addRole()'
+					class="btn btn-primary mb15">
+					添加 <i class="layui-icon">&#xe602;</i>
+				</button>
+				<br />
+				<button type="button" name="remove" id="remove"
+					class="btn btn-danger mb15">
+					<i class="layui-icon">&#xe603;</i> 移除
+				</button>
+				<br />
+				<button type="button" name="removeall" id="removeall" value=""
+					class="btn btn-danger mb15">
+					<i class="layui-icon">&#xe65a;</i> 全部移除
+				</button>
+			</div>
+			<div class="col-xs-5">
+				<div style="overflow-y: auto;height: 379px;border: 1px solid #ccc;">
+					<ul id="addedRoleTree" class="ztree"></ul>
+				</div>
+			</div>
+		</div>
+        <!-- <div data-options="region:'west',title:'可分配角色',accordion:'false'" style="width: 260px;">
+            <ul id="roleTree" class="ztree"></ul>
+        </div>
+        <div id="RoleButton" data-options="region:'center'" style="width: 100px; border: 0px; font-size: 26px; text-align: center; margin-top: 60px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="addRole()">添　加　> </a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="addRoleAll()">全部添加>></a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="removeAddedRoleTree()"> <　移　除　</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="removeAllAddedRole()"> << 全部移除</a>
+        </div>
+        <div data-options="region:'east',title:'已分配角色'" style="width: 260px;">
+            <ul id="addedRoleTree" class="ztree"></ul>
+        </div> -->
+		
+	</div>
+</div>

@@ -1,0 +1,219 @@
+<div ng-controller="changeElmCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH300001' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="artifactNo" ng-model="artifactInfo.artifactNo"
+								type="text" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH300002' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="artifactDesc"
+								ng-model="artifactInfo.artifactDesc" type="text" maxlength="50">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH300004' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select ng-model="instanDimen1" class="layui-input" name="instanDimen1"
+								jf-select="instanDimen1Arr" maxlength="4"></select>
+						</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right" >{{'PZH300005' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen2" class="layui-input" name="instanDimen2"
+								jf-select="instanDimen1Arr" maxlength="4"></select>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300006' | translate}} ：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen3" class="layui-input" name="instanDimen3"
+									jf-select="instanDimen1Arr" maxlength="4"></select>
+							</div>
+						</div>
+						<div class="col_td" >
+							<div class="col4 text_right">{{'PZH300007' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen4" class="layui-input" name="instanDimen4"
+									jf-select="instanDimen1Arr" maxlength="4"></select>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300008' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select ng-model="instanDimen5" class="layui-input" name="instanDimen5"
+									jf-select="instanDimen1Arr" maxlength="4"></select>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH300034' | translate}}：</div>
+							<div class="wd190 float_left">
+								<select ng-model="delayEffectiveSign" class="layui-input" name="delayEffectiveSign"
+									jf-select="delEffArr" ></select>
+							</div>
+						</div>
+					
+					<!-- <div class="col_td">
+						<div class="col4 text_right">构件类型 ：</div>
+						<div class="wd190 float_left">
+							<select ng-model="artifactInfo.artifactType" class="layui-input"
+								jf-select="builder.option(artiTypeArray)"
+								name="artifactType" placeholder="构件类型 "></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">非对象实例化维度 ：</div>
+						<div class="wd190 float_left">
+							<select ng-model="artifactInfo.nonObjInstanDimen" class="layui-input"
+								jf-select="builder.option(nonObjInstanDimenArray)"
+								name="nObjInstanDimen" placeholder="非对象实例化维度"></select>
+						</div>
+					</div> -->
+					<div class="search_mian">
+						<div class="mainname">{{'PZH300033' | translate}}</div>
+					</div>
+					
+					<div class="col_td">
+				<div class="col4 text_right">{{'PZH300024' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="elmListTable.params.elementNo" maxlength="15">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH300025' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="elmListTable.params.elementDesc" maxlength="50">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="searchelmList()">
+					<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="saveSelect()">
+					<i class="layui-icon">&#x1002;</i>{{'F00020' | translate}}
+				</button>
+			</div>
+					
+					<div jf-grid="elmListTable">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'PZH300024' | translate}}</th>
+									<th>{{'PZH300025' | translate}}</th>
+									<th>{{'PZH300028' | translate}}</th>
+									<th>{{'PZH300029' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.elementNo"></td>
+									<td align="center" ng-bind="item.elementDesc"></td>
+									<td align="center" ng-bind="item.pcdNo"></td>
+									<td align="center" ng-bind="item.pcdDesc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 已选中关联活动 -->
+					<div class="mainname">{{'PZH300045' | translate}}</div>
+					<!-- <div class="search_mian">
+						<div class="search_button">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon">&#x1002;</i> 删除
+							</button>
+						</div>
+					</div> -->
+					<!-- <div jf-grid="avyListTable">
+						<table>
+							<thead>
+								<tr>
+									<th>顺序</th>
+									<th>活动编号</th>
+									<th>活动描述</th>
+									<th>触发事件编号</th>
+									<th>触发方式</th>
+									<th>上下移动</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="$index + 1"></td>
+									<td align="center" ng-bind="items.actNo"></td>
+									<td align="center" ng-bind="items.actDesc"></td>
+									<td align="center" ng-bind="items.triggerNo"></td>
+									<td align="center" ng-bind="items.triggerTyp"></td>
+									<td align="center" width="5%">
+										<div class="table_arrow">
+											<a class="arrow_up" ng-click="exchangeSeqNoUp(items)"></a> <a
+												class="arrow_down" ng-click="exchangeSeqNoDown(items)"></a>
+										</div>
+									</td>
+									<td align="center">
+										<button class="layui-btn cancel-btn" type="button"
+											ng-click="removeSelect($index)">
+											<i class="layui-icon"></i> 删除
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div> -->
+
+
+
+					<div>
+						<table border="0" cellspacing="0" cellpadding="0"
+							class="layui-table dataTable no-footer" lay-even=""
+							lay-skin="nob">
+							<thead>
+								<tr>
+									<th>{{'PZH300032' | translate}}</th>
+									<th>{{'PZH300024' | translate}}</th>
+									<th>{{'PZH300025' | translate}}</th>
+									<th>{{'PZH300028' | translate}}</th>
+									<th>{{'PZH300029' | translate}}</th>
+									<th>{{'F00030' | translate}}</th>
+									<th>{{'F00017' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="items in treeSelect track by $index">
+									<td align="center" ng-bind="$index + 1"></td>
+									<td align="center" ng-bind="items.elementNo"></td>
+									<td align="center" ng-bind="items.elementDesc"></td>
+									<td align="center" ng-bind="items.pcdNo"></td>
+									<td align="center" ng-bind="items.pcdDesc"></td>
+									<td align="center" width="5%">
+										<div class="table_arrow">
+											<a class="arrow_up" ng-click="exchangeSeqNoUp(items)"></a>
+											<a class="arrow_down" ng-click="exchangeSeqNoDown(items)"></a> 
+										</div>
+									</td>
+									<td align="center">
+										<button class="layui-btn cancel-btn" type="button"
+											ng-click="removeSelect($index)">
+											<i class="layui-icon"></i> {{'F00016' | translate}}
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

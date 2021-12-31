@@ -1,0 +1,87 @@
+<div ng-controller="queryAccountingStatusCtrl">
+	<div class="">
+		<div class="search_mian layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5000001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="viewOperationMode"   jf-select="operationModeArr" name="operationMode" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td"></div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5000002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="accountingStatusN"  ng-model="accountingStatusInf.accountingStatus"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00091' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="accountingDesc"  ng-model="accountingStatusInf.accountingDesc" readonly>
+				</div>
+			</div>		
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5000012' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="blockCodeType"  jf-select="blockTypeArr" name="blockCodeType" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5000013' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="viewEffectivenessCodeScene"  jf-select="blockCodeSceneArr" name="blockCodeScene" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5000014' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="rollBack"  jf-select="rollBackArray" name="rollBack" disabled>
+					</select>
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5000018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="feeIncomeRecognitionStage"  jf-select="FeeIncomeRecognitionStage" name="feeIncomeRecognitionStage" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+					<div class="col4 text_right">{{'YYH5000019' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="intIncomeRecognitionStage"  jf-select="IntIncomeRecognitionStage" name="intIncomeRecognitionStage" disabled>
+						</select>
+					</div>
+				</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5000003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="prevAccountingStatus"  ng-model="accountingStatusInf.prevAccountingStatus" readonly> 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5000004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="nextAccountingStatus"  ng-model="accountingStatusInf.nextAccountingStatus" readonly>
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5000017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="subjectStatusInfo"  jf-select="subjectStatusArray" name="subjectStatusN" disabled>
+					</select>
+				</div>
+			</div>		
+			<div class="col_td">
+					<div class="col4 text_right">{{'YYH5000020' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="accountingStatusInf.nonPerformingAssets"  jf-select="nonPerformingAssetsArray" name="nonPerformingAssetsN" disabled>
+						</select>
+					</div>
+				</div>				
+		</div>
+	</div>
+</div>

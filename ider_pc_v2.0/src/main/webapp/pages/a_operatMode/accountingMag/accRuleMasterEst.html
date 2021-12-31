@@ -1,0 +1,175 @@
+<div ng-controller="accRuleMasterEstCtrl">
+	<div class=" ">
+		<form name="accRuleMasterFormee"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input step1S" ng-model="accRuleMasterInf.operationMode"  jf-select="operationModeArr" name="operationMode"
+					validator="required,maxlength"   maxlength="3" >
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5400013' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="accountingRuleCode"
+						ng-model="accRuleMasterInf.accountingRuleCode" maxlength="6"  validator="required,maxlength">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400030' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="accountingRuleDesc"
+						ng-model="accRuleMasterInf.accountingRuleDesc" maxlength="50">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400015' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.accountingObject" lay-filter="getAccObject"
+					jf-select="accountingObjectArray" name="accountingObject">
+				</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.accountingSubtableType" id="accountingSubtableType"
+					jf-select="accountingSubtableTypeArray" name="accountingSubtableType">
+				</select>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400079' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.balanceChangeFlag" id="balanceChangeFlag"
+					jf-select="balanceChangeFlagArray" name="balanceChangeFlag">
+				</select>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400084' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.currencyType" id="currencyType"
+					jf-select="currencyIndicationArr" name="currencyType">
+				</select>
+				</div>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH5400031' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.balanceProperty" id="balanceProperty"
+					jf-select="balancePropertyArray" name="balanceProperty">
+				</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.balanceType" id="balanceType"
+					jf-select="balanceTypeArray" name="balanceType" lay-filter="getBalanceType">
+				</select>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400032' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.balanceObjectCode" id="balanceObjectCodeId"
+					jf-select="balanceObjectCodeArray" name="balanceObjectCodeN" ></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400020' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.accountingDirection"  id="accountingDirection"
+					jf-select="accountingDirectionArray" name="accountingDirection">
+				</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400021' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accRuleMasterInf.sendAcctnoFlag"  id="sendAcctnoFlag"
+					jf-select="sendAcctnoFlagArray" name="sendAcctnoFlag">
+				</select>
+				</div>
+			</div>
+			<div class="col_tr text_center" ng-show="step1Btn">
+				<button class="layui-btn layui-btn-radius" ng-click="stepToTwo()">
+					<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+				</button>
+			</div>
+		</form>
+			<div ng-show="isM">
+				<div class="clearboth"></div>
+				<div class="mainname">{{'YYH5400093' | translate}}</div>
+				<div style="margin-bottom: 15px;margin-left: 5%;">
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'YYH5400108' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input"  type="text" ng-model="masterSceneSequenceSel" maxlength="50" >
+						</div>
+					</div>
+					<div class="layui-inline" style="margin-left: 5%;">
+						<div class="search_button">
+							<button class="layui-btn" ng-click="querySceneList()">
+								<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="modalmain">
+					<div class="row">
+						<div class="colFive">
+							<h7>{{'YYH5400109' | translate}}</h7>
+						</div>
+						<div class="colSix">
+							<h7>{{'YYH5400110' | translate}}</h7>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+					<div class="row">
+						<div class="colOne">
+							<select name="s25" size="10" multiple="multiple" id="s57" class="form_selectgro">
+								
+							</select>
+						</div>
+						<div class="colTwo4 text-center">
+							<button type="button" class="layui-btn mb15" name="add" id="add57" value="">
+								{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+							</button>
+							<br />
+							<button type="button" class="layui-btn mb15" name="addall" id="addall57" value="">
+								{{'F00036' | translate}} <i class="layui-icon">&#xe65b;</i>
+							</button>
+							<br />
+							<button type="button" name="remove" id="remove57" class="layui-btn mb15">
+								<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+							</button>
+							<br />
+							<button type="button" name="removeall" id="removeall57" value="" class="layui-btn mb15">
+								<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+							</button>
+						</div>
+						<div class="colThree">
+							<select name="s58" size="10" multiple="multiple" id="s58" class="form_selectgro">
+							</select>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn layui-btn-radius"  ng-click="stepBackOne()">
+						<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+					</button>
+				</div>
+			</div>
+		
+	</div>
+</div>

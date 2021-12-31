@@ -1,0 +1,253 @@
+<style>
+	.disN {
+		    display: none;
+	}
+	.disB {
+		display: inline-block;
+	}
+</style>
+
+<div  ng-controller="pDInfEstbCtrl">
+	<!-- <div class="leftmenu_navtitle">产品信息建立</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form" >
+	<form action="" name="pDInfEstbQuForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="pDInfEstbInfo.idType"
+					jf-select="builder.option(certificateTypeArray1)" name="idType"  lay-filter="getIdType">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH3700001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="pDInfEstbInfo.idNumber" type="text"
+				id="pDInfEstb_idNumber"   validator="noValidator">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" validation-submit="pDInfEstbQuForm"  ng-click="searchPDInfEstbInfo()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+	</form>
+	
+	<form name="proInfForm">
+		<div class="clearboth"></div>
+		<div ng-if="showPDInfEstbInfoBtn" class="allInfDiv">
+			<div class="mainname">1. {{'KHH3700002' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3700003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="customerNo" type="text" readonly = "readonly"  >
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3700004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="customerName" type="text" readonly = "readonly" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3700005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="mobilePhone" type="text" readonly = "readonly" >
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">2. {{'KHH3700006' | translate}}</div>
+			<div jf-grid="cstPDInfTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH3700007' | translate}}</th>
+							<th>{{'KHH3700008' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">3.{{'KHH3700009' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'KHH3700007' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="selPDObjTable.params.productObjectCode">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="selPDObjTable.search()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="selPDObjTable.params={}">
+							<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div jf-grid="selPDObjTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH3700007' | translate}}</th>
+							<th>{{'KHH3700008' | translate}}</th>
+							<th>{{'KHH3700012' | translate}}</th>
+							<th>{{'KHH3700013' | translate}}</th>
+							<th>{{'KHH3700014' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+							<td align="center" ng-bind="item.binNo"></td>
+							<td align="center" ng-bind="item.paymentPriority"></td>
+							<td align="center">
+								<span ng-if="item.productType=='CRD'">{{'KHH3700015' | translate}}</span> 
+								<span ng-if="item.productType=='RLN'">{{'KHH3700016' | translate}}</span> 
+					       </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">4.{{'KHH3700024' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red disN">*</span>{{'KHH3700017' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<select class="requireDom"  jf-select="builder.option(directDebitStatusArray)"  lay-filter="getdDebitStatus" ng-model="payInf.directDebitStatus"  name="directDebitStatus">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red disN">*</span>{{'KHH3700018' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<select class="requireDom"  jf-select="builder.option(directDebitModeArray)" id ="payInf.directDebitMode" ng-model="payInf.directDebitMode" name="directDebitMode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red disN">*</span>{{'KHH3700019' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input  class="layui-input requireDom"  ng-model="payInf.directDebitBankNo"  id="payInf.directDebitBankNo" name="directDebitBankNo"  type="text" validator="maxlength"  maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red disN">*</span>{{'KHH3700020' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input requireDom" ng-model="payInf.directDebitAccountNo"  id="payInf.directDebitAccountNo" validator="maxlength"  maxlength ='25'  name=" directDebitAccountNo" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red disN">*</span>{{'KHH3700021' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<select class="requireDom"   ng-model="payInf.exchangePaymentFlag"  id ="payInf.exchangePaymentFlag" jf-select="builder.option(exchangePaymentFlagArray)"   name="exchangePaymentFlag">
+					</select>
+				</div>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">5. {{'KHH3700022' | translate}}</div>
+			<!-- <div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'KHH3700023' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input"  id="coBrandedNo" ng-model="payInf.coBrandedNo"
+							type="text">
+					</div>
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3700023' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="coBrandedNo" ng-model="payInf.coBrandedNo"
+							type="text">
+				</div>
+			</div>
+			
+			
+			<div class="clearboth"></div>
+			<div class="mainname">6. 公务卡预算单位编码</div>
+			
+			
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">预算单位编码：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input"  id="budgetOrgCode" name="budgetOrgCode" ng-model="budgetInf.budgetOrgCode"
+						type="text" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="searBudgetOrg()">
+							<i class="layui-icon">&#xe615;</i>查询
+						</button>
+						
+						<button class="layui-btn" ng-click="resetBudgetOrg()">
+							<i class="layui-icon">&#x1002;</i> 重置
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div ng-show="isShowBudge">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">预算单位名称：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input"  id="budgetOrgName" ng-model="budgetInf.budgetOrgName"
+								type="text" readonly>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">账单日：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input"  id="billDay" ng-model="budgetInf.billDay"
+								type="text" readonly>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			
+			
+			
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" type="button" 
+				ng-click="saveCustomerProduct()" >
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

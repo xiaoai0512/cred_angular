@@ -1,0 +1,68 @@
+<div class="layout_body" ng-controller="paramsManageListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 正负面清单查询 -->
+			<from class="layui-form">
+					<div class="col_td">
+						<label class="col4 text_right">类型名称：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" ng-model="searchObj.groupsCodeDesc"  name="groupsCodeDesc">
+						</div>
+					</div>
+					<div class="col_td">
+						<label class="col4 text_right">类型代码：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" ng-model="searchObj.groupsCode" name="groupsCode">
+						</div>
+					</div>
+					
+					<div class="col_tr text_center">
+						<div class="search_button">
+							<button class="layui-btn" ng-click="seachList()" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn" ng-click="addList()" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+							</button>
+						</div>
+					</div>
+			</from>
+		<!--参数列表 -->
+		<div jf-grid="itemList" >
+			<table>
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>类型名称</th>
+						<th>类型代码</th>
+						<th>参数种类</th>
+						<th style="width:20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.groupsCodeDesc"></td>
+						<td align="center" ng-bind="item.groupsCode"></td>
+						<td align="center" ng-bind="item.type"></td>
+						<td style="width:20%" align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="selectDetail(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" 
+								ng-click="deleteInfo(item)">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</div>

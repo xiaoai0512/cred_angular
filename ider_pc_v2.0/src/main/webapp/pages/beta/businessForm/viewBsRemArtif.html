@@ -1,0 +1,45 @@
+<div ng-controller="viewBsRemArtifCtrl">
+
+	<div class=" layui-form">
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1400001' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<!-- <select ng-model="bsRemArtifItem.businessPattern" class="layui-input" name="businessPattern"
+				jf-select="builder.option(businessPatternArr)" maxlength="2" disabled></select> -->
+				<input class="layui-input bnone" type="text"  name="businessPattern" maxlength="2"
+					ng-model="bsRemArtifItem.businessPattern" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1400002' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text"  name="patternDesc" maxlength="50"
+					ng-model="bsRemArtifItem.patternDesc" disabled/>
+			</div>
+		</div>
+		
+		
+		<div class="search_mian">
+			<div class="mainname">{{'PZH1400023' | translate}}</div>
+		</div>
+
+		<div jf-grid="bsRemArtifList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH1400004' | translate}}</th>
+						<th>{{'PZH1400005' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.artifactNo"></td>
+						<td align="center" ng-bind="item.artifactDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

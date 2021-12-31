@@ -1,0 +1,14 @@
+<div class="mainname">下拉框新旧版本修改点</div>
+<pre class="layui-code" lay-title="Code" >
+1、字典下拉框
+    旧版：div中：&lt;select jf-select="StCd" &gt;&lt;/select&gt;
+    新版：div中：&lt;select jf-select="builder.option('StCd')"&gt;&lt;/select&gt;
+
+2、文本框和下拉框的上级class是要加wd190,不然必填校验会自动换行
+如旧版：&lt;div class="col3 float_left"&gt;
+				&lt;input class="layui-input" type="text" ng-model="userAndRoleRel.roleName" selector="selectRole" placeholder="请选择"&gt;
+			&lt;/div&gt;
+    新版：&lt;div class="wd190 float_left"&gt;
+			&lt;input class="layui-input" type="text" ng-model="userAndRoleRel.roleName" selector="selectRole" placeholder="请选择"&gt;
+		&lt;/div&gt;	
+</pre>

@@ -1,0 +1,80 @@
+<div class="layout_body" ng-controller="rltmBalEnqrCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | T}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="rltmBalEnqrForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | T}}：</label>
+				<div class="wd190 float_left" >
+					<select ng-model="itemList.params.idType" jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | T}}：</label>
+				<div class="wd190 float_left" >
+					<input class="layui-input" type="text" id="rltmBalEnqr_idNumber"   validator="noValidator" ng-model="itemList.params.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | T}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						   ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="rltmBalEnqrForm" ng-click="selNega()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | T}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div ng-show="tableInfo">
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+				<tr>
+					<th style="width: 5%;">{{'F00013' | T}}</th>
+					<th style="width: 10%;">{{'SQH300008' | T}}</th>
+					<th>{{'SQH400003' | T}}</th>
+					<th>{{'SQH400004' | T}}</th>
+					<th>{{'SQH400015' | T}}</th>
+					<th>{{'SQH400002' | T}}</th>
+					<th>{{'SQH400006' | T}}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td style="width: 5%;" align="center" ng-bind="$index+1"></td>
+					<td style="width: 10%;" align="center" >{{item.currencyCode}}{{item.currencyDesc}}</td>
+					<td align="center" >{{item.businessProjectCode}}{{item.programDesc}}</td>
+					<td align="center" >{{item.businessTypeCode}}{{item.businessDesc}}</td>
+					<td align="center" >{{item.creditNodeNo}}{{item.creditNodeDesc}}</td>
+					<td align="center" >{{item.productObjectCode}}{{item.productDesc}}</td>
+					<!-- / 100 | number:2 -->
+					<td>
+						<div class="title_messages">
+							<div class="tablemore"></div>
+							<div class="title_content" style="text-align:center">
+								<span class="text_color" ng-if="overpayBusinessTypeInfo == item.businessTypeCode">{{'SQH400007' | T}}： {{item.totalBalance | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo == item.businessTypeCode">{{'SQH400008' | T}}： {{item.overpayOutstandingAmt | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo != item.businessTypeCode">{{'SQH400009' | T}}： {{item.currPrincipalBalance | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo != item.businessTypeCode">{{'SQH400010' | T}}： {{item.billPrincipalBalance | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo != item.businessTypeCode">{{'SQH400011' | T}}： {{item.currInterestBalance | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo != item.businessTypeCode">{{'SQH400012' | T}}： {{item.billInterestBalance | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo != item.businessTypeCode">{{'SQH400013' | T}}： {{item.currCostBalance | jfMoney}}<br></span>
+								<span class="text_color" ng-if="overpayBusinessTypeInfo != item.businessTypeCode">{{'SQH400014' | T}}： {{item.billCostBalance | jfMoney}}</span>
+							</div>
+						</div>
+
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

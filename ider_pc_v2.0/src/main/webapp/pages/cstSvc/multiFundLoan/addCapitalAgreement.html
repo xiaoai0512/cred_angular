@@ -1,0 +1,318 @@
+<div ng-controller="addCapitalAgreementCtrl">
+	<div class="adds" ng-show="fundDiv">
+		<form name="balanceObjForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800098' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<select class="layui-input step1S" ng-model="addCapitalInfo.operationMode" id="operationModeId" jf-select="operationModeArr"name="operationModeN" validator="required" lay-filter="getoperationMods">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800001' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="addCapitalInfo.trustNum"
+					 type="text" validator="required"  name="trustNum" validator="required">
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800002' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input " ng-model="addCapitalInfo.trustName"
+						 name="trustName" type="text" validator="required">
+				</div>
+			</div>
+			<div class="col_td" style="float:left;margin-top: 4px;margin-bottom: 4px;">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800003' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.trustType"   jf-select="fundAgreementArray" 
+						validator="required" lay-filter="trustType"  name="trustType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800007' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.fundsType"   jf-select="capitalContributionArray" 
+						validator="required" lay-filter="fundsType"  name="fundsType">
+					</select>
+				</div>
+			</div>
+			<!-- 币种 -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800030' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.accountCcy"
+							class="layui-input"
+							jf-select="accountCcyArray"
+							validator="required" name="accountCcy">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800011' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.isMulitTrust"   jf-select="isMultitrustArray" 
+						validator="required" lay-filter="isMulitTrust"  name="isMultitrust">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800004' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="addCapitalInfo.loanAmt"
+						 type="text" validator="required"  name="loanAmt">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH800012' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.cooperatModel"   jf-select="cooperatModelArray" 
+						lay-filter="legalIdType"  name="cooperatModel">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right">{{'FQH800013' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.clearMode"   jf-select="liquidationModeArray" 
+						 lay-filter="clearMode"  name="clearMode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH800008' | translate}}：</div>
+				<div class="wd330 float_left">
+				<input class="layui-input icon_date" ng-model="addCapitalInfo.effectiveDate"  name="effectiveDate"  
+				    jf-date-input type="text" autocomplete="off" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH800006' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="addCapitalInfo.isAutoTrun"   jf-select="isAutoTranArray" 
+						lay-filter="legalIdType"  name="isAutoTrun">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH800009' | translate}}：</div>
+				<div class="wd330 float_left">
+				<input class="layui-input icon_date" name="expireDate"  ng-model="addCapitalInfo.expireDate" 
+					jf-date-input type="text" autocomplete="off">
+				</div>
+			</div>
+		</form>
+		<!-- 资金方信息 -->
+		<div class="clearboth"></div>
+		<div class="col_tr text_center" > 
+			<div class="mainname" style="width:50%;text-align: left;display: inline-block;float: left;">{{'FQH800014' | translate}}</div>
+			<button class="layui-btn cancel-btn" type="button" style="float: right;" ng-click="addFunderInfo(addCapitalInfo)">
+				<i class="layui-icon"></i> {{'FQJ800075' | translate}}
+			</button>
+		</div>
+		<div style="margin-bottom:40px">
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:5%;" align="center">{{'FQH800040' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800018' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800019' | translate}}</th>
+	                    <th style="width:8%"  align="center">{{'FQH800015' | translate}}</th>
+	                    <th style="width:8%"  align="center" >{{'FQH800020' | translate}}</th>
+	                    <th style="width:8%"  align="center">{{'FQH800076' | translate}}</th>
+	                    <th style="width:10%"  align="center">{{'FQH800077' | translate}}</th>
+	                    <th style="width:10%;" align="center">{{'FQH800016' | translate}}</th>
+	                    <!-- <th style="width:8%;" align="center">{{'FQH800017' | translate}}</th> -->
+	                    <th style="width:8%;" align="center">{{'FQH800021' | translate}}</th>
+	                    <th style="width:20%;" align="center">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "list in fatherList track by $index">
+						<td style="width:5%;">
+	                         <label class="i-checks m-b-none">
+	                             <input name="fruit" type="radio" ng-value="list.corporationEntityNo"  ng-model="selectedMonth" ng-click ="selectOne(list,$index)"><i></i>
+	                         </label>
+                     	</td>
+						<td style="width:8%;" align="center" ng-bind="list.corporationEntityNo"></td>
+	                    <td style="width:8%;" align="center" ng-bind="list.corporationEntityName"></td>
+	                    <td style="width:8%;" align="center" ng-bind="list.ratio"></td>
+	                    <td style="width:8%;" align="center">
+	                    	<span ng-if="list.dividendRule==0">{{'FQH800078' | translate}}</span>
+	                    	<span ng-if="list.dividendRule==1">{{'FQH800079' | translate}}</span>
+	                    	<span ng-if="list.dividendRule==2">{{'FQH800080' | translate}}</span>
+	                    </td>
+	                    <td style="width:8%;" align="center" ng-bind="list.profitMargin"></td>
+	                    <td style="width:10%;" align="center" ng-bind="list.interestDividendRatio"></td>
+	                    <td style="width:10%;" align="center" ng-bind="list.amount"></td>
+	                    <td style="width:8%;" align="center" >
+	                    	<span ng-if="list.restInd=='1'">{{'FQH800046' | translate}}</span>
+							<span ng-if="list.restInd=='0'">{{'FQH800047' | translate}}</span>
+	                   </td>
+	                    <td style="width:20%;" align="center">
+	                    	<button class="layui-btn cancel-btn" type="button"  ng-click="addCapitalAccount(list,$index)">
+								<i class="layui-icon">&#xe654;</i> {{'FQJ800076' | translate}}
+							</button>
+	                    	<button class="layui-btn layui-btn-mini ng-binding" style="height:28px;" ng-click="deleteListA(list,$index)">
+								<i class="layui-icon"></i> 删除
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- 资金方账号信息 -->
+		<div class="clearboth"></div>
+		<div class="col_tr text_center" > 
+			<div class="mainname" style="width:50%;text-align: left;display: inline-block;float: left;">{{'FQH800025' | translate}}</div>
+		</div>
+		<div style="margin-bottom:40px">
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:15%;" align="center">{{'FQH800018' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800026' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800027' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800028' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800029' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800030' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800031' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800032' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800033' | translate}}</th>
+						<!-- <th style="width:8%;" align="center">{{'FQH800034' | translate}}</th>
+						<th style="width:8%;" align="center">{{'FQH800035' | translate}}</th> -->
+						<th style="width:8%;" align="center">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody> <!-- sonList -->
+					<tr ng-repeat = "item in coreTrustAccountList track by $index">
+						<td style="width:15%;" align="center" ng-bind="item.customerNum"></td>
+						<td style="width:8%;" align="center" ng-bind="item.accountName"></td>
+						<td style="width:10%;" align="center" ng-bind="item.bankName"></td>
+						<td style="width:8%;" align="center" ng-bind="item.bankNo"></td>
+						<td style="width:8%;" align="center">
+							<span ng-if="item.cashOrRemit=='0'">{{'FQH800053' | translate}}</span>
+							<span ng-if="item.cashOrRemit=='1'">{{'FQH800054' | translate}}</span>
+						</td>
+						<td style="width:8%;" align="center">
+							<span ng-if="item.accountCcy=='976'">{{'FQH800063' | translate}}</span>
+							<span ng-if="item.accountCcy=='977'">{{'FQH800064' | translate}}</span>
+							<span ng-if="item.accountCcy=='344'">{{'FQH800065' | translate}}</span>
+							<span ng-if="item.accountCcy=='156'">{{'FQH800066' | translate}}</span>
+							<span ng-if="item.accountCcy=='840'">{{'FQH800067' | translate}}</span>
+							<span ng-if="item.accountCcy=='978'">{{'FQH800068' | translate}}</span>
+							<span ng-if="item.accountCcy=='702'">{{'FQH800069' | translate}}</span>
+							<span ng-if="item.accountCcy=='826'">{{'FQH800070' | translate}}</span>
+							<span ng-if="item.accountCcy=='392'">{{'FQH800071' | translate}}</span>
+							<span ng-if="item.accountCcy=='975'">{{'FQH800072' | translate}}</span>
+							<span ng-if="item.accountCcy=='217'">{{'FQH800073' | translate}}</span>
+						</td>
+						<td style="width:8%;" align="center" ng-bind="item.accountNo"></td>
+						<td style="width:8%;" align="center" >
+							<span ng-if="item.accountType=='0'">{{'FQH800049' | translate}}</span>
+							<span ng-if="item.accountType=='1'">{{'FQH800050' | translate}}</span>
+							<span ng-if="item.accountType=='2'">{{'FQH800051' | translate}}</span>
+							<span ng-if="item.accountType=='3'">{{'FQH800052' | translate}}</span>
+						</td>
+						<td style="width:15%;" align="center">
+							<span ng-if="item.accountInd=='0'">{{'FQH800056' | translate}}</span>
+							<span ng-if="item.accountInd=='1'">{{'FQH800057' | translate}}</span>
+							<span ng-if="item.accountInd=='2'">{{'FQH800058' | translate}}</span>
+							<span ng-if="item.accountInd=='3'">{{'FQH800059' | translate}}</span>
+						</td>
+						<!-- <td style="width:8%;" align="center" ng-bind="item.accountInfo"></td>
+						<td style="width:8%;" align="center" ng-bind="item.ldgrCode"></td> -->
+						<td align="left">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="deleteListB(item,$index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="col_tr text_center">
+			<button type="button" class="layui-btn layui-btn-radius" id="nextBtn2" ng-click="nextStep()" validation-submit="balanceObjForm">
+				{{'KHH3200061' | translate}} <i class="layui-icon">&#xe65b;</i>
+			</button>
+		</div>
+	</div>
+	
+	<!-- 产品额度节点 -->
+	<div ng-show="proQuoaDiv">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'FQH800097' | translate}}</div>
+		<div class="layui-form-item" style="margin-left: 10%;">
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'FQH800085' | translate}}：</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input" ng-model="updateQuotaNodeTable.params.productObjectCode" name="productObjectCodeP" />
+				</div>
+			</div>
+				<div class="layui-inline">
+				<div class="search_button">
+					<button type="button" class="layui-btn" ng-click="updateQuotaNodeTable.search()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="saveSelect()">
+						<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div jf-grid="updateQuotaNodeTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'FQH800085' | translate}}</th>
+						<th>{{'FQH800086' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.productDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- 已选中产品 -->
+		<div class="mainname">{{'FQH800095' | translate}}</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0" 
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'FQH800085' | translate}}</th>
+						<th>{{'FQH800086' | translate}}</th>
+						<th style="width:21%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in addlinkedList track by $index">
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.productDesc"></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="addupdateQuotaNode(item,$index)">
+								<i class="layui-icon"></i> {{'FQH800087' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div> <!-- 产品额度节点end -->
+	
+	
+</div>
+

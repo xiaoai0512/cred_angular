@@ -1,0 +1,49 @@
+<div ng-controller="accountSceneUpdateCtrl">
+	<div class="layui-form">
+		<div class="mainname titleInfo">基础信息</div>
+			<div class="col_td">
+				<div class="col4 text_right">核算场景编码 ：</div>
+				<div class="wd190 float_left " >
+					<input class="layui-input bnone" name="accountingScene" ng-model="accountSceneObj.accountingScene"  type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">个人/公司标识 ：</label>
+				<div class="wd190 float_left">
+					<select ng-model="accountSceneObj.personalCompanyType" class="layui-input"
+						jf-select="builder.option(PCflagArr)" name="personalCompanyType">
+					</select>
+				</div>
+			</div>
+			<div class=col_td> 
+	          <label class="col4 text_right">交易状态：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(tradeStateArray)" name="transStatus" ng-model="accountSceneObj.transStatus">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">核算状态：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(accountStateArray)" name="acctStatus" ng-model="accountSceneObj.acctStatus">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">资产属性：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(assetAttributeArray)" name="assetAttributes" ng-model="accountSceneObj.assetAttributes">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">还款类型 ：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(repayTypeArray)" name="paymentType" ng-model="accountSceneObj.paymentType">
+              </div> 
+	     </div> 
+	     <div class=col_td> 
+	          <label class="col4 text_right">清算标志 ：</label> 
+	          <div class="float_left">
+                	<input jf-checkbox="builder.option(clearSignArray)" name="clearingSign" ng-model="accountSceneObj.clearingSign">
+              </div> 
+	     </div> 
+		<div class=" clearboth"></div>
+</div>

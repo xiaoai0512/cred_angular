@@ -1,0 +1,100 @@
+<div ng-controller="creditTradeAccountS2Ctrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="creditTradeList.params.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchBtn()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+		
+		<input style="display:none;" class="layui-input" ng-model="hideIdNumber"  type="text">
+		<input style="display:none;" class="layui-input" ng-model="hideIdType"  type="text">
+		<div ng-show ="isShowCreditTrade">
+			<div jf-grid="creditTradeList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4600003' | translate}}</th>
+							<th>{{'KHH4600004' | translate}}</th>
+							<th>{{'KHH4600005' | translate}}</th>
+							<th>未抛金额</th>
+							<th>{{'KHH4600006' | translate}}</th>
+							<th>{{'KHH4600007' | translate}}</th>
+							<th>{{'KHH4600008' | translate}}</th>
+							<th>贷款状态</th>
+							<th  width="28%" >{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" >
+								<span ng-if="item.loanType == 'MERH' ">{{'KHH4600009' | translate}}</span>
+								<span ng-if="item.loanType == 'TXAT' ">{{'KHH4600010' | translate}}</span>
+								<span ng-if="item.loanType == 'CASH' ">{{'KHH4600011' | translate}}</span>
+								<span ng-if="item.loanType == 'STMT' ">{{'KHH4600012' | translate}}</span>
+								<span ng-if="item.loanType == 'TRAN' ">{{'KHH4600013' | translate}}</span>
+								<span ng-if="item.loanType == 'LOAN' ">信贷分期</span>
+							</td>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.loanAmount | number:2" ></td>
+							<td align="center" ng-bind="item.remainPrincipalAmount | number:2"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.loanTerm"></td>
+							<td align="center" ng-bind="item.startIntDate"></td>
+							<td align="center">
+								<span ng-if="item.status == '0' ">撤销</span>
+								<span ng-if="item.status == '2' ">逾期</span>
+								<span ng-if="item.status == '1' ">正常</span>
+								<span ng-if="item.status == '3' ">结清</span>
+								<span ng-if="item.status == '4' ">全额退货</span>
+							</td>
+							<td align="center" style="padding: 0px 0px;">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkInfo(item)">
+									<i class="layui-icon"></i> {{'F00009' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="revokeTran(item)">
+									<i class="layui-icon"></i> {{'KHH4600055' | translate}}
+								</button>
+								<!-- <button class="layui-btn layui-btn-mini"
+								  ng-click="loanChange(item)">
+								  <i class="layui-icon"></i> {{'KHH4600057'|translate}}
+								</button> -->
+								<button class="layui-btn layui-btn-mini"  ng-click="creditS2Payment(item)">
+									<i class="layui-icon"></i> 信贷还款
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- <div class="col_tr text-center" ng-show="isButtonLoan">
+				<button class="layui-btn "  ng-click="batchRepayment()" ng-bind-html="'KHH4600037'|translate">
+				</button>
+				<button class="layui-btn "  ng-click="overdueRepayment()" ng-bind-html="'KHH4600038'|translate">
+				</button>
+				<button class="layui-btn "  ng-click="normalRepayment()" ng-bind-html="'KHH4600056'|translate">
+				</button>
+			</div> -->
+		</div>
+		
+	</div>
+</div>	

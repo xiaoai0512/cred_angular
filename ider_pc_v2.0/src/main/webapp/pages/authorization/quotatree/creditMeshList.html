@@ -1,0 +1,227 @@
+<div class="layout_body" ng-controller="creditMeshListCtrl">
+	<div class="search_mian layui-form">
+			<div class="layui-form-item" style="width: 100%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH2000060' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeiden" disabled></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"></label>
+					<div class="layui-input-inline"></div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH2000065' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input  bnone" type="text" ng-model="item.creditTreeId"  readonly>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH2000061' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input  bnone" type="text" ng-model="item.creditNodeNo"  readonly>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"></label>
+					<div class="layui-input-inline"></div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH2000067' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input bnone" type="text" ng-model="item.creditDesc" readonly>
+					</div>
+				</div>
+				<div class="layui-inline" style="float: right;">
+					<div class="search_button">
+						<button class="layui-btn" style="margin-right:30px" ng-click="addCreditNodeMesh(item)" ng-show="addBtnFlag02">
+							<i class="layui-icon">&#xe654;</i>{{'F00010' | translate}}
+						</button>
+						<!--<button class="layui-btn" ng-click="delAllIdentify(item)" ng-show="twoBtnUpdFlag">
+							<i class="layui-icon">&#xe640;</i>{{'F00060' | translate}}
+						</button>-->
+					</div>
+				</div>
+			</div>
+	</div>
+	<div>
+	<!-- 已生效额度关系 -->
+		<div style="background:#ececec;text-align-last:center;font-weight: 900;">{{'SQH2000095' | translate}}</div>
+		<div class="mainname">{{'SQH2000102' | translate}}</div>
+			<table  style="width:100%" >
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:5%;padding: 0px 4px;">{{'F00013' | translate}}</th>
+						<th style="width:12%">{{'SQH2000061' | translate}}</th>
+						<th style="width:12%">{{'SQH2000083' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000084' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000091' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'SQH2000097' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "item in relativeList">
+						<td align="center" ng-bind="$index+1"></td>
+						<td align="center">
+					  		<div class="tdDivL">{{item.creditNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.creditNodeDesc}}</div>
+				  	     </td>
+						<td align="center">
+					  		<div class="tdDivL">{{item.relativeNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.relativeNodeDesc}}</div>
+				  	     </td>
+				  	   <td align="center" ng-bind="item.relativeNodeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.relativeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.effectiveDate"> </td>
+					   <td align="center">
+							<span ng-if = "item.relativeTyp == '0'">
+								<button class="layui-btn layui-btn-mini" ng-click="getCreditNodeMeshInfo(item)" ng-show="selBtnFlag02">
+									<i class="layui-icon">&#xe642;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateCreditNodeMeshInfo(item)" ng-show="updBtnFlag02">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delCreditNodeMesh(item)" ng-show="delBtnFlag02">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<div ng-if="isrelativeList" style="text-align: center;">暂无数据</div>
+
+		<div class="mainname">{{'SQH2000103' | translate}}</div><!-- 被动 -->
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:5%;padding: 0px 4px;">{{'F00013' | translate}}</th>
+						<!-- <th style="width:12%">{{'SQH2000104' | translate}}</th> -->
+						<th style="width:12%">{{'SQH2000061' | translate}}</th>
+						<th style="width:12%">{{'SQH2000083' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000103' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000106' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'SQH2000097' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "item in relativeedList">
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" >
+					  		<div class="tdDivL">{{item.creditNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.creditNodeDesc}}</div>
+				  	    </td>
+				  	    <td align="center" >
+					  		<div class="tdDivL">{{item.relativeNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.relativeNodeDesc}}</div>
+				  	    </td>
+				  	   <td align="center" ng-bind="item.relativeNodeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.relativeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.effectiveDate"> </td>
+					   <td align="center">
+							<span ng-if = "item.relativeTyp == '0'">
+								<button class="layui-btn layui-btn-mini" ng-click="getCreditNodeMeshInfo(item)">
+									<i class="layui-icon">&#xe642;</i> {{'F00014' | translate}}
+								</button>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<div ng-if="isrelativeedList" style="text-align: center;">暂无数据</div>
+	</div>
+	<br>
+	<!-- 未生效额度关系 -->
+	<div ng-show="showNewMeshTable">
+	<div style="background:#ececec;text-align-last:center;font-weight: 900;">{{'SQH2000096' | translate}}</div>
+
+		<div class="mainname">{{'SQH2000102' | translate}}</div>
+			<table  style="width:100%" >
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:5%;padding: 0px 4px;">{{'F00013' | translate}}</th>
+						<th style="width:12%">{{'SQH2000061' | translate}}</th>
+						<th style="width:12%">{{'SQH2000083' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000084' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000091' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'SQH2000097' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "item in relativeNewList">
+						<td align="center" ng-bind="$index+1"></td>
+						<td align="center">
+					  		<div class="tdDivL">{{item.creditNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.creditNodeDesc}}</div>
+				  	     </td>
+						<td align="center">
+					  		<div class="tdDivL">{{item.relativeNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.relativeNodeDesc}}</div>
+				  	     </td>
+				  	   <td align="center" ng-bind="item.relativeNodeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.relativeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.effectiveDate"> </td>
+					   <td align="center">
+							<span ng-if = "item.relativeTyp == '0'">
+								<button class="layui-btn layui-btn-mini" ng-click="getCreditNodeMeshInfo(item)" ng-show="selBtnFlag02">
+									<i class="layui-icon">&#xe642;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateCreditNodeMeshInfo(item)" ng-show="selBtnFlag02">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delCreditNodeMesh(item)" ng-show="selBtnFlag02">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<div ng-if="isrelativeNewList" style="text-align: center;">暂无数据</div>
+
+		<div class="mainname">{{'SQH2000103' | translate}}</div><!-- 被动 -->
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:5%;padding: 0px 4px;">{{'F00013' | translate}}</th>
+						<!-- <th style="width:12%">{{'SQH2000104' | translate}}</th> -->
+						<th style="width:12%">{{'SQH2000061' | translate}}</th>
+						<th style="width:12%">{{'SQH2000083' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000103' | translate}}</th>
+						<th style="width:7%;padding: 0px 4px;">{{'SQH2000106' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'SQH2000097' | translate}}</th>
+						<th style="width:12%;padding: 0px 4px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "item in relativeedNewList">
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" >
+					  		<div class="tdDivL">{{item.creditNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.creditNodeDesc}}</div>
+				  	    </td>
+				  	    <td align="center" >
+					  		<div class="tdDivL">{{item.relativeNodeNo}}</div>
+							<div class="tdDivR">&nbsp;{{item.relativeNodeDesc}}</div>
+				  	    </td>
+				  	   <td align="center" ng-bind="item.relativeNodeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.relativeTypDesc"> </td>
+				  	   <td align="center" ng-bind="item.effectiveDate"> </td>
+					   <td align="center">
+							<span ng-if = "item.relativeTyp == '0'">
+								<button class="layui-btn layui-btn-mini" ng-click="getCreditNodeMeshInfo(item)">
+									<i class="layui-icon">&#xe642;</i> {{'F00014' | translate}}
+								</button>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<div ng-if="isrelativeedNewList" style="text-align: center;">暂无数据</div>
+
+	</div>
+</div>

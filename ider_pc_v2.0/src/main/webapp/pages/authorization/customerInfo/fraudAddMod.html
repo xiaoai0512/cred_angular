@@ -1,0 +1,32 @@
+<div ng-controller="fraudAddModCtrl">
+			<form name="mdmInfoForm"  class="layui-form">
+				<div class="col_tr">
+					<div class="col2 text_right">{{'SQH900002' | translate}}：</div>
+					<div class="wdper70 float_left">
+						<input class="layui-input" type="text" name="customerNoN" ng-model="fraud.customerNo" validator="required,minlength,maxlength,number" minlength="12" maxlength="12">
+						<!-- validator="required,minlength,maxlength,number" minlength="12" maxlength="12"  -->
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col2 text_right">{{'F00111' | translate}} ：</div>
+					<div class="wdper70 float_left">
+						<input class="layui-input" type="text" name="externalIdentificationNoN" ng-model="fraud.externalIdentificationNo" validator="required,number" >
+						<!-- validator="required,minlength,maxlength,number" minlength="19" maxlength="19" -->
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col2 text_right">{{'SQH900006' | translate}} ：</div>
+					<div class="wdper70 float_left">
+						<!-- <input class="layui-input" type="text" ng-model="item.crpndBalObj"> -->
+						<select ng-model="fraud.authRespCode" class="layui-input" validator="required"
+						jf-select="crpndArray" name="crpndBalObjN" ></select>
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col2 text_right">{{'SQH900007' | translate}}：</div>
+					<div class="wdper70 float_left">
+						<input class="layui-input" type="text" ng-model="fraud.fraudDesc">
+					</div>
+				</div>
+			</form>
+</div>

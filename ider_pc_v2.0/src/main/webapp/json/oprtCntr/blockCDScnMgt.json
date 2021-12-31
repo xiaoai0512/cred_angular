@@ -1,0 +1,73 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {	
+		    		"oprtMode" : "A01",
+		    		"cgy": "A",
+                    "scn": "01",
+                    "dsc":"延滞账户",
+                    "scop":"A-业务类型级",
+                    "prty":"010"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"cgy": "B",
+                    "scn": "01",
+                    "dsc":"高风险类卡",
+                    "scop":"P-产品级",
+                    "prty":"020"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"cgy": "C",
+                    "scn": "01",
+                    "dsc":"对账单退信无法联系",
+                    "scop":"C-客户级",
+                    "prty":"010"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"cgy": "L",
+                    "scn": "01",
+                    "dsc":"卡片挂失止付",
+                    "scop":"M-媒介级",
+                    "prty":"030"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"cgy": "S",
+                    "scn": "01",
+                    "dsc":"卡片资料外泄",
+                    "scop":"M-媒介级",
+                    "prty":"035"
+                },
+                {	
+		    		"oprtMode" : "A01",
+		    		"cgy": "V",
+                    "scn": "01",
+                    "dsc":"持卡人恶意透支",
+                    "scop":"C-客户级",
+                    "prty":"010"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 0,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 0,
+            "startRow": 0,
+            "total": 6	
+        }
+    },
+    "status": 200
+}

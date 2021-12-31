@@ -1,0 +1,33 @@
+<div ng-controller="holidayQueryCtrl">
+
+	<div class="section layui-form">
+		<div class="search_mian ">
+			<form name="bsFormInfForm">
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1600015' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text"  name="holidayNo" ng-model="holidayItem.holidayNo" readonly/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1600017' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text"  name="monthN" ng-model="holidayItem.month" readonly/>		
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1600018' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text"  name="holidayDateN" ng-model="holidayItem.holidayDate" readonly/>		
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH1600014' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="holidayItem.holidayStatus" class="layui-input" jf-select="builder.option(holidayArray)" name="levelFlagN" validator="required"></select>		
+					</div>
+				</div>
+			</form>
+	</div>
+</div>
+</div>

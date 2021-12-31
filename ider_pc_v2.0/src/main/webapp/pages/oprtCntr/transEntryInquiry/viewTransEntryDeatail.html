@@ -1,0 +1,391 @@
+<div ng-controller="viewTransEntryDeatailCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500057' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input bnone" type="text" ng-model="transEntryInf.customerNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500091' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input bnone" type="text" ng-model="transEntryInf.accountId"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500092' | translate}}：</div>
+				<div class="wd330 float_left">
+					 <input class="layui-input bnone" ng-model="transEntryInf.currencyCode" type="text" 
+					name="segmentNumber" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00162' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.eventNo" name="eventNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.externalIdentificationNo" name="externalIdentificationNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500080' | translate}}：</div>
+				<div class="wd330 float_left">
+					<!-- <select ng-model="transEntryInf.transDate" id="cardStatusId"  class="layui-input"	jf-select="builder.option(cardStatusArrN)" name="cardStatus" validator="required">
+					</select> -->
+					<input class="layui-input bnone" ng-model="transEntryInf.transDate" name="transDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500093' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transCurrDecimal" name="transCurrDecimal" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500082' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transCurrCode" name="transCurrCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500081' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transAmount" name="transAmount" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500085' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transDesc" name="transDesc" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500094' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.businessTypeCode" name="businessTypeCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00077' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.operationMode" name="operationMode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500095' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.currDeciaml" name="currDeciaml" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500096' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.currPrincipalBalance" name="currPrincipalBalance" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500097' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.billPrincipalBalance" name="billPrincipalBalance" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500098' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.currInterestBalance" name="currInterestBalance" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500099' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.billInterestBalance" name="billInterestBalance" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500100' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.currCostBalance" name="currCostBalance" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500101' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.billCostBalance" name="billCostBalance" type="text" readonly>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500102' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingCurrCode" name="postingCurrCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500083' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingAmt" name="postingAmt" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500103' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingExchangeRate" name="postingExchangeRate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500104' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.clearCurrDecimal" name="clearCurrDecimal" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500105' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.clearCurrCode" name="clearCurrCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500106' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.clearAmount" name="clearAmount" type="text" readonly>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500107' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.authCode" name="authCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">MCC：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.mcc" name="mcc" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500108' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transCountryCde" name="transCountryCde" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500109' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transCityCde" name="transCityCde" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500110' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.sourceCde" name="sourceCde" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500111' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500112' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.channelCde" name="channelCde" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500113' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.merchantCde" name="merchantCde" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500114' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.globalTransSerialNo" name="globalTransSerialNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500115' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.oriGlobalTransSerialNo" name="oriGlobalTransSerialNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500076' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select class="layui-input" ng-model="viewTransStatus" jf-select="builder.option(transEntryStatusArr)" name="cardStatus" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500116' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingDate" name="postingDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500117' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingTime" name="postingTime" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500118' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingRetryNum" name="postingRetryNum" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500119' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.postingRetryInterval" name="postingRetryInterval" type="text" readonly>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500120' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.settleDistriAmount" name="settleDistriAmount" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500121' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.settleDistriCurrency" name="settleDistriCurrency" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500122' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.settleDistriCurrPoint" name="settleDistriCurrPoint" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500123' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.overpayFrzAmount" name="overpayFrzAmount" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500124' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.overpayFrzCurrCode" name="overpayFrzCurrCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500125' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.overpayFrzCurrPoint" name="overpayFrzCurrPoint" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500126' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.overpayAmount" name="overpayAmount" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500127' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.productObjectCode" name="productObjectCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500128' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.installmentNum" name="installmentNum" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500129' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.businessProgramNo" name="businessProgramNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500130' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transProcessFlag" name="transProcessFlag" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500131' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.oriTransPostingAccountId" name="oriTransPostingAccountId" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500132' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.oriTransPostingCurrCode" name="oriTransPostingCurrCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500133' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.preorderSource" name="preorderSource" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500134' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.productForm" name="productForm" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500135' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.oriTransDate" name="oriTransDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500136' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.debitCreditFlagTrans" name="debitCreditFlag" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500137' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.transIdentifiNo" name="transIdentifiNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500138' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.balanceTypeTrans" name="balanceType" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500139' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.installmentPeriod" name="installmentPeriod" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500140' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.loanPara" name="loanPara" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500141' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.penaltyInterestRate" name="penaltyInterestRate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500142' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="transEntryInf.feeCollectTypeTrans" name="feeCollectType" type="text" readonly>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

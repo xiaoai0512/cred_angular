@@ -1,0 +1,213 @@
+<div ng-controller="layerBusBillCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500014' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.customerNo" name="customerNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<!--<div class="col_td">
+			<div class="col4 text_right">宽限余额{{'KHH4500020' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.allGraceBalance" jf-format-input="money" name="allGraceBalance" type="text" disabled="disabled">
+			</div>
+		</div>-->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500020' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.allGraceBalance"  name="allGraceBalance" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500065' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.creditNum" name="creditNum" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500066' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.creditAmount" jf-format-input="money" name="creditAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4500024' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.debitNum" name="debitNum" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500023' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.debitAmount" jf-format-input="money" name="debitAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500031' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.currentRepayAmount" jf-format-input="money" name="currentRepayAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.postingAmount" jf-format-input="money" name="postingAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500026' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.principalAmount" jf-format-input="money" name="principalAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500027' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.feeAmount" jf-format-input="money" name="feeAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500028' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.interestAmount" jf-format-input="money"  name="interestAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500029' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="item.currentAccountBalance" jf-format-input="money" name="currentAccountBalance" type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">本期最低需还款额：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.currCyclePaymentMin" jf-format-input="money" name="currCyclePaymentMin" type="text" disabled="disabled">
+			</div>
+		</div> 
+		 <div class="col_td">
+			<div class="col4 text_right">逾期金额：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.dueAmount" jf-format-input="money" name="dueAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">逾期期数：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="itemInf.cycleDueNum"  name="cycleDueNum" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">逾期天数 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="itemInf.cycleDueDayNum" name="cycleDueDayNum" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500030' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.beginBalance" jf-format-input="money" name="beginBalance" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500033' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.minRepayAmt" jf-format-input="money"  name="beginBalance" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		
+		
+		<div style="margin-bottom:20px;">
+			<div class="clearfix"></div>
+			<h3 class="col_tr  text_left" >{{'KHH4500034' | translate}}</h3>
+			
+			<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even=""
+					lay-skin="nob">
+					<thead>
+						<tr>
+							<!-- <th>选择</th> -->
+							<th>{{'KHH4500035' | translate}}</th>
+							<th>{{'KHH4500036' | translate}}</th>
+							<th >{{'KHH4500005' | translate}}</th>
+							<th>{{'KHH4500067' | translate}}</th>
+							<th>{{'KHH4500038' | translate}}</th>
+							<th>{{'KHH4500039' | translate}}</th>
+							<th>{{'KHH4500040' | translate}}</th>
+							<th >{{'KHH4500041' | translate}}</th> 
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="items in delayInf track by $index">
+							<td align="center" ng-bind="$index + 1"></td>
+							<td align="center" >
+								<span ng-if="items.delinquencyLevel =='A'">{{'KHH4500042' | translate}}</span>
+								<span ng-if="items.delinquencyLevel =='P'">{{'KHH4500043' | translate}}</span>
+								<span ng-if="items.delinquencyLevel =='G'">{{'KHH4500044' | translate}}</span>
+							</td>
+							<td align="center"   ng-bind="items.levelCode"></td>
+							<td align="center"  ng-bind="items.productObjectNo"></td>
+							<td align="center"  ng-bind="items.cycleNo"></td>
+							<td align="center"  ng-bind="items.currCyclePaymentMin | jfMoney:2"></td>
+							<td align="center"  ng-bind="items.cycleDueNum"></td>
+							<td align="center"  ng-bind="items.cycleDueDayNum "></td>
+							
+						</tr>
+					</tbody>
+				</table>
+		</div>
+		
+		
+		<div class="clearfix"></div>
+		
+		
+		<h3 class="col_tr  text_left"  style="margin-top:30px;">{{'KHH4500045' | translate}}</h3>
+		<div jf-grid="billSummList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 75px;">{{'KHH4500005' | translate}}</th>
+						<th style="width: 75px;">{{'KHH4500067' | translate}}</th>
+						<th style="width: 73px;">{{'KHH4500008' | translate}}</th>
+						<th>{{'KHH4500009' | translate}}</th>
+						<th style="width: 73px;">{{'KHH4500017' | translate}}</th>
+						<th>{{'KHH4500038' | translate}}</th>
+						<th>{{'KHH4500011' | translate}}</th>
+						<th  style="width: 150px;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.businessProgramNo"></td>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.billDate"></td>
+						<td align="center" ng-bind="item.currencyCode">
+							<!-- <span ng-if="item.currencyCode ==  '156' ">{{'KHH4500012' | translate}}</span>
+							<span ng-if="item.currencyCode ==  '840' ">{{'KHH4500013' | translate}}</span> -->
+						</td>
+						<td align="center" ng-bind="item.businessTypeCode"></td>
+						<td align="center" ng-bind="item.currentCycleNumber"></td>
+						<td align="center" ng-bind="item.postingAmount | jfMoney:2"></td>
+						
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkBsTypeItems(item)">
+								<i class="layui-icon"></i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="billStage(item)">
+								<i class="layui-icon"></i> {{'KHJ4500013' | translate}}
+							</button>
+						</td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+
+		
+		
+		
+	</div>
+</div>

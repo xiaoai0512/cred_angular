@@ -1,0 +1,87 @@
+<div ng-controller="viewOptModeCtrl">
+	<div class="section ">
+		<form name=""  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input " ng-model="viewOperationMode" jf-select="operationModeArr" name="operationMode"   validator="required" maxlength="3" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="viewCorporationEntityNo" jf-select="corporationEntityNoArr" name="corporationEntityNo"     disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text" name="modeName"  ng-model="optModeInf1.modeName"  maxlength="50" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text" name="accountCurrency"  ng-model="optModeInf1.accountCurrency"  readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text" name="creditTreeId"  ng-model="optModeInf1.creditTreeId" maxlength="9" readonly >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="overpayBusinessTypeView" jf-select="busTypeArr" name="overpayBusinessType"   disabled>
+				</select>
+				<!-- <input class="layui-input bnone"  type="text" name="overpayBusinessType"  ng-model="optModeInf1.overpayBusinessType" maxlength="9" readonly> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="dateType" jf-select="dataTypeArray" name="dateType"   maxlength="2" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900017' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="defaultFlag" jf-select="defaultFlagArray" name="defaultFlag"   maxlength="1" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH900018' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="batchDateProcessType" jf-select="batchDateProcessTypeArray" name="batchDateProcessType"   maxlength="3" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH900015' | translate}}</div>
+		<div jf-grid="operationCurrencyTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH900008' | translate}}</th>
+						<th>{{'YYH900027' | translate}}</th>
+						<th>{{'YYH900013' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.creditProportion"></td>
+						<td align="center" ng-bind="item.paymentPriority"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+<div ng-controller="choseCurrency_busProCtrl">
+
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div class="col_td">
+			<div class="col4 text_right">货币代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="currencyTable.params.currencyCode" validator="required"
+					name="currencyCode" type="text">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="currencyTable.search()" type="button">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="currencyTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+
+		<div jf-grid="currencyTable">
+			<table>
+				<thead>
+					<tr>
+						<th>货币代码</th>
+						<th>货币描述</th>
+						<th>小数位位数</th>
+						<th>货币简称</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.currencyDesc"></td>
+						<td align="center" ng-bind="item.decimalPosition"></td>
+						<td align="center" ng-bind="item.referred"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

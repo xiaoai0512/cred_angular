@@ -1,0 +1,45 @@
+<div ng-controller="checkResSpecialCardCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300001' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input bnone" type="text" ng-model="resUpdateInf.corporationEntityNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300005' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input bnone" type="text" ng-model="resUpdateInf.cardBin"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00128' | translate}}：</div>
+				<div class="wd330 float_left">
+					 <input class="layui-input bnone" ng-model="resUpdateInf.segmentNumber" type="text" 
+					name="segmentNumber" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300025' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="resUpdateInf.cardNumber" name="cardNumber" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300027' | translate}}：</div>
+				<div class="wd330 float_left">
+					  <input class="layui-input bnone" ng-model="resUpdateInf.startDate" name="startDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5300026' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="updatecardStatus" id="cardStatusId" class="layui-input"
+					jf-select="cardStatusArrM" name="cardStatus"  validator="required">
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

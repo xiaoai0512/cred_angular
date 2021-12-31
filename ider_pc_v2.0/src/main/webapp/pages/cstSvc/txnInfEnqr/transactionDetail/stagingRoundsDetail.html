@@ -1,0 +1,80 @@
+<div ng-controller="stagingRoundsDetailCtrl" >	<!-- 分期试算 -->
+	<form action="" class="layui-form"  style="margin-bottom: 15px;">
+		<div class="clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="trialList.externalIdentificationNo" validator="required"
+					name="ecommEntryId" type="text" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH900025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="trialList.ecommBusineseType"
+					name="ecommBusineseType" type="text" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH100011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name=" loanAmt" ng-model="trialList.loanAmt" type="text" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH900034' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="currencyCode" ng-model="trialList.currencyCode" type="text" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH900041' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="loanRate" ng-model="trialList.loanRate" type="text" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH900042' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="feeRate" ng-model="trialList.feeRate" type="text" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH900043' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="allFeeAmt" ng-model="trialList.allFeeAmt" type="text" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH900044' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="term" ng-model="trialList.term" type="text" disabled/>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'FQH100013' | translate}}</div>
+		<div jf-grid="cashTrailList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'FQH900045' | translate}}</th>
+						<th>{{'FQH900046' | translate}}</th>
+						<th>{{'FQH900047' | translate}}</th>
+						<th>{{'FQH900048' | translate}}</th>
+						<th>{{'FQH900049' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.termNo"></td>
+						<td align="center" ng-bind="item.throwDate"></td>
+						<td align="center" ng-bind="item.principalAmount | number:2"></td>
+						<td align="center" ng-bind="item.interestAmount | number:2"></td>
+						<td align="center" ng-bind="item.feeAmount | number:2"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

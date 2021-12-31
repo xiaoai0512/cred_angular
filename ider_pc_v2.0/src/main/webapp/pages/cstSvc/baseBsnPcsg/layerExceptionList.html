@@ -1,0 +1,187 @@
+<div class="layui-form" ng-controller="layerExceptionListCtrl">
+		<form name="mdmInfoFormS"  class="layui-form">
+		<!-- 授权例外名单查询 -->
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'SQH2600002' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="cardAssociations" class="layui-input" disabled
+							jf-select="builder.option(cardAssociationsArray)" ></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn cancel-btn" type="button" ng-click="selException()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button" ng-click="addException()" > 
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button" ng-click="updateException()">
+					<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button" ng-click="delException()" >
+					<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- end授权例外名单查询 -->
+		<div class="allcontent" style="margin-top: 20px;" ng-show="resultInfoV">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="externalIdentificationNoV" ng-model="item.externalIdentificationNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="cardAssociationsV" ng-model="item.cardAssociations" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlReportDateV" ng-model="item.contrlReportDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlReportTmV" ng-model="item.contrlReportTm" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlDelDateV" ng-model="item.contrlDelDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlDescV" ng-model="item.contrlDesc" type="text" readonly>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo">{{'SQH2600007' | translate}}</div>
+			<div class="col_td">
+			<div class="col4 text_right">{{'SQH2600008' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" name="contrlReasonV" ng-model="item.contrlReason" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone " name="actCodeV" ng-model="item.actCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600010' | translate}}：</div>
+				<div class="wd34 float_left" style="margin-right:4px" ng-repeat="cpc in cwbZoneCodesList">
+					<input class="layui-input bnone " name="cwbZoneCode1V" ng-model="cpc.cwbZoneCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone " name="syncFlagV" ng-model="item.syncFlag" type="text" readonly>
+				</div>
+			</div>
+			 <div class="col_tr " >
+				<button class="layui-btn float_right" style="margin-right: 48%;" ng-click="closeInfoV()" ng-bind-html="'F00012'|translate">
+				</button>
+			</div>
+		</div>
+		<div class="allcontent" style="margin-top: 20px;" ng-show="resultInfoM">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="externalIdentificationNoM" ng-model="item.externalIdentificationNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="cardAssociationsM" ng-model="item.cardAssociations" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlReportDateM" ng-model="item.contrlReportDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlReportTmM" ng-model="item.contrlReportTm" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlDelDateM" ng-model="item.contrlDelDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlDescM" ng-model="item.contrlDesc" type="text" readonly>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo">{{'SQH2600012' | translate}}</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">文件ID ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" name="fileIdM" ng-model="item.fileId" type="text" readonly>
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600013' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone " name="cardSerialNoM" ng-model="item.cardSerialNo" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600014' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" name="expirationDateM" ng-model="item.expirationDate" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600008' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone " name="contrlReasonM" ng-model="item.contrlReason" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600015' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" name="vipAmountM" ng-model="item.vipAmount" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600016' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone " name="currencyCodeM" ng-model="item.currencyCode" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" name="syncFlagM" ng-model="item.syncFlag" type="text" readonly>
+				</div>
+			</div>
+			 <div class="col_tr " >
+				<button class="layui-btn float_right" style="margin-right: 48%;" ng-click="closeInfoM()" ng-bind-html="'F00012'|translate">
+				</button>
+			</div>
+		</div>
+</div>

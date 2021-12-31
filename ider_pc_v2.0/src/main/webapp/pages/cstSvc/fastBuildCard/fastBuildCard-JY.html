@@ -1,0 +1,983 @@
+<div ng-controller="fastBuildCardCtrl">
+	<div style="display: none;">
+		<input class="layui-input" ng-model="CSTcredentialNumber"
+			name="CSTcredentialNumber" />
+	</div>
+	<div style="display: none;">
+		<input class="layui-input" ng-model="CSTcustomerNo"
+			name="CSTcustomerNo" />
+	</div>
+
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：客户一键制卡
+	</div>
+	<div class="allcontent layui-form " ng-if="cstInfDiv">
+		<form name="csInfEstbForm">
+			<div class="leftmenu_navtitle">客户资料建立</div>
+			<div class="mainname">1. 客户基本信息建立</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>机构号 ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.institutionId" jf-select="institutionIdArr"name="institutionId" maxlength="10" validator="required,maxlength">
+					</select>
+				</div>
+			</div>
+			
+			
+			
+			<div class="col_td">
+							<div class="col4 text_right">账单月 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input icon_date" name="billDate" ng-model="billingInfoList.params.billDate" type="text"  jf-date-input >
+							</div>
+						</div>
+			
+			
+			
+			
+			
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>客户姓名 ：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.customerName"
+						name="customerName" type="text" validator="required,maxlength"
+						maxlength="30">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>证件类型 ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.idType"
+						jf-select="builder.option(certificateTypeArray)" name="idType"
+						validator="required">
+					</select>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>证件号码 ：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.idNumber"
+						name="idNumber" type="text" validator="required,maxlength"
+						maxlength="30">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>个人公司标识 ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.customerType" class="layui-input"
+						jf-select="builder.option(personalCompanyType)"
+						name="customerType" validator="required"></select>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>账单日 ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.billDay" class="layui-input"
+						jf-select="builder.option(statementDateArr)" name="billDay"
+						validator="required"></select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">
+				<span class="red">*</span>还款选项 ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.paymentMark" class="layui-input"
+						jf-select="builder.option(paymentMarkArray)" name="paymentMark" validator="required">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">城市 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.city" name="city"
+						type="text" validator="maxlength" maxlength="30">
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">2. 客户个人信息</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">业务类型 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="cstBaseInf.businessType" name="businessType"
+						validator="required,maxlength" maxlength="10">
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right">分行号 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.branchNumber"
+						name="branchNumber" type="text" validator="maxlength"
+						maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">生日 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" ng-model="cstBaseInf.dateOfBirth"
+						name="dateOfBirth" jf-date-input type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">性别 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.sexCode" class="layui-input"
+						jf-select="builder.option(genderArray)" name="sexCode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">手机号码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.mobilePhone"
+						name="mobilePhone" type="text" validator="maxlength"
+						maxlength="18">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">家庭电话 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.homePhone"
+						name="homePhone" type="text" validator="maxlength" maxlength="18">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">公司电话 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.companyPhone"
+						name="companyPhone" type="text" validator="maxlength"
+						maxlength="18">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">邮编 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.zipCode" name="zipCode"
+						type="text" validator="maxlength" maxlength="19">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">联络人姓名 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.contactName"
+						name="contactName" type="text" validator="maxlength"
+						maxlength="30">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">联络人电话 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.contactPhone"
+						name="contactPhone" type="text" validator="maxlength"
+						maxlength="30">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">成为会员年份 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.memberSince"
+						name="memberSince" type="text" validator="maxlength"
+						maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户来源码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.customerSource"
+						name="customerSource" type="text" validator="maxlength"
+						maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">行为得分 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.behaviorScore"
+						name="behaviorScore" type="text" validator="maxlength"
+						maxlength="11">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">客户等级 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.customerLevel"
+						name="customerLevel" type="text" maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">年收入 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.annualIncome"
+						name="annualIncome" type="text" validator="maxlength"
+						maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">住宅性质 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.residencyStatus" class="layui-input"
+						jf-select="builder.option(ResidenceeArray)" name="residencyStatus">
+					</select>
+
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">婚姻状况 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.maritalStatus"
+						jf-select="builder.option(maritalStatusArray)"
+						name="maritalStatus">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">工作行业代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.occupationCode"
+						name="occupationCode" type="text" validator="maxlength"
+						maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">职务级别代码 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.postRankCode" class="layui-input"
+						jf-select="builder.option(jobLevelCodeArray)" name="postRankCode">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">职称代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.titleCode"
+						name="titleCode" type="text" validator="maxlength" maxlength="2">
+
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">工作年限 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.periodOfOccupation"
+						name="periodOfOccupation" type="text" validator="maxlength"
+						maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">兴趣爱好 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.hobby" name="hobby"
+						type="text" validator="maxlength" maxlength="30">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">担保人标识 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cstBaseInf.guarantorFlag" class="layui-input"
+						jf-select="builder.option(guarantorLogoArray)"
+						name="guarantorFlag">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">营销员代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.marketerCode"
+						name="marketerCode" type="text" validator="maxlength"
+						maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">持卡人的社会保障号类型 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.socialSecurityId"
+						name="socialSecurityId" type="text" validator="maxlength"
+						maxlength="1">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">社保账号 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cstBaseInf.socialSecurityNumber"
+						name="socialSecurityNumber" type="text" validator="maxlength"
+						maxlength="30">
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">3. 客户地址信息</div>
+			<div class="button_contain">
+				<button class="layui-btn layui-btn-primary" ng-click="newAdrBtn()"
+					type="button">
+					<i class="layui-icon">&#xe61f;</i> 新增
+				</button>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>地址类型</th>
+						<th>联系地址</th>
+						<th>联系邮编</th>
+						<th>指定电话</th>
+						<th>所在城市</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in adrlInfTable track by $index">
+						<td align="center">
+							<span ng-if="item.type=='1'">邮寄地址</span> 
+							<span ng-if="item.type=='2'">家庭地址</span> 
+							<span ng-if="item.type=='3'">单位地址</span>
+						</td>
+						<td align="center" ng-bind="item.contactAddress"></td>
+						<td align="center" ng-bind="item.contactPostCode"></td>
+						<td align="center" ng-bind="item.contactMobilePhone"></td>
+						<td align="center" ng-bind="item.city"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div ng-if="showNewAdrInfo">
+				<div class="allcontent">
+					<div class="col_td">
+						<div class="col4 text_right">地址类型 ：</div>
+						<div class="wd190 float_left">
+							<select ng-model="adrlInfTableInfoObj.type" class="layui-input"
+								jf-select="builder.option(typeArray)" name="type"
+								validator="required">
+							</select>
+						</div>
+					</div>
+
+					<div class="col_td">
+						<div class="col4 text_right">联系地址 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="adrlInfTableInfoObj.contactAddress"
+								name="contactAddress" type="text" validator="required,maxlength"
+								maxlength="90">
+						</div>
+					</div>
+
+					<div class="col_td">
+						<div class="col4 text_right">联系邮编 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="adrlInfTableInfoObj.contactPostCode"
+								name="contactPostCode" type="text"
+								validator="required,maxlength" maxlength="9">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">指定电话 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="adrlInfTableInfoObj.contactMobilePhone"
+								name="contactMobilePhone" type="text"
+								validator="required,maxlength" maxlength="18">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">所在城市 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="adrlInfTableInfoObj.city"
+								name="city" type="text" validator="required,maxlength"
+								maxlength="30">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							validation-submit="csInfEstbForm" ng-click="saveNewAdrInfo()">
+							<i class="layui-icon">&#xe624;</i> 保存
+						</button>
+						<button class="layui-btn layui-btn-radius" ng-click="newAdrBtn()">
+							<i class="layui-icon">&#x1005;</i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">4. 客户备注信息</div>
+			<div class="button_contain">
+				<button class="layui-btn layui-btn-primary"
+					ng-click="cstRmrkInfoBtn()">
+					<i class="layui-icon">&#xe61f;</i> 新增
+				</button>
+			</div>
+
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>备注信息</th>
+						<th>新增备注人员</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in cstRmrkInfoTable track  by $index">
+						<td align="center" ng-bind="item.remarkInfo"></td>
+						<td align="center" ng-bind="item.lastUpdateUserid"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div ng-if="showCstRmrkInfo">
+				<div class="allcontent">
+					<div class="col_td">
+						<div class="col4 text_right">备注信息：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" name="remarkInfo"
+								ng-model="cstRmrkInfoObj.remarkInfo"
+								validator="required,maxlength" maxlength="50">
+						</div>
+					</div>
+
+					<div class="col_td">
+						<div class="col4 text_right">新增备注人员 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="cstRmrkInfoObj.lastUpdateUserid"
+								name="lastUpdateUserid" type="text"
+								validator="required,maxlength" maxlength="30">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							validation-submit="csInfEstbForm" ng-click="saveCstRmk()">
+							<i class="layui-icon">&#xe624;</i> 保存
+						</button>
+						<button class="layui-btn layui-btn-radius"
+							ng-click="cstRmrkInfoBtn()">
+							<i class="layui-icon">&#x1005;</i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col_tr text_center" style="margin-top: 20px;">
+				<button class="layui-btn layui-btn-radius" ng-click="submitHandle()"
+					validation-submit="csInfEstbForm">
+					<i class="layui-icon">&#xe624;</i> 提交
+				</button>
+				<button class="layui-btn layui-btn-radius"
+					style="background-color: #D1D1D1;" id="nextBtn1" ng-click="next()"  disabled="disabled">
+					<i class="layui-icon">&#x1005;</i> 下一步
+				</button>
+			</div>
+		</form>
+	</div>
+
+
+	<!-------------------------------------------- 产品信息建立 --------------------------->
+
+
+
+	<div class="allcontent layui-form" ng-if="proInfDiv">
+
+		<div class="leftmenu_navtitle">产品信息建立</div>
+		<div class="clearboth"></div>
+
+		<div class="mainname">1. 客户基本信息</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">客户代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proInf.customerNo" type="text"
+						readonly="readonly">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">客户名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proInf.customerName"
+						type="text" readonly="readonly">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">手机号码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proInf.mobilePhone"
+						type="text" readonly="readonly">
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">2. 客户已有产品</div>
+			<div jf-grid="havedProList">
+				<table>
+					<thead>
+						<tr>
+							<th>产品对象代码</th>
+							<th>描述</th>
+							<th>产品类型</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+							<td align="center">
+								<span ng-if="item.productType=='CRD'">信用卡产品</span> 
+								<span ng-if="item.productType=='RLN'">消费信贷产品</span> 
+						    </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">3.选择产品对象</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">产品对象代码：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="chooseProList.params.productObjectCode">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="chooseProList.search()">
+							<i class="layui-icon">&#xe615;</i> 查询
+						</button>
+
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="chooseProList.params={}">
+							<i class="layui-icon">&#x1002;</i> 重置
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div jf-grid="chooseProList">
+				<table>
+					<thead>
+						<tr>
+							<th>产品对象代码</th>
+							<th>描述</th>
+							<th>发行卡BIN</th>
+							<th>还款优先级</th>
+							<th>产品类型</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+							<td align="center" ng-bind="item.binNo"></td>
+							<td align="center" ng-bind="item.paymentPriority"></td>
+							<td align="center">
+								<span ng-if="item.productType=='CRD'">信用卡产品</span> 
+								<span ng-if="item.productType=='RLN'">消费信贷产品</span> 
+						    </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">4.填写还款信息</div>
+			<div class="col_td">
+				<div class="col4 text_right">约定还款状态：</div>
+				<div class="wd190 float_left">
+					<select ng-model="proInf.directDebitStatus"
+						jf-select="builder.option(directDebitStatusArray)"
+						id="directDebitStatus" name="directDebitStatus"
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">约定还款方式：</div>
+				<div class="wd190 float_left">
+					<select ng-model="proInf.directDebitMode"
+						jf-select="builder.option(directDebitModeArray)"
+						id="directDebitMode" name="directDebitMode" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">约定还款银行号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proInf.directDebitBankNo"
+						id="directDebitBankNo" name="directDebitBankNo" type="text" maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">约定还款账户号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proInf.directDebitAccountNo"
+						id="directDebitAccountNo" name=" directDebitAccountNo" type="text" maxlength="25" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">购汇还款标志：</div>
+				<div class="wd190 float_left">
+					<select ng-model="proInf.exchangePaymentFlag"
+						jf-select="builder.option(exchangePaymentFlagArray)"
+						id="exchangePaymentFlag" name="exchangePaymentFlag"
+						validator="required">
+					</select>
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">5. 产品附加信息</div>
+			<div class="clearboth"></div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">联名代码：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" id="coBrandedNo"
+							ng-model="proInf.coBrandedNo" type="text">
+					</div>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-click="pre()">
+					<i class="layui-icon">&#x1005;</i> 上一步
+				</button>
+				<button class="layui-btn layui-btn-radius" type="button"
+					ng-click="saveCustomerProduct()">
+					<i class="layui-icon">&#xe624;</i> 保存
+				</button>
+				<button class="layui-btn layui-btn-radius"
+					style="background-color: #D1D1D1;" id="nextBtn2" ng-click="next2()" disabled="disabled">
+					<i class="layui-icon">&#x1005;</i> 下一步
+				</button>
+			</div>
+
+	</div>
+
+
+	<div class="allcontent layui-form" ng-if="mediaInfDiv">
+		<div class="leftmenu_navtitle">媒介信息建立</div>
+
+		<form name="MdmInfEstbInfo">
+			<!-- 	<div ng-show="showMdmInfEstbInfoBtn"> -->
+			<div class="clearboth"></div>
+			<div class="mainname">1. 客户基本信息</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">客户代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model=" mediaCstInf.customerNo"
+						type="text" readonly="readonly">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户姓名：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="mediaCstInf.customerName"
+						type="text" readonly="readonly">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">证件号码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="mediaCstInf.idNumber"
+						type="text" readonly="readonly">
+				</div>
+			</div>
+			<div ng-if="showCardNo" style="margin-top: 20px;">
+				<div class="col_td">
+					<div class="col4 text_right">外部识别号：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"
+							ng-model="csInfParams.externalIdentificationNo" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div ng-if="mediaOtherDiv">
+				<div class="clearboth"></div>
+				<div class="mainname">2.已有产品对象信息</div>
+				<div jf-grid="mediahavedProList">
+					<table>
+						<thead>
+							<tr>
+								<th>产品对象代码</th>
+								<th>描述</th>
+								<th>卡BIN</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.productObjectCode"></td>
+								<td align="center" ng-bind="item.productDesc"></td>
+								<td align="center" ng-bind="item.binNo"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="clearboth"></div>
+
+				<div class="clearboth"></div>
+				<div class="mainname">3. 媒介基本信息</div>
+				<div class="col_td">
+					<div class="col4 text_right">
+						<span class="red">*</span>主附标识 ：
+					</div>
+					<div class="wd190 float_left">
+						<select ng-model="mdmInfEstbInfo.mainSupplyIndicator"
+							" 
+						jf-select="builder.option(mainAttachmentArray)"
+							name="mainSupplyIndicator" " validator="required"
+							class="layui-input">
+						</select>
+					</div>
+				</div>
+
+				<div class="col_td">
+					<div class="col4 text_right">
+						<span class="red">*</span>使用者姓名：
+					</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="mdmInfEstbInfo.mediaUserName"
+							validator="required" name="mediaUserName" type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">主客户代码：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"
+							ng-model="mdmInfEstbInfo.mainCustomerNo" name="mainCustomerNo"
+							type="text">
+					</div>
+				</div>
+
+				<div class="col_td">
+					<div class="col4 text_right">
+						<span class="red">*</span>刻印名：
+					</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="mdmInfEstbInfo.embosserName1"
+							name="embosserName1" validator="required" type="text"
+							maxlength="30">
+					</div>
+				</div>
+
+				<div class="col_td">
+					<div class="col4 text_right">副客户代码：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="mdmInfEstbInfo.subCustomerNo"
+							name="subCustomerNo" type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">
+						<span class="red">*</span>所属机构：
+					</div>
+					<div class="wd190 float_left">
+						<select ng-model="mdmInfEstbInfo.institutionId"
+							jf-select="institutionIdArr" name="institutionId" maxlength="50"
+							validator="required,maxlength">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">分行号：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="mdmInfEstbInfo.branchNumber"
+							type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">进件人员编号：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"
+							ng-model="mdmInfEstbInfo.applicationStaffNo" type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">申请书编号：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"
+							ng-model="mdmInfEstbInfo.applicationNumber" type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">营销人员编号：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="mdmInfEstbInfo.marketerCode"
+							type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">
+						<span class="red">*</span>媒介对象代码：
+					</div>
+					<div class="wd190 float_left">
+						<select ng-model="mdmInfEstbInfo.mediaObjectCode"
+							class="layui-input" validator="required"
+							jf-select="builder.option(mediaObjectCodeList)"
+							name="mediaObjectCode" lay-filter="getRiskLimits"">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">媒介领取标志：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"
+							ng-model="mdmInfEstbInfo.mediaDispatchMethod" type="text" maxlength="1" >
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">密码函领取标志：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input"
+							ng-model="mdmInfEstbInfo.pinDispatchMethod" type="text" >
+					</div>
+				</div>
+				
+				<div class="clearboth"></div>
+				<div class="mainname">4. 制卡信息</div>
+				<div class="col_td">
+					<div class="col4 text_right">制卡请求：</div>
+					<div class="wd190 float_left">
+						<select ng-model="mdmInfEstbInfo.requestCardMaking"
+							class="layui-input" disabled="disabled"
+							jf-select="builder.option(cardMakingResult)"
+							name="requestCardMaking">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">卡版代码：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="mdmInfEstbInfo.formatCode"
+							maxlength="2" type="text">
+					</div>
+				</div>
+				
+				<div class="clearboth"></div>
+				<div class="mainname">5.标签信息</div>
+				<div class="button_contain">
+					<button class="layui-btn layui-btn-primary" ng-click="lblInfBtn()"
+						type="button">
+						<i class="layui-icon">&#xe61f;</i> 新增
+					</button>
+					<button class="layui-btn layui-btn-primary"
+						ng-click="changeCriteInfo()">
+						<i class="layui-icon">&#xe642;</i> 修改
+					</button>
+					<button class="layui-btn layui-btn-primary"
+						ng-click="csInfTable.request('csInf.deletecsInf?id')">
+						<i class="layui-icon">&#xe640;</i> 删除
+					</button>
+				</div>
+				<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table coreMediaLabelInfos no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<th align="center" >标签号</th>
+							<th align="center" >生效日期</th>
+							<th align="center" >失效日期</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="items in coreMediaLabelInfos track by $index">
+							<td align="center" ng-bind="items.labelNumber"></td>
+							<td align="center" ng-bind="items.mediaTagEffectiveDate"></td>
+							<td align="center" ng-bind="items.mediaTagEffectiveDate"></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div ng-if="showLblInfo">
+					<div class="allcontent layui-form">
+						<div class="col_td">
+							<div class="col4 text_right">标签号 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" type="text" name="labelNumber"
+									ng-model="lblInfTableInfo.labelNumber"
+									validator="required,maxlength" maxlength="9">
+							</div>
+						</div>
+
+						<div class="col_td">
+							<div class="col4 text_right">生效日期 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input icon_date" type="text" jf-date-input
+									ng-model="lblInfTableInfo.mediaTagEffectiveDate">
+							</div>
+						</div>
+
+						<div class="col_td">
+							<div class="col4 text_right">失效日期 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input icon_date" type="text" jf-date-input
+									ng-model="lblInfTableInfo.mediaTagExpirationDate">
+							</div>
+						</div>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col_tr text_center">
+							<button class="layui-btn layui-btn-radius"
+								ng-click="savelblInf()" type="button">
+								<i class="layui-icon">&#xe624;</i> 保存
+							</button>
+							<button class="layui-btn layui-btn-radius" ng-click="lblInfBtn()"
+								type="button">
+								<i class="layui-icon">&#x1005;</i> 关闭
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn layui-btn-radius" ng-click="pre2()">
+						<i class="layui-icon">&#x1005;</i> 上一步
+					</button>
+					<button class="layui-btn layui-btn-radius"
+						validation-submit="MdmInfEstbInfo" ng-click="submitMediaInf()"
+						type="button">
+						<i class="layui-icon"></i> 保存
+					</button>
+				</div>
+
+			</div>
+
+		</form>
+	</div>
+</div>

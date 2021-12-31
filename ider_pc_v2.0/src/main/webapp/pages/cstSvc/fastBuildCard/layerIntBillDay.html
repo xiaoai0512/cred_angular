@@ -1,0 +1,36 @@
+<div ng-controller="layerIntBillDayCtrl">
+	<div class="section layui-form">
+		<form name="intBillDayForm">
+			<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'KHH3200157' | translate}}</th>
+						<th>{{'KHH3200158' | translate}}</th>
+						<th>{{'KHH3200159' | translate}}</th>
+						<th>{{'KHH3200075' | translate}}</th>
+						<th>{{'KHH3200010' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in dataList track by $index">
+						<td align="center" ng-bind="items.operationMode"></td>
+						<td align="center" ng-bind="items.businessProgramNo"></td>
+						<td align="center" ng-bind="items.programDesc"></td>
+						<td align="center" ng-bind="items.productObjectCode"></td>
+						<td align="center" >
+							<div>
+								<select ng-if="items.cycleFrequency == 'month' " ng-model="items.cycleFrequencyDay" class="layui-input"
+								jf-select="cycleFrequencyMonth" name="cycleFrequency" validator="required"></select>
+								<select ng-if="items.cycleFrequency == 'week' " ng-model="items.cycleFrequencyDay" class="layui-input"
+								jf-select="cycleFrequencyWeek" name="cycleFrequency" validator="required"></select>
+							
+							</div>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>

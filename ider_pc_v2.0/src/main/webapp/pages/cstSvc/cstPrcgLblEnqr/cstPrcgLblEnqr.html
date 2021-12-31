@@ -1,0 +1,119 @@
+<div ng-controller="cstPrcgLblEnqrCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="search_mian layui-form allcontent">
+	 <form action=""  name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}}： </div>
+			<div class="wd190 float_left">
+				<select ng-model="cstPrcgLblEnqrTable.params.idType"
+					jf-select="certificateTypeArray" name="idType"  lay-filter="getIdType">
+				</select>
+			</div>
+		</div>
+	
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"  validator="noValidator" id='cstPrcgLblEnqr_idNumber'name="idNumber"
+					ng-model="cstPrcgLblEnqrTable.params.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="cstPrcgLblEnqrTable.params.externalIdentificationNo">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="cstPrcgLblEnqrTable.params.customerNo"
+					name="customerNo" type="text">
+			</div>
+		</div> -->
+		<div class="col_tr text_center search_button">
+			<button class="layui-btn" type="button"
+				ng-click="queryCstPrcgLblEnqr()" validation-submit="queryInfForm">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<!-- <button class="layui-btn cancel-btn" type="button"
+				ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button> -->
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="addLabelInfo()" validation-submit="queryInfForm">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+			<button class="layui-btn" type="button" moreClick>
+				<i class="layui-icon">&#xe61a;</i>
+			</button>
+		</div>
+		</form>
+		<div class="search_width" style="display: none">
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5400003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="dateEntryEffective" id="dateEntryEffective"
+						ng-model="cstPrcgLblEnqrTable.params.custTagEffectiveDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH5400004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="dateEntryFailure" id="dateEntryFailure"
+						ng-model="cstPrcgLblEnqrTable.params.custTagExpirationDate">
+				</div>
+			</div>
+		</div>
+		<div ng-show="isShow">
+			<div jf-grid="cstPrcgLblEnqrTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH5400030' | translate}}</th>
+							<th>{{'KHH5400031' | translate}}</th>
+							<th>{{'KHH5400006' | translate}}</th>
+							<th>{{'KHH5400007' | translate}}</th>
+							<th>{{'KHH5400008' | translate}}</th>
+							<th>{{'KHH5400023' | translate}}</th>
+							<th>{{'KHH5400003' | translate}}</th>
+							<th>{{'KHH5400004' | translate}}</th>
+							<th width="17%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.pricingLevelDesc"></td>
+							<td align="center" ng-bind="item.pricingLevelCode"></td>
+							<td align="center" ng-bind="item.pricingObject"></td>
+							<td align="center" >
+								<span>{{item.pricingObjectCode}}</span><span>{{item.pricingObjectDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.pricingTag"></td>
+							<td align="center" ng-bind="item.pricingDesc"></td>
+							<td align="center" ng-bind="item.custTagEffectiveDate"></td>
+							<td align="center" ng-bind="item.custTagExpirationDate"></td>
+							<td width="17%" align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="viewCstPrcgLblEnqr(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkCstPrcgLblEnqr(item)">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="deleteCstPrcgLblEnqrs(item)">
+									<i class="layui-icon">&#xe640;</i>{{'F00016' | translate}} 
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

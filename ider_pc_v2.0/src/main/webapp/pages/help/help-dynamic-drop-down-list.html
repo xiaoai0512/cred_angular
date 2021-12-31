@@ -1,0 +1,160 @@
+<div class="mainname">动态内容下拉框使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">数据自定义或者后台请求，动态组装内容，然后用下拉框展示。
+</blockquote>
+
+<div class="mainname">3.3.1 自定义数据下拉框</div>
+<blockquote class="layui-elem-quote">自定义数据集，用下拉框展示</blockquote>
+
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="col_td">
+         <label class="col1 text_right">动态下拉框：</label>
+         <div class="wd190 float_left">
+            &lt;select jf-select="builder.option(demoArray)" ng-model="demo.select"></select>
+         </div>
+    </div>
+    <!-- 下拉框以自己定义的cstId为key，cstNm对应的为值进行展示-->
+    <div class="col_td">
+         <label class="col1 text_right">自定义字段动态下拉框：</label>
+         <div class="wd190 float_left">
+            &lt;select jf-select="builder.option(demoArray2,'cstId','cstNm')" ng-model="demo.select1"></select>
+         </div>
+    </div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    $scope.demoArray = [{name : '字典1' ,id : '1'},{name : '字典2' ,id : '2'}] ;
+    $scope.demoArray2 = [{cstNm : '大客户',cstId : '1'},{cstNm : '小客户',cstId : '2'}];
+</pre>
+<div class="mainname">示例</div>
+<div class="layui-layout-body allcontent" style="height:130px;" ng-controller="dictDemoCtrl">
+    <div class="col_td">
+        <label class="col4 text_right">动态下拉框：</label>
+        <div class="wd190 float_left">
+            <select jf-select="builder.option(demoArray)" ng-model="demo.select"></select>
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">自定义字段动态下拉框：</label>
+        <div class="wd190 float_left">
+            <select jf-select="builder.option(demoArray2,'cstId','cstNm')" ng-model="demo.select1"></select>
+        </div>
+    </div>
+</div>
+
+<div class="mainname">3.3.2 动态请求下拉框</div>
+<blockquote class="layui-elem-quote">下拉框根据后台请求的数据内容进行展示</blockquote>
+<pre class="layui-code" lay-title="Code"  >
+动态下拉框返回结果集数据格式：{
+"status" : 200,
+"data" :
+[
+	{
+		    "id": "RES10156",
+		    "img": "iconmenu03",
+		    "menu": [{
+		        "id": "RES10147",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES10148",
+		            "img": "",
+		            "text": "ui用户教程 1.1",
+		            "url": "/helpDemo"
+		        },
+		        	{
+		            "id": "RES0148",
+		            "img": "",
+		            "text": "1.0->1.1 版本升级修改说明",
+		            "url": "/noticeUi1-1"
+		       		 }
+		        ],
+		        "text": "ui"
+		      },
+		    {
+		        "id": "RES101417",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES101418",
+		            "img": "",
+		            "text": "msdp用户教程 1.0",
+		            "url": "/msdspTutorial"
+		        }],
+		        "text": "msdp"
+		    }
+		    ],
+		    "text": "帮助文档",
+		    "width": 650
+		},
+		{
+		    "id": "RES10155",
+		    "img": "iconmenu02",
+		    "menu": [{
+		        "id": "RES10142",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES10143",
+		            "img": "",
+		            "text": "查询列表实例",
+		            "url": "/listDemo"
+		        },
+		        {
+		            "id": "RES10144",
+		            "img": "",
+		            "text": "信息页面实例",
+		            "url": "/bigPageDemo"
+		        }],
+		        "text": "开发实例"
+		    }],
+		    "text": "开发实例",
+		    "width": 650
+		},
+		
+		{
+		    "id": "RES10165",
+		    "img": "iconmenu04",
+		    "menu": [{
+		        "id": "RES10152",
+		        "img": "",
+		        "menu": [{
+		            "id": "RES10153",
+		            "img": "",
+		            "text": "版本升级公告",
+		            "url": "/noticeUpgrade"
+		        }
+		        ],
+		        "text": "公告说明"
+		    }],
+		    "text": "公告",
+		    "width": 650
+		}
+		]
+}
+</pre>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="col_tr">
+         <label class="col4 text_right" >请求动态下拉框：</label>
+         <div class="wd190 float_left">
+            &lt;select jf-select="dy1"  ng-model="demo.dy1"></select>
+        </div>
+    </div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    $scope.demo = {};
+    $scope.dy1 ={
+        type:"dynamic",
+        param:{pId:"10002"},//默认查询条件
+        text:"name", //下拉框显示内容，根据需要修改字段名称
+        value:"id",  //下拉框对应文本的值，根据需要修改字段名称
+        resource:"roleMenu.query"//数据源调用的action
+    };
+</pre>
+<div class="mainname">示例</div>
+<div  ng-controller="selectListDemoCtrl" class="allcontent">
+    <div class="col_td" style="height: 50px;">
+        <label class="col4 text_right" >请求动态下拉框：</label>
+        <div class="wd190 float_left">
+            <select jf-select="dy1"  ng-model="demo.dy1"></select>
+        </div>
+    </div>
+</div>

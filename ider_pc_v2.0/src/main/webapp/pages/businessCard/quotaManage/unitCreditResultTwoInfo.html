@@ -1,0 +1,61 @@
+<div ng-controller="unitCreditResultTwoInfoCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH100002' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="userNoN" ng-model="resTwoInfo.customerNo"  type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'F00111' | translate}}：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="jobNumberN" ng-model="resTwoInfo.externalIdentificationNo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH600001' | translate}}：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="nameN" ng-model="resTwoInfo.creditTwoTypeInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH600002' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="idNumberN" ng-model="resTwoInfo.currencyCodeInfo"  type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH600003' | translate}}：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resTwoInfo.creditLimit"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'F00189' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resTwoInfo.startDateInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'F00190' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resTwoInfo.endDataInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col3 text_right">{{'SQH600007' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<input class="layui-input bnone" name="loginNameN" ng-model="resTwoInfo.returnCodeInfo"  type="text" >
+			</div>
+		</div>
+		<div class="col_td" ng-show="isNO">
+			<div class="col3 text_right">{{'SQH600008' | translate}} ：</div>
+			<div class="wdper60 float_left">
+				<textarea class="layui-input bnone" name="loginNameN" style="height:200px" ng-model="resTwoInfo.returnMsgInfo"  ></textarea>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

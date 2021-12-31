@@ -1,0 +1,58 @@
+<div class="layout_body" ng-controller="tradModelInfoCtrl">
+	<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+				<tr style="background-color: #DCDCDC;">
+					<th style="width:20%">{{'SQH1600060' | translate}}</th>
+					<th style="width:20%">{{'SQH1600076' | translate}}</th>
+					<th style="width:30%">{{'SQH1600061' | translate}}</th>
+					<th style="width:30%">{{'SQH1600077' | translate}} </th>  
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width:25%" align="center" ng-bind="item.modeName"></td>
+					<td style="width:25%" align="center" ng-bind="item.transSceneCode"></td>
+					<td style="width:25%" align="center" ng-bind="item.transSceneDesc"></td>
+					<td style="width:25%" align="center" ng-bind="item.applicationRangeDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		<div class="mainname">{{'SQH1600064' | translate}}</div>
+		<div  jf-grid="itemInfoList" >
+				<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th align="center" style="width:5%">{{'SQH1600062' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600073' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600069' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600075' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600070' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600071' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600075' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600072' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" style="width:5%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center">
+						   <span>{{item.cardAssociationsDesc}}</span>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" ng-bind="item.field1Desc">
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" ng-bind="item.relative1Desc">
+						</td>
+						<td align="center" style="width:10%;padding-top: 5px;" align="center" ng-bind="item.field1Value">
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" ng-bind="item.field2Desc">
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" ng-bind="item.relative2Desc">
+						</td>
+						<td align="center" style="width:10%;padding-top: 5px;" align="center" ng-bind="item.field2Value"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>

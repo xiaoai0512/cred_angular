@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>供应链业务管理系统</title>
+<style type="text/css">
+	@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+</style>
+ <script>
+ctx = getContextPath();
+console.log(ctx);
+function getContextPath(){
+    var pathName = document.location.pathname;
+    var index = pathName.substr(1).indexOf("/");
+    var result = pathName.substr(0,index+1);
+    return result;
+}
+function getRequestURL() {
+	var localHref = window.location.href;
+	var requestURL = '' ;
+	if(localHref.indexOf('#') >= 0){
+		requestURL = localHref.split("#")[1];
+	}else {
+		requestURL = document.location.pathname ;
+	}
+	return requestURL ;
+}
+// document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/workspace/ider_pc/src/main/webapp/js/main\"> <\/script>");
+// document.write("<base href=\""+ ctx + "/\"" + ">");
+// document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider.css\" type=\"text/css\"/>");
+
+</script>
+<link rel="stylesheet" href="../js/libs/layui/css/layui.css">
+<link rel="stylesheet" href="../theme/default/css/ider.css">
+<link rel="stylesheet" href="../theme/default/css/mody_layui.css">
+
+
+<style type="text/css">
+
+#scrollArea {
+ 
+  height: 280px;
+  overflow: auto;
+ 
+}
+ 
+#bottom {
+ 
+  display: block;
+  margin-top: 2000px;
+ 
+}
+
+
+</style>
+</head>
+<!--<body class="ng-cloak" ng-cloak>
+ <div ng-include="ctx+'/pages/template/admin_header.html'"></div>
+<div class="bodyer">
+	<div class="body_mg20 layui-form layui-form-pane">
+		<div ui-view=""></div>
+	</div>
+</div> 
+	
+	
+</body>-->
+<body class="idre">
+	<div class="layui-container mainMenu_container" ng-controller="testCtrl">
+        <div id="scrollArea" ng-controller="ScrollController">
+ 
+			  <a ng-click="gotoBottom()">Go to bottom</a>
+			  <a id="bottom"></a> You're at the bottom!
+			 
+			</div>
+			
+			
+			
+			<div class="fixed-header" ng-controller="headerCtrl">
+ 
+				  <a href="" ng-click="gotoAnchor(x)" ng-repeat="x in [1,2,3,4,5]">
+				    Go to anchor {{x}}
+				  </a>
+				 
+				</div>
+				<div id="anchor{{x}}" class="anchor" ng-repeat="x in [1,2,3,4,5]">
+				 
+				  Anchor {{x}} of 5
+				 
+				</div>
+			
+
+
+
+        
+		
+	</div>
+	
+</body>
+<script src="../js/libs/layui/layui.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use('element', function(){
+  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+  
+  //监听导航点击
+  element.on('nav(demo)', function(elem){
+    //console.log(elem)
+    layer.msg(elem.text());
+  });
+});
+</script>
+</html>
+

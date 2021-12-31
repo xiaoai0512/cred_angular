@@ -1,0 +1,187 @@
+<div ng-controller="rvlDbtTxnSplmtEntrgCtrl">
+	<!-- <div class="leftmenu_navtitle">循环借记交易补录</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+	<form name="rvlDbtTxnForm">
+		<div class="mainname">{{'KHH1300001' | translate}}</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH1300002' | translate}}</th>
+						<th>{{'KHH1300003' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1300004' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  validator="required" 
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommEntryId"
+					name="ecommEntryId" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCurr"  validator="required"
+					class="layui-input" jf-select="billingCurrency" name="ecommTransCurr">
+				</select>
+				<!-- <input class="layui-input" ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCurr"
+					name="ecommTransCurr" type="text"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransAmount" validator="required"  maxlength="17"
+					name="ecommTransAmount" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300008' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date"  validator="required"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransDate" jf-date-input
+				rvlDbtTxnSplmtEntrg	name="ecommTransDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300009' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransPostingCurr" validator="required"  
+					class="layui-input" jf-select="billingFigure" name="commPostingCurr" lay-filter="getrvlDbtCurr">
+				</select>
+				<!-- 	<input class="layui-input" ng-model="rvlDbtTxnSplmtEntrgInfo.ecommPostingCurr"
+					name="ecommTransPostingCurr" type="text"> -->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300010' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransPostingAmount" validator="required,maxlength,decimals"  maxlength="17"
+					name="ecommTransPostingAmount" type="text" id="ecommTransPostingAmountId">
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right"><span class="red">*</span>{{'KHH1300021' | translate}}：</label>
+			<div class="wd190 float_left">
+				<select class="layui-input" type="text" jf-select="transSceneArray" name="ecommTransSceneCode" validator="required"
+						ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransSceneCode" lay-search=""></select>
+			</div>
+		</div>
+		<div class="col_td" ng-if="isX">
+			<div class="col4 text_right">{{'KHH1300019' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransSource" class="layui-input"
+						jf-select="transSourcArr"
+						name="ecommTransOrigins" ></select>
+			</div>
+		</div>
+		<div class="col_td" ng-if="isQ">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300019' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransSource" class="layui-input"
+						jf-select="transSourcArr"
+						name="ecommTransOrigins" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1300011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransDesc"
+					name="ecommTransDesc" type="text">
+			</div>
+		</div>
+	<!-- 	<div class="col_td">
+			<div class="col4 text_right">授权码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommAuthCde"
+					name="ecommAuthCde" type="text">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">MCC ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommMcc" name="ecommMcc"
+					type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1300012' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCountryCde"
+					name="ecommTransCountryCde" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1300013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransCityCde"
+					name="ecommTransCityCde" type="text">
+			</div>
+		</div>
+		<!-- 交易机构 start-->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1300020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransOrganization" class="layui-input"
+						jf-select="transOrganiArr"
+						name="ecommTransOrganization"></select>
+			</div>
+		</div><!-- end -->
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1300015' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommMerchantCde"
+					name="ecommMerchantCde" type="text">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1300016' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="rvlDbtTxnSplmtEntrgInfo.ecommAcquireReferenceNumbr"
+					name="ecommBillReferenceNumbr" type="text">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">交易模式 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="rvlDbtTxnSplmtEntrgInfo.ecommTransMode"
+					class="layui-input" jf-select="builder.option(posEntryModeArray)"
+					name="ecommPosEntryMode">
+				</select>
+			</div>
+		</div> -->
+
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius"  validation-submit="rvlDbtTxnForm"
+				ng-click="saveRvlDbtTxnSplmtEntrgInfo()" type="button">
+				<i class="layui-icon">&#xe624;</i> {{'F00107' | translate}}
+			</button>
+		</div>
+	</form>
+	</div>
+</div>

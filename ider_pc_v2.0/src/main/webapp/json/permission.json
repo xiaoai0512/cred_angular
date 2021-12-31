@@ -1,0 +1,8 @@
+{
+"status" : 200,
+"data" :
+	{
+		"permitted" : ["table.view","table.add"],
+		"permission" : ["table.view","table.add","table.edit"]
+	}
+}

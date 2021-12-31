@@ -1,0 +1,72 @@
+<div ng-controller="holidayQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 节假日维护查询 -->
+		<form name="holidayInfForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1600015' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" name="holidayNo" ng-model="holidayList.params.holidayNo" jf-select="holidayNoArr" lay-filter="getAccObject">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1600016' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" name="yearNo" ng-model="holidayList.params.queryYear" jf-select="yearNoArr">
+					</select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="seachHoliday()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="holidayList.params={}">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- <div class="promptInfo" ng-show="isprompt">{{'F00076' | translate}}</div> -->
+		<!-- 节假日维护列表 -->
+		<div ng-show="isShow">
+			<div jf-grid="holidayList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00013' | translate}}</th>
+							<th>{{'PZH1600015' | translate}} </th>
+							<th>{{'PZH1600016' | translate}}</th>
+							<th>{{'PZH1600017' | translate}}</th>
+							<th>{{'PZH1600018' | translate}}</th>
+							<th>{{'PZH1600019' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.holidayNo"></td>
+							<td align="center" ng-bind="item.year"></td>
+							<td align="center" ng-bind="item.month"></td>
+							<td align="center" ng-bind="item.holidayDate"></td>
+							<td align="center" ng-bind="item.holidayStatusDesc"></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="updateHoliday(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="deleteHoliday(item)" ng-show="delBtnFlag">
+									<i class="layui-icon">&#xe640;</i>{{'F00016' | translate}} 
+								</button>
+						</td>
+						
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

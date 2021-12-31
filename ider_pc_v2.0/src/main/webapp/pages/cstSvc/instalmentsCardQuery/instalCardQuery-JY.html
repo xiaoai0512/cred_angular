@@ -1,0 +1,102 @@
+<div ng-controller="creditTradeCardCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+		<!-- <div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="creditTradeList.params.idType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="creditTradeList.params.idNumber" maxlength="30">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="creditTradeList.params.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+				<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="creditTradeList.params.customerNo"
+						name="customerNo" type="text">
+				</div>
+			</div> -->
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchBtn()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+		<div ng-show ="isShowCreditTrade">
+			<div jf-grid="creditTradeList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4600003' | translate}}</th>
+							<th>{{'KHH4600004' | translate}}</th>
+							<th>{{'KHH4600005' | translate}}</th>
+							<th>{{'KHH4600006' | translate}}</th>
+							<th>{{'KHH4600007' | translate}}</th>
+							<th>{{'KHH4600008' | translate}}</th>
+							<th  width="20%" >{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" >
+								<span ng-if="item.loanType == 'MERH' ">{{'KHH4600009' | translate}}</span>
+								<span ng-if="item.loanType == 'TXAT' ">{{'KHH4600010' | translate}}</span>
+								<span ng-if="item.loanType == 'CASH' ">{{'KHH4600011' | translate}}</span>
+								<span ng-if="item.loanType == 'STMT' ">{{'KHH4600012' | translate}}</span>
+								<span ng-if="item.loanType == 'TRAN' ">{{'KHH4600013' | translate}}</span>
+							</td>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.loanAmount | number:2" ></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.loanTerm"></td>
+							<td align="center" ng-bind="item.startIntDate"></td>
+							<td align="center" style="padding: 0px 0px;">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkInfo(item)">
+									<i class="layui-icon"></i> {{'F00009' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="earlySettlement(item)" ng-show="item.loanType == 'LOAN'">
+									<i class="layui-icon"></i> {{'KHJ4600002' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="returnedPurchase(item)">
+									<i class="layui-icon"></i> {{'F00048' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="preHandler(item)">
+									<i class="layui-icon"></i> 提前结清
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+</div>	

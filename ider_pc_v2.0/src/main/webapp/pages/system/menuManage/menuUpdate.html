@@ -1,0 +1,66 @@
+<div ng-controller="menuUpdateCtrl">
+	<div class="">
+		<form name="updateForm"  class="layui-form">
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500036' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="sceneDescN"  type="text" ng-model="item.menuName" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500037' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="menuLevelArr"  name="menuLevel" ng-model="menuLevel" lay-filter="getLevel2"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show="fatherinfut">
+				<div class="col2 text_right">{{'YWH5500044' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="menuFatherArr" name="menuFather"  lay-search="" ng-model="updateUpperMenuNo"></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500039' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="triggerNoN" ng-model="item.link"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500045' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="lowerFlag" lay-search="" name="lowerMenuN" ng-model="lowerMenuFlag"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500046' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="triggerNoN" ng-model="item.menuDesc" type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500038' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="menuFlag" lay-search="" name="menuFlag" ng-model="displayFlag"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500047' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="baseFlagArr" lay-search="" name="baseFlag" ng-model="baseFlag"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500048' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="iconArr" lay-search="" name="iconN" ng-model="icon"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500049' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="sortN" ng-model="item.sort"  type="text" autocomplete="off">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

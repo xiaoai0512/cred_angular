@@ -1,0 +1,20 @@
+<div ng-controller="updateLegalCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<!-- <div class="mainname titleInfo">基本信息</div> -->
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>运营模式：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="coArray" name="operationMode" ng-model="itemUpdate.upOperationMode" disabled></select>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>法人 ：</div>
+			<div class="wdper70 float_left">
+				<select class="layui-input" jf-select="legalArray" name="operationMode" ng-model="itemUpdate.upCorporationEntityNo" maxlength="10"></select>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

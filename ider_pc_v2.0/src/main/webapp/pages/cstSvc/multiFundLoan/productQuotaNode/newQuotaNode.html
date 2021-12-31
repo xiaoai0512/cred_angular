@@ -1,0 +1,68 @@
+<div ng-controller="newQuotaNodeCtrl">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'FQH800090' | translate}}</div>
+	<div style="margin-bottom: 15px;margin-left: 5%;">
+		<div class="layui-inline">
+			<label class="layui-form-label">{{'FQH800041' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="businessTypeCode"  ng-model="proLineInf.creditNodeNo" maxlength="50" >
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">{{'FQH800091' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="businessDesc"  ng-model="proLineInf.creditDesc" maxlength="50">
+			</div>
+		</div>
+		<div class="layui-inline" style="margin-left: 5%;">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryBusinessList()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="modalmain">
+		<div class="row">
+			<div class="colFive">
+				<h7>{{'FQH800088' | translate}}：</h7>
+				<!-- <button class="layui-btn" style="margin-left:8%" id="addBusTypeNewId" ng-click="addBusTypeNew()">
+					<i class="layui-icon">&#xe654;</i> {{'YYH510034' | translate}}
+				</button> -->
+			</div>
+			<div class="colSix">
+				<h7>{{'FQH800089' | translate}}</h7>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+		<div class="row">
+			<div class="colOne">
+				<select name="s13" size="10" multiple="multiple" id="s55" class="form_selectgro">
+					
+				</select>
+			</div>
+			<div class="colTwo4 text-center">
+				<button type="button" class="layui-btn mb15" name="add" id="add55" value="">
+					{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+				</button>
+				<br />
+				<button type="button" class="layui-btn mb15" name="addall" id="addall55" value="">
+					{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+				</button>
+				<br />
+				<button type="button" name="remove" id="remove55" class="layui-btn mb15">
+					<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+				</button>
+				<br />
+				<button type="button" name="removeall" id="removeall55" value="" class="layui-btn mb15">
+					<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+				</button>
+			</div>
+			<div class="colThree">
+				<select name="s14" size="10" multiple="multiple" id="s56" class="form_selectgro">
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+	

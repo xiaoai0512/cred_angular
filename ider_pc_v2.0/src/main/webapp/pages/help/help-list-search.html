@@ -1,0 +1,143 @@
+<div class="mainname">带分页的列表使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">列表查询说明</br>
+列表会以$scope.列表名称.params所含有的字段作为条件进行查询</br>
+$scope.gridNm = {</br>
+      checkType : 'radio', //当为checkbox时为多选</br>
+      <span style="color:red">params :{}, //表格查询时的参数信息  </span>      </br>
+      paging : true ,//默认true,是否分页</br>
+      resource : 'tableDemo.query' ,//列表的资源</br>
+      callback : function() { //表格查询后的回调函数
+      }</br>
+      }</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div jf-grid="gridNm">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th>融资日期</th>
+                    <th>上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  $scope.gridNm = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : true ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      }
+  };
+</pre>
+
+<div class="mainname">在js执行列表查询</div>
+<blockquote class="layui-elem-quote">js代码</blockquote>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+       <!-- 列表查询事件 -->
+       $scope.gridNm.search();
+</pre>
+<div class="mainname">在html执行列表查询</div>
+<blockquote class="layui-elem-quote">html代码</blockquote>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+	<div class="search_mian">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">流程名称:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text" ng-model="gridNm.params.processDefineName">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">融资人:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text" ng-model="gridNm.params.processDefineName">
+				</div>
+			</div>
+		</div>
+		<div class="search_button">
+              <!-- 查询按钮 -->
+             <button class="layui-btn" ng-click="gridNm.search()">
+                 <i class="layui-icon">&#xe615;</i> 查询
+             </button>
+             <!--  初始化列表查询参数 -->
+             <button class="layui-btn" ng-click="gridNm.params={}">
+                 <i class="layui-icon">&#x1002;</i> 重置
+             </button>
+		</div>
+	</div>       
+</pre>
+<div class="layout_body" ng-controller="listDemoCtrl">
+<div class="mainname">列表例子</div>
+<div class="layui-form">
+	<div class="search_mian">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">流程名称:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text" ng-model="grid.params.processDefineName">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">融资人:</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text" ng-model="grid.params.preUserName">
+				</div>
+			</div>
+		</div>
+		<div class="search_button">
+			<button class="layui-btn" ng-click="gridNm.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+			<button class="layui-btn" ng-click="grid.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+</div>
+<div jf-grid="grid" >
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th>融资日期</th>
+                    <th>上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+	</div>
+</div>

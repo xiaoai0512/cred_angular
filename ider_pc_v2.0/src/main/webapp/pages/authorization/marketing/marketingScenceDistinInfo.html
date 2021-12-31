@@ -1,0 +1,73 @@
+<div class="layout_body" ng-controller="marketingScenceDistinInfoCtrl">
+	<div class="search_mian">
+		<from class="layui-form">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00077' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select ng-model="operationModeInfo" class="layui-input"
+								jf-select="coArray" name="operationModeInfoN" placeholder="运营模式" disabled></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH310002' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="item.marketingSceneCode" readonly>
+					</div>
+				</div>
+				<!--<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH310001' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="item.authSceneCode" readonly>
+					</div>
+				</div>-->
+			</div>
+		</from>
+	</div>
+	<div>
+	<div class="mainname titleInfo">{{'SQH310033' | translate}}</div>
+	<!--<div class="col_td">
+			<div class="col4 text_right">{{'SQH310034' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="priorityN"  type="text" ng-model="item.priority" validator="required" readonly>
+			</div>
+	</div>-->
+	<div class="col_td">
+			<div class="col4 text_right">{{'F00189' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listDescN"  type="text" ng-model="item.startDate" validator="required" autocomplete="off" readonly>
+			</div>
+	</div>
+	<div class="col_td">
+			<div class="col4 text_right">{{'F00190' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listDescN"  type="text" ng-model="item.endDate" validator="required" autocomplete="off" readonly>
+			</div>
+	</div>
+	<div class="col_td">
+			<div class="col4 text_right">{{'SQH310029' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input"
+								jf-select="listTypeArray" ng-model="transLocationInfo" validator="required" disabled></select>
+			</div>
+	</div>
+	<div class="col_td">
+			<div class="col4 text_right">{{'SQH310030' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listDescN"  type="text" ng-model="item.channelListCode" validator="required" autocomplete="off" readonly>
+			</div>
+	</div>
+	<div class="col_td">
+			<div class="col4 text_right">{{'SQH310031' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listDescN"  type="text" ng-model="item.merchantListCode" validator="required" autocomplete="off" readonly>
+			</div>
+	</div>
+	<div class="col_td">
+			<div class="col4 text_right">{{'SQH310032' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listDescN"  type="text" ng-model="item.productListCode" validator="required" autocomplete="off" readonly>
+			</div>
+	</div>
+    </div>
+</div>   

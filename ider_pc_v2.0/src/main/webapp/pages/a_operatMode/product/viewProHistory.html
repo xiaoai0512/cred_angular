@@ -1,0 +1,54 @@
+<div ng-controller="viewProHistoryCtrl">
+    <div class="section  layui-form">
+        <form name=""  class="">
+            <div class="mainname">{{'YYH300031' | translate}}</div><!--产品构件实例-->
+            <div jf-grid="proParamerList">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>{{'YYH300026' | translate}}</th>
+                        <th>{{'YYH300027' | translate}}</th>
+                        <th>{{'YYH300028' | translate}}</th>
+                        <th>{{'YYH300029' | translate}}</th>
+                        <th>{{'YYH300030' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td align="center" ng-bind="item.modifyFieldName"></td>
+                        <td align="center" ng-bind="item.modifyBefore"></td>
+                        <td align="center" ng-bind="item.modifyAfter"></td>
+                        <td align="center" ng-bind="item.operatorId"></td>
+                        <td align="center" ng-bind="item.gmtCreate"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearboth"></div>
+            <div class="mainname">{{'YYH300020' | translate}}</div><!--产品构件实例-->
+            <div jf-grid="artifactView">
+                <table>
+                    <thead>
+                    <tr>
+                        <th align="left" style="width:40%">{{'YYH510004' | translate}}</th>
+                        <th style="width:30%">{{'YYH510007' | translate}}</th>
+                        <th>{{'YYH300027' | translate}}</th>
+                        <th>{{'YYH300028' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td align="center">
+                            <div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+                            <div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+                        </td>
+                        <td align="center">{{item.pcdNo}} {{item.pcdDesc}}</td>
+                        <td align="center">{{item.modifyBefore}}</td>
+                        <td align="center">{{item.modifyAfter}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

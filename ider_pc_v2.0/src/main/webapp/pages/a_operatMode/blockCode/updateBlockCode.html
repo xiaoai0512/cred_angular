@@ -1,0 +1,185 @@
+<div ng-controller="updateBlockCodeCtrl">
+		<div class="search_mian ">
+			<form name="blockCodeItemForm" class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH700001' | translate}}  ：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="updateOperationModeInfo" 
+								jf-select="operationModeArr" name="operationMode"  disabled>
+							</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH700002' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="effectivenessCodeType"  jf-select="blockTypeArr" name="effectivenessCodeTypeN"
+							disabled>
+							</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH700003' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text"  name="effectivenessCodeSceneN" 
+							ng-model="blockCodeItem.effectivenessCodeScene" disabled>
+					</div>
+				</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right">{{'YYH700004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="blockCodePrioriy" maxlength="2"
+							ng-model="blockCodeItem.blockCodePrioriy" >
+					</div>
+					<div class="search_button">
+						<button class="layui-btn" ng-click="choseBtnPriority()" >
+							<i class="layui-icon">&#xe615;</i>查询
+						</button>
+					</div>
+				</div> -->
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH700005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<!-- <input class="layui-input" type="text" name="blockScope"
+							ng-model="blockCodeItem.blockScope"> -->
+							<select  class="layui-input" ng-model="effectivenessCodeScope" 
+						jf-select="blockCodeRangeArr" name="effectivenessCodeScopeN">
+					</select> 
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH700006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="effectivenessCodeDescN" maxlength="50"
+							ng-model="blockCodeItem.effectivenessCodeDesc"  validator="required"/>
+					</div>
+				</div>
+			</form>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH700036' | translate}}</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH700021' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="controlProjectNo"  ng-model="blockCodeItem.controlProjectNo" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH700037' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="controlDesc"  ng-model="blockCodeItem.controlDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryProjectList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+			<div class="row">
+				<div class="colFive">
+					<h7>{{'YYH700038' | translate}}</h7>
+				</div>
+				<div class="colSix">
+					<h7>{{'YYH700039' | translate}}</h7>
+				</div>
+				<div class="clearboth"></div>
+			</div>
+			<div class="row">
+				<div class="colOne">
+					<select name="s43" size="10" multiple="multiple" id="s43" class="form_selectgro">
+						
+					</select>
+				</div>
+				<div class="colTwo4 text-center">
+					<button type="button" class="layui-btn mb15" name="add" id="add43" value="">
+						{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+					</button>
+					<br />
+					<button type="button" class="layui-btn mb15" name="addall" id="addall43" value="">
+						{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+					</button>
+					<br />
+					<button type="button" name="remove" id="remove43" class="layui-btn mb15">
+						<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+					</button>
+					<br />
+					<button type="button" name="removeall" id="removeall43" value="" class="layui-btn mb15">
+						<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+					</button>
+				</div>
+				<div class="colThree">
+					<select name="s44" size="10" multiple="multiple" id="s44" class="form_selectgro">
+					</select>
+				</div>
+				<div class="clearboth"></div>
+			</div>
+		</div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH700040' | translate}}</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH700026' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="pricingTag"  ng-model="blockCodeItem.pricingTag" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH700027' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="pricingDesc"  ng-model="blockCodeItem.pricingDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryPricingLabel()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+			<div class="row">
+				<div class="colFive">
+					<h7>{{'YYH700028' | translate}}</h7>
+				</div>
+				<div class="colSix">
+					<h7>{{'YYH700029' | translate}}</h7>
+				</div>
+				<div class="clearboth"></div>
+			</div>
+			<div class="row">
+				<div class="colOne">
+					<select name="s45" size="10" multiple="multiple" id="s45" class="form_selectgro">
+						
+					</select>
+				</div>
+				<div class="colTwo4 text-center">
+					<button type="button" class="layui-btn mb15" name="add" id="add45" value="">
+						{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+					</button>
+					<br />
+					<button type="button" class="layui-btn mb15" name="addall" id="addall45" value="">
+						{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+					</button>
+					<br />
+					<button type="button" name="remove" id="remove45" class="layui-btn mb15">
+						<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+					</button>
+					<br />
+					<button type="button" name="removeall" id="removeall45" value="" class="layui-btn mb15">
+						<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+					</button>
+				</div>
+				<div class="colThree">
+					<select name="s46" size="10" multiple="multiple" id="s46" class="form_selectgro">
+					</select>
+				</div>
+				<div class="clearboth"></div>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,95 @@
+<div ng-controller="updateCapitalAccountInfoCtrl">
+	<div class="">
+		<form name="balanceObjForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800018' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="corporationEntityNo"   jf-select="customerNameArr" 
+					 	lay-filter="getCustomerName"  name="corporationEntityNo" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800019' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="corporationEntityName"
+						 name="corporationEntityName" type="text"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800026' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="updateAccountInfo.accountName"
+						 name="accountName" type="text" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800027' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="updateAccountInfo.bankName"
+						 name="amount" type="text" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800028' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="updateAccountInfo.bankNo"
+						 name="bankNo" type="text" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800029' | translate}}：</div>
+				<div class="wd330 float_left">
+				 	<select ng-model="updateAccountInfo.cashOrRemit"  jf-select="cashOrRemitArray" 
+						validator="required" lay-filter="cashOrRemit"  name="cashOrRemit">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800031' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="updateAccountInfo.accountNo"
+						 name="accountNo" type="text" validator="required" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800030' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select  ng-model="updateAccountInfo.accountCcy" 
+					 jf-select="accountCcyArray"  lay-filter="accountCcy"  name="accountCcy" >
+					</select>
+				</div>
+			</div>
+			<!-- <div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800034' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="updateAccountInfo.accountInfo"
+						 name="accountInfo" type="text" validator="required">
+				</div>
+			</div> -->
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800033' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="updateAccountInfo.accountInd" 
+					 jf-select="accountIndArr" validator="required" lay-filter="accountInd"  name="accountInd" >
+					</select>
+				</div>
+			</div>
+			<!-- <div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800035' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="updateAccountInfo.ldgrCode"
+						 name="ldgrCode" type="text" validator="required" >
+				</div>
+			</div> -->
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800032' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="updateAccountInfo.accountType" 
+					 jf-select="accountTypeArray" validator="required" lay-filter="accountType"  name="accountType" >
+					</select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

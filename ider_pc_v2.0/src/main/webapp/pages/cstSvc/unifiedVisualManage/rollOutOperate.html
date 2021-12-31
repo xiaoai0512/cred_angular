@@ -1,0 +1,42 @@
+<div ng-controller="rollOutOperateCtrl">
+	<form name="rollOutOperateForm"  class="layui-form">
+	<div class="clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>转出金额：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="transAmount" type="text" ng-model="rollOutOperate.transAmount" maxlength="18" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>转出卡号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="rollOutOperate.externalIdentificationNo" maxlength="32">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>姓名：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="mediaUserName" type="text" ng-model="rollOutOperate.mediaUserName" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>交易日期：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date"  validator="required" ng-model="rollOutOperate.transDate" jf-date-input
+				rollOutOperate1	name="transDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">银行：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="rollOutOperate.bank" name="bank" type="text" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">转出说明：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="rollOutOperate.rollOutInstruction" name="rollOutInstruction" type="text" maxlength="30">
+			</div>
+		</div>
+	</form>
+</div>

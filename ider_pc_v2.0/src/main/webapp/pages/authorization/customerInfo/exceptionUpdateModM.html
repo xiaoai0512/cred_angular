@@ -1,0 +1,60 @@
+<div ng-controller="exceptionListCtrlMU">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form name="mdmInfoFormM"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00111' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="externalIdentificationNoM" ng-model="itemU.externalIdentificationNo" type="text" validator="required" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="cardAssociationsM" ng-model="itemU.cardAssociations" type="text" validator="required" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="contrlDescM" ng-model="itemU.contrlDesc" type="text" autocomplete="off">
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'SQH2600006' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2600017' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="fileIdU" class="layui-input"
+							jf-select="fileArray" name="fileIdM" placeholder="文件ID" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600013' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input " name="cardSerialNoM" ng-model="itemU.cardSerialNo" type="text" validator="maxlength,number" maxlength="3" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600014' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="expirationDateM" ng-model="itemU.expirationDate" type="text" placeholder="YYYYMM" validator="maxlength,number" maxlength="6" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2600008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="contrlReasonU" class="layui-input"
+							jf-select="contrlRArray" name="contrlReasonM" placeholder="控管原因" lay-filter="getInfoU" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td" ng-show="infoV">
+					<div class="col4 text_right">{{'SQH2600015' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="vipAmountM" ng-model="itemU.vipAmount" type="text">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

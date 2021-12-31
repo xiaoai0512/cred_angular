@@ -1,0 +1,156 @@
+<div ng-controller="accRuleSubSubjectEstCtrl">
+	<div class=" ">
+		<form name="accRuleSubSubjectForm" class="layui-form">
+			<div class="col_td">
+				<div class="col5 text_right"><span class="red">*</span>{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.operationMode" jf-select="operationModeArr" name="operationMode"
+					 validator="required,maxlength" maxlength="3" lay-filter="getOperationMode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right"><span class="red">*</span>{{'YYH5400013' | translate}}：</div>
+				<div class="wd190 float_left">
+					 <select class="layui-input" ng-model="accRuleSubSubjectInf.accountingRuleCode" jf-select="accountingRuleCodeArr" name="accountingRuleCodeN"
+					 validator="required" lay-filter="getAccountingRuleCode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400033' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="subTableSequence" ng-model="accRuleSubSubjectInf.subTableSequence"
+					 maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400113' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="subTableSequenceDesc" ng-model="accRuleSubSubjectInf.subDesc">
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH5400036' | translate}}</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400034' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement1" ng-model="accRuleSubSubjectInf.engineElement1"
+					 maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400037' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement1Desc" ng-model="accRuleSubSubjectInf.engineElement1Desc"
+					 maxlength="20">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400035' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement2" ng-model="accRuleSubSubjectInf.engineElement2"
+					 maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400038' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement2Desc" ng-model="accRuleSubSubjectInf.engineElement2Desc"
+					 maxlength="20">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400082' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.accountingStatus" jf-select="accountingStatusArr" name="instanDimen4"
+					 maxlength="3">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400083' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.balanceStatus" jf-select="accountingStatusArr" name="balanceStatus"
+					 maxlength="3">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400039' | translate}}：</div>
+				<div class="wd190 float_left">
+
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.assetProperty" jf-select="assetPropertyArr" name="assetProperty">
+					</select>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col5 text_right">{{'YYH5400093' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.bindAcctScene" jf-select="bindAcctSceneArr" name="bindAcctSceneN">
+					</select>
+				</div>
+			</div> -->
+			<div class="col_td"></div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400104' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.linkedRevenueRuleCode" jf-select="linkedArr" name="linkedRevenueRuleCodeN" lay-filter="getRule01">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400114' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.linkedRevenueSubCode" jf-select="linkedSub01Arr" name="linkedRevenueSubCodeN">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400105' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.linkedTaxRuleCode" jf-select="linkedArr" name="linkedTaxRuleCodeN" lay-filter="getRule02">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400115' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.linkedTaxSubCode" jf-select="linkedSub02Arr" name="linkedTaxSubCodeN">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHave">
+				<div class="col5 text_right">{{'YYH5400106' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.bindingLinkedRevenueRuleCode" jf-select="linkedArr" name="bindingLinkedRevenueRuleCodeN" lay-filter="getRule03">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHave">
+				<div class="col5 text_right">{{'YYH5400116' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.bindingLinkedRevenueSubCode" jf-select="linkedSub03Arr" name="bindingLinkedRevenueSubCodeN">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHave">
+				<div class="col5 text_right">{{'YYH5400107' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.bindingLinkedTaxRuleCode" jf-select="linkedArr" name="bindingLinkedTaxRuleCodeN" lay-filter="getRule04">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHave">
+				<div class="col5 text_right">{{'YYH5400117' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accRuleSubSubjectInf.bindingLinkedTaxSubCode" jf-select="linkedSub04Arr" name="bindingLinkedTaxSubCodeN">
+					</select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

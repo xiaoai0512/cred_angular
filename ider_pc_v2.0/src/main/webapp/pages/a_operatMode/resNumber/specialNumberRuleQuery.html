@@ -1,0 +1,90 @@
+<div ng-controller="specialNumberListsCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 特殊号规则查询 -->
+		<div class="search_mian ">
+			<from class="layui-form">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'YYH5300004' | translate}}：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input" ng-model="corporationEntityNo" name="corporationEntityNo" type="text" maxlength="10"
+							 id="corporationEntityNo">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'YYH5300005' | translate}}：</label>
+						<div class="layui-input-inline">
+							<select ng-model="specNoListTable.params.cardBin" class="layui-input" jf-select=cardBinArr name="cardBinN"
+							 lay-search="" lay-filter="getCardBin"></select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'F00128' | translate}}：</label>
+						<div class="layui-input-inline">
+							<select ng-model="specNoListTable.params.segmentNumber" class="layui-input" jf-select=segmentNumberArr name="segmentNumber"></select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'YYH5300006' | translate}}：</label>
+						<div class="layui-input-inline">
+							<select ng-model="specNoListTable.params.numberType" class="layui-input" jf-select="numberTypeArry"
+							 name="numberTypeN"></select>
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<div class="layui-inline">
+							<button class="layui-btn" ng-click="specNoListTable.search()" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn" ng-click="addSpecNoListTable()" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+							</button>
+							<!-- <button class="layui-btn cancel-btn" type="button"
+								ng-click="resetChose()">
+								<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+							</button> -->
+						</div>
+					</div>
+				</div>
+			</from>
+		</div>
+		<!-- 规则列表 -->
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH5300007' | translate}}</div>
+		<div jf-grid="specNoListTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH5300005' | translate}}</th>
+						<th>{{'F00128' | translate}}</th>
+						<th>{{'YYH5300006' | translate}}</th>
+						<th>{{'YYH5300008' | translate}}</th>
+						<th width="15%;">{{'YYH5300009' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<!-- <td align="center" ng-bind="$index+1"></td> -->
+						<td align="center" ng-bind="item.cardBin"></td>
+						<td align="center" ng-bind="item.segmentNumber"></td>
+						<td align="center" ng-bind="item.numberType"></td>
+						<td align="center" ng-bind="item.numberBit"></td>
+						<td align="center" ng-bind="item.numberRange"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="selectInfo(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

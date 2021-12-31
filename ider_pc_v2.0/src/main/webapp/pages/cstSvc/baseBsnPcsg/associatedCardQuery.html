@@ -1,0 +1,283 @@
+<div ng-controller="associatedCardQueryCtrl">
+	<!-- <div class="leftmenu_navtitle">实时制卡</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action="" name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" name="externalIdentificationNo"
+					ng-model="searchParams.externalIdentificationNo">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchHandlee()" validation-submit="queryInfForm">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+	  </form>
+	<!-- 客户基本信息 -->
+	<div class="layui-form" >
+		<div class="clearboth"></div>
+		<div  ng-show="showAssociatedCardDiv">
+			<div class="mainname">{{'KHH900003' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" 
+							ng-model="rlTmMkCrdInfo.idType" disabled>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'F00112' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="rlTmMkCrdInfo.idNumber">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'KHH900006' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" ng-model="rlTmMkCrdInfo.customerName"
+							type="text">
+					</div>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH900035' | translate}}</div>
+			<div jf-grid="associatedCardList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00111' | translate}}</th>
+							<th>{{'KHH900036' | translate}}</th>
+							<th>{{'KHH900037' | translate}}</th>
+							<th>{{'KHH900038' | translate}}</th>
+							<th>{{'KHH900039' | translate}}</th>
+							<th>{{'KHH900040' | translate}}</th>
+							<!-- <th>操作</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.externalIdentificationNo"></td>
+							<td align="center" ng-bind="item.mediaUnitCode"></td>
+							<td align="center" >
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+							<td align="center" ng-bind="item.mediaUserName"></td>
+							<td align="center" ng-bind="item.invalidFlagDesc"></td>
+							<!-- <td align="center">
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="checkMedia(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td> -->
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div ng-show="isShowMediaInfDiv">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH900044' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900036' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.mediaUnitCode" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.mediaObjectCodeTrans" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.productObjectCodeTrans" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.externalIdentificationNo" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" ng-model="mediaDetailInfo.mainSupplyIndicatorStr" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.mediaUserName" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.mainCustomerNo" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900048' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.mediaHolderNo" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900049' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaDetailInfo.institutionId" jf-select="institutionIdArr" name="institutionId" disabled >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="mediaDetailInfo.operationMode"  jf-select="operationModeArr" name="operationMode"
+					  disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900019' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.expirationDate" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900051' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" ng-model="mediaDetailInfo.previousExpirationDate" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+					<div class="col4 text_right">{{'KHH900052' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date"  type="text"  disabled="disabled"
+						ng-model="mediaDetailInfo.createDate" name="createDate" jf-date-input>
+					</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900024' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.embosserName1" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900053' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.applicationStaffNo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900054' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.branchNumber" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900055' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.applicationNumber" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900056' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.marketerCode" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900057' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaDetailInfo.pinDispatchMethod" disabled
+						class="layui-input" maxlength="1"
+						jf-select="pinDispatchMethodArr"
+						name="pinDispatchMethod" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900058' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaDetailInfo.mediaDispatchMethod" disabled
+						class="layui-input" maxlength="1"
+						jf-select="mediaDispatchMethodArr"
+						name="mediaDispatchMethod" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900059' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaDetailInfo.activationFlag" class="layui-input"
+					jf-select="activationFlagArr" name="activationFlag" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900060' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="mediaDetailInfo.activationMode" class="layui-input"
+					jf-select="activationModeTypeArr" name="activationModen" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900061' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date"  type="text" disabled="disabled"
+					ng-model="mediaDetailInfo.activationDate" name="activationDate" jf-date-input>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900062' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date"  type="text" disabled="disabled"
+					ng-model="mediaDetailInfo.annualFeeDate" name="annualFeeDate" jf-date-input>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900063' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date"  type="text" disabled="disabled"
+					ng-model="mediaDetailInfo.waiveFirstAnnualFeeDate" name="waiveFirstAnnualFeeDate" jf-date-input>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900064' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.lastAnnualFeeCycleNo"  name="lastAnnualFeeCycleNo" maxlength="11"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900065' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.invalidFlagStr"  name="invalidFlagStr" maxlength="11"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH900066' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text"  ng-model="mediaDetailInfo.invalidReasonStr"  name="invalidReasonStr" maxlength="11"  readonly>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

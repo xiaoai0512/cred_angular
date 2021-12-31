@@ -1,0 +1,61 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "oprtMode": "A01",
+                    "bsnMdltyCd": "MODX00001",
+                    "bsnMdltyDsc": "循环免息",
+                    "bsnTpCd": "MODT00001",
+                    "bsnTpDs": "正常免息类型"
+                },
+                {
+                    "oprtMode": "A01",
+                    "bsnMdltyCd": "MODX00002",
+                    "bsnMdltyDsc": "循环收息",
+                    "bsnTpCd": "MODT00002",
+                    "bsnTpDs": "正常取现类型"
+                },
+                {
+                    "oprtMode": "A01",
+                    "bsnMdltyCd": "MODX00003",
+                    "bsnMdltyDsc": "分期",
+                    "bsnTpCd": "MODT00001",
+                    "bsnTpDs": "账单分期类型"
+                },
+                {
+                    "oprtMode": "A01",
+                    "bsnMdltyCd": "MODX00003",
+                    "bsnMdltyDsc": "分期",
+                    "bsnTpCd": "MODT00002",
+                    "bsnTpDs": "POS分期类型"
+                },
+                {
+                    "oprtMode": "A01",
+                    "bsnMdltyCd": "MODX00003",
+                    "bsnMdltyDsc": "分期",
+                    "bsnTpCd": "MODT00003",
+                    "bsnTpDs": "POS现金类型"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 5
+        }
+        
+    },
+    "status": 200
+}

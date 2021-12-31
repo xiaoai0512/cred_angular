@@ -1,0 +1,48 @@
+<div class="layui-form" ng-controller="viewPrefabCardCtrl">
+	<div  class="section">
+		<form name="prefabCardForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="prefabCardInf.corporationEntityNo" readonly
+						validator="required" name="corporationEntityNo" type="text" maxlength="10"  id="corporationEntityNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="prefabCardInf.vwproductObjectCode" class="layui-input" lay-filter="getFormatCode" disabled
+						jf-select="productObjectCodeArr" name="productObjectCode" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170003' | translate}}：</div>
+				<div class="wd190 float_left">
+					     <select ng-model="prefabCardInf.vwmediaObjectCode" class="layui-input" disabled
+						jf-select="mediaObjectCodeArr" name="mediaObjectCode" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="prefabCardInf.vwformatCode" class="layui-input" id="formatCode" disabled
+						jf-select="formatCodeArr" name="formatCode" 
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input  type="text" class="layui-input bnone " ng-model="prefabCardInf.applyDate" name="applyDate" disabled />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input  type="text" class="layui-input bnone"  ng-model="prefabCardInf.applyNumber" name="applyNumber" disabled />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

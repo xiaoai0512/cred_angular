@@ -1,0 +1,107 @@
+<div ng-controller="addFunderInfoCtrl">
+	<div class="">
+		<form name="balanceObjForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800018' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="funderInfo.corporationEntityNo"   jf-select="customerNumArr" 
+						 lay-filter="getCustomerNum"  name="customerNum" validator="required">
+					</select>	
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800019' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.corporationEntityName"
+						 name="customerName" type="text"  disabled validator="required">
+				</div>
+			</div>
+			<!-- 机构编号 -->
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800060' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.orgNum"
+						 name="feeRatio" type="text" disabled>
+				</div>
+			</div> -->
+			<div class="col_td" ng-if="funderInfo.fundsType ==1">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800016' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.amount"
+						 name="amount" type="text"  validator="required">
+				</div>
+			</div>
+			<div class="col_td"  ng-if="funderInfo.fundsType ==0">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800015' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.ratio"
+						 name="ratio" type="text" validator="required">
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800017' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="funderInfo.isBankFunds" jf-select="isBankFundsArr" 
+						validator="required" lay-filter="isBankFunds"  name="isBankFunds">
+					</select>
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800020' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<select ng-model="funderInfo.dividendRule"  jf-select="dividendRuleArr" 
+						validator="required" lay-filter="dividendRule"  name="dividendRule">
+					</select>
+				</div>
+			</div>
+			<!-- 利率 -->
+			<div class="col_td" ng-if="funderInfo.dividendRule=='1'">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800038' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.profitMargin"
+						 name="profitMargin" type="text" validator="required">
+				</div>
+			</div>
+			<!-- 分润比例 -->
+			<div class="col_td" ng-if="funderInfo.dividendRule=='2'">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800039' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.interestDividendRatio"
+						 name="interestDividendRatio" type="text" validator="required" >
+				</div>
+			</div>
+			<!-- 多资金归属 -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800021' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select  ng-model="funderInfo.restInd" 
+					jf-select="isRestIndArray" validator="required" lay-filter="restInd"  name="restInd" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH800022' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="funderInfo.feeRules" 
+					jf-select="feeRulesArray"  lay-filter="feeRules"  name="feeRules" ></select>
+				</div>
+			</div>
+			<!-- 费用固定金额 -->
+			<div class="col_td" ng-if="funderInfo.feeRules=='0'">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800036' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.fixedAmountFee"
+						 name="feeRatio" type="text" validator="required" >
+				</div>
+			</div>
+			<!-- 费用比例（%） -->
+			<div class="col_td" ng-if="funderInfo.feeRules=='1'">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800037' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="funderInfo.feeRatio"
+						 name="feeRatio" type="text" validator="required" >
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

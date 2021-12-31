@@ -1,0 +1,39 @@
+<div ng-controller="viewProjectTypeCtrl">
+
+	<div class=" layui-form">
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1700001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text"  name="businessPattern" maxlength="2"
+					ng-model="businessPattern" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1700002' | translate}}：</div>
+			<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text"  name="patternDesc" maxlength="50"
+					ng-model="patternDesc" disabled/>
+			</div>
+		</div>
+		<div class="search_mian">
+			<div class="mainname">{{'PZH1700005' | translate}}</div>
+		</div>
+		<div jf-grid="bsProjectTypeList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH1700006' | translate}}</th>
+						<th>{{'PZH1700007' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.artifactNo"></td>
+						<td align="center" ng-bind="item.artifactDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+<div ng-controller="accBscInfCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="" class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">客户号 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" ng-model="detailView.customerNo"
+								name="customerNo" type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">收费项目编号：</div>
+						<div class="wd190 float_left">
+								<input class="layui-input bnone" ng-model="detailView.feeItemNo"
+								name="feeItemNo" type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">账户代码/媒介单元代码/产品单元代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.entityKey" name="entityKey"
+								type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">货币代码：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.currencyCode" name="currencyCode"
+								type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">免除周期 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.waiveCycleNo"
+								name="waiveCycleNo" type="text" disabled="disabled">
+						</div>
+					</div>
+	
+					<div class="col_td">
+						<div class="col4 text_right">已执行次数 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.executedNum"
+								name="executedNum" type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">已免除次数 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.waivedNum" name="waivedNum"
+								type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">首次免除日期 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.firstWaiveDate" name="firstWaiveDate"
+								type="text" disabled="disabled">
+						</div>
+					</div>
+	
+					<div class="col_td">
+						<div class="col4 text_right">上次免除日期 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.lastWaiveDate"
+								name="lastWaiveDate" type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">上次免除金额 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.lastWaiveAmt"
+								name="lastWaiveAmt" type="text" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">累计免除金额 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"
+								ng-model="detailView.accumultWaiveAmt"
+								name="accumultWaiveAmt" type="text" disabled="disabled">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

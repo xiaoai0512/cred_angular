@@ -1,0 +1,77 @@
+<div ng-controller="cstProfessionQueryCtrl">
+	<!-- <div class="leftmenu_navtitle">职业信息查询维护查询及维护</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="cstProfessionQueryForms">
+			 <div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="itemList.params.idType"
+						jf-select="certificateTypeArray" name="idType"  lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" id="cstProfessionQuery_idNumber"
+						ng-model="itemList.params.idNumber" name="idNumber" validator="noValidator" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"
+						ng-model="itemList.params.externalIdentificationNo"
+						name="externalIdentificationNo" type="text">
+				</div>
+			</div>
+
+			<div class="col_tr text_center">
+				<button class="layui-btn" validation-submit="cstProfessionQueryForms"  ng-click="searchCstProfessionQuery()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn layui-btn-primary" ng-click="newProfessionBtn()"  type="button">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</form>
+		<div class="clearboth"></div>
+		<div ng-show="showItemList">
+			<div class="mainname">{{'KHH8100003' | translate}}</div>
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH8100004' | translate}}</th>
+							<th style=" width: 20%;">{{'KHH8100005' | translate}}</th>
+							<th>{{'KHH8100006' | translate}}</th>
+							<th>{{'KHH8100007' | translate}}</th>
+							<th>{{'KHH8100008' | translate}}</th>
+                            <th>{{'KHH8100009' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr>
+							<td align="center"  ng-bind="item.positionDesc"></td>
+							<td style=" width: 20%;" align="center" ng-bind="item.corporationName"></td>
+							<td align="center" ng-bind="item.department"></td>
+							<td align="center" ng-bind="item.station"></td>
+							<td align="center" ng-bind="item.employmentYears"></td>
+                            <td align="center" ng-bind="item.employmentMonths"></td>
+                            <td align="center">
+								<button class="layui-btn layui-btn-primary"
+									ng-click="updateProfessionInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

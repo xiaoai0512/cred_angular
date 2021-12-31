@@ -1,0 +1,235 @@
+<div class="mainname">helloworld案例 - 入门指南</div>
+<blockquote class="layui-elem-quote">helloworld案例</blockquote>
+
+<div class="mainname">步骤一：新建一个HelloWorldDemoAction</div>
+<blockquote class="layui-elem-quote">在action层级目录下新建一个类HelloWorldDemoAction，并且写一个访问indexDemo.html页面的方法，代码如下：</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    package com.tansun.hello.action;
+
+    import com.jeedev.msdp.core.web.action.BaseAppAction;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.web.bind.annotation.RequestMethod;
+    import org.springframework.web.servlet.ModelAndView;
+
+    @Controller
+    @RequestMapping(value = "/")
+    public class HelloWorldDemoAction extends BaseAppAction {
+
+        @RequestMapping(value={"/indexDemo"},method= RequestMethod.GET)
+        public ModelAndView indexView(){
+            ModelAndView modelAndView = new ModelAndView("indexDemo");
+
+            return modelAndView;
+        }
+
+    }
+</pre>
+
+<div class="mainname">步骤二：新建一个页面indexDemo.html</div>
+<blockquote class="layui-elem-quote">在static/pages目录下新建一个页面indexDemo.html，代码如下：</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;meta charset="utf-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"&gt;
+            &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/&gt;
+            &lt;title&gt;Hello World&lt;/title&gt;
+            &lt;style type="text/css"&gt;
+                @charset "UTF-8";
+                [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+                    display: none !important;
+                }
+
+                ng\:form {
+                    display: block;
+                }
+            &lt;/style&gt;
+            &lt;script&gt;
+                ctx = getContextPath();
+
+                function getContextPath() {
+                    var pathName = document.location.pathname;
+                    var index = pathName.substr(1).indexOf("/");
+                    var result = pathName.substr(0, index + 1);
+                    return result;
+                }
+
+                document.write("&lt;script type=\"text/javascript\" src=\"" + ctx + "/js/libs/require.js\" data-main=\"" + ctx + "/js/main\"&gt; &lt;\/script&gt;");
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body ng-controller="indexDemoCtrl"&gt;
+            &lt;div class="layui-row " style="margin-top:30px;"&gt;
+                &lt;div class="layui-col-md4 layui-col-md-offset1"&gt;
+                    &lt;form class="layui-form layui-form-pane" name="helloWorldForm" &gt;
+                        &lt;div class="layui-form-item"&gt;
+                            &lt;div class="layui-inline"&gt;
+                                &lt;label class="layui-form-label"&gt;姓名&lt;/label&gt;
+                                &lt;div class="layui-input-inline"&gt;
+                                    &lt;input class="layui-input" name="required" ng-model="name" type="text" validator="required"&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;button class="layui-btn" lay-filter="demo1" lay-submit="" validation-submit="helloWorldForm" ng-click="helloWorldSubmit()"&gt;提交&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</pre>
+
+<div class="mainname">步骤三：建立页面对应的controller（indexDemoController.js）</div>
+<blockquote class="layui-elem-quote">在static/js/app/controller目录下新建一个indexDemoController.js，代码如下：</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    'use strict';
+define(function (require){
+    var angular = require('angular') ;
+    Tansun.controller('indexDemoCtrl', function($scope, jfRest, jfLayer){
+        //按钮点击跳转到hellloWorld页面
+        $scope.helloWorldSubmit = function() {
+            window.location.href = ctx + '/#hello?name='+$scope.name;
+        };
+    });
+});
+</pre>
+
+<div class="mainname">步骤四：加载indexDemoController.js文件</div>
+<blockquote class="layui-elem-quote">打开static/js/app/configuration/route-config.js，在里面添加一行代码：require("../controller/indexDemoController")，加载indexDemoController.js。</blockquote>
+
+<div class="mainname">步骤五：配置路由跳转到helloWorld页面</div>
+<blockquote class="layui-elem-quote">1.在static/js/app/configuration下新建一个目录helloWorldConfig，然后在目录下新建一个名为route-hello-world-config.js </br>
+    2.在static/js/app/configuration/route-config.js里将上一步的route-hello-world-config.js加载进来。</br>
+    完整代码如下：
+</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    //route-hello-world-config.js
+    'use strict';
+    define(function(require, exports, module) {
+        var config = [
+            ['/hello', 'helloWorld.html', 'helloWorldController.js']
+        ];
+        module.exports = config;
+    });
+
+    //route-config.js
+    'use strict';
+
+    define(function(require, exports, module) {
+        var config_list = [require('./helloWorldConfig/route-hello-world-config')];
+
+        require("../controller/indexDemoController");
+
+        require('../router/route-service');
+        var angular = require('angular');
+        var injector = angular.injector([ "router-service" ]);
+        var routeService = injector.get("routeService");
+        var config = {
+        };
+        angular.forEach(config_list, function(data){
+            var obj = {};
+            angular.forEach(data, function(dataS,indexS,arrayS){
+                obj[dataS[0].split("?")[0]] = routeService.initAdminView(dataS[0],dataS[1],dataS[2]);
+            });
+            config = angular.extend(config,obj);
+        });
+        module.exports = config;
+    });
+</pre>
+
+<div class="mainname">步骤六：新建helloWorld页面</div>
+<blockquote class="layui-elem-quote">在static/pages下新建一个页面helloWorld.html，页面显示后台请求返回的信息，完整代码如下：</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     &lt;div ng-controller="helloWorldCtrl"&gt;
+        &lt;span ng-bind="info"&gt;&lt;/span&gt;
+     &lt;/div&gt;
+</pre>
+
+<div class="mainname">步骤七：新建helloWorldController.js</div>
+<blockquote class="layui-elem-quote">在static/js/app/controller下新建一个helloWorldController.js，向action请求信息，完整代码如下：</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    'use strict';
+    define(function (require){
+        var angular = require('angular') ;
+        Tansun.controller('helloWorldCtrl',function($scope,jfRest,jfLayer, $stateParams){
+            jfRest.request('testHello', 'query', {}).then(function(data) {
+                $scope.info = $stateParams.name + ", " + data.description;
+            });
+        });
+    });
+</pre>
+
+<div class="mainname">步骤八：配置请求地址</div>
+<blockquote class="layui-elem-quote">1.在static/js/app/configuration/helloWorldConfig下新建一个resful-hello-world-config.js，在里面配置请求地址。 </br>
+    2.打开static/js/app/configuration/resful-config.js, 加载resful-hello-world-config.js。 </br>
+    完整代码如下：
+</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    // resful-hello-world-config.js
+    'use strict';
+    define(function(require, exports, module) {
+        var config = {
+            testHello : {
+                query : '/getHelloInfo'
+            }
+        }
+        module.exports = config;
+    });
+
+
+    // resful-config.js
+    'use strict';
+    var resfulConfig = {};
+    define(function(require) {
+        var config_list = [require('./helloWorldConfig/resful-hello-world-config')];
+
+        var angular = require('angular');
+
+        angular.forEach(config_list,function(config){
+            angular.extend(resfulConfig,config) ;
+        });
+    });
+</pre>
+
+<div class="mainname">步骤九：在HelloWorldDemoAction里增加请求方法</div>
+<blockquote class="layui-elem-quote">
+    打开步骤一创建的HelloWorldDemoAction.java, 在里面增加一个方法，完整代码如下：
+</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    @Controller
+    @RequestMapping(value = "/")
+    public class HelloWorldDemoAction extends BaseAppAction {
+
+        @RequestMapping(value={"/indexDemo"},method= RequestMethod.GET)
+        public ModelAndView indexView(){
+            ModelAndView modelAndView = new ModelAndView("indexDemo");
+            return modelAndView;
+        }
+
+        //新增的方法
+        @RequestMapping(value={"/getHelloInfo"}, method = RequestMethod.POST)
+        @ResponseBody
+        public ResponseVO getHelloInfo() {
+            return successResponse("Hello, World");
+        }
+
+    }
+</pre>
+
+<div class="mainname">步骤十：完美^_^， 去启动服务看看效果吧</div>
+<blockquote class="layui-elem-quote">
+    启动成功后，在地址栏中输入地址：http://localhost:8085/msdbUiDemo/indexDemo，就能看到一个按钮了。</br>
+    <span style="color:red;">注意：这一串地址(http://localhost:8085/msdbUiDemo)，根据自己部署的服务，自行更改</span>
+</blockquote>
+
+
+
+

@@ -1,0 +1,41 @@
+<div ng-controller="layerBusTransCtrl">
+	<div jf-grid="billTransList">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'F00111' | translate}}</th>
+					<th>{{'GWH500004' | translate}}</th>
+					<th>{{'GWH500005' | translate}}</th>
+					<th>{{'GWH500006' | translate}}</th>
+					<th>{{'GWH500007' | translate}}</th>
+					<th>{{'GWH500008' | translate}}</th>
+					<th>{{'GWH500009' | translate}}</th>
+					<th  style="width: 150px;">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.externalIdentificationNo"></td>
+					<td align="center" ng-bind="item.occurrDate"></td>
+					<td align="center" ng-bind="item.currencyCode">
+						<!-- <span ng-if="item.currencyCode ==  '156' ">{{'KHH4500012' | translate}}</span>
+						<span ng-if="item.currencyCode ==  '840' ">{{'KHH4500013' | translate}}</span> -->
+					</td>
+					<td align="center" ng-bind="item.transCurrCde"></td>
+					<td align="center" ng-bind="item.transDesc"></td>
+					<td align="center">
+							<span ng-if="item.reimburseStatus == 'Y' ">{{'GWH500010' | translate}} </span>
+							<span ng-if="item.reimburseStatus == 'N' ||  item.reimburseStatus == '' || item.reimburseStatus == null">{{'GWH500011' | translate}} </span>
+						</td>
+					<td align="center" ng-bind="item.merchantCde"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkItem(item)">
+							<i class="layui-icon"></i> {{'F00009' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

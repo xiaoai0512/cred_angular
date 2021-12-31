@@ -1,0 +1,155 @@
+
+
+		<div class="helper">
+			<div class="helper_l">
+				<ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo" id="demoHelp">
+					<li class="layui-nav-item layui-nav-itemed">
+					<a href="javascript:">1.基础框架介绍</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:" src="include_plat_description ">1.1 框架说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_hello_world_demo">1.2 helloworld案例</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_dev_description">1.3  进阶开发说明</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item layui-nav-itemed">
+					<a href="javascript:">2.文本框</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:" src="include_input">2.1日期、金钱等文本框</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_dict_choose">2.2 数据字典选择框</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_form_valid">2.3 文本框校验信息</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item layui-nav-itemed"><a
+						href="javascript:">3.下拉框</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:" src="include_fix_content_drop_down_list">3.1 固定内容下拉框</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_dict_drop_down_list">3.2  数据字典下拉框</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_dynamic_drop_down_list">3.3 动态内容下拉框</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_tree_drop_down_list">3.4 下拉展示树</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_level_rel_drop_down_list">3.5 级联下拉框</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_search_drop_down_list">3.6 下拉框弹出查询列表</a>
+							</dd>
+						</dl></li>
+						<li class="layui-nav-item layui-nav-itemed"><a
+						href="javascript:">4.列表</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:" src="include_pagelist">4.1 带分页列表信息</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_nopagelist">4.2 不分页列表信息</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_sortlist">4.3 列表排序调用模式</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_extendlist">4.4 列表扩展字段展示</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_clicklist">4.5 列表字段点击事件</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_buttonlist">4.6 按钮操作说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_prompt">4.7 弹框提示说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_dialog">4.8 弹框说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_formal_tree">4.9 正常展示树</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_list_search">4.10 列表查询</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include-autoclick-list">4.11 列表自定义选中事件</a>
+							</dd>
+						</dl></li>
+						<li class="layui-nav-item layui-nav-itemed"><a
+						href="javascript:">5.大页面开发</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:" src="include_bigpage">5.1 大页面开发说明</a>
+							</dd>
+							
+						</dl></li>
+						<li class="layui-nav-item layui-nav-itemed"><a
+						href="javascript:">6.修改说明</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:" src="include_change_plat">6.1 公共方法新旧版本修改说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_changelist">6.2 列表新旧版本修改说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_change_bigpage">6.3 大页面新旧版本修改说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_change_tree">6.4 树形列表新旧版本修改说明</a>
+							</dd>
+							<dd>
+								<a href="javascript:" src="include_change_select">6.5 下拉框新旧版本修改说明</a>
+							</dd>
+						</dl></li>
+				</ul>
+			</div>
+		
+		<div id="tolinclude">
+			<div class="helper_r">
+			    <div  class="include" id="include_plat_description" ng-include="ctx+'/pages/help/help-plat-description.html'"></div>		
+				<div  class="include" id="include_input" style="display:none" ng-include="ctx+'/pages/help/help-input.html'"></div>		
+				<div  class="include" id="include_pagelist"  style="display:none" ng-include="ctx+'/pages/help/help-page-list.html'"></div>		
+				<div  class="include" id="include_nopagelist"  style="display:none" ng-include="ctx+'/pages/help/help-nopage-list.html'"></div>		
+				<div  class="include" id="include_sortlist"  style="display:none" ng-include="ctx+'/pages/help/help-sort-list.html'"></div>		
+				<div  class="include" id="include_extendlist"  style="display:none" ng-include="ctx+'/pages/help/help-extend-list.html'"></div>		
+				<div  class="include" id="include_clicklist"  style="display:none" ng-include="ctx+'/pages/help/help-click-list.html'"></div>		
+				<div  class="include" id="include_buttonlist"  style="display:none" ng-include="ctx+'/pages/help/help-button-list.html'"></div>		
+				<div  class="include" id="include_dict_choose" style="display:none" ng-include="ctx+'/pages/help/help-dict-choose.html'"></div>
+				<div  class="include" id="include_form_valid" style="display:none" ng-include="ctx+'/pages/help/help-form-valid.html'"></div>
+			    <div  class="include" id="include_fix_content_drop_down_list" style="display: none" ng-include="ctx+'/pages/help/help-fix-content-drop-down-list.html'"></div>
+				<div  class="include" id="include_dict_drop_down_list" style="display: none" ng-include="ctx+'/pages/help/help-dict-drop-down-list.html'"></div>
+				<div  class="include" id="include_dynamic_drop_down_list" style="display: none" ng-include="ctx+'/pages/help/help-dynamic-drop-down-list.html'"></div>
+				<div  class="include" id="include_level_rel_drop_down_list" style="display: none" ng-include="ctx+'/pages/help/help-level-rel-drop-down-list.html'"></div>
+				<div  class="include" id="include_bigpage" style="display:none" ng-include="ctx+'/pages/help/help-bigpage.html'"></div>
+				<div class="include" id="include_tree_drop_down_list" style="display: none" ng-include="ctx+'/pages/help/help-tree-drop-down-list.html'"></div>
+				<div class="include" id="include_search_drop_down_list" style="display: none" ng-include="ctx+'/pages/help/help-search-drop-down-list.html'"></div>
+				<div class="include" id="include_formal_tree" style="display: none" ng-include="ctx+'/pages/help/help-formal-tree.html'"></div>
+				<div  class="include" id="include_dev_description" style="display: none"  ng-include="ctx+'/pages/help/help-dev-description.html'"></div>
+				<div  class="include" id="include_prompt" style="display: none"  ng-include="ctx+'/pages/help/help-prompt.html'"></div>
+				<div  class="include" id="include_dialog" style="display: none"  ng-include="ctx+'/pages/help/help-dialog.html'"></div>
+			    <div  class="include" id="include_hello_world_demo"  style="display: none" ng-include="ctx+'/pages/help/help-hello-world.html'"></div>
+			    <div  class="include" id="include_change_plat"  style="display: none" ng-include="ctx+'/pages/help/help-change-plat.html'"></div>
+			    <div  class="include" id="include_changelist"  style="display: none" ng-include="ctx+'/pages/help/help-change-list.html'"></div>
+				<div  class="include" id="include_change_bigpage"  style="display: none" ng-include="ctx+'/pages/help/help-change-bigpage.html'"></div>
+				<div  class="include" id="include_change_tree"  style="display: none" ng-include="ctx+'/pages/help/help-change-treelist.html'"></div>
+				<div  class="include" id="include_change_select"  style="display: none" ng-include="ctx+'/pages/help/help-change-select.html'"></div>
+				<div  class="include" id="include_list_search"  style="display: none" ng-include="ctx+'/pages/help/help-list-search.html'"></div>
+				<div  class="include" id="include-autoclick-list"  style="display: none" ng-include="ctx+'/pages/help/help-autoclick-list.html'"></div>
+			</div>
+		</div>
+
+

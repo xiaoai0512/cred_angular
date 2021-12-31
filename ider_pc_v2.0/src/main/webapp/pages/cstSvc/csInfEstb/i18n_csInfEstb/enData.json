@@ -1,0 +1,101 @@
+{
+"KHH3300001":"Customer basic information",
+"KHH3300002":"organNo",
+"KHH3300003":"customerName",
+"KHH3300004":"idType",
+"KHH3300006":"customerType",
+"KHH3300007":"billDay",
+"KHH3300008":"paymentMark",
+"KHH3300009":"city",
+
+"KHH33000017":"Customer personal information",
+"KHH33000018":"branchNumber ",
+"KHH33000019":"birthday",
+"KHH33000020":"gender",
+"KHH33000021":"mobilePhone",
+"KHH33000022":"homePhone",
+"KHH33000023":"companyPhone",
+"KHH33000024":"zipCode",
+"KHH33000025":"contactName",
+"KHH33000026":"contactPhone",
+"KHH33000027":"memberSince",
+"KHH33000028":"customerSource",
+"KHH33000029":"behaviorScore ",
+"KHH33000030":"customerLevel",
+"KHH33000031":"maritalStatus",
+"KHH33000032":"occupationCode",
+"KHH33000033":"postRankCode",
+"KHH33000034":"titleCode",
+"KHH33000035":"periodOfOccupation",
+"KHH33000036":"hobby",
+"KHH33000037":"guarantorFlag",
+"KHH33000038":"marketerCode",
+"KHH33000039":"socialSecurityId",
+"KHH33000040":"socialSecurityNumber",
+
+"KHH33000041":"Address type",
+"KHH33000042":"contactAddress",
+"KHH33000043":"contactPostCode ",
+"KHH33000044":"contactMobilePhone",
+"KHH33000045":"city",
+
+"KHH33000050":"Customer remarks",
+"KHH33000051":"remarkInfo",
+"KHH33000052":"lastUpdateUserid",
+
+"KHH33000060":"submit",
+
+"KHH3300061": "Annual income",
+"KHH3300062": "Residential nature",
+
+"KHJ3300001":"Enter the query criteria",
+"KHJ3300002":"Account selection",
+
+"KHJ3300003":"Self-purchasing",
+"KHJ3300004":"Borrow",
+"KHJ3300005":"rental",
+
+"KHJ3300010":"rental",
+
+"KHJ3300011":"High",
+"KHJ3300012":"middle",
+"KHJ3300013":"primary",
+
+"KHJ3300018": "No guarantee",
+"KHJ3300019": "Already exists",
+"KHJ3300020": "There is potential",
+
+"KHJ3300025": "Unmarried",
+"KHJ3300026": "Married",
+"KHJ3300027": "Divorced",
+
+"KHJ3300028": "Unknown",
+
+"KHJ3300033": "Female",
+"KHJ3300034": "Men",
+
+"KHJ3300038": "Mailing address",
+"KHJ3300039": "Home Address",
+"KHJ3300040": "Unit Address",
+
+"KHJ3300045": "Full penalty interest rate",
+"KHJ3300046": "Non-full penalty rate",
+
+"KHJ3300051": "Personal Customer",
+"KHJ3300052": "Company Customer",
+
+"KHJ3300057": "No agreement deduction",
+"KHJ3300058": "Bill balance",
+"KHJ3300059": "Minimum repayment amount",
+
+"KHJ3300064": "The Bank",
+"KHJ3300065": "He walks",
+
+"KHJ3300069": "Buy remittance",
+"KHJ3300070": "No purchase repayment",
+
+"KHJ3300075": "Unified repayment",
+"KHJ3300076": "Separate repayment",
+
+"KHJ3300081": "Please enter at least one type of address information"
+}

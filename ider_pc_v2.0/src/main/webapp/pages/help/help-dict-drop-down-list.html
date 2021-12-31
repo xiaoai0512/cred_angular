@@ -1,0 +1,32 @@
+<div class="mainname">数据字典下拉框使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">指令jfSelect根据去后台数据字典表里请求回来的数据，对数据进行处理，然后编译展示下拉框。</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="col_td">
+         <label class="col4 text_right">未分组下拉框：</label>
+         <div class="wd190 float_left">
+            &lt;select jf-select="builder.option('AbvQtPcsgModCd')" ng-model="demo.select1"></select>
+         </div>
+    </div>
+    <div class="col_td">
+         <label class="col4 text_right">分组下拉框：</label>
+         <div class="wd190 float_left">
+            &lt;select jf-select="builder.option('AbvQtPcsgModCd', '1')" ng-model="demo.select1"></select>
+         </div>
+    </div>
+</pre>
+<div class="mainname">示例</div>
+<div class="allcontent">
+    <div class="col_td">
+        <label class="col4 text_right">未分组下拉框：</label>
+        <div class="wd190 float_left">
+            <select jf-select="builder.option('AbvQtPcsgModCd')" ng-model="demo.select1"></select>
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">分组下拉框：</label>
+        <div class="wd190 float_left">
+            <select jf-select="builder.option('AbvQtPcsgModCd', '1')" ng-model="demo.select1"></select>
+        </div>
+    </div>
+</div>

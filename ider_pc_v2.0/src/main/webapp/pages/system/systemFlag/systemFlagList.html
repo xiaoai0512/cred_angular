@@ -1,0 +1,54 @@
+<div ng-controller="systemFlagListController">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div style="margin-bottom:20px">
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'YWH5500068' | translate}} ：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"  name="systemUnitNo" maxlength="3"
+						ng-model="systemUnitList.params.systemUnitNo" />
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">{{'YWH5500069' | translate}} ：</label>
+				<div class="layui-input-inline">
+						<input class="layui-input" type="text"  name="systemUnitName" maxlength="50"
+						ng-model="systemUnitList.params.systemUnitName" />
+				</div>
+			</div>
+			<div class="layui-inline" style="margin-left:30px">
+				<button class="layui-btn" ng-click="systemUnitList.search()">
+					<i class="layui-icon">&#xe615;</i>  {{'F00009' | translate}}
+				</button>
+			</div>
+		</div>
+		<div jf-grid="systemUnitList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YWH5500068' | translate}}</th>
+						<th>{{'YWH5500069' | translate}}</th>
+						<th>{{'YWH5500070' | translate}}</th>
+						<th>{{'YWH5500071' | translate}}</th>
+						<th>{{'YWH5500072' | translate}}</th>
+						<th>{{'YWH5500073' | translate}} </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.systemUnitNo"></td>
+						<td align="center" ng-bind="item.systemUnitName"></td>
+						<td align="center" ng-bind="item.systemOperateStateDesc"></td>
+						<td align="center" ng-bind="item.lastProcessDate"></td>
+						<td align="center" ng-bind="item.currProcessDate"></td>
+						<td align="center" ng-bind="item.nextProcessDate"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

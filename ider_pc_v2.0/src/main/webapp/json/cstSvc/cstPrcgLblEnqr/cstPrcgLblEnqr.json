@@ -1,0 +1,55 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {	
+		    		"ccy" : "156",
+		    		"bsnTp": "MODT00001",
+                    "lblNo": "MODD00001",
+                    "prcgRgon":"D-差异化",
+                    "pDObjCd":"",
+                    "prcgMod":"I-继承",
+                    "efDt":"2018/1/1",
+                    "expDt":"2018/12/31"
+                },
+               {	
+		    		"ccy" : "156",
+		    		"bsnTp": "MODT00001",
+                    "lblNo": "MODD00002",
+                    "prcgRgon":"P-个性化",
+                    "pDObjCd":"",
+                    "prcgMod":"O-覆盖",
+                    "efDt":"2018/5/1",
+                    "expDt":"2018/10/31"
+                },
+                {	
+		    		"ccy" : "156",
+		    		"bsnTp": "MODT00001",
+                    "lblNo": "MODD00003",
+                    "prcgRgon":"A-活动",
+                    "pDObjCd":"",
+                    "prcgMod":"T-取优",
+                    "efDt":"2018/8/16",
+                    "expDt":"2018/8/20"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 0,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 0,
+            "startRow": 0,
+            "total": 10	
+        }
+    },
+    "status": 200
+}

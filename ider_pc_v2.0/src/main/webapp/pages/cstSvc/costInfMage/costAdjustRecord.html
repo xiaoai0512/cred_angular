@@ -1,0 +1,39 @@
+<div ng-controller="costAdjustRecordCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：费用调整补录
+	</div>
+	<div class="allcontent">
+		<div class="col_td">
+			<div class="col4 text_right">证件号码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="idNumber" type="text"
+					ng-model="interestSearch.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="externalIdentificationNo"
+					type="text" ng-model="interestSearch.externalIdentificationNo">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryitemList()" type="button">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="refact()">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+</div>

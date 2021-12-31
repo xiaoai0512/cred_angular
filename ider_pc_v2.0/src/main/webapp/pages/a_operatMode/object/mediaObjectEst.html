@@ -1,0 +1,116 @@
+<div ng-controller="mediaObjectEstCtrl">
+	<div class="">
+		<div ng-show="newCodeShow">
+			<form name="mediaObjInfoForm"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH500001' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="mediaObjInf.operationMode" class="layui-input step1S" jf-select="operationModeArr" name="operationMode" maxlength="3" validator="required">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH500002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<span style="display: inline-block;width:23%">MODM</span><input style="display: inline-block;width: 77%;" class="layui-input step1I"  type="text" name="mediaObjectCode"  ng-model="mediaObjInf.mediaObjectCodeHalf" validator="required,minlength,maxlength,number"   minlength="5" maxlength="5" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH500003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input step1I"  type="text" name="mediaObjectDesc"  ng-model="mediaObjInf.mediaObjectDesc" maxlength="30" validator="required,maxlength" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH500004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="mediaObjInf.mediaObjectType" class="layui-input step1S"  jf-select="mediaType" name="mediaObjectTypeN" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH500005' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="mediaObjInf.mediaObjectForm" class="layui-input step1S"  jf-select="mediaForm" name="mediaObjectFormN" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH500017' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input step1I"  type="text" name="serviceCode"  ng-model="mediaObjInf.serviceCode" maxlength="3" validator="required,maxlength" autocomplete="off">
+					</div>
+				</div>
+				<!-- <div class="col_tr text_center">
+					<button class="layui-btn" style="margin-right:75px" 
+						ng-click="saveProObj()" validation-submit="mediaObjInfoForm">
+						<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+					</button>
+				</div> -->
+				<div class="col_tr text_center" ng-show="step1Btn">
+					<button class="layui-btn layui-btn-radius" ng-click="nextStep1()" validation-submit="mediaObjInfoForm">
+						<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+					</button>
+				</div>
+			</form>
+		</div>
+		<div ng-show="instanCodeShow">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH500006' | translate}}</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH500001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <input class="layui-input"  type="text" name="operationMode"  ng-model="proObjInstan.operationMode"  disabled maxlength="3" > 
+				</div>
+			</div> -->
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH500007' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="mediaObjectCode"  ng-model="proObjInstan.mediaObjectCode" disabled   maxlength="9" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH500008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="mediaObjectDesc"  ng-model="proObjInstan.mediaObjectDesc" disabled   maxlength="50" >
+				</div>
+			</div> -->
+		<div jf-grid="queryMODM">
+				<table>
+					<thead>
+						<tr>
+							<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+							<!-- <th>PCD描述</th> -->
+							<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="right">
+								<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+							</td>
+							<td align="left">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="updateSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00081' | translate}}
+								</button>
+								<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+									ng-click="setSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00082' | translate}}
+								</button>
+								<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+									ng-click="setSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius"  ng-click="stepBackOne()">
+					<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

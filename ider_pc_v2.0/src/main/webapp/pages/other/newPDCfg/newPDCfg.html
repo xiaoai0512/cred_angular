@@ -1,0 +1,330 @@
+<div ng-controller="newPDCfgCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：产品对象实例化
+	</div>
+	<div class="allcontent">
+		<div class="mainname">1.填写产品对象代码</div>
+		<form action="" class="layui-form" name="yueObjForm">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="operationMode" type="text"
+						maxlength="3" validator="required"
+						ng-model="pDCfgInfo.operationMode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">产品对象代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="productObjectCode" type="text"
+						maxlength="9" validator="required"
+						ng-model="pDCfgInfo.productObjectCode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">产品描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="productDesc" type="text"
+						maxlength="50" ng-model="pDCfgInfo.productDesc">
+				</div>
+			</div>
+		</form>
+		<div class="clearboth"></div>
+		<div class="mainname">2.选择发行卡BIN</div>
+		<form name="binForm">
+			<div class="col_td">
+				<div class="col4 text_right">卡BIN：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="bin" type="text" maxlength="10"
+						validator="number" ng-model="itemListTable.params.bin">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">卡组织：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="organizeTyp" type="text"
+						maxlength="1" ng-model="itemListTable.params.organizeTyp">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="itemListTable.search()"
+					validation-submit="binForm">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="itemListTable.params={}">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</form>
+		<div jf-grid="itemListTable">
+			<table>
+				<thead>
+					<tr>
+						<th>卡BIN</th>
+						<th>卡组织</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.bin"></td>
+						<td align="center" ng-bind="item.organizeTyp"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col_tr text_center" style="margin-top: 20px">
+			<button class="layui-btn" ng-click="showInfoBtn()"
+				validation-submit="yueObjForm">
+				<i class="layui-icon"></i> 下一步
+			</button>
+		</div>
+
+		<div ng-if="showInfo">
+			<div class="clearboth"></div>
+			<div class="mainname">3.确定产品业务范围</div>
+			<div class="layui-form-item">
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label">运营模式：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="operationMode" type="text"
+							ng-model="oprtListTable.params.operationMode" disabled="disabled">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label">业务形态代码：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="businessPattern" type="text"
+							maxlength="9" ng-model="oprtListTable.params.businessPattern">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="oprtListTable.search()">
+							<i class="layui-icon">&#xe615;</i> 查询
+						</button>
+
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="oprtListTable.params={}">
+							<i class="layui-icon">&#x1002;</i> 重置
+						</button>
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 50px">
+					<div class="layui-form-label">业务形态描述：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="bsnNumb" type="text"
+							maxlength="50" ng-model="oprtListTable.params.description">
+					</div>
+				</div>
+			</div>
+
+			<div jf-grid="oprtListTable">
+				<table>
+					<thead>
+						<tr>
+							<th>运营模式</th>
+							<th>业务形态代码</th>
+							<th>业务形态描述</th>
+							<th>业务类型代码</th>
+							<th>业务类型描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.businessPattern"></td>
+							<!-- <td align="center">
+								<select jf-select="builder.option(demoArray)"
+								ng-model="" placeholder="余额类构件"></select>
+							</td> -->
+							<td align="center" ng-bind="item.businessPatDesc"></td>
+							<td align="center" ng-bind="item.businessTypeCode"></td>
+							<td align="center" ng-bind="item.businessDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">4.选择产品构件</div>
+			<div class="mainname" style="margin-top: 20px; margin-left: 20px">基本信息</div>
+
+			<div class="layui-form-item" style="width: 800px">
+				<form name="heh">
+					<div class="col_td">
+						<div class="col4 text_right">运营模式：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="operationMode" type="text"
+								validator="required" maxlength="3"
+								ng-model="pDCfgInfo.operationMode">
+							
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">产品对象代码：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="productObjectCode" type="text"
+								validator="required" maxlength="9"
+								ng-model="pDCfgInfo.productObjectCode">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">产品描述：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="productDesc" type="text"
+								maxlength="50" ng-model="pDCfgInfo.productDesc">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">卡BIN：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="cardBin2" type="text"
+								maxlength="10" validator="number" ng-model="pDCfgInfo.cardBin">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">发行卡组织：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="issueCardOrgan" type="text"
+								maxlength="1" ng-model="pDCfgInfo.issueCardOrgan">
+						</div>
+					</div>
+					<!-- 因每个业务类型都对应一个还款优先级，此处不显示 -->
+					<div class="col_td">
+						<div class="col4 text_right">还款优先级：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="repaymentPriority" type="text"
+								maxlength="10" validator="number"
+								ng-model="pDCfgInfo.repaymentPriority">
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- <div class="mainname" style="margin-top: 130px;margin-left: 20px">业务范围信息</div>
+		
+		<div jf-grid="bsnScopInfoTable">
+			<table>
+				<thead>
+					<tr>
+						<th>业务形态代码</th>
+						<th>业务类型代码</th>
+						<th>业务类型描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.bsnMdltyCd"></td>
+						<td align="center" ng-bind="item.bsnTpCd"></td>
+						<td align="center" ng-bind="item.bsnTpDs"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+
+
+			<div class="mainname" style="margin-left: 20px; margin-top: 130px">产品可选构件</div>
+
+			<div jf-grid="pDOptElmTable">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>构件编号</th>
+							<th>构件描述</th>
+							<th>构件基础元件</th>
+							<th>元件描述</th>
+							<th>操作</th>
+							<!-- <th>构件可选元件</th>
+							<th>可选元件描述</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.artifactNo"></td>
+							<td align="center" ng-bind="item.artifactDesc"></td>
+							<td align="center" ng-bind="item.elementNo"></td>
+							<td align="center" ng-bind="item.elementDesc"></td>
+							<!-- <td align="center" ng-bind="item.elmOptYPts"></td>
+							<td align="center" ng-bind="item.optYPtsDsc"></td> -->
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checklCOvewInfo(item,$index)">
+									<i class="layui-icon"></i> 替换
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+
+
+			<div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="different()">
+					<i class="layui-icon"></i> 差异化
+				</button>
+				<!-- <button class="layui-btn" ng-click="saveDif()" type="button"> 
+					<i class="layui-icon"></i> 确认
+				</button> -->
+			</div>
+
+		</div>
+
+		<div class="clearboth"></div>
+		<div ng-show="differentDiv">
+			<div class="mainname">5. 产品差异化设置</div>
+			<div jf-grid="differentTable">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>余额对象代码</th>
+							<th>构件编号</th>
+							<th>元件编号</th>
+							<th>PCD编号</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.objectCode"></td>
+							<td align="center" ng-bind="item.artifactNo"></td>
+							<td align="center" ng-bind="item.elementNo"></td>
+							<td align="center" ng-bind="item.pcdNo"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="viewDifferent(item)">
+									<i class="layui-icon"></i> 查看
+								</button>
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="updateDif(item,$index)">
+									<i class="layui-icon"></i> 修改
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="clearboth"></div>
+		<div class="col_tr text_center">
+			<button class="layui-btn"  ng-click="saveDif()" >
+				<i class="layui-icon"></i> 保存
+			</button>
+		</div>
+
+	</div>
+	<!-- <div class="float_btnfoot ">
+			<button class="layui-btn layui_back"
+				ng-click="turn('/cstSvc/cstCprsvInfEnqr')">返回</button>
+		</div> -->
+
+</div>

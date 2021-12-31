@@ -1,0 +1,50 @@
+<div ng-controller="listTradAddCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1900069' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1900060' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="limit.operationMode" class="layui-input"
+									jf-select="coArray" name="operationModeN" placeholder="运营模式" validator="required" lay-filter="getOperationModeAdd"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1900061' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="limit.listLimitCode" class="layui-input" jf-select="listCodeAddArr" name="transLimitCodeN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1900062' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <select ng-model="limit.levelFlag" class="layui-input" 
+									jf-select="commArray" name="levelFlagN"  validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1900065' | translate}} ：</div>
+				<div class="wd190 float_left" >
+					<select ng-model="limit.currencyCode" class="layui-input"
+									jf-select="moneyArray" name="currencyCodeN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH1900063' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="differentCodeN"  ng-model="limit.differentCode" validator="maxlength"  type="text" maxlength="32" autocomplete="off">  
+				</div>
+			</div> 
+		
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo">{{'SQH1900070' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1900071' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="limitSingleTransN" ng-model="limit.limitSingleTrans" validator="required,maxlength,number"  type="text" maxlength="18" autocomplete="off">
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

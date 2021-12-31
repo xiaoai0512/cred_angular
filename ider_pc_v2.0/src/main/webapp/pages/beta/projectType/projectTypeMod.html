@@ -1,0 +1,22 @@
+<div ng-controller="projectTypeModCtrl">
+	<div jf-grid="influenceList">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'YYH300008' | translate}}</th>
+					<th>{{'YYH300009' | translate}}</th>
+					<!-- <th>产品对象代码</th>
+					<th>产品对象描述</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.businessProgramNo"></td>
+					<td align="center" ng-bind="item.businessDesc"></td>
+					<!-- <td align="center" ng-bind="item.productObjectCode"></td>
+					<td align="center" ng-bind="item.productObjectDesc"></td> -->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

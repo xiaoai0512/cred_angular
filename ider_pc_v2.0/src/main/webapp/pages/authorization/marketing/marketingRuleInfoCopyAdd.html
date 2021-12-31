@@ -1,0 +1,122 @@
+<div class="layout_body" ng-controller="marketingRuleInfoCopyAddCtrl">
+<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationMode" ng-model="operationModeCopyAdd" lay-filter="getOperationModeCopyAdd"></select>
+			</div>
+		</div>
+		<!--<div class="col_td">
+		<div class="col4 text_right">{{'SQH310001' | translate}} ：</div>&lt;!&ndash; 授权场景代码 &ndash;&gt;
+			<div class="wd190 float_left">
+				&lt;!&ndash; <input class="layui-input" name="authSceneCode" ng-model="itemCopyAdd.authSceneCode"  type="text" validator="required"> &ndash;&gt;
+				<select class="layui-input"	jf-select="authSceneArray" name="authSceneCode" ng-model="authSceneCodeCopyAddNG" ></select>
+			</div>
+		</div>-->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310002' | translate}}：</div><!-- 营销场景代码 -->
+			<div class="wd190 float_left">
+				<input class="layui-input" name="marketingSceneCode"  type="text" ng-model="itemCopyAdd.marketingSceneCode" validator="required">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310004' | translate}} ：</div><!-- 描述 -->
+				<div class="wd190 float_left">
+					<input class="layui-input" name="marketingSceneDesc" ng-model="itemCopyAdd.marketingSceneDesc"  type="text" validator="required">
+				</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH310003' | translate}}</div><!-- 营销规则 -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310005' | translate}} ：</div><!-- 营销币种 -->
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="currencyArray" name="marketingCurrencyCode" ng-model="marketingCurrencyCodeCopyAddNG" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310006' | translate}} ：</div><!-- 营销规则 -->
+			<div class="wd190 float_left">
+				<select ng-model="marketingRuleC" class="layui-input" jf-select="ruleArray" name="marketingRule"  lay-filter="getMarketingRulesCA"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310007' | translate}} ：</div><!-- 减免金额上限 -->
+			<div class="wd190 float_left">
+				<input class="layui-input " name="discountAmtCeiling" ng-model="itemCopyAdd.discountAmtCeiling"  type="text" validator="required">
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div ng-show="cycleAmountShowCA">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="circleAmt" ng-model="itemCopyAdd.circleAmt"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="circleDiscountAmt" ng-model="itemCopyAdd.circleDiscountAmt"  type="text" >
+			</div>
+		</div>
+		</div>
+		<div ng-show="addUpAmountShowCA">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="accumAmtLev1" ng-model="itemCopyAdd.accumAmtLev1"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="accumDiscountAmtLev1" ng-model="itemCopyAdd.accumDiscountAmtLev1"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310012' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="accumAmtLev2" ng-model="itemCopyAdd.accumAmtLev2"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="accumDiscountAmtLev2" ng-model="itemCopyAdd.accumDiscountAmtLev2"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310014' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="accumAmtLev3" ng-model="itemCopyAdd.accumAmtLev3"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310015' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="accumDiscountAmtLev3" ng-model="itemCopyAdd.accumDiscountAmtLev3"  type="text" >
+			</div>
+		</div>
+		</div>
+		<div ng-show="randomAmountShowCA">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310016' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="randomAmt" ng-model="itemCopyAdd.randomAmt"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="randomDiscountAmtCeiling" ng-model="itemCopyAdd.randomDiscountAmtCeiling"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310018' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="randomDiscountAmtFloor" ng-model="itemCopyAdd.randomDiscountAmtFloor"  type="text" >
+			</div>
+		</div>
+		</div>
+		</form>
+</div>

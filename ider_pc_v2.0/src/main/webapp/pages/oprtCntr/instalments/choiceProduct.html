@@ -1,0 +1,82 @@
+<div ng-controller="choiceProductCtrl">
+	<div class="">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">产品组别：</label>
+				<div class="layui-input-inline">
+					<select ng-model="choiceProductTable.ecommEntryId" 
+					class="layui-unselect" name="appType">
+						<option value="00">--请选择--</option>
+						<option value="">产品组别1</option>
+						<option value="01">产品组别2</option>
+						<option value="02">产品组别3</option>
+					</select>
+				</div>
+			</div>
+
+			<div style="position: absolute; top: 30px; right: 20px;">
+				<div class="layui-inline">
+					<label class="col12 text_right">&nbsp;</label>
+					<button class="layui-btn"  ng-click="tradTypeSel1()">
+						<i class="layui-icon"></i> 新增产品
+					</button>
+				</div>
+			</div>
+			<!-- <div class="layui-inline">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="instalQueryTable.search()">
+						<i class="layui-icon">&#xe615;</i> 查询
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="choiceProductTable={}">
+						<i class="layui-icon">&#x1002;</i> 重置
+					</button>
+				</div>
+			</div> -->
+			
+		</div>
+		<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th>产品代码</th>
+					<th>产品名称</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr ng-repeat="item in choiceProductTable track by $index">
+					<td align="center" ng-bind="item.productCode"></td>
+					<td align="center" ng-bind="item.productName"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="instalDataDetailsInfo(item)">
+							<i class="layui-icon layui-icon-more">删除</i>
+						</button>
+					</td>
+				</tr> -->
+				<tr >
+					<td align="center" >MODP00020</td>
+					<td align="center" >人民币信用卡普卡</td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="instalDataDetailsInfo(item)">
+							<i class="layui-icon layui-icon-more">删除</i>
+						</button>
+					</td>
+				</tr>
+				<tr >
+					<td align="center" >MODP00021</td>
+					<td align="center" >人民币信用卡金卡</td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="instalDataDetailsInfo(item)">
+							<i class="layui-icon layui-icon-more">删除</i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

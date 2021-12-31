@@ -1,0 +1,27 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "id": "d7ca83c2a9324ad7842b663bcfc79873",
+            "accountState": "000",
+            "accountDesc":  "正常"
+        },
+        {
+            "id": "5ccf83544bc7499e958b091971297369",
+            "accountState": "001",
+            "accountDesc":  "非应计"
+        },
+         {
+            "userid": "5ccf83544bc7499e958b091971297323",
+            "accountState": "002",
+            "accountDesc":  "核销"
+        }
+        ]
+    }
+}

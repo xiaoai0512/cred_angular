@@ -1,0 +1,95 @@
+<div ng-controller="twoDisParamsQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1400001' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="twoDisParamsList.params.operationMode" 
+				jf-select="operationModeArr" name="operationMode"  maxlength="3">
+			</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1400002' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<input class="layui-input" type="text"name="eventNo" maxlength="14"
+					ng-model="twoDisParamsList.params.eventNo" />
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="twoDisParamsList.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn" ng-click="addTwoDisParamsList()" ng-show="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+			<!-- <button class="layui-btn cancel-btn" type="button"
+				ng-click="twoDisParamsList.params={}">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button> -->
+		</div>
+		
+
+		<div jf-grid="twoDisParamsList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH1400001' | translate}}</th>
+						<th>{{'YYH1400067' | translate}}</th>
+						<th>{{'YYH1400003' | translate}}</th>
+						<th>{{'YYH1400010' | translate}}</th>
+						<th>{{'YYH1400011' | translate}}</th>
+						<th>{{'YYH1400004' | translate}}</th>
+						<th>{{'YYH1400005' | translate}}</th>
+						<th>{{'YYH1400006' | translate}}</th>
+						<th>{{'YYH1400007' | translate}}</th>
+						<th style="width:21%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center">
+							<span>{{item.eventNo}}</span><span>{{item.eventDesc}}</span>
+						</td>
+						<td align="center" ng-bind="item.recogTypeDesc"></td>
+						<!-- <td align="center">
+							<span ng-if="item.recogType === 'T' ">{{'YYH1400058' | translate}}</span>
+							<span ng-if="item.recogType === 'P' ">{{'YYH1400059' | translate}} </span>
+						</td> -->
+						<td align="center" ng-bind="item.targetBalanceObject"></td>
+						<td align="center" ng-bind="item.activityTagNo"></td>
+						<td align="center" ng-bind="item.priority"></td>
+						<td align="center" ng-bind="item.statusDesc"></td>
+						<!-- <td align="center">
+							<span ng-if="item.status === 'A' ">{{'YYH1400060' | translate}}</span>
+							<span ng-if="item.status === 'I' ">{{'YYH1400061' | translate}}</span>
+							<span ng-if="item.status === 'P' ">{{'YYH1400062' | translate}} </span>
+						</td> -->
+						<td align="center" ng-bind="item.startDate"></td>
+						<td align="center" ng-bind="item.endDate"></td>
+						<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="checkTwoDisParams(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateTwoDisParams(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateTwoDisParamsCopy(item)" ng-show="addBtnFlag">
+									<i class="layui-icon">&#xe654;</i> {{'F00061' | translate}}
+								</button>
+								
+						</td>
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,108 @@
+<div ng-controller="viewPriceLabelCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH800001' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="priceLabelItem.operationModeView" disabled
+									jf-select="operationModeArr" name="operationMode"  maxlength="3">
+								</select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH800002' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="priceLabelItem.pricingTag" maxlength="9" disabled
+								name="priceTag" type="text">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH800003' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="priceLabelItem.pricingDesc" maxlength="50" disabled
+								name="desc" type="text">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH800004' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select jf-select="pricingTypeArray" disabled
+								ng-model="pricingType"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYJ800011' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select jf-select="tagTypeArray"
+								ng-model="pricingObject" lay-filter="gettagtype" disabled></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH800005' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select jf-select="priceObj" class="layui-input" name="pricingObjectCodeN"
+								ng-model="priceLabelItem.pricingObjectShow" disabled>
+							</select>
+							<!-- <input class="layui-input" ng-model="priceLabelItem.priceObj" maxlength="8"
+								name="priceObj" type="text"> -->
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH800006' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="priceLabelItem.performOrder"  maxlength="3" disabled
+								name="performOrder" type="text">
+						</div>
+					</div>
+			
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH800007' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select jf-select="pricingMethodArray" 
+								ng-model="pricingMethod" disabled></select>
+						</div>
+					</div>
+			
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH800008' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select jf-select="pcdTypeArray" validator="required" class="layui-input" disabled  maxlength="3" name="pcdType"
+								ng-model="pcdType"></select>
+						</div>
+					</div>
+			
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH800009' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="pcdValue" type="text"   maxlength="10" disabled
+								ng-model="priceLabelItem.pcdValue">
+						</div>
+					</div>
+			
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH800010' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="pcdPoint" type="text"   maxlength="2" disabled
+								ng-model="priceLabelItem.pcdPoint">
+						</div>
+					</div>
+			
+					<div class="col_td" ng-show = "showBaseFee">
+						<div class="col4 text_right">{{'YYJ800012' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="supplementBaseFee" type="text"   maxlength="18" validator="number" disabled
+								ng-model="priceLabelItem.supplementBaseFee">
+						</div>
+					</div>
+					<div class="col_td" >
+						<div class="col4 text_right">{{'KHH4700014' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select jf-select="viewCurrencyArray" class="layui-input" name="pricingCurrencyCode"
+								ng-model="priceLabelItem.pricingCurrencyCode"  validator="required"></select>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

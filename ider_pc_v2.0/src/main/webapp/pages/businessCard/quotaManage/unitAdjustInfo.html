@@ -1,0 +1,76 @@
+<div class="layout_body" ng-controller="adjustInfoCtrl">
+	<form name="creditForm2"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="listTwoN" ng-model="adjustInfo.customerNo" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="CodeTwoN" ng-model="adjustInfo.externalIdentificationNo" type="text" readonly>
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH100026' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="operationMode" class="layui-input" 
+							jf-select="coArray" name="operationModeN" validator="required" lay-filter="getoperation"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH300007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				 <select ng-model="creditNodeNo" class="layui-input"
+							jf-select="quoteArray" name="aatype" lay-filter="getquote" validator="required"> </select> 
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right"><span class="red">*</span>调整种类：</label>
+			<div class="wd190 float_left">
+				<select ng-model="adjusClass" jf-select="adjusClassArray" name="adjusClass" validator="required" >
+				</select>
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'GWH400006' | translate}} ：</div>
+			<div class="wd190 float_left">
+			   <select ng-model="adjustType" class="layui-input"
+								jf-select="adjustTypeArray" name="currencyTypeN" lay-filter="getcurrencyType" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH300008' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" name="creditTwocurrencyN" ng-model="creditTwocurrency" type="text" > -->
+				<select ng-model="currencyCode" class="layui-input"
+								jf-select="creditcurrencyArray" name="creditcurrencyN" placeholder="授信币种" lay-filter="getcurrency" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="permInfo">
+			<div class="col4 text_right">{{'SQH600003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="creditLimitN" ng-model="creditLimit" type="text" jf-format-input="money" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_td" ng-show="tempInfo">
+			<div class="col4 text_right">{{'GWH400007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNames" type="text" ng-model="limitEffectvDate" id="LAY_startDate">  
+			</div>
+		</div>
+		<div class="col_td" ng-show="tempInfo">
+			<div class="col4 text_right">{{'GWH400008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateNames" type="text" ng-model="limitExpireDate" id="LAY_endDate"> 
+			</div>
+		</div>
+<!-- 		<div class="col_tr" style="text-align: center;" >
+			<button class="layui-btn " ng-click="sureTwoInfo()" validation-submit="creditForm2">
+				{{'F00107' | translate}}
+			</button>
+		</div> -->
+		</form>
+</div>

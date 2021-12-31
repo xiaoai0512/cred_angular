@@ -1,0 +1,81 @@
+<div ng-controller="bsnTpMgtCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：业务类型管理
+	</div>
+	<div class="allcontent">
+		<div class="col_td">
+			<div class="col4 text_right">运营模式：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="3"
+					ng-model="avyListTable.params.operationMode">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">业务类型代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="9"
+					ng-model="avyListTable.params.businessTypeCode">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">业务类型描述：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="50"
+					ng-model="avyListTable.params.businessDesc">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="avyListTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="avyListTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+		<div jf-grid="avyListTable">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>业务类型代码</th>
+						<th>交易类型</th>
+						<th>业务类型描述</th>
+						<th>所属业务形态</th>
+						<th>应付优先级</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.businessTypeCode"></td>
+						<!-- <td align="center" ng-bind="item.transIdentifiNo"></td> -->
+						<!-- R001 消费类  C001 取现类 P001 还款类 -->
+						<td align="center"><span
+							ng-if="item.transIdentifiNo == 'R001'">消费类</span> <span
+							ng-if="item.transIdentifiNo == 'C001'">取现类</span> <span
+							ng-if="item.transIdentifiNo == 'P001'">还款类</span> <span
+							ng-if="item.transIdentifiNo == 'L001'">分期类</span> <span
+							ng-if="item.transIdentifiNo == 'D002'">取现管理类</span> <span
+							ng-if="item.transIdentifiNo == 'D001'">消费管理类</span>
+							</td>
+						<td align="center" ng-bind="item.businessDesc"></td>
+						<td align="center" ng-bind="item.businessPattern"></td>
+						<td align="center" ng-bind="item.duePriority"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="changeAvyInfo(item)">
+								<!-- <i class="layui-icon layui-icon-more">&#xe65f;</i> -->
+								<i class="layui-icon"></i> 维护
+							</button>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

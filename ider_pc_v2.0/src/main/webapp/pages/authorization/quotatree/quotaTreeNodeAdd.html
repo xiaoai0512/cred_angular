@@ -1,0 +1,144 @@
+<div ng-controller="quotaNodeAddACtrl">
+	<div>
+	    <div ng-show="quotaShow">
+			<form name="quotaTreeNodeForm"  class="layui-form">
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo">{{'SQH2100067' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="itemAdd.operationModeN" class="layui-input" lay-search=""
+								jf-select="coArray" name="operationModeNa" placeholder="运营模式" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2000065' | translate}}:</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="quotaTreeIdN" ng-model="itemAdd.creditTreeId"  type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000066' | translate}} :</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="creditNodeNoN" ng-model="quota.creditNodeNo"  type="text"  validator="required,minlength,maxlength,number" minlength="3" maxlength="3" >
+					<!-- <select ng-model="quota.creditNodeNo" class="layui-input" lay-search=""
+								jf-select="creidtArray" name="creditNodeNoNa" placeholder="额度节点"  lay-filter="getoperation"></select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000067' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="creditDescN"  ng-model="quota.creditDesc"  type="text" validator="required">
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo">{{'SQH2000068' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000069' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="quota.creditNodeTyp" class="layui-input" lay-search=""
+								jf-select="nodeArray" name="creditNodeTypN"  lay-filter="getRiskLimits"   placeholder="节点类型" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isc">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000073' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="quota.creditCategory" class="layui-input" lay-search=""
+								jf-select="typeArray" name="creditCategoryN" placeholder="额度种类" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isd">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000074' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="quota.creditProperty" class="layui-input" lay-search=""
+								jf-select="natureArray" name="creditPropertyN" placeholder="额度性质" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-if = "isCsc">
+				<div class="col4 text_right">{{'SQH2000078' | translate}} ：</div>
+				<div class="wd190 float_left">
+				<select ng-model="quota.contrlSceneCode" class="layui-input" lay-search=""
+								jf-select="contrlSceneCodeArray" name="contrlSceneCode" placeholder="管控场景" ></select>
+					 <!-- <input class="layui-input" name="contrlSceneCode"  type="text"  ng-model="quota.contrlSceneCode"  > -->
+				</div>
+			</div>
+			<div class="col_td" ng-if = "isSeq">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000082' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <input class="layui-input" name="creditRestoreSeq"  type="text"  ng-model="quota.creditRestoreSeq" validator="required">
+				</div>
+			</div>
+			<!-- <div class="col_td" ng-if="isSeq">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000092' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="quota.creditDiffFlag" class="layui-input" lay-search=""
+								jf-select="creditDiffFlagArray" name="creditDiffFlagN" placeholder="个性化标志" validator="required"></select>
+				</div>
+			</div> -->
+			<div class="col_tr text_center" style="margin-top: 20px;" ng-show="isQ">
+					<button class="layui-btn layui-btn-radius"
+						ng-click="saveQuoInstan()" validation-submit="quotaTreeNodeForm">
+						<i class="layui-icon">&#xe624;</i>{{'F00085' | translate}}
+					</button>
+				</div>
+			<div class=" clearboth"></div>
+			</form>
+		</div>
+		<div ng-show="instanQuotaShow">
+		  <div class="clearboth"></div>
+			<div class="mainname">{{'SQH2100070' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000066' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="creditNodeNo"  ng-model="quota.creditNodeNo" disabled   validator="required,minlength,maxlength,number" minlength="3" maxlength="3" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH2000067' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="creditDesc"  ng-model="quota.creditDesc" disabled   maxlength="50" >
+				</div>
+			</div>
+			<div jf-grid="queryMODP">
+				<table>
+					<thead>
+						<tr>
+							<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+							<!-- <th>PCD描述</th> -->
+							<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="right">
+								<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+							</td>
+							<td align="left">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="updateSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00081' | translate}}
+								</button>
+								<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+									ng-click="setSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00082' | translate}}
+								</button>
+								<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+									ng-click="setSelectA(item,$index)">
+									<i class="layui-icon"></i> {{'F00083' | translate}} {{item.pcdDesc}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			 <div class="col_tr text_center" style="margin-top: 20px;">
+				<button class="layui-btn layui-btn-radius"
+					ng-click="backBrn()" >
+					<i class="layui-icon">&#xe624;</i> {{'F00078' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

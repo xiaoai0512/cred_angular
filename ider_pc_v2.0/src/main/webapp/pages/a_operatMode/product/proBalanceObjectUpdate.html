@@ -1,0 +1,33 @@
+<div ng-controller="proBalanceObjectUpdateCtrl">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'YYH600009' | translate}}</div>
+	<div>
+		<table border="0" cellspacing="0" cellpadding="0" class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th>{{'YYH200001' | translate}}</th>
+					<th>{{'YYH200002' | translate}}</th>
+					<th>{{'YYH200003' | translate}}</th>
+					<th>{{'YYH200005' | translate}}</th>
+					<th>{{'YYH200006' | translate}}</th>
+					<th>{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in queryProBalanceObjectInfo track by $index">
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.businessTypeCode"></td>
+					<td align="center" ng-bind="item.businessDesc"></td>
+					<td align="center" ng-bind="item.businessForm"></td>
+					<td align="center" ng-bind="item.businessDebitCreditCodeDesc"></td>
+					<td align="center">
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="setBalanceUpdateA(item,$index)">
+							<i class="layui-icon">&#xe614;</i> {{'YYH200022' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

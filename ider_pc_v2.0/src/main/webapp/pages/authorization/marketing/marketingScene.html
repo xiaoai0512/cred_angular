@@ -1,0 +1,82 @@
+<div class="layout_body" ng-controller="marketingSceneCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 营销场景管理查询 -->
+		<div class="layui-form">
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00077' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="operationModeNG" class="layui-input"
+								jf-select="coArray" name="operationMode" placeholder="运营模式"></select>
+					</div>
+				</div>
+<!--				<div class="col_td">-->
+<!--					<label class="col4 text_right">{{'SQH1500060' | translate}}：</label>-->
+<!--					<div class="wd190 float_left">-->
+<!--					<select class="layui-input"	jf-select="authSceneArray" name="authSceneCode" ng-model="authSceneCodeNG" lay-search=""></select>-->
+<!--					</div>-->
+<!--				</div>-->
+				<div class="col_td">
+					<label class="col4 text_right">{{'SQH310002' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="marketingSceneCode" ng-model="marketingSceneCodeNG">
+					</div>
+				</div>
+			<div class="col_tr text_center">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="selectList()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="addKey()" ng-show="addBtnFlag">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+		</div>
+		<!-- 营销场景管理列表 -->
+		<div ng-show="isShow">
+			<div jf-grid="itemList" >
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00013' | translate}}</th>
+							<th>{{'F00077' | translate}}</th>
+							<!--<th>{{'SQH310028' | translate}}</th>-->
+							<th>{{'SQH310002' | translate}}</th>
+							<th>{{'SQJ310030' | translate}}</th>
+							<th style="width:35%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<!--<td align="center" ng-bind="item.authSceneCode"></td>-->
+							<td align="center" ng-bind="item.marketingSceneCode"></td>
+							<td align="center" ng-bind="item.marketingSceneDesc"></td>
+							<td style="width:35%" align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selInfo(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="copyInfo(item)" ng-show="copyBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00061' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateMInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delMInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="compInfo(item)" ng-show="compBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'SQH1500062' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

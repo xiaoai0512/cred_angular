@@ -1,0 +1,42 @@
+<div ng-controller="transactionInfoBoxCtrl"><!-- 交易分期交易信息弹框 -->
+	<form action="" class="layui-form"  style="margin-bottom: 15px;">
+		<div jf-grid="billDetails">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'FQH900038' | translate}}</th>
+						<th>{{'FQH900007' | translate}}</th>
+						<th>{{'FQH900008' | translate}}</th>
+						<th>{{'FQH900026' | translate}}</th>
+						<th>{{'FQH900011' | translate}}</th>
+						<th>{{'FQH900037' | translate}}</th>
+						<th>{{'FQH900002' | translate}}</th>
+						<th>{{'FQH900027' | translate}}</th>
+						<th>{{'FQH900028' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center">
+							<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+							<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+							<span
+							ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+						</td>
+						<td align="center">
+							<span ng-bind="item.transCurrCde"></span>
+							<span ng-bind="item.transCurrDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.transAmount | number :2"></td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.postingAmount | number:2"></td>
+						<td align="center" ng-bind="item.occurrDate"></td>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.transStateDesc"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

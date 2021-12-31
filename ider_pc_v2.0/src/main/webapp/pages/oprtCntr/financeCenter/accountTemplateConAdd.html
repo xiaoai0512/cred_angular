@@ -1,0 +1,64 @@
+<div ng-controller="accountTemplateAddCtrl">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">配置信息</div>
+		<div class="col_td">
+			<div class="col4 text_right">借贷方向 ：</div>
+			<div class="wd190 float_left " >
+			<select ng-model="items.debitCreditFlag" class="layui-input"
+								jf-select="builder.option(direction)" name="aatype" placeholder="借贷方向"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">科目编号 ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input " name="operationModeN" ng-model="items.itemId"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">业务类型 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input "  name="bsnNumb" ng-model="items.businessTyp"  type="text" >
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right">借贷科目/内部账 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input "  name="bsnNumb" ng-model="items.itemNme"  type="text" >
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right">金额符号 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="items.fundDirectFlag" class="layui-input"
+								jf-select="builder.option(symbol)" name="aatype" placeholder="借贷方向"></select>
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right">币种 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="items.currencyCde" class="layui-input"
+								jf-select="builder.option(moneyArray)" name="aatype" placeholder="借贷方向"></select>
+			</div>
+		</div> 
+ 		<div class="col_td">
+			<div class="col4 text_right">金额类型 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="items.amountType" class="layui-input"
+								jf-select="builder.option(typeArray)" name="aatype" placeholder="金额类型"></select>
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right">摘要配置方式 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="items.summaryConfigTyp" class="layui-input"
+								jf-select="builder.option(configArray)" name="aatype" placeholder="摘要配置方式"></select>
+			</div>
+		</div> 
+		<div class="col_all" >
+			<div class="col2 text_right">摘要信息 ：</div>
+			<div class="float_left" style="width:70%">
+				<textarea class="layui-textarea" ng-model = "items.summaryContent"></textarea>
+			</div>
+		</div> 
+	</form>
+</div>

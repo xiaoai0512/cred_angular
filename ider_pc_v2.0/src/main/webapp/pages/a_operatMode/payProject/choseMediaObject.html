@@ -1,0 +1,42 @@
+<div ng-controller="choseMediaObjectCtrl2">
+
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div class="col_td">
+		<div class="col4 text_right">{{'YYH500002' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+				ng-model="mediaObjectList.params.mediaObjectCode" maxlength="9">
+		</div>
+	</div>
+	<div class="col_tr text_center">
+		<button class="layui-btn" ng-click="mediaObjectList.search()" type="button">
+			<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+		</button>
+
+		<button class="layui-btn cancel-btn" type="button"
+			ng-click="mediaObjectList.params={}">
+			<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+		</button>
+	</div>
+	<div jf-grid="mediaObjectList">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'YYH500001' | translate}} </th>
+					<th>{{'YYH500002' | translate}} </th>
+					<th>{{'YYH500003' | translate}} </th>
+					<th>{{'YYH500004' | translate}} </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.mediaObjectCode"></td>
+					<td align="center" ng-bind="item.mediaObjectDesc"></td>
+					<td align="center" ng-bind="item.mediaObjectTypeDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</form>
+</div>

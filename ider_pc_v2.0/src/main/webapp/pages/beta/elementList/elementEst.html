@@ -1,0 +1,238 @@
+<div ng-controller="elementEstCtrl">
+	<form name="elementEstForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300024' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step1I"  type="text" name="elementNo"  ng-model="elementInfo.elementNo" maxlength="10" validator="required,maxlength,minlength" id="elementNo" minlength='10' >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step1I"  type="text" name="elementDesc"  ng-model="elementInfo.elementDesc" maxlength="50" validator="required">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300046' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="elementInfo.supportPersonal" class="layui-input step1S" jf-select="supportPersonalArr" name="supportPersonal" validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH410050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="elementInfo.supportPcd" class="layui-input step1S" jf-select="supportPersonalArr" name="supportPersonal" validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius" ng-click="nextStep1()" validation-submit="elementEstForm" ng-show="step1Btn">
+				<i class="layui-icon">&#xe61a;</i> {{'PZH410001' | translate}}
+			</button>
+		</div>
+	</form>
+	<div ng-show="instanCodeShow">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'PZH410037' | translate}}</div>
+		<form name="pcdEstForm"  class="layui-form step3S">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH300028' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="pcdNo"  ng-model="elementInfo1.pcdNo" maxlength="8" validator="required" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH300029' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="pcdDesc"  ng-model="elementInfo1.pcdDesc" maxlength="50" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH300030' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="baseInstanDimen"  ng-model="elementInfo1.baseInstanDimen" maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH300031' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="optionInstanDimen"  ng-model="elementInfo1.optionInstanDimen" maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410038' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="elementInfo1.activityTagValidFlag" class="layui-input step2S" jf-select="activityTagValidFlagArr" name="activityTagValidFlag">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410039' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="elementInfo1.segmentType" class="layui-input step2S" jf-select="segmentTypeArr" name="segmentType">
+					</select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-show="step2Btn"  ng-click="stepBackOne()">
+					<i class="layui-icon">&#xe619;</i> {{'PZH410040' | translate}}
+				</button>
+				<button class="layui-btn layui-btn-radius" ng-show="step3Btn" ng-click="saveProLine()" validation-submit="pcdEstForm">
+					<i class="layui-icon">&#xe61a;</i> {{'PZH410041' | translate}}
+				</button>
+			</div>															
+		</form>
+	</div>
+	
+	<div ng-show="instanCodeShow1">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'PZH410042' | translate}}</div>
+		<form name="pcdEstForm"  class="layui-form step3S">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH300028' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="pcdNo"  ng-model="elementInfo1.pcdNo" maxlength="8" validator="required" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH300029' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="pcdDesc"  ng-model="elementInfo1.pcdDesc" maxlength="50" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH300030' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="baseInstanDimen"  ng-model="elementInfo1.baseInstanDimen" maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH300031' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input step2I"  type="text" name="optionInstanDimen"  ng-model="elementInfo1.optionInstanDimen" maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410038' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="elementInfo1.activityTagValidFlag" class="layui-input step2S" jf-select="activityTagValidFlagArr" name="activityTagValidFlag">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410039' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="elementInfo1.segmentType" class="layui-input step2S" jf-select="segmentTypeArr" name="segmentType">
+					</select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-show="step2Btn"  ng-click="stepBackOne()">
+					<i class="layui-icon">&#xe619;</i> {{'PZH410040' | translate}}
+				</button>
+				<button class="layui-btn layui-btn-radius" ng-show="step3Btn" ng-click="saveProLine()" validation-submit="pcdEstForm">
+					<i class="layui-icon">&#xe61a;</i> {{'PZH410043' | translate}}
+				</button>
+			</div>															
+		</form>
+	</div>
+	
+	<div class="clearboth"></div>
+	<div ng-show="authBusTransShow">
+	<div class="mainname">{{'PZH410041' | translate}}</div>
+		<form name="corePcdInitValueEstForm"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH410041' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdNo"  ng-model="elementInfo2.pcdNo" maxlength="8" id = "pcdNo" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="segmentSerialNum"  ng-model="elementInfo2.segmentSerialNum" maxlength="11" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH410045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="elementInfo2.pcdType" class="layui-input" jf-select="pcdTypeArr" name="pcdType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdPoint"  ng-model="elementInfo2.pcdPoint" maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="segmentValue"  ng-model="elementInfo2.segmentValue" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410048' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdValue"  ng-model="elementInfo2.pcdValue" maxlength="10">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-show="step4Btn"  ng-click="stepBackTwo()">
+					<i class="layui-icon">&#xe619;</i> {{'PZH410040' | translate}}
+				</button>
+			</div>						
+		</form>
+	</div>
+	
+	<div class="clearboth"></div>
+	<div ng-show="authBusTransShow1">
+	<div class="mainname">{{'PZH410043' | translate}}</div>
+		<form name="corePcdInitValueEstForm"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH300028' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdNo"  ng-model="elementInfo2.pcdNo" maxlength="8" id = "pcdNo" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="segmentSerialNum"  ng-model="elementInfo2.segmentSerialNum" maxlength="11" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH410045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="elementInfo2.pcdType" class="layui-input" jf-select="pcdTypeArr" name="pcdType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdPoint"  ng-model="elementInfo2.pcdPoint" maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="segmentValue"  ng-model="elementInfo2.segmentValue" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410048' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdValue"  ng-model="elementInfo2.pcdValue" maxlength="10">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-show="step4Btn"  ng-click="stepBackTwo()">
+					<i class="layui-icon">&#xe619;</i> {{'PZH410040' | translate}}
+				</button>
+			</div>						
+		</form>
+	</div>
+</div>

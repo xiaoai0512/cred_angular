@@ -1,0 +1,38 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "1",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "stageTpyeDesc": "商户分期",
+            "stageTpyeCode": "MERH"
+        },
+        {
+            "stageTpyeDesc": "自动分期",
+            "stageTpyeCode": "TXAT"
+        },
+        {
+            "stageTpyeDesc": "现金分期",
+            "stageTpyeCode": "CASH"
+        },
+        {
+           "stageTpyeDesc": "专项分期",
+            "stageTpyeCode": "SPCL"
+        },
+        {
+            "stageTpyeDesc": "账单分期",
+            "stageTpyeCode": "STMT"
+        },{
+           "stageTpyeDesc": "交易分期",
+            "stageTpyeCode": "TRAN"
+        },{
+           "stageTpyeDesc": "消贷分期",
+            "stageTpyeCode": "LOAN"
+        }
+        ]
+    }
+}

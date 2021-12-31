@@ -1,0 +1,50 @@
+<div class="mainname">大页面新旧版本修改点</div>
+
+<blockquote class="layui-elem-quote">1、左边页签指定html修改</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    1.1 jf-nav指令写法
+    旧版：jf-nav未指定事件
+    新版：需要指定事件jf-nav="parentNav"
+    1.2 div中的icon标签
+    旧版：有指定icon的图标。如：icon="&amp;#xe600;"
+    新版：无需指定icon
+
+</pre>
+<blockquote class="layui-elem-quote">2、按钮样式及图标</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    2.1 button上层div指定样式修改
+    旧版:按钮div指定的class可能为col_tr，float_btnfoot或其他
+    新版：将div的class统一改为scrbtn
+<span style="color:red">注意：要将按钮的div放在form表单外面</span>
+
+    2.2button本身class修改
+    旧版：旧版的class可能指定按钮为圆角或其他颜色的样式。如：class="layui-btn layui-btn-radius"
+    新版：统一改为class="layui-btn"
+    2.3返回按钮的icon指定修改
+    旧版：指定的图标为&amp;#xe60c;或其他
+    新版：统一改为&amp;#x1006;
+</pre>
+<blockquote class="layui-elem-quote">3、大页面新增</blockquote>
+
+<pre class="layui-code" lay-title="Code" >
+ <span style="color:red">如果有涉及到页面是列表且新增时默认要为空，则在初始化就要新调用Tansun.GUID("前缀")生成唯一编码作为其查询的过滤参数（详细代码可参照用户管理中的新增修改）。其余情况无需做处理。</span>
+</pre>
+<blockquote class="layui-elem-quote">4、页签指定的url修改</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    旧版：&lt;div url="/pages/bigpagedemo/personBaseInfo.html" title="新增修改用户"  &gt;&lt;/div&gt;
+    新版：&lt;div url="/bigpagedemo/personBaseInfo.html" title="新增修改用户"  &gt;&lt;/div&gt;
+   <span style="color:red"> 要统一去掉/pages前缀</span>
+
+</pre>
+<blockquote class="layui-elem-quote">5、页签是否可编辑控制</br>
+ <span style="color:red">备注：通过设置div里面的valiParam="参数" 来控制页签是否可编辑</span></br>
+ 如：&lt;div url="/bigpagedemo/personBaseInfo.html" title="新增修改用户" valiParam="id"  &gt;&lt;/div&gt;
+ 表示当作用域里面id有值，该页面即可编辑
+ 
+</blockquote>
+
+<blockquote class="layui-elem-quote">6、获取对应页签scope的方法</br>
+ <span style="color:red">大页面新增了获取对应页签scope的方法</span></br>
+var scope=$scope.getScope(1);//1代表第二个页签
+ 
+</blockquote>

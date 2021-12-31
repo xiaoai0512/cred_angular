@@ -1,0 +1,61 @@
+<div ng-controller="technicalParamsListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="technicalParamsList.params.operationMode"
+						jf-select="operationModeArr" name="operationMode"
+						 maxlength="3">
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH100013' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="technicalParamsList.params.artifactNo" 
+					name="artifactCode" type="text">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="technicalParamsList.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}	
+			</button>
+			<!-- <button class="layui-btn" ng-click="artifactAdd()" ng-show="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> 新增
+			</button> -->
+			<!-- <button class="layui-btn cancel-btn" type="button"
+				ng-click="artifactTable.params={}">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}	
+			</button> -->
+		</div>
+
+		<div jf-grid="technicalParamsList">
+			<table>
+				<thead>
+					<tr>
+						<th >{{'YYH400001' | translate}}</th>
+						<th align="left" >{{'YYH400058' | translate}}</th>
+						<th align="left" >{{'YYH400003' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="left">
+							<span>{{item.artifactNo}}  {{item.artifactDesc}}</span>
+						</td>
+						<td align="left">
+							<span>{{item.elementNo}}  {{item.elementDesc}}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

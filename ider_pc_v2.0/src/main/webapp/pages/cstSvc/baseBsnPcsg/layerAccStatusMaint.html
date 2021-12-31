@@ -1,0 +1,55 @@
+<div ng-controller="layerAccStatusMaintCtrl">
+	<form name="" class="layui-form">
+	
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4100042' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text"  ng-model="accStatusInf.prinAmount"  jf-format-input="money" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4100043' | translate}}：</div>
+			<div class="wd190 float_left bone">
+				<input class="layui-input bnone"  type="text"  ng-model="accStatusInf.intAmount"  jf-format-input="money" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4100044' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text"  ng-model="accStatusInf.feeAmount"  jf-format-input="money" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5000015' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="accStatusInf.oldAccountingStatus" class="layui-input" 
+							jf-select="oldAccountingStatusArr" name="accountingStatus"  disabled="disabled"></select>
+			
+			</div>
+		</div>
+		<div class="col_td" ng-show="newStatusDiv1">
+			<div class="col4 text_right">{{'YYH5000016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<!-- <select ng-model="accStatusInf.newAccountingStatus1" class="layui-input" 
+							jf-select="newAccountingStatusArr" name="newAccountingStatus" ></select> -->
+				
+				<select  class="layui-input"  ng-model="accStatusInf.newAccountingStatus1" 
+				id= "newAccountingStatus1" name="newAccountingStatus" >
+				<option>{{'F00001' | translate}}</option>
+				
+				</select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="newStatusDiv2">
+			<div class="col4 text_right">{{'YYH5000016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input"  ng-model="accStatusInf.newAccountingStatus2" 
+				id= "newAccountingStatus2" name="newAccountingStatus">
+				<option>{{'F00001' | translate}}</option>
+				</select>
+			</div>
+		</div>
+		
+	</form>
+</div>

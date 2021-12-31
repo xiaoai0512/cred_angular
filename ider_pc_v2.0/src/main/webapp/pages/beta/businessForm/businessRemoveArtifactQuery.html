@@ -1,0 +1,63 @@
+<div ng-controller="businessRemoveArtifactQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div>
+		
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1400001' | translate}} ：</label>
+				<div class="wd190 float_left">
+				<!-- <select ng-model="businessFormList.params.businessPattern" class="layui-input" 
+					 	jf-select="businessPatternArr" name="businessPattern" lay-search="">
+			 	</select> -->
+					<input class="layui-input" type="text"  name="businessPattern" maxlength="2"
+						ng-model="businessFormList.params.businessPattern" />
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH1400002' | translate}}：</label>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="patternDesc" maxlength="50"
+						ng-model="businessFormList.params.patternDesc" />
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="businessFormList.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="addBusiness()" ng-show="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</div>
+		<div jf-grid="businessFormList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH1400001' | translate}} </th>
+						<th>{{'PZH1400002' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.businessPattern"></td>
+						<td align="center" ng-bind="item.patternDesc"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="checkBsRemArti(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateBsRemArti(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

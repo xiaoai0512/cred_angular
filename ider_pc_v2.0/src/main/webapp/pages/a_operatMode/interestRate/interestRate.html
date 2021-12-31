@@ -1,0 +1,79 @@
+<div ng-controller="interestRateCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form name="interestRateForm">   <!-- busiViewForm -->
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH300001' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="operationMode" class="layui-input" validator="required" ng-selected="A01" lay-filter="getProductObjectCode"
+						jf-select="coArray" name="atypeN"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH510001' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<select ng-model="productObjectCode" class="layui-input" disabled id="productObjectCodeId"
+						 jf-select="proArray" name="aatype" lay-search></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400031' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<select ng-model="businessTypeCode" class="layui-input" disabled id="businessTypeCodeId"
+					 jf-select="businessTypeArray" name="businessTypeCodeN" lay-search></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" validation-submit="interestRateForm"
+					ng-click="selInterest()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</form>
+			<div jf-grid="differentiationOtherView">
+				<table>
+				<thead>
+					<tr>
+						<th align="left" style="width:18%">{{'YYH400037' | translate}}</th>
+						<th align="left" style="width:18%">{{'YYH400031' | translate}}</th>
+						<th align="left" style="width:18%">{{'YYH400055' | translate}}</th>
+						<th align="left" style="width:18%">{{'YYH400056' | translate}}</th>
+						<th align="center" style="width:4%">{{'YYH400057' | translate}}</th>
+						<th style="width:11%">{{'F00017' | translate}}	</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="left">
+							<div class="tdDivL" style="width:41%">{{item.instanCode1}}&nbsp;</div>
+							<div class="tdDivR" style="width:57%">{{item.instanDesc1}}</div>
+						</td>
+						<td align="left">
+							<div class="tdDivL" style="width:41%">{{item.instanCode2}}&nbsp;</div>
+							<div class="tdDivR" style="width:57%">{{item.instanDesc2}}</div>
+						</td>
+						<td align="left">
+							<div class="tdDivL" style="width:41%">{{item.x0987BO[0].baseInstanCode}}&nbsp;</div>
+							<div class="tdDivR" style="width:57%">{{item.x0987BO[0].baseInstanDesc}}</div>
+						</td>
+						<td align="left">
+							<div class="tdDivL" style="width:41%">{{item.x0987BO[0].optionInstanCode}}&nbsp;</div>
+							<div class="tdDivR" style="width:57%">{{item.x0987BO[0].optionInstanDesc}}</div>
+						</td>
+						<td align="center" ng-bind="item.x0987BO[0].bigPcdValue"></td>										
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="queryInterestInfo(item)">
+								<i class="layui-icon">&#xe60b;</i>{{'F00014' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="productObjectUpdate(item)" ng-if="updateBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

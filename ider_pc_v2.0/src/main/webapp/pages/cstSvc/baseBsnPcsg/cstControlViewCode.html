@@ -1,0 +1,49 @@
+<div ng-controller="cstCodeViewCtrl">
+		<div jf-grid="blockTable">
+				<table>
+					<thead>
+						<tr>
+							<!-- <th>生效码类别</th>
+							<th>生效码场景</th>
+							<th>生效码范围</th> -->
+							<th>{{'KHH5200045' | translate}}</th>
+							<th>{{'KHH5200050' | translate}}</th>
+							
+							<th>{{'KHH5200046' | translate}}</th>
+							<th>{{'KHH5200036' | translate}}</th>
+							<th>{{'KHH5200037' | translate}}</th>
+							<th>{{'KHH5200019' | translate}}</th>
+							<th>{{'KHH5200032' | translate}}</th>
+							<th>{{'KHH5200033' | translate}}</th>
+							<th>{{'KHH5200038' | translate}}</th>
+							<th>{{'KHH5200039' | translate}}</th>
+							<th>{{'KHH5200040' | translate}}</th>
+							<th>{{'KHH5200041' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">
+								{{item.eventNo.substring(7)}}
+							</td>
+							<td align="center" ng-bind="item.eventDesc"></td>
+							<td align="center">
+							{{item.effectivenessCodeType}}&nbsp;&nbsp;
+							{{item.effectivenessCodeScene}}
+							</td>
+							<td align="center" ng-bind="item.sceneTriggerObjectLevelDesc"></td>
+							<td align="center" ng-bind="item.sceneTriggerObjectCode"></td>
+							<td align="center">
+								<span ng-if="item.sceneTriggerObjectLevel == 'A' ">{{item.currencyCode}}{{item.currencyDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.settingDate"></td>
+							<td align="center" ng-bind="item.settingTime"></td>
+							<td align="center" ng-bind="item.settingUpUserid"></td>
+							<td align="center" ng-bind="item.removalUserid"></td>
+							<td align="center" ng-bind="item.removeDate"></td>
+							<td align="center" ng-bind="item.stateDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+</div>

@@ -1,0 +1,161 @@
+<div ng-controller="limitPInfoCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH1800068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1800062' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transLimitCodeN" ng-model="conlimitSelPInfo.levelFlagInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'SQH1800065' | translate}} ：</div>
+			<div class="wd190 float_left" >
+				<select id="d" ng-model="currencyCodeInfo" class="layui-input"
+								jf-select="crrysArray" name="currencyCodeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'SQH1700083' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transLimitCodeN" ng-model="conlimitSelPInfo.transLimitCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'SQH1700081' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="differentTypeN" ng-model="differentTypeCusInfo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isCustomerNoEInfop">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text"	ng-model="isCustomerNoInfo"  readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isExterNoEInfop">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="externalIdentificationNoEInfo" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isriskLevelNoEInfop">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="riskLevelEInfo" readonly>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isProNoEInfop">
+			<label class="col4 text_right">{{'SQH1700042' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="proNoEInfo" readonly>
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show="isSupplyControlFlagEInfop">
+			<div class="col4 text_right">{{'SQH1800084' | translate}} ：</div>
+			<div class="wd190 float_left" >
+				<input class="layui-input bnone" type="text" ng-model="conlimitSelPInfo.supplyControlFlag" readonly>
+			</div>
+		</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH1800063' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="differentCodeN"  ng-model="differentCodeAdd" type="text"  >
+			</div>
+		</div> -->
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1800069' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800070' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitSingleTransN" ng-model="conlimitSelPInfo.limitSingleTrans" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800071' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitDayTransN" ng-model="conlimitSelPInfo.limitDayTrans" readonly type="text"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800072' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitCycleTransN" ng-model="conlimitSelPInfo.limitCycleTrans" readonly type="text"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800073' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitMonthTransN" ng-model="conlimitSelPInfo.limitMonthTrans" readonly type="text"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800074' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitHalfYearTransN" ng-model="conlimitSelPInfo.limitHalfYearTrans" readonly type="text"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800075' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitYearTransN" ng-model="conlimitSelPInfo.limitYearTrans" readonly type="text"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800076' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="limitLifeCycleTransN" ng-model="conlimitSelPInfo.limitLifeCycleTrans" readonly type="text"  >
+				</div>
+			</div>
+		<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'SQH1800077' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800078' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberDayTransN" ng-model="conlimitSelPInfo.numberDayTrans" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800079' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberCycleTransN"  ng-model="conlimitSelPInfo.numberCycleTrans" type="text" readonly >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800080' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberMonthTransN" ng-model="conlimitSelPInfo.numberMonthTrans" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800081' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberHalfYearTransN" ng-model="conlimitSelPInfo.numberHalfYearTrans" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800082' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberYearTransN"  ng-model="conlimitSelPInfo.numberYearTrans" type="text" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH1800083' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="numberLifeCycleTransN" ng-model="conlimitSelPInfo.numberLifeCycleTrans" type="text" readonly>
+				</div>
+			</div>
+	<!-- 		<div class="col_tr text_center" style="margin-top:20px">
+				<button class="layui-btn layui-btn-radius" style="margin-right:75px"
+					ng-click="saveLimitInfo()" validation-submit="mdmInfoForm">
+					<i class="layui-icon">&#xe624;</i> 保存
+				</button>
+				<button class="layui-btn layui-btn-radius"
+					ng-click="resetInfo()">
+					<i class="layui-icon">&#xe624;</i> 取消
+				</button>
+			</div> -->
+			<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

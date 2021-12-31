@@ -1,0 +1,241 @@
+<div ng-controller="overdraftCostLookCtrl">
+	<div class="">
+		<form name="overdraftCostForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="overdraftCostModify.operationMode" validator="required" disabled="disabled"
+						name="operationMode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易费用代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="overdraftCostModify.overdraftCostCode" validator="required" disabled="disabled"
+						name="overdraftCostCode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">顺序号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" 
+						ng-model="overdraftCostModify.orderIndex" disabled="disabled"
+						name="orderIndex" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">业务类型代码：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.businessTypeCode" name="businessTypeCode" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">产品对象代码：</div>
+				<div class="wd190 float_left" >
+					<input class="layui-input bnone" 
+						ng-model="overdraftCostModify.productObjectCode" name="productObjectCode" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">币种：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="currency" ng-model="overdraftCostModify.currency" type="text"   validator="required" disabled="disabled"> -->
+					<select jf-select="builder.option(currencyArr)"
+						ng-model="overdraftCostModify.currency" validator="required"
+						name="currency" disabled="disabled"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="transDesc" ng-model="overdraftCostModify.transDesc" type="text"   validator="required" disabled="disabled">
+				</div>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname titleInfo">提现交易</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易费用标识：</div>
+				<div class="wd190 float_left">
+					<select  jf-select="builder.option(costSingCashArray)" ng-model="overdraftCostModify.transCostSingCash" disabled="disabled"
+						validator="required" name="transCostSingCash" />
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">提现交易来源：</div>
+				<div class="wd190 float_left">
+					<select  jf-select="builder.option(transChannelArray)" ng-model="overdraftCostModify.transChannelCash" disabled="disabled"
+						validator="required" name="transChannelCash" />
+				</div>
+			</div>
+			
+			<div class="col_tr">
+				<div class="col2 text_right">
+					提现手续费 ：</div><div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashFixedCharge" disabled="disabled"
+						name="cashFixedCharge" type="text">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">最小费用：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashMinCharge" name="cashMinCharge" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">最大费用：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashMaxCharge" disabled="disabled"
+						name="cashMaxCharge" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">比例1：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashScale1" name="cashScale1" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">限额1：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashQuota1" disabled="disabled"disabled="disabled"
+						name="cashQuota1" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">比例2：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashScale2" name="cashScale2" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">限额2：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashQuota2" disabled="disabled"
+						name="cashQuota2" type="text"> 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">比例3：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.cashScale3" name="cashScale3" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">限额3：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required" disabled="disabled"
+						ng-model="overdraftCostModify.cashQuota3"
+						name="cashQuota3" type="text">
+				</div>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname titleInfo">转账交易</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">转账交易费用标识：</div>
+				<div class="wd190 float_left">
+					<select  jf-select="builder.option(costSingCashArray)" ng-model="overdraftCostModify.transCostSingTransfer"  disabled="disabled"
+					validator="required" name="transCostSingTransfer" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">转账交易来源：</div>
+				<div class="wd190 float_left">
+					<select  jf-select="builder.option(transChannelArray)" ng-model="overdraftCostModify.transChannelTransfer" disabled="disabled"
+					validator="required" name="transChannelTransfer" />
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">
+					转账手续费  ：</div><div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferFixedCharge" disabled="disabled"
+						name="transferFixedCharge" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">最小费用：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferMinCharge" disabled="disabled"
+						name="transferMinCharge" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">最大费用：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferMaxCharge" name="transferMaxCharge" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">比例1：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferScale1" disabled="disabled"
+						name="transferScale1" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">限额1：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferQuota1" name="transferQuota1" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">比例2：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferScale2" disabled="disabled"
+						name="transferScale2" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">限额2：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferQuota2" name="transferQuota2" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">比例3：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferScale3" disabled="disabled"
+						name="transferScale3" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">限额3：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" validator="required"
+						ng-model="overdraftCostModify.transferQuota3" name="transferQuota3" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

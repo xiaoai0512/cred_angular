@@ -1,0 +1,21 @@
+<div ng-controller="choseFeeTypeCtrl">
+
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div jf-grid="feeTypeTable">
+		<table >
+			<thead>
+				<tr>
+					<th>费用收取方式</th>
+					<th>费用收取编号</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.feeTpyeDesc"></td>
+					<td align="center" ng-bind="item.feeTpyeCode"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</form>
+</div>

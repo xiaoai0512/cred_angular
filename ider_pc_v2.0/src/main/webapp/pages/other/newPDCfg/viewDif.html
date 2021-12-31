@@ -1,0 +1,67 @@
+<div ng-controller="viewDifCtrl">
+	<div class="allcontent">
+		<form name="balanceForm">
+			<div class="col_td">
+				<div class="col4 text_right">余额对象代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" ng-model="viewDif.objectCode" validator="required" disabled="disabled"
+						name="objectCode" type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">构件编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input  bnone" ng-model="viewDif.artifactNo" validator="required" disabled="disabled"
+						name="artifactNo" type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">元件编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="viewDif.elementNo" validator="required" disabled="disabled"
+						name="elementNo" type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">PCD编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  disabled="disabled"
+						ng-model="viewDif.pcdNo" name="pcdNo" 
+						type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">币种：</div>
+				<div class="wd190 float_left">
+					<select ng-model="viewDif.currencyCode" class="layui-input  bnone"  disabled="disabled"
+						jf-select="builder.option(currencyTypeArray)" name="currencyCode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">取值类型：</div>
+				<div class="wd190 float_left">
+				<select class="layui-input  bnone" jf-select="builder.option(valTypArray)" ng-model="viewDif.pcdType" disabled="disabled"></select>
+					
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">取值：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" v disabled="disabled"
+						ng-model="viewDif.pcdValue" name="pcdValue" 
+						type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">取值小数位：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" disabled="disabled"
+						ng-model="viewDif.pcdPoint" name="pcdPoint" 
+						type="text" >
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>

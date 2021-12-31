@@ -1,0 +1,98 @@
+<div class="layout_body" ng-controller="tradingHistoryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form action="" name="queryInfForm" class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	
+					id='tradingHistoryP_idNumber'name="idNumber" validator="noValidator"
+					ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH1500060' | translate}}：</label>
+				<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="authSceneArray" name="authSceneCode" ng-model="itemList.params.authSceneCode" lay-search=""></select>
+				</div>
+	      </div>
+	      <div class="col_td" style="width:70%">
+			   <div class="col4 text_right" style="width:28.5%">{{'SQH2700027' | translate}}：</div>
+				<div class="float_left" style="width:400px">
+					<input class="layui-input icon_date" style="width:48.5%;float:left;" name="fromDataName" id="LAY_start_Add" type="text" ng-model="itemList.params.startDate" autocomplete="off">
+					<div class="col4 text_right" style="width:50%;display:-webkit-box;">
+						<span>~</span>	
+						<input class="layui-input icon_date" style="width:90%;" name="toDateName" id="LAY_end_Add" type="text" ng-model="itemList.params.endDate" autocomplete="off"> 
+					</div>
+					</div>
+            </div>
+			<div class="col_tr text_center">
+				<div class="layui-inline">
+					<button class="layui-btn" ng-click="selectList()" validation-submit="queryInfForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | T}}
+					</button>
+				</div>
+			</div>
+		</form>	
+		<form class="layui-form">
+			<div ng-show="showQuotaTable" >		
+				<div jf-grid="itemList">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:17%">{{'SQH2700001' | translate}}</th>
+								<th style="width:11%">{{'SQH2700027' | translate}}</th>
+								<th style="width:11%">{{'SQH2700028' | translate}}</th>
+								<th>{{'SQH2700004' | translate}}</th>
+								<th>{{'SQH2700005' | translate}}</th>
+								<th>{{'SQH2700006' | translate}}</th>
+								<th>{{'SQH2700007' | translate}}</th>
+								<th>{{'SQH2700008' | translate}}</th>
+								<th>{{'SQH2700010' | translate}}</th>
+								<th>{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width:17%" align="center" ng-bind="item.temTransNo"></td>
+								<td style="width:11%" align="center" ng-bind="item.processingDate"></td>
+								<td style="width:11%" align="center" ng-bind="item.processingTime"></td>
+								<td align="center" ng-bind="item.temCurrencyCode"></td>
+								<td align="center" ng-bind="item.temTransAmount"></td>
+								<td align="center" >{{item.authSceneCode}}{{item.sceneDesc}}</td>
+								<td align="center" ng-bind="item.authTransMessage.ecommField38"></td>
+								<td align="center" ng-bind="item.authTransMessage.ecommField39"></td>
+								<td align="center" ng-bind="item.transTypeDesc"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini" ng-click="selectInfo(item)">
+										<i class="layui-icon">&#xe60b;</i> {{'F00014' | T}}
+									</button>
+									<span ng-if="item.limitHisFlag == '1'">
+									<button class="layui-btn layui-btn-mini" ng-click="selectHistory(item)">
+										<i class="layui-icon"></i> {{'SQH2700090' | translate}}
+									</button>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

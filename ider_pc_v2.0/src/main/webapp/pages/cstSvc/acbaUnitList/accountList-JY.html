@@ -1,0 +1,71 @@
+<div ng-controller="queryAccountCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div jf-grid="itemList">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700004' | translate}}</th>
+									<th style="padding-left:3px;padding-right:3px">{{'KHH4700014' | translate}}</th>
+									<th style="width:10%;padding-left:3px;padding-right:3px">{{'KHJ4700007' | translate}}</th>
+									<th style="width:15%;padding-left:3px;padding-right:3px">{{'KHH4700047' | translate}}</th>
+									<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700048' | translate}}</th>
+									<th style="padding-left:3px;padding-right:3px">{{'KHH4700050' | translate}}</th>
+									<th style="padding-left:3px;padding-right:3px">{{'KHH4700051' | translate}}</th>
+									<th style="padding-left:3px;padding-right:3px">{{'KHH4700052' | translate}}</th>
+									<th style="padding-left:3px;padding-right:3px">{{'KHH4700005' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.accountId" style="padding-left:3px;padding-right:3px"></td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+											<span ng-if="item.currencyCode == '156'">{{'KHH4700020' | translate}}</span>
+									  		<span ng-if="item.currencyCode == '840'">{{'KHH4700021' | translate}}</span>
+									  		<span ng-if="item.currencyCode == 'CNY'">{{'KHH4700020' | translate}}</span>				
+									  		<span ng-if="item.currencyCode == 'USD'">{{'KHH4700021' | translate}}</span>		
+									  		<span ng-if="item.currencyCode == ' '"></span>	
+									</td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+									<span>{{item.businessProgramNo}}{{item.programDesc}}</span></td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+										<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+									</td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+										<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+									</td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+										<span ng-if="item.accountOrganForm=='R'">{{'KHH4700053' | translate}}</span>
+										<span ng-if="item.accountOrganForm=='T'">{{'KHH4700054' | translate}}</span>
+										<span ng-if="item.accountOrganForm=='S'">单笔</span>
+									</td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+										<span ng-if="item.businessDebitCreditCode=='C'">{{'KHH4700055' | translate}}</span>
+										<span ng-if="item.businessDebitCreditCode=='D'">{{'KHH4700078' | translate}}</span>
+										<span ng-if="item.businessDebitCreditCode=='O'">不适用</span>
+									</td>
+									<td align="center" style="padding-left:3px;padding-right:3px">
+										<span ng-if="item.statusCode=='1'">{{'KHH4700077' | translate}}</span>
+										<span ng-if="item.statusCode=='2'">{{'KHH4700056' | translate}}</span>
+										<span ng-if="item.statusCode=='3'">{{'KHH4700057' | translate}}</span>
+										<span ng-if="item.statusCode=='8'">{{'KHH4700058' | translate}}</span>
+										<span ng-if="item.statusCode=='9'">{{'KHH4700059' | translate}}</span>
+										<span ng-if="item.statusCode=='D'">登记未释放</span>
+										<span ng-if="item.statusCode=='B'">已释放利于银行</span>
+										<span ng-if="item.statusCode=='C'">已释放利于客户</span>
+									</td>
+									<td align="center" ng-bind="item.totalBalance | number:2" style="padding-left:3px;padding-right:3px"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</div>

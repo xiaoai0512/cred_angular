@@ -1,0 +1,51 @@
+<div class="layui-form" ng-controller="cstProfessionInfEstbCtrlAdd">
+			<form name="ProfessionInfoForm">
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH8100004' | translate}} ：</div>
+                    <div class="wd190 float_left" >
+                        <select ng-model="professionInfTableInfo.position" name="position"
+                                lay-filter="getPosition" jf-select="positionTypeList" validator="required" >
+                        </select>
+                    </div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH8100005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="corporationName"
+							ng-model="professionInfTableInfo.corporationName" maxlength="100"
+							validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH8100006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="department"
+							ng-model="professionInfTableInfo.department" maxlength="50"
+							validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH8100007' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+							name="station"
+							ng-model="professionInfTableInfo.station" maxlength="50"
+							validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH8100008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="employmentYears" maxlength="2"
+							ng-model="professionInfTableInfo.employmentYears" validator="required">
+					</div>
+				</div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH8100009' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="employmentMonths" maxlength="2"
+                               ng-model="professionInfTableInfo.employmentMonths" validator="required">
+                    </div>
+                </div>
+			</form>
+</div>

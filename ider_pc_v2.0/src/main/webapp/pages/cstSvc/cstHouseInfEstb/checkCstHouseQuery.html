@@ -1,0 +1,25 @@
+<div ng-controller="checkCstHouseQueryCtrl">
+	<div class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6400004' | translate}} ：</div>
+			<div class="wd190 float_left">
+                <select ng-model="csInfEstbInfo.houseOwner" class="layui-input"
+                        jf-select="upHouseOwnerArray" name="houseOwner" >
+                </select>
+				<!--<input class="layui-input"  ng-model="csInfEstbInfo.houseOwnerTrans" name="houseOwnerTrans" type="text" disabled>-->
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6400005' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.occupancyTime" name="occupancyTime" type="text" maxlength="4" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH6400006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.monthlyMortgagePayment" name="monthlyMortgagePayment" type="text" maxlength="10">
+			</div>
+		</div>
+	</div>
+</div>

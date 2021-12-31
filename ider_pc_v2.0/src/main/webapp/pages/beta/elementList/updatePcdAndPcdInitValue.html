@@ -1,0 +1,83 @@
+<div ng-controller="updatePcdAndPcdInitValueCtrl">
+	<form name="pcdEstForm"  class="layui-form step3S">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'PZH410042' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300028' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step2I"  type="text" name="pcdNo"  ng-model="updatePcdAndPcdInitValueInfo.pcdNo" maxlength="8" validator="required" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300029' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step2I"  type="text" name="pcdDesc"  ng-model="updatePcdAndPcdInitValueInfo.pcdDesc" maxlength="50"  minlength="1" validator="required,minlength,maxlength">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH300030' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step2I"  type="text" name="baseInstanDimen"  ng-model="updatePcdAndPcdInitValueInfo.baseInstanDimen" maxlength="4">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH300031' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step2I"  type="text" name="optionInstanDimen"  ng-model="updatePcdAndPcdInitValueInfo.optionInstanDimen" maxlength="4">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH410038' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="updatePcdAndPcdInitValueInfo.activityTagValidFlag" class="layui-input step2S" jf-select="activityTagValidFlagArr" name="activityTagValidFlag">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH410039' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="updatePcdAndPcdInitValueInfo.segmentType" class="layui-input step2S" jf-select="segmentTypeArr" name="segmentType">
+				</select>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'PZH410043' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH300028' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdNo"  ng-model="updatePcdAndPcdInitValueInfo.pcdNo" maxlength="8" id = "pcdNo" disabled validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="segmentSerialNum"  ng-model="updatePcdAndPcdInitValueInfo.segmentSerialNum" maxlength="11" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH410045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="updatePcdAndPcdInitValueInfo.pcdType" class="layui-input" jf-select="pcdTypeArr" name="pcdType" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdPoint"  ng-model="updatePcdAndPcdInitValueInfo.pcdPoint" maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="segmentValue"  ng-model="updatePcdAndPcdInitValueInfo.segmentValue" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH410048' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="pcdValue"  ng-model="updatePcdAndPcdInitValueInfo.pcdValue" maxlength="10">
+				</div>
+			</div>
+	</form>
+</div>

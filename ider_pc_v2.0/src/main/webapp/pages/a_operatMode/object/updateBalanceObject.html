@@ -1,0 +1,160 @@
+<div ng-controller=updateBalanceObjectCtrl>
+	<div>
+		<form name="balanceObjForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600001' | translate}}：</div>
+				<div class="wd330 float_left">
+						<select ng-model="updateOperationMode"   jf-select="operationModeArr" name="operationMode" maxlength="3" disabled>
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600002' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input bnone" ng-model="upbalanceObjInf.balanceObjectCode"
+						 name="balanceObjectCode" type="text" validator="required" maxlength="9" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600003' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="upbalanceObjInf.objectDesc"
+						name="objectDesc" type="text"  maxlength="50" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600004' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="objectTypeUpdate"   jf-select="objectTypeArr" name="mediaObjectType" maxlength="9" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600005' | translate}} ：</div>
+				<div class="wd330 float_left">
+						<!-- <input class="layui-input" name="interestPostingBalanceObject" type="text" ng-model="upbalanceObjInf.interestPostingBalanceObject" ng-click="choseBtn()"> -->
+						<select ng-model="interestPostingBalanceObjectUpdate"  class="layui-input" jf-select="PostingBalanceObjectArr" name="interestPostingBalanceObjectN" validator="required" lay-search="">
+						</select>
+				</div>
+				<!-- <div class="search_button">
+					<button class="layui-btn" ng-click="choseBtn()">
+						<i class="layui-icon">&#xe615;</i>{{'F00036' | translate}}
+					</button>
+				</div> -->
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input "  ng-model="upbalanceObjInf.paymentPriority"  validator="number" 
+					 name="paymentPriority" type="text" maxlength="4" >
+				</div>
+				<div class="search_button">
+					<button class="layui-btn" ng-click="choseBtnPriority()" >
+						<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+					</button>
+			   </div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600007' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input icon_date" ng-model="upbalanceObjInf.beginDate" 
+					 name="beginDate" type="text" jf-date-input >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH600008' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input icon_date"  ng-model="upbalanceObjInf.endDate" 
+					name="endDate" type="text"  jf-date-input >
+				</div>
+			</div>
+		</form>
+		<div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYJ200033' | translate}}</div>
+			<div jf-grid="queryUpdateMODB">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:25%;padding-left:0px;padding-right:0px">{{'YYH400031' | translate}}</th>
+							<th align="left" style="width:50%;padding-left:3px;padding-right:0px">{{'F00079' | translate}}</th>
+							<!-- <th>PCD描述</th> -->
+							<th  align="left" style="width:25%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						  	<td align="center" style="padding-left:0px;padding-right:0px">
+						  		<div class="tdDivL">{{item.instanCode2}}</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc2}}</div>
+						  	</td>
+							<td align="right" style="padding-left:3px;padding-right:0px">
+								<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+							</td>
+							<td align="left">
+								
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="selectAUpdateBP(item,$index)">
+									<i class="layui-icon"></i> {{'F00081' | translate}}
+								</button>
+								
+								<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+									ng-click="setSelectAUpdateBP(item,$index)">
+									<i class="layui-icon"></i> {{'F00082' | translate}}
+								</button>
+								<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+									ng-click="setSelectAUpdateBP(item,$index)">
+									<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div ng-show="isChoseBP" style="margin-bottom:20px;">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH510057' | translate}}</div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th style="width:25%;padding-left:0px;padding-right:0px">{{'YYH400031' | translate}}</th>
+						<th align="left" style="width:47%;padding-left:3px;padding-right:0px">{{'F00079' | translate}}</th>
+						<th align="left" style="width:28%;padding-left:0px;padding-right:0px">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="itembp in BPUpdateChose track by $index">
+						<td align="center" style="padding-left:0px;padding-right:0px">
+					  		<div class="tdDivL">{{itembp.instanCode2}}</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{itembp.instanDesc2}}</div>
+					  	</td>
+						<td align="right" style="padding-left:3px;padding-right:0px">
+							<div class="tdDivL">{{itembp.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{itembp.elementNo}}&nbsp;&nbsp;{{itembp.elementDesc}}</div>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:0px">
+							<button class="layui-btn cancel-btn"  ng-click="deleteTypeBPUpdate($index)" style="float: left;margin-right: 5px;">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn"
+								ng-click="selectAUpdateBPchose(itembp,$index)" style="float: left;margin-right: 5px;">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" ng-if="itembp.pcdNo != null && itembp.pcdDesc == '' && itembp.supportPcd == 'Y'"
+								ng-click="setSelectAUpdateBPchose(itembp,$index)" style="float: left;">
+								<i class="layui-icon"></i> {{'F00082' | translate}}
+							</button>
+							<button class="layui-btn1 cancel-btn" ng-if="itembp.pcdNo != null && itembp.pcdDesc != '' && itembp.supportPcd == 'Y'"
+								ng-click="setSelectAUpdateBPchose(itembp,$index)" style="float: left;">
+								<i class="layui-icon"></i> {{'F00083' | translate}}{{itembp.pcdDesc}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

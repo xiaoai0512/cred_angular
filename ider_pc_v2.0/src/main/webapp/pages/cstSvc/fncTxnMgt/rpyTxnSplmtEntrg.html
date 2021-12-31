@@ -1,0 +1,127 @@
+<div ng-controller="rpyTxnSplmtEntrgCtrl">
+	<!-- <div class="leftmenu_navtitle">还款交易补录</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent  layui-form">
+	<form name="rpyTxnForm">
+		<div class="clearboth"></div>
+			<div class="mainname">{{'KHH1500001' | translate}}</div>
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH1500002' | translate}}</th>
+							<th>{{'KHH1500003' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.eventDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH1500004' | translate}}</div>
+		<div ng-show="showEx">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommEntryId" 
+						name="ecommEntryId" type="text">
+				</div>
+			</div>
+		</div> 
+		<div ng-show="showAc">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommEntryId" 
+						name="ecommEntryId" type="text">
+				</div>
+				<div class="search_button">
+					<button class="layui-btn"  style="margin-left: 10px;" ng-click="choseAccBtn()" >
+						{{'KHH1500013' | translate}}
+					</button>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH1500006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommPostingAcctNmbr" 
+						name="ecommPostingAcctNmbr" type="text" readonly>
+				</div>
+			</div>
+		</div> 
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1500007' | translate}}：</div>
+			<div class="wd190 float_left">
+			<select ng-model="rpyTxnSplmtEntrgInfo.ecommTransCurr" class="layui-input" validator="required" 
+					jf-select="currenyArr" name="ecommTransCurr" lay-filter="getTransCur">
+			</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1500008' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommTransAmount" validator="required,decimals"  maxlength="17" id="transAmoun"
+					name="ecommTransAmount" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1500009' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="rpyTxnSplmtEntrgInfo.ecommTransDate" jf-date-input validator="required"
+					name="ecommTransDate" type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1500010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<!-- lay-filter="getrpyTxnCurr" -->
+				<select id="disS" ng-model="rpyTxnSplmtEntrgInfo.ecommTransPostingCurr" class="layui-input" validator="required" lay-filter="getrpyTxnCurr"
+					jf-select="currenyArr" name="ecommTransPostingCurrE" >
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1500010' | translate}}：</div>
+			<div class="wd190 float_left">
+				lay-filter="getrpyTxnCurr"
+				<select ng-model="rpyTxnSplmtEntrgInfo.ecommTransPostingCurr" class="layui-input" validator="required"
+					jf-select="currenyArr" name="ecommTransPostingCurrA" disabled>
+				</select>
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1500011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommTransPostingAmount" name="ecommTransPostingAmount" validator="required,decimals"  maxlength="17"
+					type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1500012' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommTransDesc"
+					name="ecommTransDesc" type="text">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">授权码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="rpyTxnSplmtEntrgInfo.ecommAuthCde"
+					name="ecommAuthCde" type="text">
+			</div>
+		</div> -->
+		<div class="col_tr text_center">
+		 <!-- -->
+			<button class="layui-btn layui-btn-radius"  validation-submit="rpyTxnForm"  ng-click="saveRpyTxnSplmtEntrgInfo()"  >
+				<i class="layui-icon">&#xe624;</i> {{'F00107' | translate}}
+			</button>
+		</div>
+		</form>
+	</div>
+</div>

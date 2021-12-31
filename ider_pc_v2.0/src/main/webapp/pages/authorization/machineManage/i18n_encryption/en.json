@@ -1,0 +1,23 @@
+{
+"SQH3000001": "Card scheme",
+"SQH3000002": "Key Type",
+"SQH3000003": "Key Index",
+"SQH3000004": "Key",
+"SQH3000005": "Value",
+"SQH3000006": "Length Type",
+"SQH3000007": "Algorithm Type",
+"SQH3000008": "Key check value",
+"SQH3000009": "Key value",
+"SQH3000010": "Single length",
+"SQH3000011": "Double long",
+"SQH3000012": "Three times longer",
+"SQH3000013": "Key parameter added",
+"SQH3000014": "Please enter the value of key value 2",
+"SQH3000015": "Please enter the value of key value 2 and key value 3",
+"SQH3000016": "Query Details",
+"SQH3000017": "International",
+"SQH3000018": "National Secret",
+"SQJ3000001": "Please select the operation mode!",
+"SQJ3000002": "Encryptor parameters added",
+"SQJ3000003": "Please select the length type"
+}

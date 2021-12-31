@@ -1,0 +1,12 @@
+{
+"KHH2100003":"CustomerNo",
+"KHH2100004":"ProductObjectCode",
+"KHH2100005":"MediaUnitCode",
+"KHH2100006":"CycleNo",
+"KHH2100007":"Transaction Identification No.",
+"KHH2100008":"Total debit number",
+"KHH2100009":"Total debit amount",
+"KHH2100010":"Total credit number",
+"KHH2100011":"Total credit amount",
+"KHJ2100001":"Please enter the id number or external PAN"
+}

@@ -1,0 +1,44 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+					"oprtMode" : "A01",
+					"bsnMdltyCd": "A01X00001",
+					"bsnMdltyDsc": "循环免息",
+					"blngBsnMdlty" :"MODX00001",
+					"accOrgForm" :"R",
+					"bsnChar":"D"
+                },
+	             {
+						"oprtMode" : "A01",
+						"bsnMdltyCd": "A01X00002",
+						"bsnMdltyDsc": "循环收息",
+						"blngBsnMdlty" :"MODX00002",
+					"accOrgForm" :"A",
+					"bsnChar":"C"
+						
+	                }	
+               
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 2
+        }
+        
+    },
+    "status": 200
+}

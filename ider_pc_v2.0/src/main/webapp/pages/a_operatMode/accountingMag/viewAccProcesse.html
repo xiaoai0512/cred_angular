@@ -1,0 +1,178 @@
+<div ng-controller="viewAccProcesseCtrl">
+	<div class=" ">
+		<form name="accMainSceneFormee"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5400058' | translate}}：</div>
+				<div class="wd330 float_left">
+				<input class="layui-input bnone" type="text" name="globalSerialNumber" disabled
+					ng-model="accProcesseInf.globalSerialNumber" maxlength="36">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400013' | translate}}：</div>
+				<div class="wd190 float_left ">
+				<input class="layui-input bnone" type="text" name="accountingRuleCode" disabled
+					ng-model="accProcesseInf.accountingRuleCode" maxlength="6">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400064' | translate}}：</div>
+				<div class="wd190 float_left"> 
+					<input class="layui-input bnone" type="text" name="postingDate" disabled
+						ng-model="accProcesseInf.postingDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400033' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="subTableSequence" disabled
+						ng-model="accProcesseInf.subTableSequence" maxlength="3">
+				</div>
+			</div>
+			
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400065' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="accountId" disabled
+						ng-model="accProcesseInf.accountId" maxlength="23">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400066' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="accountingType" disabled
+						ng-model="accProcesseInf.accountingType" maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400067' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="productObjectCode" disabled
+						ng-model="accProcesseInf.productObjectCode"accountingType"" maxlength="15">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400068' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="businessTypeCode" disabled
+						ng-model="accProcesseInf.businessTypeCode" maxlength="9">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00162' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="eventNo" disabled
+						ng-model="accProcesseInf.eventNo" maxlength="14">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="externalIdentificationNo" disabled
+						ng-model="accProcesseInf.externalIdentificationNo" maxlength="32">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400069' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="transOrganization" disabled
+						ng-model="accProcesseInf.transOrganization" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400070' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="accountOrganization" disabled
+						ng-model="accProcesseInf.accountOrganization" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400071' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="transSummary" disabled
+						ng-model="accProcesseInf.transSummary" maxlength="50">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400072' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="channelCde" disabled
+						ng-model="accProcesseInf.channelCde" maxlength="8">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400073' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="accountingStatusCode" disabled
+						ng-model="accProcesseInf.accountingStatusCode" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400016' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="accountingFlag" disabled
+						ng-model="accProcesseInf.accountingFlagTrans">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400061' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="atomicActionNumber" disabled
+						ng-model="accProcesseInf.atomicActionNumber" maxlength="4">
+				</div>
+			</div><div class="col_td">
+				<div class="col4 text_right">{{'YYH5400062' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="amountTypeNumber" disabled
+						ng-model="accProcesseInf.amountTypeNumber" maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400040' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="internalAccountNo" disabled
+						ng-model="accProcesseInf.internalAccountNo" maxlength="23">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400041' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="drcrFlag" disabled
+						ng-model="accProcesseInf.drcrFlagTrans">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400075' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="postingCurrencyCode" disabled
+						ng-model="accProcesseInf.postingCurrencyCode" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400076' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="postingCurrencyPoint" disabled
+						ng-model="accProcesseInf.postingCurrencyPoint" maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400077' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="actualPostingAmount" jf-format-input="money"  disabled
+						ng-model="accProcesseInf.actualPostingAmount" maxlength="18">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400078' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="dealStatus" disabled
+						ng-model="accProcesseInf.dealStatus" maxlength="3">
+				</div>
+			</div>
+			
+		</form>
+	</div>
+</div>

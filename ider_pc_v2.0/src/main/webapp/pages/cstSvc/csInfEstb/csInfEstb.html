@@ -1,0 +1,567 @@
+<div ng-controller="csInfEstbCtrl">
+	<!-- <div class="leftmenu_navtitle">客户基本信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form name="csInfEstbForm">
+			<div class="mainname">1. {{'KHH3300001' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'KHH3300002' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.institutionId" jf-select="institutionIdArr" 
+						name="institutionId" maxlength="50" validator="required,maxlength">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'KHH3300003' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.customerName"
+						name="customerName" type="text" validator="required,maxlength"
+						maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'F00158' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray)" name="idType" lay-filter="getIdType2"
+						validator="required" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'F00112' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.idNumber"
+						name="idNumber" type="text" id="idNumberInp" validator="required" readonly> 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'KHH3300006' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" ng-model="csInf.personalCompanyType"
+						name="bsnNumb" type="text" validator="required,maxlength"
+						maxlength="1"> -->
+					<select ng-model="csInf.customerType" class="layui-input"
+						jf-select="builder.option(personalCompanyType)"
+						name="customerType" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'KHH3300007' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.billDay" class="layui-input"
+						jf-select="builder.option(statementDateArr)" name="billDay"
+						validator="required"></select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">
+				<span class="red">*</span>{{'KHH3300008' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.paymentMark" class="layui-input" validator="required"
+						jf-select="builder.option(paymentMarkArray)" name="paymentMark"></select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.city" name="city"
+						type="text" validator="maxlength" maxlength="30">
+				</div>
+			</div>
+			
+			<div class="col_td" ng-show='showHkgMark'>
+				<div class="col4 text_right">
+				<span class="red" >*</span>港澳台居民居住证：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.idNumberHmt" name="idNumberHmt" validator="maxlength" maxlength="18"
+						type="text">
+				</div>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">2. {{'KHH3300017' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300018' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.branchNumber"
+						name="branchNumber" type="text" validator="maxlength,number" maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300019' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" ng-model="csInf.dateOfBirth"
+						name="dateOfBirth" jf-date-input type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300020' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.sexCode" class="layui-input"
+						jf-select="builder.option(genderArray)" name="sexCode">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH3300021' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.mobilePhone"
+						name="mobilePhone" type="text" validator="required,maxlength,number"
+						maxlength="18">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300022' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.homePhone"
+						name="homePhone" type="text" validator="maxlength,telephone" maxlength="18">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300023' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.companyPhone"
+						name="companyPhone" type="text" validator="maxlength,telephone"
+						maxlength="18">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300024' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.zipCode" name="zipCode"
+						type="text" validator="maxlength,number" maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300025' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.contactName"
+						name="contactName" type="text" validator="maxlength"
+						maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300026' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.contactPhone"
+						name="contactPhone" type="text" validator="maxlength,telephone"
+						maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300027' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.memberSince"
+						name="memberSince" type="text" validator="maxlength,number"
+						maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300028' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.customerSource"
+						name="customerSource" type="text" validator="maxlength"
+						maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300029' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.behaviorScore"
+						name="behaviorScore" type="text" validator="maxlength,number"
+						maxlength="5">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300030' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.customerLevel" validator="maxlength,number"
+						name="customerLevel" type="text" maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300061' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.annualIncome"
+						name="annualIncome" type="text" validator="maxlength,positiveNumber"
+						maxlength="11">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300062' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.residencyStatus" class="layui-input"
+						jf-select="builder.option(ResidenceeArray)" name="residencyStatus">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300031' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.maritalStatus"
+						jf-select="builder.option(maritalStatusArray)"
+						name="maritalStatus">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300032' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.occupationCode"
+						name="occupationCode" type="text" validator="maxlength"
+						maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300033' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.postRankCode" class="layui-input"
+						jf-select="builder.option(jobLevelCodeArray)" name="postRankCode">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300034' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.titleCode"
+						name="titleCode" type="text" validator="maxlength" maxlength="2">
+
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300035' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.periodOfOccupation"
+						name="periodOfOccupation" type="text" validator="maxlength,number"
+						maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300036' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.hobby" name="hobby"
+						type="text" validator="maxlength" maxlength="30">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300037' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="csInf.guarantorFlag" class="layui-input"
+						jf-select="builder.option(guarantorLogoArray)"
+						name="guarantorFlag">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300038' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.marketerCode"
+						name="marketerCode" type="text" validator="maxlength"
+						maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300039' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.socialSecurityId"
+						name="socialSecurityId" type="text" validator="maxlength"
+						maxlength="1">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH3300040' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.socialSecurityNumber"
+						name="socialSecurityNumber" type="text" validator="maxlength,number"
+						maxlength="30">
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">3. {{'KHH3300063' | translate}}</div>
+			<div class="button_contain">
+				<button class="layui-btn layui-btn-primary" ng-click="newAdrBtn()"
+					type="button">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'KHH3300041' | translate}}</th>
+						<th>{{'KHH3300042' | translate}}</th>
+						<th>{{'KHH3300043' | translate}}</th>
+						<th>{{'KHH3300044' | translate}}</th>
+						<th>{{'KHH3300045' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in adrlInfTable track by $index">
+						<td align="center">
+							<span ng-if="item.type=='1'">{{'KHJ3300038' | translate}}</span> 
+							<span ng-if="item.type=='2'">{{'KHJ3300039' | translate}}</span> 
+							<span ng-if="item.type=='3'">{{'KHJ3300040' | translate}}</span>
+						</td>
+						<td align="center" ng-bind="item.contactAddress"></td>
+						<td align="center" ng-bind="item.contactPostCode"></td>
+						<td align="center" ng-bind="item.contactMobilePhone"></td>
+						<td align="center" ng-bind="item.city"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div ng-if="showNewAdrInfo">
+				<div class="allcontent">
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300041' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select ng-model="adrlInfTableInfoObj.type" class="layui-input"
+								jf-select="builder.option(typeArray)" name="type"
+								validator="required">
+							</select>
+						</div>
+					</div>
+
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300042' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="adrlInfTableInfoObj.contactAddress"
+								name="contactAddress" type="text" validator="required,maxlength"
+								maxlength="90">
+						</div>
+					</div>
+
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300043' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="adrlInfTableInfoObj.contactPostCode"
+								name="contactPostCode" type="text"
+								validator="required,maxlength,number" maxlength="9">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300044' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="adrlInfTableInfoObj.contactMobilePhone"
+								name="contactMobilePhone" type="text"
+								validator="required,maxlength,telephone" maxlength="18">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300045' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" ng-model="adrlInfTableInfoObj.city"
+								name="city" type="text" validator="required,maxlength"
+								maxlength="30">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							validation-submit="csInfEstbForm" ng-click="saveNewAdrInfo()">
+							<i class="layui-icon">&#x1005;</i> {{'F00031' | translate}}
+						</button>
+						<button class="layui-btn layui-btn-radius" ng-click="newAdrBtn()">
+							<i class="layui-icon">&#x1006;</i> {{'F00012' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearboth"></div>
+			<div class="mainname">4. {{'KHH3300050' | translate}}</div>
+			<div class="button_contain">
+				<button class="layui-btn layui-btn-primary"
+					ng-click="cstRmrkInfoBtn()">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'KHH3300051' | translate}}</th>
+						<th>{{'KHH3300052' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in cstRmrkInfoTable track  by $index">
+						<td align="center" ng-bind="item.remarkInfo"></td>
+						<td align="center" ng-bind="item.lastUpdateUserid"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div ng-if="showCstRmrkInfo">
+				<div class="allcontent">
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300051' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" name="remarkInfo"
+								ng-model="cstRmrkInfoObj.remarkInfo"
+								validator="required,maxlength" maxlength="50">
+						</div>
+					</div>
+
+					<div class="col_td">
+						<div class="col4 text_right">{{'KHH3300052' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="cstRmrkInfoObj.lastUpdateUserid"
+								name="lastUpdateUserid" type="text"
+								validator="required,maxlength" maxlength="30">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							validation-submit="csInfEstbForm" ng-click="saveCstRmk()">
+							<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+						</button>
+						<button class="layui-btn layui-btn-radius"
+							ng-click="cstRmrkInfoBtn()">
+							<i class="layui-icon">&#x1005;</i> {{'F00012' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="clearboth"></div>
+			<div class="mainname">5. 客户定价标签信息</div>
+			<div class="button_contain">
+				<button class="layui-btn layui-btn-primary"
+					ng-click="cstPrcgLblBtn()">
+					<i class="layui-icon">&#xe61f;</i> 新增
+				</button>
+			</div>
+
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<th>产品线代码</th>
+					<th>定价对象</th>
+					<th>定价对象代码</th>
+					<th>标签号</th>
+					<th>标签生效日期</th>
+					<th>标签失效日期</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in cstPrcgLblTable track  by $index">
+						<td align="center" ng-bind="item.productLineCode"></td>
+						<td align="center" ng-bind="item.pricingObject"></td>
+						<td align="center" ng-bind="item.pricingObjectCode"></td>
+						<td align="center" ng-bind="item.pricingTag"></td>
+						<td align="center" ng-bind="item.custTagEffectiveDate"></td>
+						<td align="center" ng-bind="item.custTagExpirationDate"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div ng-if="showCstPrcgLblInfo">
+				<div class="allcontent">
+					<div class="col_td">
+						<div class="col4 text_right">产品线代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="cstPrcgLblInfoObj.productLineCode"
+								name="productLineCode" type="text" validator="required,maxlength"
+								maxlength="9">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">定价对象 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="cstPrcgLblInfoObj.pricingObject"
+								name="pricingObject" type="text"
+								validator="required,maxlength" maxlength="9">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">定价对象代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="cstPrcgLblInfoObj.pricingObjectCode"
+								name="pricingObjectCode" type="text" validator="required,maxlength"
+								maxlength="11">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">标签号 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"
+								ng-model="cstPrcgLblInfoObj.pricingTag"
+								name="pricingTag" type="text" validator="required,maxlength"
+								maxlength="9">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">标签生效日期 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input icon_date" jf-date-input
+								ng-model="cstPrcgLblInfoObj.custTagEffectiveDate"
+								validator="required" name="custTagEffectiveDate" type="text">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">标签失效日期 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input icon_date" jf-date-input
+								ng-model="cstPrcgLblInfoObj.custTagExpirationDate"
+								validator="required" name="custTagExpirationDate" type="text">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							validation-submit="csInfEstbForm" ng-click="saveCstPrice()">
+							<i class="layui-icon">&#xe624;</i> 保存
+						</button>
+						<button class="layui-btn layui-btn-radius"
+							ng-click="cstPrcgLblBtn()">
+							<i class="layui-icon">&#x1005;</i> 关闭
+						</button>
+					</div>
+				</div>
+			</div> -->
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-click="submitInf()"
+					validation-submit="csInfEstbForm">
+					<i class="layui-icon">&#x1005;</i> {{'KHH3300060' | translate}}
+				</button>
+				<!-- <button class="layui-btn layui-btn-radius"  //注释客户信息建立页面的下一步按钮
+					ng-click="cstPrcgLblBtn()">
+					<i class="layui-icon">&#x1005;</i> {{'KHH3300064' | translate}}
+				</button> -->
+			</div>
+		</form>
+
+	</div>
+</div>

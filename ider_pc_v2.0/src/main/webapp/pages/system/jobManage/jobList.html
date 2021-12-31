@@ -1,0 +1,67 @@
+<div class="layout_body" ng-controller="jobListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">	
+		<!-- 岗位管理查询 -->
+		<div class="search_mian layui-form">
+			<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'YWH5500001' | translate}}：</label>
+						<div class="layui-input-inline">
+							<select class="layui-input" jf-select="operationOrganArray" name="operationModeN" ng-model="itemList.params.operationOrgan"></select>
+						</div>
+					</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500022' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="itemList.params.postName">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YWH5500022' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="builder.option(jobFlag)" name="menuFlagN" ng-model="itemList.params.postStatus" ></select>
+					</div>
+				</div>
+				<div class="layui-inline" style="width:100%;text-align: center; margin-bottom: 10px;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="itemList.search()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="addJob()" ng-show="addBtnFlag">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 岗位管理列表 -->
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00013' | translate}}</th>
+						<th>{{'YWH5500001' | translate}}</th>
+						<th>{{'YWH5500022' | translate}}</th>
+						<th>{{'YWH5500023' | translate}}</th>
+						<th  style="width:30%">{{'F00017' | translate}}操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.operationOrgan"></td>
+						<td align="center" ng-bind="item.postName"></td>
+						<td align="center" ng-bind="item.postStatusDesc"></td>
+						<td align="center"  style="width:30%">
+							<button class="layui-btn layui-btn-mini" ng-click="updateJob(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

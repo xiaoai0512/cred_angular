@@ -1,0 +1,182 @@
+<div class="layui-form" ng-controller="viewAccFinancialCtrl">
+	<div >
+		<div class="mainname">{{'KHH4700003' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="accountId" type="text" ng-model="accountId" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="totalBalance" type="text" jf-format-input="money" ng-model="totalBalance" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700006' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="currPrincipalBalance" type="text" jf-format-input="money" ng-model="currPrincipalBalance" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700007' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="billPrincipalBalance" type="text" jf-format-input="money" ng-model="billPrincipalBalance" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700008' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="currInterestBalance" type="text" jf-format-input="money" ng-model="currInterestBalance" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="billInterestBalance" type="text" jf-format-input="money" ng-model="billInterestBalance" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700010' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="currCostBalance" type="text" jf-format-input="money" ng-model="currCostBalance" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4700011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="billCostBalance" type="text" jf-format-input="money" ng-model="billCostBalance" disabled>
+				</div>
+			</div>
+	</div>
+			
+		<!-- 账户余额对象信息 -->
+		<div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH4700086' | translate}}</div>
+			<div jf-grid="accBalObjTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4700030' | translate}}</th>
+							<th>{{'KHH4700014' | translate}}</th>
+							<th>{{'KHH4700016' | translate}}</th>
+							<th>{{'KHH4700017' | translate}}</th>
+							<th>{{'KHH4700018' | translate}}</th>
+							<th>{{'KHH4700019' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">
+								<span>{{item.balanceObjectCode}}</span> - <span>{{item.balanceObjectDesc}}</span>
+							</td>
+							<td align="left">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							
+							<td align="center" ng-bind="item.interestRate"></td>
+							<td align="center" ng-bind="item.rateChangeFlagDesc"></td>
+							<td align="center" ng-bind="item.pendingInterestRate"></td>
+							<td align="center" ng-bind="item.overpayRateChangeFlagDesc"></td>
+							<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkAcBaObj(item)" type="button">
+									 {{'F00041' | translate}}
+							</button>
+						</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- 账户余额单元信息 -->
+		<div >
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH4700087' | translate}}</div>
+			<div jf-grid="balObcList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4700029' | translate}}</th>
+							<th style="width:15%">{{'KHH4700030' | translate}}</th>
+							<th style="width:20%">{{'KHH4700028' | translate}}</th>
+							<th>{{'KHH4700014' | translate}}</th>
+							<th>{{'KHH4700031' | translate}}</th>
+							<th>{{'KHH4700032' | translate}}</th>
+							<th>{{'KHH4700088' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.cycleNumber"></td>
+							<td style="width:15%" align="center">
+								<span>{{item.balanceObjectCode}}</span>-<span>{{item.balanceObjectDesc}}</span>
+							</td>
+							<td style="width:20%" align="center" ng-bind="item.balanceUnitCode"></td>
+							<td align="center">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.balanceTypeDesc"></td>
+							<td align="center" ng-bind="item.balance | number :2"></td>
+							<td align="center" ng-bind="item.annualInterestRate"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="checkAcUint(item)" type="button">
+										 {{'F00041' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<!-- 账户周期金融信息 -->
+		<div >
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH47000222' | translate}}</div>
+		<div jf-grid="accCycleFiciList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4700029' | translate}}</th>
+						<th>{{'KHH4700014' | translate}}</th>
+						<th>{{'KHH4700040' | translate}}</th>
+						<th>{{'KHH4700041' | translate}}</th>
+						<th>{{'KHH4700042' | translate}}</th>
+						<th>{{'KHH4700043' | translate}}</th>
+						<th>{{'KHH4700044' | translate}}</th>
+						<th>{{'KHH4700045' | translate}}</th>
+						<th>{{'KHH4700046' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.currentCycleNumber"></td>
+						<td align="left">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.beginGraceBalance  | number :2"></td>
+						<td align="center" ng-bind="item.graceBalance  | number :2"></td>
+						<td align="center" ng-bind="item.paymentWithinGrace  | number :2"></td>
+						<td align="center" ng-bind="item.paymentAfterGrace  | number :2"></td>
+						<td align="center" ng-bind="item.creditAdjustAmount  | number :2"></td>
+						<td align="center" ng-bind="item.paymentRevWithinGrace | number : 2"></td>
+						<td align="center" ng-bind="item.paymentRevAfterGrace | number : 2"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkAcbaDtlEnqr(item)" type="button">
+									{{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+</div>

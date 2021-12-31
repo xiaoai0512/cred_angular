@@ -1,0 +1,125 @@
+<div ng-controller="acctStatusMaintCtrl">
+	<!-- <div class="leftmenu_navtitle">媒介激活</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+	  	<form action=""  name="queryInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="acctStatusMaintParams.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"  
+					id='acctStatusMaint_idNumber'name="idNumber" validator="noValidator"
+					ng-model="acctStatusMaintParams.idNumber">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="externalIdentificationNo" ng-model="acctStatusMaintParams.externalIdentificationNo">
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'YYH5000015' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="acctStatusMaintParams.accountingStatus" 
+						jf-select="accountingStatusArr" name="accountingStatus" >
+					</select>
+				</div>
+			</div> -->
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryList()" type="button" validation-submit="queryInfForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+	
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+	  	</form>
+	</div>
+	<!-- 客户基本信息 -->	
+	<div  ng-show="isShowCstDiv">
+		<div class="allcontent ">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH4100035' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" 
+							ng-model="customerInfo.idType" disabled>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'F00112' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" 
+							ng-model="customerInfo.idNumber" disabled="disabled">
+					</div>
+				</div>	
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'KHH4100036' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+								ng-model="customerInfo.customerName" disabled="disabled">
+					</div>
+				</div>	
+			</div>
+			<div class="clearboth"></div>
+			<!-- 客户产品信息 -->
+			<div class="mainname">{{'KHH4100047' | translate}}</div>
+			<div jf-grid="cstMdmInfTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4100005' | translate}}</th>
+							<th>{{'KHH4100006' | translate}}</th>
+							<th>{{'KHH4100007' | translate}}</th>
+							<th>{{'KHH4100037' | translate}}</th>
+							<th>{{'YYH5000002' | translate}}</th>
+							<th>{{'KHH4100008' | translate}}</th>
+							<th>{{'KHH4100012' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.delinquencyLevelDesc"></td>
+							<td align="center" ng-bind="item.levelCode"></td>
+							<td align="center">
+								<span ng-bind="item.productObjectNo"></span> 
+								<span ng-bind="item.productDesc"></span> 
+					         </td>
+							<td align="center" ng-bind="item.cycleNo"></td>
+							<td align="center" ng-bind="item.accountingStatusCode"></td>
+							<td align="center">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.cycleDueNum"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button" ng-show="updBtnFlag"
+									ng-click="updateAccStatusBtn(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'KHH4100041' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

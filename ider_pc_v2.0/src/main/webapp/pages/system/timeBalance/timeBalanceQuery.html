@@ -1,0 +1,123 @@
+<div ng-controller="timeBalanceQueryCtrl">
+	<!-- <div class="leftmenu_navtitle">实时余额平衡查询</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="timeBalanceForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="basicInf.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" id="timeBalanceForm_idNumber"   validator="noValidator"
+						ng-model="basicInf.idNumber" name="idNumber" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input type="text" class="layui-input" ng-model="basicInf.externalIdentificationNo"
+						name="externalIdentificationNo" />
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" validation-submit="timeBalanceForm"  ng-click="searchBtn()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</form>
+		<div class="clearboth"></div>
+		<div ng-show="showItemList">
+			<div ng-show="baseInfoDiv" class="mainname" >1.{{'KHH47000223' | translate}}</div>
+			<div ng-show="baseInfoDiv" class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" ng-model="custInf.idType" disabled >
+						</select>
+					</div>
+				</div>
+				
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00112' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="custInf.idNumber"  disabled>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'KHH4800030' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="custInf.customerName"  disabled>
+					</div>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname"><span ng-show="baseInfoDiv">2.</span> <span ng-show="timeBaDiv"></span>{{'KHH47000245' | translate}}</div>
+			<div ng-show="timeBaDiv" jf-grid="timeBalanceList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH47000146' | translate}}</th>
+							<th>{{'KHH4700014' | translate}}</th>
+							<th>{{'KHJ4700007' | translate}}</th>
+							<th>{{'KHH47000246' | translate}}</th>
+							<th>{{'KHH4700047' | translate}}</th>
+							<th>{{'KHH47000247' | translate}}</th>
+							<th>{{'KHH47000248' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.customerNo"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center">
+								{{item.businessProgramNo}} {{item.programDesc}}
+							</td>
+							<td align="center">
+								{{item.productObjectCode}} {{item.productDesc}}
+							</td>
+							<td align="center">
+								{{item.businessTypeCode}} {{item.businessDesc}}
+							</td>
+							<td align="center" ng-bind="item.transIdentifiNo"></td>
+							<td align="center">
+								<div class="title_messages">
+		                          <div class="tablemore"></div>
+		                          <div class="title_content" style="text-align:left">
+		                         	<span class="text_color">{{'KHH47000249' | translate}}： {{item.billPrincipalBalCard | jfMoney}}<br></span>
+		                            <span class="text_color">{{'KHH47000250' | translate}}： {{item.billPrincipalBalAuth | jfMoney}}<br></span>
+		                            <span class="text_color">{{'KHH47000251' | translate}}： {{item.billCostBalCard | jfMoney}}<br></span>
+		                            <span class="text_color">{{'KHH47000252' | translate}}： {{item.billCostBalAuth | jfMoney}}<br></span>
+		                            <span class="text_color">{{'KHH47000253' | translate}}： {{item.billInterestBalCard | jfMoney}}<br></span>
+		                            <span class="text_color">{{'KHH47000254' | translate}}： {{item.billInterestBalAuth | jfMoney}}<br></span>
+		                          </div>
+		                      </div>
+							</td>
+							<td align="center">
+								<button class="layui-btn layui-btn-primary"
+									ng-click="viewInfo(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

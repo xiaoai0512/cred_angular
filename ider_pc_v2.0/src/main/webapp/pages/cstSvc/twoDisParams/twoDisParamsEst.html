@@ -1,0 +1,479 @@
+<div ng-controller="twoDisParamsEstCtrl">
+	<div class="layui-form">
+		<form name="twoDisParamsInfForm">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH1400001' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="blockCodeInf.operationMode"  validator="required"
+						jf-select="operationModeArr" name="operationMode"  maxlength="3" >
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH1400002' | translate}} ：</div>
+					<div class="wd190 float_left"> 
+							<input class="layui-input" type="text" validator="required" name="eventNo" maxlength="14" ng-click="choseeventNo()"
+							ng-model="blockCodeInf.eventNo" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH1400003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="blockCodeInf.recogType"  validator="required" lay-filter="recogType"
+						jf-select="recogTypeArr"" name="recogType"  maxlength="3">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH1400004' | translate}}：</div>
+					<div class="wd190 float_left" style="padding-right: 2%;">
+						<input class="layui-input" type="text" validator="required"  name="priority" maxlength="4"
+							ng-model="blockCodeInf.priority">
+					</div>
+					<div class="search_button">
+						<button class="layui-btn" ng-click="choseBtnPriority()" >
+							<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400005' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="blockCodeInf.status" 
+						jf-select="statusArr" name="status" maxlength="1">
+					</select> 
+					</div>
+				</div>
+				<div class="col_td"></div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date" ng-model="blockCodeInf.startDate" maxlength="10"
+						name="startDate" jf-date-input type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400007' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input icon_date" ng-model="blockCodeInf.endDate" maxlength="10"
+						name="endDate" jf-date-input type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400008' | translate}}：</div>
+					<div class="wd190 float_left">
+						 <input class="layui-input" type="text" name="targetActivity" maxlength="14" id="targetActivity"
+							ng-model="blockCodeInf.targetActivity">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400009' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="targetBussType" maxlength="9" id="targetBussType"
+							ng-model="blockCodeInf.targetBussType" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400010' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="targetBalanceObject" maxlength="9"  id="targetBalanceObject"
+							ng-model="blockCodeInf.targetBalanceObject">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400011' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="activityTagNo" maxlength="9" id="activityTagNo"
+							ng-model="blockCodeInf.activityTagNo">
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH1400012' | translate}}：</div>
+						<div class="wd190 float_left">
+								<select  class="layui-input" ng-model="blockCodeInf.dateCondition" 
+								jf-select="dateConditionArr" name="dateCondition" maxlength="1">
+								</select> 
+						</div>
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400013' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateStartSegment1" maxlength="10"
+						name="dateStartSegment1" jf-date-input />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400014' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateEndSegment1" maxlength="10"
+						name="dateEndSegment1" jf-date-input/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400015' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateStartSegment2" maxlength="10"
+						name="dateStartSegment2" jf-date-input />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400016' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateEndSegment2" maxlength="10"
+						name="dateEndSegment2" jf-date-input/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400017' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateStartSegment3" maxlength="10"
+						name="dateStartSegment3" jf-date-input />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400018' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateEndSegment3" maxlength="10"
+						name="dateEndSegment3" jf-date-input/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400019' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateStartSegment4" maxlength="10"
+						name="dateStartSegment4" jf-date-input />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400020' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateEndSegment4" maxlength="10"
+						name="dateEndSegment4" jf-date-input/>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400021' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateStartSegment5" maxlength="10"
+						name="dateStartSegment5" jf-date-input />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400022' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input icon_date" ng-model="blockCodeInf.dateEndSegment5" maxlength="10"
+						name="dateEndSegment5" jf-date-input />
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH1400023' | translate}}：</div>
+						<div class="wd190 float_left">
+								<select  class="layui-input" ng-model="blockCodeInf.mccCondition" 
+							jf-select="mccConditionArr" name="mccCondition" maxlength="1">
+						</select> 
+						</div>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400024' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input" ng-model="blockCodeInf.mccStartSegment1" maxlength="4"
+						name="mccStartSegment1"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400025' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccEndSegment1" maxlength="4"
+						name="mccEndSegment1" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400026' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccStartSegment2" maxlength="10"
+						name="mcStartSegment2"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400027' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccEndSegment2" maxlength="4"
+						name="dateEndSegment2" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400028' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccStartSegment3" maxlength="4"
+						name="mccStartSegment3"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400029' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccEndSegment3" maxlength="4"
+						name="mccEndSegment3" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400030' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccStartSegment4" maxlength="4"
+						name="mccStartSegment4"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400031' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccEndSegment4" maxlength="4"
+						name="mccEndSegment4" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400032' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccStartSegment5" maxlength="4"
+						name="mccStartSegment5"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400033' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input " ng-model="blockCodeInf.mccEndSegment5" maxlength="4"
+						name="mccEndSegment5" />
+					</div>
+				</div>
+				<div class="col_tr">
+					<div class="col_td">
+						<div class="col4 text_right">{{'YYH1400034' | translate}}：</div>
+						<div class="wd190 float_left">
+								<select  class="layui-input" ng-model="blockCodeInf.transCurrCodeCondition" 
+							jf-select="transCurrCodeConditionArr" name="transCurrCodeCondition" maxlength="1">
+						</select> 
+						</div>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400035' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input" ng-model="blockCodeInf.transCurrCode1" maxlength="4"
+						name="transCurrCode1"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400036' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input" ng-model="blockCodeInf.transCurrCode2" maxlength="4"
+						name="transCurrCode2"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400037' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input" ng-model="blockCodeInf.transCurrCode3" maxlength="4"
+						name="transCurrCode3"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400038' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input" ng-model="blockCodeInf.transCurrCode4" maxlength="4"
+						name="transCurrCode4"  />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400039' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input type="text"  class="layui-input" ng-model="blockCodeInf.transCurrCode5" maxlength="4"
+						name="transCurrCode5"  />
+					</div>
+				</div>
+			<div class="col_tr">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400040' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="blockCodeInf.transCountryCondition" 
+						jf-select="transCountryConditionArr" name="transCountryCondition" maxlength="1">
+					</select> 
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400041' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transCountry1" maxlength="3"
+					name="transCountry1"  />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400042' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transCountry2" maxlength="3"
+					name="transCountry2"  />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400043' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transCountry3" maxlength="3"
+					name="transCountry3"  />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transCountry4" maxlength="3"
+					name="transCountry4"  />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transCountry5" maxlength="3"
+					name="transCountry5"  />
+				</div>
+			</div>
+			<!-- <div class="col_tr">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400046' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="blockCodeInf.transTypeCondition" 
+						jf-select="builder.option(transTypeConditionArr)" name="transTypeCondition" maxlength="1">
+					</select> 
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transType1" maxlength="1"
+					name="transType1"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400048' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transType2" maxlength="1"
+					name="transType2"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400049' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transType3" maxlength="1"
+					name="transType3"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transType4" maxlength="1"
+					name="transType4"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400051' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transType5" maxlength="1"
+					name="transType5"  />
+				</div>
+			</div>	 -->			
+			<div class="col_tr">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400052' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="blockCodeInf.transSourceCondition" 
+						jf-select="transSourceConditionArr" name="transSourceCondition" maxlength="1">
+					</select> 
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400053' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transSource1" maxlength="4"
+					name="transSource1"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400054' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transSource2" maxlength="4"
+					name="transSource2"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400055' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transSource3" maxlength="4"
+					name="transSource3"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400056' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transSource4" maxlength="4"
+					name="transSource4"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400057' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.transSource5" maxlength="4"
+					name="transSource5"  />
+				</div>
+			</div>	
+		<div class="col_tr">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH1400068' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="blockCodeInf.merchantCdeCondition" 
+						jf-select="merchantCdeConditionArr" name="merchantCdeCondition" maxlength="1">
+					</select> 
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400069' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.merchantCde1" maxlength="15"
+					name="merchantCde1"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400070' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.merchantCde2" maxlength="15"
+					name="merchantCde2"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400071' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.merchantCde3" maxlength="15"
+					name="merchantCde3"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400072' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.merchantCde4" maxlength="15"
+					name="merchantCde4"  />
+				</div>
+			</div>	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1400073' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="blockCodeInf.merchantCde5" maxlength="15"
+					name="merchantCde5"  />
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>

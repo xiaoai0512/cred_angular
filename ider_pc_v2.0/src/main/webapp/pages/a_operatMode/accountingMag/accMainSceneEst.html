@@ -1,0 +1,128 @@
+<div ng-controller="accMainSceneEstCtrl">
+	<div class=" ">
+		<form name="accMainSceneFormee" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accMainSceneInf.operationMode" jf-select="operationModeArr" name="operationMode"
+					 validator="required,maxlength" maxlength="3">
+					</select>
+				</div>
+			</div>
+
+			<!-- <div class="col_td">
+				<div class="col4 text_right">事件编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="masterSceneSequence" validator="required 
+						ng-model="accMainSceneInf.masterSceneSequence" maxlength="14">
+				</div>
+			</div> -->
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00162' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="masterSceneSequence" validator="required" ng-click="choseBtn()"
+					 ng-model="accMainSceneInf.masterSceneSequence" maxlength="14">
+				</div>
+
+				<div class="layui-inline" style="vertical-align: top; margin-left:5px;">
+					<div class="search_button">
+						<button class="layui-btn" style="vertical-align: top;" ng-click="choseBtn()">
+							<i class="layui-icon">&#xe615;</i>{{'F00036' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400049' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="masterSceneDesc" ng-model="accMainSceneInf.masterSceneDesc" maxlength="50">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400046' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accMainSceneInf.subTableSequence" jf-select="subTableSequenceArr" name="subTableSequence"
+					 maxlength="3">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400047' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accMainSceneInf.redAccountingFlag" jf-select="redAccountingFlagArray" name="redAccountingFlag">
+					</select>
+				</div>
+			</div>
+			<div ng-show="isShowRule1">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400050' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="accMainSceneInf.accountingRuleCode1" jf-select="accountingRuleCodeArray" name="accountingRuleCode">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowRule2">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400051' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="accMainSceneInf.accountingRuleCode2" jf-select="accountingRuleCodeArray" name="accountingRuleCode2">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowRule3">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400052' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="accMainSceneInf.accountingRuleCode3" jf-select="accountingRuleCodeArray" name="accountingRuleCode3">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowRule4">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400053' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="accMainSceneInf.accountingRuleCode4" jf-select="accountingRuleCodeArray" name="accountingRuleCode4">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isShowRule5">
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH5400054' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="accMainSceneInf.accountingRuleCode5" jf-select="accountingRuleCodeArray" name="accountingRuleCode5">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400013' | translate}}：</div>
+				<div class="wd190 float_left">
+					<button class="layui-btn" ng-click="acctRuleCodeAdd()" type="button">
+						<i class="layui-icon">&#xe654;</i> {{'YYH5400055' | translate}}
+					</button>
+				</div>
+			</div>
+
+
+			<!-- <div class="col_td">
+				<div class="col4 text_right">记账规则代码 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accMainSceneInf.accountingRuleCode"
+					jf-select="accountingRuleCodeArray" name="accountingRuleCode">
+				</select>
+				</div>
+			</div> -->
+
+
+
+
+
+		</form>
+	</div>
+</div>

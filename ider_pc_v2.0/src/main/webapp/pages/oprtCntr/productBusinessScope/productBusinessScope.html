@@ -1,0 +1,52 @@
+<div ng-controller="productBusinessScopeCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：产品业务范围管理
+	</div>
+	<div class="search_mian layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">运营模式 ：</div>
+			<div class="wd190 float_left"> 
+				<input class="layui-input" type="text" maxlength="3"
+					ng-model="avyListTable.params.operationMode" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">产品对象代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="9"
+					ng-model="avyListTable.params.productObjectCode">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="avyListTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="avyListTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div jf-grid="avyListTable">
+		<table>
+			<thead>
+				<tr>
+					<th>产品对象代码</th>
+					<th>产品描述</th>
+					<th>业务类型代码</th>
+					<th>业务类型描述</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.productObjectCode"></td>
+					<td align="center" ng-bind="item.productDesc"></td>
+					<td align="center" ng-bind="item.businessTypeCode"></td>
+					<td align="center" ng-bind="item.businessDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

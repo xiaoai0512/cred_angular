@@ -1,0 +1,66 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "accCd": "100000000018A00001",
+                    "ccyCd": "156",
+                    "blngBsnTp": "MODT00001",
+                    "bsnTpSnc": "信用卡消费",
+                    "pDObjCd": "",
+                    "accOrgForm": "循环类",
+                    "acChar": "贷记账户",
+                    "stCD": "活跃账户"
+                },
+                {
+                    "accCd": "100000000018A00002",
+                    "ccyCd": "156",
+                    "blngBsnTp": "MODT00002",
+                    "bsnTpSnc": "信用卡取现",
+                    "pDObjCd": "",
+                    "accOrgForm": "循环类",
+                    "acChar": "贷记账户",
+                    "stCD": "活跃账户"
+                },
+                {
+                    "accCd": "100000000018A00001",
+                    "ccyCd": "840",
+                    "blngBsnTp": "MODT00001",
+                    "bsnTpSnc": "信用卡消费",
+                    "pDObjCd": "",
+                    "accOrgForm": "循环类",
+                    "acChar": "贷记账户",
+                    "stCD": "活跃账户"
+                },
+                {
+                    "accCd": "100000000018A00002",
+                    "ccyCd": "840",
+                    "blngBsnTp": "MODT00002",
+                    "bsnTpSnc": "信用卡取现",
+                    "pDObjCd": "",
+                    "accOrgForm": "循环类",
+                    "acChar": "贷记账户",
+                    "stCD": "活跃账户"
+                }
+                
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 1,
+            "total": 5
+        }
+    },
+    "status": 200
+}

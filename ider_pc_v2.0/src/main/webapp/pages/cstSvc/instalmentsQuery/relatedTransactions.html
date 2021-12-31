@@ -1,0 +1,61 @@
+<div ng-controller="relatedTransactionsCtrl">
+	<div >
+			<div jf-grid="relativeTransicTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH1800005' | translate}}</th>
+							<th>{{'KHH1800006' | translate}}</th>
+							<th>{{'KHH1800007' | translate}}</th>
+							<th>{{'KHH1800008' | translate}}</th>
+							<th>{{'KHH1800009' | translate}}</th>
+							<th>{{'KHH1800084' | translate}}</th>
+							<th>{{'KHH1800010' | translate}}</th>
+							<th>{{'KHH1800011' | translate}}</th>
+							<th>{{'KHH1800030' | translate}}</th>
+							<th>{{'KHH1800012' | translate}}</th>
+							<th width="10%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-model="item.externalIdentificationNo">
+								<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+								<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+								<span
+								ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+							</td>
+	
+							<td align="left" >
+								<span ng-bind="item.transCurrCde"></span>
+								<span ng-bind="item.transCurrDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.transAmount | number :2"></td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="center" ng-bind="item.postingAmount | number:2"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.occurrTime"></td>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center">
+								<span>{{item.transStateDesc}}</span>
+								<!-- <span  ng-if="item.transState == 'NOR'">{{'KHH1800047' | translate}} </span>
+								<span  ng-if="item.transState == 'INS'">{{'KHH1800048' | translate}}</span>
+								<span  ng-if="item.transState == 'REV'">{{'KHH1800049' | translate}}</span>
+								<span  ng-if="item.transState == 'FRT'">{{'KHH1800050' | translate}}</span>
+								<span  ng-if="item.transState == 'PRT'">{{'KHH1800051' | translate}}</span>
+								<span  ng-if="item.transState == 'DIS'">{{'KHH1800052' | translate}}</span>
+								<span  ng-if="item.transState == 'PIN'">{{'KHH1800105' | translate}}</span> -->
+							</td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkInfoIC(item)">
+									{{'F00041' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>	

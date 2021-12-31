@@ -1,0 +1,104 @@
+<div class="layui-form" ng-controller="accProcesseListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class='allcontent'>
+		<!-- 核算处理查询 -->
+		<form class="search_mian" name="accProcesseForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accProcesseList.params.operationMode"  jf-select="operationModeArr" name="operationMode"
+					  maxlength="3">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400058' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="globalSerialNumber"
+						ng-model="accProcesseList.params.globalSerialNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}}： </div>
+				<div class="wd190 float_left">
+					<select ng-model="accProcesseList.params.idType"
+						jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  name="idNumber" id="accProcesse_idNumber"   validator="noValidator"
+					type="text" ng-model="accProcesseList.params.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="externalIdentificationNo"  name="externalIdentificationNo" type="text" ng-model="accProcesseList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="queryList()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="reset()"> 
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- 核算处理列表 -->
+		<div class="clearboth"></div>
+		<div ng-show="isShow">
+			<div class="mainname">{{'YYH5400059' | translate}}</div>
+			<div  jf-grid="accProcesseList">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:15%;">{{'YYH5400065' | translate}}</th>
+							<th>{{'YYH5400013' | translate}}</th>
+							<th>{{'YYH5400060' | translate}}</th>
+							<th>{{'YYH5400075' | translate}}</th>
+							<th>{{'YYH5400061' | translate}}</th>
+							<th>{{'YYH5400062' | translate}}</th>
+							<th>{{'YYH5400063' | translate}}</th>
+							<th style="width:10%;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center">
+								<div class="tdDivL">{{item.accountingRuleCode}} </div>
+								<div class="tdDivR">{{item.accountingRuleDesc}}</div>
+							</td>
+							<td align="center" ng-bind="item.actualPostingAmount | number:2"></td>
+							<td align="center">
+								<div class="tdDivL">{{item.postingCurrencyCode}} </div>
+								<div class="tdDivR">{{item.currencyDesc}}</div>
+							</td>
+							<td align="center">
+								<div class="tdDivL">{{item.atomicActionNumber}} </div>
+								<div class="tdDivR">{{item.atomicActionNumberDesc}}</div>
+							</td>
+							<td align="center">
+								<div class="tdDivL">{{item.amountTypeNumber}} </div>
+								<div class="tdDivR">{{item.amountTypeNumberDesc}}</div>
+							</td>
+							<td align="center" ng-bind="item.postingDate"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkAccProcesseInf(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- isShow -->
+	</div>
+</div>

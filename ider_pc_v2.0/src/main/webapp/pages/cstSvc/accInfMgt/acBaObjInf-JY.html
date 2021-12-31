@@ -1,0 +1,82 @@
+<div ng-controller="acBaObjInfCtrl-JY">
+	<!-- <div class="leftmenu_navtitle">账户余额对象信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：账户余额对象信息
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">证件号码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="idNumber" type="text" ng-model="queryAccountBalanceForm.idNumber" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="queryAccountBalanceForm.externalIdentificationNo" maxlength="19">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchAccount()" type="button">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</div>				
+		
+		<div ng-show = "isShow">
+			<div jf-grid="accBalObjTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:15%">账户号</th>
+							<th>币种</th>
+							<th>余额对象代码</th>
+							<th>余额</th>
+							<th>累计利息</th>
+							<th>当期最低还款</th>
+							<th>生效利率</th>
+							<th>利率变更标志</th>
+							<th>pending生效利率</th>
+							<th>溢缴款利率变动标志</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width:15%" align="center" ng-bind="item.accountId"></td>
+							<td align="center">
+								<span ng-if="item.currencyCode == '156'">人民币</span>
+						  		<span ng-if="item.currencyCode == '840'">美元</span>
+						  		<span ng-if="item.currencyCode == 'CNY'">人民币</span>				
+						  		<span ng-if="item.currencyCode == 'USD'">美元</span>		
+						  		<span ng-if="item.currencyCode == ' '"></span>	
+							</td>
+							<td align="center" ng-bind="item.balanceObjectCode"></td>
+							<td align="center" ng-bind="item.balance"></td>
+							<td align="center" ng-bind="item.accumulatedInterest"></td>
+							<td align="center" ng-bind="item.currentDue"></td>
+							<td align="center" ng-bind="item.interestRate"></td>
+							<td align="center">
+								<span ng-if="item.rateChangeFlag==1">没有PENDING状态的修改</span>
+								<span ng-if="item.rateChangeFlag==2">当天未修改</span>
+								<span ng-if="item.rateChangeFlag==3">下个交易日生效</span>
+								<span ng-if="item.rateChangeFlag==4">下个账单日生效</span>
+								<span ng-if="item.rateChangeFlag==5">下个入账日生效</span>
+							</td>
+							<td align="center" ng-bind="item.pendingInterestRate"></td>
+							<td align="center">
+								<span ng-if="item.overpayRateChangeFlag=='1'">变动</span>
+								<span ng-if="item.overpayRateChangeFlag=='0'">不变动</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+	</div>
+</div>

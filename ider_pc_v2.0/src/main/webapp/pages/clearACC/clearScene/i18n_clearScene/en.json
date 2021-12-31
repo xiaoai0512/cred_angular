@@ -1,0 +1,17 @@
+{
+"QFH200001": "Transaction code",
+"QFH200002": "Connected Transaction Code",
+"QFH200003": "Trigger event ID",
+"QFH200004": "Clearing Scenario Description ",
+"QFH200005": "Original Transaction Code",
+"QFH200006": "Trigger event ID",
+"QFH200007": "Clearing Scenario Description ",
+"QFH200008": "Event ID",
+"QFH200009": "Event Description",
+"QFH200010": "Connected Trigger Event Number",
+"QFJ200001": "Clearing scenario setup",
+"QFJ200002": "Clearing scenario copy",
+"QFJ200003": "Clearing scenario inquiry",
+"QFJ200004": "Cleaning Scenario update",
+"QFJ200005": "Select trigger event ID"
+}

@@ -1,0 +1,69 @@
+<div ng-controller="rateEstCtrl">
+	<div class="">
+		<form action="" class="layui-form"  name="rateForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH1100001' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<select ng-model="rateInf.operationMode"   jf-select="operationModeArr" name="operationMode" validator="required,maxlength"  maxlength="3" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH1100002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" type="text" name="rateIssueDate" 
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="rateInf.rateIssueDate" validator="required"> 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH900016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="rateInf.corporationEntityNo" jf-select="corporationEntityNoArr" name="corporationEntityNo"  validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH1100003' | translate}} ：</div>
+				<div class="wd190 float_left">
+						<select ng-model="rateInf.referCurrency"   jf-select="currencyArr" name="referCurrency" maxlength="3" validator="required" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH1100004' | translate}} ：</div>
+				<div class="wd190 float_left"> 
+					<select ng-model="rateInf.baseCurrency"   jf-select="currencyArr" name="baseCurrency" maxlength="3" validator="required" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1100005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="rateInf.buyingPrice" validator="gt_nine_decimals,maxlength"   maxlength="14"
+						name="buyingPrice" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1100006' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="rateInf.sellingPrice" validator="gt_nine_decimals,maxlength"    maxlength="14"
+						name="sellingPrice" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">Mark up：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="rateInf.markUp" name="markUp"  validator="gt_five_decimals,maxlength"   maxlength="7"
+						type="text">
+				</div>
+			</div>
+		</form>
+		<div class="col_tr text_center">
+			<!-- <button class="layui-btn layui-btn-radius" ng-click="saveRate()" validation-submit="rateForm"
+				type="button">
+				<i class="layui-icon">&#xe624;</i> {{'F00107' | translate}}
+			</button> -->
+		</div>
+	</div>
+</div>

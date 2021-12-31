@@ -1,0 +1,81 @@
+<div ng-controller="creditTradeAccountCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：信贷交易账户信息
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">证件号码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="creditTradeList.params.idNumber" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="creditTradeList.params.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="creditTradeList.search()">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="creditTradeList.params={}">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</div>
+		<div ng-show ="isShowCreditTrade">
+			<div jf-grid="creditTradeList">
+				<table>
+					<thead>
+						<tr>
+							<th >序号</th>
+							<th>账户代码</th>
+							<th>币种</th>
+							<th>信贷交易类型</th>
+							<th>信贷金额</th>
+							<th>信贷币种</th>
+							<th>期数</th>
+							<th>起始日</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-model="item.externalIdentificationNo">
+								<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+								<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+								<span
+								ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+							</td>
+	
+							<td align="center" ng-bind="item.transCurrCde">
+								<span ng-if="item.transCurrCde == '156' ">人民币</span>
+								<span ng-if="item.transCurrCde == '840' ">美元</span>
+							</td>
+							<td align="center" ng-bind="item.transAmount"></td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="center" ng-bind="item.postingAmount"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center" style="padding: 0px 0px;">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkInfo(item)">
+									<i class="layui-icon"></i> 查询
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+</div>	

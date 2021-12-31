@@ -1,0 +1,66 @@
+<div class="layout_body" ng-controller="tradModelCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 交易模式查询 -->
+		<div class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH1600060' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="operationMode" class="layui-input"
+							jf-select="coArray" name="aatype" placeholder="运营模式"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH1600076' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="transSceneCode">
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="selList()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="addTradModeAdd()" ng-show="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</div>
+		<!-- 交易模式列表 -->
+		<div ng-show="isShow">
+			<div jf-grid="itemList" >
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH1600062' | translate}}</th>
+							<th>{{'SQH1600060' | translate}}</th>
+							<th>{{'SQH1600076' | translate}}</th>
+							<th>{{'SQH1600061' | translate}}</th>
+							<th>{{'SQH1600077' | translate}}</th>
+							<th style="width:20%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.modeName"></td>
+							<td align="center" ng-bind="item.transSceneCode"></td>
+							<td align="center" ng-bind="item.transSceneDesc"></td>
+							<td align="center" ng-bind="item.applicationRangeDesc"></td>
+							<td style="width:20%" align="center" 	>
+									<button class="layui-btn layui-btn-mini" ng-click="selectList(item)"  ng-if="item.transSceneCode != 'NORM' && selBtnFlag ">
+										<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+									</button>
+									<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)"  ng-if="item.transSceneCode != 'NORM' && updBtnFlag">
+										<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+									</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

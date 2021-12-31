@@ -1,0 +1,35 @@
+<div ng-controller="limitListEstCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="search_mian layui-form">
+			<form name="limitListForm">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>运营模式 ：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="limitListInf.operationMode"  validator="required" jf-select="operationModeArr" name="operationMode"  maxlength="3">
+					</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>管控项目编号 ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input" type="text" name="controlProjectNo" maxlength="9" ng-model="limitListInf.controlProjectNo" validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>限制事件编号：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="limitEventNo" maxlength="14" ng-model="limitListInf.limitEventNo" validator="required">
+					</div>
+				</div>
+				<div class="col_tr text_center" style="margin-top: 20px">
+					<button class="layui-btn" ng-click="saveProInstan()" validation-submit="limitListForm">
+						<i class="layui-icon">&#xe624;</i> 保存
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

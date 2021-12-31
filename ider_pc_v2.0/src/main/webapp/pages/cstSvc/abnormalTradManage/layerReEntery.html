@@ -1,0 +1,28 @@
+<div ng-controller="reEnteryDetailCtrl">
+
+
+	<div class="col_td">
+		<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone"  ng-model="upAbnorItem.externalIdentificationNo" name="oldExternalIdentificationNo" type="text" disabled="disabled">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700008' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input "  ng-model="upAbnorItem.transDate" name="oldTransDate" type="text" disabled="disabled">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700019' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" maxlength="19" validator="required,maxlength" ng-model="upAbnorItem.newExternalIdentificationNo" name="externalIdentificationNo" type="text"  >
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH1700020' | translate}} ：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input icon_date"  ng-model="upAbnorItem.newTransDate" name="entityKey" type="text"  jf-date-input>
+		</div>
+	</div>
+</div>

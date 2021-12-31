@@ -1,0 +1,170 @@
+<div class="layout_body" ng-controller="cstDelinquencyListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+	<form name="cstDelinqueryForm" class="layui-form">
+		<div class="search_mian">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="custInf.idType"
+						jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  name="idNumber" id="cstDelin_idNumber"   validator="noValidator"
+					type="text" ng-model="custInf.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="externalIdentificationNo"  name="externalIdentificationNo" type="text" ng-model="custInf.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cstDelinqueryForm"  ng-click="queryList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div ng-show = "isShow">	
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH4100003' | translate}}</div>
+		<!-- 表格操作列 -->
+			 <script type="text/html" id="cstDelListTableBar">
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="viewInfClick">明细</a>
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="viewSummary">详情</a>
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="adjustInf">调整</a>
+        	</script>
+		<!-- 查询主账户 -->			
+		<div class="page-wrapper">
+			<table id="cstDelinquencyTable"></table>
+		</div>
+		<!-- page -->
+    	<div id="cstDelinPage" style="margin:0 auto;  text-align: right;"></div>
+		<!-- <div jf-grid="cstDelinquencyList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4100005' | translate}}</th>
+						<th style="width:15%">{{'KHH4100006' | translate}}</th>
+						<th>{{'KHH4100007' | translate}}</th>
+						<th>{{'KHH4100008' | translate}}</th>
+						<th>{{'KHH4100009' | translate}}</th>
+						<th>{{'KHH4100020' | translate}}</th>
+						<th>{{'KHH4100013' | translate}}</th>
+						<th>{{'KHH4100012' | translate}}</th>
+						<th style="width:19%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.delinquencyLevelDesc"></td>
+						<td align="center">
+							<span ng-if="item.delinquencyLevel=='A'">{{item.levelCode}}{{item.businessDesc}}</span>
+							<span ng-if="item.delinquencyLevel=='P'">{{item.levelCode}}{{item.productLevelCodeDesc}}</span>
+							<span ng-if="item.delinquencyLevel=='G'">{{item.levelCode}}{{item.programDesc}}</span>
+						</td>
+						<td align="center">
+							<span>{{item.productObjectNo}}</span><span>{{item.productDesc}}</span>
+						</td>SS
+						<td align="center">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.cycleNo"></td>
+						<td align="center" ng-bind="item.currCyclePaymentMin"></td>
+						<td align="center" ng-bind="item.cycleDueDayNum"></td>
+						<td align="center" ng-bind="item.cycleDueNum"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="viewInfClick(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'KHH4100053' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="viewSummary(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="adjustInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'KHH4100052' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+		
+		<div ng-show = "detailShow">	
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH4100054' | translate}}</div>
+		<div jf-grid="viewInfoList">
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th style="width:10%;">{{'KHH4100005' | translate}}</th>
+						<th style="width:16%">{{'KHH4100006' | translate}}</th>
+						<th style="width:25%;">{{'KHH4100007' | translate}}</th>
+						<th style="width:8%;">{{'KHH4100008' | translate}}</th>
+						<th style="width:6%;">{{'KHH4100009' | translate}}</th>
+						<th style="width:10%;">{{'KHH4100020' | translate}}</th>
+						<th style="width:7%;">{{'KHH4100013' | translate}}</th>
+						<th style="width:7%;">{{'KHH4100012' | translate}}</th>
+						<th style="width:10%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr >
+						<td align="center" >
+							<span ng-if="item.delinquencyLevel=='A'">{{'KHH4100045' | translate}}</span>
+							<span ng-if="item.delinquencyLevel=='P'">{{'KHH4100046' | translate}}</span>
+							<span ng-if="item.delinquencyLevel=='G'">{{'KHH4100046' | translate}}</span>
+						</td>
+						<td align="center">
+							<span ng-if="item.delinquencyLevel=='A'">{{item.levelCode}}{{item.businessDesc}}</span>
+							<span ng-if="item.delinquencyLevel=='P'">{{item.levelCode}}{{item.productLevelCodeDesc}}</span>
+							<span ng-if="item.delinquencyLevel=='G'">{{item.levelCode}}{{item.programDesc}}</span>
+						</td>
+						<td align="center">
+							<span>{{item.productObjectNo}}</span><span>{{item.productDesc}}</span>
+						</td>
+						<td align="center">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center">
+							<span ng-if="item.cycleNo == '9999'">{{'KHH4100048' | translate}}</span>
+							<span ng-if="item.cycleNo != '9999'">{{item.cycleNo}}</span>
+						</td>
+						<td align="center" ng-bind="item.currCyclePaymentMin"></td>
+						<td align="center" ng-bind="item.cycleDueDayNum"></td>
+						<td align="center" ng-bind="item.cycleDueNum"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewSummary(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		
+		
+		</div>
+		
+</div>
+</div>

@@ -1,0 +1,45 @@
+<div ng-controller="evLstListCtrl">
+	
+<form action="" class="layui-form"  style="margin-bottom: 15px;">
+	<div class="col_td">
+		<div class="col4 text_right">{{'YYH1400063' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+				ng-model="itemList.params.eventId" maxlength="14">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'YYH200033' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+				ng-model="itemList.params.eventDesc" maxlength="50">
+		</div>
+	</div>
+	<div class="col_tr text_center">
+		<button class="layui-btn" ng-click="itemList.search()" type="button">
+			<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+		</button>
+
+		<button class="layui-btn cancel-btn" type="button"
+			ng-click="itemList.params={}">
+			<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+		</button>
+	</div>
+	<div jf-grid="itemList">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'YYH1400063' | translate}}</th>
+					<th>{{'YYH200033' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.eventNo"></td>
+					<td align="center" ng-bind="item.eventDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</form>
+</div>

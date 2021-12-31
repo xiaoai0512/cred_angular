@@ -1,0 +1,79 @@
+<div ng-controller="marketingListUpdateCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH310026' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}}：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" name="operationModeNa"  ng-model="item.opertionMode"  type="text" readonly> -->
+				<select class="layui-input"  jf-select="coArray" ng-model="operationModeUpdate" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310019' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="bsnNumb"  ng-model="item.listCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"  jf-select="listTypArray" value="listTypUpdate" ng-model="item.listTyp" disabled></select>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00091' | translate}}：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input" name="cccN" ng-model="item.listDesc"  type="text" validator="required">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH310025' | translate}}</div>
+				<div class="layui-inline float_right" style="margin-bottom: 10px;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="addNega()" style="margin-right: 30px;">
+							{{'F00010' | translate}}
+						</button>
+						<!-- <button class="layui-btn" ng-click="delAllNeg()">
+							 全部删除
+						</button> -->
+					</div>
+				</div>
+		<div style="margin-bottom:20px">
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #fff;">
+						<th align="center" style="width:5%">{{'F00013' | translate}}</th>
+						<th align="center" style="width:88%">{{'SQH310025' | translate}}</th>
+						<th align="center" style="width:7%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="trad in tradUpdateList" >
+ 						<td style="width:5%" align="center" ng-bind="$index+1"></td> 
+						<td align="center" style="width:88%;padding-top: 5px;" align="center" >
+							<input class="layui-input" style="width: 9%;display: inline-block;" name="bsnNumb"  ng-model="trad.listProject1"  type="text">
+							<input class="layui-input" style="width: 9%;display: inline-block;" name="bsnNumb"  ng-model="trad.listProject2" type="text">
+							<input class="layui-input" style="width: 9%;display: inline-block;" name="bsnNumb"  ng-model="trad.listProject3" type="text">
+							<input class="layui-input" style="width: 9%;display: inline-block;" name="bsnNumb"  ng-model="trad.listProject4"  type="text">
+							<input class="layui-input" name="bsnNumb" style="width: 9%;display: inline-block;"  ng-model="trad.listProject5" type="text">
+							<input class="layui-input" name="bsnNumb" style="width: 9%;display: inline-block;"  ng-model="trad.listProject6" type="text">
+							<input class="layui-input" name="bsnNumb" style="width: 9%;display: inline-block;"  ng-model="trad.listProject7" type="text">
+							<input class="layui-input" name="bsnNumb" style="width: 9%;display: inline-block;" ng-model="trad.listProject8"  type="text">
+							<input class="layui-input" name="bsnNumb" style="width: 9%;display: inline-block;"  ng-model="trad.listProject9" type="text">
+							<input class="layui-input" name="bsnNumb" style="width: 9%;display: inline-block;"  ng-model="trad.listProject10" type="text">
+						</td>
+						<td style="width:7%" align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="tradDel(this,$index)">
+								{{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,117 @@
+<div ng-controller="blockHistoryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action="" name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="blockList.idType"  lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="idNumber" type="text"
+				id='blockHistory_idNumber' validator="noValidator"
+					ng-model="blockList.idNumber" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="externalIdentificationNo"
+					type="text" ng-model="blockList.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+		<div class="col_td">
+			<!-- <div class="col4 text_right">{{'KHH700003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="builder.option(demoArray2)"
+					ng-model="blockList.contrlLevel"></select>
+			</div> -->
+		</div>
+
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="blockList.customerNo"
+					name="customerNo" type="text">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH700004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="startDate"
+					name="startDate"   type="text" id="blockStartDate">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH700005' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="endDate"
+					name="endDate"  type="text" id="blockEndDate">
+			</div>
+		</div>
+
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="queryBlockHistory()" validation-submit="queryInfForm">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+	  </form>
+
+	<div ng-show="isShowCstDiv">
+		<div class=" ">
+			<div jf-grid="relationTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="padding-left:0px;padding-right:3px;width:18%">{{'KHH700012' | translate}}</th>
+							<!-- <th>管控码及描述</th>
+							<th>管控层级</th>
+							<th>层级代码</th>
+							<th>当前管控码日期</th> -->
+							<th>{{'KHH700013' | translate}}</th>
+							<th>{{'KHH700014' | translate}}</th>
+							<th>{{'KHH700015' | translate}}</th>
+							<th>{{'KHH700016' | translate}}</th>
+							<th>{{'KHH700017' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" style="padding-left:0px;padding-right:3px;">
+						  		<div class="tdDivL">{{item.eventNo.substring(10)}}</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.eventDesc}}</div>
+						  	</td>
+							<td align="center" ng-bind="item.settingUpUserid"></td>
+							<td align="center" ng-bind="item.settingDate"></td>
+							<td align="center" ng-bind="item.removalUserid"></td>
+							<td align="center" ng-bind="item.removeDate"></td>
+							<td align="center" ng-bind="item.stateDesc"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selectCodeInfo(item,$event)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+</div>

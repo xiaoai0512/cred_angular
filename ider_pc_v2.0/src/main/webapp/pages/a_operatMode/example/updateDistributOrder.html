@@ -1,0 +1,92 @@
+<div ng-controller="updateDistributOrderCtrl">
+		<div jf-grid="paymentOrderSettingsTable202" class="layui-form">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH400044' | translate}}</th>
+						<th align="center" >{{'YYH400045' | translate}}</th>
+						<th align="center" >{{'YYH400042' | translate}}</th>
+						<th align="center">{{'YYH400043' | translate}}</th>
+						<th>{{'F00030' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td align="center" ng-bind="item.performOrder"></td>
+					<td align="center">
+						<div class="tdDivL">{{item.elementNo}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.elementDesc}}</div>
+					</td>
+					<td align="center">
+						<div class="tdDivL">{{item.instanCode1}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc1}}</div>
+					</td>
+					<td align="center">
+						<div class="tdDivL">{{item.instanCode2}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc2}}</div>
+					</td>
+					<td align="center" width="5%">
+						<div class="table_arrow">
+							<a class="arrow_up" ng-click="exchangeSeqNoUp(item,$index)"></a>
+							<a class="arrow_down" ng-click="exchangeSeqNoDown(item,$index)"></a> 
+						</div>
+					</td>
+					<td align="center" >
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="selectAUpdateBP202(item,$index)">
+							<i class="layui-icon"></i> {{'F00081' | translate}}
+						</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH400053' | translate}}</div>
+		<div jf-grid="paymentOrderSettingsTable282" class="layui-form">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH400044' | translate}}</th>
+						<th align="center" >{{'YYH400045' | translate}}</th>
+						<th align="center" >{{'YYH400042' | translate}}</th>
+						<th align="center">{{'YYH400043' | translate}}</th>
+						<th>{{'F00030' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td align="center" ng-bind="item.performOrder"></td>
+					<td align="center">
+						<div class="tdDivL">{{item.elementNo}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.elementDesc}}</div>
+					</td>
+					<td align="center">
+						<div class="tdDivL">{{item.instanCode1}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc1}}</div>
+					</td>
+					<td align="center">
+						<div class="tdDivL">{{item.instanCode2}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc2}}</div>
+					</td>
+					<td align="center" width="5%">
+						<div class="table_arrow">
+							<a class="arrow_up" ng-click="exchangeSeqNoUp282(item,$index)"></a>
+							<a class="arrow_down" ng-click="exchangeSeqNoDown282(item,$index)"></a> 
+						</div>
+					</td>
+					<td align="center" >
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="selectAUpdateBP282(item,$index)">
+							<i class="layui-icon"></i> {{'F00081' | translate}}
+						</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+</div>

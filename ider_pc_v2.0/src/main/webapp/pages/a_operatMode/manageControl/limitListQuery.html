@@ -1,0 +1,59 @@
+<div ng-controller="limitListQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：限制清单维护
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+
+		<div class="col_td">
+			<div class="col4 text_right">运营模式 ：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="limitList.params.operationMode" 
+						jf-select="operationModeArr" name="operationMode"  maxlength="3">
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">管控项目编号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" ng-model="limitList.params.controlProjectNo" name="controlProjectNo" maxlength="9">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="limitList.search()" >
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="limitList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+		
+		<div jf-grid="limitList">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>管控项目编号</th>
+						<th>限制事件编号</th>
+						<th style="width:15%">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.controlProjectNo"></td>
+						<td align="center" ng-bind="item.limitEventNo"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkLimitListInf(item)">
+								<i class="layui-icon"></i> 查询
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

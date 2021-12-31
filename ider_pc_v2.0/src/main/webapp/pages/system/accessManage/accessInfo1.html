@@ -1,0 +1,29 @@
+<div class="layout_body" ng-controller="accessInfoCtrl">
+	<div jf-grid="infoList">
+		<table>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>功能名称</th>
+					<th>所属级别</th>
+					<th>功能状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center"  ng-bind="$index+1"></td>
+					<td align="center" ng-bind="item.menuName"></td>
+					<td align="center">
+						<span ng-if="item.level == '1'">一级</span>
+				  		<span ng-if="item.level == '2'">二级</span>
+				  		<span ng-if="item.level == '3'">三级</span>
+					</td>
+					<td align="center">
+						<span ng-if="item.displayFlag == '0'">启用</span>
+				  		<span ng-if="item.displayFlag == '1'">禁用</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

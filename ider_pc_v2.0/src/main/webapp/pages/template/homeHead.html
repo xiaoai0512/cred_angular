@@ -1,0 +1,37 @@
+ <div class="ider-header" ng-controller="iderHeaderController">
+    <div class="logo"></div>
+    
+     <!-- 炫酷字体 -->
+      <svg class='no-area'>
+      	<filter id='diff1'>
+		<feDiffuseLighting in='SourceGraphic' diffuseConstant='1.2' lighting-color='#fff' result='diffOut'>
+		<fePointLight x='100' y='0' z='100'/>
+		</feDiffuseLighting>
+		<feComposite in='diffOut' in2='SourceAlpha' operator='in' result='light'/>
+		<feComposite in='SourceGraphic' in2='light' operator='arithmetic' k1='1' k2='0' k3='0' k4='0'/>
+		</filter>
+      </svg>
+     <h1 class='diff1' ng-bind=curHuanjing></h1>
+  	<!-- 炫酷字体end -->
+    
+    
+    
+    <ul class="userinfo ">
+        <li><a href="javascript:" ng-click="exit()"><i class="icon_top icon_top01"></i> {{'F00005' | translate}}</a></li>
+        <li><a href="javascript:" >{{'F00002' | translate}}：<span ng-bind="currentdate"></span></a></li>
+        <li><a href="javascript:" ng-click="updatePsdBtn()"><i class="layui-icon layui-icon-set-sm">&#xe620;</i>{{'F00006' | translate}}</a></li>
+        <!-- <li><a href="javascript:;"><i class="icon_top icon_top02"></i> <span class="">10</span></a></li> -->
+        <li><a href="javascript:"><i class="icon_top icon_top04"></i> <span class="username" >{{userName}}</span></a></li>
+       	<li id="homePage11"><a href="./pages/public.html"><i class="icon_top icon_top03"></i> <span>{{'F00007' | translate}}</span></a></li>
+       <!--  <li ><a href="./pages/personCenter.html"><i class="layui-icon layui-icon-user">&#xe770;</i> <span>个人中心</span></a></li> -->
+        <!-- <li>
+        	<span>{{'F00011' | translate}}</span>
+	        <select class="language-switching" ng-model="cur_lang" ng-change="switchLanguage(cur_lang)">
+			    <option value="0">请选择</option>
+			    <option value="cn">简体中文</option>
+			    <option value="zh-tw">繁體中文</option>
+			    <option value="en">English</option>
+			</select>
+		</li> -->
+    </ul>
+</div>

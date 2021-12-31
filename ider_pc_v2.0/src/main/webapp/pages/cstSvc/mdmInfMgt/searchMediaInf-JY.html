@@ -1,0 +1,34 @@
+<div ng-controller="searchMediaInfCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+				<div class="" class="layui-form">
+					<div jf-grid="searchMdmInfListAll">
+						<table>
+							<thead>
+								<tr>
+								    
+									<th>{{'F00111' | translate}}</th>
+									<th>{{'KHH5600004' | translate}}</th>
+									<th>{{'KHH5600005' | translate}}</th>
+									<th>{{'KHH5600006' | translate}}</th>
+									<th>{{'KHH5600007' | translate}} </th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.externalIdentificationNo"></td>
+									<td align="center" ng-bind="item.mediaUnitCode"></td>
+									<td align="center" ng-bind="item.mediaObjectCode"></td>
+									<td align="center" ng-bind="item.expirationDate"></td>
+									<td align="center" >
+										<span ng-if="item.mainSupplyIndicator  === '1' ">{{'KHJ5600002' | translate}}</span>
+										<span ng-if="item.mainSupplyIndicator  === '2' ">{{'KHJ5600003' | translate}}</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>

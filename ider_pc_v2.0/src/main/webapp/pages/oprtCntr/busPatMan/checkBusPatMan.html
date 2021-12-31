@@ -1,0 +1,91 @@
+<div ng-controller="checkbusPatManCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">运营模式：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone"  id="operationMode" type="text" ng-model="busPatArt.operationMode"  readonly>
+						</div>
+					</div>
+					<div class="col_td">
+					<div class="col4 text_right">业务形态：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="businessPatternId" type="text" ng-model ="busPatArt.businessPattern"  readonly>
+					</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">账户组织形式：</div>
+						<div class="wd190 float_left">
+							<select ng-model="busPatArt.accountOrganizeTyp" class="layui-input"  id="accountOrganizeTyp"
+								jf-select="builder.option(accountOrgArr)"
+								name="accountOrganizeTyp" ></select>
+								
+								<!-- <input class="layui-input bnone"  type="text"  ng-model="busPatArt.accountOrganizeTypTrans" 
+								name="accountOrganizeTyp"  id="accountOrganizeTyp" readonly> -->
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">业务性质：</div>
+						<div class="wd190 float_left">
+							<!-- <input class="layui-input bnone"  type="text"  ng-model="busPatArt.accountBookKeepingDirecTrans"  name="accountBookKeepingDirec"  id="accountBookKeepingDirec" readonly> -->
+						<select ng-model="busPatArt.accountBookKeepingDirec" class="layui-input"  id="accountBookKeepingDirec"
+							jf-select="builder.option(businessNatureArr)"
+							name="accountBookKeepingDirec">
+						</select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">描述：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input"  type="text" ng-model="busPatArt.description" name="description"  id="description">
+						</div>
+					</div>
+					<div class="clearboth"></div>
+					<div class="mainname"> 已关联构件 </div>
+					<div class="floatRBtn" >
+						<button class="layui-btn layui-btn-mini" type="button" 
+									ng-click="newArtWay(item)">
+									<i class="layui-icon layui-icon-more">新增构件</i>
+							</button>
+					</div>
+					
+					
+					<div >
+						<table border="0" cellspacing="0" cellpadding="0"
+								class="layui-table dataTable no-footer" lay-even=""
+								lay-skin="nob">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>构件编号</th>
+									<th>构件描述</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="items in treeSelect track by $index"> 
+									<td align="center" ng-bind="$index + 1"></td>
+									<td align="center" ng-bind="items.artifactNo"></td>
+									<td align="center" ng-bind="items.artifactDesc"></td>
+									<td align="center">
+										<button class="layui-btn layui-btn-mini" type="button"
+											ng-click="checkElmInfo(items)">
+											<i class="layui-icon"></i> 查询
+										</button>
+										<button class="layui-btn layui-btn-mini" type="button"
+											ng-click="removeSelect(items,$index)">
+											<i class="layui-icon"></i> 删除
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+						
+					
+				</div>
+
+		</div>
+	</div>
+</div>

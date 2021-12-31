@@ -1,0 +1,47 @@
+<div class="search_tooptip" style="{{selector.style}}" id="{{selector.id}}">
+	<div class="layui-tab layui-tab-brief" ng-if="selector.layout == 'table'">
+		<ul class="layui-tab-title" ng-show="selector.checkType == 'checkbox'" ng-init="tab=1">
+			<li ng-class="{'layui-this' : tab==1}" ng-click="tab=1">可选信息</li>
+			<li ng-class="{'layui-this' : tab==2}" ng-click="tab=2">已选信息</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item layui-show" ng-show="tab==1">
+				<input class="layui-input listsea" type="text" autocomplete="off" ng-model="selector.searchParam" ng-if="selector.search">
+				<table border="0" cellspacing="0" cellpadding="0" class="footable footable_search dataTable">
+					<tr>
+						<th align="center" ng-if="selector.checkType=='checkbox'" width="5%">选择</th>
+						<th align="center" ng-repeat="item in selector.header" ng-bind="item"></th>
+					</tr>
+					<tr ng-click="selector.checked(item)" ng-repeat="item in selector.data">
+						<td align="center"  ng-if="selector.checkType=='checkbox'" >
+							<input type="checkbox" lay-skin="primary" name="{{selector.id}}" ng-checked="item._checked">
+						</td>
+						<td align="center" class="intercept" ng-repeat="cell in selector.body" ng-bind="item.{{cell}}"></td>
+					</tr>
+				</table>
+				<div class="listbtn">
+					<button ng-click="selector.prePage()" class="layui-btn"   ng-class="{'layui-disabled':selector.pageConf.pageNum <= 1}">上一页</button>
+					<button ng-click="selector.nextPage()" class="layui-btn"  ng-class="{'layui-disabled':selector.pageConf.pageNum >= selector.pageConf.pages}" >下一页</button>
+				</div>
+			</div>
+			<div class="layui-tab-item layui-show" ng-show="tab==2">
+				<table border="0" cellspacing="0" cellpadding="0" class="footable footable_search">
+					<tr>
+						<th align="center" ng-repeat="item in selector.header" ng-bind="item"></th>
+						<th align="center" width="5%">操作</th>
+					</tr>
+					<tr ng-repeat="item in selector.checkeds">
+						<td align="center" ng-repeat="cell in selector.body" ng-bind="item.{{cell}}"></td>
+						<td align="center" class="intercept" ng-click="selector.checked(item)"><i class="layui-icon stclo"><a href="javascript:void(0)">&#x1006;</a></i></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="layui-tab layui-tab-brief" ng-if="selector.layout == 'tree'">
+		<div class="layui-tab-content">
+			<input class="layui-input listsea" type="text" autocomplete="off" ng-model="selector.searchParam" ng-if="selector.search">
+			<div jf-tree="selector.tree"></div>
+		</div>
+	</div>
+</div>

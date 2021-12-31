@@ -1,0 +1,31 @@
+<div ng-controller="layerCstInfListCtrl-JY">
+	<div class="section">
+		<div jf-grid="cstInfoList">
+			<table>
+				<thead>
+					<tr>
+						<th >证件类型</th>
+						<th>证件号码</th>
+						<th>客户姓名</th>
+						<th>客户号</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style=" width: 20%;" align="center">
+							<span ng-if="item.idType=='1'">{{'F00113' | translate}}</span>
+							<span ng-if="item.idType=='2'">{{'F00114' | translate}}</span>
+							<span ng-if="item.idType=='3'">{{'F00115' | translate}}</span>
+							<span ng-if="item.idType=='4'">{{'F00116' | translate}}</span>
+							<span ng-if="item.idType=='5'">{{'F00117' | translate}}</span>
+							<span ng-if="item.idType=='6'">{{'F00118' | translate}}</span>
+						</td>
+						<td align="center" ng-bind="item.idNumber"></td>
+						<td align="center" ng-bind="item.customerName"></td>
+						<td align="center" ng-bind="item.customerNo"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- 溢缴款账户信息表 -->
+	</div>
+</div>

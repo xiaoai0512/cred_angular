@@ -1,0 +1,29 @@
+<div class="mainname">固定内容下拉框使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">固定内容下拉框代码与示例</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="col_td">
+        <div class="col4 text_right">申请模式：</div>
+        <div class="wd190 float_left">
+             &lt;select name="selectDemo"  ng-model="selectVal"&gt;
+                <option value="0">请选择</option>
+                <option value="1">线上申请</option>
+                <option value="2">线下申请</option>
+             &lt;/select&gt;
+       </div>
+   </div>
+</pre>
+
+<div class="mainname">示例</div>
+<div ng-controller="dictDemoCtrl" class="allcontent">
+    <div class="col_td">
+        <div class="col2 text_right">申请模式：</div>
+        <div class="wd190 float_left">
+            <select name="selectDemo"  ng-model="selectVal">
+                <option value="0">请选择</option>
+                <option value="1">线上申请</option>
+                <option value="2">线下申请</option>
+            </select>
+        </div>
+    </div>
+</div>

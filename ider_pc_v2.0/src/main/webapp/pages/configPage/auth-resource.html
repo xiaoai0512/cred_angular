@@ -1,0 +1,58 @@
+<div class="mainname">权限配置</div>
+<blockquote class="layui-elem-quote">
+      在菜单管理中配置页面(按钮)资源，然后可以在角色管理分配选中角色的页面(按钮)的资源权限。
+</blockquote>
+
+<div class="mainname">页面资源地址等同于路由配置文件中的路由地址</div>
+<blockquote class="layui-elem-quote">
+
+通过下面配置将demo-table.html页面的路由地址中被设置为：/tableDemo。则新增菜单管理时页面配置资源地址为：/tableDemo。
+ <br>
+ 示例：
+ <pre class="layui-code" lay-title="Code" lay-encode="true" >
+  define(function(require, exports, module) {
+     var config = [
+        //客户信息管理 start	
+         ['/tableDemo', 'demo/demo-table.html', 'demoController.js'],
+          ];
+      module.exports = config;
+   });
+</pre>
+</blockquote>
+
+<div class="mainname">按钮资源地址由"jf-permission"指令指定</div>
+<blockquote class="layui-elem-quote">
+     在jf-permission="资源地址"指定按钮的资源地址    <br>
+     例如：在按钮的属性里添加jf-permission="demo.add",并将按钮资源地址设置为demo.add。
+ </blockquote>
+html代码：
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     <button class="layui-btn layui-btn-primary" ng-click="" jf-permission="demo.add">
+          <i class="layui-icon">&#xe640;</i/> 删 除
+      </button>
+</pre>
+
+
+<div class="mainname">在菜单管理中添加页面(按钮)</div>
+<blockquote class="layui-elem-quote">
+        菜单管理对应的目录下添加子节点：按钮。
+</blockquote>
+<img width="640" ng-src="{{global.imgPath + '/authConfig/authconfig1.jpg'}}">
+
+<blockquote class="layui-elem-quote">
+        菜单管理新增的按钮资源页面。
+</blockquote>
+<img width="840" ng-src="{{global.imgPath + '/authConfig/authconfig2.jpg'}}">
+
+<blockquote class="layui-elem-quote">
+        菜单管理新增按钮资源在对应的页面目录下。
+</blockquote>
+<img width="840" ng-src="{{global.imgPath + '/authConfig/authconfig3.jpg'}}">
+
+<div class="mainname">在用户管理给角色分配按钮</div>
+<blockquote class="layui-elem-quote">
+        在角色管理中给选定角色分配按钮资源。
+</blockquote>
+<img width="640" ng-src="{{global.imgPath + '/authConfig/authconfig4.jpg'}}">
+
+

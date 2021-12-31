@@ -1,0 +1,83 @@
+<div ng-controller="queryPCDCtrl">
+	<div class="">
+		<form   class="layui-form">
+		<!-- pcd实例化 -->
+			<div class="mainname">{{'YYH400015' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="pcdNo" type="text" ng-model="pcdExampleInf.pcdNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400030' | translate}}：</div>
+				<div class="wd190 float_left">
+						<select jf-select="segmentTypeArray" ng-model="segmentTypeDiff" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">基础实例维度：</div>
+				<div class="wd190 float_left">
+					<select ng-model="baseInstanDimenDiff"
+							class="layui-input" jf-select="businessValueArr01"
+							name="baseInstanDimen" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">可选实例维度：</div>
+				<div class="wd190 float_left">
+					<select ng-model="optionInstanDimenDiff"
+							class="layui-input" jf-select="businessValueArr02"
+							name="optionInstanDimen" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn cancel-btn" type="button" ng-if="pcdExampleInf.pcdNo != null && pcdExampleInf.pcdDesc == '' && pcdExampleInf.supportPcd == 'Y'"
+					ng-click="addDiffentInstan()">
+					<i class="layui-icon"></i> {{'F00082' | translate}}
+				</button>
+				<button class="layui-btn1 cancel-btn" type="button" ng-if="pcdExampleInf.pcdNo != null && pcdExampleInf.pcdDesc != '' && pcdExampleInf.supportPcd == 'Y'"
+					ng-click="addDiffentInstan()">
+					<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+				</button>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>基础实例代码</th>
+						<th>可选实例代码</th>
+						<th>{{'YYH400028' | translate}}</th>
+						<th>{{'YYH400021' | translate}}</th>
+						<th>{{'YYH400029' | translate}}</th>
+						<th>{{'YYH400022' | translate}}</th>
+						<th>{{'YYH400023' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in pcdInfTableDiff track by $index">
+						<td align="center" ng-bind="item.baseInstanCode"></td>
+						<td align="center" ng-bind="item.optionInstanCode"></td>
+						<td align="center" ng-bind="item.segmentSerialNum"></td>
+						<td align="center" ng-bind="item.pcdType"></td>
+						<td align="center" ng-bind="item.segmentValue"></td>
+						<td align="center" ng-bind="item.pcdValue"></td>
+						<td align="center" ng-bind="item.pcdPoint"></td>
+						<td align="center" >
+							<!-- <button class="layui-btn layui-btn-mini" ng-click="updateInstan(item,$index)">
+								<i class="layui-icon"></i> {{'F00015' | translate}}
+							</button> -->
+							<button class="layui-btn layui-btn-mini"  ng-click="deletePcdDif($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+				
+		</form>
+	</div>
+</div>

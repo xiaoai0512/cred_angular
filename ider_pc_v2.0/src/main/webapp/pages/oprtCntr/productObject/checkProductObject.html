@@ -1,0 +1,153 @@
+<div ng-controller="checkProductObjectCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">运营模式 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"
+								ng-model="item.operationMode" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">产品对象代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"
+								ng-model="item.productObjectCode" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">发卡组织：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="item.issueCardOrgan"
+								disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">卡BIN：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" ng-model="item.cardBin"
+								disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">还款优先级 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input " type="text" ng-model="item.repaymentPriority"
+								>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">产品描述 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input  " type="text" ng-model="item.productDesc"
+								>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">创建日期 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input  bnone" type="text" ng-model="item.gmtCreate"
+								disabled="disabled">
+						</div>
+					</div>
+				
+					<div class="search_mian">
+						<div class="mainname">构件列表</div>
+					</div>
+					<div>
+						<table border="0" cellspacing="0" cellpadding="0"
+								class="layui-table dataTable no-footer" lay-even=""
+								lay-skin="nob">
+							<thead>
+								<tr>
+									<th>构件编号</th>
+									<th>构件描述</th>
+									<th>构件类型</th>
+									<th>实例化元件</th>
+									<th>元件描述</th>
+									<th>PCD</th>
+									<th style="width:18%">操作</th>
+									<th style="display:none">序号</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in treeSelect track by $index">
+									<td align="center" ng-bind="item.artifactNo"></td>
+									<td align="center" ng-bind="item.artifactDesc"></td>
+								<!-- 	<td align="center" ng-bind="item.artifactType"></td> -->
+								<td align="center">
+									<span   ng-if="item.artifactType == 'A'">账户类构件</span>
+									<span   ng-if="item.artifactType == 'B'">余额类构件</span>
+									<span   ng-if="item.artifactType == 'T'">技术类构件</span>
+									<span   ng-if="item.artifactType == 'P'">产品类构件</span>
+									<span   ng-if="item.artifactType == 'X'">非对象类构件</span>
+									<span   ng-if="item.artifactType == 'M'">媒介类构件</span>
+									<span   ng-if="item.artifactType == ''"></span>
+									</td>
+									<td align="center" ng-bind="item.elementNo"></td>
+									<td align="center" ng-bind="item.elementDesc"></td>
+									<td align="center" ng-bind="item.pcdNo"></td>
+									<!-- <td align="center">
+										
+									</td> -->
+									<td align="center" >
+										<button class="layui-btn layui-btn-mini"  type="button"
+												ng-click="updateBalObjInfo(item)">
+												<i class="layui-icon"></i> 编辑
+										</button>
+										<button class="layui-btn layui-btn-mini" type="button"
+											ng-click="removeSelect(item,$index)">
+											<i class="layui-icon"></i> 删除
+										</button>
+									</td>
+									<td  ng-bind="$index" style="display:none"></td>
+		               				<!-- <td align="center" ng-if="item.pcdNo == ''"></td> -->
+								</tr>
+					 		</tbody>
+						</table>
+					</div>
+						<button class="layui-btn layui-btn-mini" type="button" 
+								ng-click="newArtWay(item)">
+								<i class="layui-icon layui-icon-more">新增构件</i>
+						</button>
+					
+					
+					<div class="search_mian">
+						<div class="mainname">差异化列表</div>
+					</div>
+					<div jf-grid="differentTable">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>余额对象代码</th>
+							<th>币种</th>
+							<th>PCD编号</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.objectCode"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.pcdNo"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="updateDif(item)">
+									<i class="layui-icon"></i> 修改
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>

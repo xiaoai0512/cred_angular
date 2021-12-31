@@ -1,0 +1,41 @@
+<div ng-controller="resNumEstCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form name="resNumForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5300001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="resNum.corporationEntityNo" 
+						validator="required" name="corporationEntityNo" type="text" maxlength="10" ng-click="chosecorporation()" id="corporationEntityNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5300002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="resNum.binNo" class="layui-input" 
+						jf-select=cardBinArr name="binNo"
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH5300003' | translate}}：</div>
+				<div class="wd190 float_left">
+					  <span style="display: inline-block;width: 36%;">000<span style="display: inline-block;"  >{{resNum.binNo}}</span></span>
+					  <input  style="display: inline-block;width: 62%;" class="layui-input" ng-model="resNum.reserveNumRuleHalf" id="reserveNumRuleHalf"  validator="required,maxlength,minlength"
+						 name="reserveNumRule" type="text"   minlength="10" maxlength="10">
+				</div>
+			</div>
+
+			<div class="col_tr text_center">
+				<button class="layui-btn"
+					ng-click="saveResNum()" validation-submit="resNumForm">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div>
+		</form>
+
+	</div>
+</div>

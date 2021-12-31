@@ -1,0 +1,212 @@
+<div ng-controller="accountingDetailsCtrl">
+	<div class=" ">
+		<form name="accMainSceneFormee"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH1800041' | translate}}：</div>
+				<div class="wd330 float_left">
+				<input class="layui-input bnone" type="text" name="globalSerialNumbr" disabled
+					ng-model="accProcesseInf.globalSerialNumbr" maxlength="36">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="externalIdentificationNo" disabled
+						ng-model="accProcesseInf.externalIdentificationNo" maxlength="32">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800076' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="accountId" disabled
+						ng-model="accProcesseInf.accountId" maxlength="23">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800031' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="businessTypeCode" disabled
+						ng-model="accProcesseInf.businessTypeCode" maxlength="9">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="eventNo" disabled
+						ng-model="accProcesseInf.eventNo" maxlength="14">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800077' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="postingCurrencyCode" disabled
+						ng-model="accProcesseInf.postingCurrencyCode" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800078' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="actualPostingAmount" jf-format-input="money" disabled
+						ng-model="accProcesseInf.actualPostingAmount" maxlength="18">
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">记账规则代码：</div>
+				<div class="wd190 float_left ">
+				<input class="layui-input bnone" type="text" name="accountingRuleCode" disabled
+					ng-model="accProcesseInf.accountingRuleCode" maxlength="6">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">入账日期{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left"> 
+					<input class="layui-input bnone" type="text" name="postingDate" disabled
+						ng-model="accProcesseInf.postingDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">子表序号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="subTableSequence" disabled
+						ng-model="accProcesseInf.subTableSequence" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">核算类型编号{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="accountingType" disabled
+						ng-model="accProcesseInf.accountingType" maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">产品对象代码{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="productObjectCode" disabled
+						ng-model="accProcesseInf.productObjectCode"accountingType"" maxlength="15">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易机构{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="transOrganization" disabled
+						ng-model="accProcesseInf.transOrganization" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">账户机构{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="accountOrganization" disabled
+						ng-model="accProcesseInf.accountOrganization" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易摘要{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="transSummary" disabled
+						ng-model="accProcesseInf.transSummary" maxlength="50">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">渠道代码{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="channelCde" disabled
+						ng-model="accProcesseInf.channelCde" maxlength="8">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">核算状态码{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="accountingStatusCode" disabled
+						ng-model="accProcesseInf.accountingStatusCode" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">记账标识：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="accountingFlag" disabled
+						ng-model="accProcesseInf.accountingFlagTrans">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">原子动作编号{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="atomicActionNumber" disabled
+						ng-model="accProcesseInf.atomicActionNumber" maxlength="4">
+				</div>
+			</div><div class="col_td">
+				<div class="col4 text_right">金额类型编号{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="amountTypeNumber" disabled
+						ng-model="accProcesseInf.amountTypeNumber" maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">内部账号{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="internalAccountNo" disabled
+						ng-model="accProcesseInf.internalAccountNo" maxlength="23">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">借贷方向{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="drcrFlag" disabled
+						ng-model="accProcesseInf.drcrFlagTrans">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">记账币种小数位{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="postingCurrencyPoint" disabled
+						ng-model="accProcesseInf.postingCurrencyPoint" maxlength="11">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">处理状态{{'F00041' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" type="text" name="dealStatus" disabled
+						ng-model="accProcesseInf.dealStatus" maxlength="3">
+				</div>
+			</div> -->
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH1800079' | translate}}</div>
+			<div  jf-grid="accProcesseList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH1800080' | translate}}</th>
+							<th>{{'KHH1800078' | translate}}</th>
+							<th>{{'KHH1800081' | translate}}</th>
+							<th>{{'KHH1800082' | translate}}</th>
+							<th>{{'KHH1800083' | translate}}</th>
+							<th style="width:20%;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">
+								{{item.accountingRuleCode}}{{item.accountingRuleDesc}}
+							</td>
+							<td align="center" ng-bind="item.actualPostingAmount | number :2"></td>
+							<td align="center">
+								{{item.atomicActionNumber}}{{item.atomicActionNumberDesc}}
+							</td>
+							<td align="center">
+								{{item.amountTypeNumber}}{{item.amountTypeNumberDesc}}
+							</td>
+							<td align="center" ng-bind="item.postingDate"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkAccProcesseDetail(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,90 @@
+<div ng-controller="lCOvewCtrl">
+	<div>
+		<div class="section">
+			<div class="layui-tab-content">
+				<div class="layui-form">
+					<div class="allcontent">
+						<!--web_body-->
+						<div class="mainname">余额单元基本信息</div>
+						<div class="col_td">
+							<div class="col4 text_right">余额单元代码：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" name="balUnitCd" type="text"
+									ng-model="temp.balUnitCd">
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">周期号：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" name="ccy" type="text" value="1">
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">账户代码：：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" name="bsnTp" type="text"
+									value="100000000018A00001">
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">币种：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" name="lblNo" type="text" value="156">
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">余额对象代码：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" name="scn" type="text"
+									value="MODB00001">
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">余额类型 ：</div>
+							<div class="wd190 float_left">
+								<input class="layui-input" name="prcgRgon" type="text"
+									value="本金">
+							</div>
+						</div>
+
+						<div jf-grid="YTable">
+							<table>
+								<thead>
+									<tr>
+										<th>节点</th>
+										<th>日期</th>
+										<th>时间</th>
+										<th>生命周期名称</th>
+										<th>余额变化</th>
+										<th>变化前余额</th>
+										<th>变化后余额</th>
+										<th>操作</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td align="center" ng-bind="item.t"></td>
+										<td align="center" ng-bind="item.t1"></td>
+										<td align="center" ng-bind="item.t2"></td>
+										<td align="center" ng-bind="item.t3"></td>
+										<td align="center" ng-bind="item.t4"></td>
+										<td align="center" ng-bind="item.t5"></td>
+										<td align="center" ng-bind="item.t6"></td>
+										<td align="center">
+											<button class="layui-btn layui-btn-mini" ng-click="">
+												<i class="layui-icon layui-icon-more">&#xe65f;</i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

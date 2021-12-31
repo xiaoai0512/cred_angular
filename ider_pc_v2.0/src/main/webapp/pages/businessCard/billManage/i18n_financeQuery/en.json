@@ -1,0 +1,21 @@
+{
+"GWH500003": "Offical Card transaction Information",
+"GWH500004": "Transaction Date",
+"GWH500005": "transaction amount",
+"GWH500006": "transaction currency",
+"GWH500007": "Transaction Description",
+"GWH500008": "Reimbursement",
+"GWH500009": "Merchant ID",
+"GWH500010": "Reimbursed",
+"GWH500011": "Not reimbursed",
+"GWH500012": "Official Cards List",
+"GWH500013": "Cardholder Name",
+"GWH500014": "Official Card List",
+"GWH500015": "Effective Flag",
+"GWH500016": "Effective",
+"GWH500017": "Invalid",
+"GWJ500001": "Reimburse successfully!",
+"GWJ500002": "Reimburse failed!",
+"GWJ500003": "One-time charge",
+"GWJ500004": "Instalment charge"
+}

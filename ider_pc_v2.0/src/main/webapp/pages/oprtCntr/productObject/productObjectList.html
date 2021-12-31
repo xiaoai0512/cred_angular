@@ -1,0 +1,64 @@
+<div ng-controller="productObjectListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：产品对象管理
+	</div>
+	<div class="search_mian layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">运营模式 ：</div>
+			<div class="wd190 float_left"> 
+				<input class="layui-input" type="text" maxlength="3"
+					ng-model="avyListTable.params.operationMode" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">产品对象代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="9"
+					ng-model="avyListTable.params.productObjectCode">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="avyListTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="avyListTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div jf-grid="avyListTable">
+		<table>
+			<thead>
+				<tr>
+					<th>运营模式</th>
+					<th>产品对象代码</th>
+					<th>发卡组织</th>
+					<th>卡BIN</th>
+					<th>还款优先级</th>
+					<th>产品描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.productObjectCode"></td>
+					<td align="center" ng-bind="item.issueCardOrgan"></td>
+					<td align="center" ng-bind="item.cardBin"></td>
+					<td align="center" ng-bind="item.repaymentPriority"></td>
+					<td align="center" ng-bind="item.productDesc"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkBalObjElmDtl(item)">
+							<i class="layui-icon"></i> 维护
+						</button>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

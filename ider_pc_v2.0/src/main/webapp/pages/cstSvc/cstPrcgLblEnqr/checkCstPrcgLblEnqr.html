@@ -1,0 +1,117 @@
+<div ng-controller="checkcstPrcgLblEnqrCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400010' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="customerNo"
+							 type="text" ng-model="blockCDScnMgtInfo.customerNo" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400030' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="pricingLevel"
+							ng-model="blockCDScnMgtInfo.pricingLevel" type="text" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400031' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="pricingLevelCode"
+							ng-model="blockCDScnMgtInfo.pricingLevelCode" type="text" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300029' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="uppricingScope"  disabled="disabled"
+							jf-select="currencyArr" name="pricingScope">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="pricingObject"
+							ng-model="blockCDScnMgtInfo.pricingObject" type="text" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400007' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="pricingObjectCode"
+							ng-model="blockCDScnMgtInfo.pricingObjectCode" type="text" disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="pricingTag"
+							ng-model="blockCDScnMgtInfo.pricingTag" type="text"  disabled="disabled">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'KHH5400003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  icon_date" type="text" name="dateEntryEffective" id="check_dateEntryEffective"
+							ng-model="blockCDScnMgtInfo.custTagEffectiveDate">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  icon_date" type="text" name="dateEntryFailure" id="check_dateEntryFailure"
+							ng-model="blockCDScnMgtInfo.custTagExpirationDate">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400032' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text" name="settingDate"  disabled="disabled"
+						jf-date-input="{'format': 'yyyy-MM-dd'}" ng-model="blockCDScnMgtInfo.settingDate">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400033' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" name="settingTime"  disabled="disabled"
+				              ng-model="blockCDScnMgtInfo.settingTime">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400034' | translate}}：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" name="settingUpUserid"  disabled="disabled"
+				             ng-model="blockCDScnMgtInfo.settingUpUserid">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400035' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" type="text" name="removeDate"  disabled="disabled"
+						jf-date-input="{'format': 'yyyy-MM-dd'}" ng-model="blockCDScnMgtInfo.removeDate">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400036' | translate}}：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text" name="removalUserid"  disabled="disabled"
+				              ng-model="blockCDScnMgtInfo.removalUserid">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5400037' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input bnone"  ng-model="blockCDScnMgtInfo.state"  disabled="disabled">
+							<option value="Y">{{'KHH5400038' | translate}}</option>
+							<option value="D">{{'KHH5400039' | translate}}</option>
+							<option value="S">{{'KHH5400040' | translate}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

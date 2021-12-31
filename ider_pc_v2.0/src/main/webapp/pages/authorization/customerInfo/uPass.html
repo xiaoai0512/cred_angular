@@ -1,0 +1,89 @@
+<div class="layout_body" ng-controller="uPassCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 客户设置密码查询 -->
+			<form class="layui-form" name="passName">
+					<div class="col_td">
+						<label class="col4 text_right">{{'F00111' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" name="externalIdentificationNo"	ng-model="externalIdentificationNo" validator="required,number" autocomplete="off">
+						</div>
+					</div>
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1200002' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" name="expirationDateN" 	ng-model="expirationDate"  validator="required,minlength,maxlength,number" minlength="4" maxlength="4" autocomplete="off">
+						</div>
+					</div>
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1200003' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="type" jf-select="typeArray" name="idTypeN" lay-filter="gettype" validator="required">
+							</select>
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<div class="search_button">
+							<button class="layui-btn" ng-click="selectList()" validation-submit="passName">
+								<i class="layui-icon">&#xe615;</i> {{'F00107' | translate}}
+							</button>
+						</div>
+					</div>
+			</form>
+			<!-- 客户设置密码列表 -->
+			<div class="allcontent" style="margin-top: 20px;" ng-show="resultInfo">
+				<form class="layui-form" name="passUpdate">
+					 <div class="col_td">
+						<div class="col4 text_right">{{'F00111' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="listCodeN" ng-model="externalIdentificationNo" type="text" readonly>
+						</div>
+					</div> 
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1200004' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="listCodeN" ng-model="expirationDate" type="text" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1200010' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="algorithmType" class="layui-input"
+										jf-select="algorithmTypeArray" name="algorithmTypeN"></select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td" ng-show="isUpdate">
+						<div class="col4 text_right">{{'SQH1200005' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="previousPasswordOffsetN" ng-model="previousPssOff" type="password" validator="minlength,maxlength,number" minlength="6" maxlength="6" autocomplete="off">
+						</div>
+					</div>
+					<div class="col_td" ng-show="isUpdate"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1200006' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="listCodeN" ng-model="pssOff" type="password" validator="required,minlength,maxlength,number" minlength="6" maxlength="6" autocomplete="off">
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1200007' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="passwordOffsetConfirmN" ng-model="pssOffConfirm" type="password" validator="required,minlength,maxlength,number" minlength="6" maxlength="6" autocomplete="off">
+						</div>
+					</div>
+					<div class="col_tr" style="text-align: center;">
+						<button class="layui-btn" ng-click="sureInfo()" validation-submit="passUpdate">
+							{{'F00107' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="closeInfo()">
+							 {{'F00012' | translate}}
+						</button>
+					</div>
+				</form>
+			</div>
+	</div>
+</div>

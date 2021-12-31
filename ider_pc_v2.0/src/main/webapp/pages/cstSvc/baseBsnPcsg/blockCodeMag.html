@@ -1,0 +1,253 @@
+<div ng-controller="blockCodeMagCtrl" class="search_mian">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form name="queryInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="custInf.idType" lay-filter="getIdType" jf-select="certificateTypeArray" name="idType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id='blockCodeMag_idNumber' ng-model="custInf.idNumber" name="idNumber"
+					 validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="custInf.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="nextBtn()" validation-submit="queryInfForm">
+					<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+
+			<div class="clearboth"></div>
+		</form>
+		<div class="clearboth"></div>
+		<div ng-show="isNext">
+			<div class="mainname">{{'KHH500062' | translate}}</div>
+			<div jf-grid="itemEventList">
+				<table>
+					<thead>
+						<tr>
+							<th style="padding-left:0px;padding-right:3px;">{{'KHH500063' | translate}}</th>
+							<th>{{'KHH500064' | translate}}</th>
+							<th style="width: 30%;">{{'KHH500065' | translate}}</th>
+							<th>{{'KHH500066' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" style="padding-left:0px;padding-right:3px;" ng-bind="item.eventNo.substring(7)"></td>
+							<td align="center" ng-bind="item.eventDesc"></td>
+							<td align="right">
+								<div class="tdDivL">{{item.effectivenessCodeType}}{{item.effectivenessCodeScene}}</div>
+								<div class="tdDivR">&nbsp;{{item.effectivenessCodeDesc}}</div>
+							</td>
+							<td align="center" ng-bind="item.sceneTriggerObjectDesc"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selectCode(item,$event)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="showCstDiv">
+			<div class="mainname">{{'KHH500013' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH500014' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="cstInfoList.customerNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH500015' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="cstInfoList.institutionId">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH500016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="cstInfoList.operationMode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH500017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="cstInfoList.customerName">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="cstInfoList.idTypeTrans"> <input class="layui-input" type="text"
+					 style="display: none;" ng-model="cstInfoList.idType">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="cstInfoList.idNumber">
+				</div>
+			</div>
+
+			<div class="col_tr text_center">
+				<button class="layui-btn" type="button" ng-click="sure()">
+					<i class="layui-icon">&#xe618;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+
+		</div>
+
+
+		<div class="clearboth"></div>
+		<div ng-show="showMediaDiv">
+			<div class="mainname">{{'KHH500020' | translate}}</div>
+			<div jf-grid="mediaList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH500021' | translate}}</th>
+							<th>{{'KHH500022' | translate}}</th>
+							<th>{{'F00111' | translate}}</th>
+							<th>{{'KHH500023' | translate}}</th>
+							<th>{{'KHH500024' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.mediaUnitCode"></td>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.externalIdentificationNo"></td>
+							<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+							<td align="center" ng-bind="item.mediaUserName"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button" ng-click="checkMedia(item)">
+									<i class="layui-icon"></i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" type="button" ng-click="sure()">
+					<i class="layui-icon">&#xe618;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="showAcctDiv">
+			<div class="mainname">{{'KHH500027' | translate}}</div>
+			<div jf-grid="accountTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH500028' | translate}}</th>
+							<th>{{'KHH500029' | translate}}</th>
+							<!-- <th>{{'KHH500030' | translate}}</th>
+							<th>{{'KHH500031' | translate}}</th> -->
+							<th style="width:20%">{{'KHH500079' | translate}}</th>
+							<th style="width:23%">{{'KHH500032' | translate}}</th>
+							<th>{{'KHH500033' | translate}}</th>
+							<th>{{'KHH500034' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.currencyDesc"></td>
+							<td align="center">
+								<div class="tdDivL">{{item.businessTypeCode}}</div>
+								<div class="tdDivR">&nbsp;{{item.businessDesc}}</div>
+							</td>
+							<td align="center">
+								<div class="tdDivL">{{item.productObjectCode}}</div>
+								<div class="tdDivR">&nbsp;{{item.productDesc}}</div>
+							</td>
+							<td align="center" ng-bind="item.statusCodeDesc"></td>
+							<td align="center" ng-bind="item.accountingStatusCode"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" type="button" ng-click="sure()">
+					<i class="layui-icon">&#xe618;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="showGDiv">
+			<div class="mainname">{{'KHH500078' | translate}}</div>
+			<div jf-grid="businessProgramTable">
+
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH500073' | translate}}</th>
+							<th>{{'KHH500074' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.businessProgramNo"></td>
+							<td align="center" ng-bind="item.programDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" type="button" ng-click="sure()">
+					<i class="layui-icon">&#xe618;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="showProDiv">
+			<div class="mainname">{{'KHH500041' | translate}}</div>
+			<div jf-grid="productList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH500042' | translate}}</th>
+							<th>{{'KHH500007' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.productDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" type="button" ng-click="sure()">
+					<i class="layui-icon">&#xe618;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,76 @@
+<div  ng-controller="quotaAvailableQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form search_mian" name="quotaAvailableQueryForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label><!-- 外部识别号 -->
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo" id="exrer" >
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="quotaAvailableQueryForm"  ng-click="queryAvailableQuota()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}<!-- 查询 -->
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- 额度客用查询 展示-->
+	<div >
+		<div class="allcontent" ng-show="showQuotaTable">
+			<div style="margin-bottom:20px" >
+				<table style="width:100%" ng-repeat = "item in quotaList">
+					<thead>
+					<tr>
+						<!--<th align="center" ng-if="item.creditNodeDesc != '' && item.creditNodeDesc != null && $index != 0" colspan="7">-->
+						<th align="center" ng-if="item.creditDesc != '' && item.creditDesc != null && $index != 0" colspan="7">
+							<br>
+						</th>
+					</tr>
+					<tr style="background-color: #DCDCDC;">
+						<th align="center" ng-if="item.creditDesc != '' && item.creditDesc != null"><span ng-bind="item.creditDesc" ></span></th>
+					</tr>
+					<tr style="background-color: #DCDCDC;" ng-if="item.productObjectCode == '' || item.productObjectCode == null">
+						<th style="width:14%;padding:0 5px" align="center">{{'SQH410007'|translate}}</th><!--应用对象-->
+						<th style="width:5%;padding:0 5px" align="center">{{'SQH410008' | translate}}</th><!--币种-->
+						<th style="width:7%;padding:0 5px" align="center">{{'SQH410023' | translate}}</th><!--固定额度-->
+						<th style="width:7%;padding:0 5px" align="center">{{'SQH410025' | translate}}</th><!--容差额度-->
+						<th style="width:7%;padding:0 5px" align="center">{{'SQH410024' | translate}}</th><!--临时额度-->
+						<th style="width:10%;padding:0 5px" align="center">{{'SQH410010' | translate}}</th><!--临时额度生效日-->
+						<th style="width:10%;padding:0 5px" align="center">{{'SQH410011' | translate}}</th><!--临时额度失效日-->
+						<th style="width:9%;padding:0 5px" align="center">{{'SQH410004' | translate}}</th><!--还款未入账-->
+						<th style="width:7%;padding:0 5px" align="center">{{'SQH410027' | translate}}</th><!--未入账额度-->
+						<th style="width:8%;padding:0 5px" align="center">{{'SQH410026' | translate}}</th><!--已入账额度-->
+						<th style="width:8%;padding:0 5px" align="center">{{'SQH410020' | translate}}</th><!--额度占用金额-->
+						<th style="width:6%;padding:0 5px" align="center">{{'SQH410014' | translate}}</th><!--可用额度-->
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<!--<td style="width:13%" align="center">{{item.productObjectCode}} {{item.productObjectCodeDesc}}</td>-->
+						<td style="width:14%" align="center">{{item.productObjectCode}} {{item.productDesc}}</td>
+						<td align="center" style="width: 5%;" ng-bind="item.currencyCode"></td>
+						<td style="width:7%" align="center" ng-bind="item.permLimit"></td>
+						<td style="width:7%" align="center" ng-bind="item.toleranceLimit"></td>
+						<td style="width:7%" align="center" ng-bind="item.tempLimit"></td>
+						<td style="width:10%" align="center" ng-bind="item.tempLimitEffectvDate"></td>
+						<td style="width:10%" align="center" ng-bind="item.tempLimitExpireDate"></td>
+						<td style="width:9%" align="center" ng-bind="item.paymentOutstandingAmt"></td>
+						<td style="width: 7%;" align="center" ng-bind="item.outstandingAmt"></td>
+						<!--<td style="width: 7%;" align="center" ng-bind="item.balanceAmt"></td>-->
+						<td style="width: 8%;" align="center" ng-bind="item.balance"></td>
+						<td style="width: 8%;" align="center" ng-bind="item.occupyAmt"></td>
+						<td style="width: 6%;" align="center" ng-bind="item.availableLimit"></td>
+					</tr>
+					</tbody>
+				</table>
+				<div ng-if="isDateList2" style="text-align: center;">暂无数据</div>
+			</div>
+		</div>
+	</div>
+</div>

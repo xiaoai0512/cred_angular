@@ -1,0 +1,53 @@
+<div class="mainname"> 按钮修改（包含按钮样式，触发事件，按钮权限）</div>
+
+<blockquote class="layui-elem-quote">1、按钮样式修改</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    1.1 列表上面的按钮样式
+	    旧版：按钮的class可能有多种颜色
+	    新版：按钮样式统一为灰色class都改为"layui-btn layui-btn-primary"
+	    如：&lt;button class="layui-btn layui-btn-primary"&gt;&lt;i class="layui-icon"&gt;&#x e642(去掉中间空格);&lt;/i&gt;按钮1&lt;/button&gt;
+	    
+    1.2大页面中的按钮
+	    旧版：旧版的class可能指定按钮为圆角或其他颜色的样式。如：class="layui-btn layui-btn-radius"
+	    新版：统一改为class="layui-btn"
+	    如:&lt;button class="layui-btn" ng-click="turn('/helpDemo')"&gt; &lt;i class="layui-icon"&gt;&#x 1006(去掉中间空格);&lt;/i&gt; 返回&lt;/button&gt;
+	    
+</pre>
+<blockquote class="layui-elem-quote">2、按钮触发事件</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    2.1点击弹出按钮
+	旧版:ng-click="updateDiaDemo($event)",此外还需在按钮的上面加一个隐藏的弹框页面指定div.
+	如：&lt;div id="ddctDia" url="/sysmanage/ddct/addDdct.html"style="display: none;" 
+	   title="" size="700px,400px"callback="addDdctSub"&gt;&lt;/div&gt;
+	新版：ng-click="updateDiaDemo()";剩下的直接在js的按钮触发事件中处理。无需加隐藏的弹窗div
+	如：$scope.updateDiaDemo=function(){
+			<span style="color:red">//列表中的弹框$scope.demoList(jf-grid的名称).modal(url,option)</span>
+			$scope.demoList.modal('/help/help-demo-input.html',
+			{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [$scope.modalCallback]});
+			
+			<span style="color:red">//适用所有弹框$scope.modal(url,datas,option) ;//参数一为url参数，参数二为数组代表你要传输的数据，第三个参数为模态窗口的配置</span>
+			$scope.modal('/help/help-demo-input.html',{},
+			{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [$scope.modalCallback]});
+		};
+		//result是弹框默认返回的参数
+		$scope.modalCallback=function(result){
+			//关闭弹出框
+			result.cancel();
+		<span style="color:red">注意：1、使用$scope.demoList.modal弹框的获取弹框表单数据方法为result.scope.Demo,使用$scope.modal弹框的获取弹框表单数据方法为$scope.Demo
+		   2、 弹框校验的不需要$validation.validate校验必填项，组件默认会校验</span>
+		};
+		
+		
+	2.2点击跳转到大页面
+	旧版：ng-click="$goto($event, '/inputDemo')";
+	新版：ng-click="demoList.turn('/inputDemo')";//(demoList为上面jf-grid="demoList"定义的名称)
+	<span style="color:red">注意：大页面跳转只能查看，是在路径后面加上参数pageView=view 如：demoList.turn('/inputDemo?pageView=view')"</span>
+</pre>
+<blockquote class="layui-elem-quote">3、按钮权限配置</blockquote>
+<pre class="layui-code" lay-title="Code" >
+    旧版:在ng-click指定按钮事件 如：ng-click="sysUser.update" （sysUser.update路径在button-config中指定）
+    新版：ng-click指定按钮要执行的事件 在加上jf-permission="sysUser.update"控制按钮显隐
+     <span style="color:red">注意：sysUser.update是在菜单管理->用户管理->修改按钮里面的资源URL中指定</span>
+    如： &lt;button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()" jf-permission="sysUser.update"&gt;
+    
+</pre>

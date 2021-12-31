@@ -1,0 +1,91 @@
+<div ng-controller="partnerInformationCtrl" class="layui-form">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH700001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="partnerInforList.params.corporationEntityNo" 
+					 name="corporationEntityNo" type="text" maxlength="10" id="corporationEntityNoId">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH700002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="partnerInforList.params.corporationEntityName" 
+					 name="corporationEntityName" type="text" maxlength="10" id="corporationEntityNameId">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH700003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="partnerInforList.params.partnerCategory" class="layui-input" 
+				 	jf-select="partnerCategoryArray" name="getTransOrigin" lay-search="" lay-filter="getTransOrigin"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH700031' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="partnerInforList.params.status"
+					jf-select="statusArray" name="status">
+				</select>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="partnerInforList.search()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<button class="layui-btn" ng-click="addCooperationInfo()" ng-show="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="resetChose()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div jf-grid="partnerInforList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'FQH700001' | translate}}</th>
+						<th>{{'FQH700002' | translate}}</th>
+						<th>{{'FQH700003' | translate}}</th>
+						<th>{{'FQH700005' | translate}}</th>
+						<th>{{'FQH700006' | translate}}</th>
+						<th>{{'FQH700004' | translate}}</th>
+						<th width="20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.corporationEntityNo"></td>
+						<td align="center" ng-bind="item.corporationEntityName"></td>
+						<td align="center">
+							<span>{{item.partnerCategoryDesc}}</span>
+							<!-- <span ng-if="item.partnerCategory=='0'">{{'FQH700023' | translate}}</span>
+							<span ng-if="item.partnerCategory=='1'">{{'FQH700022' | translate}}</span>-->
+						</td>
+						<td align="center" ng-bind="item.fundTelName"></td>
+						<td align="center" ng-bind="item.fundTelMobile"></td>
+						<td align="center" >
+							<span>{{item.statusDesc}}</span>
+						  	<!-- <span ng-if="item.status=='0'">{{'FQH700024' | translate}}</span>
+							<span ng-if="item.status=='1'">{{'FQH700008' | translate}}</span> -->
+						</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-show="selBtnFlag"
+								ng-click="partnersDetails(item)">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-show="updBtnFlag"
+								ng-click="updatePartnerInfo(item)" >
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

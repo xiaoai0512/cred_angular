@@ -1,0 +1,81 @@
+<div ng-controller="lblObjListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：标签对象清单
+	</div>
+	<div class="search_mian layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">运营模式 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="lblObjList.params.operationMode" maxlength="3">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">标签号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="lblObjList.params.priceTag" maxlength="9">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">定价对象：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="lblObjList.params.priceObj "  maxlength="8">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">定价区域：</div>
+			<div class="wd190 float_left">
+				<select jf-select="builder.option(priceAreaArray)"
+					ng-model="lblObjList.params.priceArea"></select>
+			</div>
+		</div>
+
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="lblObjList.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="lblObjList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div jf-grid="lblObjList">
+		<table>
+			<thead>
+				<tr>
+					<th>运营模式</th>
+					<th>标签号</th>
+					<th>定价对象</th>
+					<th>定价区域</th>
+					<th>优先级</th>
+					<th>定价方式</th>
+					<th>描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.priceTag"></td>
+					<td align="center" ng-bind="item.priceObj"></td>
+					<td align="center"><span ng-if="item.priceArea == 'D'">D-差异化</span>
+						<span ng-if="item.priceArea == 'P'">P-个性化</span> <span
+						ng-if="item.priceArea == 'A'">A-活动</span></td>
+					<td align="center" ng-bind="item.performOrder"></td>
+					<td align="center"><span ng-if="item.priceModel == 'I'">I-继承</span>
+						<span ng-if="item.priceModel == 'O'">O-覆盖</span></td>
+					<td align="center" ng-bind="item.creditDesc"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini" ng-click="checkLblObjDtlInf(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

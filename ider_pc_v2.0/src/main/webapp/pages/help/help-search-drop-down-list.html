@@ -1,0 +1,95 @@
+<div class="mainname">下拉框弹出查询列表使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">下拉弹出框进行查询，包含多选和单选。</br>								
+</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     <div class="col_td">
+          <div class="col4 text_right">多选下拉弹出查询选择器：</div>
+          <div class="wd190 float_left">
+                &lt;input class="layui-input" type="text"  ng-model="checkboxSearchVals" selector="checkboxSearchSelector">
+          </div>
+    </div>
+     <div class="col_td">
+          <div class="col4 text_right">单选下拉弹出选择器：</div>
+          <div class="wd190 float_left">
+                &lt;input class="layui-input" type="text"  ng-model="radioSearchVal" selector="radioSearchSelector">
+          </div>
+    </div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code"  >
+    $scope.checkboxSearchVals="买方付款,应收账款调整（放款前）审批";
+         //多选下拉弹出查询选择器
+         $scope.checkboxSearchSelector = {
+               header : ['流程名称'],//表格的头部
+               body : ['processDefineName'] ,//显示在列表中的字段名称
+               alias : 'test' ,//查询条件的别名
+               params : {a:1},//查询时需要附带的参数
+               checkType : 'checkbox' ,//默认radio，此属性可缺省
+               //resource也可以用如下方式
+		       //api : 'tableDemo',
+		       //method : 'query' ,
+               resource : 'tableDemo.query' ,
+               //如果未checkbox时，必须实现此方法，否则默认以ID进行判断，判断查询出来的数据是否在已选择的列表中
+               equals :function(checked,item){
+                    return checked.taskId == item.taskId
+               },
+               <span style="color:red">//设置下拉框样式，不指定默认width为400px
+               style:"width:300px",
+               //初始化选中匹配字段,可缺省
+               selectId :function(item){
+                    return item.taskId;
+               },
+               //初始化选中匹配值,可缺省
+               initSelected:"1253410,1253092",
+                //设置分页数据不添加默认7条
+               pageConf:{
+                   pageSize:5,
+                   pageNum:1
+                },</span>
+               //选择后的回调   
+               callback : function(data) {
+                    //当checktype是checkbox时，data为数组
+                    //不是checkbox为对象
+                    $scope.checkboxSearchVals = '' ;
+                    angular.forEach(data,function(item){
+                         $scope.checkboxSearchVals += (item.processDefineName + ',');
+                    });
+                    $scope.checkboxSearchVals = $scope.checkboxSearchVals.substring(0, $scope.checkboxSearchVals.length-1)
+               }
+      };
+     //单选下拉弹出选择器
+     $scope.radioSearchSelector = {
+          header:['用户名称'],
+          body:['preUserName'],
+          alias:'test',
+          params:{a:1},
+ <span style="color:red"> //设置分页数据不添加默认7条
+           pageConf:{
+              pageSize:5,
+              pageNum:1
+           },</span>
+          search:false,
+          resource:'tableDemo.query',
+          callback:function(data){
+                $scope.radioSearchVal=data.preUserName;
+          }
+         <span style="color:red">radioSearchSelector.query();//触发选择器查询</span>
+     };
+</pre>
+<div class="mainname">示例 <span style="color:red;">（由于是前端造的数据，多选下拉框弹出查询的时候没效果。实际中，是去后台请求数据）</span></div>
+<!--<blockquote class="layui-elem-quote layui-quote-nm">由于是前端造的数据，多选下拉框弹出查询的时候没效果。实际中，是去后台请求数据。</blockquote>-->
+<div style="height:200px" ng-controller="selectListDemoCtrl" calss="allcontent">
+     <div class="col_td">
+          <div class="col4 text_right">多选下拉弹出查询选择器：</div>
+          <div class="wd190 float_left">
+                <input class="layui-input" type="text"  ng-model="checkboxSearchVals" selector="checkboxSearchSelector">
+          </div>
+     </div>
+     <div class="col_td">
+          <div class="col4 text_right">单选下拉弹出选择器：</div>
+          <div class="wd190 float_left">
+                <input class="layui-input" type="text"  ng-model="radioSearchVal" selector="radioSearchSelector">
+          </div>
+     </div>
+</div>

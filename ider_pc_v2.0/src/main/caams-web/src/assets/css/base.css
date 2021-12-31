@@ -1,0 +1,58 @@
+.search_box .ant-input-affix-wrapper .ant-input{
+    width: 230px !important;
+}
+.search_box  .ant-select{
+    width: 230px !important;
+}
+
+.el-form-item__label{
+  width: 100px !important;
+}
+body .el-table th.gutter{
+  display: table-cell!important;
+}
+
+body .el-table colgroup.gutter{
+  display: table-cell!important;
+}
+body{
+  padding-right:0 !important;
+}
+.searchInp{
+  width: 180px !important;
+}
+.searchTxt{
+  margin-right: 10px;
+}
+.module_par{
+  margin: -24px -24px 0px;
+}
+.module_con{
+  margin: 24px 24px 0;
+}
+.module_top{
+  background: #fff;
+    padding: 20px 32px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+.module_top_con{
+  margin-bottom: 16px;
+}
+.table-content .el-pagination{
+  text-align: center;
+    margin-top: 40px;
+}
+.dia .el-transfer-panel__body{
+  height: 300px !important;
+}
+.dia .el-transfer-panel{
+  width: 36% !important;
+}
+.dia .el-transfer{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dia .el-transfer-panel__list.is-filterable{
+  height: 252px !important;
+}

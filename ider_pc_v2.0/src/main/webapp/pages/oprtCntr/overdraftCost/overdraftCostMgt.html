@@ -1,0 +1,88 @@
+<div ng-controller="overdraftCostMgtCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：交易费用管理
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">运营模式 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="3"
+					ng-model="overdraftCostTable.params.operationMode">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">交易费用代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="9"
+					ng-model="overdraftCostTable.params.overdraftCostCode">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">产品对象代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="9"
+					ng-model="overdraftCostTable.params.productObjectCode">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">描述：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="50"
+					ng-model="overdraftCostTable.params.transDesc">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="overdraftCostTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="overdraftCostTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+		<!-- <div class="clearboth"></div>
+		<div class="mainname">客户媒介信息</div> -->
+		<div jf-grid="overdraftCostTable">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>交易费用代码</th>
+						<th>产品对象代码</th>
+						<th>业务类型代码</th>
+						<th>币种</th>
+						<th width=25%;>描述</th>
+						<th width=17%; >操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.overdraftCostCode"></td>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.businessTypeCode"></td>
+						<!-- <td align="center" ng-bind="item.currency">
+						
+						</td> -->
+						<td align="center">
+							<span  ng-if="item.currency == 'CNY'">人民币</span>
+							<span  ng-if="item.currency == 'USD'">美元</span>
+							<span  ng-if="item.currency == '978'">欧元</span>
+							<span  ng-if="item.currency == ''"></span>
+						</td>
+						<td width=25%; align="center" ng-bind="item.transDesc"></td>
+						<td width=17%;  align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="lookOverdraftCost(item)">
+								<i class="layui-icon"></i> 查询
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateOverdraftCost(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

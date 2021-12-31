@@ -1,0 +1,20 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "1",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "feeTpyeDesc": "一次性收取",
+            "feeTpyeCode": "0"
+        },
+        {
+            "feeTpyeDesc": "分期收取",
+            "feeTpyeCode": "1"
+        }
+        ]
+    }
+}

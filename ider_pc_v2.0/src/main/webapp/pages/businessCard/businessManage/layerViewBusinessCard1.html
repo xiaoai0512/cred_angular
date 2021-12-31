@@ -1,0 +1,56 @@
+<div class="layui-form" ng-controller="layerViewBusinessCard1Ctr">
+	
+	<div class="mainname">1.客户基本信息</div>
+	<div class="col_td">
+		<div class="col4 text_right">客户代码：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+					ng-model="customerInfo.mainCustomerCode" disabled="disabled">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">客户名称：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text"
+					ng-model="customerInfo.customerName" disabled="disabled">
+		</div>
+	</div>	
+	<div class="col_td">
+		<div class="col4 text_right">证件号码：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input" type="text" 
+				ng-model="customerInfo.idNumber" disabled="disabled">
+		</div>
+	</div>	
+	<div class="clearboth"></div>
+	
+	<div class="mainname">2.客户媒介信息</div>
+	<div jf-grid="cstMdmInfTable">
+		<table>
+			<thead>
+				<tr>
+					<th>外部识别号</th>
+					<th>媒介对象代码</th>
+					<th>媒介单元代码</th>
+					<th>媒介对象描述</th>
+					<th>有效期</th>
+					<th>主附标识</th>
+					<th>是否有效标识</th>
+				    <th>无效原因</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.externalIdentificationNo" style="width:30%"></td>
+					<td align="center" ng-bind="item.mediaObjectCode"></td>
+					<td align="center" ng-bind="item.mediaUnitCode"></td>
+					<td align="center" ng-bind="item.mediaObjectDesc"></td>
+					<td align="center" ng-bind="item.expirationDate"></td>
+					<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+					<td align="center" ng-bind="item.invalidFlagDesc"></td>
+					<td align="center" ng-bind="item.invalidReasonDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

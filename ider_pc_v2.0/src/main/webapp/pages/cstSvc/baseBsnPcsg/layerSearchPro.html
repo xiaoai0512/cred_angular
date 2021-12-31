@@ -1,0 +1,41 @@
+<div ng-controller="layerSearchProCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div action="" class="layui-form">
+				<div class="mainname">{{'KHH5800024' | translate}}</div>
+					<div jf-grid="cstMediaTable">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'F00111' | translate}}</th>
+									<th>{{'KHH5800009' | translate}}</th>
+									<th>{{'KHH5800004' | translate}}</th>
+									<th>{{'KHH5800005' | translate}}</th>
+									<th>{{'KHH5800025' | translate}}</th>
+									<th>{{'KHH5800026' | translate}}</th>
+									<th>{{'KHH5800027' | translate}}</th>
+									<th>{{'KHH5800028' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.externalIdentificationNo"></td>
+									<td align="center" ng-bind="item.mediaUserName"></td>
+									<td align="center" >
+										<span ng-bind="item.mediaObjectCode"></span><span ng-bind="item.mediaObjectDesc"></span>
+									</td>
+									<td align="center">
+										<span ng-bind="item.productObjectCode"></span><span ng-bind="item.productDesc"></span>
+									</td>
+									<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+									<td align="center" ng-bind="item.invalidFlagDesc"></td>
+									<td align="center" ng-bind="item.invalidReasonDesc"></td>
+									<td align="center" ng-bind="item.transferCardDesc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

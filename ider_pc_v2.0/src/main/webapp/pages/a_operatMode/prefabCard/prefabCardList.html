@@ -1,0 +1,103 @@
+<div  class="layui-form" ng-controller="prefabCardListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 预制卡查询 -->
+		<form name="queryForm">
+		<div class="col_td">
+			<label class="col4 text_right">{{'PZH170001' | translate}}：</label>
+			<div class="wd190 float_left">
+			<input class="layui-input" ng-model="prefabCardTable.params.corporationEntityNo" 
+			 type="text"  maxlength="6" id="corporationEntityNoId">
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right">{{'PZH170002' | translate}}：</label>
+			<div class="wd190 float_left">
+				<select ng-model="prefabCardTable.params.productObjectCode" class="layui-input" lay-filter="getFormatCode"
+					jf-select="productObjectCodeArr" name="productObjectCode" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right">{{'PZH170003' | translate}}：</label>
+			<div class="wd190 float_left">
+				     <select ng-model="prefabCardTable.params.mediaObjectCode" class="layui-input"
+					jf-select="mediaObjectCodeArr" name="mediaObjectCode"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right">{{'PZH170004' | translate}}：</label>
+			<div class="wd190 float_left">
+				<select ng-model="prefabCardTable.params.formatCode" class="layui-input" id="formatCode1"
+					jf-select="formatCodeArr" name="formatCode"  disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right">{{'PZH170005' | translate}}：</label>
+			<div class="wd190 float_left">
+			<input class="layui-input icon_date" ng-model="prefabCardTable.params.applyDate" jf-date-input
+			 name="applyDate" type="text"  />
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="prefabCardTable.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			
+			<button class="layui-btn" ng-click="addPrefabCardTable(corporationEntityNo)" ng-show="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		</form>
+		<!-- 预制卡列表 -->
+		<div jf-grid="prefabCardTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH1000001' | translate}}</th>
+						<th width="20%">{{'PZH170002' | translate}}</th>
+						<th width="14%">{{'PZH170003' | translate}}</th>
+						<th width="13%">{{'PZH170004' | translate}}</th>
+						<th>{{'PZH170006' | translate}}</th>
+						<th>{{'PZH170007' | translate}}</th>
+						<th>{{'PZH170005' | translate}}</th>
+						<th>{{'PZH170008' | translate}}</th>
+						<th width="12%">{{'F00017' | translate}}</th> 
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.corporationEntityNo"></td>
+						<td align="center">
+						 	<div class="tdDivL">{{item.productObjectCode}} </div>
+							 <div class="tdDivR">{{item.productObjectCodeDesc}}</div>
+						</td>
+						<td align="center">
+							<div class="tdDivL" style="width:55%;">{{item.mediaObjectCode}} </div>
+							 <div class="tdDivR" style="width:40%;">{{item.mediaObjectCodeDesc}}</div>
+						</td>
+						<td align="center">
+						       <div class="tdDivL">{{item.formatCode}} </div>
+							   <div class="tdDivR">{{item.formatCodeDesc}}</div>
+						</td>
+						<td align="center" ng-bind="item.applyNumber"></td>
+						<td align="center" ng-bind="item.applyFlagDesc"></td>
+						<td align="center" ng-bind="item.applyDate"></td>
+						<td align="center" ng-bind="item.applyTime"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewPrefabCard(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updatePrefabCard(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

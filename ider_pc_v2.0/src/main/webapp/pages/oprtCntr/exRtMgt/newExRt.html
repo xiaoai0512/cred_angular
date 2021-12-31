@@ -1,0 +1,67 @@
+<div ng-controller="newExRtCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：新增汇率
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form"  name="exrtForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>运营模式 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.operationMode" validator="required,maxlength"   maxlength="3"
+						name="operationMode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="rateIssueDate" 
+						jf-date-input="{'format': 'yyyy-MM-dd'}"
+						ng-model="csInf.rateIssueDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">报价货币 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.referCurrency"  maxlength="3"
+						name="referCurrency" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">基准货币 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.baseCurrency"  maxlength="3"
+						name="baseCurrency" type="text">
+					<!-- <select ng-model="csInf.baseCurrency" class="layui-input" jf-select="builder.option(certificateTypeArray)" name="baseCurrency">
+                    </select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">买入价 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.buyingPrice"  maxlength="14"
+						name="buyingPrice" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">卖出价 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.sellingPrice"    maxlength="14"
+						name="sellingPrice" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">汇兑费 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.markUp" name="markUp"    maxlength="12"
+						type="text">
+				</div>
+			</div>
+		</form>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius" ng-click="newExRtInfo()" validation-submit="exrtForm"
+				type="button">
+				<i class="layui-icon">&#xe624;</i> 确定
+			</button>
+		</div>
+	</div>
+</div>

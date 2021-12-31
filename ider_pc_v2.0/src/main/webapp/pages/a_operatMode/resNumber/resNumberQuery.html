@@ -1,0 +1,57 @@
+<div ng-controller="resNumberMaintCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'PZH1500001' | translate}}：</div>
+		<div class="wd190 float_left">
+		<input class="layui-input" ng-model="resNumTable.params.corporationEntityNo" 
+		 type="text"  maxlength="6" id="corporationEntityNoId">
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'PZH1500002' | translate}}：</div>
+		<div class="wd190 float_left">
+		<input class="layui-input" ng-model="resNumTable.params.binNo"
+		 name="bin" type="text"  maxlength="6">
+		</div>
+	</div>
+	<div class="col_tr text_center">
+		<button class="layui-btn" ng-click="resNumTable.search()" ng-show="selBtnFlag">
+			<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+		</button>
+
+		<button class="layui-btn cancel-btn" type="button"
+			ng-click="resetChose()">
+			<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+		</button>
+	</div>
+	<div jf-grid="resNumTable">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'YYH5300001' | translate}}</th>
+					<th>{{'YYH5300002' | translate}}</th>
+					<th>{{'YYH5300003' | translate}}</th>
+					<th>{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.corporationEntityNo"></td>
+					<td align="center" ng-bind="item.binNo"></td>
+					<td align="center" ng-bind="item.reserveNumRule"></td>
+					<td align="center" >
+					
+						<button class="layui-btn layui-btn-mini" ng-click="updateResNum(item)" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+						</button>
+						<button class="layui-btn layui-btn-mini" ng-click="deleteResNum(item)" ng-show="delBtnFlag">
+							<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

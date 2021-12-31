@@ -1,0 +1,240 @@
+<div class="layout_body" ng-controller="cashStageCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="search_mian">
+		<form name="searchForm">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH200023' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.loanAmt"  validator="required,decimals" name="loanAmt" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300001' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.monthSupplyPeriod"  maxlength="17" validator="required" name="monthSupplyPeriod" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH200009' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="trailInf.repayMode"  validator="required" 
+					class="layui-input" jf-select="repayModeArr" name="repayMode" lay-filter="getrepayMode">
+				</select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="trailInf.repayMode==14 || trailInf.repayMode==15">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300017' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.balloonPeriod"  maxlength="10" name="balloonPeriod" type="text">
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show="trailInf.repayMode==15">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300017' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.balloonPeriod"  maxlength="10" validator="required" name="balloonPeriod" type="text">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300002' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.repayPrincipal"  maxlength="17" validator="required" name="repayPrincipal" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300003' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="trailInf.repayPrincipalUnit" class="layui-input"
+								jf-select="repayPrincipalUnitArray" name="repayPrincipalUnitN" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="isrepayMode">
+			<div class="col4 text_right">{{'FQH300004' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" name="prcpRepayPrincipalN" type="text" ng-model="trailInf.prcpRepayPrincipal">
+			</div>
+		</div>
+		<div class="col_td" ng-show="isrepayMode">
+			<div class="col4 text_right">{{'FQH300005' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<select ng-model="trailInf.prcpRepayPrincipalUnit" class="layui-input"
+								jf-select="repayPrincipalUnitArray" name="prcpRepayPrincipalUnitN"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH200015' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="repaymentDateTypeArr" name="repaymentDateType" validator="required" 
+					ng-model="trailInf.repaymentDateType" lay-filter="getrepaymentDateType"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="repayDayShow">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300006' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.repayDay"   validator="number" name="repayDay" type="text">
+			</div>
+		</div>
+		<div class="col_td" ng-show="firstRepayDayModeShow">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300007' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<select jf-select="firstRepayDayModeArr" name="firstRepayDayModeN"  ng-model="trailInf.firstRepayDayMode" lay-filter="getoperation"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="IntervalDaysShow">
+			<div class="col4 text_right">{{'FQH300008' | translate}} ：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.IntervalDays" name="IntervalDaysN" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH200010' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="RateIndArr" name="RateIndN" validator="required" ng-model="trailInf.RateInd"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300018' | translate}}：</div>
+			<div class="wd330 float_left">
+			<input class="layui-input" ng-model="trailInf.loanRate"   validator="required" name="loanRateN" type="text" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300009' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="interestModeArr" name="interestModeN" validator="required" ng-model="trailInf.interestMode" lay-filter="getinterestMode"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300010' | translate}}：</div>
+			<div class="wd330 float_left">
+			<select jf-select="loanRateModeArr" name="loanRateModeN" validator="required" ng-model="trailInf.loanRateMode"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="interestModeShow">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300011' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="firstInterestModeArr" name="firstInterestModeN" ng-model="trailInf.firstInterestMode"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-show="interestModeShow">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300012' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="endInterestModeArr" name="endInterestModeN" ng-model="trailInf.endInterestMode"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300013' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="calLoanEndDateTypeArr" name="calLoanEndDateTypeN" validator="required" ng-model="trailInf.calLoanEndDateType"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH4600044' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="trailInf.freeDays"   validator="required" name="freeDays" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'FQH300014' | translate}}:</div>
+			<div class="wd330 float_left">
+				<input class="layui-input  icon_date" ng-model="trailInf.payLoanDate" validator="required"  jf-date-input name="payLoanDate" type="text">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" validation-submit="searchForm"  ng-click="stageTrialHandle()" type="button">
+					<!-- <i class="layui-icon">&#xe615;</i>  -->
+					<!-- <i class="layui-icon"></i> -->
+					{{'KHH4600070' | translate}}
+				</button>
+				
+			<!-- 	<button class="layui-btn" validation-submit="searchForm"  ng-click="sureStage()" type="button">
+					<i class="layui-icon">&#xe615;</i> 
+					<i class="layui-icon"></i>
+					现金分期
+				</button> -->
+			</div>
+		</div>
+		</form>
+	</div>
+	
+		<div ng-show = "isShow" class = "">	
+			<div class="clearboth"></div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH100011' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name=" loanAmt" ng-model="stageInf.loanAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600017' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="loanRate" ng-model="stageInf.loanRate" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600018' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="feeRate" ng-model="stageInf.feeRate" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600020' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="term" ng-model="stageInf.term" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4600019' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="allFeeAmt" ng-model="stageInf.allFeeAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'FQH300015' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="allIntAmt" ng-model="stageInf.allIntAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH4600074' | translate}}</div>
+			<div class="clearboth"></div>
+			<div jf-grid="cashTrailList">
+				<table>
+						<thead>
+							<tr>
+								<th>{{'KHH4600025' | translate}}</th>
+								<th>{{'KHH4600026' | translate}}</th>
+								<th>{{'KHH4600027' | translate}}</th>
+								<th>{{'KHH4600028' | translate}}</th>
+								<th>{{'KHH4600029' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.termNo"></td>
+								<td align="center" ng-bind="item.throwDate"></td>
+								<td align="center" ng-bind="item.principalAmount | number:2"></td>
+								<td align="center" ng-bind="item.interestAmount | number:2"></td>
+								<td align="center" ng-bind="item.feeAmount | number:2"></td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="back()" type="button">
+						<!-- <i class="layui-icon"></i> -->
+						{{'FQH300016' | translate}}
+					</button>
+				</div>
+			</div>
+			
+		</div>
+</div>
+</div>

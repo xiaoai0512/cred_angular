@@ -1,0 +1,125 @@
+<div ng-controller="deteleBlockCodeCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="queryInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="blockTable.params.idType" lay-filter="getIdType" jf-select="certificateTypeArray" name="idType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" id='deleteBlockCode_idNumber' name="idNumber" validator="noValidator"
+					 ng-model="blockTable.params.idNumber" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="blockTable.params.externalIdentificationNo"
+					 maxlength="19">
+				</div>
+			</div>
+			<!-- 		<div class="col_td">
+			<div class="col4 text_right">{{'KHH600003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="builder.option(demoArray2)"
+					ng-model="blockTable.params.contrlLevel"></select>
+			</div>
+		</div> -->
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="blockTable.params.customerNo"
+						name="customerNo" type="text">
+				</div>
+			</div> -->
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="queryBlockInf()" validation-submit="queryInfForm">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- <div ng-show="showExNoDiv">
+			<div>
+				<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>外部识别号</th>
+							<th>选择</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in itemArr track by $index">
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.externalIdentificationNo"></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini"
+								ng-click="choose(item)">
+								<i class="layui-icon"></i> 选择
+							</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div> -->
+		<div class="clearboth"></div>
+		<div ng-show="showBlockDiv">
+			<div class="mainname">{{'KHH600004' | translate}}</div>
+			<div jf-grid="blockTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="padding-left:0px;padding-right:3px;width:20%">{{'KHH600015' | translate}}</th>
+							<th style="padding-left:0px;padding-right:0px;width:18%">{{'KHH600016' | translate}}</th>
+							<th>{{'KHH600017' | translate}}</th>
+							<th>{{'KHH600018' | translate}}</th>
+							<th>{{'KHH600019' | translate}}</th>
+							<th>{{'KHH600020' | translate}}</th>
+							<th>{{'KHH600021' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" style="padding-left:0px;padding-right:3px">
+								<div class="tdDivL">{{item.eventNo.substring(7)}}</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.eventDesc}}</div>
+							</td>
+							<td align="right" style="padding-left:0px;padding-right:0px">
+								<div class="tdDivL">{{item.effectivenessCodeType}}{{item.effectivenessCodeScene}}</div>
+								<div class="tdDivR">&nbsp;&nbsp;{{item.effectivenessCodeDesc}}</div>
+							</td>
+							<td align="center" ng-bind="item.sceneTriggerObjectLevelDesc"></td>
+							<td align="center" ng-bind="item.sceneTriggerObjectCode"></td>
+							<td align="center" ng-bind="item.settingDate"></td>
+							<td align="center" ng-bind="item.settingTime"></td>
+							<td align="center" ng-bind="item.settingUpUserid"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="deletee(item)">
+									<i class="layui-icon">&#xe640;</i> {{'KHH600023' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- <div class="col_tr text_center">
+				<button class="layui-btn" ng-click="deletee()">
+					<i class="layui-icon">&#xe640;</i> 确定解除
+				</button>
+			</div> -->
+		</div>
+	</div>
+</div>

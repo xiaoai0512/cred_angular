@@ -1,0 +1,94 @@
+<div class="mainname">文本框组件使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">带格式文本框，金额类，银行卡类，日期控件，百分比数值。</br>
+    1.在input框中，jf-format-input对应的指令为jfFormatInput，该指令封装了两种类型的实现。当要实现金额文本时传类型值为money，要实现银行卡文本时传类型值为bankCard。</br>
+    2.日期控件主要实现的指令为jfDateInput，当要实现最小值和最大值的日期限制时，要往里面传条件。如实现最小值日期限制，jf-date-input="minDate"，在minDate对象上设置
+    属性min对应的日期值，如：$scope.minDate = {min : new Date()}; 要实现最大的日期值，则在对象上设置属性max对应的日期值，如：$scope.minDate = {max : new Date()};
+</blockquote>
+<div class="mainname">文本框组件源代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="col_td">
+        <label class="col4 text_right">金额文本：</label>
+        <div class="wd190 float_left">
+            &lt;input class="layui-input" jf-format-input="money" ng-model="demo.money" class="layui-input"/>
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">银行卡文本：</label>
+        <div class="wd190 float_left">
+            &lt;input class="layui-input" jf-format-input="bankCard" ng-model="demo.bankcard" class="layui-input">
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">日期选择：</label>
+        <div class="wd190 float_left">
+            &lt;input class="layui-input icon_date" name="dateChoose" id="dateChoose" type="text" jf-date-input ng-model="demo.date">
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">有最小值的日期选择：</label>
+        <div class="wd190 float_left" title="有最小值的日期选择控件">
+            &lt;input class="layui-input icon_date" name="minDateDemo" id="minDateDemo" type="text" jf-date-input="date" ng-model="demo.date1">
+        </div>
+    </div>
+        <div class="col_td">
+        <label class="col4 text_right">起始结束日期：</label> <input style="width: 97px;" ng-model="demo.startDt" class="layui-input icon_date seadate"
+			jf-date-input="{'max': 'demo.endDt', 'format': 'yyyy-MM-dd'}" type="text"> <label class="float_left">-</label> <input style="width: 97px;" ng-model="demo.endDt"
+			class="layui-input icon_date seadate"  jf-date-input="{'min': 'demo.startDt','format': 'yyyy-MM-dd'}"  type="text">
+		</div>
+     <div class="col_td">
+        <label class="col4 text_right">百分比数字：</label>
+        <div class="wd190 float_left">
+            &lt;input class="layui-input" jf-format-input="percentage" ng-model="percentageId" class="layui-input" maxlength="2"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+        </div>
+ 	</div> 
+</pre>
+
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    //日期设置
+    $scope.minDate = {
+        min : new Date(),//默认不限制，可缺省
+        format :  'yyyy-MM-dd',//默认格式化年月日，可缺省
+	    type : 'datetime' //默认只能选年月日，datetime为年月日时分秒,可缺省
+    };
+</pre>
+
+<div class="mainname">文本框组件例子</div>
+<div ng-controller="dictDemoCtrl"class="allcontent">
+    <div class="col_td">
+        <label class="col4 text_right">金额文本：</label>
+        <div class="wd190 float_left">
+            <input class="layui-input" jf-format-input="money" ng-model="demo.money" class="layui-input">
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">银行卡文本：</label>
+        <div class="wd190 float_left">
+            <input class="layui-input" jf-format-input="bankCard" ng-model="demo.bankcard" class="layui-input">
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">日期选择：</label>
+        <div class="wd190 float_left">
+            <input class="layui-input icon_date " name="dateChoose" id="dateChoose" type="text" jf-date-input ng-model="demo.date">
+        </div>
+    </div>
+    <div class="col_td">
+        <label class="col4 text_right">有最小值的日期选择：</label>
+        <div class="wd190 float_left" title="有最小值的日期选择控件">
+            <input class="layui-input icon_date " name="minDateDemo" id="minDateDemo" type="text" jf-date-input="minDate" ng-model="demo.date1">
+        </div>
+    </div>
+        <div class="col_td">
+        <label class="col4 text_right">起始结束日期：</label> <input style="width: 97px;" ng-model="demo.startDt" class="layui-input icon_date seadate"
+			jf-date-input="{'max': 'demo.endDt', 'format': 'yyyy-MM-dd'}" type="text"> <label class="float_left">-</label> <input style="width: 97px;" ng-model="demo.endDt"
+			class="layui-input icon_date seadate"  jf-date-input="{'min': 'demo.startDt','format': 'yyyy-MM-dd'}"  type="text">
+	</div>
+     <div class="col_td">
+        <label class="col4 text_right">百分比数字：</label>
+        <div class="wd190 float_left">
+            <input class="layui-input" jf-format-input="percentage" ng-model="percentageId" class="layui-input" maxlength="2"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+        </div>
+ 	</div> 
+</div>
+

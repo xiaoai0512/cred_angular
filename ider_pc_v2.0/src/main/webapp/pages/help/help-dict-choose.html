@@ -1,0 +1,138 @@
+<div class="mainname">数据字典选择框使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">数据字典单选、多选框使用，以及动态组装数据字典</blockquote>
+
+<div class="mainname">2.2.1 分组数据字典复选框</div>
+<blockquote class="layui-elem-quote">根据参数去后台请求数据字典，以复选框的方式进行展示。展示分两种：分组与未分组。</br>
+     1.builder.option('AbvQtPcsgModCd'),去字典表里获取数据，参数'AbvQtPcsgModCd'为获取字典表里某一标识对应的字典键值。详细去看控制台dict请求的返回json。</br>
+     2.builder.option('AbvQtPcsgModCd','1') 第二个参数对应数据字典中组数的第几组 。
+</blockquote>
+
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     <div class="col_td">
+          <label class="col4 text_right">数据字典：</label>
+          <div class="wd190 float_left" title="没有分组的数据字典多选框">
+                &lt;input jf-checkbox="builder.option('AbvQtPcsgModCd')" name="checkbox2" ng-model="demo.checkbox2"&gt;
+          </div>
+     </div>
+     <!-- builder.option('AbvQtPcsgModCd','1') 第二个参数对应数据字典中组数的第几组 -->
+     <div class="col_td">
+          <label class="col4 text_right">数据字典：</label>
+          <div class="wd190 float_left" title="带有分组的数据字典">
+                &lt;input jf-checkbox="builder.option('AbvQtPcsgModCd','1')" name="checkbox" ng-model="demo.checkbox"&gt;
+          </div>
+     </div>
+     <!--  复选框纵向排列：在文本框中加showtype="list"属性即可，不加就默认是横铺 。最好放在col_tr整行的样式里，放在col_td可能会导致其他样式不对齐-->
+        <div class="col_tr">
+            <div class="col4 text_right">
+                复选框纵向排列：
+            </div>
+            <div class="wd190 float_left">
+                <input  ng-model="demo.checkbox5" jf-checkbox="builder.option('demoArray2')" showtype="list"  name="checkbox5">
+            </div>
+    </div>
+</pre>
+
+<div class="mainname">示例</div>
+<div class="layui-layout-body allcontent">
+     <div class="col_td">
+          <label class="col4 text_right">未分组的数据字典：</label>
+          <div class="wd190 float_left" title="没有分组的数据字典多选框">
+                <input jf-checkbox="builder.option('AbvQtPcsgModCd')" name="checkbox2" ng-model="demo.checkbox2">
+          </div>
+     </div>
+     <div class="col_td">
+          <label class="col4 text_right">分组的数据字典：</label>
+          <div class="wd190 float_left" title="带有分组的数据字典">
+                <input jf-checkbox="builder.option('AbvQtPcsgModCd','1')" name="checkbox" ng-model="demo.checkbox">
+          </div>
+     </div>
+      <div class="col_tr">
+            <div class="col4 text_right">
+                <i class="red_input">*</i>复选框纵向排列：
+            </div>
+            <div class="wd190 float_left">
+                <input  ng-model="demo.checkbox5" jf-checkbox="builder.option('AbvQtPcsgModCd')" showtype="list"  name="checkbox5">
+            </div>
+    </div>
+</div>
+
+<div class="mainname">2.2.2 动态组装数据字典复选框</div>
+<blockquote class="layui-elem-quote">1.按照规范的字段名[id, name]，对数据源进行自定义 2.自定义数据字典的数据源包括字段名，看如下代码与示例</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     <!-- 动态组装数据字典 -->
+     <div class="col_td">
+            <label class="col4 text_right">动态组装数据字典：</label>
+            <div class="wd190 float_left">
+                &lt;input jf-checkbox="builder.option(demoArray)" name="checkbox3" ng-model="demo.checkbox3"&gt;
+            </div>
+      </div>
+     <!-- 不符合动态数据源规范的多选框：(当数据源的数据不是以id为值，name为显示时，需传入数据源的显示字段以及值对应的字段) -->
+     <div class="col_td">
+            <label class="col4 text_right">按自定义字段组装数据字典：</label>
+            <div class="wd190 float_left" >
+                &lt;input jf-checkbox="builder.option(demoArray2,'cstId','cstNm')" name="checkbox4" ng-model="demo.checkbox4"&gt;
+            </div>
+      </div>
+</pre>
+
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+     //动态组装，自定义数据字典数据源
+     $scope.demoArray = [{name : '字典1' ,id : '1'},{name : '字典2' ,id : '2'}] ;
+     //按自定义字段组装数据字典
+     $scope.demoArray2 = [{cstNm : '大客户',cstId : '1'},{cstNm : '小客户',cstId : '2'}] ;
+</pre>
+
+<div class="mainname">示例</div>
+<div class="layui-layout-body allcontent" ng-controller="dictDemoCtrl">
+     <div class="col_td">
+          <label class="col4 text_right">动态组装数据字典：</label>
+          <div class="wd190 float_left">
+                <input jf-checkbox="builder.option(demoArray)" name="checkbox3" ng-model="demo.checkbox3">
+          </div>
+     </div>
+     <div class="col_td">
+          <label class="col4 text_right">按自定义字段组装数据字典：</label>
+          <div class="wd190 float_left" >
+                <input jf-checkbox="builder.option(demoArray2,'cstId','cstNm')" name="checkbox4" ng-model="demo.checkbox4">
+          </div>
+     </div>
+</div>
+
+<div class="mainname">2.2.3 数据字典单选框</div>
+<blockquote class="layui-elem-quote">以下是数据字典单选框代码与示例</blockquote>
+
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+ <div class="layui-layout-body allcontent" ng-controller="dictDemoCtrl">
+     <div class="col_td">
+          <label class="col4 text_right">动态组装数据字典：</label>
+          <div class="wd190 float_left">
+                <input jf-radio="builder.option(demoArray)" name="radio3" ng-model="demo.radio3">
+          </div>
+     </div>
+     <div class="col_td">
+          <label class="col4 text_right">按自定义字段组装数据字典：</label>
+          <div class="wd190 float_left" >
+                <input jf-radio="builder.option(demoArray2,'cstId','cstNm')" name="radio4" ng-model="demo.radio4">
+          </div>
+     </div>
+</div>
+</pre>
+
+<div class="mainname">示例</div>
+<div class="layui-layout-body allcontent" ng-controller="dictDemoCtrl">
+     <div class="col_td">
+          <label class="col4 text_right">数据字典单选框：</label>
+          <div class="wd190 float_left">
+                <input jf-radio="builder.option('AbvQtPcsgModCd')" name="radio3" ng-model="demo.radio3">
+          </div>
+     </div>
+     <div class="col_td">
+          <label class="col4 text_right">按自定义字段组装数据字典：</label>
+          <div class="wd190 float_left" >
+                <input jf-radio="builder.option(demoArray2,'cstId','cstNm')" name="radio4" ng-model="demo.radio4">
+          </div>
+     </div>
+</div>

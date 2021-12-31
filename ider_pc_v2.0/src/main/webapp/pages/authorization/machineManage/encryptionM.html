@@ -1,0 +1,77 @@
+<div class="layout_body" ng-controller="encryptionMCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<!-- 密钥索引管理查询 -->
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00077' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="operationMode" class="layui-input"
+								jf-select="coArray" name="aatype" placeholder="运营模式"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<label class="col4 text_right">{{'SQH3000001' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="cardAssociations" class="layui-input"
+								jf-select="cardAssociationsArray" ></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<label class="col4 text_right">{{'SQH3000002' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="cipherType" class="layui-input"
+								jf-select="cipherTypeArray" ></select>
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="selectList()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="addEncryption()" ng-show="addBtnFlag">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+				</div>
+		<!-- <div class="allcontent promptInfo" ng-show="isprompt">请选择运营模式查询</div> -->
+		<!-- 密钥索引管理列表 -->
+		<div ng-show="isShow">
+			<div jf-grid="itemList" >
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00013' | translate}}</th>
+							<th>{{'SQH3000001' | translate}}</th>
+							<th>{{'SQH3000002' | translate}}</th>
+							<th>{{'SQH3000003' | translate}}</th>
+							<th>{{'F00091' | translate}}</th>
+							<th style="width:20%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center"  ng-bind="item.cardAssociations"></td>
+							<td align="center" ng-bind="item.cipherType"></td>
+							<td align="center" ng-bind="item.cipherId"></td>
+							<td align="center" ng-bind="item.keyDesc"></td>
+							<td style="width:20%" align="center">
+								<!-- <button class="layui-btn layui-btn-mini" ng-click="selectInfo(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> 详情
+								</button> -->
+								<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+{
+"KHH6300003":"Customer contact information",
+"KHH6300004":"Contact Person Type",
+"KHH6300005":"name",
+"KHH6300006":"Relationship with the cardholder",
+"KHH6300007":"cellphone",
+"KHH6300008":"Telephone country code",
+"KHH6300009":"Telephone city code",
+"KHH6300010":"telephone number",
+"KHH6300011":"Extension number",
+"KHH6300012":"Validity identification",
+"KHH6300013":"direct relative",
+"KHH6300014":"Other",
+"KHH6300015":"effectivity",
+"KHH6300016":"Invalid",
+"KHJ6300001":"Please enter the ID number or External PAN",
+"KHJ6300002":"Customer contact details",
+"KHJ6300003":"Add contact information",
+"KHJ6300004":"Modify contact information"
+}
+

@@ -1,0 +1,282 @@
+<div ng-controller="updateProtestFormVisaCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="uptransactionCode" class="layui-input" jf-select="typeArray"  name="transactionCode" maxlength="2"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH200001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.customerNo" name="customerNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.acquirerBusinessId" name="acquirerBusinessId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.gmtDate" name="gmtDate" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH200008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.transAmt" name="transAmt" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.transCurrCode" name="transCurrCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100007' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.merchantName" name="merchantName" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.city" name="city" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.countryCode" name="countryCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">MCC：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.mcc" name="mcc" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100010' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.merchantZip" name="merchantZip" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.stateCode" name="stateCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100014' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.settlementFlag" name="settlementFlag" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100015' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.nationalReimburseFee" name="nationalReimburseFee" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.settlementDate" name="settlementDate" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td" style="display:none">
+				<div class="col4 text_right">{{'ZYH100019' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.reimburseAttribute" name="reimbursettribute" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100023' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.clearCurrCode" name="clearCurrCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100024' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.clearAmount" name="clearAmount" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH100025' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.transIdentifier" name="transIdentifier" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH200035' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.oldGlobalSerialNumbr" name="oldGlobalSerialNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="upspecialChargebackIndicator" class="layui-input" jf-select="typeArray3"  name="specialChargebackIndicator" maxlength="1"></select>
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestVisaFormInf.documentationIndicator" name="documentationIndicator" type="text" maxlength="1">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestVisaFormInf.reasonCode" name="reasonCode" type="text" maxlength="2">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestVisaFormInf.chargebackReferenceNumber" name="chargebackReferenceNumber" type="text" maxlength="6">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestVisaFormInf.messageText" name="messageText" type="text" maxlength="50">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.requestedPaymentService" name="requestedPaymentService" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300007' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.authorizationCharacteristicsIndicator" name="authorizationCharacteristicsIndicator" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.internationalFeeIndicator" name="internationalFeeIndicator" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300009' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.feeProgramIndicator" name="feeProgramIndicator" type="text" disabled="disabled">
+				</div>
+			</div>			
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300010' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.mailPhoneElectronicCommerceAndPaymentIndicator" name="mailPhoneElectronicCommerceAndPaymentIndicator" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300011' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.prepaidCardIndicator" name="prepaidCardIndicator" type="text" disabled="disabled">
+				</div>
+			</div>						
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300012' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.authorizedAmount" name="authorizedAmount" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300013' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.authorizationCurrencyCode" name="authorizationCurrencyCode" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300014' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.authorizationResponseCode" name="authorizationResponseCode" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300015' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.multipleClearingSequenceNumber" name="multipleClearingSequenceNumber" type="text" disabled="disabled">
+				</div>
+			</div>			
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.multipleClearingSequenceCount" name="multipleClearingSequenceCount" type="text" disabled="disabled">
+				</div>
+			</div>	
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300017' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.dynamicCurrencyConversionIndicator" name="dynamicCurrencyConversionIndicator" type="text" disabled="disabled">
+				</div>
+			</div>
+		    <div class="col_td">
+				<div class="col4 text_right">{{'ZYH300018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.terminateIdentNo" name="terminateIdentNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td" style="display:none;">
+				<div class="col4 text_right">{{'ZYH300019' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.transCodeQualifer" name="transCodeQualifer" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300020' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.authApprovalCde" name="authApprovalCde" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300021' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.servicePointInputModeCode" name="servicePointInputModeCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300022' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.terminalReadabilityValue" name="terminalReadabilityValue" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300023' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestVisaFormInf.merchantCde" name="merchantCde" type="text" disabled="disabled">
+				</div>
+			</div>					
+			<div class="col_td">
+				<div class="col4 text_right">{{'ZYH300024' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="upprotestStatus" class="layui-input bnone" jf-select="typeArray1"  name="protestStatus"></select>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>

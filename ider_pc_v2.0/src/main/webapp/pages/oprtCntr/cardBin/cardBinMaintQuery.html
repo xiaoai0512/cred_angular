@@ -1,0 +1,89 @@
+<div ng-controller="cardBinMaintCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：卡BIN查询及维护
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div class="mainname">卡BIN查询及维护</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">卡BIN代码 ：</div>
+			<div class="wd190 float_left">
+			<form name="balanceForm">
+				<input class="layui-input" ng-model="cardBinTable.params.bin"
+					 name="bin" type="text"
+					validator="minlength,maxlength,number" minlength="6" maxlength="6">
+					</form>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="cardBinTable.search()" validation-submit="balanceForm">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="cardBinTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+
+		<div jf-grid="cardBinTable">
+			<table>
+				<thead>
+					<tr>
+						<th>发行卡BIN</th>
+						<th>卡组织</th>
+						<th>卡类型</th>
+						<th>入账币种1</th>
+						<th>入账币种2</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.bin"></td>
+						<td align="center">
+							<span  ng-if="item.organizeTyp == 'V'">VISA</span>
+							<span  ng-if="item.organizeTyp == 'M'">Mastercard</span>
+							<span  ng-if="item.organizeTyp == 'J'">JCB</span>
+							<span  ng-if="item.organizeTyp == 'A'">AMEX</span>
+							<span  ng-if="item.organizeTyp == 'C'">CUP</span>
+							<span  ng-if="item.organizeTyp == ''"></span>
+						</td>
+						<td align="center">
+							<span  ng-if="item.cardTyp == '1'">信用卡</span>
+							<span  ng-if="item.cardTyp == '2'">贷记卡</span>
+							<span  ng-if="item.cardTyp == '3'">准贷记卡</span>
+							<span  ng-if="item.cardTyp == '4'">借记卡</span>
+							<span  ng-if="item.cardTyp == ''"></span>
+						</td>
+						<td align="center">
+							<span  ng-if="item.resolutionCurr1 == 'CNY'">人民币</span>
+							<span  ng-if="item.resolutionCurr1 == 'USD'">美元</span>
+							<span  ng-if="item.resolutionCurr1 == '156'">人民币</span>
+							<span  ng-if="item.resolutionCurr1 == '840'">美元</span>
+							<span  ng-if="item.resolutionCurr1 == '978'">欧元</span>
+							<span  ng-if="item.resolutionCurr1 == ''"></span>
+						</td>
+						<td align="center">
+							<span  ng-if="item.resolutionCurr2 == 'CNY'">人民币</span>
+							<span  ng-if="item.resolutionCurr2 == 'USD'">美元</span>
+							<span  ng-if="item.resolutionCurr2 == '156'">人民币</span>
+							<span  ng-if="item.resolutionCurr2 == '840'">美元</span>
+							<span  ng-if="item.resolutionCurr2 == '978'">欧元</span>
+							<span  ng-if="item.resolutionCurr2 == ''"></span>
+						</td>
+						
+						<td align="center" ng-if="item.bin != '' && item.bin != null && item.organizeTyp != null && item.organizeTyp != ''">
+						
+							<button class="layui-btn layui-btn-mini" ng-click="updateCardBin(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+					</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="layui-form" ng-controller="updatePrefabCardCtrl">
+	<div  class="section">
+		<form name="prefabCardForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="prefabCardInf.corporationEntityNo" readonly
+						validator="required" name="corporationEntityNo" type="text" maxlength="10"  id="corporationEntityNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="prefabCardInf.upproductObjectCode" class="layui-input" lay-filter="getFormatCode"
+						jf-select="productObjectCodeArr" name="productObjectCode" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170003' | translate}}：</div>
+				<div class="wd190 float_left">
+					     <select ng-model="prefabCardInf.upmediaObjectCode" class="layui-input"
+						jf-select="mediaObjectCodeArr" name="mediaObjectCode" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="prefabCardInf.upformatCode" class="layui-input" id="formatCode"
+						jf-select="formatCodeArr" name="formatCode" 
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH170006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input  type="text" class="layui-input"  ng-model="prefabCardInf.applyNumber" name="applyNumber"  validator="number"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

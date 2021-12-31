@@ -1,0 +1,85 @@
+<div class="layout_body" ng-controller="fraudListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="queryInfForm" class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	
+					id='fraudList_idNumber'name="idNumber" validator="noValidator"
+					ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="selectList()" ng-show="selBtnFlag" validation-submit="queryInfForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<!-- <button class="layui-btn" ng-click="addFraud()" ng-show="addBtnFlag">
+						<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+					</button> -->
+				</div>
+			</div>
+		</form>	
+			<div ng-show="showQuotaTable" >
+				<div jf-grid="itemList">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'F00013' | translate}}</th>
+								<th style="width:11%">{{'SQH900012' | translate}}</th>
+								<th style="width:17%">{{'F00111' | translate}}</th>
+								<th>{{'SQH900014' | translate}}</th>
+								<th>{{'SQH900015' | translate}}</th>
+								<th>{{'SQH900016' | translate}}</th>
+								<th style="width:18%;">{{'SQH900017' | translate}}</th>
+								<th style="width:17%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width:11%" align="center" ng-bind="$index+1"></td>
+								<td align="center" ng-bind="item.customerNo"></td>
+								<td style="width:17%" align="center" ng-bind="item.externalIdentificationNo"></td>
+								<td align="center" ng-bind="item.frdCrtDate"></td>
+								<td align="center">
+									<span ng-if="item.inputSource == '1'">{{'SQH900008' | translate}}</span>
+							  		<span ng-if="item.inputSource == '2'">{{'SQH900009' | translate}}</span>
+							  		<span ng-if="item.inputSource != '1' && item.inputSource != '2'">{{item.inputSource}}</span>
+								</td>
+								<td align="center">
+									<span ng-if="item.authRespCode == 'D'">{{'SQH900010' | translate}}</span>
+							  		<span ng-if="item.authRespCode == 'P'">{{'SQH900011' | translate}}</span>
+							  		<span ng-if="item.authRespCode != 'D' && item.authRespCode != 'P'">{{item.authRespCode}}</span>	
+								</td>
+								<td align="center" style="width:18%;" ng-bind="item.fraudDesc"></td>
+								<td  style="width:17%" align="center">
+									<button class="layui-btn layui-btn-mini" ng-click="updateList(item)" ng-show="updBtnFlag">
+										<i class="layui-icon">&#xe642;</i> {{'F00057' | translate}}
+									</button>
+									<button class="layui-btn layui-btn-mini" ng-click="delList(item)" ng-show="updBtnFlag">
+										<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+</div>

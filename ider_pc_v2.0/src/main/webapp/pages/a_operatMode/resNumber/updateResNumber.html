@@ -1,0 +1,47 @@
+<div ng-controller="updateResNumCtrl">
+	<div class="section layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>卡BIN：</div>
+			<div class="wd190 float_left">
+				
+				<select ng-model="resSpecialNumInf.binNo" class="layui-input" 
+					jf-select=cardBinArr name="binNo"
+					validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>特殊号码段号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="resSpecialNumInf.segmentNumber" validator="required"  type="text" 
+				name="segmentNumber"  maxlength="10" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>卡量阈值：</div>
+			<div class="wd190 float_left">
+				  <input class="layui-input" ng-model="resSpecialNumInf.calorimeterValue" name="calorimeterValue" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>上一生成日期：</div>
+			<div class="wd190 float_left">
+				  <input class="layui-input" ng-model="resSpecialNumInf.prevDate" name="prevDate" type="text"  >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>下一生成日期：</div>
+			<div class="wd190 float_left">
+				  <input class="layui-input" ng-model="resSpecialNumInf.nextDate" name="nextDate" type="text" >
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>预生成卡量：</div>
+			<div class="wd190 float_left">
+				  <input class="layui-input" ng-model="resSpecialNumInf.createCalorimeter" name="createCalorimeter" type="text"  validator="required">
+			</div>
+		</div>
+			
+	</div>
+</div>

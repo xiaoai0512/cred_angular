@@ -1,0 +1,48 @@
+<div class="layout_body" ng-controller="excepListInfoCtrl">
+	<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+				<tr style="background-color: #DCDCDC;">
+					<th style="width:12%">{{'SQH2200001' | translate}}</th>
+					<th style="width:12%">{{'SQH2200003' | translate}}</th>
+					<th style="width:11%">{{'SQH2200006' | translate}}</th>
+					<th style="width:25%">{{'SQH2200007' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" style="width:12%" ng-bind="item.operationMode"></td>
+					<td style="width:12%" align="center" ng-bind="item.listCode"></td>
+					<td align="center" style="width:11%" ng-bind="item.listTypDesc"></td>
+				  	<td style="width:25%" align="center" ng-bind="item.listDesc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		<div class="mainname">{{'SQH2200013' | translate}}</div>
+		<div  jf-grid="itemInfoList" >
+			<table style="width:100%">
+				<thead>
+					<tr>
+						<th style="width:7%">{{'SQH2200004' | translate}}</th>
+						<th colspan="10" style="width:94%">{{'SQH2200014' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width:7%" align="center" ng-bind="$index+1"></td>
+						<td  align="center" ng-bind="item.listProject1"></td>
+						<td  align="center" ng-bind="item.listProject2"></td>
+						<td  align="center" ng-bind="item.listProject3"></td>
+						<td  align="center" ng-bind="item.listProject4"></td>
+						<td  align="center" ng-bind="item.listProject5"></td>
+						<td  align="center" ng-bind="item.listProject6"></td>
+						<td  align="center" ng-bind="item.listProject7"></td>
+						<td  align="center" ng-bind="item.listProject8"></td>
+						<td  align="center" ng-bind="item.listProject9"></td>
+						<td  align="center" ng-bind="item.listProject10"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>

@@ -1,0 +1,86 @@
+<div class="layui-form" ng-controller="accMainSceneListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 核算主场景查询 -->
+		<form class="search_mian">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accMainSceneList.params.operationMode" jf-select="operationModeArr" name="operationMode"
+					 maxlength="3">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="masterSceneSequence" ng-model="accMainSceneList.params.masterSceneSequence"
+					 maxlength="14">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="accMainSceneList.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="accMainSceneAdd()" ng-show="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- 核算主场景列表 -->
+		<div jf-grid="accMainSceneList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH400001' | translate}}</th>
+						<th style="width: 20%;">{{'YYH5400085' | translate}}</th>
+						<th style="width: 20%;">{{'YYH5400086' | translate}}</th>
+						<th>{{'YYH5400047' | translate}}</th>
+						<th style="    width: 25%;">{{'YYH5400013' | translate}}</th>
+						<th style="width:18%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="left">
+							<span ng-bind="item.masterSceneSequence"></span>&nbsp;&nbsp;
+							<span ng-bind="item.subTableSequence"></span>
+
+						</td>
+						<td align="left">
+							<span ng-bind="item.masterSceneDesc"></span>&nbsp;&nbsp;
+							<span ng-bind="item.subTableSequenceDesc"></span>
+						</td>
+
+						<td align="center"><!-- R红字，N蓝字，但是N不显示，暂时不改 ，如果改问下楼姐姐-->
+							<span ng-if="item.redAccountingFlag == 'R' ">{{'YYH5400048' | translate}}</span>
+							<span ng-if="item.redAccountingFlag == 'N' "></span>
+						</td>
+						<td align="center">
+							<span ng-if="item.accountingRuleCode1 != null ">{{item.accountingRuleCode1}}{{item.accountingRuleCode1Desc}}</span>
+							<span ng-if="item.accountingRuleCode2 != null ">/ {{item.accountingRuleCode2}}{{item.accountingRuleCode2Desc}}</span>
+							<span ng-if="item.accountingRuleCode3 != null ">/ {{item.accountingRuleCode3}}{{item.accountingRuleCode3Desc}}</span>
+							<span ng-if="item.accountingRuleCode4 != null ">/ {{item.accountingRuleCode4}}{{item.accountingRuleCode4Desc}}</span>
+							<span ng-if="item.accountingRuleCode5 != null ">/ {{item.accountingRuleCode5}}{{item.accountingRuleCode5Desc}}</span>
+						</td>
+
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkAccMainSceneInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateAccMainSceneInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="deleteAccMainSceneInf(item)" ng-show="delBtnFlag">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

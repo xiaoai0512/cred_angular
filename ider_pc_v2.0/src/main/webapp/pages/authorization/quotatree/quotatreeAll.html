@@ -1,0 +1,88 @@
+<div class="layout_body" ng-controller="quotatreeCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">	
+		<form class="layui-form" name="quotaTreeForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00077' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="itemList.params.operationMode" class="layui-input" lay-search=""
+					jf-select="coArray" name="operationModeN" placeholder="运营模式"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH2100061' | translate}}：</label><!-- 额度树编号 -->
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.creditTreeId">
+				</div>
+			</div>
+			<div class="col_td" ng-show="isTime">
+			<div class="col4 text_right">{{'F00189' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="queryStartDate" id="LAYQUOTA_startDate1"> 
+			</div>
+			</div>
+			<div class="col_td" ng-show="isTime">
+				<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="toDateNs" type="text" ng-model="queryEndDate" id="LAYQUOTA_endDate1"> 
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="selectQuoteTreeList()" ng-show="selBtnFlag">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}<!-- 查询 -->
+					</button>
+					<button class="layui-btn" ng-click="addQuotaTree()" ng-show="addBtnFlag">
+						<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}<!-- 新增 -->
+					</button>
+					<button class="layui-btn" ng-click="updateQuotaTree(item)" ng-show="updBtnFlag">
+						<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}<!-- 修改 -->
+					</button>
+				</div>
+			</div>
+		</form>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH2100062' | translate}}</th><!-- 序号 -->
+						<th>{{'F00077' | translate}}</th><!-- 运营模式 -->
+						<th>{{'SQH2100061' | translate}}</th><!-- 额度树编号-->
+						<th>{{'SQH2100063' | translate}}</th><!-- 额度树描述 -->
+						<th>{{'SQH2100071' | translate}}</th><!-- 生效日期 -->
+						<th>{{'SQH2100072' | translate}}</th><!-- 生效状态 -->
+						<th  style="width:25%">{{'F00017' | translate}}</th><!-- 操作 -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.creditTreeId"></td>
+					  	<td align="center" ng-bind="item.creditTreeDesc"></td>
+					  	<td align="center" ng-bind="item.effectiveDate"></td>
+					  	<!--<td align="center" ng-bind="item.treeEffectiveTyp"></td>-->
+						<td align="center">
+							<span ng-if="item.treeEffectiveTyp == '-1' ">{{'SQH2100073' | translate}}</span>
+							<span ng-if="item.treeEffectiveTyp == '0' ">{{'SQH2100074' | translate}}</span>
+							<span ng-if="item.treeEffectiveTyp == '1' ">{{'SQH2100075' | translate}}</span>
+						</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="seltreeBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}<!-- 详情 -->
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="deleteMeshByDate(item)" ng-show="updBtnFlag" ng-if="item.treeEffectiveTyp != '0'">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}<!-- 删除 -->
+							</button>
+							<!-- <button class="layui-btn layui-btn-mini" ng-click="delControl(item)">
+								<i class="layui-icon">&#xe640;</i> 删除
+							</button> -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

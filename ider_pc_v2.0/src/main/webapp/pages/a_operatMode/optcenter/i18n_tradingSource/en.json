@@ -1,0 +1,20 @@
+{
+"YYH1600001": "Corporate Number",
+"YYH1600002": "Transaction Source",
+"YYH1600003": "Source ID",
+"YYH1600004": "Associate external unified source code",
+"YYH1600005": "Description",
+"YYJ1600001": "Transaction Source",
+"YYJ1600002": "Transaction Source Details",
+"YYJ1600003": "Modify the transaction source",
+"YYJ1600004": "Not the Bank",
+"YYJ1600005": "The Bank ALL",
+"YYJ1600006": "The Bank is local",
+"YYJ1600007": "The Bank is offsite",
+"YYJ1600008": "External source code",
+"YYJ1600009": "Do you want to delete the transaction source",
+"YYJ1600010": "Please enter the associated external unified source code",
+"YYJ1600011":"Source directory details",
+"YYJ1600012":"Source directory",
+"YYJ1600013":"Modify source directory"
+}

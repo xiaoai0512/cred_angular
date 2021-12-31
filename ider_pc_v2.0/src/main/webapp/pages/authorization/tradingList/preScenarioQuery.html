@@ -1,0 +1,82 @@
+<div class="layout_body" ng-controller="preScenariListContrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="queryInfForm"  class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	
+					id='preScenarioList_idNumber'name="idNumber" validator="noValidator"
+					ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_td" style="width:70%">
+			   <div class="col4 text_right" style="width:28.5%">{{'SQH2700027' | translate}}：</div>
+				<div class="float_left" style="width:400px">
+					<input class="layui-input icon_date" style="width:48.5%;float:left;" name="fromDataName" id="LAY_start_Add" type="text" ng-model="itemList.params.startDate" autocomplete="off">
+					<div class="col4 text_right" style="width:50%;display:-webkit-box;">
+						<span>~</span>	
+						<input class="layui-input icon_date" style="width:90%;" name="toDateName" id="LAY_end_Add" type="text" ng-model="itemList.params.endDate" autocomplete="off"> 
+					</div>
+					</div>
+      </div>
+			<div class="col_tr text_center">
+				<div class="layui-inline">
+					<button class="layui-btn" ng-click="selectList()" validation-submit="queryInfForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+	</form>	
+		
+		<div ng-show="showQuotaTable" >
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th style="padding: 0px 5px; width:17%">{{'SQH2700001' | translate}}</th>
+							<th style="padding: 0px 5px; width:11%">{{'SQH2700027' | translate}}</th>
+							<th style="padding: 0px 5px; width:11%" >{{'SQH2700028' | translate}}</th>
+							<th style="padding: 0px 5px;">{{'SQH2700061' | translate}}</th>
+							<th style="padding: 0px 5px; width:10%" >{{'SQH2700077' | translate}}</th>
+							<th style="padding: 0px 5px;">{{'SQH2700078' | translate}}</th>
+							<th style="padding: 0px 5px;">{{'SQH2700079' | translate}}</th>
+							<th style="padding: 0px 5px; width:10%">{{'SQH2700080' | translate}}</th>
+							<th style="padding: 0px 5px;" >{{'SQH2700081' | translate}}</th>
+							<th style="padding: 0px 5px; width:10%">{{'SQH2700082' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="padding: 0px 5px; width:17%" align="center" ng-bind="item.cusNo"></td>
+							<td style="padding: 0px 5px; width:11%" align="center" ng-bind="item.processingDate"></td>
+							<td style="padding: 0px 5px;width:11%" align="center" ng-bind="item.processingTime"></td>
+							<td style="padding: 0px 5px;" align="center" ng-bind="item.transCurrCode"></td>
+							<td style="padding: 0px 5px;" width="10%"  align="center" ng-bind="item.clearAmount"></td>
+							<td style="padding: 0px 5px;" align="center" ng-bind="item.offAmount"></td>
+							<td style="padding: 0px 5px;" width="10%"  align="center" ng-bind="item.authApprovalCde"></td>
+							<td align="center" ng-bind="item.transTypeDesc"></td>
+							<td style="padding: 0px 5px;" align="center" ng-bind="item.transRetainDate"></td>
+							<td style="padding: 0px 5px;" align="center" ng-bind="item.remainDay"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

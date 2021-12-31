@@ -1,0 +1,37 @@
+<div ng-controller="layerMediaDmgRsuCtrl">
+	<div class="section">
+		<div class="layui-tab-content layui-form">
+					<div class="mainname">{{'KHH300020' | translate}}</div>
+					<div jf-grid="itemList">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'KHH300008' | translate}}</th>
+									<th>{{'KHH300009' | translate}}</th>
+									<th>{{'F00111' | translate}}</th>
+									<th>{{'KHH300021' | translate}}</th>
+									<th>{{'KHH300022' | translate}}</th>
+									<th>{{'KHH300023' | translate}}</th>
+									<th>{{'KHH300024' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center">
+										<span  ng-bind="item.mediaObjectCode"></span><span  ng-bind="item.mediaObjectDesc"></span>
+									</td>
+									<td align="center">
+										<span  ng-bind="item.productObjectCode"></span><span  ng-bind="item.productDesc"></span>
+									</td>
+									<td align="center" ng-bind="item.externalIdentificationNo"></td>
+									<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+									<td align="center" ng-bind="item.mediaUserName"></td>
+									<td align="center" ng-bind="item.invalidFlagDesc"></td>
+									<td align="center" ng-bind="item.invalidReasonDesc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+		</div>
+	</div>
+</div>

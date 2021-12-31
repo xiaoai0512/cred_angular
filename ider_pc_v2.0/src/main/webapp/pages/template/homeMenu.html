@@ -1,0 +1,126 @@
+ <div class="index_content" ng-controller="mainMenuCtrl" >
+    
+   <!--  滑动部分 -->
+   
+   <!----------------------------------------------- 	BETA 运营模式------------------------ -->
+	
+	
+	
+	
+	<div class="clearfix"></div>
+	
+	<div class="guide-slider guide-slider01"  id="guideSlider01">
+		<ul class="guide-list" >
+			<li class="guide"  ng-repeat="menu in newAllMenuList " menuid="{{menu.id}}"   ng-click="layerHandle(menu.icon)"   ng-class="{base01: 'guide01Li', base02: 'guide02Li', base03: 'guide03Li',}[menu.baseFlag]" >
+				<div class="display" ng-class="{iconmenu01:'menuBg01',iconmenu02:'menuBg02',iconmenu03:'menuBg03',iconmenu04:'menuBg04',iconmenu05: 'menuBg05',iconmenu06: 'menuBg06',iconmenu07:'menuBg07',iconmenu08:'menuBg08',iconmenu09: 'menuBg09',iconmenu10: 'menuBg10'}[menu.icon]">
+					<div class="icon animated flipInY" ng-class="{iconmenu01:'icon1',iconmenu02:'icon2',iconmenu03:'icon3',iconmenu04:'icon4',iconmenu05: 'icon5',iconmenu06: 'icon6',iconmenu07:'icon7',iconmenu08:'icon8',iconmenu09: 'icon9',iconmenu10: 'icon10'}[menu.icon]"></div>
+					<div>
+						<div class="title">{{menu.menuName}}</div>
+						<div class="introduction">{{menu.menuDesc}}</div>
+					</div>
+					
+				</div>
+				
+				
+			</li>
+			
+		</ul>
+	</div>
+   
+   
+   
+   
+   <div class="clearfix"></div> 
+    <!-- -------------------------------------客户服务，授权中心 报表中心， 运维中心 分期中心，争议中心，公司服务，待定中心-------------------- -->
+	
+	<div class="guide-slider guide-slider02"  id="guideSlider02">
+		<ul class="guide-list">
+			<li class="guide" ng-repeat="menu in newmainMenuList " menuid="{{menu.id}}"  ng-click="layerHandle(menu.icon)"   ng-class="{base01: 'guide01Li', base02: 'guide02Li', base03: 'guide03Li',}[menu.baseFlag]" >
+				<div class="display" ng-class="{iconmenu01:'menuBg01',iconmenu02:'menuBg02',iconmenu03:'menuBg03',iconmenu04:'menuBg04',iconmenu05: 'menuBg05',iconmenu06: 'menuBg06',iconmenu07:'menuBg07',iconmenu08:'menuBg08',iconmenu09: 'menuBg09',iconmenu10: 'menuBg10'}[menu.icon]">
+					<div class="icon animated flipInY" ng-class="{iconmenu01:'icon1',iconmenu02:'icon2',iconmenu03:'icon3',iconmenu04:'icon4',iconmenu05: 'icon5',iconmenu06: 'icon6',iconmenu07:'icon7',iconmenu08:'icon8',iconmenu09: 'icon9',iconmenu10: 'icon10'}[menu.icon]"></div>
+					<div class="title">{{menu.menuName}}</div>
+					<div class="introduction">{{menu.menuDesc}}</div>
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+<!------------------------------------------------------------分期中心，财务中心，公司服务，待定中心 --------------------------------------->
+<div class="clearfix"></div> 
+	<div class="guide-slider guide-slider03"  id="guideSlider03">
+		<ul class="guide-list" >
+			<li class="guide" ng-repeat="menu in newmainMenuList " menuid="{{menu.id}}"   ng-click="layerHandle(menu.icon)"    ng-class="{base01: 'guide01Li', base02: 'guide02Li',base03: 'guide03Li', }[menu.baseFlag]" >
+				<div class="display" ng-class="{iconmenu01:'menuBg01',iconmenu02:'menuBg02',iconmenu03:'menuBg03',iconmenu04:'menuBg04',iconmenu05: 'menuBg05',iconmenu06: 'menuBg06',iconmenu07:'menuBg07',iconmenu08:'menuBg08',iconmenu09: 'menuBg09',iconmenu10: 'menuBg10'}[menu.icon]">
+					<div class="icon animated flipInY" ng-class="{iconmenu01:'icon1',iconmenu02:'icon2',iconmenu03:'icon3',iconmenu04:'icon4',iconmenu05: 'icon5',iconmenu06: 'icon6',iconmenu07:'icon7',iconmenu08:'icon8',iconmenu09:'icon9',iconmenu10:'icon10'}[menu.icon]"></div>
+					<div class="title">{{menu.menuName}}</div>
+					<div class="introduction">{{menu.menuDesc}}</div>
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<!-- 右侧菜单 -->
+	
+	<div class="r_menu"  ng-class="{iconmenu01:'menuBg01',iconmenu02:'menuBg02',
+			iconmenu03: 'menuBg03',iconmenu04: 'menuBg04',iconmenu05: 'menuBg05',iconmenu06: 'menuBg06',
+			iconmenu07: 'menuBg07',iconmenu08: 'menuBg08',iconmenu09: 'menuBg09',iconmenu10: 'menuBg10'}[newmenuData.icon]">
+		
+		
+		<div class="r_title" ng-class="{iconmenu01:'menuBg01',iconmenu02:'menuBg02',
+			iconmenu03: 'menuBg03',iconmenu04: 'menuBg04',iconmenu05: 'menuBg05',iconmenu06: 'menuBg06',
+			iconmenu07: 'menuBg07',iconmenu08: 'menuBg08',iconmenu09: 'menuBg09',iconmenu10: 'menuBg10'}[newmenuData.icon]">
+			<div class="r_img"  ng-class="{iconmenu01:'icon01',iconmenu02:'icon02',
+			iconmenu03: 'icon03',iconmenu04: 'icon04',iconmenu05: 'icon05',iconmenu06: 'icon06',
+			iconmenu07: 'icon07',iconmenu08: 'icon08',iconmenu09: 'icon09',iconmenu10: 'icon10'}[newmenuData.icon]"></div>
+			<div class="text">{{newmenuData.menuName}}</div>
+		</div>
+		<div class="menu-wrap">
+			<ul class="function-list" >
+			
+			<!-- ng-click="goMenu2(menuData.id,testSub.id,testSub.url,testSub.submenuFlag,testSub.menuName)" -->
+				<li ng-repeat="testSub in newmenuData.childMenus" ng-click="goMenu2(newmenuData,testSub)" id="liId{{$index}}">
+					<a ng-class="{iconmenu01:'mbg01',iconmenu02:'mbg02',
+					iconmenu03: 'mbg03',iconmenu04: 'mbg04',iconmenu05:'mbg05',iconmenu06:'mbg06',
+					iconmenu07:'mbg07',iconmenu08:'mbg08',iconmenu09: 'mbg09',iconmenu10: 'mbg10',}[newmenuData.icon]" href="javascript:">{{testSub.menuName}}</a>
+				</li>
+			</ul>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+    
+    
+   <!--  基础部分 -->
+    <!-- <ul class="menuUL" >
+      <li class="layui-row " ng-class="{base01: 'base01Li', base02: 'base02Li',   }[menu.base]" ng-repeat="menu in mainMenuList " menuid="{{menu.id}}">
+            <div class="layui-col-md1  main_menu_01 main_menu_name" 
+            ng-class="{iconmenu01:'menuBg01',iconmenu02:'menuBg02'}[menu.img]">
+                <span class="menu_span">{{menu.text.substring(0,1)}}</span>
+                <span class="menu_span">{{menu.text.substring(1,2)}}</span>
+                <span class="menu_span">{{menu.text.substring(2,3)}}</span>
+                <span class="menu_span">{{menu.text.substring(3,4)}}</span>
+            </div>
+            <div class="layui-col-md11 menu_right">
+                <div class="mai_menu_logo layui-col-md3 menu_logo01"
+                ng-class="{iconmenu01:'icon1',iconmenu02:'icon2',}[menu.img]">
+                </div>
+                <div class="layui-col-md9  menuWrapper">
+                        <a menuid={{menu.id}} href="{{menu.url}}"   ng-repeat="submenu in menu.menu"  ng-click="goMenu(menu.id,submenu.id,submenu.url,submenu.submenuFlag,submenu.text)">
+                        	{{submenu.text}}
+                        </a>
+                </div>
+            </div>
+        </li>
+    </ul> -->
+    
+    
+</div>

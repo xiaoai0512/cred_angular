@@ -1,0 +1,43 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {	
+		    		"elmID" : "401",
+		    		"elmDsc": "401AAA0101",
+                    "partDsc": "授权拒绝",
+                    "execSeq":""
+                },
+                 {	
+		    		"elmID" : "402",
+		    		"elmDsc": "402AAA0101",
+                    "partDsc": "不允许续卡",
+                    "execSeq":""
+                },
+                 {	
+		    		"elmID" : "403",
+		    		"elmDsc": "403AAA0100",
+                    "partDsc": "停止年费",
+                    "execSeq":""
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 0,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 0,
+            "startRow": 0,
+            "total": 3	
+        }
+    },
+    "status": 200
+}

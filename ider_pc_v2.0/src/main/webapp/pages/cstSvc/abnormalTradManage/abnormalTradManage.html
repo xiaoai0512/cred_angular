@@ -1,0 +1,136 @@
+<div ng-controller="abnormalTradManageCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}} ：{{userName}}
+	</div>
+	<input type="text" class="disN"   ng-model = "hide_abnormalTrad.idType" />
+	<input type="text" class="disN"   ng-model = "hide_abnormalTrad.idNumber" />
+	<input type="text" class="disN"   ng-model = "hide_abnormalTrad.externalIdentificationNo" />
+	<div  class="allcontent layui-form">
+	  <form name="abnormalTradManage">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="appFormMCQueryTable.params.idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+				id="abnormalTradManage_idNumber" validator="noValidator" name='idNumber'
+					ng-model="abnormalTradList.params.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="abnormalTradList.params.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1700003' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="startDate" id="abnormalTradList_zs"
+					ng-model="abnormalTradList.params.startDate" type="text" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1700004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="endDate" id="abnormalTradList_ze"
+					ng-model="abnormalTradList.params.endDate" type="text" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1700005' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="abnormalTradList.params.transBillingState" 
+						jf-select="transBillingStateArr" name="transBillingState"  maxlength="3">
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1700006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="failureReason"
+					ng-model="abnormalTradList.params.failureReason" type="text" />
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryHandle()" validation-submit="abnormalTradManage" >
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}} 
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}} 
+				</button>
+			</div>
+		</div>
+	</form>
+		<div jf-grid="abnormalTradList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 150px;">{{'KHH1700007' | translate}} </th>
+						<th>{{'KHH1700008' | translate}} {{'KHH300035' | translate}} </th>
+						<th>{{'KHH1700009' | translate}} </th>
+						<th>{{'KHH1700010' | translate}} </th>
+						<th>{{'KHH1700011' | translate}} </th>
+						<th>{{'KHH1700012' | translate}} </th>
+						<th>{{'KHH1700013' | translate}} </th>
+						<th>{{'KHH1700014' | translate}} </th>
+						<th>{{'KHH1700015' | translate}} </th>
+						<th>{{'KHH1700005' | translate}} </th>
+						<th >{{'KHH1700006' | translate}} </th>
+						<th style="width: 18%;">{{'KHH300035' | translate}} </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-model="item.externalIdentificationNo">
+							<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+							<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+							<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+						</td>
+	
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.transCurrCode"></td>
+						<td align="center" ng-bind="item.transAmount"></td>
+						<td align="center" ng-bind="item.postingDate"></td>
+						<td align="center" ng-bind="item.postingCurrCode"></td>
+						<td align="center" ng-bind="item.postingAmt"></td>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.transDesc"></td>
+						<td align="center">
+							<span>{{item.transBillingStateDesc}}</span>
+							<!-- <span ng-if="item.transBillingState == 'N' ">{{'KHJ1700001' | translate}} </span>
+							<span ng-if="item.transBillingState == 'Y' ">{{'KHJ1700002' | translate}} </span>
+							<span ng-if="item.transBillingState == 'P' ">{{'KHJ1700003' | translate}} </span> -->
+						</td>
+						<td align="center" ng-bind="item.failureReason"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini" ng-if="item.eventNo.substring(4,15) == 'PT.41.0000'" ng-click="forceEntry(item)">
+								{{'KHH1700063' | translate}} 
+							</button>
+							<button class="layui-btn layui-btn-mini"  ng-click="reEntry(item)">
+								{{'KHH1700060' | translate}} 
+							</button>
+							<button class="layui-btn layui-btn-mini" 	ng-click="deleteItem(item)">
+								{{'F00016' | translate}} 
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="checkInfo(item)">
+								{{'F00041' | translate}} 
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>	

@@ -1,0 +1,25 @@
+<div ng-controller="copyTransIdentyCtrl">
+	<div class="section  layui-form">
+		<form name="transIdentyCopyForm"  class="">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1500001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="operationModeTemp"   jf-select="operationModeArr"name="operationMode" maxlength="3" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH1500002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="transIdentifiNo"  ng-model="transCopy.transIdentifiNo" maxlength="4" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1500003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="transIdentifiDesc"  ng-model="transCopy.transIdentifiDesc" maxlength="50">
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

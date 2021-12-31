@@ -1,0 +1,58 @@
+<div class="layout_body" ng-controller="payProjectInstanCtrl">
+	<div  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1200001' | translate}}：</div>
+			<div class="wd190 float_left" style="margin-right:1%">
+				<input class="layui-input"  type="text" name="feeItemNo"  ng-model="payProExaList.params.instanCode"   maxlength="14" >
+			</div>
+			<button class="layui-btn" ng-click="payProExaList.search()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+		</div>
+		<div class="section">
+				<div jf-grid="payProExaList">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'YYH1200027' | translate}}</th>
+								<th>{{'YYH1200034' | translate}}</th>
+								<th style="width: 20%;padding-left: 0px;padding-right: 0px;">{{'YYH1200035' | translate}}</th>
+								<th style="width: 20%;padding-left: 0px;padding-right: 0px;">{{'YYH1200036' | translate}}</th>
+								<th>{{'YYH1300014' | translate}}</th>
+								<th style="width: 18%;padding-left: 0px;padding-right: 0px;">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.operationMode"></td>
+								<td align="center" ng-bind="item.feeItemNo"></td>
+								<td align="center">
+									<div class="tdDivL">{{item.instanCode1}}</div>
+									<div class="tdDivR">&nbsp;{{item.instanDesc1}}</div>
+								</td>
+								<td align="center">
+									<div class="tdDivL">{{item.instanCode2}}</div>
+									<div class="tdDivR">&nbsp;{{item.instanDesc2}}</div>
+								</td>
+								<td align="center" ng-bind="item.baseFee"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkPayProExa(item)">
+									   {{'F00009' | translate}}
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="updatePayProExaClick(item)">
+										 {{'F00015' | translate}}
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="deletePayProExa(item)">
+										{{'F00016' | translate}} 
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+</div>

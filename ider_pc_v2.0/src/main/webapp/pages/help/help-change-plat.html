@@ -1,0 +1,18 @@
+<div class="mainname">公共方法新旧版本修改说明</div>
+<pre class="layui-code" lay-title="Code" >
+1、<span style="color:red">先批量去掉js控制域中引用的jfParam，jfHelper，jfSession（这三个已弃用）。</span>
+
+2、jfHelper指令已弃用，改为Tansun.helper
+
+3、jfSession已启用，如果要取当前登录用户信息可用 $scope.getUser()
+
+4、jfParam.param方法改为Tansun.param
+
+5、$rootScope.searchParam方法改为$scope._modal.param
+
+6、$rootScope.clearChecked方法已弃用，代码中直接删除即可
+
+7、下拉框旧版本都有加lay-ignore属性，新版本中要去掉
+
+8、页面上如果有加class="body_mg20"的样式都要去掉，现在默认会加改样式
+</pre>

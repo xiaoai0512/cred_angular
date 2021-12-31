@@ -1,0 +1,34 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "elmID": "501",
+                    "elmDsc": "核算模式",
+                    "elmBaseYPts": "501AAA0100",
+                    "yPtsDsc": "单独核算",
+                    "elmOptYPts": "501AAA0101",
+                    "optYPtsDsc": "集中核算"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 1
+        }
+        
+    },
+    "status": 200
+}

@@ -1,0 +1,71 @@
+<div ng-controller="searchProductCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div class="mainname">{{'KHH4000037' | translate}}</div>
+					<div jf-grid="cstProductTable">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'KHH4000005' | translate}}</th>
+									<th>{{'KHH4000038' | translate}}</th>
+									<th>{{'KHH4000039' | translate}}</th>
+									<th>{{'KHH4000040' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.productObjectCode"></td>
+									<td align="center" ng-bind="item.coBrandedNo"></td>
+									<td align="center">
+									     <span ng-if="item.productType=='CRD'">{{'KHH4000041' | translate}}</span>
+										<span ng-if="item.productType=='RLN'">{{'KHH4000043' | translate}}</span></td>
+									<td align="center">
+										<button class="layui-btn layui-btn-mini"
+											ng-click="selectMediaList(item)" type="button">
+											<i class="layui-icon layui-icon-more">{{'KHH4000040' | translate}}</i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="clearboth"></div>
+					<div ng-show="isShow">
+						<div class="mainname">{{'KHH4000044' | translate}}</div>
+						<div jf-grid="cstMediaTable">
+							<table>
+								<thead>
+									<tr>
+										<th>{{'KHH4000010' | translate}}</th>
+										<th>{{'F00111' | translate}}</th>
+										<th>{{'KHH4000045' | translate}}</th>
+										<th>{{'KHH4000046' | translate}}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td align="center" ng-bind="item.mediaObjectCode"></td>
+										<td align="center" ng-bind="item.externalIdentificationNo"></td>
+										<td align="center"><span
+											ng-if="item.mainSupplyIndicator==1">{{'KHJ4000015' | translate}}</span> <span
+											ng-if="item.mainSupplyIndicator==2">{{'KHJ4000016' | translate}}</span></td>
+										<td align="center" ng-bind="item.mediaObjectDesc">
+											<button class="layui-btn layui-btn-mini"
+												ng-click="veiwMediaDetail(item)" type="button">
+												<i class="layui-icon layui-icon-more">{{'KHH4000040' | translate}}</i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</div>

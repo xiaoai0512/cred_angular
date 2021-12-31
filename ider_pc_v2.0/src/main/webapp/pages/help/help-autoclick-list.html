@@ -1,0 +1,145 @@
+<div class="mainname">列表自定义选中事件用法 - 入门指南</div>
+<blockquote class="layui-elem-quote">
+  $scope.checkedList={};
+  $scope.grid2 = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : true ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      },
+	  <span style="color:red">checkBack:function(item){//行选中回调事件,item为当前选中记录的参数
+	 		 //如果为单选框返回的是对象，复选框范回集合
+			$scope.checkedList=$scope.userList.checkedList(); 
+	  }</span>
+  }; 
+  //下面做个将选中的值显示在另一个table里面的案例
+</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="listDemoCtrl">
+<div jf-grid="grid2">
+     <table>
+          <thead>
+              <tr>
+                    <th align="left">流程名称</th>
+                    <th align="left">主题</th>
+                    <th align="left">融资人</th>
+                    <th align="left">融资日期</th>
+                    <th align="left">上一环节</th>
+                    <th align="left">当前所在环节</th>
+                    <th align="left">提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle" ng-click="democlick(item)"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+<div  >
+     <table border="0" cellspacing="0" cellpadding="0" class="layui-table dataTable no-footer" lay-even lay-skin="nob">
+          <thead>
+              <tr>
+                    <th align="left">流程名称1</th>
+                    <th align="left">主题1</th>
+                    <th align="left">融资人1</th>
+                    <th align="left">融资日期1</th>
+                    <th align="left">上一环节1</th>
+                    <th align="left">当前所在环节1</th>
+                    <th align="left">提示1</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in checkedList">
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate" ></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+ $scope.checkedList={};
+  $scope.grid2 = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : true ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      },
+	 checkBack:function(item){//行选中回调事件 item为选中行的对象
+	 		 //如果为单选框返回的是对象，复选框范回集合
+			$scope.checkedList=$scope.userList.checkedList(); 
+	  }
+  };
+</pre>
+<div class="mainname">列表例子</div>
+<div ng-controller="listDemoCtrl">
+<div jf-grid="grid2" >
+     <table>
+          <thead>
+              <tr>
+                    <th align="left">流程名称</th>
+                    <th align="left">主题</th>
+                    <th align="left">融资人</th>
+                    <th align="left">融资日期</th>
+                    <th align="left">上一环节</th>
+                    <th align="left">当前所在环节</th>
+                    <th align="left">提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate" ></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+<div  >
+     <table border="0" cellspacing="0" cellpadding="0" class="layui-table dataTable no-footer" lay-even lay-skin="nob">
+          <thead>
+              <tr>
+                    <th>流程名称1</th>
+                    <th>主题1</th>
+                    <th>融资人1</th>
+                    <th>融资日期1</th>
+                    <th>上一环节1</th>
+                    <th>当前所在环节1</th>
+                    <th>提示1</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in checkedList">
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate" ></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</div>

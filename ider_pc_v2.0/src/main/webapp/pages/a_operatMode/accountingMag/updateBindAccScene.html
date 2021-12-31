@@ -1,0 +1,29 @@
+<div ng-controller="updateBindAccSceneCtrl">
+	<div class=" ">
+		<form name="accSubSceneFormee"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>运营模式：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="updateOperationMode"  jf-select="operationModeArr" name="operationMode"
+					disabled maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">核算场景事件号：</div>
+				<div class="wd190 float_left">
+				<input class="layui-input" type="text" name="subTableSequence" readonly validator="required"
+					ng-model="upBindAccSceneInf.sceneSequence" ng-click = "queryBindAccEvent()" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">核算场景事件描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="sceneSequenceDesc"  
+						ng-model="upBindAccSceneInf.sceneSequenceDesc" maxlength="50">
+				</div>
+			</div>
+			
+		</form>
+	</div>
+</div>

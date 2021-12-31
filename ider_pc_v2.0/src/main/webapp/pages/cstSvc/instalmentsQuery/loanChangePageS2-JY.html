@@ -1,0 +1,126 @@
+<div ng-controller="loanChangeS2Ctrl-JY">
+	<form name="loanInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">账号代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">贷款金额：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.loanAmount" name="loanAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">币种代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.currencyCode"  name="currencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">利率 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.loanRate" name="loanRate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">还款方式：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="builder.option(repayModeList)" name="repayModeN" ng-model="loanquery.repayMode" disabled="disabled"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">总期数：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.loanTerm" jf-format-input="money" name="loanTerm" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="clearboth"></div>
+		<div class="mainname titleInfo">选择贷款变更方式</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>请选择变更贷款方式 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="loanquery.changeType" class="layui-input"  lay-filter="getChangeType"
+								jf-select="builder.option(loanArray)" name="changeType" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="wd190 float_left">
+				<button class="layui-btn" ng-click="trialLoan()" >
+					试算
+				</button>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="isShowTermNo">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>贷款期次变更：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="loanquery.changeTermNo" 
+					 name="changeTermNo" />
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="isShowLoanRate">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>贷款利率变更：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="loanquery.changeLoanRate" 
+					 name="changeLoanRate" maxlength='18' />
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="isShowRepayMode">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>贷款还款方式变更：</div>
+				<div class="wd190 float_left">
+					 <select class="layui-input" jf-select="builder.option(repayModeList)" name="changeRepayMode" ng-model="loanquery.changeRepayMode" lay-filter="getrepayMode"></select>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!-- 贷款试算 -->
+		<div class="clearboth"></div>
+		<div ng-show="isShowTrialLoan">
+			<div class="mainname">试算结果</div>
+			<div jf-grid="trailLoanTable">
+				<table>
+					<thead>
+						<tr>
+							<th>期次</th>
+							<th>当期抛账日</th>
+							<th>应还本金</th>
+							<th>应还利息</th>
+							<th>应还费用</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr >
+							<td align="center" ng-bind="item.termNo"></td>
+							<td align="center" ng-bind="item.throwDate"></td>
+							<td align="center" ng-bind="item.principalAmount | number:2"></td>
+							<td align="center" ng-bind="item.interestAmount | number:2"></td>
+							<td align="center" ng-bind="item.feeAmount | number:2"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+	</form>
+</div>

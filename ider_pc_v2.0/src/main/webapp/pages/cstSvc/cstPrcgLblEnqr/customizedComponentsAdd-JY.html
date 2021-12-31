@@ -1,0 +1,197 @@
+<div ng-controller="customizedComponentsAddCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<!--web_body-->
+		<form action="" name="queryInfForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="queryParams.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber"
+						ng-model="queryParams.idNumber" id='customized_idNumber'
+						validator="noValidator" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo"
+						ng-model="queryParams.externalIdentificationNo" type="text"
+						maxlength="50">
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="queryParams.customerNo"
+						name="customerNo" type="text">
+				</div>
+			</div> -->
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="searcheBtn()"
+					validation-submit="queryInfForm">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+
+		</form>
+		<form name="cardBinForm1">
+			<div ng-if="showDetail">
+				<div class="search_mian">
+					<div class="mainname">{{'KHH5500004' | translate}}</div>
+				</div>
+				<div class="layui-form-item">
+				
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'F00158' | translate}}：</label>
+						<div class="layui-input-inline">
+							<select jf-select="builder.option(certificateTypeArray1)"
+								name="idType" ng-model="cstInf.idType" disabled>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'F00112' | translate}}：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input" type="text" name="idNumber"
+								ng-model="cstInf.idNumber" disabled>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'KHH5500005' | translate}}：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input" type="text" name="customerName"
+								ng-model="cstInf.customerName" disabled>
+						</div>
+					</div>
+				</div>
+				
+				
+
+				<div class="search_mian">
+					<div class="mainname">{{'KHH5500014' | translate}}</div>
+				</div>
+
+
+
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5500008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+							ng-model="elmListT.params.elementNo" maxlength="15">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5500009' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+							ng-model="elmListT.params.elementDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn" ng-click="searchelmList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="saveSelect()">
+						<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+					</button>
+				</div>
+
+				<div jf-grid="elmListT">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'KHH5500010' | translate}}</th>
+								<th>{{'KHH5500011' | translate}}</th>
+								<th>{{'KHH5500012' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="$index +1"></td>
+								<td align="center" ng-bind="item.elementNo"></td>
+								<td align="center" ng-bind="item.elementDesc"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+				<div class="search_mian">
+					<div class="mainname">{{'KHH5500018' | translate}}</div>
+				</div>
+				<div>
+					<table border="0" cellspacing="0" cellpadding="0"
+						class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+						<thead>
+							<tr>
+								<th>{{'KHH5500010' | translate}}</th>
+								<th>{{'KHH5500008' | translate}}</th>
+								<th>{{'F00189' | translate}}</th>
+								<th>{{'F00190' | translate}}</th>
+								<th>{{'F00017' | translate}}</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="items in treeSelect track by $index">
+								<td align="center" ng-bind="$index + 1"></td>
+								<td align="center" ng-bind="items.elementNo"></td>
+								<td align="center" ng-bind="items.effectDate"></td>
+								<td align="center" ng-bind="items.uneffectDate"></td>
+								<td align="center">
+									<button class="layui-btn cancel-btn" type="button"
+										ng-click="updateSelect($index)">
+										<i class="layui-icon"></i> {{'F00015' | translate}}
+									</button>
+
+									<button class="layui-btn cancel-btn" type="button"
+										ng-click="removeSelect($index)">
+										<i class="layui-icon"></i> {{'F00016' | translate}}
+									</button>
+
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col_tr text_center" style="margin-top: 20px">
+					<button class="layui-btn" ng-click="saveArtiEleRel()"
+						validation-submit="cardBinForm1">
+						<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+					</button>
+				</div>
+
+
+			</div>
+
+		</form>
+
+
+
+
+
+
+
+
+	</div>
+</div>

@@ -1,0 +1,192 @@
+<div ng-controller="instalDataDetails">
+	<div class="allcontent">
+		<form action="" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">账户代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="accountNo" type="text" readonly
+					ng-model="instalDataInfo.accountNo">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">币种 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="currencyCode" type="text" readonly
+					ng-model="instalDataInfo.currencyCode">
+					<!-- <select ng-model="instalDataInfo.currencyCode"
+						class="layui-input" jf-select="builder.option(currencyCode)"
+						name="currencyCode" disabled></select> -->
+				</div>
+			</div>
+
+			<div class="allcontent">
+				<div class="col_td">
+					<div class="col4 text_right">分期付款期数 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input " ng-model="instalDataInfo.installmentPeriod"
+							name="installmentPeriod" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">分期付款类型：</div>
+					<div class="wd190 float_left">
+						<select ng-model="instalDataInfo.installmentBusinessType"
+						class="layui-unselect" name="installmentBusinessType" disabled>
+							<option value="">请选择</option>
+							<option value="00">账单分期</option>
+							<option value="01">专项分期</option>
+							<option value="02">自动分期</option>
+						</select>
+						<!-- <input class="layui-input "
+							ng-model="instalDataInfo.installmentBusinessType"
+							name="installmentBusinessType" type="text" readonly> -->
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">分期付款金额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.installmentAmount" name="installmentAmount"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">分期交易日期：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.installmentTransDate" name="installmentTransDate"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">分期付款费率(%)：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.installmentFeeRatio"
+							name="installmentFeeRatio" type="text" readonly>
+					</div>
+				</div>
+
+				<div class="col_td">
+					<div class="col4 text_right">分期付款费用：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.installmentFeeAmount"
+							name="installmentFeeAmount" type="text" readonly>
+					</div>
+				</div>
+			</div>
+			<div class="allcontent">
+				<div class="col_td">
+					<div class="col4 text_right">本金余额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.principalBalance" name="principalBalance"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">利息余额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.interestBalance" name="interestBalance"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">费用余额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.feeBalance" name="feeBalance"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">已入账金额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.postingAmount" name="postingAmount"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">已入账费用：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.postingFee" name="postingFee"
+							type="text" readonly>
+					</div>
+				</div>
+			
+				<div class="col_td">
+					<div class="col4 text_right">未入账金额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.unpostingAmount" name="unpostingAmount"
+							type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">未入账期数：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.unpostingPeriod" name="unpostingPeriod"
+							type="text" readonly>
+					</div>
+				</div>
+
+				<div class="col_td">
+					<div class="col4 text_right">首次入账金额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.firstPostingAmount"
+							name="firstPostingAmount" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">下次入账金额：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.nextPostingAmount"
+							name="nextPostingAmount" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">下次入账日期：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input "
+							ng-model="instalDataInfo.postingDate"
+							name="postingDate" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">当期最低还款：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="instalDataInfo.minTotalRepayment"
+							name="minTotalRepayment" type="text" readonly>
+					</div>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">分期付款完成：</div>
+				<div class="wd190 float_left">
+					<select ng-model="instalDataInfo.installmentCompInd"
+					class="layui-unselect" name="installmentCompInd" disabled>
+						<option value="">请选择</option>
+						<option value="N">未完成</option>
+						<option value="Y">完成</option>
+					</select>
+					<!-- <input class="layui-input "
+						ng-model="instalDataInfo.installmentCompInd"
+						name="installmentCompInd" type="text" readonly> -->
+				</div>
+			</div>
+			<button class="layui-btn cancel-btn" type="button"
+							ng-click="earlyClearance()">
+							<i class="layui-icon"> </i> 提前结清
+				</button>
+		</form>
+	</div>
+</div>

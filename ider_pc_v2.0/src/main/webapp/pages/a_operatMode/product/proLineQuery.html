@@ -1,0 +1,64 @@
+<div ng-controller="proLineQueryCtrl" class="layui-form">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH100001' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<select ng-model="proLineList.params.operationMode"   jf-select="operationModeArr" name="operationModeN"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH100002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="proLineList.params.businessProgramNo" maxlength="9">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="proLineList.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<!-- ng-show="addBtnFlag" -->
+			<button class="layui-btn" ng-click="proLineAdd()" ng-show="addBtnFlag"> 
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		<div jf-grid="proLineList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH100001' | translate}}</th>
+						<th>{{'YYH100002' | translate}}</th>
+						<th>{{'YYH100003' | translate}}</th>
+						<!-- <th>{{'YYH100004' | translate}}</th> -->
+						<th>{{'YYH100005' | translate}}</th>
+						<th>{{'YYH100006' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.businessProgramNo"></td>
+						<td align="left" ng-bind="item.programDesc"></td>
+						<!-- <td align="center" ng-bind="item.disputeBusinessType"></td> -->
+						<td align="center" ng-bind="item.defaultBusinessType"></td>
+						<td align="center" ng-bind="item.paymentPriority"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkProLineInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateProLineInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

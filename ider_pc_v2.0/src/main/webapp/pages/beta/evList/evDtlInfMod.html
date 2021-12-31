@@ -1,0 +1,325 @@
+<div ng-controller="evDtlInfModCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100001' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input bnone" type="text" ng-model="item.eventNo" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100002' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text" ng-model="item.eventDesc" maxlength="50">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100005' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<select ng-model="eventType" class="layui-input"
+								jf-select="eventTypeArrays"  lay-filter="event"
+								name="eventType" disabled></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100006' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<select ng-model="eventBookKeepingDirec" class="layui-input"
+								jf-select="eventBookKeepingDirecArray"
+								name="eventBookKeepingDirec" disabled></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100007' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<select jf-select="transIdentificationCodeArray" name="transIdentificationCode"
+								ng-model="transIdentificationCode" disabled></select>
+						</div>
+					</div>
+					
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100009' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<!-- <input class="layui-input bnone" type="text"
+								ng-model="item1.eventBalanceObject" disabled="disabled"> -->
+								<select jf-select="balanceObjectArray" name="eventBalanceType"
+								ng-model="eventBalanceType"  disabled></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100010' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<select ng-model="transType" class="layui-input"
+								jf-select="tranTypeArray"  name="transType" disabled></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100052' | translate}}：</div>
+						<div class="wd330 float_left">
+							<select ng-model="upinstallType" lay-filter="getInstallType" jf-select="installTypeArray" name="installType">
+							</select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100011' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<select ng-model="paymentType" class="layui-input"
+								jf-select="tranTypeArray"  name="paymentType" disabled></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100033' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<select ng-model="item.feeItemNoTemp"
+								jf-select="feeItemArr" name="feeItemNo">
+							</select>
+						</div>
+					</div>
+					
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100014' | translate}}：</div>
+						<div class="wd330 float_left">
+							<select ng-model="ongoingProcessFlag"
+								jf-select="ongoingProcessFlagArr" name="ongoingProcessFlag"></select>
+						</div>
+					</div>
+					
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100016' | translate}}：</div>
+						<div class="wd330 float_left">
+							<select ng-model="item.authSceneCodeUpdate" class="layui-input"
+								jf-select="scenarioList"  maxlength="6"
+								name="authSceneCode" lay-search></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100017' | translate}}：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text" ng-model="item.fundCheckCode" maxlength="5">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100059' | translate}}：</div>
+						<div class="wd330 float_left">
+							<select ng-model="cycleType" class="layui-input"
+								jf-select="cycleTypeArray" 
+								name="cycleType" ></select>
+						</div>
+					</div>
+					<div ng-show="isAuthShow">
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH100008' | translate}}：</div>
+							<div class="wd330 float_left">
+									<select jf-select="eventBalanceObjectArr" name="eventBalanceObject"
+									ng-model="item.eventBalanceObjectUpdate"  ></select>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH100012' | translate}}：</div>
+							<div class="wd330 float_left">
+								<select ng-model="item.disputeFlag" name="disputeFlag" >
+									<option value="">{{'PZH100013' | translate}}</option>
+									<option value="Y">Y</option>
+									<option value="N">N</option>
+								</select>
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH100015' | translate}}：</div>
+							<div class="wd330 float_left">
+								<select ng-model="item.transStatisticGroup" name="transStatisticGroup"  >
+									<option value="">{{'PZH100013' | translate}}</option>
+									<option value="MEMB">MEMB</option>
+								</select>
+							</div>
+						</div>
+						<!-- <div class="col_td">
+							<div class="col4 text_right">{{'PZH100053' | translate}}：</div>
+							<div class="wd330 float_left">
+								<input class="layui-input" type="text" ng-model="item.minimumInstalmentAmount" />
+							</div>
+						</div>
+						<div class="col_td">
+							<div class="col4 text_right">{{'PZH100054' | translate}}：</div>
+							<div class="wd330 float_left">
+								<input class="layui-input" type="text" ng-model="item.maximumInstalmentAmount" />
+							</div>
+						</div> -->
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100055' | translate}}：</div>
+						<div class="wd330 float_left">
+							<select ng-model="effectivenessCodeType" class="layui-input"
+								jf-select="blockTpyeArray"  lay-filter="getBlockTpye"
+								name="effectivenessCodeTypeN" ></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100056' | translate}}：</div>
+						<div class="wd330 float_left">
+							<select  class="layui-input" ng-model="sceneTriggerObject"
+								jf-select="blockCodeRangeArr" name="sceneTriggerObjectN" >
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100057' | translate}}：</div>
+						<div class="wd330 float_left" >
+					       <select  ng-model="upeffectivenessCodeScene" class="layui-input"
+							jf-select="blockCodeSceneArray" name="blockCodeScene" ></select>
+					    </div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100058' | translate}}：</div>
+						<div class="wd330 float_left" >
+					        <select  ng-model="upaccountSceneIdentify" class="layui-input"
+							jf-select="accountSceneIdentifyArray" name="accountSceneIdentify"   disabled></select>
+					      </div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH400037' | translate}}：</div>
+						<div class="wd330 float_left" >
+					        <select  ng-model="manualSupplementFlag" class="layui-input"
+							jf-select="manualSupplementFlagArray" name="manualSupplementFlag"></select>
+						</div>
+					</div>
+					
+					<div class="clearboth"></div>
+					<div class="mainname">{{'PZH100034' | translate}}</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100019' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"
+								ng-model="selAvyList.params.activityNo" maxlength="6">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH100020' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"
+								ng-model="selAvyList.params.activityDesc" maxlength="50">
+						</div>
+					</div>
+					
+					<div class="col_tr text_center">
+						<button class="layui-btn" ng-click="selAvyList.search()">
+							<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+						</button>
+		
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="saveSelect()">
+							<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+						</button>
+					</div>
+					<div jf-grid="selAvyList">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'PZH100019' | translate}}</th>
+									<th>{{'PZH100020' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.activityNo"></td>
+									<td align="center" ng-bind="item.activityDesc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 已选中关联活动 -->
+					<div class="mainname">{{'PZH100035' | translate}}</div>
+					<div>
+						<table border="0" cellspacing="0" cellpadding="0"
+							class="layui-table dataTable no-footer" lay-even=""
+							lay-skin="nob">
+							<thead>
+								<tr>
+									<!-- <th>选择</th> -->
+									<th width="8%">{{'PZH100036' | translate}}</th>
+									<th>{{'PZH100019' | translate}}</th>
+									<th>{{'PZH100020' | translate}}</th>
+									<th style="width:16%;">{{'PZH100021' | translate}}</th>
+									<th>{{'PZH100022' | translate}}</th>
+									<th>{{'PZH100023' | translate}} </th>
+									<th>{{'PZH100024' | translate}}</th>
+									<th>{{'F00030' | translate}}</th>
+									<th style="width:21%;">{{'F00017' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="items in treeSelect track by $index">
+									<td align="center" ng-bind="$index + 1"></td>
+									<td align="center" ng-bind="items.activityNo"></td>
+									<td align="center" ng-bind="items.activityDesc"></td>
+									<td align="center" ng-bind="items.triggerNo"></td>
+									<td align="center" ng-bind="items.triggerTypDesc"></td>
+									<td align="center" ng-bind="items.triggerEventRecogDimenDesc"></td>
+									<td align="center" ng-bind="items.triggerEventInteractModeDesc"></td>
+									<td align="center" width="5%">
+										<div class="table_arrow">
+											<a class="arrow_up" ng-click="exchangeSeqNoUp(items)"></a>
+											<a class="arrow_down" ng-click="exchangeSeqNoDown(items)"></a> 
+										</div>
+									</td>
+									<td align="center">
+										<button class="layui-btn cancel-btn" type="button"
+											ng-click="updateSelect(items,$index)">
+											<i class="layui-icon"></i> {{'F00015' | translate}}
+										</button>
+										<button class="layui-btn cancel-btn" type="button"
+											ng-click="removeSelect($index)">
+											<i class="layui-icon"></i> {{'F00016' | translate}}
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<div class="clearboth"></div>
+						<div class="mainname">{{'PZH100060' | translate}}</div>
+						<div jf-grid="queryUpdateEvent">
+							<table>
+								<thead>
+									<tr>
+										<th align="left" style="width:54%">{{'PZH100061' | translate}}</th>
+										<th align="left" style="width:10%">{{'PZH100062' | translate}}</th>
+										<th align="center" style="width:6%">{{'PZH100063' | translate}}</th>
+										<!-- <th>PCD描述</th> -->
+										<th  align="left" style="width:30%">{{'F00017' | translate}}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+											<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+										</td>
+										<td align="left">{{item.instanCode2}} {{item.instanDesc2}}</td>
+										<td align="center" ng-bind="item.performOrder"></td>
+										<td align="left">
+											<button class="layui-btn cancel-btn" type="button"
+												ng-click="updateSelectAUpdate(item,$index)">
+												<i class="layui-icon"></i>{{'F00081' | translate}}
+											</button>
+											
+											<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+												ng-click="setSelectAUpdate(item,$index)">
+												<i class="layui-icon"></i>{{'F00082' | translate}}
+											</button>
+											<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+												ng-click="setSelectAUpdate(item,$index)">
+												<i class="layui-icon"></i>{{'F00083' | translate}}{{item.pcdDesc}}
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

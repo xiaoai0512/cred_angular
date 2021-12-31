@@ -1,0 +1,68 @@
+<div ng-controller="cstProductCtr-JY">
+	<!-- <div class="leftmenu_navtitle">客户产品列表</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form" name="cstProductItemForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="itemList.params.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" id="cstProItem_idNumber"   validator="noValidator"
+						ng-model="itemList.params.idNumber" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo"
+						type="text" ng-model="itemList.params.externalIdentificationNo"
+						maxlength="19">
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cstProductItemForm"  ng-click="queryProductInf()"
+						type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+			<div ng-show="isShow">
+				<div jf-grid="itemList">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'KHH5000003' | translate}}</th>
+								<th>{{'KHH5000004' | translate}}</th>
+								<th>{{'KHH5000005' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.productObjectCode"></td>
+								<td align="center" ng-bind="item.productDesc"></td>
+								<td align="center" ng-bind="item.coBrandedNo"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		
+	</div>
+</div>

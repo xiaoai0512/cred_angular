@@ -1,0 +1,70 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+ 					"mediaUnitCd":"100000000018M00001",
+ 					"mediaObjCd":"MODM00001",
+ 					"pdObjCd":"MODP00010",
+				    "extIdNo":"62345610040001234",
+				    "primCrdID":"1-主卡",
+				    "userNm":"测试用户三",
+				     "pdUnitCd":"100000000018P00001",
+					 "primCstCd" :"100000000018",
+					 "attCstCd" :"100000000028",
+					 "mediaObjDsc" :"实体卡",
+					 "pdObjDsc" :"银联普卡",
+					 "st":"1-活跃",
+					 "dsc":"银联普卡"
+                },
+                {
+ 					"mediaUnitCd":"100000000018M00002",
+ 					"mediaObjCd":"MODM00001",
+ 					"pdObjCd":"MODP00010",
+				    "extIdNo":"62345610040001234",
+				    "primCrdID":"2-附属卡",
+				    "userNm":"测试用户四",
+				    "pdUnitCd":"100000000018P00002",
+					"primCstCd" :"100000000018",
+					 "attCstCd" :"100000000028",
+					 "mediaObjDsc" :"微信绑定",
+					 "pdObjDsc" :"银联普卡",
+					 "st":"1-活跃",
+ 					"dsc":"银联普卡"
+                },
+                {
+ 					"mediaUnitCd":"100000000018M00003",
+ 					"mediaObjCd":"MODM00002",
+ 					"pdObjCd":"MODP00012",
+				    "extIdNo":"62345610040001234",
+				    "primCrdID":"1-主卡",
+				    "userNm":"测试用户三",
+				    "pdUnitCd":"100000000018P00003",
+					"primCstCd" :"100000000018",
+					 "attCstCd" :"100000000028",
+					 "mediaObjDsc" :"虚拟卡",
+					 "pdObjDsc" :"VISA普卡",
+					 "st":"1-活跃",
+					 "dsc":"VISA普卡"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 1,
+            "total": 3
+        }
+    },
+    "status": 200
+}

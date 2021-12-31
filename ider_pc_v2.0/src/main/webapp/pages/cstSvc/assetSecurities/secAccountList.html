@@ -1,0 +1,25 @@
+<div ng-controller="secAccountListCtrl">
+	<div class="section">
+		<!-- 循环账户信息表 -->
+		<div ng-show="revoleTable">
+			<div class="mainname">{{'KHH47000103' | translate}}</div>
+			<!-- 查询主账户 -->			
+			<div class="page-wrapper">
+				<table id="revoleAccTreeTableSec"></table>
+			</div>
+			<!-- page -->
+     		<div id="secRevPage" style="margin:0 auto;  text-align: right;"></div>
+		</div>
+		<div class="clearboth"></div>
+		<!-- 交易账户信息表 -->
+		<div ng-show="transTable">
+			<div class="mainname">{{'KHH47000115' | translate}}</div>
+			<!-- 查询主账户 -->			
+			<div class="page-wrapper">
+				<table id="transAccTreeTableSec"></table>
+			</div>
+			<!-- page -->
+    		<div id="secTransPage" style="margin:0 auto;  text-align: right;"></div>
+		</div>
+	</div>
+</div>

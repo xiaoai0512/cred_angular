@@ -1,0 +1,71 @@
+<div class="layui-form" ng-controller="cstAdrInfEstbCtrlAdd">
+			<form name="addressInfoForm">
+				<!-- <div class="col_td">
+					<div class="col4 text_right">{{'KHH3400004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="adrlInfTableInfoObj.type" class="layui-input"  validator="required"
+							jf-select="builder.option(typeArray)" name="type" lay-filter="getType">
+						</select>
+					</div>
+				</div> -->
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3400004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="adrlInfTableInfoObj.type" class="layui-input"  validator="required"
+							jf-select="addressTypeArray" name="type" lay-filter="getType">
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3400005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="contactAddress"
+							ng-model="adrlInfTableInfoObj.contactAddress" maxlength="90"
+							validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3400006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="contactPostCode"
+							ng-model="adrlInfTableInfoObj.contactPostCode" maxlength="9"
+							validator="required,number">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3400007' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+							name="contactMobilePhone"
+							ng-model="adrlInfTableInfoObj.contactMobilePhone" maxlength="18"
+							validator="required,number">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3400008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="city" maxlength="30"
+							ng-model="adrlInfTableInfoObj.city" validator="required">
+					</div>
+				</div>
+				<div class="col_td" ng-show="guarantorCertType">
+					<div class="col4 text_right">{{'KHH3400013' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="adrlInfTableInfoObj.guarantorCertType" class="layui-input"  
+							jf-select="certificateTypeArray" name="guarantorCertType"  maxlength="1" >
+						</select>
+					</div>
+				</div>
+				
+				<div class="col_td" ng-show="guarantorCertType">
+					<div class="col4 text_right">{{'KHH3400014' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="guarantorCertNo" maxlength="30" id="guarantorCertNo"
+							ng-model="adrlInfTableInfoObj.guarantorCertNo">
+					</div>
+				</div>
+			</form>
+</div>

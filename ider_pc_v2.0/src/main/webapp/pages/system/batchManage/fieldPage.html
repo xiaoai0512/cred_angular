@@ -1,0 +1,24 @@
+<div class="layout_body" ng-controller="fieldPageCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="mainname" style="display:inline-block;margin-bottom: 10px;width:10%">1.{{'YWH5500065' | translate}}</div>
+		<div style="display:inline-block;"><a  href='{{requestURL}}8085/download/clear' download="clear.zip" type="button" class="layui-btn" style="color: #fff;border-radius: 5px;"><i class="layui-icon">&#xe601;</i>清算文件下载</a></div>
+		<br/>
+		<div class="layui-upload-drag" id="testVISA">
+		  <i class="layui-icon"></i>
+		  <p>{{'YWH5500060' | translate}}</p>
+		</div>
+		<div class="mainname">2.{{'YWH5500061' | translate}}</div>
+		<div class="layui-upload-drag" id="testMC">
+		  <i class="layui-icon"></i>
+		  <p>{{'YWH5500062' | translate}}</p>
+		</div>
+		<div class="mainname">3.{{'YWH5500063' | translate}}</div>
+		<div class="layui-upload-drag" id="testOther">
+		  <i class="layui-icon"></i>
+		  <p>{{'YWH5500064' | translate}}</p>
+		</div>
+	</div>
+</div>

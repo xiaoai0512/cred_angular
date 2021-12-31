@@ -1,0 +1,88 @@
+<div ng-controller="formDemoCtrl">
+	<div class="subposition"><i class="position_icon"></i>当前位置：我的设置 > 常用组件 > 表单组件</div>  
+	<div id="container">
+       	<div class="allcontent">
+       		<form name="fncApplyForm" ng-init="demo={}">
+	         	<div class="col_td">
+	                 <label class="col4 text_right">金额文本：</label>
+	                 <div class="wd190 float_left">
+	                 	<input class="layui-input" jf-format-input="money" ng-model="demo.money" class="layui-input">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	             	<label class="col4 text_right">银行卡文本：</label>
+	                 <div class="wd190 float_left">
+	                 	<input class="layui-input" jf-format-input="bankCard" ng-model="demo.bankcard" class="layui-input">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	                 <label class="col4 text_right">数据字典：</label>
+	                 <div class="wd190 float_left" title="没有分组的数据字典多选框">
+	                 	<input jf-checkbox="builder.option('AbvQtPcsgModCd')" name="checkbox2" ng-model="demo.checkbox2">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	                 <label class="col4 text_right">数据字典：</label>
+	                 <div class="wd190 float_left" title="带有分组的数据字典">
+	                 	<input jf-checkbox="builder.option('AbvQtPcsgModCd','1')" name="checkbox" ng-model="demo.checkbox">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	                 <label class="col4 text_right">多选框：</label>
+	                 <div class="wd190 float_left">
+	                 	<input jf-checkbox="builder.option(demoArray)" name="checkbox3" ng-model="demo.checkbox3">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	                 <label class="col4 text_right">多选框：</label>
+	                 <div class="wd190 float_left" title="不符合动态数据源规范的多选框：(当数据源的数据不是以id为值，name为显示时，需传入数据源的显示字段以及值对应的字段)">
+	                 	<input jf-checkbox="builder.option(demoArray2,'cstId','cstNm')" name="checkbox4" ng-model="demo.checkbox4">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	                 <label class="col4 text_right" ng-click="changeOption()">选项变化：</label>
+	                 <div class="wd190 float_left">
+	                 	<input jf-checkbox="dy" name="checkbox5" ng-model="demo.checkbox5">
+	                 </div>
+	             </div>
+	             <div class="col_td">
+	                 <label class="col4 text_right">下拉框：</label>
+	                 <div class="wd190 float_left">
+	                 	<select jf-select="builder.option(demoArray2,'cstId','cstNm')" ng-model="demo.select1"></select>
+	                 </div>
+	             </div>
+				<div class="col_td">
+	                 <label class="col4 text_right" ng-click="changeOption()">下拉框：</label>
+	                 <div class="wd190 float_left">
+	                 	<select jf-select="dy" ng-model="demo.select2"></select>
+					</div>
+				</div>
+				<div class="col_td">
+	                 <label class="col4 text_right">日期选择：</label>
+	                 <div class="wd190 float_left">
+	                 	 <input class="layui-input icon_date " name="date" type="text" jf-date-input ng-model="demo.date">
+					</div>
+				</div>
+				<div class="col_td">
+	                 <label class="col4 text_right">日期选择：</label>
+	                 <div class="wd190 float_left" title="有最小值的日期选择控件">
+	                 	 <input class="layui-input icon_date " name="date" type="text" jf-date-input="minDate" ng-model="demo.date1">
+					</div>
+				</div>
+			    <div class="col_tr">
+	                 <label class="col2 text_right" >级联下拉框：</label>
+	                 <div class="col8 float_left">
+	                 	<div class="wd190 float_left"><select jf-select="dy1"  ng-model="demo.dy1"></select></div>
+	                 	<div class="wd190 float_left"><select jf-select="dy2"  ng-model="demo.dy2"></select></div>
+	                 	<div class="wd190 float_left"><select jf-select="dy3"  ng-model="demo.dy3"></select></div>
+					</div>
+				</div>
+				
+				<div  class="col_td">
+				<!-- 返回上一个页面，所有页面均可使用返回按钮 -->
+					<button class="layui-btn layui-btn-radius"  ng-click="back()">返回</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

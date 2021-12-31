@@ -1,0 +1,33 @@
+<div ng-controller="businessFormEstCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：业务形态建立
+	</div>
+	<div class="allcontent">
+		<div class="search_mian layui-form">
+			<form name="bsFormInfForm">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>业务形态 ：</div>
+					<div class="wd190 float_left">
+							<!-- <select ng-model="bsInf.businessPattern" class="layui-input" validator="required"  name="businessPattern"
+						jf-select="builder.option(businessPatternArr)" maxlength="2"></select> -->
+							<input class="layui-input" type="text"  name="businessPattern" maxlength="2" validator="required" 
+							ng-model="bsInf.businessPattern" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>描述 ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input" type="text"  name="patternDesc" maxlength="50"
+							ng-model="bsInf.patternDesc" />
+					</div>
+				</div>
+				
+				<div class="col_tr text_center" style="margin-top: 20px">
+					<button class="layui-btn" ng-click="saveBsForm()" validation-submit="bsFormInfForm">
+						<i class="layui-icon">&#xe624;</i> 保存
+					</button>
+				</div>
+			</form>
+	</div>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<div ng-controller="viewLimitListCtrl">
+	<div class=" ">
+		<div class="search_mian layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>运营模式 ：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="limitListInf.operationMode"  validator="required" jf-select="operationModeArr" name="operationMode"  disabled>
+				</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>管控项目编号 ：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="controlProjectNo" maxlength="9" ng-model="limitListInf.controlProjectNo" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>限制事件编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="limitEventNo" maxlength="14" ng-model="limitListInf.limitEventNo" disabled>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

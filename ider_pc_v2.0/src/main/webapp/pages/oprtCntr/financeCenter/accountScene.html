@@ -1,0 +1,75 @@
+<div ng-controller="accountSceneCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：核算场景
+	</div>
+	<div class="allcontent layui-form">
+		<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">核算场景编码：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text" ng-model="accountSceneTable.params.accountingScene">
+					</div>
+				</div>
+				<div class="layui-inline float_right">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="accountSceneTable.search()">
+							<i class="layui-icon">&#xe615;</i> 查询
+						</button>
+						<button class="layui-btn cancel-btn" type="button"
+						ng-click="accountSceneTable.params={}">
+							<i class="layui-icon">&#x1002;</i> 重置
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div jf-grid="accountSceneTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:10%">核算场景编码</th>
+						<th>核算场景描述</th>
+						<th style="width:10%">个人/公司</th>
+						<th style="width:15%">交易状态</th>
+						<th style="width:15%">核算状态</th>
+						<th style="width:8%">资产属性</th>
+						<th style="width:10%">还款类型</th>
+						<th style="width:8%">清算标志</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountingScene"></td>
+						<td align="center">
+							<span ng-if="item.accountingScene == 'A0000001'">个人结计利息</span>
+							<span ng-if="item.accountingScene == 'A0000002'">个人普通还款</span>
+							<span ng-if="item.accountingScene == 'A0000003'">个人非应计转核销</span>
+						</td>
+						<td align="center">
+							<span ng-if="item.personalCompanyType == 'P'">个人</span>
+							<span ng-if="item.personalCompanyType == 'C'">公司</span>
+						</td>
+						<td align="center" ng-bind="item.transStatusDesc"></td>
+						<td align="center" ng-bind="item.acctStatusDesc"></td>
+						<td align="center">
+							<span ng-if="item.assetAttributes == '0'">正常</span>
+							<span ng-if="item.assetAttributes == '1'">证券化</span>
+						</td>
+						<td align="center" ng-bind="item.paymentTypeDesc"></td>
+						<td align="center">
+							<span ng-if="item.clearingSign == '0'">入账币种清算</span>
+							<span ng-if="item.clearingSign == '1'">非入账币种清算</span>
+						</td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="updateScene(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	
+</div>

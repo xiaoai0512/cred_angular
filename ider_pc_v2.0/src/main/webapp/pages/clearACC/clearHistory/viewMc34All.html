@@ -1,0 +1,353 @@
+<div class="layui-form" ng-controller="clearHistoryListCtrl">
+    <form name="addVheInfoForm">
+
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500095' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de33FwdInstIdCode"
+                       ng-model="queryMcAll.de33FwdInstIdCode" maxlength="16"
+                       validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500096' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de100ReceInstIdCode"
+                       ng-model="queryMcAll.de100ReceInstIdCode" maxlength="10"
+                       validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500097' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de94TransOrigInst"
+                       ng-model="queryMcAll.de94TransOrigInst" maxlength="4"
+                       validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500098' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text"
+                       name="de93TransDestInst"
+                       ng-model="queryMcAll.de93TransDestInst" maxlength="2"
+                       validator="required,number" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500144' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de24FunctionCode" maxlength="10"
+                       ng-model="queryMcAll.de24FunctionCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500099' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de25MessageReasonCode" maxlength="4"
+                       ng-model="queryMcAll.de25MessageReasonCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500145' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds228RetrievalDocCode" maxlength="20"
+                       ng-model="queryMcAll.pds228RetrievalDocCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500146' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de95CardIssuerReferData" maxlength="20"
+                       ng-model="queryMcAll.de95CardIssuerReferData" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500150' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds260EditExclusionInd" maxlength="20"
+                       ng-model="queryMcAll.pds260EditExclusionInd" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500151' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de72DataRecord" maxlength="20"
+                       ng-model="queryMcAll.de72DataRecord" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500101' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de2PrimaryAccountNumber" maxlength="20"
+                       ng-model="queryMcAll.de2PrimaryAccountNumber" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500102' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de31AcquirerReferenceData" maxlength="20"
+                       ng-model="queryMcAll.de31AcquirerReferenceData" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500103' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de4TransactionAmount" maxlength="20"
+                       ng-model="queryMcAll.de4TransactionAmount" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500104' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de49TransCurrencyCode" maxlength="20"
+                       ng-model="queryMcAll.de49TransCurrencyCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500147' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de30OrigTransAmt" maxlength="20"
+                       ng-model="queryMcAll.de30OrigTransAmt" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500148' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds149OrigTransCurrCode" maxlength="20"
+                       ng-model="queryMcAll.pds149OrigTransCurrCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500109' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de54AdditionalAmount" maxlength="20"
+                       ng-model="queryMcAll.de54AdditionalAmount" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500110' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de54AdditionalCurrencyCode" maxlength="20"
+                       ng-model="queryMcAll.de54AdditionalCurrencyCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500111' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de54AdditionalAmountType" maxlength="20"
+                       ng-model="queryMcAll.de54AdditionalAmountType" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500116' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de3ProcessingCode" maxlength="20"
+                       ng-model="queryMcAll.de3ProcessingCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500117' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de12LocalTransDate" maxlength="20"
+                       ng-model="queryMcAll.de12LocalTransDate" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500118' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de40ServiceCode" maxlength="20"
+                       ng-model="queryMcAll.de40ServiceCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500119' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de12LocalTransTime" maxlength="20"
+                       ng-model="queryMcAll.de12LocalTransTime" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500120' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de22PosEntryMode" maxlength="20"
+                       ng-model="queryMcAll.de22PosEntryMode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500121' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de41CardAcptrTerminalId" maxlength="20"
+                       ng-model="queryMcAll.de41CardAcptrTerminalId" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500122' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de38ApprovalCode" maxlength="20"
+                       ng-model="queryMcAll.de38ApprovalCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500123' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds23TerminalType" maxlength="20"
+                       ng-model="queryMcAll.pds23TerminalType" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500124' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds158BusinessActivity" maxlength="20"
+                       ng-model="queryMcAll.pds158BusinessActivity" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500125' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de63TraceId" maxlength="20"
+                       ng-model="queryMcAll.de63TraceId" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500126' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds190PartnerId" maxlength="20"
+                       ng-model="queryMcAll.pds190PartnerId" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500127' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds176MastercardAssignedId" maxlength="20"
+                       ng-model="queryMcAll.pds176MastercardAssignedId" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500152' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de14ExpirationDate" maxlength="20"
+                       ng-model="queryMcAll.de14ExpirationDate" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500129' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds44ProgParticipationInd" maxlength="20"
+                       ng-model="queryMcAll.pds44ProgParticipationInd" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500155' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds200FraudNotificationDate" maxlength="20"
+                       ng-model="queryMcAll.pds200FraudNotificationDate" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500131' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds52ElectComScyLevelInd" maxlength="20"
+                       ng-model="queryMcAll.pds52ElectComScyLevelInd" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500132' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds43ProgramRegistrationId" maxlength="20"
+                       ng-model="queryMcAll.pds43ProgramRegistrationId" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500135' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds170AdditionalContactInf" maxlength="20"
+                       ng-model="queryMcAll.pds170AdditionalContactInf" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500154' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds210TransitProgram" maxlength="20"
+                       ng-model="queryMcAll.pds210TransitProgram" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500153' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds207WalletIdentifier" maxlength="20"
+                       ng-model="queryMcAll.pds207WalletIdentifier" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500133' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds170CustServicePhoneNbr" maxlength="20"
+                       ng-model="queryMcAll.pds170CustServicePhoneNbr" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500134' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="pds170CardAcptrPhoneNbr" maxlength="20"
+                       ng-model="queryMcAll.pds170CardAcptrPhoneNbr" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500136' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de42CardAcceptorIdCode" maxlength="20"
+                       ng-model="queryMcAll.de42CardAcceptorIdCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500137' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de26Mcc" maxlength="20"
+                       ng-model="queryMcAll.de26Mcc" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500138' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de43CardAcceptorName" maxlength="20"
+                       ng-model="queryMcAll.de43CardAcceptorName" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500139' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de43CardAcptrStreetAddr" maxlength="20"
+                       ng-model="queryMcAll.de43CardAcptrStreetAddr" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500140' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de43CardAcceptorCity" maxlength="20"
+                       ng-model="queryMcAll.de43CardAcceptorCity" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500141' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de43CardAcceptorState" maxlength="20"
+                       ng-model="queryMcAll.de43CardAcceptorState" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500142' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de43CardAcptrCountryCode" maxlength="20"
+                       ng-model="queryMcAll.de43CardAcptrCountryCode" validator="required" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'QFH500143' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="de43CardAcceptorZipCode" maxlength="20"
+                       ng-model="queryMcAll.de43CardAcceptorZipCode" validator="required" disabled>
+            </div>
+        </div>
+    </form>
+</div>

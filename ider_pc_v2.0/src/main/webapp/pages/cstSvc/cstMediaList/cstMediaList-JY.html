@@ -1,0 +1,118 @@
+<div class="layout_body" ng-controller="cstMediaListCtrl-JY">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：客户媒介列表查询
+	</div>
+	<div class="search_mian">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">证件号码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.idNumber">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">外部识别号：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			
+			<div class="layui-inline">
+				<label class="layui-form-label">客户代码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.customerNo">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">手机号码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.phoneNumber">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="checkPdListInfo()">
+						<i class="layui-icon">&#xe615;</i> 查询
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="itemList.params={}">
+						<i class="layui-icon">&#x1002;</i> 重置
+					</button>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">产品对象代码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.pdObjCd ">
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- -------------------------------客户基本信息 ------------------------------------------------->
+	<div class="search_mian">
+		<div class="mainname">客户基本信息</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-inline">
+			<label class="layui-form-label">客户代码：</label>
+			<div class="layui-input-inline">
+				<input class="layui-input" type="text" value="100000000018"
+					disabled="disabled">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">客户姓名：</label>
+			<div class="layui-input-inline">
+				<input class="layui-input" type="text" value="测试用户三"
+					disabled="disabled">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">证件号码：</label>
+			<div class="layui-input-inline">
+				<input class="layui-input" type="text" value="11002198103020019"
+					disabled="disabled">
+			</div>
+		</div>
+	</div>
+	<!-- ---------------------------------------客户媒介信息---------------------------------------------------  -->
+	<div class="search_mian">
+		<div class="mainname">客户媒介信息</div>
+	</div>
+	<div jf-grid="cstMediaList">
+		<table>
+			<thead>
+				<tr>
+					<th>媒介对象代码</th>
+					<th>外部识别号</th>
+					<th>主附卡标识</th>
+					<th>媒介对象描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					
+					<td align="center" ng-bind="item.mediaObjCd"></td>
+					<td align="center" ng-bind="item.extIdNo"></td>
+					<td align="center" ng-bind="item.primCrdID"></td>
+					<td align="center" ng-bind="item.mediaObjDsc"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkAcbaDtlEnqr(item)">
+							<i class="layui-icon layui-icon-more">&#xe65f;</i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

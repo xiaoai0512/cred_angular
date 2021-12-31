@@ -1,0 +1,101 @@
+<div ng-controller="searchAccountCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+				<div class="mainname">{{'KHH2000028' | translate}}</div>
+				<!-- 表格操作列 -->
+			<!--  <script type="text/html" id="accListTableBar">
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="queryBalanceUnitList">查询余额单元</a>
+        	</script> -->
+				<!-- 查询主账户 -->
+				<div class="page-wrapper">
+					<table id="accListTable"></table>
+				</div>
+				<!-- page -->
+    			<div id="occurrPage" style="margin:0 auto;  text-align: right;"></div>
+				<!-- <div jf-grid="accListTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:15%">{{'KHH2000029' | translate}}</th>
+								<th>{{'KHH2000007' | translate}}</th>
+								<th>{{'KHH2000030' | translate}}</th>
+								<th>{{'KHH2000031' | translate}}</th>
+								<th>{{'KHH2000032' | translate}}</th>
+								<th>{{'KHH2000033' | translate}}</th>
+								<th>{{'KHH2000034' | translate}}</th>
+								<th style="width:12%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width:20%" align="center" ng-bind="item.accountId"></td>
+								<td align="left">
+									<span  ng-bind="item.currencyCode"></span>
+									<span  ng-bind="item.currencyDesc"></span>
+								</td>
+								<td align="center" ng-bind="item.businessTypeCode"></td>
+								<td align="center" ng-bind="item.productObjectCode"></td>
+								<td align="center">
+									<span ng-if="item.accountOrganForm=='R'">{{'KHH2000035' | translate}}</span>
+									<span ng-if="item.accountOrganForm=='T'">{{'KHH2000036' | translate}}</span>
+								</td>
+								<td align="center">
+									<span ng-if="item.businessDebitCreditCode=='C'">{{'KHH2000037' | translate}}</span>
+									<span ng-if="item.businessDebitCreditCode=='D'">{{'KHH2000038' | translate}}</span>
+								</td>
+								<td align="center" style="width:12%">
+									<span ng-if="item.statusCode==1">{{'KHH2000039' | translate}}</span>
+									<span ng-if="item.statusCode==2">{{'KHH2000040' | translate}}</span>
+									<span ng-if="item.statusCode==3">{{'KHH2000041' | translate}}</span>
+									<span ng-if="item.statusCode==8">{{'KHH2000042' | translate}}</span>
+									<span ng-if="item.statusCode==9">{{'KHH2000043' | translate}}</span>
+								</td>
+								<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="queryBalanceUnitList(item)">
+									{{'F00047' | translate}}
+								</button>
+							</td>
+							</tr>
+						</tbody>
+					</table>
+				</div> -->
+            <div ng-if="balanceUnitTableShow">
+				<div class="mainname">{{'KHH2000044' | translate}}</div>
+				<div jf-grid="balanceUnitTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:20%">{{'KHH2000005' | translate}}</th>
+								<th>{{'KHH2000007' | translate}}</th>
+								<th>{{'KHH2000045' | translate}}</th>
+								<th style="width:15%">{{'KHH2000050' | translate}}</th>
+								<th>{{'KHH2000046' | translate}}</th>
+								<th>{{'KHH2000006' | translate}}</th>
+								<th>{{'KHH2000047' | translate}}</th>
+								<th>{{'KHH2000048' | translate}}</th>
+								<th>{{'KHH2000049' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width:20%" align="center" ng-bind="item.balanceUnitCode"></td>
+								<td align="left">
+									<span  ng-bind="item.currencyCode"></span>
+									<span  ng-bind="item.currencyDesc"></span>
+								</td>
+								<td align="center" ng-bind="item.cycleNumber"></td>
+								<td style="width:15%" align="center" ng-bind="item.balanceObjectCode"></td>
+								<td align="center" ng-bind="item.balanceTypeDesc"></td>
+								<td align="center" ng-bind="item.balance"></td>
+								<td align="center" ng-bind="item.annualInterestRate"></td>
+								<td align="center" ng-bind="item.accumulatedInterest"></td>
+								<td align="center" ng-bind="item.currentMinPayment"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+            </div>
+		</div>
+	</div>
+</div>

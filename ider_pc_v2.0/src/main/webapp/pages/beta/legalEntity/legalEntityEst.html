@@ -1,0 +1,44 @@
+<div ng-controller="legalEntityEstCtrl">
+	<!-- <div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}锛歿{menuName}}
+	</div> -->
+	<div class="search_mian layui-form">
+		<form name="bsFormInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1200001' | translate}} : </div>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="corporationEntityNo" maxlength="10" validator="required" 
+						ng-model="legalEntityBsf.corporationEntityNo" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1200002' | translate}} : </div>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="corporationEntityName" maxlength="50" validator="required"
+						ng-model="legalEntityBsf.corporationEntityName" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH1200003' | translate}} : </div>
+				<div class="wd190 float_left">
+						<select ng-model="legalEntityBsf.systemUnitNo"   jf-select="systemUnitArr" name="systemUnitNo" maxlength="3" validator="required" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZJ1200003' | translate}} : </div>
+				<div class="wd190 float_left">
+						<select ng-model="legalEntityBsf.operationMode"   jf-select="operationModeArr" name="operationMode" validator="required">
+					</select>
+				</div>
+			</div>
+			
+			<!-- <div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="saveBsForm()" validation-submit="bsFormInfForm">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div> -->
+		</form>
+	</div>
+
+</div>

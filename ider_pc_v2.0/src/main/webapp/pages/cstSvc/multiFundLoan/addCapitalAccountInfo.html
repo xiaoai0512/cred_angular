@@ -1,0 +1,95 @@
+<div ng-controller="addCapitalAccountInfoCtrl">
+	<div class="">
+		<form name="balanceObjForm" class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800018' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="corporationEntityNo"   jf-select="customerNameArr"
+							lay-filter="getCustomerName"  name="corporationEntityNo" validator="required" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800019' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="corporationEntityName"
+						   name="corporationEntityName" type="text" validator="required" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800026' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="accountInfo.accountName"
+						   name="accountName" type="text" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800027' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="accountInfo.bankName"
+						   name="bankName" type="text" validator="required">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800028' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="accountInfo.bankNo"
+						   name="bankNo" type="text" validator="required,maxlength" maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800029' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="accountInfo.cashOrRemit"  jf-select="cashOrRemitArray"
+							validator="required" lay-filter="cashOrRemit"  name="cashOrRemit">
+					</select>
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800031' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="accountInfo.accountNo"
+						   name="accountNo" type="text" validator="required,maxlength" maxlength="19">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800030' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select  ng-model="accountInfo.accountCcy"
+							 jf-select="accountCcyArray"  lay-filter="accountCcy" validator="required" name="accountCcy" >
+					</select>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800034' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="accountInfo.accountInfo"
+						 name="accountInfo" type="text" validator="required">
+				</div>
+			</div> -->
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800033' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="accountInfo.accountInd"
+							jf-select="accountIndArr" validator="required" lay-filter="accountInd"  name="accountInd" >
+					</select>
+				</div>
+			</div>
+			<!-- <div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800035' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="accountInfo.ldgrCode"
+						 name="ldgrCode" type="text" validator="required" >
+				</div>
+			</div> -->
+			<div class="col_td" >
+				<div class="col4 text_right"><span class="red">*</span>{{'FQH800032' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="accountInfo.accountType"
+							jf-select="accountTypeArray" validator="required" lay-filter="accountType"  name="accountType" >
+					</select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

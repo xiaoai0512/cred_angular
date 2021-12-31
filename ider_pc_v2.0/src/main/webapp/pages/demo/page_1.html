@@ -1,0 +1,77 @@
+<div class="section" id="leftmenuid01" ng-controller="page1Ctrl">
+	<div class="leftmenu_navtitle">申请信息</div>
+	<div class="allcontent">
+	 	<form name="infoForm">
+           <div class="col_td">
+                <div class="col4 text_right">申请编号：</div>
+                <div class="wd190 float_left">
+                         <input class="layui-input"  validator="intOrEng"  type="text" autocomplete="off" ng-model="infoData.cstNub">
+                </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">申请产品种类：</div>
+                <div class="wd190 float_left">
+                     <select jf-select="builder.option(demoArray2,'prdId','prdNm')"  ng-model="infoData.select1"></select>
+               </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right"><i class="red_input">*</i>申请人：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" name="cstNm" validator="required"  autocomplete="off" ng-model="infoData.cstNm"></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right"><i class="red_input">*</i>申请期限：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" name="cstDate"  validator="required"  autocomplete="off" ng-model="infoData.cstDate"></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">是否有效：</div>
+                <div class="wd190 float_left"><input name="close" type="checkbox"  lay-skin="switch" lay-text="是|否" checked></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">性别：</div>
+                <div class="wd190 float_left">
+                    <input title="男" name="sex" value="男" checked type="radio">
+                    <input title="女" name="sex" value="女" type="radio">
+                </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">申请日期：</div>
+                <div class="wd190 float_left"><input id="test1" class="layui-input" type="text"></div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">状态：</div>
+                <div class="wd190 float_left">
+                     <select name="select" id="select">
+                        <option>请选择</option>
+                        <option>有效</option>
+                        <option>无效</option>
+                     </select>
+               </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right">申请模式：</div>
+                <div class="wd190 float_left">
+                     <select name="select" id="select">
+                        <option>请选择</option>
+                        <option>线上申请</option>
+                        <option>线下申请</option>
+                     </select>
+               </div>
+           </div>
+           <div class="col_td">
+                <div class="col4 text_right" ng-click="hideNav()">隐藏1,3导航：</div>
+                <div class="wd190 float_left"><input class="layui-input" type="text" autocomplete="off"></div>
+           </div>
+           <div class="col_tr">
+                <div class="col2 text_right" ng-click="showNav()">显示1,2导航：</div>
+                <div class="col8 float_left"><input title="应收类" name="check1" type="checkbox" lay-skin="primary"> <input title="应收类" name="check1" type="checkbox" lay-skin="primary"> <input title="应收类" name="check1" type="checkbox" lay-skin="primary"> <input title="应收类" name="check1" type="checkbox" lay-skin="primary"> <input title="应收类" name="check1" type="checkbox" lay-skin="primary"> <input title="预付类" name="check1" type="checkbox" lay-skin="primary"> <input title="汽车金融" name="check1" type="checkbox" lay-skin="primary"> <input title="池融资" name="check1" type="checkbox" lay-skin="primary"> <input title="保理" name="check1" type="checkbox" lay-skin="primary"> <input title="应收账款融资" name="check1" type="checkbox" lay-skin="primary"> <input title="保理融资" name="check1" type="checkbox" lay-skin="primary"> </div>
+           </div>
+           <div class="col_tr">
+                <div class="col2 text_right" ng-click="showAllNav()">显示所有导航：</div>
+           </div>
+   		 </form>
+     </div>
+    <div class="scrbtn">
+          <button class="layui-btn"  validation-submit="infoForm" ng-click="editInfo();"><i class="layui-icon">&#x1005;</i> 提 交</button>
+          <button class="layui-btn"> <i class="layui-icon">&#x1006;</i> 取消</button>
+    </div>
+</div><!--leftmenuid01_end-->

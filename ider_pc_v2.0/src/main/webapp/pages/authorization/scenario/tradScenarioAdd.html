@@ -1,0 +1,29 @@
+<div ng-controller="tradScenarioAddCtrl">
+    <div class="">
+        <form name="tradScenarioAddForm" class="layui-form">
+            <div class="col_tr">
+                <div class="col2 text_right"><span class="red">*</span>{{'F00077' | translate}} ：</div>
+                <div class="wdper70 float_left">
+                    <select class="layui-input" jf-select="coArray" name="operationModeNa"
+                            ng-model="tardadd.operationMode" validator="required"></select>
+                </div>
+            </div>
+            <div class="col_tr">
+                <div class="col2 text_right"><span class="red">*</span>{{'SQH9100005' | translate}} ：</div>
+                <div class="wdper70 float_left">
+                    <input class="layui-input" type="text" name="transSceneCodeNa"
+                           ng-model="tardadd.transSceneCode" validator="required" maxlength="4" validator="required"/>
+                </div>
+            </div>
+            <div class="col_tr">
+                <div class="col2 text_right"><span class="red">*</span>{{'SQH9100006' | translate}}：</div>
+                <div class="wdper70 float_left">
+                    <input class="layui-input" type="text" name="transSceneDesc" ng-model="tardadd.transSceneDesc"
+                           validator="required,maxlength" maxlength="50">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

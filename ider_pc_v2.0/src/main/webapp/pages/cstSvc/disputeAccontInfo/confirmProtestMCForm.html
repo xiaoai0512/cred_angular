@@ -1,0 +1,240 @@
+<div ng-controller="confirmProtestMCFormCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'KHH47000185' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.mti" name="mti" type="text" maxlength="4" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000146' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.customerNo" name="customerNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td" style="display:none">
+				<div class="col4 text_right">{{'KHH47000186' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.processingCode" name="processingCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000187' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.dateAndTime" name="dateAndTime" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000188' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.dateExpiration" name="dateExpiration" type="text" disabled="disabled">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000189' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.posEntryMode" name="posEntryMode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000190' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="protestMCFormInf.functionCode" class="layui-input" jf-select="functionCodeArray"  name="functionCode"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000191' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="protestMCFormInf.messageReasonCode" class="layui-input" jf-select="builder.option(typeArray2)"  name="messageReasonCode"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000143' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.mcc" name="mcc" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000150' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.transAmt" name="transAmt" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000192' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestMCFormInf.originalAmountReconciliation" name="originalAmountReconciliation" type="text" maxlength="12">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000193' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000194' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.acqId" name="acqId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000195' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.forwdInstitIdCode" name="forwdInstitIdCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000196' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.retrievalReferNum" name="retrievalReferNum" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000181' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.authApprovalCde" name="authApprovalCde" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000197' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.serviceCode" name="serviceCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000198' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.terminateIdentNo" name="terminateIdentNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000184' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.merchantCde" name="merchantCde" type="text" disabled="disabled">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000199' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.cardAcceptorName" name="cardAcceptorName" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000200' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestMCFormInf.additionalData" name="additionalData" type="text" maxlength="999">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000201' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.terminalType" name="terminalType" type="text" disabled="disabled">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000202' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.messageReversalIndicator" name="messageReversalIndicator" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000203' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.electronicCommerceSecurityLevelIndicator" name="electronicCommerceSecurityLevelIndicator" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000204' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.currencyExponents" name="currencyExponents" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000205' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.currencyCodesAmountsOriginal" name="currencyCodesAmountsOriginal" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000206' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.businessActivity" name="businessActivity" type="text" disabled="disabled">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000207' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.settlementIndicator" name="settlementIndicator" type="text" disabled="disabled">
+				</div>
+			</div>			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000208' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.masterCardAssignedId" name="masterCardAssignedId" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000209' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.exclusionRequestCode" name="exclusionRequestCode" type="text" disabled="disabled">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000210' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.documentationIndicator" name="documentationIndicator" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000211' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestMCFormInf.amountsAdditional" name="amountsAdditional" type="text" maxlength="120">
+				</div>
+			</div>				
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000212' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.transLifeCycleId" name="transLifeCycleId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td" style="display:none">
+				<div class="col4 text_right">{{'KHH47000213' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.messageNumber" name="messageNumber" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000214' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestMCFormInf.dataRecord" name="dataRecord" type="text" maxlength="999">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000215' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.transOriginInstit" name="transOriginInstit" type="text" disabled="disabled">
+				</div>
+			</div>							
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000216' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  ng-model="protestMCFormInf.cardIssuerReferenceData" name="cardIssuerReferenceData" type="text" maxlength="10">
+				</div>
+			</div>								
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH47000161' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="protestMCFormInf.oldGlobalSerialNumbr" name="oldGlobalSerialNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

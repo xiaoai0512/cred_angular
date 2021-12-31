@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "checked": false,
+      "id": "si_min",
+      "name": "思明区",
+      "open": false,
+      "pId": "xia_men"
+    },
+    {
+      "checked": false,
+      "id": "hu_li",
+      "name": "湖里区",
+      "open": false,
+      "pId": "xia_men"
+    },
+    {
+      "checked": false,
+      "id": "ji_mei",
+      "name": "集美区",
+      "open": false,
+      "pId": "xia_men"
+    },
+    {
+      "checked": false,
+      "id": "hai_cang",
+      "name": "海沧区",
+      "open": false,
+      "pId": "xia_men"
+    }
+
+  ],
+  "status": 200
+}

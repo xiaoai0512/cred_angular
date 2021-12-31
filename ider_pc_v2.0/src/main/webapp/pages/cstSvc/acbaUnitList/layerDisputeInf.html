@@ -1,0 +1,193 @@
+<div ng-controller="layerDisputeCtrl">
+	<div class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4400003' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.currencyCode" name="currencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4400012' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.oldGlobalSerialNumbr" name="oldGlobalSerialNumbr" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400006' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.disputeAmount"  name="disputeAmount" jf-format-input="money"  type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4400007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.blanceAmount" name="blanceAmount" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4400008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.overpayFreezeAmount"  name="overpayFreezeAmount" jf-format-input="money"  type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeInf.overpayFreezeStatus"
+					jf-select="builder.option(overpayFreezeStatusArr)" name="overpayFreezeStatus"  disabled="disabled">
+				</select>
+			
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400009' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.freeDate" name="freeDate" type="text" disabled="disabled">
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400014' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.interestExpirationDate"  name="interestExpirationDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400015' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.interestAmt" name="interestAmt" jf-format-input="money"  type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400016' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeInf.amtOccFlag"
+					jf-select="builder.option(amtOccFlagArr)" name="amtOccFlag" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" ng-model="disputeInf.businessProgramNo" name="businessProgramNo" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.businessProgramNo}}</span> <span>{{disputeInf.programDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400010' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone"  ng-model="disputeInf.businessTypeCode" name="businessTypeCode" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.businessTypeCode}}</span> <span>{{disputeInf.businessDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" ng-model="disputeInf.customerNo" name="customerNo" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.customerNo}}</span> 
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400018' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone"  ng-model="disputeInf.organNo" name="organNo" type="text" disabled="disabled"> -->
+				<span>{{disputeInf.organNo}}</span> <span>{{disputeInf.organName}}</span>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right"> {{'KHH4400019' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.operationMode" name="operationMode" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right"> {{'KHH4400020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.accountOrganFormTrans" name="accountOrganForm" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400021' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.businessDebitCreditCodeTrans" name="businessDebitCreditCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400022' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.cycleModeFlag" name="cycleModeFlag" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400023' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="disputeInf.statusCode"
+					jf-select="builder.option(statusCodeArr)" name="statusCode" disabled>
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4400024' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.paymentDueDate" name="paymentDueDate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4400025' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.delinquencyDate" name="delinquencyDate" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'KHH4400026' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.accountingStatusCode" name="accountingStatusCode" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right">收单参考号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">渠道代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.channelCde" name="channelCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">商户类别码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.mcc" name="mcc" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">商户代码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="disputeInf.merchantCde" name="merchantCde" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">全局流水号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="disputeInf.globalSerialNumbr" name="globalSerialNumbr" type="text" disabled="disabled">
+			</div>
+		</div> -->
+	</div>
+</div>

@@ -1,0 +1,115 @@
+<div ng-controller="quotatreeUpdateCtrl">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH2000064' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}}：</div>
+			<div class="wd190 float_left">
+				<!-- <input class="layui-input bnone" name="operationModeNa"  ng-model="operationModeC"  type="text" readonly> -->
+				<select ng-model="operationModeInfo" class="layui-input" lay-search=""
+							jf-select="coArray" name="operationModeNa" placeholder="运营模式" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000065' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="creditTreeIdN"  ng-model="item.creditTreeId"  type="text" readonly >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000066' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="creditNodeNoN"  ng-model="item.creditNodeNo"  type="text" readonly >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000067' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="creditDescN" ng-model="item.creditDesc"  type="text" validator="required">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2000068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000069' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="item.creditNodeTyp" class="layui-input" lay-search=""
+							jf-select="nodeArray" name="creditNodeTypN"  lay-filter="getUpdateNode" placeholder="节点类型" validator="required" disabled></select>
+			</div>
+		</div>
+		<div class="col_td" ng-if="isb">
+			<div class="col4 text_right">{{'SQH2000073' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="item.creditCategory" class="layui-input" lay-search=""
+							jf-select="typeArray" name="creditCategoryN" placeholder="额度种类"></select>
+			</div>
+		</div>
+		<div class="col_td" ng-if="isb">
+			<div class="col4 text_right">{{'SQH2000074' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="item.creditProperty" class="layui-input" lay-search=""
+							jf-select="natureArray" name="creditPropertyN" placeholder="额度性质"></select> 
+			</div>
+		</div>
+		<div class="col_td" ng-if="isS">
+			<div class="col4 text_right">{{'SQH2000078' | translate}} ：</div>
+				<div class="wd190 float_left">
+				<!-- <input class="layui-input" name="contrlSceneCode"  type="text"  ng-model=""  > -->
+				<select class="layui-input" jf-select="contrlSceneCodeArray" lay-search="" name="contrlSceneCodeN" ng-model="item.contrlSceneCode"></select>
+		    </div>
+	    </div>
+		<div class="col_td" ng-if="isb">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000082' | translate}} ：</div>
+			<div class="wd190 float_left">
+				 <input class="layui-input" name="creditRestoreSeq"  type="text"  ng-model="item.creditRestoreSeq" >
+	        </div>
+        </div>
+        <!-- <div class="col_td" ng-if="isb">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000092' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="item.creditDiffFlag" class="layui-input" lay-search=""
+							jf-select="creditDiffFlagArray" name="creditDiffFlagN" placeholder="个性化标志" ></select>
+			</div>
+		</div> -->
+		<div ng-show="instanSceneShow">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'SQH2000093' | translate}}</div>
+		<div jf-grid="queryMODP">
+			<table>
+				<thead>
+					<tr>
+						<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+						<!-- <th>PCD描述</th> -->
+						<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+							
+						</td>
+						<td align="left">
+							
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="updateSelectAUpdate(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+							
+							<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+								ng-click="setSelectAUpdate(item,$index)">
+								<i class="layui-icon"></i> {{'F00082' | translate}}
+							</button>
+							<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+								ng-click="setSelectAUpdate(item,$index)">
+								<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,79 @@
+<div ng-controller="quotaNodeDelCtrl">
+    <div>
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH2100068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}}：</div>
+			<div class="wd190 float_left " >
+				<select ng-model="operationModeInfo" class="layui-input"
+							jf-select="coArray" name="operationModeN" placeholder="运营模式" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000065' | translate}} ：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="creditTreeIdN" ng-model="item.creditTreeId"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000066' | translate}} ：</div>
+			<div class="wd190 float_left ">
+			<!-- 	<input class="layui-input bnone" name="creditNodeNoN" ng-model="item.creditNodeNo"  type="text" > -->
+				<!--<select ng-model="item.creditNodeNo" class="layui-input"
+							jf-select="creidtArrayD" name="creditNodeNoN" placeholder="额度节点" lay-filter="getRiskLimitsDel"></select>-->
+				<input class="layui-input bnone" name="creditNodeNoN" ng-model="item.creditNodeNo"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000067' | translate}}：</div>
+			<div class="wd190 float_left ">
+				<input class="layui-input bnone" name="creditDescN" ng-model="item.creditDesc"  type="text" readonly>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2000068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2000069' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="creditNodeTyp" class="layui-input"
+							jf-select="nodeArray" name="creditNodeTypN"  placeholder="节点类型" disabled></select>
+			</div>
+		</div>
+		<div class="col_td" ng-if="isb">
+			<div class="col4 text_right">{{'SQH2000073' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="creditCategory" class="layui-input"
+							jf-select="typeArray" name="creditCategoryN" placeholder="额度种类" disabled></select>
+			</div>
+		</div>
+		<div class="col_td" ng-if="isb">
+			<div class="col4 text_right">{{'SQH2000074' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="creditProperty" class="layui-input"
+							jf-select="natureArray" name="creditPropertyN" placeholder="额度性质" disabled></select> 
+			</div>
+		</div>
+		<div class="col_td" ng-if = "isb">
+			<div class="col4 text_right">{{'SQH2000078' | translate}} ：</div>
+			<div class="wd190 float_left">
+				 <!-- <input class="layui-input" name="contrlSceneCode"  type="text"  ng-model="item.contrlSceneCode"  > -->
+				 <select class="layui-input" jf-select="contrlSceneCodeDelArray" lay-search="" name="contrlSceneCodeN" ng-model="contrlSceneCode" disabled></select>
+	        </div>
+        </div>
+		<div class="col_td" ng-if="isb">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000082' | translate}} ：</div>
+			<div class="wd190 float_left">
+				 <input class="layui-input" name="creditRestoreSeq"  type="text"  ng-model="item.creditRestoreSeq" disabled>
+	        </div>
+        </div>
+        <!-- <div class="col_td" ng-if="isb">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2000092' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="item.creditDiffFlag" class="layui-input" lay-search=""
+							jf-select="creditDiffFlagArray" name="creditDiffFlagN" placeholder="个性化标志" disabled></select>
+			</div>
+		</div> -->
+		<div class=" clearboth"></div>
+	</form>	 
+	</div>
+</div>

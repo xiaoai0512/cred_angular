@@ -1,0 +1,63 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+					 "oprtMode": "A01",
+					 "prcgLbl" : "M01D00001",
+					 "prcgObj":  "809AAA01",
+					 "prcgRgon": "D-差异化",
+					 "prty":  "010",
+					 "prcgMod":  "I-继承",
+					 "dsc": "基准消费利率*80%",
+					 "val":"0000000080",
+					 "decDgt":"8",
+					 "valTp":"P-百分比"
+                },
+                {
+					 "oprtMode": "A01",
+					 "prcgLbl" : "M01D00002",
+					 "prcgObj":  "809AAA01",
+					 "prcgRgon": "P-个性化",
+					 "prty":  "020",
+					 "prcgMod":  "O-覆盖",
+					 "dsc": "VIP客群利率8%",
+					  "val":"0000000080",
+					 "decDgt":"8",
+					 "valTp":"P-百分比"
+                },
+                {
+					 "oprtMode": "A01",
+					 "prcgLbl" : "M01D00003",
+					 "prcgObj":  "809AAA01",
+					 "prcgRgon": "A-活动",
+					 "prty":  "030",
+					 "prcgMod":  "T-取优",
+					 "dsc": "双11促销利率10%",
+					  "val":"0000000080",
+					 "decDgt":"8",
+					 "valTp":"P-百分比"
+                }
+               
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 3
+        }
+        
+    },
+    "status": 200
+}

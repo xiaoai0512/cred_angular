@@ -1,0 +1,70 @@
+<div ng-controller="exceptionListCtrlD">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form name="mdmInfoFormV"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00111' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="externalIdentificationNoV" ng-model="item.externalIdentificationNo" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="cardAssociationsV" ng-model="item.cardAssociations" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="contrlReportDateV" ng-model="item.contrlReportDate" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="contrlReportTmV" ng-model="item.contrlReportTm" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600005' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="contrlDelDateV" ng-model="item.contrlDelDate" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="contrlDescV" ng-model="item.contrlDesc" type="text" readonly>
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+				<div class="mainname titleInfo">{{'SQH2600007' | translate}}</div>
+				<div class="col_td">
+				<div class="col4 text_right">{{'SQH2600008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  bnone" name="contrlReasonV" ng-model="item.contrlReason" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600009' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone " name="actCodeV" ng-model="item.actCode" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600010' | translate}}：</div>
+					<div class="wd25 float_left" style="margin-right:1px" ng-repeat="cpc in cwbZoneCodesdList">
+						<input class="layui-input bnone " name="cwbZoneCode1V" ng-model="cpc.cwbZoneCode" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2600011' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone " name="syncFlagV" ng-model="item.syncFlag" type="text" readonly>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+<div class="layout_body" ng-controller="businessOverpayment">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form  name="cusInfoForm" class="layui-form">
+			<!-- <div class="col_td">
+				<label class="col4 text_right">预算单位编码：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="topParams.idNumber" id="cusInfo_idNumber"   validator="noValidator">
+				</div>
+			</div> -->
+			<div class="col_td">
+				<label class="col4 text_right">{{'GWH100016' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumber" name="idNumber">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cusInfoForm"  ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfo">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH900001' | translate}}</div>
+		<div jf-grid="busCardTransTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'GWH900002' | translate}}</th>
+						<th>{{'GWH900003' | translate}}</th>
+						<th>{{'GWH900004' | translate}}</th>
+						<th>{{'GWH900005' | translate}}</th>
+						<th>{{'GWH900006' | translate}}</th>
+						<th width="13%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.currBalance" ></td>
+						<td align="center" ng-bind="item.depositInterestRate"></td>
+						<td align="center" ng-bind="item.interestBillingAmt"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini" 
+								ng-click="viewBusCardTrans(item)"  >
+								<i class="layui-icon"></i> {{'GWH900007' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

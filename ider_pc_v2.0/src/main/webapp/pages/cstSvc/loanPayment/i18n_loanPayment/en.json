@@ -1,0 +1,22 @@
+{
+"FQH500001": "Account",
+"FQH500002": "Payment method",
+"FQH500003": "Payment Date",
+"FQH500004": "Payment Amount",
+"FQH500005": "Payment status",
+"FQH500006": "Unpaid",
+"FQH500007": "Paided",
+"FQH500008": "Batch",
+"FQH500009": "Real time",
+"FQH500010": "Real time one-time payment on the same day",
+"FQH500011": "One time payment in batch on the same day",
+"FQH500012": "Actual payment of loans when customers apply by phone or online",
+"FQH500013": "Customer set payment date one or more batch payments",
+"FQH500014": "Amount payable",
+"FQH500015":"Actual payment date",
+"FQJ500001": "loan payment information",
+"FQJ500002": "Real-time one-time payment",
+"FQJ500003": "Buy one-time payment in one day",
+"FQJ500004": "Customer phone or online application for real-time payment of loans",
+"FQJ500005": "Customer set payment date one or more batch payments"
+}

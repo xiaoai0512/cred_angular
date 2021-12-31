@@ -1,0 +1,24 @@
+{
+"YYH1500001": "Operating Mode",
+"YYH1500002": "Transaction Identification Code",
+"YYH1500003": "Description",
+"YYH1500004": "Optional Business Type",
+"YYH1500005": "Business Type Code",
+"YYH1500006": "Business Type Description",
+"YYH1500007": "Business Type Code",
+"YYH1500008": "Description",
+"YYH1500009": "Business Form",
+"YYH1500010": "Business Attribute",
+"YYH1500011": "Selected business type",
+"YYH1500012": "Debit",
+"YYH1500013": "Credit",
+"YYH1500014": "Not applicable",
+"YYH1500015": "Transaction Identification",
+"YYJ1500001": "Please select a business type!",
+"YYJ1500002": "Only one business type can be linked!",
+"YYJ1500003": "Transaction Identification Details",
+"YYJ1500004": "Maintain transaction identification",
+"YYJ1500005": "Transaction ID",
+"YYJ1500006": "Copy transaction identification code"
+
+}

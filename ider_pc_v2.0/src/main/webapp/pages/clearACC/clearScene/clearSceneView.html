@@ -1,0 +1,59 @@
+<div ng-controller="clearSceneViewCtrl">
+	<div  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select ng-model="operationModeInfo" class="layui-input" jf-select="operationModeArr" name="operationModeN" disabled></select>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">渠道ID：</div>
+			<div class="wd330 float_left">
+				<select ng-model="channelIdInfo" class="layui-input" jf-select="channelIdArr" name="channelIdN" disabled></select>
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH200001' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select class="layui-input" ng-model="cSceneItem.clearingTransactionCode" jf-select="builder.option(clearCodeArr)"name="clearingTransactionCodeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH200005' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select class="layui-input" ng-model="cSceneItem.origClearingTxnCode" jf-select="builder.option(clearCodeArr)"name="originalClearingTransactionCodeN" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH200006' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="cSceneItem.triggerNo" name="triggerNoN" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'QFH200007' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input" ng-model="cSceneItem.sceneDesc" name="sceneDescN" type="text" readonly>
+			</div>
+		</div>
+<!-- 		<div class="search_mian">
+			<div class="mainname">已关联触发事件</div>
+		</div>
+		<div jf-grid="eventRelationList">
+			<table>
+				<thead>
+					<tr>
+						<th>事件编号</th>
+						<th>事件描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+</div>

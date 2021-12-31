@@ -1,0 +1,162 @@
+<div ng-controller="addContactActivityCtrl">
+	<div class="section">
+	<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'PZH100019' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="activityNo" ng-model="updateCA.activityNo"
+						type="text" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH100020' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="activityDesc"
+						ng-model="updateCA.activityDesc" type="text" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH100021' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="triggerNo" ng-model="updateCA.triggerNo" maxlength="14" ng-click="choseEventAdd()"
+						type="text" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH100022' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="updateCA.triggerTyp" class="layui-input"
+						jf-select="acTriggerTyp" lay-filter="triggTyp"
+						name="triggerTyp"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH100023' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="updateCA.triggerEventRecogDimen" class="layui-input"
+					jf-select="dimenArray"  lay-filter="dimen"
+					name="triggerEventRecogDimen"></select>
+				</div>
+			</div>
+			<div ng-show="triggerMode"> 
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH100024' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="updateCA.triggerEventInteractMode" class="layui-input"
+							jf-select="wayArray"
+							name="triggerEventInteractMode"></select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="!triggerMode">  
+				<div class="col_td">
+					<div class="col4 text_right">{{'PZH100024' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="updateCA.triggerEventInteractMode" class="layui-input"
+							jf-select="wayArray"
+							name="triggerEventInteractMode" disabled></select>
+					</div>
+				</div>
+			</div>
+			
+			 <div class="col_td">
+				<div class="col4 text_right">{{'PZH200016' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="updateCA.accountingUseFlag"
+						jf-select="accountingUseFlagArr" name="accountingUseFlag"  maxlength="1">
+					</select>
+				</div>
+			</div>
+			
+			
+			<div ng-show="eventListShow">
+			<div class="search_mian">
+				<div class="mainname">{{'PZH100038' | translate}}</div>
+			</div>
+
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH100001' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="eventList.params.eventId" maxlength="20">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH100002' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="eventList.params.eventDesc" maxlength="50">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="eventList.search()">
+					<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="saveSelectAdd()">
+					<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+				</button>
+			</div>
+
+			
+			<div jf-grid="eventList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'PZH100001' | translate}}</th>
+							<th>{{'PZH100002' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.eventDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 已选中关联活动 -->
+			<div class="mainname">已关联触发事件</div>
+			<div>
+				<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<!-- <th>选择</th> -->
+							<th>{{'PZH100036' | translate}}</th>
+							<th>{{'PZH100001' | translate}}</th>
+							<th>{{'PZH100019' | translate}}</th>
+							<th>{{'PZH100037' | translate}}</th>
+							<th>{{'PZH100021' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="items in treeSelectAddUpdae track by $index">
+							<!-- <td align="center" ><input jf-checkbox="builder.option(demoArray)"  ng-model="items.actNo"></td> -->
+							<td align="center" ng-bind="$index + 1"></td>
+							<td align="center" ng-bind="items.eventNo"></td>
+							<td align="center" ng-bind="items.activityNo"></td>
+							<td align="center" id="{{$index}}">
+								<select ng-model="items.recogDimenCode" class="layui-input"
+								jf-select="demoArr" lay-filter="getRecogDimAdd" name="recogDimenCodeN" ng-selected="items.recogDimenCode"></select>
+							</td>
+							<td align="center" >
+								<input class="layui-input" type="text" ng-model="items.triggerNo">
+							</td>
+							<td align="center">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="removeSelect($index)">
+									<i class="layui-icon"></i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+	</div>
+	</div>
+</div>

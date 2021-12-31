@@ -1,0 +1,41 @@
+<div class="mainname">弹出框使用说明 - 入门指南</div>
+<blockquote class="layui-elem-quote">
+$scope.modal(url,datas,option) ;//参数一为url参数，参数二为数组代表你要传输的数据，第三个参数为模态窗口的配置</br>
+&nbsp;&nbsp;&nbsp;&nbsp;无参数弹窗:ng-click="modal('url',参数,{title :'标题',buttons : ['按钮名称1','按钮名称2'],size : ['宽','高'],callbacks : [回调函数]})"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;如：ng-click="modal('/demo/demo-input.html',{},{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [modalCallback]})"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;带参数弹窗：ng-click="updateDiaDemo()"指定一个点击事件,在调用弹窗之前将参数放到指定的作用域中</br>
+
+</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="dialogDemoCtrl">
+	<div class="button_contain">
+        <button class="layui-btn layui-btn-primary" ng-click="modal('/help/help-demo-input.html',{},{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [callback]})">无参数弹窗</button>
+        <button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()"><i class="layui-icon">&#xe642;</i>带参数弹窗</button>
+	</div>
+</div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  Tansun.controller('dialogDemoCtrl',function($scope,jfLayer){
+	    	//提交回调事件
+			$scope.callback = function() {
+				jfLayer.success('确认回调函数');
+			}
+			//弹窗修改页面初始化
+			  $scope.updateDiaDemo=function(){
+					$scope.demoData={};//创建对象
+					$scope.demoData.processDefineName="弹窗参数1";//传递到弹窗中的值
+					$scope.demoData.processTitle="弹窗参数2";//传递到弹窗中的值
+					$scope.demoData.preEndDate="2017-10-11";//传递到弹窗中的值
+					$scope.modal('/help/help-demo-input.html',$scope.demoData,{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [$scope.callback]});
+				};
+		}) ;
+</pre>
+<div class="mainname">列表例子</div>
+<div ng-controller="dialogDemoCtrl">
+	<div class="button_contain">
+        <button class="layui-btn layui-btn-primary" ng-click="modal('/help/help-demo-input.html',{},{title :'示例',buttons : ['提交','取消'],size : ['800px','400px'],callbacks : [callback]})">无参数弹窗</button>
+        <button class="layui-btn layui-btn-primary" ng-click="updateDiaDemo()"><i class="layui-icon">&#xe642;</i>带参数弹窗</button>
+	</div>
+</div>

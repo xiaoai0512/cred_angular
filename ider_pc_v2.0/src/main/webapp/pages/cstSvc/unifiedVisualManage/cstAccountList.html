@@ -1,0 +1,336 @@
+<div ng-controller="cstAccountCtr">
+<!-- <div class="leftmenu_navtitle">客户账户列表</div> -->
+<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent">
+		<form  class="layui-form" name="cstAccItemForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="cstAccForm.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" ng-model="cstAccForm.idNumber" 
+					id="cstAccItem_idNumber"   validator="noValidator" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="cstAccForm.externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cstAccItemForm"  ng-click="queryAccountInf()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+			</form>
+			<div class="clearboth"></div>
+			<div ng-show="isShowAccountList">
+				<div class="mainname" >{{'KHH47000223' | translate}}</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'F00158' | translate}}：</label>
+						<div class="layui-input-inline">
+							<select jf-select="certificateTypeArray" name="idType" ng-model="custInf.idType" disabled >
+							</select>
+						</div>
+					</div>
+					
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'F00112' | translate}}：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input" type="text"
+								ng-model="custInf.idNumber"  disabled>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">{{'KHH4700081' | translate}}：</label>
+						<div class="layui-input-inline">
+							<input class="layui-input" type="text"
+								ng-model="custInf.customerName"  disabled>
+						</div>
+					</div>
+				</div>
+			
+		<!-- 循环账户信息表	 -->
+		<div class="clearboth"></div>
+		<div class="mainname">{{'KHH47000103' | translate}}</div>
+		<!-- 表格操作列 -->
+		<!-- <script type="text/html" id="accRevoleTableBar">
+			<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="accViewRevoleAccInf">账户金融信息</a>
+        </script>-->
+		<!-- 查询主账户 -->			
+		<div class="page-wrapper">
+			<table id="accRevoleTreeTable"></table>
+		</div>
+		<!-- page -->
+     	<div id="cstRevPage" style="margin:0 auto;  text-align: right;"></div>
+		<!-- <div jf-grid="revoleAccList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700004' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700014' | translate}}</th>
+						<th style="width:10%;padding-left:3px;padding-right:3px">{{'KHJ4700007' | translate}}</th>
+						<th style="width:15%;padding-left:3px;padding-right:3px">{{'KHH4700047' | translate}}</th>
+						<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700048' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700050' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700051' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700052' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700005' | translate}}</th>
+						<th width="16%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId" style="padding-left:3px;padding-right:3px"></td>
+						<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.currencyDesc"></td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span>{{item.businessProgramNo}}{{item.programDesc}}</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.accountOrganFormDesc"></td>
+						<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.businessDebitCreditCodeDesc"></td>
+						<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.statusCodeDesc"></td>
+						<td align="center" ng-bind="item.totalBalance | number:2" style="padding-left:3px;padding-right:3px"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewRevoleAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'KHH47000224' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> --><!-- 循环账户信息表 -->
+		
+		
+		<!-- 	溢缴款账户信息表 -->
+		<div class="mainname">{{'KHH47000109' | translate}}</div>
+		<div jf-grid="overdueAccList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 20%">{{'KHH4700004' | translate}}</th>
+						<th>{{'KHH4700014' | translate}}</th>
+						<th>{{'KHH47000110' | translate}}</th>
+						<th>{{'KHH47000111' | translate}}</th>
+						<th>{{'KHH47000112' | translate}}</th>
+						<th>{{'KHH47000113' | translate}}</th>
+						<th width="16%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 20%" align="center" ng-bind="item.accountId"></td>
+						<td align="left">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.currBalance | number:2"></td>
+						<td align="center" ng-bind="item.depositInterestRate"></td>
+						<td align="center" ng-bind="item.interestBillingAmt  | number:2"></td>
+						<td align="center" ng-bind="item.frozenBalance  | number:2"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewOverdueAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="rollOutOperateInfo(item)">
+							转出</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- 交易账户信息表 -->
+		<div ng-show="isShowTransAccountList">
+			<div class="mainname">{{'KHH47000115' | translate}}</div>
+			<!-- 表格操作列 -->
+			 <script type="text/html" id="cstTransAccTableBar">
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="viewTransAcc">查询</a>
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="viewRevoleAccInf">账户金融信息</a>
+        	</script>
+			<!-- 查询主账户 -->			
+			<div class="page-wrapper">
+				<table id="cstTransAccTreeTable"></table>
+			</div>
+			<!-- page -->
+     		<div id="cstTransPage" style="margin:0 auto;  text-align: right;"></div>
+		</div>
+		<!-- 争议账户信息表 -->
+		<div class="allcontent layui-form" ng-show="isShowAccountList">
+			<div class="mainname">{{'KHH47000130' | translate}}</div>
+			<div jf-grid="disputeAccList">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700004' | translate}}</th>
+							<th style="padding-left:3px;padding-right:3px">{{'KHH4700014' | translate}}</th>
+							<th style="width:10%;padding-left:3px;padding-right:3px">{{'KHJ4700007' | translate}}</th>
+							<th style="width:15%;padding-left:3px;padding-right:3px">{{'KHH4700047' | translate}}</th>
+							<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700048' | translate}}</th>
+							<th style="padding-left:3px;padding-right:3px">{{'KHH4700050' | translate}}</th>
+							<th style="padding-left:3px;padding-right:3px">{{'KHH4700051' | translate}}</th>
+							<th style="padding-left:3px;padding-right:3px">{{'KHH4700052' | translate}}</th>
+							<th style="padding-left:3px;padding-right:3px">{{'KHH4700005' | translate}}</th>
+							<th width="8%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId" style="padding-left:3px;padding-right:3px"></td>
+							<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.currencyDesc"></td>
+							<td align="center" style="padding-left:3px;padding-right:3px">
+							<span>{{item.businessProgramNo}}{{item.programDesc}}</span></td>
+							<td align="center" style="padding-left:3px;padding-right:3px">
+								<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+							</td>
+							<td align="center" style="padding-left:3px;padding-right:3px">
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.accountOrganFormDesc"></td>
+							<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.businessDebitCreditCodeDesc"></td>
+							<td align="center" style="padding-left:3px;padding-right:3px" ng-bind="item.statusCodeDesc"></td>
+							<td align="center" ng-bind="item.totalBalance | number:2" style="padding-left:3px;padding-right:3px"></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="viewDisputeAccInf(item)" >
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>	<!-- 争议账户信息表 -->
+	</div>
+	<!-- <div class="allcontent layui-form" ng-show="isShowTransAccountList">	
+		<div jf-grid="transAccList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4600003' | translate}}</th>
+						<th>{{'KHH4600004' | translate}}</th>
+						<th>{{'KHH4600005' | translate}}</th>
+						<th>{{'KHH47000116' | translate}}</th>
+						<th>{{'KHH4600006' | translate}}</th>
+						<th>{{'KHH4600007' | translate}}</th>
+						<th>{{'KHH4600008' | translate}}</th>
+						<th>{{'KHH47000117' | translate}}</th>
+						<th width="20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.loanTypeDesc"></td>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center" ng-bind="item.loanAmount | number:2" ></td>
+						<td align="center" ng-bind="item.remainPrincipalAmount | number:2"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.loanTerm"></td>
+						<td align="center" ng-bind="item.startIntDate"></td>
+						<td align="center" ng-bind="item.statusDesc"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewTransAcc(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							
+							<button class="layui-btn layui-btn-mini" ng-click="viewRevoleAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'KHH47000224' | translate}}
+							</button>
+							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div> --><!-- 交易账户信息表 -->
+	
+			<!-- <div class="mainname" >2. 账户信息</div>
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4900003' | translate}}</th>
+							<th>{{'KHH4900004' | translate}}</th>
+							<th>{{'KHH4900026' | translate}}</th>
+							<th>业务类型</th>
+							<th>产品代码及描述</th>
+							<th>{{'KHH4900009' | translate}}</th>
+							<th>{{'KHH4900010' | translate}}</th>
+							<th>{{'KHH4900011' | translate}}</th>
+							<th>{{'KHH4700005' | translate}}</th>
+							<th width="16%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr >
+							<td style="width:18%" align="center" ng-bind="item.accountId"></td>
+							<td align="left">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							
+							<td align="center">
+								<span>{{item.businessProgramNo}}</span><span>{{item.programDesc}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center">
+								<span ng-if="item.accountOrganForm=='R'">{{'KHH4900012' | translate}}</span>
+								<span ng-if="item.accountOrganForm=='T'">{{'KHH4900013' | translate}}</span>
+								<span ng-if="item.accountOrganForm=='S'">{{'KHH4900022' | translate}}</span>
+							</td>
+							<td align="center">
+								<span ng-if="item.businessDebitCreditCode=='C'">{{'KHH4900014' | translate}}</span>
+								<span ng-if="item.businessDebitCreditCode=='D'">{{'KHH4900015' | translate}}</span>
+								<span ng-if="item.businessDebitCreditCode=='O'">{{'KHH4900021' | translate}}</span>
+							</td>
+							<td align="center" style="width:12%">
+								<span ng-if="item.statusCode=='1'">{{'KHH4900016' | translate}}</span>
+								<span ng-if="item.statusCode=='2'">{{'KHH4900017' | translate}}</span>
+								<span ng-if="item.statusCode=='3'">{{'KHH4900018' | translate}}</span>
+								<span ng-if="item.statusCode=='8'">{{'KHH4900019' | translate}}</span>
+								<span ng-if="item.statusCode=='9'">{{'KHH4900020' | translate}}</span>
+								<span ng-if="item.statusCode=='D'">{{'KHH4900023' | translate}}</span>
+								<span ng-if="item.statusCode=='C'">{{'KHH4900024' | translate}}</span>
+								<span ng-if="item.statusCode=='B'">{{'KHH4900025' | translate}}</span>
+								
+							</td>
+							<td align="center" ng-bind="item.totalBalance | number:2"></td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="viewAccFinancial(item)" >
+									<i class="layui-icon">&#xe60b;</i> 账户金融信息查询
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			 -->
+	
+	</div>
+</div>

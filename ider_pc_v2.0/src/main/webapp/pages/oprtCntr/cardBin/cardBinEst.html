@@ -1,0 +1,236 @@
+<div ng-controller="cardBinEstCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：卡BIN建立
+	</div>
+	<div class="allcontent layui-form">
+		<form name="balanceForm">
+			<div class="mainname">新增卡BIN</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>发行卡BIN：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardBin.bin" id="binId" ng-blur="updateCardBinRequired()"
+						validator="required" name="bin" type="text" validator="required,minlength,maxlength,number" minlength="6" maxlength="6">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>卡组织：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" ng-model="cardBin.organizeTyp"
+						validator="required" name="organizeTyp" type="text"> -->
+					     <select ng-model="cardBin.organizeTyp" class="layui-input"
+						jf-select="builder.option(organizeType)" name="organizeTyp"
+						validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>卡类型：</div>
+				<div class="wd190 float_left">
+				<!-- <input class="layui-input" ng-model="cardBin.cardTyp"
+						validator="required" name="cardTyp" type="text"> -->
+					<select ng-model="cardBin.cardTyp" class="layui-input"
+						jf-select="builder.option(cardType)" name="cardTyp"
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>入账币种1：</div>
+				<div class="wd190 float_left">
+				<!-- 	<input class="layui-input" validator="required"
+					ng-model="cardBin.resolutionCurr1"
+						name="resolutionCurr1" type="text"> -->
+							  <select ng-model="cardBin.resolutionCurr1" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr1"
+						validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">入账币种2：</div>
+				<div class="wd190 float_left">
+				<!-- 	<input class="layui-input" validator="required"
+					ng-model="cardBin.resolutionCurr1"
+						name="resolutionCurr2" type="text"> -->
+						  <select ng-model="cardBin.resolutionCurr2" class="layui-input" 
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr2"></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn3">
+				<button class="layui-btn"  ng-click="tradTypeSel3()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel3">
+				<div class="col4 text_right">入账币种3 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr3" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr3"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn4">
+				<button class="layui-btn"  ng-click="tradTypeSel4()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel4">
+				<div class="col4 text_right">入账币种4 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr4" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr4"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn5">
+				<button class="layui-btn"  ng-click="tradTypeSel5()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel5">
+				<div class="col4 text_right">入账币种5 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr5" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr5"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn6">
+				<button class="layui-btn"  ng-click="tradTypeSel6()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel6">
+				<div class="col4 text_right">入账币种6 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr6" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr6"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn7">
+				<button class="layui-btn"  ng-click="tradTypeSel7()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel7">
+				<div class="col4 text_right">入账币种7 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr7" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr7"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn8">
+				<button class="layui-btn"  ng-click="tradTypeSel8()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel8">
+				<div class="col4 text_right">入账币种8 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr8" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr8"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn9">
+				<button class="layui-btn"  ng-click="tradTypeSel9()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel9">
+				<div class="col4 text_right">入账币种9 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr9" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr9"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn10">
+				<button class="layui-btn"  ng-click="tradTypeSel10()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel10">
+				<div class="col4 text_right">入账币种10 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr10" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr10"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn11">
+				<button class="layui-btn"  ng-click="tradTypeSel11()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel11">
+				<div class="col4 text_right">入账币种11 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr11" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr11"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn12">
+				<button class="layui-btn"  ng-click="tradTypeSel12()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel12">
+				<div class="col4 text_right">入账币种12 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr12" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr12"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn13">
+				<button class="layui-btn"  ng-click="tradTypeSel13()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel13">
+				<div class="col4 text_right">入账币种13 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr13" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr13"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn14">
+				<button class="layui-btn"  ng-click="tradTypeSel14()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel14">
+				<div class="col4 text_right">入账币种14 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr14" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr14"
+						></select>
+				</div>
+			</div>
+			<div class="col_td text_center" ng-show="tradBtn15">
+				<button class="layui-btn"  ng-click="tradTypeSel15()">
+					<i class="layui-icon"></i> 新增入账币种
+				</button>
+			</div>
+			<div class="col_td" ng-show="tradSel15">
+				<div class="col4 text_right">入账币种15 ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="cardBin.resolutionCurr15" class="layui-input"
+						jf-select="builder.option(resolutionCurr)" name="resolutionCurr15"
+						></select>
+				</div>
+			</div>
+
+		</form>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius"
+				ng-click="saveCardBin()" validation-submit="balanceForm">
+				<i class="layui-icon"></i> 保存
+			</button>
+		</div>
+
+	</div>
+</div>

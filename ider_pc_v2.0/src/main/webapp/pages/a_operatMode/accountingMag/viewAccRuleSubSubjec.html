@@ -1,0 +1,153 @@
+<div ng-controller="viewAccRuleSubSubjecCtrl">
+	<div class=" ">
+		<form name="accRuleSubSubjectForm" class="layui-form">
+			<div class="col_td">
+				<div class="col5 text_right"><span class="red">*</span>{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewOperationMode" jf-select="operationModeArr" name="operationMode"
+					disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right"><span class="red">*</span>{{'YYH5400013' | translate}}：</div>
+				<div class="wd190 float_left">
+					 <select class="layui-input" ng-model="viewaccountingRuleCode" jf-select="accountingRuleCodeArrI" name="accountingRuleCodeN"
+					 disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400033' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="subTableSequence" disabled ng-model="accRuleSubSubjectInf.subTableSequence"
+					 maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400113' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="subTableSequenceDesc" disabled ng-model="accRuleSubSubjectInf.subDesc">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400034' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement1" disabled ng-model="accRuleSubSubjectInf.engineElement1"
+					 maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400037' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement1Desc" disabled ng-model="accRuleSubSubjectInf.engineElement1Desc"
+					 maxlength="20">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400035' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement2" disabled ng-model="accRuleSubSubjectInf.engineElement2"
+					 maxlength="4">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400038' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="engineElement1Desc" disabled ng-model="accRuleSubSubjectInf.engineElement2Desc"
+					 maxlength="20">
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400082' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewAccountingStatus" jf-select="accountingStatusArrI" disabled name="instanDimen4"
+					 maxlength="3">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400083' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewBalanceStatus" jf-select="balanceStatusArrI" name="balanceStatus"
+					 maxlength="3" disabled>
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400039' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="vwassetProperty" jf-select="assetPropertyArr" name="assetProperty" disabled>
+					</select>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col5 text_right">{{'YYH5400093' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="bindAcctSceneInfo" jf-select="bindAcctSceneArr" name="bindAcctSceneN" disabled>
+					</select>
+				</div>
+			</div> -->
+			<div class="col_td"></div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400104' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewlinkedRevenueRuleCode" jf-select="linkedArr01" name="linkedRevenueRuleCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400114' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewlinkedRevenueSubCode" jf-select="linkedSubArr01" name="linkedRevenueSubCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400105' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewlinkedTaxRuleCode" jf-select="linkedArr02" name="linkedTaxRuleCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col5 text_right">{{'YYH5400115' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewlinkedTaxSubCode" jf-select="linkedSubArr02" name="linkedTaxSubCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHaveI">
+				<div class="col5 text_right">{{'YYH5400106' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewbindingLinkedRevenueRuleCode" jf-select="linkedArr03" name="bindingLinkedRevenueRuleCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHaveI">
+				<div class="col5 text_right">{{'YYH5400116' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewbindingLinkedRevenueSubCode" jf-select="linkedSubArr03" name="bindingLinkedRevenueSubCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHaveI">
+				<div class="col5 text_right">{{'YYH5400107' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewbindingLinkedTaxRuleCode" jf-select="linkedArr04" name="bindingLinkedTaxRuleCodeN" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td" ng-if="isHaveI">
+				<div class="col5 text_right">{{'YYH5400117' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="viewbindingLinkedTaxSubCode" jf-select="linkedSubArr04" name="bindingLinkedTaxSubCodeN" disabled>
+					</select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

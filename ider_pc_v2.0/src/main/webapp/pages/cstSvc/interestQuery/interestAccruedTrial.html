@@ -1,0 +1,114 @@
+<div ng-controller="interestAccruedTrialCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="interestSearch.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="idNumber" type="text" id="interestTrial_idNumber"  validator="noValidator"
+					ng-model="interestSearch.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="externalIdentificationNo"
+					type="text" ng-model="interestSearch.externalIdentificationNo">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryitemList()" type="button">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+		<div ng-show="isShowRelation">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH2600042' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH2600043' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="accountId" readonly
+						type="text" ng-model="coreAccountBean.accountId">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH2600044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="currencyCode" readonly
+						type="text" ng-model="coreAccountBean.currencyCode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH2600061' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="interestStartDate" readonly
+						type="text" ng-model="coreAccountBean.interestStartDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH2600062' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="balanceTotal" readonly
+						type="text" ng-model="coreAccountBean.balanceTotal">
+				</div>
+			</div>
+			<div class="clearboth"></div>
+				<div >
+				<div class="mainname">{{'KHH2600063' | translate}}</div>
+				<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<th style="width: 150px;">{{'KHH2600011' | translate}}</th>
+							<th>{{'KHH2600044' | translate}}</th>
+							<th>{{'KHH2600048' | translate}}</th>
+							<th>{{'KHH2600049' | translate}}</th>
+							<th>{{'KHH2600050' | translate}}</th>
+							<th>{{'KHH2600051' | translate}}</th>
+							<th >{{'KHH2600066' | translate}}</th>
+							<!-- <th >{{'KHH2600053' | translate}}</th> -->
+							<th >{{'KHH2600065' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in listcoreBalanceBean track by $index">
+							<td align="center" ng-bind="item.balanceUnitCode"></td>
+							<td align="left">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.cycleNumber"></td>
+							<td align="center" ng-bind="item.balanceObjectCode"></td>
+							<td align="center">
+								<span ng-if="item.balanceType == 'P'">{{'KHH4700036' | translate}}</span>
+						  		<span ng-if="item.balanceType == 'I'">{{'KHH4700037' | translate}}</span>
+						  		<span ng-if="item.balanceType == 'F'">{{'KHH4700038' | translate}}</span>
+							</td>
+							<td align="center" ng-bind="item.balance | number:2"></td>
+							
+							<td align="center" ng-bind="item.prevInterestBillingDate"></td>
+							<!-- <td align="center" ng-bind="item.nextInterestBillingDate"></td> -->
+							<td align="center" ng-bind="item.interest | number:2"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

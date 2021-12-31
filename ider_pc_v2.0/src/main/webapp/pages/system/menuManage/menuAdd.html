@@ -1,0 +1,68 @@
+<div ng-controller="menuAddCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+			<div class=" clearboth"></div>
+		<!-- <div class="mainname titleInfo">基本信息</div> -->
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500036' | translate}}：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="sceneDescN"  type="text" ng-model="madd.menuName" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500037' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="menuLevelArr" name="menuFlag" lay-search="" ng-model="madd.menuLevel" lay-filter="getLevel"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show="fatherinfut">
+				<div class="col2 text_right">{{'YWH5500044' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="menuFather" name="menuFather" lay-search="" ng-model="madd.upperMenuNo"></select>
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500039' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="triggerNoN" ng-model="madd.link"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500045' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="lowerFlag" name="lowerMenuN" lay-search="" ng-model="madd.lowerMenuFlag"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500046' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="triggerNoN" ng-model="madd.menuDesc"  type="text" autocomplete="off">
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col2 text_right">{{'YWH5500038' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="menuFlag" name="menuFlag" lay-search="" ng-model="madd.displayFlag"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500047' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="baseFlagArr" name="baseFlag" lay-search="" ng-model="madd.baseFlag"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500048' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<select class="layui-input" jf-select="iconArr" name="iconN" lay-search="" ng-model="madd.icon"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show = "menuDescShow">
+				<div class="col2 text_right">{{'YWH5500049' | translate}} ：</div>
+				<div class="wdper70 float_left">
+					<input class="layui-input" name="sortN" ng-model="madd.sort"  type="text" autocomplete="off">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

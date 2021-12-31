@@ -1,0 +1,47 @@
+<div ng-controller="clearSceneCopyCtrl">
+	<div>
+		<form name="cSceneUpdateForm"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select ng-model="copyOperationMode" class="layui-input" jf-select="operationModeArr" name="operationModeN" validator="required" lay-filter="getChannelIdCopy"></select>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>渠道ID：</div>
+				<div class="wd330 float_left">
+					<select ng-model="copyChannelId" class="layui-input" jf-select="channelIdArr" name="channelIdN" validator="required"></select>
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'QFH200001' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select class="layui-input" ng-model="cSceneCopy.clearingTransactionCode" jf-select="builder.option(clearCodeArr)"name="clearingTransactionCodeN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'QFH200005' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select class="layui-input" ng-model="cSceneCopy.origClearingTxnCode" jf-select="builder.option(clearCodeArr)"name="originalClearingTransactionCodeN" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'QFH200006' | translate}}：</div>
+				<div class="wd280 float_left" style="margin-right:35px;">
+					<input class="layui-input" ng-model="cSceneCopy.triggerNo" autocomplete="off" name="triggerNoN" type="text" validator="required">
+				</div>
+				<div class="search_button">
+					<button class="layui-btn" ng-click="copyEventNo(cSceneCopy.triggerNo)" >
+						<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'QFH200007' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" ng-model="cSceneCopy.sceneDesc" autocomplete="off" name="sceneDescN" type="text" validator="required">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

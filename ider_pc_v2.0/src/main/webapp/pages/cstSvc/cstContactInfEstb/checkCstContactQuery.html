@@ -1,0 +1,74 @@
+<div ng-controller="checkCstContactQueryCtrl">
+	<div class="layui-form">
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300004' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <!--<select ng-model="csInfEstbInfo.contactCategory" class="layui-input"  disabled
+                        jf-select="upContactCategoryArray" name="contactCategory" lay-filter="getContactCategory">
+                </select>-->
+                <input class="layui-input" type="text" name="contactCategoryTrans"
+                       ng-model="csInfEstbInfo.contactCategoryTrans" disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300005' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="name"
+                       ng-model="csInfEstbInfo.name" maxlength="30"
+                       disabled>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300006' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="relation"
+                       ng-model="csInfEstbInfo.relation" maxlength="10"
+                       validator="required">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300007' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="handphone"
+                       ng-model="csInfEstbInfo.handphone" maxlength="11" minlength="11"
+                       validator="required">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300008' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="telephoneCountry"
+                       ng-model="csInfEstbInfo.telephoneCountry" maxlength="4">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300009' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="telephoneZone"
+                       ng-model="csInfEstbInfo.telephoneZone" maxlength="4">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300010' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="telephoneNo"
+                       ng-model="csInfEstbInfo.telephoneNo" maxlength="12">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300011' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="telephoneNoExt"
+                       ng-model="csInfEstbInfo.telephoneNoExt" maxlength="6">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH6300012' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <select ng-model="csInfEstbInfo.validFlag" class="layui-input"
+                        jf-select="upValidFlagArray" name="validFlag" lay-filter="getvalidFlag">
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

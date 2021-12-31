@@ -1,0 +1,92 @@
+<div ng-controller="marketingListAddCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" ng-model="listadd.operationMode" name="operationModeN" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310019' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listCodeN" ng-model="listadd.listCode" validator="required,maxlength,minlength" type="text" maxlength="6" minlength="6" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="listadd.listTyp" class="layui-input"
+								jf-select="listTypeArray" name="listTypN" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00091' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="listDescN"  type="text" ng-model="listadd.listDesc" validator="required" autocomplete="off">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname" style="display: inline;">{{'SQH310024' | translate}}</div>
+		     <div class="layui-inline float_right">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="tradTypeAdd()">
+							<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+						</button>
+					</div>
+			</div>
+			<div style="margin-bottom:20px" >
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th align="center" style="width:4%">{{'SQH2200004' | translate}}</th>
+						<th align="center" style="width:91%">{{'SQH2200016' | translate}}</th>
+						<th align="center" style="width:5%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="trad in tradList">
+						<td align="center" style="width:4%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="padding-top: 5px;" class="nine9" align="center" >
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b01{{$index+1}}" ng-model="trad.listProject1" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b02{{$index+1}}" ng-model="trad.listProject2" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b03{{$index+1}}" ng-model="trad.listProject3" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b04{{$index+1}}" ng-model="trad.listProject4" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b05{{$index+1}}" ng-model="trad.listProject5" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b06{{$index+1}}" ng-model="trad.listProject6" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b07{{$index+1}}" ng-model="trad.listProject7" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b08{{$index+1}}" ng-model="trad.listProject8" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b09{{$index+1}}" ng-model="trad.listProject9" type="text"></div>
+							<div style="width: 9.6%;display: inline-block;padding-left: 0px;"><input class="layui-input" name="b10{{$index+1}}" ng-model="trad.listProject10" type="text"></div>
+						</td>
+						<td align="center"  style="width:5%">
+							<button class="layui-btn layui-btn-mini" ng-click="tradDel(item,$index)">
+								{{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div class="mainname titleInfo">清单项目</div>
+		<div class="col_td" ng-repeat="trad in tradList">
+		     
+			<div class="col4 text_right">清单项目：</div>
+			<div class="wd190 float_left">
+				<input ng-model="trad.listProject" class="layui-input" name="listProject{{$index}}" placeholder="清单项目"></select>
+			</div>
+			<div class="col2 pull-right">
+				<button class="layui-btn"  ng-click="tradDel(this,$index)">
+					<i class="layui-icon"></i> 刪除
+				</button>
+			</div>
+		</div>
+		<div class="col_td text_center" >
+			<button class="layui-btn"  ng-click="tradTypeAdd()">
+				<i class="layui-icon"></i> 新增
+			</button>
+	    </div> -->
+		<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

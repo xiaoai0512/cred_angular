@@ -1,0 +1,94 @@
+<div ng-controller="businessAactCtrl">
+	<!-- <div class="leftmenu_navtitle">媒介激活</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action=""  name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="businessAactParams.externalIdentificationNo">
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryBusiness()" type="button">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+	   </form>	
+	</div>
+	<div ng-show="isShowCstDiv">
+		<div class="allcontent ">
+			<div class="clearboth"></div>
+			<div class="mainname">1.{{'GWH200001' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH200002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="selPDObjTable.mainCustomerCode" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'GWH100003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="selPDObjTable.customerName" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"
+						ng-model="selPDObjTable.idNumber" disabled="disabled">
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">2.{{'GWH200003' | translate}}</div>
+			<div jf-grid="busiCardTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width: 30%">{{'F00111' | translate}}</th>
+							<th>{{'KHH5700007' | translate}}</th>
+							<th>{{'KHH5700008' | translate}}</th>
+							<th>{{'KHH5700009' | translate}}</th>
+							<th>{{'KHH5700010' | translate}}</th>
+							<th>{{'KHH5700011' | translate}}</th>
+							<th>{{'KHH5700012' | translate}}</th>
+							<th>{{'KHH5700013' | translate}}</th>
+						</tr>
+					</thead> 
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.externalIdentificationNo"
+								style="width: 30%"></td>
+							<td align="center" ng-bind="item.productObjectCode"></td>
+							<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+							<td align="center" ng-bind="item.mediaObjectDesc"></td>
+							<td align="center" ng-bind="item.activationFlagDesc"></td>
+							<td align="center" ng-bind="item.activationDate"></td>
+							<td align="center" ng-bind="item.invalidFlagDesc"></td>
+							<td align="center" ng-bind="item.invalidReasonDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius"
+					ng-click="activationMdm()" type="button">
+					<i class="layui-icon"></i> {{'KHH5700028' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "crdBin": "435801",
+                    "crdOrg": "VISA"
+                },
+                {
+                    "crdBin": "552310",
+                    "crdOrg": "MASTERCARD"
+                },
+                 {
+                    "crdBin": "622580",
+                    "crdOrg": "CUP"
+                },
+                 {
+                    "crdBin": "352450",
+                    "crdOrg": "JCB"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 4
+        }
+        
+    },
+    "status": 200
+}

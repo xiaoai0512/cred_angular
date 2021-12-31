@@ -1,0 +1,187 @@
+<div ng-controller="businessFormInstCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：业务形态实例化
+	</div>
+	<div class="allcontent layui-form">
+	<form action="" class="layui-form" name = "yueObjForm">
+		<div class="mainname">1.填写业务形态代码</div>
+		<div class="layui-form-item">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式 ：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="operationMode" type="text"
+						ng-model="operationMode"> -->
+						<select jf-select="busForm"
+					ng-model="operationMode" validator="required"></select>
+					<!-- <select ng-model="operationMode" class="layui-input"
+						jf-select="builder.option(operationMode1)" name="operationMode"
+						validator="required">
+					</select> -->
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">业务形态代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="businessPattern" type="text" 
+					maxlength="9" validator="required" 
+						ng-model="businessPattern">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">账户类型：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accountBookKeepingDirec" class="layui-input"
+						jf-select="builder.option(businessNatureArr)"
+						name="accountBookKeepingDirec" validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">账户组织形式：</div>
+				<div class="wd190 float_left">
+					<select ng-model="accountOrganizeTyp" class="layui-input"
+						jf-select="builder.option(accountOrgArr)"
+						name="accountOrganizeTyp" validator="required">
+					</select>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="description" type="text" maxlength="64"
+						ng-model="description">
+				</div>
+			</div>
+
+		</div>
+</form>
+
+		<div class="clearboth"></div>
+		<div class="mainname">2.选择业务形态构件</div>
+		<div class="col_td">
+			<div class="col4 text_right">构件代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="description" type="text"
+				maxlength="3"
+					ng-model="selAvyList.params.artifactNo">
+			</div>
+		</div>
+		<!-- <div class="layui-form-item">
+			<label class="layui-form-label">构件代码：</label>
+			<div class="layui-input-inline">
+				<input class="layui-input" type="text"
+					ng-model="selAvyList.params.artifactNo">
+			</div>
+		</div> -->
+		<div class="search_button">
+			<button class="layui-btn" ng-click="selAvyList.search()">
+				<i class="layui-icon">&#xe615;</i> 搜索
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="saveSelect()">
+				<i class="layui-icon">&#x1002;</i> 关联
+			</button>
+		</div>
+		<div jf-grid="selAvyList">
+			<!-- <table>
+				<thead>
+					<tr>
+						<th>活动编号</th>
+						<th>活动描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.actNo"></td>
+						<td align="center" ng-bind="item.actDesc"></td>
+					</tr>
+				</tbody>
+			</table> -->
+			<table>
+				<thead>
+					<tr>
+						<th>构件编号</th>
+						<th>构件描述</th>
+						<th>构件类型</th>
+						<th>非对象实例化维度</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.artifactNo"></td>
+						<td align="center" ng-bind="item.artifactDesc"></td>
+						<td align="center"><span ng-if="item.artifactType=='A'">账户类构件</span>
+							<span ng-if="item.artifactType=='B'">余额类构件</span> <span
+							ng-if="item.artifactType=='T'">技术类构件</span> <span
+							ng-if="item.artifactType=='P'">产品类构件</span> <span
+							ng-if="item.artifactType=='X'">非对象类构件</span> <span
+							ng-if="item.artifactType=='M'">媒介类构件</span></td>
+						<td align="center"><span ng-if="item.nonObjInstanDimen=='D'">核算状态</span>
+							<span ng-if="item.nonObjInstanDimen=='E'">事件</span>
+							<span ng-if="item.nonObjInstanDimen=='A'">授权场景</span>
+							<span ng-if="item.nonObjInstanDimen=='L'">额度节点</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="mainname">3. 关联构件</div>
+		<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th style="display: none;">顺序</th>
+						<!-- 			<th>活动编号</th>
+						<th>活动描述</th>
+						<th>触发事件编号</th>
+						<th>触发方式</th>
+						<th>上下移动</th>
+						<th>操作</th>  -->
+						<th>构件编号</th>
+						<th>构件描述</th>
+						<th>构件类型</th>
+						<th>非对象实例化维度</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="items in treeSelect1 track by $index">
+						<td style="display: none;" align="center" ng-bind="$index + 1"></td>
+						<td align="center" ng-bind="items.artifactNo"></td>
+						<td align="center" ng-bind="items.artifactDesc"></td>
+						<td align="center"><span ng-if="items.artifactType=='A'">账户类构件</span>
+							<span ng-if="items.artifactType=='B'">余额类构件</span> <span
+							ng-if="items.artifactType=='T'">技术类构件</span> <span
+							ng-if="items.artifactType=='P'">产品类构件</span> <span
+							ng-if="items.artifactType=='X'">非对象类构件</span> <span
+							ng-if="items.artifactType=='M'">媒介类构件</span></td>
+						<td align="center"><span ng-if="items.nonObjInstanDimen=='D'">核算状态</span>
+							<span ng-if="items.nonObjInstanDimen=='E'">事件</span>
+							<span ng-if="items.nonObjInstanDimen=='A'">授权场景</span>
+							<span ng-if="items.nonObjInstanDimen=='L'">额度节点</span></td>
+						<td align="center">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> 删除
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+
+		<div class="col_tr text_center" style="margin-top: 20px">
+			<button class="layui-btn" ng-click="saveBusinessType()"
+			validation-submit="yueObjForm">
+				<i class="layui-icon"></i> 确认
+			</button>
+		</div>
+
+	</div>
+
+</div>

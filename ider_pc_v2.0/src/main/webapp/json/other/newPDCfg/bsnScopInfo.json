@@ -1,0 +1,36 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "bsnMdltyCd": "MODX00001",
+                    "bsnTpCd": "MODT00001",
+                    "bsnTpDs": "正常免息类型"
+                },
+               {
+                    "bsnMdltyCd": "MODX00002",
+                    "bsnTpCd": "MODT00002",
+                    "bsnTpDs": "正常取现类型"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 2
+        }
+        
+    },
+    "status": 200
+}

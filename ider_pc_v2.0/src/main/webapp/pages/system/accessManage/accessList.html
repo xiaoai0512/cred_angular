@@ -1,0 +1,73 @@
+<div class="layout_body" ng-controller="accessListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 设置权限查询 -->
+		<div class="search_mian layui-form">
+			<div class="layui-form-item">
+				<!-- <div class="layui-inline">
+					<label class="layui-form-label"><span class="red">*</span>运营模式：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="coArray" name="operationModeN" ng-model="itemList.params.operationMode"></select>
+					</div>
+				</div> -->
+				<div class="layui-inline">
+					<label class="layui-form-label"><span class="red">*</span>{{'YWH5500001' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="operationOrganArray" name="operationOrganN" ng-model="itemList.params.operationOrgan"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><span class="red">*</span>{{'YWH5500029' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="authroleArray" name="departmentNoN" ng-model="itemList.params.departmentNo"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"><span class="red">*</span>{{'YWH5500022' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="authjobArray" name="postNoN" ng-model="itemList.params.postNo"></select>
+					</div>
+				</div>
+				<div class="layui-inline float-right" style="width:100%;text-align: center; margin-bottom: 10px;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="seachAccess()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 设置权限列表 -->
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00013' | translate}}</th>
+						<th>{{'YWH5500001' | translate}}</th>
+						<th>{{'YWH5500029' | translate}}</th>
+						<th>{{'YWH5500022' | translate}}</th>
+						<th  style="width:30%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.operationOrgan"></td>
+						<td align="center" ng-bind="item.departmentName"></td>
+						<td align="center" ng-bind="item.postName"></td>
+						<td align="center"  style="width:30%">
+							<button class="layui-btn layui-btn-mini" ng-click="setAccess(item)" ng-show="setBtnFlag">
+								<i class="layui-icon">&#xe602;</i> {{'YWH5500052' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="accessInfo(item)" ng-show="checkBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'YWH5500053' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

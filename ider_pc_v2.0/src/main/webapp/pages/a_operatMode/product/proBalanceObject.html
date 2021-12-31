@@ -1,0 +1,33 @@
+<div ng-controller="proBalanceObjectCtrl">
+	<div class="clearboth"></div>
+	<div class="mainname">{{'YYH600009' | translate}}</div>
+	<div jf-grid="queryProBalanceObject">
+		<table>
+			<thead>
+				<tr>
+					<th>{{'YYH200001' | translate}}</th>
+					<th>{{'YYH200002' | translate}}</th>
+					<th>{{'YYH200003' | translate}}</th>
+					<th>{{'YYH200005' | translate}}</th>
+					<th>{{'YYH200006' | translate}}</th>
+					<th>{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.businessTypeCode"></td>
+					<td align="center" ng-bind="item.businessDesc"></td>
+					<td align="center" ng-bind="item.businessForm"></td>
+					<td align="center" ng-bind="item.businessDebitCreditCodeDesc"></td>
+					<td align="center">
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="setBalanceSelectA(item,$index)">
+							<i class="layui-icon">&#xe614;</i> {{'YYH200022' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

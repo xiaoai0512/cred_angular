@@ -1,0 +1,189 @@
+<div ng-controller="artifactUpdateCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text" ng-model="items.operationMode"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400002' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.artifactNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400003' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.elementNo"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400005' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.instanCode1"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400007' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.instanCode2"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400009' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.instanCode3"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400011' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.instanCode4"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400013' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="items.instanCode5"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400014' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text" validator="number"
+							maxlength="2" ng-model="items.performOrder"  >
+				</div>
+			</div>
+			
+			<!-- pcd实例化 -->
+			<div ng-show="pcdInstanShow">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH400015' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH400016' | translate}}：</div>
+				<div class="wd330 float_left">
+						<input class="layui-input" name="pcdNo" type="text" 
+							 ng-model="pcdExampleInf.pcdNo"  disabled
+							>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400030' | translate}}：</div>
+				<div class="wd330 float_left">
+						<select jf-select="builder.option(segmentTypeArray)" ng-model="pcdExampleInf.segmentType" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400018' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="pcdExampleInf.baseInstanCode"  disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400020' | translate}}：</div>
+				<div class="wd330 float_left">
+					<input class="layui-input" type="text"
+						ng-model="pcdExampleInf.optionInstanCode"  disabled>
+				</div>
+			</div>
+			
+			<div class="col_td"></div>
+			<div class="button_contain" ng-show="addButtonShow">
+				<button class="layui-btn layui-btn-primary" ng-click="newPcdBtn()">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th>{{'YYH400028' | translate}}</th>
+						<th>{{'YYH400021' | translate}}</th>
+						<th>{{'YYH400029' | translate}}</th>
+						<th>{{'YYH400022' | translate}}</th>
+						<th>{{'YYH400023' | translate}}</th>
+						<th>{{'F00016' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in pcdInfTable track by $index">
+						<td align="center" ng-bind="item.segmentSerialNum"></td>
+						<td align="center" ng-bind="item.pcdType"></td>
+						<td align="center" ng-bind="item.segmentValue"></td>
+						<td align="center" ng-bind="item.pcdValue"></td>
+						<td align="center" ng-bind="item.pcdPoint"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="updateInstan(item,$index)">
+								<i class="layui-icon"></i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"  ng-click="deletePcdDif($index)">
+								<i class="layui-icon"></i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+				<div ng-if="showNewPcdInfo">
+				<div >
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH400028' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"  maxlength="11"
+								ng-model="pcdExampleInf.segmentSerialNum" disabled>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH400029' | translate}}：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"  maxlength="10"
+								ng-model="pcdExampleInf.segmentValue">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH400021' | translate}}：</div>
+						<div class="wd330 float_left">
+								<select jf-select="builder.option(pcdtypeArray)" ng-model="pcdExampleInf.pcdType"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH400022' | translate}} ：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"  maxlength="10"
+								ng-model="pcdExampleInf.pcdValue">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'YYH400023' | translate}}：</div>
+						<div class="wd330 float_left">
+							<input class="layui-input" type="text"  maxlength="10"
+								ng-model="pcdExampleInf.pcdPoint">
+						</div>
+					</div>
+					
+					<div class="col_tr text_center">
+						<button class="layui-btn layui-btn-radius"
+							 ng-click="saveNewAdrInfo()">
+							<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+						</button>
+						<button class="layui-btn layui-btn-radius" ng-click="newPcdBtn()">
+							<i class="layui-icon">&#x1005;</i> {{'F00012' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>

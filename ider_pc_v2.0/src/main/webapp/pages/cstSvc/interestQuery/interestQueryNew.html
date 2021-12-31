@@ -1,0 +1,358 @@
+<style>
+.layui-table-view .layui-table {
+     width: 100%;
+ }
+ .layui-table-view .layui-table td, .layui-table-view .layui-table th {
+ 	padding: 0;
+ }
+ .layui-table th {
+ 	font-weight: bold;
+ }
+/* 以 为子表css改动处 2019.8.14 */
+.layui-icon-right:before {
+	content: "\e602"
+}
+.layui-icon-down:before {
+	content: "\e61a"
+}
+</style>
+<div ng-controller="interestQueryNewCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="layui-form">
+		<form action="" class="allcontent">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="interestSearch.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" id="interestQuery_idNumber"  validator="noValidator"
+						ng-model="interestSearch.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo"
+						type="text" ng-model="interestSearch.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="queryitemList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="refact()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		<div class="allcontent1" ng-show="isShowRelation">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH2500003' | translate}}</div>
+			<!-- 查询主账户 -->			
+			<div class="page-wrapper">
+				<table id="settlementTreeTable"></table>
+				<div id="settlementPageDemo"  style="margin: 0 auto;  text-align: right;"></div>
+			</div>
+			<!-- 表格操作列 -->
+			 <script type="text/html" id="settlementHandle">
+           		{{#  if(d.eventNo.search('PT.12') > -1){ }}
+           		<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="queryInterestContrlChain">结息明细查询</a>
+				{{#  } else if(d.eventNo.search('PT.13') > -1){ }}
+           		<a class="layui-btn layui-btn-primary layui-btn-xs"  lay-event="queryRelativeTrans">关联交易</a>
+				{{#  } }}
+				<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="checkInfo">查看</a>
+			</script>
+			<!-- <div jf-grid="relativeTransTable">
+				<table>
+					<thead>
+						<tr>
+							<th width="13%">{{'KHH2500004' | translate}}</th>
+							<th width="17%">{{'KHH2500106' | translate}}</th>
+							<th width="17%">{{'KHH2500073' | translate}}</th>
+							<th>{{'KHH2500005' | translate}}</th>
+							<th>{{'KHH2500006' | translate}}</th>
+							<th>{{'KHH2500008' | translate}}</th>
+							<th width="13%">{{'KHH2500009' | translate}}</th>
+							<th width="15%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center">
+								<span ng-bind="item.productObjectCode"></span><span ng-bind="item.productDesc"></span>
+							</td>
+							<td align="center">
+								<span ng-bind="item.businessTypeCode"></span><span ng-bind="item.businessDesc"></span>
+							</td>
+							<td align="left">
+								<span  ng-bind="item.postingCurrencyCode"></span>
+								<span  ng-bind="item.postingCurrencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.postingAmount | number:2"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center">
+								<button ng-if="item.eventNo.search('PT.12') > -1" class="layui-btn layui-btn-mini"
+									ng-click="queryInterestContrlChain(item)">
+									<i class="layui-icon"></i> {{'F00043' | translate}}
+								</button>
+								<button ng-if="item.eventNo.search('PT.13') > -1" class="layui-btn layui-btn-mini"
+									ng-click="queryRelativeTrans(item)">
+									<i class="layui-icon"></i> {{'KHH2500089' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkInfo(item)">
+									<i class="layui-icon"></i>{{'F00041' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+		</div>
+		<!-- 结息明细查询 -->
+		<div class="allcontent" ng-show="isShowOccurrChain">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH2500010' | translate}}</div>
+			<div jf-grid="occurrChainTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH2500038' | translate}}</th>
+							<th>{{'KHH2500011' | translate}}</th>
+							<th>{{'KHH2500049' | translate}}</th>
+							<!-- <th>{{'KHH2500099' | translate}}</th> -->
+							<th>{{'KHH2500100' | translate}}</th>
+							<th width="14%">{{'KHH2500015' | translate}}</th>
+							<th> {{'KHH2500107' | translate}}</th>
+							<th width="14%">{{'KHH2500016' | translate}}</th>
+							<th>{{'KHH2500018' | translate}}</th>
+							<th>{{'KHH2500019' | translate}}</th>
+							<th width="15%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.cycleNumber"></td>
+							<td align="center" >
+								<span ng-bind="item.balanceObjectDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.annualInterestRate"></td>
+							<!-- <td align="center" ng-bind="item.assetPropertiesDesc"></td> -->
+							<td align="center" ng-bind="item.accountingStatusCodeDesc"></td>
+							<td align="center" ng-bind="item.currInterestAmount | number:2"></td>
+							<td align="center" ng-bind="item.oriInterestAmount | number:2"></td>
+							<td align="center" ng-bind="item.lastInterestAmount | number:2"></td>
+							<td align="center" ng-bind="item.billingStartDate"></td>
+							<td align="center" ng-bind="item.billingEndDate"></td>
+							<td align="center" style="padding: 0px 0px;">
+							    <button class="layui-btn layui-btn-mini"
+									ng-click="interestCalculationDetails(item)">
+									<i class="layui-icon"></i> {{'F00044' | translate}}
+								</button>
+								<!-- <button class="layui-btn layui-btn-mini"
+									ng-click="queryOccurrChainList(item)">
+									<i class="layui-icon"></i> {{'F00042' | translate}}
+								</button> -->
+								<button class="layui-btn layui-btn-mini"
+									ng-click="queryDetail(item)">
+									<i class="layui-icon"></i>{{'F00041' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- 结息明细查询 -->
+		<!-- 计息过程 -->
+		<div class="allcontent" ng-show="isShowInterestCalculationDetailsTable">
+			<div class="clearboth"></div>
+			<!-- <div class="mainname">{{'KHH2500044' | translate}}</div>
+			<div jf-grid="interestCalculationDetailsTable" >
+				<table border="0" cellspacing="0" cellpadding="0"
+							class="layui-table dataTable no-footer" lay-even=""
+							lay-skin="nob">
+				<table>
+					<thead>
+						<tr>
+							<th>计息节点金额</th>
+							<th>节点类型</th>
+							<th>计息开始日期</th>
+							<th>计息结束日期</th>
+							<th>计息天数</th>
+							<th>利息金额</th>
+							<th style="width: 25%;">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.pricipal"></td>
+							<td align="center">
+								<span ng-if="item.nodeTyp == 'DR' ">借方节点</span>
+								<span ng-if="item.nodeTyp == 'CR' ">贷方节点（包括还款）</span>
+								<span ng-if="item.nodeTyp == 'PY' ">还款</span>
+								<span ng-if="item.nodeTyp == 'RV' ">还款还原</span>
+								<span ng-if="item.nodeTyp == 'NI'">NETIN节点</span>
+								<span ng-if="item.nodeTyp == 'NO'">NETOUT节点</span>
+								<span ng-if="item.nodeTyp == 'CB'">回算节点</span>
+							</td>
+							<td align="center" ng-bind="item.startDate"></td>
+							<td align="center" ng-bind="item.endDate"></td>
+							<td align="center" ng-bind="item.interestDays"></td>
+							<td align="center" ng-bind="item.interest"></td>
+							<td align="center" style="padding: 0px 0px;">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="segmenteDetails(item)">
+									<i class="layui-icon"></i> 分段详情
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="occureBalanceDetails(item)">
+									<i class="layui-icon"></i> 发生额详情
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="relatedTrans2(item)">
+									<i class="layui-icon"></i> 关联交易
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHJ2500014' | translate}}</div>
+			<table id="myTable" lay-filter="myTable"></table>
+		</div><!-- 计息过程 -->
+		<!-- 分段详情 -->
+		<div class="allcontent" ng-show="isShowSegmentDetail">
+			<div class="clearboth"></div>
+			<div class="mainname"> {{'KHH2500087' | translate}}</div>
+			<div >
+				<table border="0" cellspacing="0" cellpadding="0"
+							class="layui-table dataTable no-footer" lay-even=""
+							lay-skin="nob"> 
+					<thead>
+						<tr>
+							<th>{{'KHH2500074' | translate}}</th>
+							<th>{{'KHH2500049' | translate}}</th>
+							<th>{{'KHH2500090' | translate}}</th>
+							<th>{{'KHH2500076' | translate}}</th>
+							<th>{{'KHH2500077' | translate}}</th>
+							<th>{{'KHH2500078' | translate}}</th>
+							<th>{{'KHH2500079' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in segmentDetailList track by $index">
+							<td align="center" ng-bind="item.pricipal | number:2"></td>
+							<td align="center" ng-bind="item.rate"></td>
+							<td align="center" ng-bind="item.dayFactory"></td>
+							<td align="center" ng-bind="item.startDate"></td>
+							<td align="center" ng-bind="item.endDate"></td>
+							<td align="center" ng-bind="item.interestDays"></td>
+							<td align="center" ng-bind="item.interest"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- 分段详情 -->
+		<!-- 关联交易 -->
+		<div class="allcontent" ng-show="isShowRelatedPartyTransactions">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH2500041' | translate}}</div>
+			<div jf-grid="relatedPartyTransactionsTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width: 150px;">{{'KHH2500004' | translate}} </th>
+							<th>{{'KHH2500007' | translate}} </th>
+							<th>{{'KHH2500042' | translate}}</th>
+							<th>{{'KHH2500005' | translate}} </th>
+							<th>{{'KHH2500008' | translate}} </th>
+							<th>{{'KHH2500006' | translate}} </th>
+							<th>{{'KHH2500043' | translate}}</th>
+							<th style="width: 10%;">{{'KHH2500009' | translate}} </th>
+							<th width="15%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="center" ng-bind="item.transAmount | number:2"></td>
+							<td align="center" ng-bind="item.transCurrCde"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.postingAmount | number:2"></td>
+							<td align="left">
+								<span  ng-bind="item.postingCurrencyCode"></span>
+								<span  ng-bind="item.postingCurrencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center" style="padding: 0px 0px;">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkCalculationDetails(item)">
+									<i class="layui-icon"></i> {{'F00041' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- 关联交易 -->
+		<!-- 发生额链详情 -->
+		<div class="allcontent" ng-show="isShowOccurrAmountChain">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'KHH2500029' | translate}}</div>
+			<div jf-grid="occurrChainAmountTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH2500011' | translate}}</th>
+							<th>{{'KHH2500030' | translate}}</th>
+							<th>{{'KHH2500013' | translate}}</th>
+							<th>{{'KHH2500031' | translate}}</th>
+							<th>{{'KHH2500032' | translate}}</th>
+							<th>{{'KHH2500033' | translate}}</th>
+							<th>{{'KHH2500034' | translate}}</th>
+							<th>{{'KHH2500035' | translate}}</th>
+							<th>{{'KHH2500036' | translate}}</th>
+							<th>{{'KHH2500037' | translate}}</th>
+							<th>{{'KHH2500038' | translate}}</th>
+							<th width="15%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.balanceUnitCode"></td>
+							<td align="center" ng-bind="item.interestStartDate"></td>
+							<td align="center" ng-bind="item.nodeTypDesc"></td>
+							<td align="center" ng-bind="item.occurrAmount | number:2"></td>
+							<td align="center" ng-bind="item.createDate"></td>
+							<td align="center" ng-bind="item.debitAmount"></td>
+							<td align="center" ng-bind="item.creditAmount | number:2"></td>
+							<td align="center" ng-bind="item.paymentAmount | number:2"></td>
+							<td align="center" ng-bind="item.netoutAdjustAmount | number:2"></td>
+							<td align="center" ng-bind="item.paymentRevAmount | number:2"></td>
+							<td align="center" ng-bind="item.cycleNo"></td>
+							<td align="center" style='padding: 0px 0px'>
+								<button class="layui-btn layui-btn-mini" ng-click='relatedPartyTransactions(item)'>
+									<i class="layui-icon"></i> {{'F00045' | translate}}
+								</button>			
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- 发生额链详情 -->
+	</div>

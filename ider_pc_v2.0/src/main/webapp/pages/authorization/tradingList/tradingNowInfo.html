@@ -1,0 +1,513 @@
+<div ng-controller="tradingNowInfoCtrl">
+	<div class="mb0 bnone">
+		<div class=" ">
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700023' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.customerNo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.externalIdentificationNo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700024' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.accountNo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700025' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.globalTransSerialNo" readonly>
+				</div>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2700026' | translate}}</div>
+		<div class=" layui-form-item">
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700002' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.temDate" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700003' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.temTime" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700029' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="transMessage.ecommField7" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700030' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField11" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700031' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="transMessage.ecommField32" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700032' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="transMessage.ecommField37"  readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700033' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transPostingInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700034' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transTypeInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700035' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transProcessStatusInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700036' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="inputSourceInfo" readonly>
+				</div>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2700037' | translate}}</div>
+		<div class=" layui-form-item" style="width:100%">
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700038' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.globalTransSerialNoOri" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700039' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.globalTransSerialNoRev" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700040' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.globalTransSerialNoAuth" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700041' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.globalTransSerialNoPost" readonly>
+				</div>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2700042' | translate}}</div>
+		<div class="layui-form-item">
+			<div class="col_td">
+				<div class="col4 text_right">CVV/ICVV{{'SQH2700043' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltCvvInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">CVV2{{'SQH2700043' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="ecommVerifnRsltCvv2Info" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">CAVV{{'SQH2700043' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltCavvInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">PIN{{'SQH2700043' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltPinInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">ARQC{{'SQH2700043' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltArqcInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700044' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="ecommVerifnRsltTransExpDteInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700045' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="ecommVerifnRsltMediaExpDteInfo" readonly>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">卡片制数检查：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltPltNbrsInfo" readonly>
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700046' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltExcpInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700047' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltActvInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700048' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltSpclInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700049' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltFraudInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700050' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltVeloInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700051' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltBwlistInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700052' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="ecommVerifnRsltLimitInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700053' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltOriTransInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700054' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltAuthMatchInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700055' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltFinalCheckInfo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700056' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="ecommVerifnRsltAccountCheckInfo" readonly>
+				</div>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2700057' | translate}}</div>
+		<div class=" layui-form-item" style="width:100%">
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700058' | translate}} ：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.authSceneCode" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700059' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone" type="text"
+						ng-model="item.contrlSceneCode" readonly>
+				</div>
+			</div>
+			
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2700060' | translate}}</div>
+		<div class="layui-form-item">
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700061' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.temCurrencyCode" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700062' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.temTransAmount" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700085' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.ecommClearCurr" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700086' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.ecommClearAmt" readonly>
+				</div>
+			</div>
+				<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700063' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.billingCurrCode" readonly>
+				</div>
+			</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2700064' | translate}}：</div>
+						<div class="wd250 float_left">
+							<input class="layui-input bnone"  type="text"
+								ng-model="item.billingAmt" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+					<div class="col4 text_right">{{'SQH2700087' | translate}}：</div>
+					<div class="wd250 float_left">
+						<input class="layui-input bnone"  type="text"
+							ng-model="item.marketingSceneCode" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2700088' | translate}}：</div>
+					<div class="wd250 float_left">
+						<input class="layui-input bnone"  type="text"
+							ng-model="item.marketingCurrencyCode" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700089' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.marketingDiscountAmt" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700065' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField14" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700066' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField18" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700067' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField19" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">POS ENTRY MODE：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField22" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">POS CONDITION CODE：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField25" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700068' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField41" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700069' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField42" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700070' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField43" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700071' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField38" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700072' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="transMessage.ecommField39" readonly>
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'SQH2700073' | translate}}：</div>
+				<div class="wd250 float_left">
+					<input class="layui-input bnone"  type="text"
+						ng-model="item.responseDesc" readonly>
+				</div>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH2700102' | translate}}</div>
+		<div class=" clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2700105' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.overpayOccupyCurrCode" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH2700106' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" type="text" ng-model="item.overpayOccupyAmt" readonly>
+			</div>
+		</div>
+		<div ng-show = "histDiv"> 
+			<div ng-repeat = "authCreditUseHistory in authCreditUseHistorys track by $index">
+				<div class="col_td" >
+					<div class="col4 text_right">{{'SQH2700096' | translate}}{{$index+1}}：</div>
+					<div class="wd190 float_left" style="padding-left: 10px;">
+						<span>{{authCreditUseHistory.creditNodeNo}}{{authCreditUseHistory.creditDesc}}</span>
+					</div>
+				</div>
+				<div class="col_td" >
+					<div class="col4 text_right">{{'SQH2700005' | translate}}{{$index+1}}：</div>
+					<div class="wd190 float_left" style="padding-left: 10px;">
+						<span>{{authCreditUseHistory.totalAmt}}</span>
+					</div>
+				</div>
+			</div>
+			<!-- <table>
+				<thead>
+				<tr>
+					<th style="padding: 0px 5px; width:4%">{{'SQH2700004' | translate}}</th>
+					<th style="padding: 0px 5px; width:8%" >{{'SQH2700005' | translate}}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="authCreditUseHistory in authCreditUseHistorys ">
+					<td style="padding: 0px 5px;" align="center">
+					<span>{{authCreditUseHistory.creditNodeNo}}{{authCreditUseHistory.creditDesc}}</span>
+					
+					</td>
+					<td style="padding: 0px 5px;"   align="center">
+						<span>{{authCreditUseHistory.totalAmt}}</span>
+					</td>
+				</tr>
+				</tbody>
+			</table> -->
+		</div>
+		<div ng-show="histDiv2">
+			<div class="col_td" >
+				<div class="col4 text_right">{{'SQH2700096' | translate}}：</div>
+				<div class="wd190 float_left" style="padding-left: 10px;">
+					<span>{{item.creditNodeNo}}</span><span>{{item.creditDesc}}</span>
+				</div>
+			</div>
+			<div class="col_td" >
+				<div class="col4 text_right">{{'SQH2700005' | translate}}：</div>
+				<div class="wd190 float_left" >
+					<input class="layui-input bnone" type="text" ng-model="item.creditOccupyAmt" readonly>
+				</div>
+			</div>
+		</div>
+ 		<div class="col_tr" style="text-align: center;">
+			<button class="layui-btn" id='forceInfoId' ng-click="forceInfo()" ng-show="item.forceAuthFlag == 'Y' && transMessage.ecommField39 != '00'">
+				<i class="layui-icon">&#xe624;</i> {{'SQH2700074' | translate}}
+			</button>
+			<button class="layui-btn" id="rvInfoId" ng-click="rvInfo()" ng-show="item.rvTransFlag == 'Y' && transMessage.ecommField39 == '00'">
+				<i class="layui-icon">&#xe624;</i> {{'SQH2700075' | translate}}
+			</button>
+		</div>
+	</div>
+</div>

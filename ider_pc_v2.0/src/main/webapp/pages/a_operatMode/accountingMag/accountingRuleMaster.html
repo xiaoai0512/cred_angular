@@ -1,0 +1,82 @@
+<div class="layui-form" ng-controller="accountingRuleMasterCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 记账规则主表查询 -->
+		<form class="search_mian" >
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accountingRuleMasterList.params.operationMode"  jf-select="operationModeArr" name="operationMode"
+					  maxlength="3">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400013' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="accountingRuleCode"
+						ng-model="accountingRuleMasterList.params.accountingRuleCode" maxlength="6" >
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="accountingRuleMasterList.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="accRuleMasterAdd()" ng-show="addBtnFlag"> 
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- 记账规则主列表 -->
+		<div jf-grid="accountingRuleMasterList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH400001' | translate}}</th>
+						<th  style="width: 12%;">{{'YYH5400014' | translate}}</th>
+						<th>{{'YYH5400015' | translate}}</th>
+						<th>{{'YYH5400016' | translate}}</th>
+						<th>{{'YYH5400017' | translate}}</th>
+						<th>{{'YYH5400018' | translate}}</th>
+						<th>{{'YYH5400019' | translate}}</th>
+						<th>{{'YYH5400020' | translate}}</th>
+						<th>{{'YYH5400021' | translate}}</th>
+						<th style="width:20%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="left">
+							<span>{{item.accountingRuleCode}}&nbsp;</span>
+							<span>{{item.accountingRuleDesc}}</span>
+						</td>
+						<td align="center"  ng-bind="item.accountingObjectDesc"></td>
+						<td align="center"  ng-bind="item.accountingSubtableTypeDesc"></td>
+						<td align="center"  ng-bind="item.balancePropertyDesc"></td>
+						<td align="center"  ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.balanceObjectCode"></td>
+						<td align="center"  ng-bind="item.accountingDirectionDesc"></td>
+						<td align="center" ng-bind="item.sendAcctnoFlag"></td>
+						<td align="center">
+							 <button class="layui-btn layui-btn-mini"
+								ng-click="checkAccRuleMasterInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button> 
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateAccRuleMasterInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" 
+								ng-click="deleteAccRuleMasterInf(item)" ng-show="delBtnFlag">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

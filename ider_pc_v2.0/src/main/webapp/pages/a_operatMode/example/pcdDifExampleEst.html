@@ -1,0 +1,98 @@
+<div ng-controller="artifactExampleExtCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：构件实例建立
+	</div>
+	<div class="allcontent layui-form">
+		<form name="artifactExampleInfForm">
+			<!-- <div class="mainname">新增卡BIN</div> -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>运营模式：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactExampleInf.operationMode"   jf-select="operationModeArr" name="operationMode" maxlength="3" >
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>构件编号：</div>
+				<div class="wd190 float_left">
+					     <select ng-model="artifactExampleInf.artifactNo" class="layui-input"
+						jf-select="builder.option(cardScheme)" name="cardScheme"
+						validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>构件实例代码1：</div>
+				<div class="wd190 float_left">
+					<select ng-model="artifactExampleInf.cardTyp" class="layui-input"
+						jf-select="builder.option(cardType)" name="cardTyp"
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>构件实例代码2：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>构件实例代码3：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>构件实例代码4：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>构件实例代码5：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">PCD差异序号：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">取值类型：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">取值：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">关联值：</div>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="artifactExampleInf.settlementCurrency" jf-select="currencyArr" name="settlementCurrency"   maxlength="3">
+						</select>
+				</div>
+			</div>
+
+		</form>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius"
+				ng-click="saveartifactExampleInf()" validation-submit="artifactExampleInfForm">
+				<i class="layui-icon">&#xe624;</i> 保存
+			</button>
+		</div>
+
+	</div>
+</div>

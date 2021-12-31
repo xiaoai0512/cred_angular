@@ -1,0 +1,23 @@
+{
+"SQH2300001": "Operation Mode",
+"SQH2300002": "Card scheme",
+"SQH2300003": "VISA Network Details",
+"SQH2300004": "Network Status",
+"SQH2300005": "Function selection",
+"SQH2300006": "MC Network Details",
+"SQH2300007": "CUP Network Details",
+"SQH2300008": "Key Type",
+"SQH2300009": "Encryption Algorithm",
+"SQH2300010": "JCB Network Details",
+"SQJ2300001": "Log in",
+"SQJ2300002": "Log out",
+"SQJ2300003": "Receiving STIP Authorized Transactions",
+"SQJ2300004": "Stop STIP authorization",
+"SQJ2300005": "Please select card scheme",
+"SQJ2300006": "Line Test",
+"SQJ2300007": "Key reset",
+"SQJ2300008": "Single Long Key Algorithm",
+"SQJ2300009": "Double Long Key Algorithm",
+"SQJ2300010": "Please select the operation mode!",
+"SQJ2300011": "Please enter the encryption type and encryption algorithm"
+}

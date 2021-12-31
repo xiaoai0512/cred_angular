@@ -1,0 +1,148 @@
+<div ng-controller="updateABSplanCtrl">
+	<form name="ABSplanEstInfForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input ins" ng-model="upoperationMode" jf-select="operationModeArr" name="operationMode"  validator="required" maxlength="3" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input ins"  type="text" name="planId" ng-model="updatePlanInf.planId"  maxlength="6" disabled/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000024' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input ins"  type="text" name="planDesc"  ng-model="updatePlanInf.planDesc"  maxlength="50" disabled/>
+			</div>
+		</div>
+		<!-- 计划类型 -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000046' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input ins"  ng-model="planType" jf-select="planTypeArray" name="capitalOrganizationCode" 
+				  maxlength="25" validator="required" lay-filter="getCapitalOrganizationCode" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input ins"  ng-model="upcapitalOrganizationCode" jf-select="capitalOrganizationCodeArray" name="capitalOrganizationCode" 
+				  maxlength="25" validator="required" lay-filter="getCapitalOrganizationCode" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input ins"  type="text" name="capitalOrganizationName"  ng-model="updatePlanInf.capitalOrganizationName" maxlength="120" disabled/>
+			</div>
+		</div>
+		<div class="col_tr">
+			<div class="col2 text_right"><span class="red">*</span>{{'KHH6000036' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input ins" ng-model="upaccountType" jf-select="accountTypeArray" name="accountType"  
+				 maxlength="1"  lay-filter="getAccountType" disabled  validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000061' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input ins ins1" ng-model="oldcapitalStage" jf-select="oldcapitalStageArray" name="capitalStage"  
+				 maxlength="4" validator="required" disabled>
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show = "curCapDiv">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000033' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input ins ins1" ng-model="upcapitalStage" jf-select="curcapitalStageArray" name="capitalStage"  
+				 maxlength="4"  lay-filter="getCapitalStage" disabled>validator="required"
+				</select>
+			</div>
+		</div> -->
+		<div class="col_td" ng-show ="subDiv">
+			<div class="col4 text_right">{{'KHH6000034' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input ins" ng-model="oldcapitalSubStage" jf-select="oldcapitalSubStageArray" name="capitalSubStage" 
+				maxlength="4" disabled>
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td" ng-show ="subDiv">
+			<div class="col4 text_right">{{'KHH6000035' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input ins" ng-model="upcapitalSubStage" jf-select="curcapitalSubStageArray" name="capitalSubStage" 
+				maxlength="4" lay-filter="getCapitalSubStage" disabled>
+				</select>
+			</div>
+		</div> -->
+		<!-- 表内回购法人代码&&表外回购法人代码 -->
+		<!-- <div class="col_tr" >
+			<div class="col2 text_right">{{'KHH6000053' | translate}}</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000054' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="updatePlanInf.corporationEntityNoOn" jf-select="corporationEntityNoOnArray" name="accountType" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000055' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="updatePlanInf.corporationEntityNoOff" jf-select="corporationEntityNoOffArray" name="accountType" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00189' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="updatePlanInf.effectiveDate" id="LAYCI_effectiveDateU"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateNs" type="text" ng-model="updatePlanInf.expirationDate" id="LAYCI_expirationDateU"> 
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<!-- 触发时间表 -->
+		<div class="col_tr" ng-show="showTime1">
+			<div class="col3 text_right">{{'KHH6000047' | translate}}{{'KHH6000050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="updatePlanInf.triggerTrs1" id="LAYCI_triggerTrs1"> 
+			</div>
+		</div>
+		 <div class="col_tr" ng-show="showTime2">
+			<div class="col3 text_right">{{'KHH6000048' | translate}}{{'KHH6000050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="updatePlanInf.triggerTrs2" id="LAYCI_triggerTrs2"> 
+			</div>
+		</div>
+		<div class="col_tr" ng-show="showTime3">
+			<div class="col3 text_right">{{'KHH6000049' | translate}}{{'KHH6000050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="updatePlanInf.triggerRepo" id="LAYCI_triggerRepo"> 
+			</div>
+		</div> 
+	 	<div class="col_tr" ng-show="showTime4">
+			<div class="col3 text_right">{{'KHH6000051' | translate}}{{'KHH6000050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="updatePlanInf.triggerTrsf" id="LAYCI_triggerTrsf"> 
+				</div>
+		</div> 
+		<div class="col_tr" ng-show="showTime5" >
+			<div class="col3 text_right">{{'KHH6000052' | translate}}{{'KHH6000050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="updatePlanInf.triggerRepo" id="LAYCI_triggerRepo2"> 
+			</div>
+		</div> 
+	</form>
+</div>

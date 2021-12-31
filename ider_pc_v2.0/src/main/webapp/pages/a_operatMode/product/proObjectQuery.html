@@ -1,0 +1,65 @@
+<div ng-controller="proObjectQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class='allcontent'>
+		<div class="col_td layui-form">
+			<div class="col4 text_right">{{'YYH300001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjectList.params.operationMode" jf-select="operationModeArr"name="operationModeN"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH510013' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="proObjectList.params.productObjectCode" maxlength="9">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="proObjectList.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+	
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="proObjectList.params={}">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div jf-grid="proObjectList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH300001' | translate}}</th>
+						<th>{{'YYH510013' | translate}}</th>
+						<th>{{'YYH300003' | translate}}</th>
+						<th>{{'YYH300005' | translate}}</th>
+						<th>{{'YYH300006' | translate}}</th>
+						<th>{{'YYH510042' | translate}}</th>
+						<th width="20%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="left" ng-bind="item.productObjectCode"></td>
+						<td align="left" ng-bind="item.productDesc"></td>
+						<td align="center" ng-bind="item.binNo"></td>
+						<td align="center" ng-bind="item.paymentPriority"></td>
+						<td align="center" ng-bind="item.segmentNumber"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkProObjectInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateProObjectInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

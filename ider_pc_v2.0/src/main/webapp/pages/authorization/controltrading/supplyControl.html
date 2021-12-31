@@ -1,0 +1,59 @@
+<div class="layout_body" ng-controller="supplyCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 管控清单 -->
+			<from class="layui-form">
+					<div class="col_td">
+						<label class="col4 text_right">{{'F00111' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="externalIdentificationNoN" ng-model="externalIdentificationNoSel" type="text">
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<div class="search_button">
+							<button class="layui-btn" ng-click="seachQuota()" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn" ng-click="addSupply()" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+							</button>
+						</div>
+					</div>
+			</from>
+		<!-- 管控清单列表 -->
+		<div ng-show="isshowc">
+			<div jf-grid="itemListc" >
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH2200004' | translate}}</th>
+							<th>{{'SQH1800065' | translate}}</th>
+							<th>{{'SQH2200003' | translate}}</th>
+							<th style="width:20%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td align="center" ng-bind="item.transLimitCode"></td>
+							<td style="width:20%" align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,119 @@
+<div ng-controller="viewTimeInfoCtrl">
+	<form action="" class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input  type="text" class="layui-input bnone" ng-model="itemInfo.accountId"  name="accountId" readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000146' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input type="text" class="layui-input bnone" ng-model="itemInfo.customerNo" name="customerNo"  readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700014' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input type="text" class="layui-input bnone" ng-model="itemInfo.currencyCode" name="currencyCode" readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHJ4700007' | translate}} ：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.businessProgramNo}} {{itemInfo.programDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000246' | translate}} ：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.productObjectCode}} {{itemInfo.productDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4700047' | translate}} ：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.businessTypeCode}} {{itemInfo.businessDesc}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000247' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input  type="text"  class="layui-input bnone" name="transIdentifiNo" ng-model="itemInfo.transIdentifiNo" readonly/>
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000249' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.billPrincipalBalCard | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000250' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.billPrincipalBalAuth | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000251' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.billCostBalCard | jfMoney}}</span> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000252' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.billCostBalAuth | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000253' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.billInterestBalCard | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000254' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.billInterestBalAuth | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000255' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.currPrincipalBalCard | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000256' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.currPrincipalBalAuth | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000257' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.currCostBalCard | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000258' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.currCostBalAuth | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000259' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.currInterestBalCard | jfMoney}}</span>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH47000260' | translate}}：</div>
+			<div class="wd190 float_left" style="padding-left: 10px;">
+				<span>{{itemInfo.currInterestBalAuth | jfMoney}}</span>
+			</div>
+		</div>
+	</form>
+</div>

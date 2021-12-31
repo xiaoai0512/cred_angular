@@ -1,0 +1,113 @@
+<div ng-controller="loanChangeCtrl">
+	<form name="loanInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.accountId" name="accountId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600016' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.loanAmount" name="loanAmount" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600068' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.currencyCode"  name="currencyCode" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.loanRate" name="loanRate" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600040' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="repayModeListAll" name="repayModeN" ng-model="loanquery.repayMode" disabled="disabled"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="loanquery.loanTerm" jf-format-input="money" name="loanTerm" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname titleInfo">{{'KHH4600069' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH4600069' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="loanquery.changeType" class="layui-input"  lay-filter="getChangeType"
+					jf-select="loanArray" name="changeType" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="wd190 float_left">
+				<button class="layui-btn" ng-click="trialLoan()" >
+					{{'KHH4600070' | translate}}
+				</button>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="isShowTermNo">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4600071' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="loanquery.changeTermNo" 
+					 name="changeTermNo" />
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="isShowLoanRate">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4600072' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text"  class="layui-input" ng-model="loanquery.changeLoanRate" 
+					 name="changeLoanRate" maxlength='18' />
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div ng-show="isShowRepayMode">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'KHH4600073' | translate}}：</div>
+				<div class="wd190 float_left">
+					 <select class="layui-input" jf-select="repayModeList" name="changeRepayMode" ng-model="loanquery.changeRepayMode" lay-filter="getrepayMode"></select>
+				</div>
+			</div>
+		</div>
+		<!-- 贷款试算 -->
+		<div class="clearboth"></div>
+		<div ng-show="isShowTrialLoan">
+			<div class="mainname">{{'KHH4600074' | translate}}</div>
+			<div jf-grid="trailLoanTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH4600025' | translate}}</th>
+							<th>{{'KHH4600026' | translate}}</th>
+							<th>{{'KHH4600027' | translate}}</th>
+							<th>{{'KHH4600028' | translate}}</th>
+							<th>{{'KHH4600029' | translate}}</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr >
+							<td align="center" ng-bind="item.termNo"></td>
+							<td align="center" ng-bind="item.throwDate"></td>
+							<td align="center" ng-bind="item.principalAmount | number:2"></td>
+							<td align="center" ng-bind="item.interestAmount | number:2"></td>
+							<td align="center" ng-bind="item.feeAmount | number:2"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</form>
+</div>

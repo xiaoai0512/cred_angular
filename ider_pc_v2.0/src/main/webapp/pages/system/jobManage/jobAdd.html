@@ -1,0 +1,56 @@
+<div ng-controller="jobAddCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class=" clearboth"></div>
+		<!-- <div class="mainname titleInfo">基本信息</div> -->
+		<!-- <div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>运营模式：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="coArray" name="operationModeN" ng-model="jadd.operationMode"></select>
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YWH5500001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="operationOrganArray" name="operationOrganN" ng-model="jadd.operationOrgan"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YWH5500026' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="postNoN" ng-model="jadd.postNo"  type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YWH5500022' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="postNameN" ng-model="jadd.postName"  type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YWH5500027' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="postDescN" ng-model="jadd.postDesc"  type="text" >
+			</div>
+		</div>
+ 		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YWH5500028' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="jobLevels" name="postTypeN" ng-model="jadd.postType"></select>
+			</div>
+		</div>
+<!-- 		<div class="col_td" ng-show="fatherjob">
+			<div class="col4 text_right"><span class="red">*</span>上级岗位 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="postingRetainFlagN" ng-model="jadd.postingRetainFlag"  type="text" >
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YWH5500023' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" jf-select="jobFlag" name="postStatusN" ng-model="jadd.postStatus"></select>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

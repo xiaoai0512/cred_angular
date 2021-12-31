@@ -1,0 +1,91 @@
+<div ng-controller="checkMediaObjectCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="layui-form">
+					<div class="col_td">
+						<div class="col4 text_right">运营模式 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" type="text"
+								ng-model="item.operationMode" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">媒介对象代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input  bnone" type="text"
+								ng-model="item.mediaObjectCode" disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">媒介类型：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input  bnone" type="text" ng-model="item.mediaObjectTypeTran"
+								disabled="disabled">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">媒介对象描述 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" ng-model="item.mediaObjectMsg">
+						</div>
+					</div>
+					
+					<div class="search_mian">
+						<div class="mainname">构件列表</div>
+					</div>
+					<div >
+						<table border="0" cellspacing="0" cellpadding="0"
+								class="layui-table dataTable no-footer" lay-even=""
+								lay-skin="nob">
+							<thead>
+								<tr>
+									<th>构件编号</th>
+									<th>构件描述</th>
+									<th>构件类型</th>
+									<th>实例化元件</th>
+									<th style="width:120px">元件描述</th>
+									<th>PCD</th>
+									<th  style="width: 180px;" >操作</th>
+									<th  style="display:none">序号</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in treeSelect track by $index">
+									<td align="center" ng-bind="item.artifactNo"></td>
+									<td align="center" ng-bind="item.artifactDesc"></td>
+									<td align="center" >
+										<span   ng-if="item.artifactType == 'A'">账户类构件</span>
+										<span   ng-if="item.artifactType == 'B'">余额类构件</span>
+										<span   ng-if="item.artifactType == 'T'">技术类构件</span>
+										<span   ng-if="item.artifactType == 'P'">产品类构件</span>
+										<span   ng-if="item.artifactType == 'X'">非对象类构件</span>
+										<span   ng-if="item.artifactType == 'M'">媒介类构件</span>
+										<span   ng-if="item.artifactType == ''"></span>
+									 </td>
+									<td align="center" ng-bind="item.elementNo"></td>
+									<td align="center" ng-bind="item.elementDesc"></td>
+									<td align="center" ng-bind="item.pcdNo"></td>
+									<td align="center">
+											<button class="layui-btn layui-btn-mini" ng-click="updateBalObjInfo(item)">
+												<i class="layui-icon"></i> 编辑
+											</button>
+											<button class="layui-btn layui-btn-mini" type="button"
+											ng-click="removeSelect(item,$index)">
+											<i class="layui-icon"></i> 删除
+											</button>
+									</td>
+									<td  ng-bind="$index" style="display:none"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+						<button class="layui-btn layui-btn-mini" type="button" 
+								ng-click="newArtWay(item)">
+								<i class="layui-icon layui-icon-more">新增构件</i>
+						</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>

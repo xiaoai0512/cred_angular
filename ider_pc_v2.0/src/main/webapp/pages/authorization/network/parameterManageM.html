@@ -1,0 +1,60 @@
+<div ng-controller="pManagementCtrlM">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form name="infoFormM"  class="layui-form">
+				<div class="mainname titleInfo">MC{{'SQH2900018' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900003' | translate}}ID：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="instIdM" ng-model="itemUM.instId" type="text" validator="required,maxlength" maxlength="11" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="logIsoMsgIndU" value="logIsoMsgIndU" class="layui-input"
+							jf-select="saveArray" name="logIsoMsgIndM" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900005' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select ng-model="referralRespInU" value="referralRespInU" class="layui-input"
+							jf-select="supportArray" name="referralRespInM"  validator="required" autocomplete="off"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="referralMsgM" ng-model="itemUM.referralMsg" type="text" autocomplete="off" validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900009' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input " name="authSecCodeM" ng-model="itemUM.authSecCode" type="text" autocomplete="off" validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900010' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="fileSecCodeM" ng-model="itemUM.fileSecCode" type="text" autocomplete="off" validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH2900011' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="avsSupportIndU" value="avsSupportIndU" class="layui-input"
+							jf-select="avsArray" name="contrlReasonM" validator="required"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2900008' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="refNbrM" ng-model="itemUM.refNbr" type="text" readonly>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

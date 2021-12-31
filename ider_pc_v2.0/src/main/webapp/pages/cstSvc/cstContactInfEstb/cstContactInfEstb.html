@@ -1,0 +1,72 @@
+<div class="layui-form" ng-controller="cstContactInfEstbCtrlAdd">
+			<form name="contactInfoForm">
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH6300004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="contactlInfTableInfoObj.contactCategory" class="layui-input"  validator="required"
+							jf-select="contactCategoryArray" name="contactCategory" lay-filter="getContactCategory">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH6300005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="name"
+							ng-model="contactlInfTableInfoObj.name" maxlength="30"
+							validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH6300006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="relation"
+							ng-model="contactlInfTableInfoObj.relation" maxlength="10"
+							validator="required">
+					</div>
+				</div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH6300007' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="handphone"
+                               ng-model="contactlInfTableInfoObj.handphone" maxlength="11" minlength="11"
+                               validator="required">
+                    </div>
+                </div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH6300008' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="telephoneCountry"
+                               ng-model="contactlInfTableInfoObj.telephoneCountry" maxlength="4">
+                    </div>
+                </div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH6300009' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="telephoneZone"
+                               ng-model="contactlInfTableInfoObj.telephoneZone" maxlength="4">
+                    </div>
+                </div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH6300010' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="telephoneNo"
+                               ng-model="contactlInfTableInfoObj.telephoneNo" maxlength="12">
+                    </div>
+                </div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH6300011' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="telephoneNoExt"
+                             ng-model="contactlInfTableInfoObj.telephoneNoExt" maxlength="6">
+                    </div>
+                </div>
+                <div class="col_td">
+                    <div class="col4 text_right">{{'KHH6300012' | translate}} ：</div>
+                    <div class="wd190 float_left">
+                        <select ng-model="contactlInfTableInfoObj.validFlag" class="layui-input" validator="required"
+                                jf-select="validFlagArray" name="validFlag" lay-filter="getvalidFlag">
+                        </select>
+                    </div>
+                </div>
+			</form>
+</div>

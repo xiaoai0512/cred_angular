@@ -1,0 +1,112 @@
+<div ng-controller="transEntryInquiryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="transEntryInquiryForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}}： </div>
+				<div class="wd190 float_left">
+					<select ng-model="transEntryInquiryTable.params.idType"
+						jf-select="certificateTypeArray1" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="transEntryInquiryTable.params.idNumber" name="idNumber"  type="text"
+					 id="transEntryInquiry_idNumber">
+				 
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="transEntryInquiryTable.params.externalIdentificationNo"
+				 name="externalIdentificationNo" type="text"  >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500076' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transEntryInquiryTable.params.transBillingState"
+						jf-select="transEntryStatusArr" name="transBillingState">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500077' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" ng-model="transEntryInquiryTable.params.startDate"
+						name="startDate"   type="text" id="transEntry_zs">
+				</div>
+			</div>
+	
+			<div class="col_td">
+				<div class="col4 text_right">{{'YWH5500078' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" ng-model="transEntryInquiryTable.params.endDate"
+						name="endDate"  type="text" id="transEntry_ze">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="queryitemList()" ng-show="selBtnFlag" type="button">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+		
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="resetChose()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		
+		</form>
+		
+			<div jf-grid="transEntryInquiryTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'YWH5500079' | translate}}</th>
+							<th>{{'YWH5500080' | translate}}</th>
+							<th>{{'YWH5500081' | translate}}</th>
+							<th>{{'YWH5500082' | translate}}</th>
+							<th>{{'YWH5500083' | translate}}</th>
+							<th>{{'YWH5500084' | translate}}</th>
+							<th>{{'F00158' | translate}}</th>
+							<th>{{'YWH5500085' | translate}}</th>
+							<th>{{'YWH5500086' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">
+								<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+								<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+			  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+							</td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="center" ng-bind="item.transAmount"></td>
+							<td align="center" ng-bind="item.transCurrCode"></td>
+							<td align="center" ng-bind="item.postingAmt"></td>
+							<td align="center" ng-bind="item.postingCurrCode"></td>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center">
+								<span ng-if="item.transBillingState == 'N' ">{{'YWH5500087' | translate}}</span>
+								<span ng-if="item.transBillingState == 'F' ">{{'YWH5500088' | translate}}</span>
+								<span ng-if="item.transBillingState == 'R' ">{{'YWH5500089' | translate}}</span>
+								<span ng-if="item.transBillingState == 'Y' ">{{'YWH5500090' | translate}}</span>
+							</td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="viewTransEntryDeatail(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>

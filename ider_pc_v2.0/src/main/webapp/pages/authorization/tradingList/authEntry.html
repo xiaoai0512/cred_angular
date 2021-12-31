@@ -1,0 +1,134 @@
+<div ng-controller="entryAddCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent ">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'SQH2800021' | translate}}</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH2800022' | translate}}</th>
+						<th>{{'SQH2800023' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.eventNo"></td>
+						<td align="center" ng-bind="item.eventDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">{{'SQH2800024' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name01"  ng-model="ent.ecommField2"  type="text" validator="required,number">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800001' | translate}}(MMYY) ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name02"  ng-model="ent.ecommField14"  type="text" validator="required,minlength,maxlength,number" minlength="4" maxlength="4" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" name="name03"  ng-model="ent.ecommField49" validator="required" 
+				jf-select="billingCurrency" lay-filter="getTransCur" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800003' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name04"  ng-model="ent.ecommField4" type="text" validator="required" id="transAmoun">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800009' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" name="name05"  ng-model="ent.ecommField51" validator="required" 
+				jf-select="billingFigure" lay-filter="getrpyTxnCurr"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800010' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name06"  ng-model="ent.ecommField6" type="text" validator="required" id="postingAmoun">
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800027' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" validator="required"
+					ng-model="ecommTransDate" jf-date-input
+					name="ecommTransDate" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<label class="col4 text_right"><span class="red">*</span>{{'SQH2800029' | translate}}：</label>
+			<div class="wd190 float_left">
+				<select class="layui-input" type="text" jf-select="transSceneArray" name="ecommTransSceneCode" validator="required"
+						ng-model="ent.ecommTransSceneCode" lay-search=""></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800005' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name07"  ng-model="ent.ecommField19"  type="text" validator="required">
+			</div>
+		</div>
+		 <div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>MCC{{'SQH2800004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name08"  ng-model="ent.ecommField18"  type="text" validator="required" >
+			</div> 
+		</div> 
+		<!-- <div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name07"  ng-model="ent.ecommField41"  type="text" validator="required">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1300020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="ent.ecommTransOrganization" class="layui-input"
+						jf-select="transOrganiArr"
+						name="ecommTransOrganization"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name09"  ng-model="ent.ecommField42"  type="text" validator="required">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800008' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name10"  ng-model="ent.ecommField43"  type="text" validator="required">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH2800028' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="name09"  ng-model="ent.corporationEntityNo"  type="text" validator="required">
+			</div>
+		</div> -->
+		<div class=" clearboth"></div>
+		<div class="col_tr text_center" style="margin-top:20px">
+			<button class="layui-btn layui-btn-radius" ng-click="saveEntryInfo()" validation-submit="mdmInfoForm">
+				<i class="layui-icon">&#xe624;</i> {{'F00074' | translate}}
+			</button>
+		</div>
+		</form>
+	</div>
+</div>

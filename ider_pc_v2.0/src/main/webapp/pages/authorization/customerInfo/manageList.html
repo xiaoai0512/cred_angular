@@ -1,0 +1,66 @@
+<div class="layout_body" ng-controller="manageListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="manageForm">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumber" id="manage_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'SQH800001' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="manageForm"  ng-click="selectList()">
+						<i class="layui-icon">&#xe615;</i>  {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	
+	<div ng-show="showQuotaTable" >
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH800007' | translate}}</th>
+						<th>{{'SQH800002' | translate}}</th>
+						<th>{{'SQH800003' | translate}}</th>
+						<th style="width: 17%;">{{'SQH800001' | translate}}</th>
+						<th>{{'SQH800004' | translate}}</th>
+						<th>{{'SQH800005' | translate}}</th>
+						<th>{{'SQH800006' | translate}}</th>
+						<th>{{'SQH800008' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.customerNo"></td>
+						<td align="center" ng-bind="item.businessProgram"></td>
+						<td style="width: 17%;" align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.productObjectCode"></td>
+						<td align="center" ng-bind="item.transIdentifiNo"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.authRespDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+</div>

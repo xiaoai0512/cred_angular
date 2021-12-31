@@ -1,0 +1,115 @@
+<div ng-controller="tradModelUpdateCtrl">
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1600060' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeUpdate" disabled></select>
+			</div>
+		</div>
+		<div class="col_td">  
+			<div class="col4 text_right">{{'SQH1600076' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="transModeCodeN" ng-model="item.transSceneCode" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1600077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="appArrayU" name="operationModeNa" ng-model="applicationRangeDesc" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1600061' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="transModeDescN"  type="text" ng-model="item.transSceneDesc" validator="required">
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname" style="display: inline;">{{'SQH1600064' | translate}}</div>
+				<div class="layui-inline float_right" style="margin-bottom: 10px;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="updateTradModel()" style="margin-right: 30px;">
+							 {{'F00010' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="delAllModel()">
+							 {{'F00060' | translate}}
+						</button>
+					</div>
+				</div>
+		<div style="margin-bottom:20px">
+			<table style="width:100%">
+				<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th align="center" style="width:5%">{{'SQH1600062' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600073' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600069' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600075' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600070' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600071' | translate}}</th>
+						<th align="center" style="width:10%">{{'SQH1600075' | translate}}</th>
+						<th align="center" style="width:15%">{{'SQH1600072' | translate}}</th>
+						<th align="center" style="width:10%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="neg in tradModelList" >
+						<td align="center" style="width:5%;padding-top: 5px;" align="center" ng-bind="$index+1"></td>
+						<td align="center" style="width:15%;padding-top: 5px;padding-right: 5px;" align="center">
+							<div>
+								<select class="layui-input" ng-model="neg.cardAssociations">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="ca in cardAssociationsUArray" value="{{ca.codes}}" ng-selected="neg.cardAssociations == ca.codes">{{ca.detailDesc}}</option> 
+								</select> 
+							</div>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;padding-left: 5px;" align="center" >
+							<div>
+								<select class="layui-input" ng-model="neg.field1">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="fc in field1UArray" value="{{fc.codes}}" ng-selected="neg.field1 == fc.codes">{{fc.detailDesc}}</option> 
+								</select>
+					   		 </td>
+					     <td align="center" style="width:10%;padding-top: 5px;padding-left: 5px;padding-right: 5px;" align="center">
+							<div>
+								<select class="layui-input" ng-model="neg.relative1">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="rc in relativeUArray" value="{{rc.codes}}" ng-selected="neg.relative1 == rc.codes">{{rc.detailDesc}}</option> 
+								</select>
+							</div>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" >
+							<div><input class="layui-input" name="bsnN{{$index+1}}" style="display: inline-block;"  ng-model="neg.field1Value " validator="required"></div>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;" align="center" >
+						   <div>
+						   <select class="layui-input" ng-model="neg.field2">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="fc in field1UArray" value="{{fc.codes}}" ng-selected="neg.field2 == fc.codes">{{fc.detailDesc}}</option> 
+								</select>
+							</div>
+					    </td>
+					     <td align="center" style="width:10%;padding-top: 5px;padding-left: 5px;padding-right: 5px;" align="center">
+							<div>
+								<select class="layui-input" ng-model="neg.relative2">
+									<option value="">{{'SQH1700090' | translate}}</option>
+									<option ng-repeat="rc2 in relativeUArray" value="{{rc2.codes}}" ng-selected="neg.relative2 == rc2.codes">{{rc2.detailDesc}}</option> 
+								</select>
+							</div>
+						</td>
+						<td align="center" style="width:15%;padding-top: 5px;padding-right: 5px;" align="center" >
+							<div><input class="layui-input" name="bsnN{{$index+1}}" style="display: inline-block;"  ng-model="neg.field2Value "><div>
+						</td>
+						<td align="center"  style="width:10%">
+							<button class="layui-btn layui-btn-mini" ng-click="delList(item,$index)">
+								 {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class=" clearboth"></div>
+		</form>
+	</div>
+</div>

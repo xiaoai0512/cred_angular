@@ -1,0 +1,161 @@
+<div ng-controller="tableDemoCtrl">
+	<div class="subposition" ng-bind-html="getCurrentLoaction('静态认证列表')">
+    </div>
+    <form class="layui-form layui-form-pane" name="form1" ng-init="queryParam={}">
+        <div class="search_mian">
+            <div class="layui-form-item">
+          		<div class="layui-inline" style="width:100%">
+            		<label class="layui-form-label">用户状态：</label>
+           			<div class="layui-input-inline conline">
+           				<input jf-checkbox="builder.option(demoArray)" name="checkbox3" ng-model="demo.checkbox3">
+            		</div>
+          		</div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">多选</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" type="text" ng-model="queryParam.cstNm" selector="demoSelector">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">单选</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" type="text" ng-model="queryParam.cstNmNew" selector="demoSelectorSec">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">借款企业</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" type="text" ng-model="grid.params.cstNm">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">树形选择器</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" ng-model="grid.params.role" type="text"  ng-model="treeDemo" selector="demoTreeSelector">
+                    </div>
+                </div>
+                <div class="layui-inline">
+            		<label class="layui-form-label">融资日期：</label>
+            		<div class="layui-input-inline" style="width:450px;">
+              			<input id="test1" class="layui-input icon_date seadate"  name="date" type="text" jf-date-input  placeholder=" - " ng-model="date">
+              			<label class="float_left">
+              				<p class="nudate">最近：</p>
+              				<p class="nudate" ng-click="status ='0'" ng-class="{'seact': status == '0'}"><a href="javascript:void(0)">1个月</a></p>
+              				<p class="nudate" ng-click="status ='1'" ng-class="{'seact': status == '1'}"><a href="javascript:void(0)">3个月</a></p>
+             	 			<p class="nudate" ng-click="status ='2'" ng-class="{'seact': status == '2'}"><a href="javascript:void(0)">6个月</a></p>
+              				<p class="nudate" ng-click="status ='3'" ng-class="{'seact': status == '3'}"><a href="javascript:void(0)">1年</a></p>
+              			</label>
+            		</div>
+          		</div>
+                <div class="layui-inline">
+                	<button class="layui-btn" ng-click="grid.search()">
+                   		 <i class="layui-icon">&#xe615;</i> 查询
+               		</button>
+               		<button class="layui-btn layui-btn-warm" ng-click="queryParam={}">
+                    	<i class="layui-icon">&#x1002;</i> 重置
+                	</button>
+                	<button class="layui-btn" type="button" id="opensearch" moreClick>
+                		<i class="layui-icon">&#xe61a;</i> 
+                	</button>
+                </div>
+                <div class="search_width" style="display:none;">
+                     <div class="layui-inline">
+                          <label class="layui-form-label">借款企业：</label>
+                          <div class="layui-input-inline">
+                               <input class="layui-input" type="text" autocomplete="off">
+                               <!--弹出复选代码-->
+                               <!--弹处复选代码--结束-->
+                          </div>
+                     </div>
+                      <div class="layui-inline">
+                          <label class="layui-form-label">客户来源：</label>
+                          <div class="layui-input-inline"><input class="layui-input" type="text" autocomplete="off"></div>
+                      </div>
+                      <div class="layui-inline">
+                          <label class="layui-form-label">客户编号：</label>
+                          <div class="layui-input-inline"><input class="layui-input" type="text" autocomplete="off"></div>
+                      </div>
+                      <div class="layui-inline">
+                          <label class="layui-form-label">客户信息来源：</label>
+                          <div class="layui-input-inline"><input class="layui-input" type="text" autocomplete="off"></div>
+                      </div>
+                      <div class="layui-inline">
+                          <label class="layui-form-label">客户类型：</label>
+                          <div class="layui-input-inline">
+                               <select>
+                                    <option value="0">全部</option>
+                                    <option value="1">核心企业</option>
+                                    <option value="2">借款企业</option>
+                                    <option value="3">担保企业</option>
+                                </select>
+                          </div>
+                      </div>    
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="button_contain">
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo')">
+            <i class="layui-icon">&#xe61f;</i> 跳转(无参数)
+        </button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/inputDemo?test=1&id')">
+            <i class="layui-icon">&#xe652;</i> 跳转(有参数)
+        </button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.request('tableDemo.query',cbk,'测试')">
+            <i class="layui-icon">&#xe642;</i> 异步(回调)
+        </button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.request('tableDemo.query?test=test&id','测试')">
+            <i class="layui-icon">&#xe642;</i> 异步(不回调)
+        </button>
+        <!-- 完全配置的参数 -->
+        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html?test=test&id',{title :'测试',buttons : ['提交','取消'],size : ['600px','400px'],callbacks : [modalCallback]})" jf-permission="table.test">
+            <i class="layui-icon">&#xe642;</i> 模态窗口1
+        </button>
+        <!-- 完全缺省所有传入参数 -->
+        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html?test=test&id')" jf-permission="table.view">
+            <i class="layui-icon">&#xe642;</i> 模态窗口2
+        </button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html?test=test&id',{title :'自定义回调函数',callbacks : [modalCallback]})" jf-permission="table.add">
+            <i class="layui-icon">&#xe642;</i> 模态窗口4
+        </button>
+        <button class="layui-btn layui-btn-primary" ng-click="grid.modal('/demo/demo-input.html?test=test&id',{title :'缺省部分参数',buttons : ['取消']})" jf-permission="table.edit">
+            <i class="layui-icon">&#xe642;</i> 模态窗口3
+        </button>
+    </div>
+    <div jf-grid="grid">
+        <table>
+            <thead>
+            <tr>
+                <th>流程名称</th>
+				<th>主题</th>
+				<th>发送人</th>
+				<th order="preEndDate">发送时间</th>
+				<th order="preActivitiName">上一环节</th>
+				<th>当前所在环节</th>
+				<th ng-bind="'1,2' | jfConvert : 'dict' : 'AbvQtPcsgModCd'"></th>
+				<th width="5%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+				<td align="center" ng-bind="item.processDefineName"></td>
+				<td align="center" ng-bind="item.processTitle"></td>
+				<td align="center" ng-bind="item.preUserName"></td>
+				<td align="center" ng-bind="item.preEndDate"></td>
+				<td align="center" ng-bind="item.preActivitiName"></td>
+				<td align="center" ng-bind="item.activityName"></td>
+				<td></td>
+				<td>
+					<div class="title_messages">
+						<div class="tablemore"></div>
+						<div class="title_content">
+						    <span class="text_color">流程名称：</span>{{item.processDefineName}}<br>
+						    <span class="text_color">发送时间：</span>{{item.preEndDate | jfDate}}
+						</div>
+					</div>
+				</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

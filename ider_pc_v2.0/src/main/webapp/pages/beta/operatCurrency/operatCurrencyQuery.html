@@ -1,0 +1,64 @@
+<div ng-controller="operatCurrencyQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：运营入账币种查询及维护
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+
+		<div class="col_td">
+			<div class="col4 text_right">运营模式：</div>
+			<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="optCcyList.params.operationMode" validator="required"  
+						jf-select="operationModeArr" name="operationMode"  maxlength="3"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">货币代码：</div>
+			<div class="wd190 float_left">
+					<input class="layui-input" type="text"  name="patternDesc" maxlength="50"
+					ng-model="optCcyList.params.currencyCode" />
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="optCcyList.search()" >
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="optCcyList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+
+		<div jf-grid="optCcyList">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式 </th>
+						<th>货币代码</th>
+						<th>还款优先级</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.paymentPriority"></td>
+						<td align="center" >
+							
+							<button class="layui-btn layui-btn-mini" ng-click="checkOptCurrency(item)">
+								<i class="layui-icon"></i> 查询
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateOptCurrency(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+					</td>
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

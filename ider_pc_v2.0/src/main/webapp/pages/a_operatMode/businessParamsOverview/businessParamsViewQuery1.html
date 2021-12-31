@@ -1,0 +1,198 @@
+<div ng-controller="proObjQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<form action="" name="busiViewForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH300001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="operationMode" class="layui-input"
+						jf-select="coArray" name="atype"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH510001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" type="text"
+					ng-model="proObjectList.params.productObjectCode" maxlength="9"> -->
+					<select ng-model="productObjectCode" class="layui-input"
+						validator="required" jf-select="proArray" name="aatype"></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" validation-submit="busiViewForm"
+					ng-click="proObjectViews()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</form>
+		<div ng-show="isShowProView">
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH300018' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'YYH300001' | translate}} ：
+				</div>
+				<div class="wd190 float_left">
+					<select ng-model="proObjectInf.operationMode" class="layui-input"
+						jf-select="coArray" name="atype" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">
+					<span class="red">*</span>{{'YYH510001' | translate}}：
+				</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text"
+						name="productObjectCode" ng-model="proObjectInf.productObjectCode"
+						maxlength="9" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH300003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="productDesc"
+						ng-model="proObjectInf.productDesc" maxlength="50" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH300004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="proObjectInf.productType"
+						jf-select="builder.option(proTypeQueryArr)" name="productType"
+						disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH300005' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="binNo"
+						ng-model="proObjectInf.binNo" maxlength="3" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH300006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" type="text" name="paymentPriority"
+						ng-model="proObjectInf.paymentPriority" validator="number"
+						maxlength="3" readonly>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH300019' | translate}}</div>
+			<div jf-grid="busListView">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'YYH300008' | translate}}</th>
+							<th>{{'YYH300009' | translate}}</th>
+							<th>{{'YYH510002' | translate}}</th>
+							<th>{{'YYH510003' | translate}}</th>
+							<th>{{'YYH300006' | translate}}</th>
+							<th>{{'F00017' | translate}}	</th> 
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.businessProgramNo"
+								ng-click="queryProLineBP(item)"></td>
+							<td align="center" ng-bind="item.businessDesc"
+								ng-click="queryProLineBP(item)"></td>
+							<td align="center" ng-click="queryProLineBP(item)">
+								{{item.disputeBusinessType}} {{item.disputeBusinessTypeDesc}}</td>
+							<td align="center" ng-click="queryProLineBP(item)">
+								{{item.feeBusinessType}} {{item.feeBusinessTypeDesc}}</td>
+							<td align="center" ng-bind="item.paymentPriority" ng-click="queryProLineBP(item)"></td>
+							 <td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-show="!buttonBusPro{{$index}}" ng-click="queryProLineBP($index,item)">
+									<i class="layui-icon">&#xe60b;</i>{{'YYH510009' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-show="buttonBusPro{{$index}}" ng-click="queryProLineBPColse($index,item)">
+									<i class="layui-icon">&#xe60b;</i>{{'YYH510010' | translate}}
+								</button>
+							</td> 
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div ng-show="busProShow">
+				<div class="clearboth"></div>
+				<div class="mainname">{{'YYH100011' | translate}}</div>
+				<div jf-grid="busListBPView">
+					<table>
+						<thead>
+							<tr>
+								<th>{{'YYH100008' | translate}}</th>
+								<th>{{'YYH100009' | translate}}</th>
+								<th>{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.businessTypeCode"></td>
+								<td align="center" ng-bind="item.businessDesc"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="queryTypeBP(item)">
+										<i class="layui-icon">&#xe60b;</i>{{'YYH510011' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="clearboth"></div>
+				<div class="mainname">{{'YYH300023' | translate}}</div>
+				<div jf-grid="ComArtifactView">
+					<table>
+						<thead>
+							<tr>
+								<th style="width:40%">{{'YYH510004' | translate}}</th>
+								<th>{{'YYH510007' | translate}}</th>
+								<th>{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="left">{{item.artifactDesc}}:{{item.elementNo}} {{item.elementDesc}}</td>
+								<td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="queryArtifactBP(item)" ng-if="item.pcdNo!=null && item.supportPcd == 'Y'">
+										{{'F00075' | translate}}</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 构件实例 -->
+			<div class="clearboth"></div>
+			<div class="mainname">{{'YYH300020' | translate}}</div>
+			<div jf-grid="artifactView">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:40%">{{'YYH510004' | translate}}</th>
+							<th>{{'YYH510007' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="left">{{item.artifactDesc}}:{{item.elementNo}} {{item.elementDesc}}</td>
+							<td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="queryArtifactBP(item)" ng-if="item.pcdNo!=null && item.supportPcd == 'Y'">
+									{{'F00075' | translate}}</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

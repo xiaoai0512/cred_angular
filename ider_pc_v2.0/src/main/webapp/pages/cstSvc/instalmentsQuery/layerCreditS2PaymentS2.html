@@ -1,0 +1,102 @@
+<div class="layui-form" ng-controller="layercreditS2PaymentS2Ctrl">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="prepayInf.ecommEntryId" name="ecommEntryId" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600082' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="prepayInf.customerNo" name="customerNoN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600032' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="prepayInf.allAmt" jf-format-input="money" name="throwpriN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600083' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="prepayInf.throwpri" jf-format-input="money" name="throwpriN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600084' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="prepayInf.penaltyInterest" jf-format-input="money" name="throwInterestN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600085' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="prepayInf.throwFee" jf-format-input="money" name="throwFeeN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">未还罚息：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="prepayInf.penaltyInterest" jf-format-input="money" name="penaltyInterestN" type="text" disabled="disabled">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4600097' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="prepayInf.repayAmt" name="repayAmt" type="text" />
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+		<div class="col_tr float_left">{{'KHH4600030' | translate}}</div>
+<!-- 		<div jf-grid="ORepaymentList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4600025' | translate}}</th>
+						<th>{{'KHH4600031' | translate}}</th>
+						<th>{{'KHH4600032' | translate}}</th>
+						<th>{{'KHH4600027' | translate}}</th>
+						<th>{{'KHH4600028' | translate}}</th>
+						<th>{{'KHH4600033' | translate}}</th>
+						<th>{{'KHH4600029' | translate}}</th>
+						<th>{{'KHH4600034' | translate}}</th>
+						<th>{{'KHH4600035' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.termNo"></td>
+						<td align="center" ng-bind="item.throwDate"></td>
+						<td align="center" ng-bind="item.principalAmount | number:2"></td>
+						<td align="center" ng-bind="item.interestAmount | number:2"></td>
+						<td align="center" ng-bind="item.feeAmount | number:2"></td>
+					</tr>
+			</tbody>
+		</table>
+	</div> -->
+		<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th>{{'KHH4600087' | translate}}</th>
+						<th>{{'KHH4600031' | translate}}</th>
+						<th>{{'KHH4600027' | translate}}</th>
+						<th>{{'KHH4600028' | translate}}</th>
+						<th>{{'KHH4600033' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr  ng-repeat = "item in normalrepaymentList">
+						<td align="center" ng-bind="item.ecommPostingAcctNmbr"></td>
+						<td align="center" ng-bind="item.throwDate"></td>
+						<td align="center" ng-bind="item.throwpri | number:2"></td>
+						<td align="center" ng-bind="item.penaltyInterest | number:2"></td>
+					<!-- 	<td align="center" ng-bind="item.throwFee | number:2"></td> -->
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

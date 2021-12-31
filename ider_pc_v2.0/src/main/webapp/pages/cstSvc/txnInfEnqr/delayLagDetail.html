@@ -1,0 +1,94 @@
+<div ng-controller="delayLagDetailCtrl">
+	<div class=" layui-form">
+		<form name="accMainSceneFormee" >
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800123' | translate}} ：</div>
+				<div class="wdper60 float_left ">
+					<input class="layui-input bnone" type="text" name="customerNo" disabled
+						ng-model="delayLagItemInfo.customerNo" >
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800022' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" type="text" name="activityNo" disabled
+						ng-model="delayLagItemInfo.activityNo" maxlength="14">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800011' | translate}}：</div>
+				<div class="wdper60 float_left ">
+					<input class="layui-input bnone" type="text" name="eventNo" disabled
+						ng-model="delayLagItemInfo.eventNo">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800115' | translate}} ：</div>
+				<div class="wdper60 float_left ">
+					<input class="layui-input bnone" type="text" name="occurrDate" disabled
+						ng-model="delayLagItemInfo.occurrDate" maxlength="10">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800116' | translate}} ：</div>
+				<div class="wdper60 float_left ">
+					<input class="layui-input bnone" type="text" name="occurrTime" disabled
+						ng-model="delayLagItemInfo.occurrTime" maxlength="50">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800117' | translate}} ：</div>
+				<div class="wd330 float_left">
+					<span ng-if="delayLagItemInfo.delinquencyLevel=='A'">{{'KHH4100045' | translate}}</span>
+					<span ng-if="delayLagItemInfo.delinquencyLevel=='P'">{{'KHH4100046' | translate}}</span>
+					<span ng-if="delayLagItemInfo.delinquencyLevel=='G'">{{'KHH4100046' | translate}}</span>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800118' | translate}}：</div>
+				<div class="wdper60 float_left ">
+					<span ng-if="delayLagItemInfo.delinquencyLevel=='A'">{{delayLagItemInfo.levelCode}}{{delayLagItemInfo.businessDesc}}</span>
+					<span ng-if="delayLagItemInfo.delinquencyLevel=='P'">{{delayLagItemInfo.levelCode}}{{delayLagItemInfo.productLevelCodeDesc}}</span>
+					<span ng-if="delayLagItemInfo.delinquencyLevel=='G'">{{delayLagItemInfo.levelCode}}{{delayLagItemInfo.programDesc}}</span>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800058' | translate}} ：</div>
+				<div class="wdper60 float_left"> 
+					<span>{{delayLagItemInfo.productObjectNo}}</span><span>{{delayLagItemInfo.productDesc}}</span>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800119' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" type="text" name="cycleNo" disabled
+						ng-model="delayLagItemInfo.cycleNo" maxlength="3">
+				</div>
+			</div>
+			
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800120' | translate}}：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" type="text" name="cycleDueNum" disabled
+						ng-model="delayLagItemInfo.cycleDueNum" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800121' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" type="text" name="cycleDueDayNum" disabled
+						ng-model="delayLagItemInfo.cycleDueDayNum" maxlength="7">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH1800114' | translate}} ：</div>
+				<div class="wdper60 float_left">
+					<input class="layui-input bnone" type="text" name="minPaymentChange" disabled
+						ng-model="delayLagItemInfo.minPaymentChange">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

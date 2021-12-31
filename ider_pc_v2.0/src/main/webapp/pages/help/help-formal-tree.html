@@ -1,0 +1,53 @@
+<div class="mainname">正常展示树使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">树形结构展示，包含多选和单选。</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    <div class="maintree_contain">
+        <div class="maintree_title">复选菜单树</div>
+        &lt;div class="maintree_content" jf-tree="checkTreeDemo"&gt;&lt;/div&gt;
+    </div>
+    <div class="maintree_contain" >
+        <div class="maintree_title">单选菜单树</div>
+        &lt;div class="maintree_content" jf-tree="radioTreeDemo"&gt;&lt;/div&gt;
+    </div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    $scope.checkTreeDemo = {
+        isCheck : true, //是否复选
+        resource : 'roleMenu.query', //资源查询
+        //单击事件
+        nodeClick : function(treeNode) {
+            //树节点单击对象
+            console.log(treeNode);
+            alert(treeNode.name);
+        },
+        //选中事件
+        nodeCheck : function(treeNode) {
+            //输出树节点选中的信息
+            console.log(this.getChecked());
+        }
+    }
+
+    $scope.radioTreeDemo = {
+        isCheck : false,
+        resource : 'roleMenu.query',
+        nodeClick : function(treeNode) {
+            alert(treeNode.name);
+        }
+    }
+
+    //树的重新加载方法
+    $scope.radioTreeDemo.reload();
+</pre>
+<div class="mainname">示例</div>
+<div style="height:200px" ng-controller="treeDemoCtrl" class="allcontent">
+    <div class="maintree_contain">
+        <div class="maintree_title">复选菜单树</div>
+        <div class="maintree_content" jf-tree="checkTreeDemo"></div>
+    </div>
+    <div class="maintree_contain" style="margin-left:300px;">
+        <div class="maintree_title">单选菜单树</div>
+        <div class="maintree_content" jf-tree="radioTreeDemo"></div>
+    </div>
+</div>

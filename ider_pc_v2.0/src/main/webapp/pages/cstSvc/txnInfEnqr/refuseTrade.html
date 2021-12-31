@@ -1,0 +1,116 @@
+<div ng-controller="refuseTradeCtrl">
+	<!-- <div class="leftmenu_navtitle">交易类拒绝交易查询
+	页面待开发！！！！
+	页面待开发！！！！
+	页面待开发！！！！
+	页面待开发！！！！
+	</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="txnCgyAvyLogEnqrTable.params.idType"
+					jf-select="builder.option(certificateTypeArray1)" name="idType" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"   type="text"  ng-model="txnCgyAvyLogEnqrTable.params.credentialNumber" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"   type="text"  ng-model="txnCgyAvyLogEnqrTable.params.externalIdentificationNo" maxlength="19">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00171' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="startDate" ng-model="txnCgyAvyLogEnqrTable.params.startDate" type="text"  jf-date-input>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00172' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="endDate" ng-model="txnCgyAvyLogEnqrTable.params.endDate" type="text"  jf-date-input >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH2400005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"   type="text"  ng-model="txnCgyAvyLogEnqrTable.params.actNo" maxlength="5">
+			</div>
+		</div>
+		
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="activityLogSearch()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>	
+		
+			
+			<div ng-show="isShowDiv.isShowActivityLogList">
+				<div jf-grid="txnCgyAvyLogEnqrTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 150px;">{{'KHH2400006' | translate}}</th>
+								<th>{{'KHH2400007' | translate}}</th>
+								<th>{{'KHH2400008' | translate}}</th>
+								<th>{{'KHH2400009' | translate}}</th>
+								<th>{{'KHH2400010' | translate}}</th>
+								<th>{{'KHH2400011' | translate}}</th>
+								<th>{{'KHH2400012' | translate}}</th>
+								<th style="width: 100px;" >{{'KHH2400013' | translate}}</th>
+								<th width="6%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-model="item.externalIdentificationNo">
+									<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+									<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+				  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+								</td>
+								
+								<td align="center" ng-bind="item.actNo"></td>
+								<td align="center" ng-model="item.transCurrCde">
+									<span ng-if="item.transCurrCde == 'CNY' " >{{'KHH2400014' | translate}}</span>
+									<span ng-if="item.transCurrCde == 'USD' " >{{'KHH2400015' | translate}}</span>
+								</td>
+								<td align="center" ng-bind="item.transAmount"></td>
+								<td align="center" ng-bind="item.transDate"></td>
+								<td align="center" ng-bind="item.accountAmount"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.transDesc"></td>
+								<td align="center" style="padding: 0px 0px;">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkTxnCgyAvyLogEnqrInfo(item)">
+										<i class="layui-icon"></i> {{'F00009' | translate}}
+									</button>
+									<!-- <button class="layui-btn layui-btn-mini"
+										ng-click="revocation(item)"  ng-if="item.eventNo == 'ISS.RT.20.0001'  && item.transDesc == '指定币种还款汇总' ">
+										<i class="layui-icon"></i> 撤销
+									</button> -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	
+</div>

@@ -1,0 +1,41 @@
+<div ng-controller="choseStageTypeCtrl">
+	<form action="" class="layui-form"  style="margin-bottom: 15px;">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH1300054' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="stageTypeTable.params.stageTypeCode" maxlength="9">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="stageTypeTable.search()" type="button">
+				<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+			</button>
+	
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="stageTypeTable.params={}">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div jf-grid="stageTypeTable">
+			<table >
+				<thead>
+					<tr>
+						<th>{{'YYH1300001' | translate}}</th>
+						<th>{{'YYH1300054' | translate}}</th>
+						<th>{{'YYH1300055' | translate}}</th>
+						<th>{{'YYH1300056' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.stageTypeCode"></td>
+						<td align="center" ng-bind="item.transIdentificationCode"></td>
+						<td align="center" ng-bind="item.stageTypeDesc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

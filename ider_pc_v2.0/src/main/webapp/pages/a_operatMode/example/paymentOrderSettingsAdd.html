@@ -1,0 +1,147 @@
+<div ng-controller="paymentOrderSettingsAddCtrl" class="layui-form">
+
+	<form action="" name="paymentOrderSetForm">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="paymentOrderSettingsAddObj.operationMode"
+						jf-select="operationModeArr" name="operationMode" validator="required" >
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">事件编号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="paymentOrderSettingsAddObj.instanCode1" validator="required" 
+					name="instanCode1" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">核算状态：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" ng-model="paymentOrderSettingsAddObj.instanCode2" 
+				 jf-select="accountingStatusArray" name="instanCode2" validator="required" ></select>
+			</div>
+		</div>
+	
+	</form>
+	
+	<div ng-show="paymentOrderSettingsShow201">
+	<div class="clearboth"></div>
+	<div class="mainname">账户间还款分配顺序</div>
+		<div jf-grid="paymentOrderSettingsTable201">
+			<table>
+				<thead>
+					<tr>
+						<th>执行顺序</th>
+						<th align="left" >元件编号及描述</th>
+						<th>{{'F00030' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.performOrder"></td>
+						<td align="left">
+							<span>{{item.elementNo}}  {{item.elementDesc}}</span>
+						</td>
+						<td align="center" width="5%">
+							<div class="table_arrow">
+								<a class="arrow_up" ng-click="exchangeSeqNoUp201(item,$index)"></a>
+								<a class="arrow_down" ng-click="exchangeSeqNoDown201(item,$index)"></a> 
+							</div>
+						</td>
+						
+						
+						<td align="center" >
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="selectAUpdateBP201(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+						</td>
+						
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div ng-show="paymentOrderSettingsShow202">
+	<div class="clearboth"></div>
+	<div class="mainname">账户内还款分配顺序</div>
+		<div jf-grid="paymentOrderSettingsTable202">
+			<table>
+				<thead>
+					<tr>
+						<th>执行顺序</th>
+						<th align="left" >元件编号及描述</th>
+						<th>{{'F00030' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.performOrder"></td>
+						<td align="left">
+							<span>{{item.elementNo}}  {{item.elementDesc}}</span>
+						</td>
+						<td align="center" width="5%">
+							<div class="table_arrow">
+								<a class="arrow_up" ng-click="exchangeSeqNoUp202(item,$index)"></a>
+								<a class="arrow_down" ng-click="exchangeSeqNoDown202(item,$index)"></a> 
+							</div>
+						</td>
+						
+						<td align="center" >
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="selectAUpdateBP202(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div ng-show="paymentOrderSettingsShow282">
+	<div class="clearboth"></div>
+	<div class="mainname">余额类型内还款分配顺序</div>
+		<div jf-grid="paymentOrderSettingsTable282">
+			<table>
+				<thead>
+					<tr>
+						<th>执行顺序</th>
+						<th align="left" >元件编号及描述</th>
+						<th>{{'F00030' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.performOrder"></td>
+						<td align="left">
+							<span>{{item.elementNo}}  {{item.elementDesc}}</span>
+						</td>
+						<td align="center" width="5%">
+							<div class="table_arrow">
+								<a class="arrow_up" ng-click="exchangeSeqNoUp282(item,$index)"></a>
+								<a class="arrow_down" ng-click="exchangeSeqNoDown282(item,$index)"></a> 
+							</div>
+						</td>
+						
+						<td align="center" >
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="selectAUpdateBP282(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</div>

@@ -1,0 +1,79 @@
+<div class="layout_body" ng-controller="accountTemplateCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：会计分录模板管理
+	</div>
+	<div class="search_mian layui-form">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">模板名称：</label>
+					<div class="layui-input-inline">
+								<input class="layui-input" type="text" ng-model="itemList.params.temName">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">核算场景：</label>
+					<div class="layui-input-inline">
+						<select ng-model="itemList.params.accountScene" class="layui-input"
+								jf-select="builder.option(tradArray)" name="accountScene" placeholder="核算场景"></select>
+					</div>
+				</div>
+				<div class="layui-inline float_right">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="itemList.search()">
+							<i class="layui-icon">&#xe615;</i> 查询
+						</button>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div jf-grid="itemList">
+		<table>
+			<thead>
+				<tr>
+					<th>模板名称</th>
+					<th>核算场景</th>
+					<th style="width: 19%;">参数说明</th>
+					<th>创建时间</th>
+					<th  style="width:20%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.temName"></td>
+				   <td align="center" >
+				   		<span ng-if="item.accountScene == '0'">个人结计利息（非应计户）</span>
+				  		<span ng-if="item.accountScene == '1'">个人结计利息（正常户）</span>
+				  		<span ng-if="item.accountScene == '2'">个人普通还款（核销户）</span>
+				  		<span ng-if="item.accountScene == '3'">个人非应计转核销</span>
+				  		<span ng-if="item.accountScene == '4'">个人借记入账（正常户）</span>
+				  		<span ng-if="item.accountScene == '5'">个人借记购汇入账（正常户）</span>
+				  		<span ng-if="item.accountScene == '6'">个人借记入账（非应计户）</span>
+				  		<span ng-if="item.accountScene == '7'">个人贷记入账（正常户）</span>
+				  		<span ng-if="item.accountScene == '8'">个人贷记购汇入账（正常户）</span>
+				  		<span ng-if="item.accountScene == '9'">个人贷记入账（非应计）</span>
+				  		<span ng-if="item.accountScene == '10'">个人结计利息（核销户）</span>
+				  		<span ng-if="item.accountScene == '11'">个人普通还款（正常户）</span>
+				  		<span ng-if="item.accountScene == '12'">个人约定还款（正常户）</span>
+				  		<span ng-if="item.accountScene == '13'">个人购汇还款（正常户）</span>
+				  		<span ng-if="item.accountScene == '14'">个人普通还款（非应计户）</span>
+				  		<span ng-if="item.accountScene == '15'">个人约定还款（非应计户）</span>
+				  		<span ng-if="item.accountScene == '16'">个人购汇还款（非应计户）</span>
+				  		<span ng-if="item.accountScene == '17'">个人约定还款（核销户）</span>
+				  		<span ng-if="item.accountScene == '18'">个人购汇还款（核销户）</span>
+				  		<span ng-if="item.accountScene == '19'">个人正常转非应计</span>
+				   </td>
+				   <td align="center" ng-bind="item.paramDesc"></td>
+					<td align="center" ng-bind="item.gmtCreate"></td>
+					<td align="center"  style="width:20%">
+						<button class="layui-btn layui-btn-mini" ng-click="selectInfo(item)">
+							<i class="layui-icon"></i> 查看模板
+						</button>
+						<button class="layui-btn layui-btn-mini" ng-click="updateControl(item)">
+							<i class="layui-icon"></i> 修改
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

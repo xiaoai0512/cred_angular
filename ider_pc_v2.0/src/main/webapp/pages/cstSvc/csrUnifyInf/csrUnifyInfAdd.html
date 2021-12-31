@@ -1,0 +1,34 @@
+<div ng-controller="cusUnifyAddCtrl">
+			<form name="mdmInfoForm"  class="layui-form">
+					<!--web_body-->
+					<div class="col_td">
+						<div class="col4 text_right">客户代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="customerNo" ng-model="infoAdd.customerNo"
+								type="text" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">业务类型 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="businessType"
+								ng-model="infoAdd.businessType" type="text" validator="required">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">产品对象代码 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="productObjectCode"
+								ng-model="infoAdd.productObjectCode" type="text" validator="required">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">账单日 ：</div>
+						<div class="wd190 float_left">
+							<select ng-model="infoAdd.billDay" class="layui-input"
+									jf-select="builder.option(statementDateArr)"
+									name="billDay" validator="required"></select>
+						</div>
+					</div>
+</form>
+</div>

@@ -1,0 +1,330 @@
+<div class="layout_body" ng-controller="newBsnTpCfgCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：业务类型实例化
+	</div>
+	<div class="allcontent">
+		<div class="mainname">1.填写业务类型代码</div>
+		<form action="" class="layui-form" name="yueObjForm">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="bsnNumb" type="text"
+						validator="required" maxlength="3"
+						ng-model="pDCfgInfo.operationMode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">业务类型代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="bsnNumb2" type="text"
+						validator="required" maxlength="9"
+						ng-model="pDCfgInfo.businessTypeCode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="bsnNumb3" type="text"
+						maxlength="50" ng-model="pDCfgInfo.businessDesc">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">本金余额对象：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="defaultPrincipalBalanceObj"
+						type="text" maxlength="9"
+						ng-model="pDCfgInfo.defaultPrincipalBalanceObj">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">利息余额对象：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="defaultInterestBalanceObj"
+						type="text" maxlength="9"
+						ng-model="pDCfgInfo.defaultInterestBalanceObj">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">费用余额对象：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="defaultFeeBalanceObj" type="text"
+						maxlength="9" ng-model="pDCfgInfo.defaultFeeBalanceObj">
+				</div>
+			</div>
+		</form>
+		<div class="search_mian">
+			<div class="mainname">2.选择业务形态</div>
+		</div>
+		<div class="search_mian">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="operationMode" type="text"
+						maxlength="3" ng-model="itemList.params.operationMode">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">业务形态代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="businessPattern" type="text"
+						maxlength="9" ng-model="itemList.params.businessPattern">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">业务形态描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="description" type="text"
+						maxlength="64" ng-model="itemList.params.description">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="itemList.search()">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="itemList.params={}">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>业务形态代码</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.businessPattern"></td>
+						<td align="center" ng-bind="item.description"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col_tr text_center" style="margin-top: 20px">
+			<button class="layui-btn" ng-click="show()"
+				validation-submit="yueObjForm">
+				<i class="layui-icon"></i> 下一步
+			</button>
+		</div>
+		<!-- -----------------------------隐藏-------------------------------- -->
+		<div ng-show="showNewBsn">
+			<div class="search_mian">
+				<div class="mainname">3.业务类型详细信息</div>
+			</div>
+
+
+			<div class="layui-form-item" style="width: 800px;">
+				<div class="col_tr">
+					<button class="layui-btn" ng-click="checkBsnTpTpl()">
+						<i class="layui-icon"></i> 模板
+					</button>
+				</div>
+				<form name="yewuxxForm">
+					<div class="col_td">
+						<div class="col4 text_right">运营模式：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="bsnNumb" type="text"
+								maxlength="3" ng-model="pDCfgInfo.operationMode" disabled="">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">所属业务形态 ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="businessPattern" type="text"
+								maxlength="9" ng-model="pDCfgInfotemp.businessPattern"
+								disabled="">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">业务形态描述：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="description" type="text"
+								maxlength="50" ng-model="pDCfgInfotemp.description" disabled="">
+
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">账户组织形式：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="accountOrganizeTyp" type="text"
+								ng-model="pDCfgInfotemp.accountOrganizeTyp" disabled="">
+						</div>
+					</div>
+					<!-- <div class="col_td">
+					<div class="col4 text_right">业务性质 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" name="bsnNumb" type="text"
+							ng-model="itemList.bsnChar" disabled="">
+					</div>
+				</div> -->
+					<div class="col_td">
+						<div class="col4 text_right">业务类型代码：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="bsnNumb2" type="text"
+								maxlength="9" validator="required"
+								ng-model="pDCfgInfo.businessTypeCode">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">业务类型描述：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="bsnNumb3" type="text"
+								maxlength="64" ng-model="pDCfgInfo.businessDesc">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">交易识别代码 ：</div>
+						<div class="wd190 float_left">
+							<select jf-select="builder.option(transIdentifiNoArray)" name="bsnNumb4"
+								ng-model="pDCfgInfo.transIdentifiNo" validator="required"></select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">对应额度节点：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="bsnNumb5" type="text"
+								maxlength="3" ng-model="pDCfgInfo.creditTreeNode">
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">还款优先级：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" name="duePriority" type="text"
+								maxlength="10" validator="number"
+								ng-model="pDCfgInfo.duePriority">
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+			<div class="search_mian">
+				<div class="mainname">4. 关联构件及元件</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">构件编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="description" type="text"
+						maxlength="64" ng-model="relElmAndYPtsList.params.artifactNo">
+				</div>
+			</div>
+			<div class="search_button">
+				<button class="layui-btn" ng-click="relElmAndYPtsList.search()">
+					<i class="layui-icon">&#xe615;</i> 搜索
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="saveSelect()">
+					<i class="layui-icon">&#x1002;</i> 关联
+				</button>
+			</div>
+			
+			<div jf-grid="relElmAndYPtsList">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>构件编号</th>
+							<th>构件描述</th>
+							<th>构件基础元件</th>
+							<th>元件描述</th>
+							<!-- <th>构件可选元件</th>
+							<th>可选元件描述</th>-->
+							<th>PCD编号</th>
+							<th style="width: 15%;">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.artifactNo"></td>
+							<td align="center" ng-bind="item.artifactDesc"></td>
+							<td align="center" ng-bind="item.elementNo"></td>
+							<td align="center" ng-bind="item.elementDesc"></td>
+							<td align="center" ng-bind="item.pcdNo"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checklCOvewInfo(item,$index)">
+									<i class="layui-icon"></i> 替换
+								</button>
+								<button class="layui-btn layui-btn-mini" type="button"
+									ng-click="updatePcdValue(item,$index)">
+									<i class="layui-icon"></i> 修改
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="clearboth"></div>
+			<div class="mainname">5. 已 关联构件及元件</div>
+			<div>
+			<table border="0" cellspacing="0" cellpadding="0"
+				class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+				<thead>
+					<tr>
+						<th >序号</th>
+						<th>构件编号</th>
+						<th>构件描述</th>
+						<th>构件基础元件</th>
+						<th>元件描述</th>
+						<th>PCD编号</th>
+						<th style="width: 15%;">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in treeSelect11 track by $index">
+							<td align="center" ng-bind="$index+1"></td>
+							<td align="center" ng-bind="item.artifactNo"></td>
+							<td align="center" ng-bind="item.artifactDesc"></td>
+							<td align="center" ng-bind="item.elementNo"></td>
+							<td align="center" ng-bind="item.elementDesc"></td>
+							<td align="center" ng-bind="item.pcdNo"></td>
+							<td align="center">
+								<button class="layui-btn cancel-btn" type="button"
+								ng-click="removeSelect($index)">
+								<i class="layui-icon"></i> 删除
+							</button>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="saveBusinessType()"
+					validation-submit="yewuxxForm">
+					<i class="layui-icon"></i> 确认
+				</button>
+			</div>
+		</div>
+		<!--------------------------------------------------------------------------------  -->
+	</div>
+
+
+	<!-- <div class="float_btnfoot ">
+			<button class="layui-btn layui_back"
+				ng-click="turn('/cstSvc/cstCprsvInfEnqr')">返回</button>
+		</div> -->
+
+</div>

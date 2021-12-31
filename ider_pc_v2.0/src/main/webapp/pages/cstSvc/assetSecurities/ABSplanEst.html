@@ -1,0 +1,124 @@
+<div ng-controller="ABSplanEstCtrl">
+	<form name="ABSplanEstInfForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000025' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="ABSplanEstInf.operationMode" jf-select="operationModeArr" name="operationMode"  validator="required" maxlength="3">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000020' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="planId" ng-model="ABSplanEstInf.planId"  maxlength="6"  validator="required" />
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000024' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="planDesc"  ng-model="ABSplanEstInf.planDesc"  maxlength="50" />
+			</div>
+		</div>
+		<!-- 计划类型 -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000046' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input ins"  ng-model="ABSplanEstInf.planType" jf-select="planTypeArray" name="capitalOrganizationCode" 
+				  maxlength="25" validator="required" lay-filter="gatPlanTypeArray">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  ng-model="ABSplanEstInf.capitalOrganizationCode" jf-select="capitalOrganizationCodeArray" name="capitalOrganizationCode" 
+				  maxlength="25" validator="required" lay-filter="getCapitalOrganizationCode">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="capitalOrganizationName"  ng-model="ABSplanEstInf.capitalOrganizationName" maxlength="120" readonly/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="ABSplanEstInf.capitalStage" jf-select="capitalStageArray" name="capitalStage"   maxlength="4" validator="required" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH6000036' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="ABSplanEstInf.accountType" jf-select="accountTypeArray" name="accountType"   maxlength="1" validator="required" lay-filter="gatAccountType">
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_tr" >
+			<div class="col2 text_right">{{'KHH6000053' | translate}}</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000054' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="ABSplanEstInf.corporationEntityNoOn" jf-select="corporationEntityNoOnArray" name="corporationEntityNoOn">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH6000055' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="ABSplanEstInf.corporationEntityNoOff" jf-select="corporationEntityNoOffArray" name="corporationEntityNoOff" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00189' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="ABSplanEstInf.effectiveDate" id="LAYCI_effectiveDate" validator="required"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00190' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="toDateNs" type="text" ng-model="ABSplanEstInf.expirationDate" id="LAYCI_expirationDate" validator="required"> 
+			</div>
+		</div>
+		<!-- 触发时间表 -->
+		<div ng-show="ABSplanEstInf.planType=='R'">
+			<div class="col_tr">
+				<div class="col3 text_right"><span class="red">*</span>{{'KHH6000047' | translate}}{{'KHH6000050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="ABSplanEstInf.triggerTrs1" id="LAYCI_triggerTrs1" validator="required"> 
+				</div>
+			</div>
+			 <div class="col_tr">
+				<div class="col3 text_right"><span class="red">*</span>{{'KHH6000048' | translate}}{{'KHH6000050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="ABSplanEstInf.triggerTrs2" id="LAYCI_triggerTrs2" validator="required"> 
+				</div>
+			</div>
+			<div class="col_tr">
+				<div class="col3 text_right"><span class="red">*</span>{{'KHH6000049' | translate}}{{'KHH6000050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="ABSplanEstInf.triggerRepo" id="LAYCI_triggerRepo" validator="required"> 
+				</div>
+			</div> 
+		</div>	
+		<div ng-show="ABSplanEstInf.planType=='S'">
+		  	<div class="col_tr">
+				<div class="col3 text_right"><span class="red">*</span>{{'KHH6000051' | translate}}{{'KHH6000050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="ABSplanEstInf.triggerTrsf" id="LAYCI_triggerTrsf" validator="required"> 
+				</div>
+			</div> 
+			<div class="col_tr" >
+				<div class="col3 text_right"><span class="red">*</span>{{'KHH6000052' | translate}}{{'KHH6000050' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataNs" type="text" ng-model="ABSplanEstInf.triggerRepo" id="LAYCI_triggerRepo2" validator="required"> 
+				</div>
+			</div> 
+		</div>
+	</form>
+</div>

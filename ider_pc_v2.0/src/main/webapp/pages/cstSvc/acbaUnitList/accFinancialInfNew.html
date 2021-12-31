@@ -1,0 +1,246 @@
+<div class="layout_body" ng-controller="accFinancialInfNewCtrl">
+	<!-- <div class="leftmenu_navtitle">账户余额单元信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	<form action="" name="accFinaForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="externalIdentificationNo"  name="externalIdentificationNo" type="text" ng-model="queryAccountForm.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="accFinaForm"  ng-click="searchAccount()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+	
+	<div class="clearboth"></div>
+	<div class="allcontent layui-form" ng-show="isShowAccountList">
+		<div class="mainname">循环账户信息表</div>
+		<div jf-grid="revoleAccList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700004' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700014' | translate}}</th>
+						<th style="width:10%;padding-left:3px;padding-right:3px">{{'KHJ4700007' | translate}}</th>
+						<th style="width:15%;padding-left:3px;padding-right:3px">{{'KHH4700047' | translate}}</th>
+						<th style="width:17%;padding-left:3px;padding-right:3px">{{'KHH4700048' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700050' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700051' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700052' | translate}}</th>
+						<th style="padding-left:3px;padding-right:3px">{{'KHH4700005' | translate}}</th>
+						<th width="16%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId" style="padding-left:3px;padding-right:3px"></td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+								<span ng-if="item.currencyCode == '156'">{{'KHH4700020' | translate}}</span>
+						  		<span ng-if="item.currencyCode == '840'">{{'KHH4700021' | translate}}</span>
+						  		<span ng-if="item.currencyCode == 'CNY'">{{'KHH4700020' | translate}}</span>				
+						  		<span ng-if="item.currencyCode == 'USD'">{{'KHH4700021' | translate}}</span>		
+						  		<span ng-if="item.currencyCode == ' '"></span>	
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+						<span>{{item.businessProgramNo}}{{item.programDesc}}</span></td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span ng-if="item.accountOrganForm=='R'">{{'KHH4700053' | translate}}</span>
+							<span ng-if="item.accountOrganForm=='T'">{{'KHH4700054' | translate}}</span>
+							<span ng-if="item.accountOrganForm=='S'">单笔</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span ng-if="item.businessDebitCreditCode=='C'">{{'KHH4700055' | translate}}</span>
+							<span ng-if="item.businessDebitCreditCode=='D'">{{'KHH4700078' | translate}}</span>
+							<span ng-if="item.businessDebitCreditCode=='O'">不适用</span>
+						</td>
+						<td align="center" style="padding-left:3px;padding-right:3px">
+							<span ng-if="item.statusCode=='1'">{{'KHH4700077' | translate}}</span>
+							<span ng-if="item.statusCode=='2'">{{'KHH4700056' | translate}}</span>
+							<span ng-if="item.statusCode=='3'">{{'KHH4700057' | translate}}</span>
+							<span ng-if="item.statusCode=='8'">{{'KHH4700058' | translate}}</span>
+							<span ng-if="item.statusCode=='9'">{{'KHH4700059' | translate}}</span>
+							<span ng-if="item.statusCode=='D'">登记未释放</span>
+							<span ng-if="item.statusCode=='B'">已释放利于银行</span>
+							<span ng-if="item.statusCode=='C'">已释放利于客户</span>
+						</td>
+						<td align="center" ng-bind="item.totalBalance | number:2" style="padding-left:3px;padding-right:3px"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewRevoleAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> 账户金融信息查询
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- 循环账户信息表 -->
+		
+		
+		<!-- 	溢缴款账户信息表 -->
+		<div class="mainname">溢缴款账户信息表</div>
+		<div jf-grid="overdueAccList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 20%">账户代码</th>
+						<th>币种</th>
+						<th>当前余额</th>
+						<th>存款利率</th>
+						<th>上一结息金额</th>
+						<th>冻结余额</th>
+						<th width="16%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 20%" align="center" ng-bind="item.accountId"></td>
+						<td align="left">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.currBalance | number:2"></td>
+						<td align="center" ng-bind="item.depositInterestRate"></td>
+						<td align="center" ng-bind="item.interestBillingAmt  | number:2"></td>
+						<td align="center" ng-bind="item.frozenBalance  | number:2"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewOverdueAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- 溢缴款账户信息表 -->
+	</div><!-- 循环账户表和溢缴款账户信息表 -->
+		
+		
+	<!-- 交易账户信息表 -->
+	<div class="allcontent layui-form" ng-show="isShowAccountList">	
+		<div class="mainname">交易账户信息表</div>
+		<div jf-grid="transAccList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4600003' | translate}}</th>
+						<th>{{'KHH4600004' | translate}}</th>
+						<th>{{'KHH4600005' | translate}}</th>
+						<th>未抛金额</th>
+						<th>{{'KHH4600006' | translate}}</th>
+						<th>{{'KHH4600007' | translate}}</th>
+						<th>{{'KHH4600008' | translate}}</th>
+						<th>贷款状态</th>
+						<th width="22%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" >
+							<span ng-if="item.loanType == 'MERH' ">商户分期</span>
+							<span ng-if="item.loanType == 'TXAT' ">自动分期</span>
+							<span ng-if="item.loanType == 'CASH' ">现金分期</span>
+							<span ng-if="item.loanType == 'STMT' ">账单分期</span>
+							<span ng-if="item.loanType == 'TRAN' ">交易分期</span>
+							<span ng-if="item.loanType == 'LOAN' ">信贷分期</span>
+							<span ng-if="item.loanType == 'APAY' ">随借随还</span>
+						</td>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center" ng-bind="item.loanAmount | number:2" ></td>
+						<td align="center" ng-bind="item.remainPrincipalAmount | number:2"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.loanTerm"></td>
+						<td align="center" ng-bind="item.startIntDate"></td>
+						<td align="center">
+							<span ng-if="item.status == '0' ">撤销</span>
+							<span ng-if="item.status == '2' ">逾期</span>
+							<span ng-if="item.status == '1' ">正常</span>
+							<span ng-if="item.status == '3' ">结清</span>
+							<span ng-if="item.status == '4' ">全额退货</span>
+						</td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewTransAcc(item)" >
+								<i class="layui-icon">&#xe60b;</i> 查询
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="viewRevoleAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> 账户金融信息查询
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div><!-- 交易账户信息表 -->
+	
+	
+	<!-- 争议账户信息表 -->
+	<div class="allcontent layui-form" ng-show="isShowAccountList">
+		<div class="mainname">争议账户信息表</div>
+		<div jf-grid="disputeAccList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:18%">账户代码</th>
+						<th>币种</th>
+						<th style="width:17%">外部识别号</th>
+						<th>争议金额</th>
+						<th>账户余额</th>
+						<th>溢缴款冻结金额</th>
+						<th style="width:10%">登記日期</th>
+						<th style="width:10%">释放日期</th>
+						<th style="width:10%">狀态</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="left">
+							<span  ng-bind="item.currencyCode"></span>
+							<span  ng-bind="item.currencyDesc"></span>
+						</td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.disputeAmount | number :2"></td>
+						<td align="center" ng-bind="item.blanceAmount | number :2"></td>
+						<td align="center" ng-bind="item.overpayFreezeAmount | number :2"></td>
+						<td align="center" ng-bind="item.createDate"></td>
+						<td align="center" ng-bind="item.freeDate"></td>
+						<td align="center">
+							<span ng-if="item.statusCode=='1'">{{'KHH4700077' | translate}}</span>
+							<span ng-if="item.statusCode=='2'">{{'KHH4700056' | translate}}</span>
+							<span ng-if="item.statusCode=='3'">{{'KHH4700057' | translate}}</span>
+							<span ng-if="item.statusCode=='8'">{{'KHH4700058' | translate}}</span>
+							<span ng-if="item.statusCode=='9'">{{'KHH4700059' | translate}}</span>
+							<span ng-if="item.statusCode=='D'">登记未释放</span>
+							<span ng-if="item.statusCode=='c'">已释放利于客户</span>
+							<span ng-if="item.statusCode=='B'">已释放利于银行</span>
+						</td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewDisputeAccInf(item)" >
+								<i class="layui-icon">&#xe60b;</i> 查询
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	<!-- 争议账户信息表 -->
+</div>

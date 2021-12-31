@@ -1,0 +1,31 @@
+<div>
+	<div class="tabreplace">
+		<ul>
+			<li ng-repeat="item in tabs" ng-class="{'hover' : item.selected}" ng-click="changeTab(item)" ng-bind="item.name"></li>
+		</ul>
+	</div>
+	<div class="tabreplacebox">
+		<div ng-repeat="item in tabs" class="tabreplace_content">
+			<div ng-if="item.reload">
+				<div ng-swich="item.type">
+					<div ng-swich-when="include">
+						<div ng-include="item.template" ng-if="item.selected"></div>
+					</div>
+					<div ng-swich-when="element">
+						<div jf-compile="item.html" ng-if="item.selected"></div>
+					</div>
+				</div>
+			</div>
+			<div ng-if="!item.reload">
+				<div ng-swich="item.type">
+					<div ng-swich-when="include">
+						<div ng-include="item.template" ng-show="item.selected"></div>
+					</div>
+					<div ng-swich-when="element">
+						<div jf-compile="item.html" ng-show="item.selected"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

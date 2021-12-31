@@ -1,0 +1,104 @@
+<div ng-controller="securitiesRepurchaseCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent">
+		<form class="layui-form" name="assignmentItemForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="assignmentForm.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray1" name="idTypeName" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumberName" type="text" ng-model="assignmentForm.idNumber" 
+					id="assignment_idNumber"   validator="noValidator" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="assignmentForm.externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6000020' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="assignmentForm.planId" jf-select="planIdArray" name="typeName" lay-filter="getPlanId"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6000019' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="assignmentForm.type" jf-select="typeArray" name="typeName" ></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="assignmentItemForm"  ng-click="querypriceInf()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		<div class="clearboth"></div>
+		<div class="layui-form" ng-if="isAssignmentShow">
+			<div class="mainname" >{{'KHH6000001' | translate}}</div>
+			<div jf-grid="assignmentList">
+				<table>
+					<thead>
+						<tr>
+							<th width="16%;">{{'KHH6000002' | translate}}</th>
+							<th>{{'KHH6000003' | translate}}</th>
+							<th>{{'KHH6000004' | translate}}</th>
+							<th>{{'KHH6000005' | translate}}</th>
+							<th>{{'KHH6000006' | translate}}</th>
+							<th>{{'KHH6000007' | translate}}</th>
+							<th>{{'KHH6000008' | translate}}</th>
+							<th>{{'KHH6000009' | translate}}</th>
+							<th>{{'KHH6000010' | translate}}</th>
+							<th>{{'KHH6000011' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.currencyDesc"></td>
+							<td align="center" >
+								<span>{{item.businessProgramNo}}{{item.programDesc}}</span>
+							</td>
+							<td align="center" >
+								<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.totalBalance | number:2" 
+								style="padding-left:3px;padding-right:3px">
+							</td>
+							<td align="center" ng-bind="item.absStatusDesc"></td>
+							<td align="center" ng-bind="item.capitalStageDesc"></td>
+							<td align="center" ng-bind="item.capitalOrganizationCode"></td>
+							<td align="center" ng-bind="item.capitalOrganizationName"></td>
+							<td align="center" >
+								<button ng-if="item.operation=='true'" class="layui-btn layui-btn-mini" type="button" ng-click="checkInfo(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'KHH6000014' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "userid": "d7ca83c2a9324ad7842b663bcfc79873",
+            "userName": "admin",
+            "password":  "admin1"
+        },
+        {
+            "userid": "5ccf83544bc7499e958b091971297369",
+            "userName": "xiaofanghua",
+            "password":  "xiaofanghua2018"
+        },
+         {
+            "userid": "5ccf83544bc7499e958b091971297323",
+            "userName": "zhengnan",
+            "password":  "zhengnan2018"
+        },
+         {
+            "userid": "5ccf83544bc7499e958b091971297354",
+            "userName": "douyanning",
+            "password":  "douyanning2018"
+        }
+        ]
+    }
+}

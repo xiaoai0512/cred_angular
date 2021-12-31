@@ -1,0 +1,79 @@
+<div ng-controller="cstTransStatisticsController">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form" name="cstTransStatisForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="itemList.params.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text"  id="cstTransStatis_idNumber" ng-model="itemList.params.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+		
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="cstTransStatisForm"  ng-click="queryitemList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+			<div ng-show = "isShow">
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:13%">{{'KHH2100003' | translate}}</th>
+							<th>{{'KHH2100004' | translate}}</th>
+							<th>{{'KHH2100006' | translate}}</th>
+							<th>{{'KHH2100007' | translate}}</th>
+							<th>{{'KHH2100008' | translate}}</th>
+							<th>{{'KHH2100009' | translate}}</th>
+							<th>{{'KHH2100010' | translate}}</th>
+							<th>{{'KHH2100011' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.customerNo"></td>
+							<td align="center" >
+								<div class="divL"><span ng-bind="item.productObjectCode"></span></div>
+								<div class="divR"><span ng-bind="item.productDesc"></span></div>
+							</td>
+							<td align="center" ng-bind="item.cycleNo"></td>
+							<td align="center">
+								<span ng-bind="item.transIdentifiNo"></span>
+								<span ng-bind="item.transIdentifiDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.accumultTransNumDebit"></td>
+							<td align="center" ng-bind="item.accumultTransAmtDebit  | number : 2"></td>
+							<td align="center" ng-bind="item.accumultTransNumCredit"></td>
+							<td align="center" ng-bind="item.accumultTransAmtCredit | number : 2"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		
+	</div>
+</div>

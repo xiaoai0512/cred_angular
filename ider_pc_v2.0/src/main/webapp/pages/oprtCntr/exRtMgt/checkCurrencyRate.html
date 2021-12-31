@@ -1,0 +1,54 @@
+<div ng-controller="checkCurrencyRateCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="" class="layui-form">
+					 <div class="col_td">
+                <div class="col4 text_right">运营模式 ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" ng-model="checkCurrencyRateInfo.operationMode" name="operationMode" type="text" disabled="disabled"  maxlength="3"> 
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">日期：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" ng-model="checkCurrencyRateInfo.rateIssueDate" name="rateIssueDate" type="text" disabled="disabled">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">报价货币 ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" ng-model="checkCurrencyRateInfo.referCurrency" name="referCurrency" type="text" disabled="disabled"   maxlength="3">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">基准货币 ：</div>
+                <div class="wd190 float_left">
+                	  <input class="layui-input" ng-model="checkCurrencyRateInfo.baseCurrency" name="baseCurrency" type="text" disabled="disabled"   maxlength="3">
+                    <!-- <select ng-model="checkCurrencyRateInfo.baseCurrency" class="layui-input" jf-select="builder.option(certificateTypeArray)" name="baseCurrency">
+                    </select> -->
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">买入价 ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" ng-model="checkCurrencyRateInfo.buyingPrice" name="buyingPrice" type="text"  maxlength="14">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">卖出价 ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" ng-model="checkCurrencyRateInfo.sellingPrice" name="sellingPrice" type="text"  maxlength="14">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">汇兑费 ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" ng-model="checkCurrencyRateInfo.markUp" name="markUp" type="text"   maxlength="7">
+                </div>
+            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

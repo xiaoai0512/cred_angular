@@ -1,0 +1,75 @@
+<div ng-controller="balObjListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：余额对象管理
+	</div>
+	<div class="search_mian layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">运营模式 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" maxlength="3"
+					ng-model="itemList.params.operationMode">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">余额类型 ：</div>
+			<div class="wd190 float_left">
+				<select jf-select="builder.option(demoArray)"
+					ng-model="itemList.params.objectType"></select>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="itemList.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="itemList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div jf-grid="itemList">
+		<table>
+			<thead>
+				<tr>
+					<th>运营模式</th>
+					<th>余额对象代码</th>
+					<th>余额类型</th>
+					<th>利息入账余额对象</th>
+					<th>还款优先级</th>
+					<th>描述</th>
+					<th>开始日期</th>
+					<th>结束日期</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.operationMode"></td>
+					<td align="center" ng-bind="item.balanceObjectCode"></td>
+					<!-- <td align="center" ng-if="item.objectType == 'P'">本金</td>
+					<td align="center" ng-if="item.objectType == 'I'">利息</td>
+					<td align="center" ng-if="item.objectType == 'F'">费用</td>
+					<td align="center" ng-if="item.objectType == ''"></td> -->
+					<td align="center"><span ng-if="item.objectType == 'P'">本金</span>
+						<span ng-if="item.objectType == 'I'">利息</span> <span
+						ng-if="item.objectType == 'F'">费用</span> <span
+						ng-if="item.objectType == ''"></span></td>
+
+					<!-- <td align="center" ng-bind="item.objectType"></td> -->
+					<td align="center" ng-bind="item.interestBilledBalanceObject"></td>
+					<td align="center" ng-bind="item.duePriority"></td>
+					<td align="center" ng-bind="item.objectDesc"></td>
+					<td align="center" ng-bind="item.beginDate"></td>
+					<td align="center" ng-bind="item.endDate"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="checkBalObjElmDtl(item)">
+							<i class="layui-icon"></i> 维护
+						</button>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

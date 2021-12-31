@@ -1,0 +1,123 @@
+<div class="layout_body" ng-controller="marketingRuleUpdateCtrl">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input"	jf-select="coArray" name="operationMode" ng-model="operationModeUpdate" lay-filter="getOperationModeUpdate" disabled></select>
+			</div>
+		</div>
+		<!--<div class="col_td">
+		<div class="col4 text_right">{{'SQH310001' | translate}} ：</div>&lt;!&ndash; 授权场景代码 &ndash;&gt;
+			<div class="wd190 float_left">
+				&lt;!&ndash; <input class="layui-input bnone" name="authSceneCode" ng-model="itemUpdate.authSceneCode"  type="text" validator="required" disabled> &ndash;&gt;
+				<select class="layui-input"	jf-select="authSceneArray" name="authSceneCode" ng-model="authSceneCodeUpdateNG" disabled></select>
+			</div>
+		</div>-->
+		<div class="col_td">
+			<div class="col4 text_right"><!-- <span class="red">*</span> -->{{'SQH310002' | translate}} ：</div><!-- 营销场景代码 -->
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="marketingSceneCode"  type="text" ng-model="itemUpdate.marketingSceneCode" validator="required" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310004' | translate}} ：</div><!-- 描述 -->
+				<div class="wd190 float_left">
+					<input class="layui-input " name="marketingSceneDesc" ng-model="itemUpdate.marketingSceneDesc"  type="text" validator="required">
+				</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH310003' | translate}}</div><!-- 营销规则 -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310005' | translate}} ：</div><!-- 营销币种 -->
+			<div class="wd190 float_left">
+				<select ng-model="marketingCurrencyCodeUpdateNG" class="layui-input" jf-select="currencyArray" name="marketingCurrencyCode" ></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310006' | translate}} ：</div><!-- 营销规则 -->
+			<div class="wd190 float_left">
+				<select ng-model="marketingRuleU" class="layui-input"
+							jf-select="ruleArray" name="marketingRule" lay-filter="getMarketingRulesUpdate"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH310007' | translate}} ：</div><!-- 减免金额上限 -->
+			<div class="wd190 float_left">
+				<input class="layui-input " name="discountAmtCeiling" ng-model="itemUpdate.discountAmtCeiling"  type="text" validator="required">
+			</div>
+		</div>
+		<div class="col_td"></div>
+		<div ng-show="cycleAmountShowU">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.circleAmt"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="authTypeN" ng-model="itemUpdate.circleDiscountAmt"  type="text" >
+			</div>
+		</div>
+		</div>
+		<div ng-show="addUpAmountShowU">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.accumAmtLev1"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310011' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.accumDiscountAmtLev1"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310012' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.accumAmtLev2"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.accumDiscountAmtLev2"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310014' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.accumAmtLev3"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310015' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.accumDiscountAmtLev3"  type="text" >
+			</div>
+		</div>
+		</div>
+		<div ng-show="randomAmountShowU">
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310016' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.randomAmt"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310017' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.randomDiscountAmtCeiling"  type="text" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH310018' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " name="bsnNumb" ng-model="itemUpdate.randomDiscountAmtFloor"  type="text" >
+			</div>
+		</div>
+		</div>
+	</form>
+</div>

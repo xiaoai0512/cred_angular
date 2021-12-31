@@ -1,0 +1,59 @@
+<div class="layout_body" ng-controller="errorCodeListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="layui-form">
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00077' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="operationMode" class="layui-input"
+						jf-select="coArray" name="operationModeN" lay-search=""></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<label class="col4 text_right">{{'SQH2500004' | translate}} ：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" ng-model="responseDesc" name="responseDescN">
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn" ng-click="selList()">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+					<button class="layui-btn" ng-click="addScenarioAdd()">
+						<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+					</button>
+				</div>
+		</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'F00013' | translate}}</th>
+						<th>{{'F00077' | translate}}</th>
+						<th>{{'SQH2500005' | translate}}</th>
+						<th style="width:45%">{{'SQH2500004' | translate}}</th>
+						<th style="width:17%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.internalResponseCode"></td>
+						<td align="center" ng-bind="item.responseDesc"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" >
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="responseRelInfo(item)" >
+								<i class="layui-icon">&#xe642;</i> {{'SQH2500006' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

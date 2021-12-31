@@ -1,0 +1,188 @@
+<div ng-controller="checkApplicationFormVisaCtrl">
+	<div class="section">
+		<div class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">交易代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.transactionCode" name="transactionCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.customerNo" name="customerNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">帐号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.externalIdentificationNo" name="externalIdentificationNo" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">收单参考编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.acquireReferenceNumbr" name="acquireReferenceNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">收单业务编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.acquirerBusinessId" name="acquirerBusinessId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">购买日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.gmtDate" name="gmtDate" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易金额：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.transAmt" name="transAmt" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易货币代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.transCurrCode" name="transCurrCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">商家名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.merchantName" name="merchantName" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">商城：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.city" name="city" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">商人国家代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.country" name="country" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">商家类别代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.merchantCde" name="merchantCde" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">美国商户邮政编码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.merchantZip" name="merchantZip" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">商户国家╱省代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.stateCode" name="stateCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">发卡机构控制号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.issuerControlNumber" name="issuerControlNumber" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>请求原因代码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.requestReasonCode" name="requestReasonCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">结算标志：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.settlementFlag" name="settlementFlag" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">国家偿还费：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.nationalReimburseFee" name="nationalReimburseFee" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">账户种类：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.accountSelection" name="accountSelection" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">调单请求ID：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.retrievalRequestId" name="retrievalRequestId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">中央处理日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.settlementDate" name="settlementDate" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">偿还属性：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.reimburseAttribute" name="reimbursettribute" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">传真号码：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.faxNumber" name="faxNumber" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">请求完成方式：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input bnone"  ng-model="appFormInf.requestedFulfllmentMethod" name="requestedFulfllmentMethod" type="text" disabled="disabled"> -->
+					<select ng-model="appFormInf.requestedFulfllmentMethod" class="layui-input bnone" jf-select="builder.option(typeArray)"  name="requestedFulfllmentMethod" disabled="disabled"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">已建立的完成方式：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input bnone"  ng-model="appFormInf.establishedFulfllmentMethod" name="establishedFulfllmentMethod" type="text" disabled="disabled"> -->
+					<select ng-model="appFormInf.establishedFulfllmentMethod" class="layui-input bnone" jf-select="builder.option(typeArray1)"  name="establishedFulfllmentMethod" disabled="disabled"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">发卡机构清算币种：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.clearCurrCode" name="clearCurrCode" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">发卡机构清算金额：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.clearAmount" name="clearAmount" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">交易ID：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.transIdentifier" name="transIdentifier" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">原交易全局流水号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"  ng-model="appFormInf.oldGlobalSerialNumbr" name="oldGlobalSerialNumbr" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">调单状态：</div>
+				<div class="wd190 float_left">
+					<select ng-model="appFormInf.retrievalStatus" class="layui-input bnone" jf-select="builder.option(typeArray2)"  name="retrievalStatus" disabled="disabled"></select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

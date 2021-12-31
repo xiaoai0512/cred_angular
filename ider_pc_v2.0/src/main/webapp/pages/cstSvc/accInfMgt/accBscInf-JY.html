@@ -1,0 +1,109 @@
+<div ng-controller="accBscInfCtrl-JY">
+<!-- <div class="leftmenu_navtitle">账务基本信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	
+		<input type="text" class="disN"   ng-model = "hide_accBscInf.idType" />
+		<input type="text" class="disN"   ng-model = "hide_accBscInf.idNumber" />
+		<input type="text" class="disN"   ng-model = "hide_accBscInf.externalIdentificationNo" />
+	<div class="allcontent">
+		<form action="" class="layui-form" name="accBscInfForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="itemList.params.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text" ng-model="itemList.params.idNumber" id="accBscInf_idNumber"   validator="noValidator">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="accBscInfForm"  ng-click="queryitemList()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+			<div ng-show = "isShow">
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:17%;    padding: 0px 5px;">{{'KHH4200003' | translate}}</th>
+							<th>{{'KHH4200019' | translate}}</th>
+							<th >{{'KHH4200005' | translate}}</th>
+							<th>{{'KHH4200004' | translate}}</th>
+							<th>核算状态</th>
+						<!-- 	<th >{{'KHH4200007' | translate}}</th>
+							<th>{{'KHH4200008' | translate}}</th>
+							<th style="width:9%;">{{'KHH4200009' | translate}}</th> -->
+							<th style="width:20%;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.accountId"></td>
+							<td align="left">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							<td align="center" >
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.businessTypeCode}}</span><span>{{item.businessDesc}}</span>
+							</td>
+							<td align="center">
+								<span ng-if="item.statusCode =='0'">正常</span>
+								<span ng-if="item.statusCode =='1'">非应计</span>
+								<span ng-if="item.statusCode =='2'">核销</span>
+							</td>
+							<!-- <td align="center">
+								<span ng-if="item.accountOrganForm=='R'">{{'KHH4200010' | translate}}</span>
+								<span ng-if="item.accountOrganForm=='T'">{{'KHH4200011' | translate}}</span>
+							</td>
+							<td align="center">
+								<span ng-if="item.businessDebitCreditCode=='C'">{{'KHH4200012' | translate}}</span>
+								<span ng-if="item.businessDebitCreditCode=='D'">{{'KHH4200013' | translate}}</span>
+							</td>
+							<td align="center" >
+								<span ng-if="item.statusCode==1">{{'KHH4200014' | translate}}</span>
+								<span ng-if="item.statusCode==2">{{'KHH4200015' | translate}}</span>
+								<span ng-if="item.statusCode==3">{{'KHH4200016' | translate}}</span>
+								<span ng-if="item.statusCode==8">{{'KHH4200017' | translate}}</span>
+								<span ng-if="item.statusCode==9">{{'KHH4200018' | translate}}</span>
+							</td> -->
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="viewDetail(item)" type="button" >
+									<i class="layui-icon">&#xe60b;</i> 账户详情
+								</button>
+								<button class="layui-btn layui-btn-mini"ng-click="updateAccountInfo(item)" type="button" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		
+	</div>
+</div>

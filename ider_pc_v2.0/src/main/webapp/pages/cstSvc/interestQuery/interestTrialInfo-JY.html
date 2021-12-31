@@ -1,0 +1,50 @@
+<div ng-controller="interestCtrl-JY">
+	<div class=" ">
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:17%;    padding: 0px 5px;">账户代码</th>
+							<th>币种</th>
+							<th style="width:11%;    padding: 0px 5px;">所属业务类型</th>
+							<th style="padding: 0px 5px;">业务类型描述</th>
+							<th style="padding: 0px 5px;">产品对象代码</th>
+							<th style="padding: 0px 5px;">账户组织形式</th>
+							<th>账户性质</th>
+							<th style="width:9%;    padding: 0px 5px;">状态码</th>
+							<!-- <th style="width:15%;    padding: 0px 5px;">操作</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width:17%" align="center" ng-bind="item.accountId"></td>
+							<td align="center" ng-bind="item.currencyCode"></td>
+							<td style="width:11%" align="center" ng-bind="item.businessTypeId"></td>
+							<td align="center" ng-bind="item.businessTypeDesc"></td>
+							<td align="center" ng-bind="item.productId"></td>
+							<td align="center">
+								<span ng-if="item.accountOrganizeTyp=='R'">循环</span>
+								<span ng-if="item.accountOrganizeTyp=='T'">交易</span>
+							</td>
+							<td align="center">
+								<span ng-if="item.accountBookKeepingDirec=='C'">贷记账户</span>
+								<span ng-if="item.accountBookKeepingDirec=='D'">借记账户</span>
+							</td>
+							<td align="center" style="width:9%">
+								<span ng-if="item.statusCode==1">活跃账户</span>
+								<span ng-if="item.statusCode==2">非活跃账户</span>
+								<span ng-if="item.statusCode==3">冻结账户</span>
+								<span ng-if="item.statusCode==8">关闭账户</span>
+								<span ng-if="item.statusCode==9">待删除账户</span>
+							</td>
+							<!-- <td align="center" style="width:10%">
+								<button class="layui-btn layui-btn-mini" ng-click="trialInfo(item)" type="button">
+									<i class="layui-icon"></i> 试算
+								</button>
+							</td> -->
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>

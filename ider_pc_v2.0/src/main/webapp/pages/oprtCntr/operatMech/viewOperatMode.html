@@ -1,0 +1,70 @@
+<div ng-controller="oprtModeEnqrAndMntCtrl">
+	<div class="">
+		<form name="balanceForm">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="item.operationMode" validator="required" disabled="disabled"
+						name="operationMode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">模式名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" ng-model="item.modeName" validator="required" disabled="disabled"
+						name="modeName" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">运营核算币种：</div>
+				<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.accountCurrency" validator="required" disabled="disabled"
+						name="accountCurrency" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">当前处理日期：</div>
+				<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="item.currInterestAccumulate" validator="required" disabled="disabled"
+						name="currInterestAccumulate" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">上一处理日期：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input bnone" ng-model="item.prevInterestAccumulate" validator="required" disabled="disabled"
+						name="prevInterestAccumulate" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">下一处理日期：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input bnone" ng-model="item.nextInterestAccumulate" validator="required" disabled="disabled"
+						name="nextInterestAccumulate" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">营业日期：</div>
+				<div class="wd190 float_left">
+						<input class="layui-input bnone" ng-model="item.operationDate" validator="required" disabled="disabled"
+						name="operationDate" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">额度网编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="creditTreeId" ng-model="item.creditTreeId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">溢缴款业务类型：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone"    name="excessContriServTyp" ng-model="item.excessContriServTyp" type="text" disabled="disabled">
+				</div>
+			</div>
+
+		</form>
+		
+
+	</div>
+</div>

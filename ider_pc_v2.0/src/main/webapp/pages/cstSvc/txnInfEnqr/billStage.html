@@ -1,0 +1,144 @@
+<div ng-controller="billStageCtrl" class="layui-form">
+		<form name="billQueryForm" >
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500004' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="customerNo" ng-model="stageInf.customerNo" type="text" maxlength="18" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500006' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="productObjectCode" ng-model="stageInf.productObjectCode" type="text" maxlength="18" readonly>
+				</div>
+			</div>
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="currencyCode" ng-model="stageInf.currencyCodeTrans" type="text" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500068' | translate}} ：</div>
+				<div class="wd190 float_left ">
+					<input class="layui-input bnone" name="billAmt" ng-model="stageInf.billAmt" jf-format-input="money" type="text" maxlength="18" readonly>
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">分期可用额度 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="idNumber" ng-model="stageInf.postingAmount" jf-format-input="money" type="text" maxlength="18" readonly>
+				</div>
+			</div> -->
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500069' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="loanAmt" ng-model="stageInf.loanAmt" type="text" maxlength="18" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500070' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select jf-select="termArr" name="term" validator="required" class="layui-input"
+                            ng-model="stageInf.term"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500086' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="stageInf.ecommFeeCollectType"
+						class="layui-input" jf-select="ectypeArray" name="ecommFeeCollectType" validator="required" >
+					</select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" ng-click="stageTrial()">
+					<i class="layui-icon">&#xe63c;</i> {{'KHH4500071' | translate}}
+				</button>
+			</div>
+
+
+		</form>
+
+		<div ng-show ="isShowStageResultInfo">
+
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500037' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="accountId" ng-model="stageInf.accountId" type="text" maxlength="30"  readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"> {{'KHH4500072' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommBusineseType" ng-model="stageInf.ecommBusineseType" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500073' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name=" loanAmt" ng-model="stageInf.loanAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500009' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="currencyCode" ng-model="stageInf.currencyCode" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500074' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="loanRate" ng-model="stageInf.loanRate" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500075' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="feeRate" ng-model="stageInf.feeRate" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500076' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="allFeeAmt" ng-model="stageInf.allFeeAmt" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH4500077' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="term" ng-model="stageInf.term" type="text" maxlength="30" readonly/>
+				</div>
+			</div>
+
+
+			<div class="col_tr text_left mainname">{{'KHH4500078' | translate}}</div>
+			<div jf-grid="billStageInfoList">
+					<table>
+						<thead>
+							<tr>
+								<th >{{'KHH4500079' | translate}}</th>
+								<th >{{'KHH4500080' | translate}}</th>
+								<th>{{'KHH4500081' | translate}}</th>
+								<th>{{'KHH4500082' | translate}}</th>
+								<th>{{'KHH4500083' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.termNo"></td>
+								<td align="center" ng-bind="item.throwDate"></td>
+								<td align="center" ng-bind="item.principalAmount | number:2"></td>
+								<td align="center" ng-bind="item.interestAmount | number:2"></td>
+								<td align="center" ng-bind="item.feeAmount | number:2"></td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div><!-- isShowStageResultInfo -->
+
+
+</div>

@@ -1,0 +1,303 @@
+<div ng-controller="nonFinanTenanceHistQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action="" name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="nonFinanTenanceList.idType"
+                        jf-select="certificateTypeArray" name="idType"  lay-filter="getIdType">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text"
+				id='nonFinanTenanceHistQuery_idNumber'name="idNumber" validator="noValidator"
+					ng-model="nonFinanTenanceList.idNumber" maxlength="30">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="externalIdentificationNo"
+					type="text" ng-model="nonFinanTenanceList.externalIdentificationNo"
+					maxlength="19">
+			</div>
+		</div>
+
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'SQH100002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="nonFinanTenanceList.customerNo"
+					name="customerNo" type="text">
+			</div>
+		</div> -->
+
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'KHH1100003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select jf-select="demoArray2" ng-model="nonFinanTenanceList.logLevel"></select>
+			</div>
+		</div>
+
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1100004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="nonFinanTenanceList.startDate"
+					name="startDate" id="nonFinanTenanceList_zs" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH1100005' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" ng-model="nonFinanTenanceList.endDate"
+					name="endDate"  id="nonFinanTenanceList_ze" type="text">
+			</div>
+		</div>
+
+
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="queryNonFinanTenanceHistHistory()" validation-submit="queryInfForm">
+				<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i>{{'F00018' | translate}}
+			</button>
+		</div>
+	</form>
+		<form name="optModeInfForm">
+		<div ng-show="showCNonFinanTenanceHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 13%">{{'KHH1100006' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100007' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100008' | translate}}</th>
+								<th style="width: 15%">{{'KHH1100009' | translate}}</th>
+                                <th style="width: 16%">{{'KHH1100024' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100010' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100011' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100012' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100013' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100014' | translate}}</th>
+                                <th style="width: 13%">{{'KHH1100025' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.customerNo"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="center" ng-bind="item.modifyType"></td>
+								<td align="center" ng-bind="item.modifyFieldName"></td>
+                                <td align="center" ng-bind="item.cnName"></td>
+								<td align="center" ng-bind="item.modifyBefore"></td>
+								<td align="center" ng-bind="item.modifyAfter"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+                                <td align="center" ng-bind="item.savePeriod"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkNonFinanTenanceInf(item)">
+										<i class="layui-icon">&#xe60b;</i>{{'KHJ1900004' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showANonFinanTenanceHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 13%">{{'KHH1100006' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100015' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100008' | translate}}</th>
+								<th style="width: 15%">{{'KHH1100009' | translate}}</th>
+                                <th style="width: 16%">{{'KHH1100024' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100010' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100011' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100012' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100013' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100014' | translate}}</th>
+                                <th style="width: 13%">{{'KHH1100025' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.customerNo"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="center" ng-bind="item.modifyType"></td>
+								<td align="center" ng-bind="item.modifyFieldName"></td>
+                                <td align="center" ng-bind="item.cnName"></td>
+								<td align="center" ng-bind="item.modifyBefore"></td>
+								<td align="center" ng-bind="item.modifyAfter"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+                                <td align="center" ng-bind="item.savePeriod"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkNonFinanTenanceInf(item)">
+										<i class="layui-icon"></i>{{'KHJ1900004' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showPNonFinanTenanceHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 13%">{{'KHH1100006' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100016' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100008' | translate}}</th>
+								<th style="width: 15%">{{'KHH1100009' | translate}}</th>
+                                <th style="width: 16%">{{'KHH1100024' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100010' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100011' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100012' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100013' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100014' | translate}}</th>
+                                <th style="width: 13%">{{'KHH1100025' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.customerNo"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="center" ng-bind="item.modifyType"></td>
+								<td align="center" ng-bind="item.modifyFieldName"></td>
+                                <td align="center" ng-bind="item.cnName"></td>
+								<td align="center" ng-bind="item.modifyBefore"></td>
+								<td align="center" ng-bind="item.modifyAfter"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+                                <td align="center" ng-bind="item.savePeriod"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkNonFinanTenanceInf(item)">
+										<i class="layui-icon"></i>{{'KHJ1900004' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showMNonFinanTenanceHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 13%">{{'KHH1100006' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100017' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100008' | translate}}</th>
+								<th style="width: 15%">{{'KHH1100009' | translate}}</th>
+                                <th style="width: 16%">{{'KHH1100024' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100010' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100011' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100012' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100013' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100014' | translate}}</th>
+                                <th style="width: 13%">{{'KHH1100025' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.customerNo"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="center" ng-bind="item.modifyType"></td>
+								<td align="center" ng-bind="item.modifyFieldName"></td>
+                                <td align="center" ng-bind="item.cnName"></td>
+								<td align="center" ng-bind="item.modifyBefore"></td>
+								<td align="center" ng-bind="item.modifyAfter"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+                                <td align="center" ng-bind="item.savePeriod"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkNonFinanTenanceInf(item)">
+										<i class="layui-icon"></i>{{'KHJ1900004' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div ng-show="showDNonFinanTenanceHistDiv">
+			<div class=" ">
+				<div jf-grid="relationTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 13%">{{'KHH1100006' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100018' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100008' | translate}}</th>
+								<th style="width: 15%">{{'KHH1100009' | translate}}</th>
+                                <th style="width: 16%">{{'KHH1100024' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100010' | translate}}</th>
+								<th style="width: 16%">{{'KHH1100011' | translate}}</th>
+								<th style="width: 10%">{{'KHH1100012' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100013' | translate}}</th>
+								<th style="width: 13%">{{'KHH1100014' | translate}}</th>
+                                <th style="width: 13%">{{'KHH1100025' | translate}}</th>
+								<th style="width: 9%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.customerNo"></td>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="center" ng-bind="item.modifyType"></td>
+								<td align="center" ng-bind="item.modifyFieldName"></td>
+                                <td align="center" ng-bind="item.cnName"></td>
+								<td align="center" ng-bind="item.modifyBefore"></td>
+								<td align="center" ng-bind="item.modifyAfter"></td>
+								<td align="center" ng-bind="item.operatorId"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.occurrTime"></td>
+                                <td align="center" ng-bind="item.savePeriod"></td>
+								<td align="center">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkNonFinanTenanceInf(item)">
+										<i class="layui-icon"></i> {{'KHJ1900004' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</form>
+	</div>
+</div>

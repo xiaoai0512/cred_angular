@@ -1,0 +1,68 @@
+<div ng-controller="addSupplyCstCodeCtrl">
+	<div class="layui-form">
+		<div class="" class="layui-form">
+	<form name="supplyCardForm">
+			<div style="margin-bottom:20px">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}} ： </label>
+					<div class="layui-input-inline">
+						<div><select ng-model="supplyCstCodeParams.idType"
+							jf-select="certificateTypeArray" name="idType"  lay-filter="getSupplyIdType">
+						</select></div>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00112' | translate}} ：</label>
+					<div class="layui-input-inline">
+						<div><input class="layui-input" ng-model="supplyCstCodeParams.idNumber"  type="text"
+						 id="supply_idNumber"  validator="noValidator"></div>
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left:30px">
+				<button class="layui-btn" ng-click="queryHaveCst()">
+					<i class="layui-icon">&#xe615;</i>  {{'F00009' | translate}}
+				</button>
+			</div>
+			
+			</div>
+		
+		</form>
+			
+			<div ng-show="supplyCstCodeDiv">
+				<div class="clearboth"></div>
+				<div class="mainname">{{'KHH3200063' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00158' | translate}} ： </div>
+					<div class="wd190 float_left">
+						<select ng-model="supplyCstCodeInf.idType"
+							jf-select="certificateTypeArray" name="idType" disabled>
+						</select>
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="supplyCstCodeInf.idNumber"  type="text" readonly>
+					</div>
+				</div>
+				
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3200006' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="supplyCstCodeInf.customerName"  type="text" readonly>
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH3200064' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" ng-model="supplyCstCodeInf.customerNo"  type="text" readonly>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</div>

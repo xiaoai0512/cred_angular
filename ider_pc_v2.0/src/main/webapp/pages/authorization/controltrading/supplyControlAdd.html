@@ -1,0 +1,198 @@
+<div ng-controller="supplyAddCtrl">
+	<div class="">
+		<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH1800068' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00111' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input step1I" name="externalIdentificationNoN" ng-model="externalIdentificationNo"  type="text">
+			</div>
+		</div>
+		<div class="col_td" ng-show="isBtnSure">
+			<div class="col4 text_right">
+				<button class="layui-btn layui-btn-radius"  ng-click="stepOne()">
+					<i class="layui-icon">&#xe61a;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+		<div ng-show="isBtnResult">
+			<div class="col_td"></div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1800065' | translate}} ：</div>
+				<div class="wd190 float_left" >
+					<select id="d" ng-model="sAdd.currencyCode" class="layui-input" validator="required"
+									jf-select="currencyCodeArray" name="currencyCodeN"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700083' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="sAdd.transLimitCode" class="layui-input" validator="required"
+									jf-select="listCodeAddArr" name="listCodeAddArrN"></select>
+				</div>
+			</div>
+			<div class=" clearboth"></div>
+			<div class="mainname titleInfo">{{'SQH1800069' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800085' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag1" ng-model="sAdd.limitSingleTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag1Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800070' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitSingleTransId" name="limitSingleTransN" ng-model="sAdd.limitSingleTrans" validator="number"  type="text"  autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800086' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag2" ng-model="sAdd.limitDayTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag2Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800071' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitDayTransId" name="limitDayTransN" ng-model="sAdd.limitDayTrans" validator="number"  type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800087' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag3" ng-model="sAdd.limitCycleTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag3Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800072' | translate}}  ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitCycleTransId" name="limitCycleTransN" ng-model="sAdd.limitCycleTrans" validator="number"  type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800088' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag4" ng-model="sAdd.limitMonthTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag4Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800073' | translate}}  ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitMonthTransId" name="limitMonthTransN" ng-model="sAdd.limitMonthTrans" validator="number"  type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800089' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag5" ng-model="sAdd.limitHalfYearTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag5Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800074' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitHalfYearTransId" name="limitHalfYearTransN" ng-model="sAdd.limitHalfYearTrans" validator="number"  type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800090' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag6" ng-model="sAdd.limitYearTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag6Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800075' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitYearTransId" name="limitYearTransN" ng-model="sAdd.limitYearTrans" validator="number"  type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800091' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag7" ng-model="sAdd.limitLifeCycleTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag7Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800076' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="limitLifeCycleTransId" name="limitLifeCycleTransN" ng-model="sAdd.limitLifeCycleTrans" validator="number"  type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+			<div class=" clearboth"></div>
+					<div class="mainname titleInfo">{{'SQH1800077' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800092' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag8" ng-model="sAdd.numberDayTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag8Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800078' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="numberDayTransId" name="numberDayTransN" ng-model="sAdd.numberDayTrans" validator="number" type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800093' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag9" ng-model="sAdd.numberCycleTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag9Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800079' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="numberCycleTransId" name="numberCycleTransN"  ng-model="sAdd.numberCycleTrans" validator=" number" type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800094' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag10" ng-model="sAdd.numberMonthTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag10Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800080' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="numberMonthTransId" name="numberMonthTransN" ng-model="sAdd.numberMonthTrans" validator=" number" type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800095' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag11" ng-model="sAdd.numberHalfYearTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag11Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800081' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="numberHalfYearTransId" name="numberHalfYearTransN" ng-model="sAdd.numberHalfYearTrans" validator=" number" type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800096' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag12" ng-model="sAdd.numberYearTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag12Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800082' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="numberYearTransId" name="numberYearTransN"  ng-model="sAdd.numberYearTrans" validator="number" type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'SQH1800097' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select  class="layui-input" name="transFlag13" ng-model="sAdd.numberLifeCycleTransFlag" jf-select="defaultFlagArray" validator="required" lay-filter="getFlag13Add"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH1800083' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" id="numberLifeCycleTransId" name="numberLifeCycleTransN" ng-model="sAdd.numberLifeCycleTrans" validator="number" type="text" autocomplete="off" readonly>
+					</div>
+				</div>
+				<div class=" clearboth"></div>
+			</div>
+		</form>
+	</div>
+</div>

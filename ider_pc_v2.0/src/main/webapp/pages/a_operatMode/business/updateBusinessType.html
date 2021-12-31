@@ -1,0 +1,330 @@
+<div ng-controller="updateBusinessTypeCtrl">
+	<form name="layerBusinessTypeFormeee"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200001' | translate}}：</div>
+			<div class="wd190 float_left">
+					<select ng-model="businessTypeInf.operationModeTemp"   jf-select="operationModeArr" name="operationMode" maxlength="3"  disabled>
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="businessTypeInf.businessTypeCode"
+					 name="businessTypeCode" type="text" validator="required" maxlength="9" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="businessTypeInf.businessDesc"
+					name="businessDesc" type="text"  maxlength="50" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200005' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="businessFormUpdate" class="layui-input"
+					jf-select="businessFormArray"
+					name="businessForm" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200006' | translate}} ：</div>
+			<div class="wd190 float_left">
+					<select ng-model="businessDebitCreditCodeUpdate" class="layui-input"
+					jf-select="businessNatureArr"
+					name="businessDebitCreditCode" >
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">{{'YYH200007' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="businessTypeInf.creditTreeNode"   jf-select="creditTreeNode" name="defaultPrincipalBalanceObj" maxlength="9" >
+					</select>
+				<input class="layui-input "  ng-model="businessTypeInf.creditTreeNode"  
+				 name="creditTreeNode" type="text" maxlength="3">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200008' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input " ng-model="businessTypeInf.paymentPriority" 
+				 name="paymentPriority" type="text"  validator="number" maxlength="3">
+			</div>
+			<div class="search_button">
+					<button class="layui-btn" ng-click="choseBtnPriority()" >
+						<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+					</button>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="businessTypeInf.defaultPrincipalBalanceObjTemp"  jf-select="prinBalanceObject" name="defaultPrincipalBalanceObj" 
+				 validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="businessTypeInf.defaultInterestBalanceObjTemp"   jf-select="intBalanceObject" name="defaultInterestBalanceObj" 
+				 validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'YYH200011' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="businessTypeInf.defaultFeeBalanceObjTemp"   jf-select="feeBalanceObject" name="defaultFeeBalanceObj" 
+				validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200023' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="businessPurposeUpdate" class="layui-input" jf-select="businessPurposeArr" name="businessPurpose" >
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH200035' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  type="text" name="defaultTransIdentifiNoN"  ng-model="businessTypeInf.defaultTransIdentifiNo" readonly>
+			</div>
+		</div>
+	</form>
+		<!-- 交易识别代码列表 -->
+	<div class="clearboth"></div>
+	<div class="mainname">{{'YYH200024' | translate}}</div>
+	<div style="margin-bottom: 15px;margin-left: 5%;">
+		<div class="layui-inline">
+			<label class="layui-form-label">{{'YYH1500015' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="transIdentifiNo"  ng-model="businessTypeInf.transIdentifiNo" maxlength="50" >
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">{{'YYH1500003' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="transIdentifiDesc"  ng-model="businessTypeInf.transIdentifiDesc" maxlength="50">
+			</div>
+		</div>
+		<div class="layui-inline" style="margin-left: 5%;">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryModifyList()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="modalmain">
+		<div class="row">
+			<div class="colFive">
+				<h7>{{'YYH200025' | translate}}</h7>
+			</div>
+			<div class="colSix">
+				<h7>{{'YYH200026' | translate}}</h7>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+		<div class="row">
+			<div class="colOne">
+				<select name="s31" size="10" multiple="multiple" id="s31" class="form_selectgro">
+					
+				</select>
+			</div>
+			<div class="colTwo4 text-center">
+				<button type="button" class="layui-btn mb15" name="add" id="add31" value="">
+					{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+				</button>
+				<br />
+				<button type="button" class="layui-btn mb15" name="addall" id="addall31" value="">
+					{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+				</button>
+				<br />
+				<button type="button" name="remove" id="remove31" class="layui-btn mb15">
+					<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+				</button>
+				<br />
+				<button type="button" name="removeall" id="removeall31" value="" class="layui-btn mb15">
+					<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+				</button>
+				<button type="button" name="setDefault" id="setDefaultId31" value="" class="layui-btn mb15">
+					{{'YYH200034' | translate}}
+				</button>
+			</div>
+			<div class="colThree">
+				<select name="s32" size="10" multiple="multiple" id="s32" class="form_selectgro">
+				</select>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+	</div>
+	<div class="clearboth"></div>
+<div class="mainname">{{'YYH510054' | translate}}</div>
+	<div jf-grid="typeBPUpdate">
+		<table>
+			<thead>
+				<tr>
+					<th style="width:22%">{{'YYH600002' | translate}}</th>
+					<th align="left" style="width:50%">{{'F00079' | translate}}</th>
+					<th align="left" style="width:30%">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center">
+				  		<div class="tdDivL">{{item.instanCode1}}</div>
+						<div class="tdDivR">&nbsp;{{item.instanDesc1}}</div>
+				  	</td>
+					<td align="right">
+						<div class="tdDivL">{{item.artifactDesc}}&nbsp;:</div>
+						<div class="tdDivR">&nbsp;{{item.elementNo}}&nbsp;{{item.elementDesc}}</div>
+					</td>
+					<!-- <td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td> -->
+					<td align="center">
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="selectAUpdateBP(item,$index)" style="float: left;margin-right: 5px;">
+							<i class="layui-icon"></i> {{'F00081' | translate}}
+						</button>
+						
+						<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBP(item,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00082' | translate}}
+						</button>
+						<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBP(item,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-show="isChoseTypeBP" style="margin-bottom:20px;">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH510057' | translate}}</div>
+		<table border="0" cellspacing="0" cellpadding="0"
+			class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th style="width:15%">{{'YYH600002' | translate}}</th>
+					<th align="left" style="width:50%">{{'YYH510004' | translate}}</th>
+					<th align="left" style="width:35%">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="itembp in typeBPUpdateChose track by $index">
+					<td align="center">
+				  		<div class="tdDivL">{{item.instanCode1}}</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.instanDesc1}}</div>
+				  	</td>
+					<td align="right">
+						<div class="tdDivL">{{itembp.artifactDesc}}&nbsp;&nbsp;:</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{itembp.elementNo}}&nbsp;&nbsp;{{itembp.elementDesc}}</div>
+					</td>
+					<td align="center" >
+						<button class="layui-btn cancel-btn"  ng-click="deleteTypeBPUpdate($index)" style="float: left;margin-right: 5px;">
+							<i class="layui-icon"></i> {{'F00016' | translate}}
+						</button>
+						<button class="layui-btn cancel-btn"
+							ng-click="selectAUpdateBPchose(itembp,$index)" style="float: left;margin-right: 5px;">
+							<i class="layui-icon"></i> {{'F00081' | translate}}
+						</button>
+						<button class="layui-btn cancel-btn" ng-if="itembp.pcdNo != null && itembp.pcdDesc == ''  && itembp.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBPchose(itembp,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00082' | translate}}
+						</button>
+						<button class="layui-btn1 cancel-btn" ng-if="itembp.pcdNo != null && itembp.pcdDesc != '' && itembp.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBPchose(itembp,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00083' | translate}}{{itembp.pcdDesc}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="clearboth"></div>
+<div class="mainname">{{'YYH510055' | translate}}</div>
+	<div jf-grid="typeBTPUpdate">
+		<table>
+			<thead>
+				<tr>
+					<!-- <th style="width:12%">业务类型</th> -->
+					<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+					<th align="left" style="width:40%">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<!-- <td align="center" ng-bind="item.instanCode1"></td> -->
+					<td align="right">
+						<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+					</td>
+					<!-- <td align="left">{{item.pcdNo}} {{item.pcdDesc}}</td> -->
+					<td align="center">
+						<button class="layui-btn cancel-btn" type="button"
+							ng-click="selectAUpdateBTP(item,$index)" style="float: left;margin-right: 5px;">
+							<i class="layui-icon"></i> {{'F00081' | translate}}
+						</button>
+						
+						<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBTP(item,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00082' | translate}}
+						</button>
+						<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBTP(item,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-show="isChoseTypeBTP" style="margin-bottom:20px;">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH510058' | translate}}</div>
+		<table border="0" cellspacing="0" cellpadding="0"
+			class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+					<th align="left" style="width:40%">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="itembtp in typeBTPUpdateChose track by $index">
+					<td align="right">
+						<div class="tdDivL">{{itembtp.artifactDesc}}&nbsp;&nbsp;:</div>
+						<div class="tdDivR">&nbsp;&nbsp;{{itembtp.elementNo}}&nbsp;&nbsp;{{itembtp.elementDesc}}</div>
+					</td>
+					<td align="center" >
+						<button class="layui-btn cancel-btn"  ng-click="deleteTypeBTPUpdate($index)" style="float: left;margin-right: 5px;">
+							<i class="layui-icon"></i> {{'F00016' | translate}}
+						</button>
+						<button class="layui-btn cancel-btn"
+							ng-click="selectAUpdateBTPchose(itembtp,$index)" style="float: left;margin-right: 5px;"> 
+							<i class="layui-icon"></i> {{'F00081' | translate}}
+						</button>
+						
+						<button class="layui-btn cancel-btn" ng-if="itembtp.pcdNo != null && itembtp.pcdDesc == '' && itembtp.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBTPchose(itembtp,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00082' | translate}}
+						</button>
+						<button class="layui-btn1 cancel-btn" ng-if="itembtp.pcdNo != null && itembtp.pcdDesc != '' && itembtp.supportPcd == 'Y'"
+							ng-click="setSelectAUpdateBTPchose(itembtp,$index)" style="float: left;">
+							<i class="layui-icon"></i> {{'F00083' | translate}}{{itembtp.pcdDesc}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		
+</div>

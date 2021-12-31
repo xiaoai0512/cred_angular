@@ -1,0 +1,254 @@
+<div class="layui-form" ng-controller="priceViewCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent">
+		<form  name="priceForm">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'SQH100004' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="priceFormInf.idType" lay-filter="getIdType"
+						jf-select="certificateTypeArray" name="idTypeName" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumberName" type="text" ng-model="priceFormInf.idNumber" 
+					id="priceView_idNumber"   validator="noValidator" maxlength="30">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input type="text" class="layui-input" ng-model="priceFormInf.externalIdentificationNo" name="externalIdentificationNo" maxlength="19">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="priceForm"  ng-click="querypriceInf()" type="button">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+		
+		<div class="clearboth"></div>
+		<div ng-show="isShow">
+			<div class="mainname" >{{'KHH5100026' | translate}}</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" ng-model="custInf.idType" disabled >
+						</select>
+					</div>
+				</div>
+				
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00112' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="custInf.idNumber"  disabled>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'KHH5100027' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="custInf.customerName"  disabled>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="layui-form" ng-show="isShow">
+			<div class="mainname" >{{'KHH5100057' | translate}}</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHJ5300017' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="itemList.params.pricingObject"
+							jf-select="pricingTypeArray" name="pricingObject" >
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'KHH5300005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+							ng-model="itemList.params.pricingObjectCode" maxlength="15">
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn" ng-click="listSearch()">
+						<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+					</button>
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="resetPrice()">
+						<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+					</button>
+				</div>
+			<div class="clearboth"></div>
+			<div jf-grid="itemList">
+				<table>
+					<thead>
+						<tr>
+							<th >{{'KHH5100058' | translate}}</th>
+							<th>{{'KHH5100059' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="left" >
+								<div class="tdDivL">{{item.pricingObjectCode}}</div>
+      							<div class="tdDivR">&nbsp;&nbsp;{{item.pricingObjectDesc}}</div>
+							</td>
+							<td align="center" ng-bind="item.pricingObject"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" type="button" ng-click="instantiationInfo(item)">
+									<i class="layui-icon">&#xe60b;</i>{{item.pricingObject}}{{'KHH5100060' | translate}}
+								</button>
+								<button ng-if="item.isPricing =='1'" class="layui-btn layui-btn-mini" type="button" ng-click="cusPriceTag(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'KHH5100061' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class="clearboth"></div>
+		<div class="layui-form" ng-show="priceShow">
+		<div class="mainname" >3. {{'KHH5100061' | translate}}</div>
+			<div jf-grid="cstPrcgLblEnqrTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH5100062' | translate}}</th>
+							<th>{{'KHH5100063' | translate}}</th>
+							<th>{{'KHH5400006' | translate}}</th>
+							<th>{{'KHH5100058' | translate}}</th>
+							<th>{{'KHH5100064' | translate}}</th>
+							<th>{{'KHH5100065' | translate}}</th>
+							<th>{{'KHH5400003' | translate}}</th>
+							<th>{{'KHH5400004' | translate}}</th>
+							<th>{{'KHH5100025' | translate}}</th>
+							<th width="17%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.pricingLevelDesc"></td>
+							<td align="center" ng-bind="item.pricingLevelCode"></td>
+							<td align="center" ng-bind="item.pricingObject"></td>
+							<td align="center" >
+								<span>{{item.pricingObjectCode}}</span><span>{{item.pricingObjectDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.pricingTag"></td>
+							<td align="center" ng-bind="item.pricingDesc"></td>
+							<td align="center" ng-bind="item.custTagEffectiveDate"></td>
+							<td align="center" ng-bind="item.custTagExpirationDate"></td>
+							<td align="center" ng-bind="item.stateDesc"></td>
+							<td width="17%" align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="viewCstPrcgLblEnqr(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class="clearboth"></div>
+		<div class="layui-form" ng-show="costShow">
+			<div class="mainname" >{{count}}. {{'KHH5100067' | translate}}</div>
+				<div jf-grid="payProExaList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'F00077' | translate}}</th>
+							<th>{{'YYH510047' | translate}}</th>
+							<th style="width: 16%;padding-left: 0px;padding-right: 0px;">{{'YYH510049' | translate}}</th>
+							<th style="width: 16%;padding-left: 0px;padding-right: 0px;">{{'YYH510050' | translate}}</th>
+							<th>{{'YYH510051' | translate}}</th>
+							<th style="width: 19%;padding-left: 0px;padding-right: 0px;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.feeItemNo"></td>
+							<td align="center">
+								<span>{{item.instanCode1}}</span> <span>{{item.instanDesc1}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.instanCode2}}</span> <span>{{item.instanDesc2}}</span>
+							</td>
+							<td align="center" ng-bind="item.baseFee"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkPayProExa(item)">
+									<i class="layui-icon"></i> {{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		
+		<div class="clearboth"></div>
+		<div class="layui-form" ng-show="pcdShow">
+		<div class="mainname" >{{count}}. {{'KHH5100068' | translate}}</div>
+			<div jf-grid="artifactTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width:8%">{{'YYH400001' | translate}}</th>
+							<th style="width:15%">{{'YYH400002' | translate}}</th>
+							<th style="width:20%">{{'YYH400003' | translate}}</th>
+							<th >{{'YYH400005' | translate}}</th>
+							<th >{{'YYH400007' | translate}}</th>
+							<th style="width:21%">{{'F00017' | translate}}	</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="left">
+								<span>{{item.artifactNo}} {{item.artifactDesc}}</span>
+							</td>
+							<td align="left">
+								<span>{{item.elementNo}} {{item.elementDesc}}</span>
+							</td>
+							<td align="left">
+								<span>{{item.instanCode1}} {{item.instanDesc1}}</span>
+							</td>
+							<td align="left">
+								<span>{{item.instanCode2}} {{item.instanDesc2}}</span>
+							</td>
+							<td align="center" >
+								<button class="layui-btn layui-btn-mini" ng-click="queryArtifactInstan(item)" >
+									<i class="layui-icon">&#xe60b;</i>{{'F00009' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		
+		
+		</div>
+	</div>
+</div>

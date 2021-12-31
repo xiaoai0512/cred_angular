@@ -1,0 +1,324 @@
+<div ng-controller="busNoOutBillQueryCtr">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	
+	<div class="allcontent layui-form">
+				<div class="col_td">
+			<label class="col4 text_right">{{'GWH100016' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" name="idNumberN"	ng-model="topParams1.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"	ng-model="topParams2.externalIdentificationNo">
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryBillBtn()">
+					<i class="layui-icon">&#xe615;</i>  {{'F00009' | translate}}
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+		
+		
+	<div ng-show='isShowMoneyType'>	
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH700001' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4500009' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  ng-model="currencyObj.currencyCode"  
+				jf-select="moneyType" lay-filter="getMoneyType">
+				</select>
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'GWH700004' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select  class="layui-input" ng-model="currencyObj.businessProgramNo" 
+						jf-select="businessProgramNArr"  lay-filter="getBusinessProgramNo" >
+					</select>
+			</div>
+		</div>
+		
+		
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryNoOutBill()">
+					<i class="layui-icon">&#xe615;</i>  {{'F00009' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+		
+	<div ng-show="isShowBusUnitBillDetail">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH500012' | translate}}</div>
+		<div jf-grid="busUnitBillTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'GWH500013' | translate}}</th>
+						<th>{{'F00111' | translate}}</th>
+						<th>{{'F00158' | translate}}</th>
+						<th>{{'F00112' | translate}}</th>
+						<th>{{'GWH500014' | translate}}</th>
+						<th>{{'GWH500015' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.customerName"></td>
+						<td align="center" ng-bind="item.externalIdentificationNo"></td>
+						<td align="center" ng-bind="item.idTypeDesc"></td>
+						<td align="center" ng-bind="item.idNumber"></td>
+						<td align="center" ng-bind="item.officialCardType"></td>
+						<td align="center" ng-bind="item.invalidFlagDesc"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryRelativeExterna(item)">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		
+	<div ng-show="isShowExternaBillDetail">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'GWH700003' | translate}}</div>
+		
+		<div ng-show='isShowDate'>
+			<div class="col_td" >
+				<div class="col4 text_right">{{'F00171' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" readonly="readonly"
+						ng-model="currencyObj.startDate">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00172' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" readonly="readonly"
+						ng-model="currencyObj.endDate">
+				</div>
+			</div>
+		</div>
+		
+		<div class="col_td">
+			<div class="col4 text_right">{{'GWH700002' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" readonly="readonly"
+					ng-model="externaBillTable.params.actualPostingAmount">
+			</div>
+		</div>
+		<div jf-grid="externaBillTable">
+			<table>
+				<thead>
+					<tr>
+						<th style="width: 120px;">{{'KHH1800005' | translate}}</th>
+						<th>{{'KHH1800006' | translate}}</th>
+						<th>{{'KHH1800007' | translate}}</th>
+						<th>{{'KHH1800008' | translate}}</th>
+						<th>{{'KHH1800009' | translate}}</th>
+						<th>{{'KHH1800010' | translate}}</th>
+						<th style="width: 8%;">{{'KHH1800011' | translate}}</th>
+						<th style="width: 8%;">{{'KHH1800012' | translate}}</th>
+						<th width="25%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td align="center" ng-model="item.externalIdentificationNo">
+								<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+								<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+								<span
+								ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+							</td>
+	
+							<td align="center" ng-bind="item.transCurrCde"></td>
+							<td align="center" ng-bind="item.transAmount"></td>
+							<td align="center" ng-bind="item.transDate"></td>
+							<td align="center" ng-bind="item.postingAmount"></td>
+							<td align="center" ng-bind="item.occurrDate"></td>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.transDesc"></td>
+							<td align="center" style="padding: 0px 0px;">
+								<button class="layui-btn layui-btn-mini" ng-if="item.globalSerialNumbrRelative != null && item.globalSerialNumbrRelative != ''"
+									ng-click="queryRelativeTrans(item)">
+									<i class="layui-icon"></i> {{'F00045' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="querySameSourceTrans(item)">
+									<i class="layui-icon"></i> {{'F00055' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="queryPostingInfo(item)">
+									<i class="layui-icon"></i> {{'F00056' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkInfo(item)">
+									<i class="layui-icon"></i> {{'F00041' | translate}}
+								</button>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="allcontent"  ng-show="isShowRelation">
+		<div class="clearboth"></div>
+			<div class="mainname">{{'KHH1800013' | translate}}</div>
+				<div jf-grid="relativeTransTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 150px;">{{'KHH1800005' | translate}}</th>
+								<th>{{'KHH1800006' | translate}}</th>
+								<th>{{'KHH1800007' | translate}}</th>
+								<th>{{'KHH1800008' | translate}}</th>
+								<th>{{'KHH1800009' | translate}}</th>
+								<th>{{'KHH1800010' | translate}}</th>
+								<th style="width: 13%;" >{{'KHH1800012' | translate}}</th>
+								<th width="7%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-model="item.externalIdentificationNo">
+									<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+									<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+				  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+								</td>
+								
+								<td align="center" ng-bind="item.transCurrCde"></td>
+								<td align="center" ng-bind="item.transAmount"></td>
+								<td align="center" ng-bind="item.transDate"></td>
+								<td align="center" ng-bind="item.postingAmount"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.transDesc"></td>
+								<td align="center" style="padding: 0px 0px;">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="querySameSourceTrans2(item)"  >
+										<i class="layui-icon"></i> {{'F00055' | translate}}
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="queryPostingInfo2(item)"  >
+										<i class="layui-icon"></i> {{'F00056' | translate}}
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfo(item)"  >
+										<i class="layui-icon"></i> {{'F00041' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	</div>
+	
+	<div class="allcontent" ng-show="isShowSameSource">
+		<div class="clearboth"></div>
+			<div class="mainname">{{'KHH1800014' | translate}}</div>
+				<div jf-grid="sameSourceTransTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 150px;">{{'KHH1800005' | translate}}</th>
+								<th>{{'KHH1800006' | translate}}</th>
+								<th>{{'KHH1800007' | translate}}</th>
+								<th>{{'KHH1800008' | translate}}</th>
+								<th>{{'KHH1800009' | translate}}</th>
+								<th>{{'KHH1800010' | translate}}</th>
+								<th>{{'KHH1800011' | translate}}</th>
+								<th style="width: 13%;" >{{'KHH1800012' | translate}}</th>
+								<th width="7%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-model="item.externalIdentificationNo">
+									<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+									<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+				  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+								</td>
+								
+								<td align="center" ng-bind="item.transCurrCde"></td>
+								<td align="center" ng-bind="item.transAmount"></td>
+								<td align="center" ng-bind="item.transDate"></td>
+								<td align="center" ng-bind="item.postingAmount"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.eventNo"></td>
+								<td align="center" ng-bind="item.transDesc"></td>
+								<td align="center" style="padding: 0px 0px;">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfo(item)"  >
+										<i class="layui-icon"></i> {{'F00041' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	</div>
+	
+	<div ng-show="isShowPosting">
+		<div class="clearboth"></div>
+			<div class="mainname">{{'KHH1800015' | translate}}</div>
+				<div jf-grid="postingInfoTable">
+					<table>
+				<thead>
+					<tr>
+						<th style="width: 16%;">{{'KHH1800016' | translate}}</th>
+						<th>{{'KHH1800017' | translate}}</th>
+						<th>{{'KHH1800006' | translate}}</th>
+						<th>{{'KHH1800007' | translate}}</th>
+						<th>{{'KHH1800008' | translate}}</th>
+						<th>{{'KHH1800009' | translate}}</th>
+						<th>{{'KHH1800010' | translate}}</th>
+						<th>{{'KHJ1800016' | translate}}</th>
+						<th width="25%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center" ng-bind="item.balanceTypeDesc"></td>
+						<td align="center" ng-bind="item.transCurrCde"></td>
+						<td align="center" ng-bind="item.transAmount"></td>
+						<td align="center" ng-bind="item.transDate"></td>
+						<td align="center" ng-bind="item.postingAmount"></td>
+						<td align="center" ng-bind="item.occurrDate"></td>
+						<td align="center" ng-bind="item.actualPostingAmount"></td>
+						<td align="center" style="padding: 0px 0px;">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="queryBalUnitInfo(item)">
+								<i class="layui-icon"></i> {{'F00052' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkInfo(item)">
+								<i class="layui-icon"></i> {{'F00041' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>	

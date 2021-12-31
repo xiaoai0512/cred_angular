@@ -1,0 +1,27 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "OK",
+    "expendMillisecond": "113",
+    "returnData": {
+        "totalCount": 5,
+        "indexNo": 0,
+        "pageSize": 10,
+        "rowsCount": null,
+        "rows": [{
+            "id": "d7ca83c2a9324ad7842b663bcfc79873",
+            "delayState": "DELQ001",
+            "delayDesc":  "延滞状态增加"
+        },
+        {
+            "id": "5ccf83544bc7499e958b091971297369",
+            "delayState": "DELQ002",
+            "delayDesc":  "延滞状态缓和"
+        },
+         {
+            "userid": "5ccf83544bc7499e958b091971297323",
+            "delayState": "DELQ003",
+            "delayDesc":  "核算状态变化"
+        }
+        ]
+    }
+}

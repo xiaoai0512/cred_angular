@@ -1,0 +1,134 @@
+<div ng-controller="payProjectCtrl">
+	<!-- <div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div> -->
+	<div class=" ">
+		<form name="payProInfForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH1100002' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="feeTypeArr" name="feeType"
+					ng-model="payProInf.feeType"  lay-filter="getFeeType" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH1100001' | translate}}：</div>
+			<div class="wd330 float_left">
+				<!-- <input class="layui-input"  type="text" name="feeItemNo"  ng-model="payProInf.feeItemNo"  validator="required" maxlength="8" > -->
+				<span style="display: inline-block;width:18%">{{feeItem}}</span>
+				<input style="display: inline-block;width: 78%;" class="layui-input"  type="text" name="feeItemNoN"  ng-model="feeItemNoHalf" validator="required,minlength,maxlength,number" minlength="4" maxlength="4" autocomplete="off">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH1100003' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input"  type="text" name="feeDesc"  ng-model="payProInf.feeDesc" maxlength="50" validator="required">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100004' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input"  type="text" name="feeEventNo"  ng-model="payProInf.feeEventNo"  maxlength="14"  ng-click="choseEvent()"/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100005' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select  name="triggerEventInteractMode"
+					ng-model="payProInf.triggerEventInteractMode" jf-select="wayArray">
+				</select>
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH1100008' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input"  type="text" name="defaultBusinessItem" ng-model="payProInf.defaultBusinessItem"  maxlength="9" ng-click="choseBusinessItems()" validator="required">
+			</div>
+		</div> -->
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00189' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input icon_date" ng-model="payProInf.effectiveDate" id="effectiveDate" name="effectiveDate"  type="text" validator="required"/>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'F00190' | translate}}：</div>
+			<div class="wd330 float_left">
+				<input class="layui-input icon_date" ng-model="payProInf.expirationDate" id="expirationDate"  name="expirationDate" type="text"  validator="required">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100011' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="instanDimenArr"
+					ng-model="payProInf.instanCode1"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100012' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="instanDimenArr"
+					ng-model="payProInf.instanCode2"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100013' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="instanDimenArr"
+					ng-model="payProInf.instanCode3"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100014' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="instanDimenArr"
+					ng-model="payProInf.instanCode4"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100015' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="instanDimenArr"
+					ng-model="payProInf.instanCode5"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100024' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="itemUseArr"
+					ng-model="payProInf.itemUse"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH1100025' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="assessmentMethodArr" name="payType"  
+					ng-model="payProInf.assessmentMethod" validator="required"></select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'PZH1100030' | translate}}：</div>
+			<div class="wd330 float_left">
+				<select jf-select="periodArray" lay-filter="getFeeIdentifier"
+					ng-model="payProInf.periodicFeeIdentifier"></select>
+			</div>
+		</div>
+		<div ng-show='chargingFrequencyShow'> 
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1100031' | translate}}：</div>
+				<div class="wd330 float_left">
+					<select jf-select="chargingFrequencyArr" 
+						ng-model="payProInf.chargingFrequency" ></select>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col_tr text_center">
+			<button class="layui-btn" style="margin-right:75px" 
+				ng-click="savePayPro()" validation-submit="payProInfForm" >
+				<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+			</button>
+		</div> -->
+		
+		</form>
+	</div>
+</div>

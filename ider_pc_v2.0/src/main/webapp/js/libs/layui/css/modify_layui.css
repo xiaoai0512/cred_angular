@@ -1,0 +1,100 @@
+@media screen and (min-width: 1200px)
+.layui-container {
+    width: 1240px !important;
+}
+@media screen and (min-width: 992px)
+.layui-container {
+    width: 1140px !important;
+}
+@media screen and (min-width: 768px)
+.layui-container {
+	width: 820px !important;
+}
+.layui-container {
+	 /*  margin-left: 100px !important; */
+}
+
+
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+    background: none;
+}
+.layui-nav-itemed .layui-nav-child {
+    background-color: rgba(210, 222, 239, 1)!important;
+}
+.layui-nav-side {
+    top: 70px;
+}
+
+/* 二三四级菜单样式 */
+.layui-nav-tree .layui-nav-item a:hover {
+
+    background-color: none;
+}
+.layui-nav-itemed .layui-nav-child {
+    background-color: #4E5465 !important;
+}
+
+.layui-nav-child dd a {
+	color:#fff !important;
+}
+
+/* 面板下字体样式 */
+.layui-tab-title li {
+	color:#fff;
+}
+.layui-tab-content {
+    background:rgba(255,255,255,0.7);
+}
+.layui-tab {
+    margin-top: 0;
+}
+.layui-form-label {
+    width: 100px;
+}
+select {
+    width: inherit;
+    height: 28px;
+    border: 1px solid #e6e6e6 !important;
+}
+.layui-table th {
+	    white-space: inherit;
+}
+.layui-nav-child dd a:before {
+	padding-right: 10px;
+    margin-left: 12px;
+	content:"·";
+	
+}
+
+.layui-nav .layui-nav-item dd a {
+    padding: 0 20px !important;
+}
+
+/* 
+分页样式修改 */
+.layui-laypage a, .layui-laypage span {
+	vertical-align: top !important;
+}
+.Wd150{
+	width:150px;
+}
+/* 树形表格样式 */
+.allcontent1 {
+	width: 98%;
+    padding: 1%;
+    background: #F9F9F9;
+    margin-bottom: 20px; 
+}
+.ew-tree-table-head table thead > tr {
+    font-weight: bold;
+}
+.layui-table td, .layui-table th, .layui-table-header, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=row], .layui-table[lay-skin=line] {
+	border: none;/* 树形表去掉边框 */
+}
+/* 单选按钮样式 */
+/* .ew-tree-table .ew-tree-table-arrow{
+	margin-right: 0; 
+} */
+td .layui-form-radio span {
+	display: none;
+}

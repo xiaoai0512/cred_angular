@@ -1,0 +1,95 @@
+<div class="layout_body" ng-controller="authViewCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+		<div class="allcontent">
+		<form name="queryAuthNoForm"  class="layui-form">
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="idType" lay-filter="getIdType"
+					jf-select="certificateTypeArray" name="idType"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	
+					id='authNo_idNumber'name="idNumber" validator="noValidator"
+					ng-model="idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" ng-model="itemList.params.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_td">
+			<label class="col4 text_right">{{'SQH1500060' | translate}}：</label>
+			<div class="wd190 float_left">
+			<select class="layui-input"	jf-select="authSceneArray" name="authSceneCode" ng-model="itemList.params.authSceneCode" lay-search=""></select>
+			</div>
+      </div>
+			<div class="col_td" style="width:70%">
+			   <div class="col4 text_right" style="width:28.5%">{{'SQH2700027' | translate}}：</div>
+				<div class="float_left" style="width:400px">
+					<input class="layui-input icon_date" style="width:48.5%;float:left;" name="fromDataName" id="LAY_start_Add" type="text" ng-model="itemList.params.startDate" autocomplete="off">
+					<div class="col4 text_right" style="width:50%;display:-webkit-box;">
+						<span>~</span>	
+						<input class="layui-input icon_date" style="width:90%;" name="toDateName" id="LAY_end_Add" type="text" ng-model="itemList.params.endDate" autocomplete="off"> 
+					</div>
+					</div>
+         </div>
+			<div class="col_tr text_center">
+				<div class="layui-inline">
+					<button class="layui-btn" ng-click="selectList()" validation-submit="queryAuthNoForm">
+						<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+					</button>
+				</div>
+			</div>
+	</form>	
+	</div>
+	<div ng-show="tableInfo">
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th style="padding: 0px 5px;" width="17%">{{'F00111' | translate}}</th>
+						<th style="padding: 0px 5px;" width="11%" >{{'SQH2700027' | translate}}</th>
+						<th  style="padding: 0px 5px;">{{'SQH2700028' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700061' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700062' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700100' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700101' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700063' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700064' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700006' | translate}}</th>
+						<th  style="padding: 0px 5px;" width="10%" >{{'SQH2700071' | translate}}</th>
+						<th style="padding: 0px 5px;" >{{'SQH2700009' | translate}}</th>
+						<th style="padding: 0px 5px; width:10%">{{'SQH2700081' | translate}}</th>
+						<th style="padding: 0px 5px;">{{'SQH2700082' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="padding: 0px 5px;" width="17%" align="center" ng-bind="item.cusNo"></td>
+						<td style="padding: 0px 5px;" width="11%" align="center" ng-bind="item.processingDate"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.processingTime"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.transCurrCode"></td>
+					  	<td style="padding: 0px 5px;" align="center" ng-bind="item.transAmt"></td>
+					  	<td style="padding: 0px 5px;" align="center" ng-bind="item.releaseAmtCurrCode"></td>
+					  	<td style="padding: 0px 5px;" align="center" ng-bind="item.releaseAmt"></td>
+					  	<td style="padding: 0px 5px;" align="center" ng-bind="item.billingCurrCode"></td>
+					  	<td style="padding: 0px 5px;" align="center" ng-bind="item.billingAmt"></td>
+						<td style="padding: 0px 5px;" align="center" >{{item.authSceneCode}}{{item.sceneDesc}}</td>
+						<td style="padding: 0px 5px;" width="10%"  align="center" ng-bind="item.authApprovalCde"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.transStatusDesc"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.transRetainDate"></td>
+						<td style="padding: 0px 5px;" align="center" ng-bind="item.overplusDay"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

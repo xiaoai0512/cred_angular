@@ -1,0 +1,127 @@
+<div ng-controller="instalmentsPlanDetailCtrl">
+	<div class="">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">分期计划名称：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input layui-disabled" type="text" readonly
+						ng-model="instalPlanDetailData.stageControlName">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">分期类型：</label>
+				<div class="layui-input-inline">
+					<select ng-model="instalPlanDetailData.appType" disabled
+					class="layui-unselect layui-disabled" name="appType">
+						<option value="">--请选择--</option>
+						<option value="00">账单分期</option>
+						<option value="01">专项分期</option>
+						<option value="02">自动分期</option>
+						<option value="03">商户分期 </option>
+						<option value="04">现金分期</option>
+						<option value="05">交易分期</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="layui-inline">
+				<label class="layui-form-label">分期期数：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input layui-disabled" type="text" readonly
+						ng-model="instalPlanDetailData.period">
+				</div>
+			</div>
+
+			<div class="layui-inline">
+				<label class="layui-form-label">基础费率(%)：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input layui-disabled" type="text" readonly
+						ng-model="instalPlanDetailData.feeRate">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">业务类型：</label>
+				<div class="layui-input-inline">
+					<select ng-model="instalPlanDetailData.projectType" disabled 
+					class="layui-unselect layui-disabled" name="projectType">
+						<option value="">--请选择--</option>
+						<option value="00">账单分期</option>
+						<option value="01">专项分期</option>
+						<option value="02">自动分期</option>
+						<option value="03">商户分期 </option>
+						<option value="04">现金分期</option>
+						<option value="05">交易分期</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">手续费收取：</label>
+				<div class="layui-input-inline">
+					<select ng-model="instalPlanDetailData.feeCollectType" disabled
+					class="layui-unselect layui-disabled" name="feeCollectType">
+						<option value="">--请选择--</option>
+						<option value="0">首期一次性收取</option>
+						<option value="1">分期收取</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">金额上限：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input layui-disabled" type="text" readonly
+						ng-model="instalPlanDetailData.maxAmt">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">金额下限：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input layui-disabled" type="text" readonly
+						ng-model="instalPlanDetailData.minAmt">
+				</div>
+			</div>
+
+		</div>
+		<div style="position: absolute; top: 180px; right: 20px;">
+			<div class="layui-inline">
+				<button class="layui-btn" ng-click="rateOperationInfo(instalPlanDetailData)">
+					<i class="layui-icon">差异化费率维护</i> 
+				</button>
+			</div>
+		</div>
+		<div class="clearboth"></div>
+		<div class="mainname">差异化费率明细</div>
+		<table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+			<thead>
+				<tr>
+					<th>客群</th>
+					<th>产品</th>
+					<th>消费地区</th>
+					<th>MCC</th>
+					<th>商户ID</th>
+					<th>费率(%)</th>
+					<th>费率标识</th>
+					<th>优先级</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in instalPlanDetailTable track by $index">
+					<td align="center" >
+						<span ng-if="item.differValue == '00'">金卡客户</span>
+						<span ng-if="item.differValue == '01'">白金卡客户</span>
+					</td>
+					<td align="center" ng-bind="item.productType"></td>
+					<td align="center" ng-bind="item.area"></td>
+					<td align="center" ng-bind="item.mcc"></td>
+					<td align="center" ng-bind="item.merchantId"></td>
+					<td align="center" ng-bind="item.feeRate"></td>
+					<td align="center" >
+						<span ng-if="item.feeRateType == '0'">相对费率</span>
+						<span ng-if="item.feeRateType == '1'">绝对费率</span>
+					</td>
+					<td align="center" ng-bind="item.priority"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

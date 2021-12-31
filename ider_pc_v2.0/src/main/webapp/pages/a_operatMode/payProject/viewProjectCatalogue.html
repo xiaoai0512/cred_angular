@@ -1,0 +1,127 @@
+<div ng-controller="viewProjectCatalogueCtrl">
+	<div class="layui-form ">
+		<div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="feeItemNo" type="text"  validator="required"
+								maxlength="8" ng-model="proCatalogueInf.feeItemNo" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300004' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="instanCode1" type="text" readonly
+								maxlength="50" ng-model=""> -->
+					<select ng-model="instanCode1"
+						class="layui-input" jf-select="instanDimenArr"
+						name="instanDimen1" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300006' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="instanCode2" type="text" readonly
+								maxlength="50" ng-model="proCatalogueInf.instanCode2"> -->
+					<select ng-model="instanCode2"
+						class="layui-input" jf-select="instanDimenArr"
+						name="instanDimen2" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300008' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="instanCode3" type="text" readonly
+								maxlength="50" ng-model=""> -->
+					<select ng-model="instanCode3"
+						class="layui-input" jf-select="instanDimenArr"
+						name="instanDimen3" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300010' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="instanCode4" type="text" readonly
+								maxlength="50" ng-model=""> -->
+					<select ng-model="instanCode4"
+						class="layui-input" jf-select="instanDimenArr"
+						name="instanDimen4" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300012' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" name="instanCode5" type="text" readonly
+								maxlength="50" ng-model=""> -->
+					<select ng-model="instanCode5"
+						class="layui-input" jf-select="instanDimenArr"
+						name="instanDimen5" disabled>
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300043' | translate}}：</div>
+				<div class="wd190 float_left">
+					<!-- <input class="layui-input" ng-model="proCatalogueInf.defaultBusinessItem" name="defaultBusinessItem" type="text" readonly  > -->
+					<select jf-select="itemUseArr" ng-model="itemUseInfo" disabled></select>
+				</div>
+			</div>
+			
+			<div class="col_td" >
+				<div class="col4 text_right">{{'YYH1300044' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proCatalogueInf.feeEventNo" name="feeEventNo" type="text" readonly  >
+				</div>
+			</div>
+				
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="proCatalogueInf.feeDesc" name="feeDesc" type="text" readonly  >
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH1300041' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="feeTypeArr" 
+						ng-model="feeType" disabled></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00189' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="effectiveDate"  ng-model="proCatalogueInf.effectiveDate" readonly />
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00190' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="expirationDate"  ng-model="proCatalogueInf.expirationDate" readonly />
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1100030' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="periodArray" disabled
+						ng-model="periodicFeeIdentifierInfo"></select>
+				</div>
+			</div>
+			<div ng-show='chargingFrequencyShow'>
+			<div class="col_td">
+				<div class="col4 text_right">{{'PZH1100031' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select jf-select="chargingFrequencyArr" 
+						ng-model="chargingFrequency" disabled></select>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

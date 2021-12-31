@@ -1,0 +1,272 @@
+<div class="mainname">大页面使用 </div>
+<blockquote class="layui-elem-quote">
+&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;class="subposition" ng-bind-html="getCurrentLoaction('模块名称')"//面包屑导航，显示当前页面的菜单路径，括号中需填入对应开发模块名称</br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;jf-nav="parentNav"//监控页面滚动，同步读取是否可编辑参数来触发页面是否可操作</br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;页面是否可编辑参数：valiParam="字段名"  </br>
+&nbsp;&nbsp;&nbsp;&nbsp;如：valiParam="loginName"表示当loginName字段有值，且是已成功提交状态，则改div里面的表单均可编辑，反之则只读。</br>
+ &nbsp;&nbsp;&nbsp;&nbsp;valiParam中对应的参数的值需要在按钮点击触发将值传往父作用域：$scope.toParent(params) ;</br>
+ &nbsp;&nbsp;&nbsp;&nbsp;如案例中通过loginName控制标签是否可编辑，即在提交事件中做如下处理</br>
+&nbsp;&nbsp;&nbsp;&nbsp;$scope.user={};//声明作用域</br>
+&nbsp;&nbsp;&nbsp;&nbsp;$scope.save=function(){//提交事件</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var params=$scope.user;//赋值</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.toParent(params) ;//将值传到父作用域</br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</br>
+</br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;相关文档 :<span style="color:red;">valiParam="id&业务主键"</span>,相关文档必须传入id和业务主键，查询相关文档需要两个必要参数<span style="color:red;">mdlId</span>和<span style="color:red;">tblBlId</span>。</br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red;">mdlId是对应的业务模块的编码类型可进入数据库"base_ecd_tp"查看自行赋值,tblBlId是由传入的业务主键自动生成的一个表编号。</br>
+&nbsp;&nbsp;&nbsp;&nbsp;注：如果查询结果出现错误请检查请求参数：mdlId和blBlId是否存在 。</span></br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;控制左边标签显示隐藏 ：</br>
+&nbsp;&nbsp;&nbsp;&nbsp;全部隐藏：$scope.parentNav.hideNav();部分隐藏：$scope.parentNav.hideNav([1,3]);//控制第一个和第三个页签的内容隐藏，其余显示</br>
+&nbsp;&nbsp;&nbsp;&nbsp;全部显示:$scope.parentNav.showNav();$scope.parentNav.showNav([1,2]) ;//控制第一个和第2个页签的内容显示，其余隐藏</br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red;">6.1.&nbsp;大页面查看（整个页面都只读）:只需在url后面加上该参数pageView=view即可。如/bigPageDemo?pageView=view</br>
+&nbsp;&nbsp;&nbsp;&nbsp;6.2.&nbsp;大页面查看（整个页面所有编辑框只读，按钮隐藏，可手动指定部分可编辑）:只需在url后面加上该参数"pageView=disabled"即可。如/bigPageDemo?pageView=disabled.部分属性或按钮可编辑或点击只需加上该属性notHide 如：<button notHide ng-click="look()">查看</button></span>
+</blockquote>
+<div class="mainname">大页面html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="parentCtrl">
+    <!-- 这个parentNav对象定义在parentCtrl中 -->
+    <div class="subposition" ng-bind-html="getCurrentLoaction('模块名称')">
+    </div>
+    <div jf-nav="parentNav">
+        <div url="/bigpagedemo/personBaseInfo.html" title="新增修改用户"  ></div>
+        <div load url="/bigpagedemo/personOrg.html" title="所属机构"  valiParam="loginName"></div>
+        <div load url="/bigpagedemo/personDepar.html" title="所属部门" valiParam="loginName"></div>
+        <div load url="/bigpagedemo/personRole.html" title="角色" valiParam="id"></div>
+        <div load url="/common/doc.html" title="相关文档" valiParam="id&业务编号"></div>
+    </div>
+</div>
+</pre>
+<div class="mainname">personBaseInfo.html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="userAddCtrl">
+    <div class="section">
+        <div class="leftmenu_navtitle">
+            用户信息 <i class="follow_icon" title="关注该业务"></i>
+        </div>
+        <form name="userForm">
+            <div class="allcontent">
+                <div class="col_td">
+                    <div class="col4 text_right">登录名:：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" name="loginName"
+                            ng-model="user.loginName" validator="required">
+                    </div>
+                </div>
+                <div class="col_td"  ng-if="!user.userNum">
+                    <div class="col4 text_right">
+                        <i class="red_input">*</i>密码：
+                    </div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="password" name="password"
+                            ng-model="user.password" validator="required">
+                    </div>
+                </div>
+                <div class="col_td"  ng-if="!user.userNum">
+                    <div class="col4 text_right">
+                        <i class="red_input">*</i>密码确认:：
+                    </div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="password" name="repassword"
+                            ng-model="user.repassword" validator="required">
+                    </div>
+                </div>
+                <div class="col_td">
+                    <div class="col4 text_right">移动电话：</div>
+                    <div class="wd190 float_left">
+                        <input class="layui-input" type="text" ng-model="user.mobile" validator="telephone" tel-error-message="移动电话号码输入格式错误">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+       <div class="scrbtn">
+        <button class="layui-btn"  validation-submit="userForm"
+                ng-click="save($event)" button-type="saveBizInf"> <i class="layui-icon">&#x 1005;(去掉中间空格)</i> 保存</button>
+        <button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x 1006;(去掉中间空格)</i> 返回</button>
+        </div>
+    </div>
+</div>
+</pre>
+<div class="mainname">personBaseInfo对应的js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  Tansun.controller('userAddCtrl',function($scope){
+        $scope.demoArray= [{name : '男' ,id : '1'},{name : '女' ,id : '2'}] ;
+        $scope.user={};
+        $scope.save=function(){
+            var params=$scope.user;
+            $scope.toParent(params) ;
+        }
+        
+    }) ;
+</pre>
+<div class="mainname">personOrg.html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="userOrgRelManageCtrl">
+    <div >
+        <div class="button_contain">
+            <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo')">
+                <i class="layui-icon">&#xe61f;</i> 新 增
+            </button>
+            <input type="hidden" ng-model="userNum">
+            <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo')">
+                <i class="layui-icon">&#xe640;</i> 删 除
+            </button>
+            <button class="layui-btn layui-btn-primary" ng-click="grid.turn('/helpInputDemo')">
+                <i class="layui-icon">&#xe642;</i> 修 改关联状态和默认
+            </button>
+        </div>
+        <div class="centermenu_navtitle_line" style="margin:0"></div>
+        <div jf-grid="grid" name="userAndOrgRelMang">
+            <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>机构名称</th>
+                        <th>机构用户关联状态</th>
+                        <th>是否默认机构</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="center"
+                            ng-bind="item.orgName"></td>
+                        <td align="center"
+                            ng-bind="item.statusCd | jfConvert : 'dict' : 'StCd'"></td>
+                        <td align="center"
+                            ng-bind="item.defaultInd | jfConvert : 'dict' : 'BoolType'"></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+       <div class="scrbtn">
+        <button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x 1006;(去掉中间空格)</i> 返回</button>
+    </div>
+</div>
+</div>
+</pre>
+<div class="mainname">personOrg对应的js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  Tansun.controller('userOrgRelManageCtrl',function($scope){
+        $scope.grid = {
+                checkType : 'radio', //当为checkbox时为多选
+                params : $scope.queryParam, //表格查询时的参数信息
+                paging : true ,//默认true,是否分页
+                resource : 'tableDemo.query' ,//列表的资源
+                callback : function() { //表格查询后的回调函数
+                }
+            };
+        
+    }) ;
+</pre>
+<div class="mainname">personDepar.html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="userAndDeptRelManageCtrl">
+    <div >
+        <div class="centermenu_navtitle_line" style="margin:0"></div>
+        <div jf-grid="grid" name="userAndDeptRelMang">
+            <div class="layui-form">
+            <table>
+                <thead>
+                    <tr>
+                        <th>部门名称</th>
+                        <th>机构名称</th>
+                        <th>部门用户关联状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="center"
+                            ng-bind="item.deptName"></td>
+                        <td align="center"
+                            ng-bind="item.orgName"></td>
+                        <td align="center"
+                            ng-bind="item.statusCd | jfConvert : 'dict' : 'StCd'"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="scrbtn">
+        <button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x 1006;(去掉中间空格)</i> 返回</button>
+    </div>
+</div>
+</div>
+</pre>
+<div class="mainname">personDepar对应的js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  Tansun.controller('userAndDeptRelManageCtrl',function($scope,jfRest){
+        $scope.grid = {
+                checkType : 'radio', //当为checkbox时为多选
+                params : $scope.queryParam, //表格查询时的参数信息
+                paging : true ,//默认true,是否分页
+                resource : 'tableDemo.query' ,//列表的资源
+                callback : function() { //表格查询后的回调函数
+                }
+            };
+    }) ;
+</pre>
+<div class="mainname">personRole.html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div ng-controller="userAndRoleManageCtrl">
+    <div >
+        <div class="centermenu_navtitle_line" style="margin:0"></div>
+        <div jf-grid="grid" name="userAndRoleRelMang">
+            <div >
+            <table>
+                <thead>
+                    <tr>
+                        <th>角色名称</th>
+                        <th>角色用户关联状态</th>
+                        <th>是否默认角色</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="center"
+                            ng-bind="item.roleName"></td>
+                        <td align="center"
+                            ng-bind="item.statusCd | jfConvert : 'dict' : 'StCd'"></td>
+                        <td align="center"
+                            ng-bind="item.defaultInd | jfConvert : 'dict' : 'BoolType'"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+       <div class="scrbtn">
+        <button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x 1006;(去掉中间空格)</i> 返回</button>
+     </div>
+</div>
+</div>
+</pre>
+<div class="mainname">personRole对应的js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  Tansun.controller('userAndRoleManageCtrl',function($scope,jfRest){
+        $scope.grid = {
+                checkType : 'radio', //当为checkbox时为多选
+                params : $scope.queryParam, //表格查询时的参数信息
+                paging : true ,//默认true,是否分页
+                resource : 'tableDemo.query' ,//列表的资源
+                callback : function() { //表格查询后的回调函数
+                }
+            };
+    
+    }) ;
+</pre>
+<div class="mainname">大页面例子</div>
+  <a href="javascript:" onclick="bigpage()" style="color:#00F">点击链接查看大页面例子</a>
+  <a href="javascript:" onclick="bigpageView()" style="color:#00F">点击链接查看只读大页面例子</a>
+  
+<script>
+// 大页面新增修改
+var bigpage = function() {
+    location.href = ctx + "/index/#/bigPageDemo";
+};
+//大页面查看
+var bigpageView = function() {
+    location.href = ctx + "/index/#/bigPageDemo?pageView=view";
+};
+</script>

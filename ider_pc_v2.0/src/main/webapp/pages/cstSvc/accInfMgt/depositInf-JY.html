@@ -1,0 +1,144 @@
+<div class="layout_body" ng-controller="depositInfCtrl-JY">
+	<!-- <div class="leftmenu_navtitle">账户余额对象信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	
+	<input type="text" class="disN"   ng-model = "hide_depositInf.idType" />
+		<input type="text" class="disN"   ng-model = "hide_depositInf.idNumber" />
+		<input type="text" class="disN"   ng-model = "hide_depositInf.externalIdentificationNo" />
+	
+	<div class=" layui-form allcontent">
+	<form action="" name="depositInfForm">
+		<div class="search_mian">
+			<div class="col_td">
+				<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+				<div class="wd190 float_left">
+					<select ng-model="depositTable.params.idType" lay-filter="getIdType"
+						jf-select="builder.option(certificateTypeArray1)" name="idType" >
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00112' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="idNumber" type="text"  id="depositInf_idNumber"   validator="noValidator" ng-model="depositTable.params.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00111' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="externalIdentificationNo" type="text" ng-model="depositTable.params.externalIdentificationNo">
+				</div>
+			</div>
+		
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" validation-submit="depositInfForm"  ng-click="queryDepositTable()" type="button">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+	
+					<button class="layui-btn cancel-btn" type="button" ng-click="reset()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+				</div>
+			</div>
+		
+		</div>
+	</form>	
+		<div ng-show="isShow">
+			<div jf-grid="depositTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width: 20%">{{'KHH4300003' | translate}}</th>
+							<th>{{'KHH4300004' | translate}}</th>
+							<th>{{'KHH4300005' | translate}}</th>
+							<th>{{'KHH4300006' | translate}}</th>
+							<th>{{'KHH4300007' | translate}}</th>
+							<th>{{'KHH4300008' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 20%" align="center" ng-bind="item.accountId"></td>
+							<td align="left">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							<td align="center" ng-bind="item.currBalance"></td>
+							<td align="center" ng-bind="item.depositInterestRate"></td>
+							<td align="center" ng-bind="item.interestBillingAmt"></td>
+							<td align="center" ng-bind="item.frozenBalance"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="checkItem(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+				<div ng-show="isShow">
+					<div jf-grid="depositTable">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:20%">{{'KHH4300003' | translate}}</th>
+									<th>{{'KHH4300004' | translate}}</th>
+									<th>{{'KHH4300009' | translate}}</th>
+									<th>{{'KHH4300010' | translate}}</th>
+									<th>{{'KHH4300006' | translate}}</th>
+									<th>{{'KHH4300007' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="width:20%" align="center" ng-bind="item.accountNo"></td>
+									<td align="center" ng-bind="item.currencyCode"></td>
+									<td align="center" ng-bind="item.serialNumber"></td>
+									<td align="center" ng-bind="item.depositsBalance"></td>
+									<td align="center" ng-bind="item.depositsInterestRates"></td>
+									<td align="center" ng-bind="item.prevAmountInterest"></td>
+								</tr>
+							</tbody>
+						</table>
+						<div ng-show="isShow">
+							<div jf-grid="depositTable">
+								<table>
+									<thead>
+										<tr>
+											<th style="width: 20%">{{'KHH4300003' | translate}}</th>
+											<th>{{'KHH4300004' | translate}}</th>
+											<th>{{'KHH4300005' | translate}}</th>
+											<th>{{'KHH4300006' | translate}}</th>
+											<th>{{'KHH4300007' | translate}}</th>
+											<th>{{'KHH4300008' | translate}}</th>
+											<th>{{'F00017' | translate}}</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="width: 20%" align="center" ng-bind="item.accountId"></td>
+											<td align="center" ng-bind="item.currencyCode"></td>
+											<td align="center" ng-bind="item.currBalance"></td>
+											<td align="center" ng-bind="item.depositInterestRate"></td>
+											<td align="center" ng-bind="item.interestBillingAmt"></td>
+											<td align="center" ng-bind="item.frozenBalance"></td>
+											<td align="center">
+												<button class="layui-btn layui-btn-primary" ng-click="updateCstAdrInfo(item)">
+													<i class="layui-icon"></i> {{'F00014' | translate}}
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	

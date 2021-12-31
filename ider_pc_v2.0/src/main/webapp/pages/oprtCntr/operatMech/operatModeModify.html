@@ -1,0 +1,76 @@
+<div ng-controller="oprtModeEnqrAndMntCtrl">
+	<div class="">
+		<form name="balanceForm">
+			<div class="col_td">
+				<div class="col4 text_right">运营模式：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="operatModeModify.operationMode" validator="required"
+						name="operationMode" type="text" maxlength="3">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">模式名称：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="operatModeModify.modeName" validator="required"
+						name="modeName" type="text" maxlength="50">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">运营核算币种：</div>
+				<div class="wd190 float_left">
+					<select ng-model="operatModeModify.accountCurrency" class="layui-input" disabled="disabled"
+						jf-select="builder.option(currencyArr)" name="accountCurrency"
+						validator="required">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">当前处理日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" validator="required"
+						jf-date-input ng-model="operatModeModify.currInterestAccumulate" disabled="disabled"
+						name="currInterestAccumulate" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">上一处理日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" validator="required"
+						jf-date-input ng-model="operatModeModify.prevInterestAccumulate" disabled="disabled"
+						name="prevInterestAccumulate" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">下一处理日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" validator="required"  jf-date-input
+						ng-model="operatModeModify.nextInterestAccumulate" name="nextInterestAccumulate" 
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">营业日期：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" validator="required"  jf-date-input
+						ng-model="operatModeModify.operationDate" name="operationDate" disabled="disabled"
+						type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">额度网编号：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="creditTreeId" ng-model="operatModeModify.creditTreeId" type="text" disabled="disabled">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">溢缴款业务类型：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="excessContriServTyp" ng-model="operatModeModify.excessContriServTyp" type="text" disabled="disabled">
+				</div>
+			</div>
+
+		</form>
+		
+
+	</div>
+</div>

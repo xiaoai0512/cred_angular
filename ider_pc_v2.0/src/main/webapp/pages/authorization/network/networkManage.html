@@ -1,0 +1,185 @@
+<div class="layout_body" ng-controller="nManagementCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="mdmInfoFormS"  class="layui-form">
+		<!-- 国际组织网络管理查询 -->
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'SQH2300001' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="operationMode" class="layui-input"
+								jf-select="coArray" name="aatype" ></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<label class="col4 text_right"><span class="red">*</span>{{'SQH2300002' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select ng-model="cardAssociations" class="layui-input"
+							jf-select="cardAssociationsArray"  lay-filter="getInfoCard" ></select>
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn cancel-btn" type="button" ng-click="selException()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</form>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoV">
+			<div class="mainname titleInfo">{{'SQH2300003' | translate}}</div>
+			<form name="mdmInfoFormV"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2300004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  bnone" name="procStatusV" ng-model="itemV.procStatus" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td"></div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2300005' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<select ng-model="itemV.tempStatus" class="layui-input"
+						jf-select="functionArray" name="tempStatusV"></select>
+					</div>
+				</div>
+				 <div class="col_tr text-center" >
+				 	<button class="layui-btn" ng-click="updateInfoV()" ng-bind-html="'F00074'|translate" validation-submit="mdmInfoFormV">
+					</button>
+					<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoM">
+			 <div class="mainname titleInfo">{{'SQH2300006' | translate}}</div>
+			 <form name="mdmInfoFormM"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2300004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  bnone" name="procStatusM" ng-model="itemM.procStatus" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td"></div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'SQH2300005' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select ng-model="itemM.tempStatus" class="layui-input"
+							jf-select="functionArray" name="tempStatusM"   lay-filter="getTempMStatus"></select>
+					</div>
+				</div>
+				<div ng-show="isPassMInfo">
+					<div class="col_tr"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2300008' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="itemM.keyType" class="layui-input"
+									jf-select="keyTypeArrayM" name="keyTypeM"></select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2300009' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="itemM.encryptType" class="layui-input"
+								jf-select="encryptTypeArray" name="encryptTypeM"></select>
+						</div>
+					</div>
+				</div>
+				 <div class="col_tr text-center" >
+				 	<button class="layui-btn" ng-click="updateInfoM()" ng-bind-html="'F00074'|translate" validation-submit="mdmInfoFormM">
+					</button>
+					<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoC">
+			 <div class="mainname titleInfo">{{'SQH2300007' | translate}}</div>
+			 <form name="mdmInfoFormC"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2300004' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  bnone" name="procStatusC" ng-model="itemC.procStatus" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td"></div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2300005' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select ng-model="itemC.tempStatus" class="layui-input"
+							jf-select="functionArray" name="tempStatusC"   lay-filter="getTempCStatus"></select>
+					</div>
+				</div>
+				
+				<div ng-show="isPassCInfo">
+					<div class="col_tr"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2300008' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="itemC.keyType" class="layui-input"
+									jf-select="keyTypeArrayC" name="keyTypeC"></select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2300009' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="itemC.encryptType" class="layui-input"
+								jf-select="encryptTypeArray" name="encryptTypeC"></select>
+						</div>
+					</div>
+				</div>
+				 <div class="col_tr text-center" >
+				 	<button class="layui-btn" ng-click="updateInfoC()" ng-bind-html="'F00074'|translate" validation-submit="mdmInfoFormC">
+					</button>
+					<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+					</button>
+				</div>
+			</form>
+			
+		</div>
+		<div class="allcontentFFF" style="margin-top: 20px;" ng-show="resultInfoJ">
+			 <div class="mainname titleInfo">{{'SQH2300010' | translate}}</div>
+			 <form name="mdmInfoFormJ"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right">{{'SQH2300004' | translate}} ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input  bnone" name="procStatusJ" ng-model="itemJ.procStatus" type="text" readonly>
+					</div>
+				</div>
+				<div class="col_td"></div>
+				<div class="col_td">
+					<div class="col4 text_right"> {{'SQH2300005' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select ng-model="itemJ.tempStatus" class="layui-input"
+							jf-select="functionArray" name="tempStatusNJ"   lay-filter="getTempJStatus"></select>
+					</div>
+				</div>
+				<div ng-show="isPassJInfo">
+					<div class="col_tr"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2300008' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="itemJ.keyType" class="layui-input"
+									jf-select="keyTypeArrayM" name="keyTypeJ"></select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH2300009' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select ng-model="itemJ.encryptType" class="layui-input"
+								jf-select="encryptTypeArray" name="encryptTypeJ"></select>
+						</div>
+					</div>
+				</div>
+				 <div class="col_tr text-center" >
+				 	<button class="layui-btn" ng-click="updateInfoJ()" ng-bind-html="'F00074'|translate" validation-submit="mdmInfoFormJ">
+					</button>
+					<button class="layui-btn" ng-click="closeInfo()" ng-bind-html="'F00012'|translate">
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

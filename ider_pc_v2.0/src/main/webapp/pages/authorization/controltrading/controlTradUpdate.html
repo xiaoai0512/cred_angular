@@ -1,0 +1,131 @@
+<div ng-controller="controlTradUpdateCtrl"> 
+	<div class="">
+	<form name="mdmInfoForm"  class="layui-form">
+		<div class="mainname titleInfo">{{'SQH1700052' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700040' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="operationModeNa"  ng-model="item.modeName"  type="text" readonly>
+			</div>
+		</div>
+		<!--<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700095' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="creditNodeNoDescN" ng-model="item.creditNodeNoDesc"  type="text" readonly>
+			</div>
+		</div>-->
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700045' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="bsnNumb"  ng-model="item.contrlSceneCode"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'SQH1700046' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="contrlSceneDescN" ng-model="item.contrlSceneDesc"  type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700082' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="invalidFlagU" class="layui-input"
+							jf-select="invalidFlag" type="text"></select> 
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700053' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00189' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="startTimeN"  type="text"  id="LAY_start_Update" ng-model="item.startDate" autocomplete="off"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00190' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input icon_date" name="endN"  type="text"  id="LAY_end_Update" ng-model="item.endDate" autocomplete="off"> 
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700057' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="transLocationUpdate" class="layui-input"
+							jf-select="countriesArray" name="countriesType" validator="required"></select>
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700096' | translate}}</div>
+		<div class="col_td" ng-repeat="card in cardUpdateList">
+			<div class="col4 text_right">{{'SQH1700096' | translate}}：</div>
+			<div class="col4 float_left">
+				<select class="layui-input" ng-model="card.cardAssociations" value="{{card.cardAssociations}}" >
+					<option value="">{{'SQH1700090' | translate}}</option>
+					<option ng-repeat="cary in cardArrayUList" value="{{cary.codes}}" ng-selected="cary.codes == card.cardAssociations">{{cary.detailDesc}}</option> 
+				</select>
+			</div>
+			<div class="col2 pull-right">
+				<button class="layui-btn pull-right"  ng-click="cardDel(this,$index)">
+					<i class="layui-icon"></i> {{'F00016' | translate}}
+				</button>
+			</div>
+		</div>
+		<div class="col_td text_center" ng-show="cardBtn">
+			<button class="layui-btn"  ng-click="cardTypeAdd()">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700054' | translate}}</div>
+		<div class="col_td" ng-repeat="trad in tradUpdateList">
+			<div class="col4 text_right">{{'SQH1700055' | translate}} ：</div>
+			<div class="col4 float_left">
+				<select class="layui-input" ng-model="trad.transScene" value="{{trad.transScene}}" >
+					<option value="">{{'SQH1700090' | translate}}</option>
+					<option ng-repeat="tal in tradArrayUList" value="{{tal.transSceneCode}}" ng-selected="tal.transSceneCode == trad.transScene">{{tal.transSceneDesc}}</option>
+				</select>
+			</div>
+			<div class="col2 pull-right">
+				<button class="layui-btn pull-right"  ng-click="tradDel(this,$index)">
+					<i class="layui-icon"></i> {{'F00016' | translate}}
+				</button>
+			</div>
+		</div>
+		<div class="col_td text_center" ng-show="tradBtn">
+			<button class="layui-btn"  ng-click="tradTypeAdd()">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700058' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700105' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="excpListFlagU"  class="layui-input"
+							jf-select="listFlagArray" name="excpListFlagN" lay-filter="getExcpListFlagU" validator="required" ></select>
+			</div>
+		</div>
+		<div class="col_tr" ng-show="isEFlagU">
+			<div class="col2 text_right">{{'SQH1700100' | translate}} ：</div>
+			<div class="wdper75 float_left">
+				<input class="layui-input" jf-checkbox="builder.option(contListArray)" name="excpListTypeN" ng-model="item.excpListType">  
+			</div>
+		</div>
+		<div class=" clearboth"></div>
+		<div class="mainname titleInfo">{{'SQH1700106' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'SQH1700107' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="contListFlagU"  class="layui-input"
+							jf-select="contFlagArray" name="contListFlagN" lay-filter="getContListFlagU" validator="required" ></select>
+			</div>
+		</div>
+		<div class="col_tr" ng-show="isCFlagU">
+			<div class="col2 text_right">{{'SQH1700100' | translate}} ：</div>
+			<div class="wdper75 float_left">
+				<input class="layui-input" jf-checkbox="builder.option(contListArray)" name="contListTypeN" ng-model="item.contListType">  
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

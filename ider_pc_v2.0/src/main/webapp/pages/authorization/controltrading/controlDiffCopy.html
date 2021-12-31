@@ -1,0 +1,302 @@
+<div ng-controller="controlDiffCopyCtrl">
+		<form name="mdmInfoForm1"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700052' | translate}}</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700040' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="coArrayCopy" name="operationModeNa" ng-model="operationModeCopy" disabled></select>
+				</div>
+			</div>
+			<!--<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700095' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="creditNodeNoArrayCopy" name="creditNodeNoN" ng-model="creditNodeNoCopy" disabled></select>
+				</div>
+			</div>-->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700045' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="contrlSceneCodeN" ng-model="copyList.contrlSceneCode" type="text" id="contrlSceneCodeId" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700081' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" jf-select="difTypeCopyArray" name="differentTypeN" ng-model="differentTypeC" lay-filter="getDifferentTypeCopy" validator="required"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCustomerNoCopy">
+				<label class="col4 text_right">{{' F00158' | translate}}：</label>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="idTypeCopy" lay-filter="getIdType" id="idTypeAddId"
+						jf-select="certificateTypeArray" name="idTypeN" ></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isCustomerNoCopy">
+				<label class="col4 text_right">{{'F00112' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="idNumberCopy" id="conCopy_idNumber" >
+				</div>
+			</div>
+			<div class="col_td" ng-show="isExterNoCopy">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="externalIdentificationNoAddId" name="externalIdentificationNoN"  ng-model="externalIdentificationNoCopy">
+				</div>
+			</div>
+			<div class="col_td" ng-show="isriskLevelNoCopy">
+				<label class="col4 text_right">{{'SQH1700076' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" id="riskLevelAddId" name="riskLevelN" ng-model="riskLevelCopy" minlength="2" maxlength="2">
+				</div>
+			</div>
+			<div class="col_td" ng-show="isProNoCopy">
+				<label class="col4 text_right">{{'SQJ1700029' | translate}}：</label>
+				<div class="wd190 float_left">
+					<!--<input class="layui-input" type="text" id="projectCodeAddId" name="projectCodeN" ng-model="projectCodeCopy" minlength="9" maxlength="9">-->
+					<select class="layui-input" ng-model="projectCodeCopy" lay-filter="getIdType" id="projectCodeAddId"
+			              jf-select="proArrayCopy" name="projectCodeN"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700046' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="contrlSceneDescN" id="contrlSceneDescId" ng-model="copyList.contrlSceneDesc" type="text" validator="required" autocomplete="off">
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm2"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700060' | translate}}</div>
+			<div class="col_td" ng-show = "isTimeCopy">
+				<div class="col4 text_right">{{'F00189' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="fromDataName" id="DIFF_start_Copy" type="text" ng-model="copyList.startDate" autocomplete="off"> 
+				</div>
+			</div>
+			<div class="col_td" ng-show = "isTimeCopy">
+				<div class="col4 text_right">{{'F00190' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input icon_date" name="toDateName" id="DIFF_end_Copy" type="text" ng-model="copyList.endDate" autocomplete="off"> 
+				</div>
+			</div>
+			<div class="col_td" ng-show = "isTimeCopy">
+			<div class="col4 text_right">{{'SQH1700093' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="startTime"  type="text"  id="DIFF_startTime_Copy" ng-model="copyList.startTime" autocomplete="off"> 
+			</div>
+	  </div>
+	  <div class="col_td" ng-show = "isTimeCopy">
+			<div class="col4 text_right">{{'SQH1700094' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" name="endTime"  type="text"  id="DIFF_endTime_Copy" ng-model="copyList.endTime" autocomplete="off"> 
+			</div>
+		</div>
+			<div class="col_td">    
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700061' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="overpayContrlFlagC" class="layui-input"
+								jf-select="OCFalgArray01" name="overpayContrlFalgN" validator="required"></select>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm3"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700063' | translate}}</div>
+			<div class="col_td"  ng-show="isListFlagCopy">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700097' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="listDifferentFlagC" class="layui-input"
+							jf-select="OCFalgArray03" name="listDifferentTypeN" lay-filter="getListDifferentFlagCopy"></select>
+				</div>
+			</div>
+			<div class="col_td"  ng-show="isCheckCopy">
+				<div class="col4 text_right">{{'SQH1700064' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="pnListCheckFlagC"  class="layui-input"
+								jf-select="checkArray" name="pnListCheckFlagN" placeholder="检查标志"lay-filter="getRiskLimitCopy"></select>
+				</div>
+			</div>
+			<div class="col_tr" ng-show="isBCopy">
+				<div class="col2 text_right">{{'SQH1700066' | translate}} ：</div>
+				<div class="wdper75 float_left">
+					<input class="layui-input" jf-checkbox="builder.option(negArray)" name="listCheckTypeN" ng-model="copyList.listCheckType">  
+				</div>
+			</div>
+			<div class="clearboth"></div>
+		</form>
+	<div class=" clearboth"></div>
+		<form name="mdmInfoForm4"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700069' | translate}}</div>
+			<div class="col_td"  ng-show="isTransFlagCopy">
+				<div class="col4 text_right"><span class="red">*</span>{{'SQH1700097' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transDifferentFlagC" class="layui-input"
+							jf-select="OCFalgArray04" name="transLimitDifferentTypeN" lay-filter="gettransLimitDifferentTypeCopy"></select>
+				</div>
+			</div>
+			<div class="col_td"  ng-show="transCheckCopy">
+				<div class="col4 text_right">{{'SQH1700066' | translate}}  ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transLimitLevC" class="layui-input"
+								jf-select="leveArray" name="transLimitLevN" placeholder="交易层级限制" lay-filter="getLimitLevCopy"></select>
+				</div>
+			</div>
+			<div class="col_td" ng-show="isNCopy">
+				<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="transLimitCurrCodeC" class="layui-input"
+								jf-select="currcyArray" name="transLimitCurrCodeN" placeholder="限制币种" lay-filter="getLimitCurCopy"></select>
+				</div>
+			</div>
+		</form>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoCCopy">
+		<form name="mdmInfoForm5"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700088' | translate}}</div>
+				<div  ng-repeat="cusu in cuscopyListTwo">
+					<div class="col_td" ng-if="copyOne">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+								<select class="layui-input" ng-model="cusu.currencyCode" value="{{cusu.currencyCode}}" >
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="cusT in cur156Array" value="{{cusT.accountCurrency}}" ng-selected="cusu.currencyCode == cusT.accountCurrency">{{cusT.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td"  ng-if="copyTwo">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.currencyCode" value="{{cusu.currencyCode}}" >
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="itc in crrysCopyArray" value="{{itc.currencyCode}}" ng-selected="cusu.currencyCode == itc.currencyCode">{{itc.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="cusu.mandatoryInspectionFlag" value="cusu.mandatoryInspectionFlag">
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="yn in YNArray" value="{{yn.id}}" ng-selected="cusu.mandatoryInspectionFlag == yn.id">{{yn.name}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="cusTypeAddCopy($index,cusu)">
+							{{'SQH1700089' | translate}}
+						</button>
+						<button class="layui-btn"  ng-click="cusTypeDelCopy($index,cusu)">
+							{{'F00016' | translate}}
+						</button>
+					</div>
+				</div>
+				<div ng-show="isCopyCusType">
+					<button class="layui-btn float_right" style="margin-right:10%" ng-click="listTypeCusCopy()" >
+						{{'F00010' | translate}}
+					</button>
+				</div>
+		</form>
+	</div>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoECopy">
+		<form name="mdmInfoForm6"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700091' | translate}}</div>
+				<div  ng-repeat="extu in extercopyListTwo" >
+					<div class="col_td" ng-if="copyOne">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.currencyCode" value="{{extu.currencyCode}}" >
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="cusT in cur156Array" value="{{cusT.accountCurrency}}" ng-selected="extu.currencyCode == cusT.accountCurrency">{{cusT.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td" ng-if="copyTwo">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.currencyCode" value="{{extu.currencyCode}}" >
+							     <option value="">{{'SQH1700090' | translate}}</option>
+							     <option ng-repeat="me in crrysCopyArray" value="{{me.currencyCode}}" ng-selected="me.currencyCode == extu.currencyCode">{{me.currencyDesc}}</option> 
+						    </select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="extu.mandatoryInspectionFlag" value="extu.mandatoryInspectionFlag">
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="yn in YNArray" value="{{yn.id}}" ng-selected="extu.mandatoryInspectionFlag == yn.id">{{yn.name}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="exceCopyAdd($index,extu)">
+							{{'SQH1700089' | translate}}
+						</button>
+						<button class="layui-btn"  ng-click="exceCopyDel($index,extu)">
+							{{'F00016' | translate}}
+						</button>
+					</div>
+				</div>
+				<div ng-show="isCopyExceType">
+					<button class="layui-btn float_right" style="margin-right:10%" ng-click="listTypeCopy()" >
+						{{'F00010' | translate}}
+					</button>
+				</div>
+		</form>
+	</div>
+	<div class="clearboth"></div>
+	<div ng-show="isTwoPCopy">
+		<form name="mdmInfoForm7"  class="layui-form">
+			<div class="mainname titleInfo">{{'SQH1700103' | translate}}</div>
+				<div  ng-repeat="pTwo in pcopyListTwo" >
+					<div class="col_td" ng-if="copyOne">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="pTwo.currencyCode" value="{{pTwo.currencyCode}}" >
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="cusT in cur156Array" value="{{cusT.accountCurrency}}" ng-selected="pTwo.currencyCode == cusT.accountCurrency">{{cusT.currencyDesc}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td" ng-if="copyTwo">
+						<div class="col4 text_right">{{'SQH1700067' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="pTwo.currencyCode" value="{{pTwo.currencyCode}}" >
+							     <option value="">{{'SQH1700090' | translate}}</option>
+							     <option ng-repeat="me in crrysCopyArray" value="{{me.currencyCode}}" ng-selected="me.currencyCode == pTwo.currencyCode">{{me.currencyDesc}}</option> 
+						    </select>
+						</div>
+					</div>
+					<div class="col_td"></div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1700098' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input" ng-model="pTwo.mandatoryInspectionFlag" value="pTwo.mandatoryInspectionFlag">
+								<option value="">{{'SQH1700090' | translate}}</option>
+								<option ng-repeat="yn in YNArray" value="{{yn.id}}" ng-selected="pTwo.mandatoryInspectionFlag == yn.id">{{yn.name}}</option> 
+							</select> 
+						</div>
+					</div>
+					<div class="col_td">
+						<button class="layui-btn"  ng-click="pCopyAdd($index,pTwo)">
+							{{'SQH1700089' | translate}}
+						</button>
+						<button class="layui-btn"  ng-click="pCopyDel($index,pTwo)">
+							{{'F00016' | translate}}
+						</button>
+					</div>
+				</div>
+				<div ng-show="isCopyPType">
+					<button class="layui-btn float_right" style="margin-right:10%" ng-click="listTypeCopyP()" >
+						{{'F00010' | translate}}
+					</button>
+				</div>
+		</form>
+	</div>
+</div>

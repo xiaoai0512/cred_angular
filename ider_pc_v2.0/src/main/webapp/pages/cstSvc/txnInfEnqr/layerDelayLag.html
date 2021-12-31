@@ -1,0 +1,62 @@
+<div ng-controller="layerDelayLagCtrl">
+	<div class=" ">
+		<form name="accMainSceneFormee"  class="layui-form">
+			<div  jf-grid="delayLagList">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH1800117' | translate}}</th>
+							<th>{{'KHH1800118' | translate}}</th>
+							<th>{{'KHH1800058' | translate}}</th>
+							<th>{{'KHH1800102' | translate}}</th>
+							<th>{{'KHH1800119' | translate}}</th>
+							<th>{{'KHH1800120' | translate}}</th>
+							<th>{{'KHH1800121' | translate}}</th>
+							<th>{{'KHH1800114' | translate}}</th>
+							<th style="width:20%;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" >
+								<span ng-if="item.delinquencyLevel=='A'">{{'KHH4100045' | translate}}</span>
+								<span ng-if="item.delinquencyLevel=='P'">{{'KHH4100046' | translate}}</span>
+								<span ng-if="item.delinquencyLevel=='G'">{{'KHH4100046' | translate}}</span>
+							</td>
+							<td align="center">
+								<span ng-if="item.delinquencyLevel=='A'">{{item.levelCode}}{{item.businessDesc}}</span>
+								<span ng-if="item.delinquencyLevel=='P'">{{item.levelCode}}{{item.productLevelCodeDesc}}</span>
+								<span ng-if="item.delinquencyLevel=='G'">{{item.levelCode}}{{item.programDesc}}</span>
+							</td>
+							<td align="center">
+								<span>{{item.productObjectNo}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center">
+								<span  ng-bind="item.currencyCode"></span>
+								<span  ng-bind="item.currencyDesc"></span>
+							</td>
+							
+							<td align="center" ng-bind="item.cycleNo"></td>
+							<td align="center" ng-bind="item.cycleDueNum"></td>
+							<td align="center" ng-bind="item.cycleDueDayNum"></td>
+							<td align="center" ng-bind="item.minPaymentChange| number :2"></td>
+							<td align="center">
+								<button class="layui-btn layui-btn-mini"
+									ng-click="checkDelayLagDetail(item)">
+									<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+								</button>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			
+			
+			
+			
+		</form>
+	</div>
+</div>

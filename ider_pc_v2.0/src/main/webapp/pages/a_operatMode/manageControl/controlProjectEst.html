@@ -1,0 +1,135 @@
+<div ng-controller="controlProjectEstCtrl">
+	<div class="">
+		<form name="controlProjectForm">
+			<div class="search_mian layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH4900001' | translate}}：</div>
+					<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="controlProjectEst.operationMode"  validator="required" jf-select="operationModeArr" name="operationMode"  maxlength="3">
+					</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH4900002' | translate}}：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input" type="text" name="controlProjectNo" maxlength="9" ng-model="controlProjectEst.controlProjectNo" validator="required">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00091' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="controlDesc" maxlength="50" ng-model="controlProjectEst.controlDesc">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH4900003' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="controlProjectEst.controlMode" validator="required"  jf-select="controlModeArr" name="controlMode" lay-filter="getControlModeA" maxlength="1">
+						</select>
+					</div>
+				</div>
+				<div class="col_td" ng-show="preControlCategoryDiv">
+					<div class="col4 text_right">{{'YYH4900006' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="controlProjectEst.preControlCategory"  jf-select="preControlCategoryArr" lay-filter="getpreControlCategory" name="preControlCategory">
+						</select>
+					</div>
+				</div>
+				<div class="col_td" ng-show="authDenyIdentifyDiv" >
+					<div class="col4 text_right">{{'YYH4900002' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="controlProjectEst.authDenyIdentify"  jf-select="authDenyIdentifyArr" name="authDenyIdentify">
+						</select>
+					</div>
+				</div>
+				
+				<div class="col_td" ng-show="authDenyIdentifyDiv" >
+					<div class="col4 text_right">{{'YYH4900011' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text" name="transIdentifiNo" ng-model="controlProjectEst.transIdentifiNo" />
+					</div>
+				</div>
+				
+				<div class="col_td" ng-show="controlFieldDiv" >
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH4900008' | translate}}：</div>
+					<div class="wd190 float_left">
+						<select class="layui-input" ng-model="controlProjectEst.controlField"  jf-select="controlFieldArr" name="controlField">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="controlProjectInfDiv" >
+				<div class="search_mian">
+					<div class="mainname">{{'YYH4900009' | translate}}</div>
+				</div>
+					
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00162' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text"
+								ng-model="evLstListTable.params.eventId" maxlength="14">
+						</div>
+					</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00163' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"
+							ng-model="evLstListTable.params.eventDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="col_tr text_center">
+					<button class="layui-btn" ng-click="evLstListTable.search()">
+						<i class="layui-icon">&#xe615;</i> {{'F00019' | translate}}
+					</button>
+	
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="saveSelect()">
+						<i class="layui-icon">&#x1002;</i> {{'F00020' | translate}}
+					</button>
+				</div>
+				<div jf-grid=evLstListTable>
+					<table>
+						<thead>
+							<tr>
+								<th>{{'F00162' | translate}}</th>
+								<th>{{'F00163' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.eventNo"></td>
+								<td align="center" ng-bind="item.eventDesc"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="mainname">{{'YYH4900010' | translate}}</div>
+					<div>
+					<table border="0" cellspacing="0" cellpadding="0"
+						class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+					<thead>
+						<tr>
+							<th>{{'F00162' | translate}}</th>
+							<th>{{'F00163' | translate}}</th>
+							<th style="width: 150px;">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="items in treeSelect track by $index">
+							<td align="center" ng-bind="items.eventNo"></td>
+							<td align="center" ng-bind="items.eventDesc"></td>
+							<td align="center">
+								<button class="layui-btn cancel-btn" type="button"
+									ng-click="removeSelect($index)">
+									<i class="layui-icon"></i> {{'F00016' | translate}}
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

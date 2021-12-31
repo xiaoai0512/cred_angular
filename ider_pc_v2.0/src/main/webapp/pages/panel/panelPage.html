@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+<title>IDER CreditX</title>
+<style type="text/css">
+	@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+</style>
+ <script>
+ 
+ 
+ctx = getContextPath();
+function getContextPath(){
+    var pathName = document.location.pathname;
+    var index = pathName.substr(1).indexOf("/");
+    var result = pathName.substr(0,index+1);
+    return result;
+}
+function getRequestURL() {
+	var localHref = window.location.href;
+	var requestURL = '' ;
+	if(localHref.indexOf('#') >= 0){
+		requestURL = localHref.split("#")[1];
+	}else {
+		requestURL = document.location.pathname ;
+	}
+	return requestURL ;
+}
+document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/js/main\"> <\/script>");
+document.write("<base href=\""+ ctx + "/\"" + ">");
+document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider/ider.css\" type=\"text/css\"/>");
+
+document.write("<link rel=\"icon\" href=\"" +ctx+"/theme/default/images/ider/tubiao.png\" type=\"image/x-icon\"/>");
+document.write("<link rel=\"shortcut icon\" href=\"" +ctx+"/theme/default/images/ider/tubiao.png\" type=\"image/x-icon\"/>");
+document.write("<link rel=\"icon\" href=\"" +ctx+"/theme/default/images/ider/tubiao.png\" type=\"image/x-icon\"/>");
+document.write("<link rel=\"shortcut icon\" href=\"" +ctx+"/theme/default/images/ider/tubiao.png\" type=\"image/x-icon\"/>");
+/* document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/layui/layui.js\" <\/script>"); */
+</script>
+
+</head>
+
+<body ng-cloak class="ng-cloak ider">
+	<div class="layui-container panelContainer" ng-controller="panelCtrl">
+		<div ng-include="ctx+'/pages/template/panelHead.html'"></div> 
+		
+		<div class="panelPage" style="margin-left:100px;">
+            <div class="panel_left" >
+                <div class="sub_menu"
+                ng-class="{iconmenu01:'subBg_01',iconmenu02:'subBg_02',iconmenu03: 'subBg_03',iconmenu04: 'subBg_04',iconmenu05: 'subBg_05',
+                iconmenu06:'subBg_06',iconmenu07:'subBg_07',iconmenu08: 'subBg_08',iconmenu09: 'subBg_09',iconmenu10: 'subBg_10'}[newmenuList.icon]">
+                	<i class="layui-icon layui-icon-template"></i><span>{{menuList.menuName}}</span>
+                </div>
+              <!--   <div class="sH0 nui-scroll"> -->
+                	<ul class="layui-nav layui-nav-tree layui-nav-side"  id="leftUL">
+	                    <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+	                    <li class="layui-nav-item " ng-class="{ 0:'nosubmenu'}[submenu.lowerMenuFlag]" ng-repeat="submenu in newmenuList.childMenus track by $index" submenuid="{{submenu.id}}" submenulink ="{{submenu.link.split('/').join('')}}"  menuNo ="{{submenu.menuNo}}"  ng-click="clickSub(submenu)">
+								<i class="subicon_bg" ng-class="{submenu_bg_{{$index}}:'submenu_bg_{{$index}}'}[submenu.icon]"></i>						
+								<a style="padding: 0 40px;" href="javascript:" class="" submenuid="{{submenu.id}}">{{submenu.menuName}}</a>
+	                        <dl ng-if="submenu.lowerMenuFlag" class="layui-nav-child">
+	                            <dd ng-repeat="threemenu in submenu.childMenus" threemenuid="{{threemenu.id}}" ng-click="addTab(threemenu)" threemenulink ="{{threemenu.link.split('/').join('')}}">
+	                            <a href="" threemenuid="{{threemenu.id}}">{{threemenu.menuName}}</a>
+	                            </dd>
+	                        </dl>
+	                    </li>
+	                </ul>
+                
+                <!-- </div> -->
+                
+            </div>
+          
+           	<div class="panel_right" >
+                <div class="layui-tab"  lay-allowClose="true" >
+                    <ul id="tabTitle"  class="layui-tab-title " ng-class="{'tab-ul':isShowUl,'tab-ul':!isShowUl}">
+                        <li  ng-repeat="tab in tabList track by $index" ng-class="{true:'layui-this'}[tab.isActive]" lay-id="1"  ng-click="changeTab(tab);" tablink="{{tab.link.split('/').join('')}}">
+                        {{tab.menuName}}<i class="layui-icon layui-unselect layui-tab-close" ng-click="removeTab($index);">ဆ</i>
+                        </li>
+                        <!-- 多个tab一行展示不下超出部分隐藏，显示下拉箭头 -->
+                        <span ng-if="isShow" ng-click="screenTap()" class="arrow layui-unselect layui-tab-bar"  lay-stope="tabmore" title="">
+	                    	<i ng-if="iconTop" class="layui-icon" lay-stope="tabmore" >&#xe619;</i>
+	                    	<i ng-if="iconDow" class="layui-icon" lay-stope="tabmore" >&#xe61a;</i> 
+                    	</span> 
+                    </ul> 
+                    <!--点击下拉箭头，在此div展示超出tab-->
+                   	<div ng-show="isShowScreen" class="tab-div-moree tab-div">
+					  	<li  ng-repeat="tab in tabList track by $index" class="pad10" ng-class="{true:'layui-this'}[tab.isActive]" lay-id="1"  ng-click="changeTab(tab);">
+					    {{tab.menuName}}<i class="layui-icon layui-unselect layui-tab-close" ng-click="removeTab($index);">ဆ</i></li>
+					</div>
+                    <!-- end -->
+                    <div class="layui-tab-content" ui-view>
+                    	<div class="layui-tab-item" lay-item="1" ></div>
+                    </div>        
+                </div>
+            </div>
+       </div>
+	</div>
+</body>
+
+</html>

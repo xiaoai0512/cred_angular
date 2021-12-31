@@ -1,0 +1,141 @@
+<div class="layout_body" ng-controller="cstCprsvInfEnqrCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：账户列表查询
+	</div>
+	<div class="search_mian">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">证件号码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text">
+				</div>
+			</div>
+
+			<div class="layui-inline">
+				<label class="layui-form-label">外部识别号：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="avyListTable.search()">
+						<i class="layui-icon">&#xe615;</i> 查询
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="itemList.params={}">
+						<i class="layui-icon">&#x1002;</i> 重置
+					</button>
+					<button class="layui-btn" type="button" moreClick>
+						<i class="layui-icon">&#xe61a;</i>
+					</button>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">账户代码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text">
+				</div>
+			</div>
+
+			<div class="layui-inline">
+				<label class="layui-form-label">客户代码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="search_width" style="display: none">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">币种:</label>
+					<div class="layui-input-inline">
+						<!-- <select ng-model="itemList.params.prjTpcd" class="layui-input"
+							jf-select="builder.option('Prj_Cd')" name="prjTpcd"></select> -->
+							<select jf-select="builder.option(currencyList)"
+						ng-model="itemList.params.ccy"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">手机号码：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">账户组织形式:</label>
+					<div class="layui-input-inline">
+						<!-- <select ng-model="itemList.params.prjTpcd1" class="layui-input"
+							jf-select="builder.option('Prj_Cd')" name="prjTpcd1"></select> -->
+							<select jf-select="builder.option(accountType)"
+						ng-model="itemList.params.accountType"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">所属业务类型:</label>
+					<div class="layui-input-inline">
+						<!-- <select class="layui-input" ng-model=""
+							jf-select="builder.option('Prj_Cd')" name="prjTpcd"></select> -->
+							<select jf-select="builder.option(businessType)"
+						ng-model="itemList.params.businessType"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">状态码:</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">账户性质:</label>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div jf-grid="cstCprsvInfEnqrTable">
+		<table>
+			<thead>
+				<tr>
+					<th>账户代码</th>
+					<th>币种</th>
+					<th>所属业务类型</th>
+					<th>业务类型描述</th>
+					<th>产品对象代码</th>
+					<th>账户组织形式</th>
+					<th>账户性质</th>
+					<th>状态码</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.accCd"></td>
+					<td align="center" ng-bind="item.ccyCd"></td>
+					<td align="center" ng-bind="item.blngBsnTp"></td>
+					<td align="center" ng-bind="item.bsnTpSnc"></td>
+					<td align="center" ng-bind="item.pDObjCd"></td>
+					<td align="center" ng-bind="item.accOrgForm"></td>
+					<td align="center" ng-bind="item.acChar"></td>
+					<td align="center" ng-bind="item.stCD"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini"
+							ng-click="check()">
+							<i class="layui-icon layui-icon-more">&#xe65f;</i>
+						</button>
+						<button class="layui-btn layui-btn-mini"
+							ng-click="changeAvyInfo(item)">
+							<i class="layui-icon layui-icon-edit">&#xe642;</i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

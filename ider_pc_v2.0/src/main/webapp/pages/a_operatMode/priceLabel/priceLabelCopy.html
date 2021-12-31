@@ -1,0 +1,121 @@
+<div ng-controller="copyPriceLabelCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form name="priceForm" class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH800001' | translate}}：</div>
+					<div class="wd330 float_left">
+						<select  class="layui-input" ng-model="operationModeView" validator="required"
+								jf-select="operationModeArr" name="operationMode" >
+							</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH800002' | translate}}：</div>
+					<div class="wd330 float_left">
+						<!-- <input class="layui-input" ng-model="priceCopy.pricingTag" minlength="9"  maxlength="9" validator="required,minlength,maxlength"
+							name="priceTag" type="text"> -->
+						<div class="layui-inline" style="width: 18%;">
+							<input class="layui-input bnone" ng-model="pricingTag1" name="priceTag" type="text" readonly>
+						</div>
+						<div class="layui-inline" style="width: 78%;display: inline-block;">
+							<input class="layui-input" ng-model="pricingTag2" validator="required,minlength,maxlength" name="priceTagN" type="text" minlength="5" maxlength="5">
+						</div>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH800003' | translate}}：</div>
+					<div class="wd330 float_left">
+						<input class="layui-input" ng-model="priceCopy.pricingDesc" maxlength="50" validator="required"
+							name="desc" type="text">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH800004' | translate}}：</div>
+					<div class="wd330 float_left">
+						<select jf-select="pricingTypeArray" 
+							ng-model="pricingType"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYJ800011' | translate}}：</div>
+					<div class="wd330 float_left">
+						<select jf-select="tagTypeArray"
+							ng-model="pricingObject" lay-filter="gettagtype"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH800005' | translate}}：</div>
+					<div class="wd330 float_left">
+						<select jf-select="priceObj" validator="required" class="layui-input" name="pricingObjectCodeN" maxlength="10"
+							ng-model="pricingObjectShow" lay-filter="getFeeMethod">
+						</select>
+						<!-- <input class="layui-input" ng-model="priceCopy.priceObj" maxlength="8"
+							name="priceObj" type="text"> -->
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH800006' | translate}}：</div>
+					<div class="wd330 float_left">
+						<input class="layui-input" ng-model="priceCopy.performOrder"  maxlength="3"
+							name="performOrder" type="text">
+					</div>
+				</div>
+		
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH800007' | translate}}：</div>
+					<div class="wd330 float_left" ng-show="isAC">
+						<select jf-select="pricingMethodArrayC" 
+							ng-model="pricingMethod" lay-filter="getpricingmethod"></select>
+					</div>
+					<div class="wd330 float_left" ng-show="isPcdC">
+						<select jf-select="pricingMethodArray" 
+							ng-model="pricingMethod" lay-filter="getpricingmethod"></select>
+					</div>
+					<div class="wd330 float_left" ng-show="isBC">
+						<select jf-select="pricingMethodArrayB" 
+							ng-model="pricingMethod" lay-filter="getpricingmethod"></select>
+					</div>
+				</div>
+		
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH800008' | translate}}：</div>
+					<div class="wd330 float_left" >
+						<select jf-select="pcdTypeArray" validator="required" class="layui-input"  maxlength="3" name="pcdType"
+						ng-model="pcdType"></select>
+					</div>
+				</div>
+		
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH800009' | translate}}：</div>
+					<div class="wd330 float_left">
+						<input class="layui-input" name="pcdValue" type="text"   maxlength="10"
+							ng-model="priceCopy.pcdValue">
+					</div>
+				</div>
+		
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH800010' | translate}}：</div>
+					<div class="wd330 float_left">
+						<input class="layui-input" name="pcdPoint" type="text"   maxlength="2"
+							ng-model="priceCopy.pcdPoint">
+					</div>
+				</div>
+				<div class="col_td" ng-show = "showBaseFee">
+					<div class="col4 text_right">{{'YYJ800012' | translate}}：</div>
+					<div class="wd330 float_left">
+						<input class="layui-input" name="supplementBaseFee" type="text"   maxlength="18" validator="number"
+							ng-model="priceCopy.supplementBaseFee">
+					</div>
+				</div>
+				<div class="col_td" >
+					<div class="col4 text_right">{{'KHH4700014' | translate}}：</div>
+					<div class="wd330 float_left">
+						<select jf-select="copyCurrencyArray" class="layui-input" name="pricingCurrencyCode"
+							ng-model="pricingCurrencyCode"  validator="required"></select>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

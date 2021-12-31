@@ -1,0 +1,55 @@
+<div ng-controller="oprtModeEnqrAndMntCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：运营模式查询及维护
+	</div>
+	<div class="allcontent layui-form">
+		<div class="clearboth"></div>
+		<div class="col_td">
+			<div class="col4 text_right">运营模式：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+					ng-model="operatModeTable.params.operationMode"
+					 name="operationMode" type="text" maxlength="3">
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="operatModeTable.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="operatModeTable.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+
+		<div jf-grid="operatModeTable">
+			<table>
+				<thead>
+					<tr>
+						<th>运营模式</th>
+						<th>模式名称</th>
+						<th>营业日期</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode""></td>
+						<td align="center" ng-bind="item.modeName"></td>
+						<td align="center" ng-bind="item.operationDate"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkOperatMode(item)">
+								<i class="layui-icon"></i> 查询
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateOperatMode(item)">
+								<i class="layui-icon"></i> 修改
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,58 @@
+<div ng-controller="newSubConCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：新增科目信息
+	</div>
+	<div class="allcontent">
+		<form action="" class="layui-form"  name="exrtForm">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>科目编号 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.subjectNbr" validator="required,maxlength"   maxlength="3"
+						name="subjectNbr" type="text">
+				</div>
+			</div>
+			
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>科目描述 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.subjectNme"  validator="required,maxlength" maxlength="128"
+						name="subjectNme" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">父级科目编号 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.upperSubjectNbr" validator="maxlength"  maxlength="64"
+						name="upperSubjectNbr" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">余额方向 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.balanceDirection"  validator="maxlength" maxlength="8"
+						name="balanceDirection" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">业务类型 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.balanceType"  validator="maxlength"
+						name="balanceDirection" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">余额类型 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="csInf.balanceType"  validator="maxlength"
+						name="balanceDirection" type="text">
+				</div>
+			</div>
+		</form>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius" ng-click="newSubCon()" validation-submit="exrtForm"
+				type="button">
+				<i class="layui-icon">&#xe624;</i> 确定
+			</button>
+		</div>
+	</div>
+</div>

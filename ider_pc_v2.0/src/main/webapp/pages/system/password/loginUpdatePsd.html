@@ -1,0 +1,33 @@
+<div ng-controller="loginUpdatePsdCtrl">
+		<div class="search_mian layui-form">
+			<form name="updatePsdForm">
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00003' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input" type="text"  name="loginName"  ng-model="upPsdInf.loginName" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">{{'F00166' | translate}} ：</div>
+					<div class="wd190 float_left">
+							<input class="layui-input" type="password"  name="password" validator="required,password" ng-model="upPsdInf.password" />
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'F00167' | translate}}：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="password"  name="passwordNew" ng-model="upPsdInf.passwordNew" validator="required,nosame,password" nosame="password"  required-error-message="请输入新密码" nosame-error-message="新密码不能与旧密码相同"/>
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>确认密码：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="password"  name="passwordConfirm" validator="required,password,equals" equals="passwordNew" ng-model="upPsdInf.passwordConfirm" required-error-message="请确认新密码" equals-error-message="确认两次密码一致"/>
+					</div>
+				</div>
+				
+			</form>
+	</div>
+
+</div>

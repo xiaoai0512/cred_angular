@@ -1,0 +1,88 @@
+<div ng-controller="channelListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 清算渠道管理查询 -->
+		<div class="search_mian layui-form">
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00077' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<select ng-model="channelList.params.operationMode" class="layui-input" jf-select="operationModeArr" name="operationModeN" lay-filter="getChannelSelId"></select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'QFH100001' | translate}}ID ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="channelList.params.channelId" maxlength="5" 
+						name="channelId" type="text">
+				</div>
+			</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right">渠道描述：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="channelList.params.channelDescription" maxlength="50" 
+						name="channelDescription" type="text">
+				</div>
+			</div> -->
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="channelList.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="channelAdd()" ng-show="addBtnFlag"> 
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+				<!-- <button class="layui-btn cancel-btn" type="button"
+					ng-click="channelList.params={}">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button> -->
+			</div>
+		</div>
+		<!-- 清算渠道管理列表 -->
+		<div jf-grid="channelList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'QFH100001' | translate}}ID</th>
+						<th>{{'QFH100002' | translate}}</th>
+						<th>{{'QFH100003' | translate}}</th>
+						<th>{{'QFH100004' | translate}}</th>
+						<th>{{'QFH100005' | translate}}</th>
+						<th>{{'QFH100009' | translate}}</th>
+						<th>{{'QFH100010' | translate}}</th>
+						<th style="width:24%;">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.channelId"></td>
+						<td align="center" ng-bind="item.channelDescription"></td>
+						<td align="center" ng-bind="item.channelFileRecognition"></td>
+						<td align="center">
+							<span ng-if="item.dataReceivingMode == 'D' ">{{'QFH100006' | translate}}</span>
+							<span ng-if="item.dataReceivingMode == 'W' ">{{'QFH100007' | translate}}</span>
+							<span ng-if="item.dataReceivingMode == 'S' ">{{'QFH100008' | translate}}</span>
+						</td>
+						<td align="center" ng-bind="item.transRetainDays"></td>
+						<td align="center" ng-bind="item.recheckDays"></td>
+						<td align="center" ng-bind="item.rejTrasnRetainDays"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="queryChannelInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateChannelInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="copyChannel(item)" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00061' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="deleteChannelInf(item)" ng-show="delBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+</div>

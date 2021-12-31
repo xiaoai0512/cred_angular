@@ -1,0 +1,75 @@
+<div ng-controller="bondCodeListCtrl" class="layui-form">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH2200001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input" ng-model="bondCodeList.params.operationMode"   
+					jf-select="operationModeArr" name="operationMode">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH2200003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="bondCodeList.params.fundNum">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH2200007' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="bondCodeList.params.status"
+					jf-select="statusArray" name="status">
+				</select>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="bondCodeList.search()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<button class="layui-btn cancel-btn ng-binding" type="button" ng-click="resetChose()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div jf-grid="bondCodeList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH2200001' | translate}}</th>
+						<th>{{'YYH2200002' | translate}}</th>
+						<th>{{'YYH2200003' | translate}}</th>
+						<th>{{'YYH2200004' | translate}}</th>
+						<th>{{'YYH2200005' | translate}}</th>
+						<th>{{'YYH2200006' | translate}}</th>
+						<th>{{'YYH2200007' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.partnerCategoryDesc"></td>
+						<td align="center" ng-bind="item.fundNum"></td>
+						<td align="center" ng-bind="item.fundName"></td>
+						<td align="center" ng-bind="item.repayPerformOrder"></td>
+						<td align="center" ng-bind="item.isBankFundsDesc"></td>
+						<td align="center" ng-bind="item.statusDesc"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="checkBondCodeInf(item)">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateBondCodeListInf(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>供应链金融业务系统</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script>
+        ctx = getContextPath();
+        function getContextPath() {
+            var pathName = document.location.pathname;
+            var index = pathName.substr(1).indexOf("/");
+            var result = pathName.substr(0, index + 1);
+            return result;
+        }
+      
+        document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/js/main\"> <\/script>");
+		document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/web_login.css\" type=\"text/css\"/>");
+        document.write("<base href=\""+ ctx + "/login\"" + ">");
+         </script>
+	</head>
+    
+    <body>
+        <div class="login_logo"></div>
+        <div class="logon_contain" ng-controller="defaultLoginCtrl">
+        <form name="loginForm">
+             <!--web_login-->
+             <div id="web_login">
+                  <div class="webtitle">
+                       <p>密码登录</p>
+                       <i class="webbtn" id="webbtn"></i>
+                   </div>
+                    <div class="webcontent"><input type="text" class="inputtype" placeholder="不填默认为没有保理商" name="tenantName"  ng-model="user.tenantName"></div>
+                  <div class="webcontent"><input type="text" class="inputuser" placeholder="请输入您的用户名"  name="username"  ng-model="user.username" validator="required" required-error-message="请输入用户名" message-id="errMessage"></div>
+                  <div class="webcontent"><input type="password" class="inputpasswod" placeholder="请输入您的密码"  name="password" validator="required"   ng-model="user.password" required-error-message="请输入密码" message-id="errMessage"></div>
+                  <div class="layui-form reuser"><input title="记住我的登录信息" name="check1" type="checkbox" lay-skin="primary"> </div>
+                  <div class="webcontent"><button class="btnlogin" validation-submit="loginForm" ng-click="sumbit()" >登 录</button></div>
+                  <div class="warninger" id="errMessage" ng-bind="loginConfig.errorMsg"  ng-show="!loginForm.$valid">
+                  </div>
+             </div>
+             <!--webcat_login-->
+             <div id="webcat_login" style="display:none">
+                  <div class="webtitle">
+                       <p>扫码登录</p>
+                       <i class="webcatbtn" id="webcatbtn"></i>
+                  </div>
+                  <div class="webcat_pic"></div>
+                  <div class="webcat_text">微信扫一扫</div>
+             </div>
+            </form>
+        </div>
+        
+    </body>
+</html>

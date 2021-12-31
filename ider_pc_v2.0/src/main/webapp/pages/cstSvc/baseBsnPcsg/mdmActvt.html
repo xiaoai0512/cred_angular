@@ -1,0 +1,114 @@
+<div ng-controller="mdmActvtCtrl">
+	<!-- <div class="leftmenu_navtitle">媒介激活</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{userName}}
+	</div>
+	<div class="allcontent layui-form">
+	  <form action=""  name="queryInfForm">
+		<div class="col_td">
+			<div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+			<div class="wd190 float_left">
+				<select ng-model="mediaActivatyParams.idType"
+					jf-select="certificateTypeArray" name="idType" lay-filter="getIdType">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00112' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+				   id='mdmActvt_idNumber'name="idNumber" validator="noValidator"
+					ng-model="mediaActivatyParams.idNumber">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00111' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+					ng-model="mediaActivatyParams.externalIdentificationNo">
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryMedia()" type="button">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+				</button>
+			</div>
+		</div>
+	   </form>	
+	</div>
+	<div ng-show="isShowCstDiv">
+		<div class="allcontent ">
+			<div class="clearboth"></div>
+			<div class="mainname">1. {{'KHH5700003' | translate}}</div>
+			<div class=" layui-form">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00158' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select jf-select="certificateTypeArray" name="idType" ng-model="selPDObjTable.idType" disabled >
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'F00112' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="selPDObjTable.idNumber" disabled="disabled">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-form-label">{{'KHH5700005' | translate}}：</div>
+					<div class="layui-input-inline">
+						<input class="layui-input" type="text"
+							ng-model="selPDObjTable.customerName" disabled="disabled">
+					</div>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">2.{{'KHH5700006' | translate}}</div>
+			<div jf-grid="cstMdmInfTable">
+				<table>
+					<thead>
+						<tr>
+							<th style="width: 20%">{{'F00111' | translate}}</th>
+							<th>{{'KHH5700029' | translate}}</th>
+							<th>{{'KHH5700008' | translate}}</th>
+							<th>{{'KHH5700009' | translate}}</th>
+							<th>{{'KHH5700010' | translate}}</th>
+							<th>{{'KHH5700011' | translate}}</th>
+							<th>{{'KHH5700012' | translate}}</th>
+							<th>{{'KHH5700013' | translate}}</th>
+						</tr>
+					</thead> 
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.externalIdentificationNo"
+								style="width: 30%"></td>
+							<td align="center">
+								<span>{{item.productObjectCode}}</span><span>{{item.productDesc}}</span>
+							</td>
+							<td align="center" ng-bind="item.mainSupplyIndicatorDesc"></td>
+							<td align="center" ng-bind="item.mediaObjectDesc"></td>
+							<td align="center" ng-bind="item.activationFlagDesc"></td>
+							<td align="center" ng-bind="item.activationDate"></td>
+							<td align="center" ng-bind="item.invalidFlagDesc"></td>
+							<td align="center" ng-bind="item.invalidReasonDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius"
+					ng-click="activationMdm()" type="button">
+					<i class="layui-icon">&#xe624;</i> {{'F00107' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

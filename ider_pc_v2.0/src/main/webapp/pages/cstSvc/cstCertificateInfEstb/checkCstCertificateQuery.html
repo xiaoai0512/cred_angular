@@ -1,0 +1,61 @@
+<div ng-controller="checkCstCertificateQueryCtrl">
+	<div class="layui-form">
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200004' | translate}} ：</div>
+            <div class="wd190 float_left" >
+                <select ng-model="csInfEstbInfo.idType" name="idType"
+                        lay-filter="getIdType" jf-select="certificateTypeArray" disabled="disabled">
+                </select>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200005' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="idNumber"
+                       ng-model="csInfEstbInfo.idNumber" maxlength="30"
+                       validator="required" readonly="true">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200006' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="countryId"
+                       ng-model="csInfEstbInfo.countryId" maxlength="3"
+                       validator="required">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200007' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text"
+                       name="idIssueAuthority"
+                       ng-model="csInfEstbInfo.idIssueAuthority" maxlength="70"
+                       validator="required">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200008' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input icon_date" type="text" name="idEffectiveDate"
+                       jf-date-input="{'format': 'yyyy-MM-dd'}"
+                       ng-model="csInfEstbInfo.idEffectiveDate" disabled="disabled">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200009' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input icon_date" type="text" name="idExpiryDate"
+                       jf-date-input="{'format': 'yyyy-MM-dd'}"
+                       ng-model="csInfEstbInfo.idExpiryDate" disabled="disabled">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8200010' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <select ng-model="csInfEstbInfo.idValidFlag" name="idValidFlag"
+                        lay-filter="getIdValidFlag" jf-select="idValidFlag" >
+                </select>
+            </div>
+        </div>
+	</div>
+</div>

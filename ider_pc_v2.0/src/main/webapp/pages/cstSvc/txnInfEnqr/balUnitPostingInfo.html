@@ -1,0 +1,45 @@
+<div ng-controller="balUnitPostingQueryCtrl">
+	<div class=" layui-form">
+		<div jf-grid="balUnitInfoTable">
+			<table>
+						<thead>
+							<tr>
+								<th style="width: 150px;">{{'KHH1800021' | translate}}</th>
+								<th>{{'KHH1800017' | translate}}</th>
+								<th>{{'KHH1800006' | translate}}</th>
+								<th>{{'KHH1800007' | translate}}</th>
+								<th>{{'KHH1800008' | translate}}</th>
+								<th>{{'KHH1800009' | translate}}</th>
+								<th>{{'KHH1800010' | translate}}</th>
+								<th style="width: 13%;" >{{'KHH1800012' | translate}}</th>
+								<th>{{'KHJ1800016' | translate}}</th>
+								<th width="7%">{{'F00017' | translate}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-bind="item.entityKey"></td>
+								<td align="center" ng-bind="item.balanceTypeDesc"></td>
+								<td align="left" >
+									<span ng-bind="item.transCurrCde"></span>
+									<span ng-bind="item.transCurrDesc"></span>
+								</td>
+								
+								<td align="center" ng-bind="item.transAmount"></td>
+								<td align="center" ng-bind="item.transDate"></td>
+								<td align="center" ng-bind="item.postingAmount"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.transDesc"></td>
+								<td align="center" ng-bind="item.actualPostingAmount"></td>
+								<td align="center" style="padding: 0px 0px;">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="checkInfoModal(item)"  >
+										{{'F00041' | translate}}
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+	</div>
+</div>

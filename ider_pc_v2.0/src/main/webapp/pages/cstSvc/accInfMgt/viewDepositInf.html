@@ -1,0 +1,82 @@
+<div ng-controller="viewDepositCtrl">
+	<div class="section layui-form">
+		<div class="mainname titleInfo">{{'KHH4300011' | translate}}</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH4300003' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="accountId"
+					ng-model="itemInfo.accountId" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH4300004' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" name="currencyCode"
+					ng-model="itemInfo.currencyCode" type="text" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300005' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="currBalance" jf-format-input="money"
+					ng-model="itemInfo.currBalance" type="text" readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300006' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="depositInterestRate"
+					ng-model="itemInfo.depositInterestRate" type="text" readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300007' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="lifecycleNode" ng-model="itemInfo.interestBillingAmt" jf-format-input="money"
+				type="text" readonly>
+		</div>
+	</div>
+	
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300008' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="lifecycleNode" ng-model="itemInfo.frozenBalance" jf-format-input="money"
+				type="text" readonly>
+		</div>
+	</div>
+	
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300012' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="lifecycleNode" ng-model="itemInfo.currAccumultBalance" jf-format-input="money"
+				type="text" readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300013' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="lifecycleNode" ng-model="itemInfo.unPostingInterest"
+				type="text" readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300014' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="lifecycleNode" ng-model="itemInfo.prevAccumultDate"
+				type="text" readonly>
+		</div>
+	</div>
+	<div class="col_td">
+		<div class="col4 text_right">{{'KHH4300015' | translate}}：</div>
+		<div class="wd190 float_left">
+			<input class="layui-input bnone" name="lifecycleNode" ng-model="itemInfo.interestRateEffectiveDate"
+				type="text" readonly>
+		</div>
+	</div>
+	
+					
+					
+					
+	
+	</div>
+</div>

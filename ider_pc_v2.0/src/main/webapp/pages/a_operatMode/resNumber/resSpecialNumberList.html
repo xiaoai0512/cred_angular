@@ -1,0 +1,78 @@
+<div ng-controller="resSpecialNumberListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5300001' | translate}}：</div>
+			<div class="wd190 float_left">
+			<input class="layui-input layui-unselect layui-disabled" ng-model="resSpecialNumTable.params.corporationEntityNo" 
+			 type="text" id="corporationEntityNoId" readonly>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'YYH5300005' | translate}}：</div>
+			<div class="wd190 float_left">
+			 	<select ng-model="resSpecialNumTable.params.cardBin" class="layui-input" 
+						jf-select=cardBinArr name="cardBin"
+						validator="required" lay-filter="getCardBin">
+					</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'F00128' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="resSpecialNumTable.params.segmentNumber" class="layui-input" jf-select=segmentNumberArr name="segmentNumber"></select>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="resSpecialNumTable.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+	
+			<button class="layui-btn" ng-click="addResSpecialNumTable()" ng-show="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+	
+			<!-- <button class="layui-btn cancel-btn" type="button"
+				ng-click="resetChose()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button> -->
+		</div>
+		<div jf-grid="resSpecialNumTable">
+			<table>
+				<thead>
+					<tr>
+					    <th>{{'YYH5300005' | translate}}</th>
+					    <th>{{'F00128' | translate}}</th>
+						<th>{{'YYH5300019' | translate}}</th>
+						<th>{{'YYH5300020' | translate}}</th>
+						<th>{{'YYH5300021' | translate}}</th>
+						<th>{{'YYH5300022' | translate}}</th>
+						<th>{{'YYH5300023' | translate}}</th>
+						<th width="15%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					    <td align="center" ng-bind="item.cardBin"></td>
+						<td align="center" ng-bind="item.segmentNumber"></td>
+						<td align="center" ng-bind="item.surplusNumber"></td>
+						<td align="center" ng-bind="item.calorimeterValue"></td>
+						<td align="center" ng-bind="item.prevDate"></td>
+						<td align="center" ng-bind="item.nextDate"></td>
+						<td align="center" ng-bind="item.createCalorimeter"></td>
+						<td align="center" class="intercept ng-scope">
+							<button class="layui-btn layui-btn-mini ng-binding" ng-click="updateResSpecialNum(item)" ng-show="upBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="copyResSpecialNum(item)" ng-show="addBtnFlag">
+								<i class="layui-icon">&#xe654;</i> {{'F00061' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

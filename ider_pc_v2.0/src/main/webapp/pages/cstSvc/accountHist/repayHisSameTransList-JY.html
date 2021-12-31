@@ -1,0 +1,50 @@
+<div ng-controller="repayHisSameTransListCtrl">
+	<div class="allcontent layui-form">
+				<div jf-grid="repayHisSameTransTable">
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 150px;">外部识别号/账户号</th>
+								<th>交易币种</th>
+								<th>交易金额</th>
+								<th>交易日期</th>
+								<th>入账金额</th>
+								<th>入账日期</th>
+								<th style="width: 110px;" >事件编号</th>
+								<th width="6%">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" ng-model="item.externalIdentificationNo">
+									<span ng-if="item.externalIdentificationNo == null ">{{item.accountId}}</span>
+									<span ng-if="item.externalIdentificationNo != '' ">{{item.externalIdentificationNo}}</span>
+				  					<span ng-if="item.externalIdentificationNo == '0000000000000000000' ">{{item.accountId}}</span>
+								</td>
+								
+								<td align="center" ng-model="item.transCurrCde">
+									<span ng-if="item.transCurrCde == 'CNY' " >人民币</span>
+									<span ng-if="item.transCurrCde == 'USD' " >美元</span>
+								</td>
+								<td align="center" ng-bind="item.transAmount"></td>
+								<td align="center" ng-bind="item.transDate"></td>
+								<td align="center" ng-bind="item.accountAmount"></td>
+								<td align="center" ng-bind="item.occurrDate"></td>
+								<td align="center" ng-bind="item.eventNo"></td>
+								<td align="center" style="padding: 0px 0px;">
+									<button class="layui-btn layui-btn-mini"
+										ng-click="balTypePostingInfo(item)">
+										<i class="layui-icon"></i> 余额类型入账情况
+									</button>
+									<button class="layui-btn layui-btn-mini"
+										ng-click="viewRepaymentHisDetail(item)">
+										<i class="layui-icon"></i> 查看
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	
+</div>
+</div>

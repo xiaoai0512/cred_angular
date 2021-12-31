@@ -1,0 +1,60 @@
+<div class="layout_body" ng-controller="optLegalMageCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：运营模式法人管理
+	</div>
+	<div class="allcontent">
+		<div class="search_mian layui-form">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">运营模式：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="coArray" name="operationModeN" ng-model="itemList.params.operationMode"></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">法人：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input" jf-select="legalArray" name="corporationEntityNo"" ng-model="itemList.params.corporationEntityNo"></select>
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-bottom: 10px;padding-left: 150px;text-align: center;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="itemList.search()" ng-show="selBtnFlag">
+							<i class="layui-icon">&#xe615;</i> 查询
+						</button>
+						<button class="layui-btn" ng-click="addLegal()" ng-show="addBtnFlag">
+							<i class="layui-icon">&#xe654;</i> 新增
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>运营模式</th>
+						<th>法人实体编号</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.corporationEntityNo"></td>
+						<td align="center" >
+							<button class="layui-btn layui-btn-mini" ng-click="viewLegal(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> 查询详情
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateLegal(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> 修改
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

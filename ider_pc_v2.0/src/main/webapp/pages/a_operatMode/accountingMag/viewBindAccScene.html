@@ -1,0 +1,27 @@
+<div ng-controller="viewBindAccSceneCtrl">
+	<div class=" ">
+		<form name="accSubSceneFormee"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00077' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="vwoperationMode"  jf-select="operationModeArr" name="operationMode"
+					validator="maxlength"   maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400090' | translate}}：</div>
+				<div class="wd190 float_left">
+				<input class="layui-input" type="text" name="sceneSequence" ng-model="viewBindAccSceneInf.sceneSequence" />
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400092' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="sceneSequenceDesc"  
+						ng-model="viewBindAccSceneInf.sceneSequenceDesc" maxlength="50">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

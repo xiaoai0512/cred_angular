@@ -1,0 +1,17 @@
+{
+"YYH1700001": "Corporate Entity Number",
+"YYH1700002": "Issue Card BIN",
+"YYH1700003": "Remaining Cards Available",
+"YYH1700004": "Card Amount Threshold",
+"YYH1700005": "Automatically generated logo",
+"YYH1700006": "Last Generated Date",
+"YYH1700007": "Last card generated",
+"YYH1700008": "Next Build Date",
+"YYH1700009": "Cards generated per time",
+"YYH1700010": "Total card number generated",
+"YYH1700011": "Is the flag enabled",
+"YYH1700012":"Enable identification",
+"YYJ1700001": "Card number pool request establishment",
+"YYJ1700002": "Card number pool request details",
+"YYJ1700003": "Card number pool request modification"
+}

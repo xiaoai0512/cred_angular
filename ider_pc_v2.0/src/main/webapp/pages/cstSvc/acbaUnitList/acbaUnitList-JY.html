@@ -1,0 +1,132 @@
+<div class="layout_body" ng-controller="acbaUnitListCtrl-JY">
+	<!-- <div class="leftmenu_navtitle">账户余额单元信息</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：账户余额单元信息
+	</div>
+	<div class="allcontent layui-form">
+		<div class="search_mian">
+		
+			<div class="col_td">
+				<div class="col4 text_right">证件号码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="idNumber" name="idNumber" type="text" ng-model="queryAccountForm.idNumber">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">外部识别号 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  id="externalIdentificationNoId"  name="eventNo" type="text" ng-model="queryAccountForm.externalIdentificationNo">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<div class="search_button">
+					<button class="layui-btn" ng-click="searchAccount()" type="button">
+						<i class="layui-icon">&#xe615;</i> 查询
+					</button>
+
+					<button class="layui-btn cancel-btn" type="button"
+						ng-click="reset()">
+						<i class="layui-icon">&#x1002;</i> 重置
+					</button>
+				</div>
+			</div>
+			</div>
+			</div>
+			
+			<div class="allcontent"  ng-show="accountInfTrue">
+			<div class="clearboth"></div>
+			<div class="mainname">账户余额信息</div>
+				<div class="col_td">
+					<div class="col4 text_right">账户代码：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="accountId" type="text" ng-model="accountId" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">当前余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="totalBalance" type="text" ng-model="totalBalance" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">当期本金余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currPrincipalBalance" type="text" ng-model="currPrincipalBalance" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">账单本金余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="billPrincipalBalance" type="text" ng-model="billPrincipalBalance" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">当期利息余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currInterestBalance" type="text" ng-model="currInterestBalance" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">账单利息余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="billInterestBalance" type="text" ng-model="billInterestBalance" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">当期费用余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="currCostBalance" type="text" ng-model="currCostBalance" disabled>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right">账单费用余额 ：</div>
+					<div class="wd190 float_left">
+						<input class="layui-input bnone" name="billCostBalance" type="text" ng-model="billCostBalance" disabled>
+					</div>
+				</div>
+			</div>
+		<div class="allcontent" ng-show = "isShow">
+		<div class="clearboth"></div>
+		<div class="mainname">账户余额单元信息</div>
+		<div jf-grid="balObcList">
+			<table>
+				<thead>
+					<tr>
+						<th style="width:20%">余额单元代码</th>
+						<th>币种</th>
+						<th>周期号</th>
+						<th style="width:15%">余额对象</th>
+						<th>余额类型</th>
+						<th>余额</th>
+						<th>计息年利率</th>
+						<th>累计利息</th>
+						<th>当期最低还款</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width:20%" align="center" ng-bind="item.balanceUnitCode"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.cycleNumber"></td>
+						<td style="width:15%" align="center" ng-bind="item.balanceObjectCode"></td>
+						<td align="center">
+							<span ng-if="item.balanceType == 'P'">本金</span>
+					  		<span ng-if="item.balanceType == 'I'">利息</span>
+					  		<span ng-if="item.balanceType == 'F'">费用</span>
+						</td>
+						<td align="center" ng-bind="item.balance"></td>
+						<td align="center" ng-bind="item.annualInterestRate"></td>
+						<td align="center" ng-bind="item.accumulatedInterest"></td>
+						<td align="center" ng-bind="item.currentMinPayment"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkAcbaDtlEnqr(item)" type="button">
+									<i class="layui-icon"></i> 查看
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+</div>

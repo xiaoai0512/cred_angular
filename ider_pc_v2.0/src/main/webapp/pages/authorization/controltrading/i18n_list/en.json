@@ -1,0 +1,22 @@
+{
+"SQH1900060": "Operation Mode",
+"SQH1900061": "Transaction control scenario Code",
+"SQH1900062": "Limited Level",
+"SQH1900063": "Differentiation Code",
+"SQH1900064": "Serial number",
+"SQH1900065": "Currency",
+"SQH1900066": "Terminal level",
+"SQH1900067": "Merchant level",
+"SQH1900068": "Country Level",
+"SQH1900069": "Basic Information",
+"SQH1900070": "Limit information",
+"SQH1900071": "Single transaction limit",
+"SQJ1900001": "Query Details",
+"SQJ1900002": "List limit establishment",
+"SQJ1900003": "Maintenance Information",
+"SQJ1900004": "Confirm delete",
+"SQJ1900005": "Confirm delete",
+"SQJ1900006": "Merchant level",
+"SQJ1900007": "Country Level",
+"SQJ1900008": "Terminal Layer"
+}

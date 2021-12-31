@@ -1,0 +1,33 @@
+<div class="layout_body" ng-controller="creditAdjustAmountCtrl">
+	<div class="layui-form">
+		<form action="" name="adjustAmtForm">
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6100005' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="transAmount " type="text" jf-format-input="money" ng-model="item.transAmount" readonly>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6100018' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="adjustedAmount" type="text" jf-format-input="money" ng-model="item.adjustedAmount">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6100019' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="adjustAmount" type="text" jf-format-input="money" ng-model="item.adjustAmount">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'KHH6100020' | translate}} ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="ecommAdjustedDesc" type="text" ng-model="item.ecommAdjustedDesc">
+				</div>
+			</div>
+			
+		</form>
+	</div>
+	
+	
+</div>

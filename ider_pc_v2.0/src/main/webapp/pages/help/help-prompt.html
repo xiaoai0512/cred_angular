@@ -1,0 +1,36 @@
+<div class="mainname">弹框提示使用说明- 入门指南</div>
+<blockquote class="layui-elem-quote">
+ 成功提示： jfLayer.success(提示信息,回调函数);</br>
+失败提示： jfLayer.fail(提示信息,回调函数);</br>
+正常提示： jfLayer.alert(提示信息,回调函数);</br>
+是否弹框提示： jfLayer.confirm(提示信息,确定指定函数，取消执行函数);</br>
+关闭所有弹框： jfLayer.closeAll();</br>
+关闭指定弹框：jfLayer.close(index);</br>
+</blockquote>
+
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+    //成功提示
+    jfLayer.success("成功",function(){
+            alert("成功回调函数");
+    });
+    //失败提示
+    jfLayer.fail("失败",function(){
+            alert("失败回调函数");
+    });
+    //正常提示
+    jfLayer.alert("正常",function(){
+            alert("正常回调函数");
+    });
+    //是否弹出框
+    jfLayer.confirm("是否继续？",function(){
+            alert("确定继续触发事件");
+    }，function(){
+        alert("取消默认关闭弹框");
+    });
+    //关闭所有弹窗
+    jfLayer.closeAll();
+    //关闭指定index弹窗
+    jfLayer.close(index);
+</pre>
+

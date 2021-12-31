@@ -1,0 +1,88 @@
+<div ng-controller="cstVehicleQueryCtrl">
+    <!-- <div class="leftmenu_navtitle">客户车辆信息查询及维护</div> -->
+    <div class="subposition">
+        <i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+    </div>
+    <div class="allcontent layui-form">
+        <form action="" name="cstVheQueryForms">
+            <!-- <div class="col_td">
+                <div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+                <div class="wd190 float_left">
+                    <select ng-model="itemList.params.idType"
+                        jf-select="builder.option(certificateTypeArray1)" name="idType"  lay-filter="getIdType">
+                    </select>
+                </div>
+            </div> -->
+            <div class="col_td">
+                <div class="col4 text_right"> {{'F00158' | translate}} ： </div>
+                <div class="wd190 float_left">
+                    <select ng-model="itemList.params.idType"
+                            jf-select="certificateTypeArray" name="idType"  lay-filter="getIdType">
+                    </select>
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'F00112' | translate}} ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input" id="cstVheQuery_idNumber"
+                           ng-model="itemList.params.idNumber" name="idNumber" validator="noValidator" type="text">
+                </div>
+            </div>
+            <div class="col_td">
+                <div class="col4 text_right">{{'F00111' | translate}} ：</div>
+                <div class="wd190 float_left">
+                    <input class="layui-input"
+                           ng-model="itemList.params.externalIdentificationNo"
+                           name="externalIdentificationNo" type="text">
+                </div>
+            </div>
+
+            <div class="col_tr text_center">
+                <button class="layui-btn" validation-submit="cstVheQueryForms"  ng-click="searchCstVheQuery()">
+                    <i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+                </button>
+                <button class="layui-btn layui-btn-primary" ng-click="newVheBtn()"  type="button">
+                    <i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+                </button>
+                <!-- <button class="layui-btn cancel-btn" type="button"
+                    ng-click="reset()">
+                    <i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+                </button> -->
+            </div>
+        </form>
+        <div class="clearboth"></div>
+        <div ng-show="showItemList">
+            <div class="mainname">{{'KHH6200003' | translate}}</div>
+            <div jf-grid="itemList">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>{{'KHH6200004' | translate}}</th>
+                        <th style=" width: 20%;">{{'KHH6200005' | translate}}</th>
+                        <th>{{'KHH6200006' | translate}}</th>
+                        <th>{{'KHH6200007' | translate}}</th>
+                        <th>{{'F00017' | translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr>
+                        <td align="center"  ng-bind="item.licencePlateNumber"></td>
+                        <td style=" width: 20%;" align="center" ng-bind="item.vehicleType"></td>
+                        <td align="center" ng-bind="item.vehicleBrand"></td>
+                        <td align="center" ng-bind="item.vehicleRegisterDate"></td>
+                        <td align="center">
+                            <button class="layui-btn layui-btn-primary" ng-click="cstVheQueryAllForms(item)" ng-show="queryVheFlag">
+                                <i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+                            </button>
+                            <button class="layui-btn layui-btn-primary"
+                                    ng-click="updateCstVheInfo(item)" ng-show="updVheFlag">
+                                <i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

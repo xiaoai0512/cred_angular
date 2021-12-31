@@ -1,0 +1,98 @@
+<div class="layui-form" ng-controller="normalRepaymentS2Ctrl-JY">
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="normalInfList.ecommEntryId" name="ecommEntryIdN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">客户号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="normalInfList.customerNo" name="customerNoN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">应还总额 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="normalInfList.allAmt" jf-format-input="money" name="throwpriN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还本金 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="normalInfList.throwpri" name="throwpriN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还利息：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="normalInfList.throwInterest" name="throwInterestN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还费用 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone"  ng-model="normalInfList.throwFee" name="throwFeeN" type="text" disabled="disabled">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">未还罚息：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input bnone" ng-model="normalInfList.penaltyInterest" name="penaltyInterestN" type="text" disabled="disabled">
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+		<div class="col_tr float_left">{{'KHH4600030' | translate}}</div>
+<!-- 		<div jf-grid="ORepaymentList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'KHH4600025' | translate}}</th>
+						<th>{{'KHH4600031' | translate}}</th>
+						<th>{{'KHH4600032' | translate}}</th>
+						<th>{{'KHH4600027' | translate}}</th>
+						<th>{{'KHH4600028' | translate}}</th>
+						<th>{{'KHH4600033' | translate}}</th>
+						<th>{{'KHH4600029' | translate}}</th>
+						<th>{{'KHH4600034' | translate}}</th>
+						<th>{{'KHH4600035' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.termNo"></td>
+						<td align="center" ng-bind="item.throwDate"></td>
+						<td align="center" ng-bind="item.principalAmount | number:2"></td>
+						<td align="center" ng-bind="item.interestAmount | number:2"></td>
+						<td align="center" ng-bind="item.feeAmount | number:2"></td>
+					</tr>
+			</tbody>
+		</table>
+	</div> -->
+		<div style="margin-bottom:20px">
+		<table style="width:100%">
+			<thead>
+					<tr style="background-color: #DCDCDC;">
+						<th>账户号</th>
+						<th>{{'KHH4600025' | translate}}</th>
+						<th>{{'KHH4600031' | translate}}</th>
+						<th>{{'KHH4600027' | translate}}</th>
+						<th>{{'KHH4600028' | translate}}</th>
+						<th>{{'KHH4600033' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr  ng-repeat = "item in normalrepaymentList">
+						<td align="center" ng-bind="item.accountId"></td>
+						<td align="center" ng-bind="item.termNo"></td>
+						<td align="center" ng-bind="item.throwDate"></td>
+						<td align="center" ng-bind="item.principalAmount | number:2"></td>
+						<td align="center" ng-bind="item.interestAmount | number:2"></td>
+						<td align="center" ng-bind="item.feeAmount | number:2"></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

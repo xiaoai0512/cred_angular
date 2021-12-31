@@ -1,0 +1,34 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+                    "accCd": "100000000018A00001",
+                    "ccyCd": "156",
+                    "pnpBal": "2000.00",
+                    "intBal": "0.00",
+                    "epsBal": "0.00",
+                    "intArYrIntRt": "16%",
+                    "acmInt": "0.00"
+                }
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 0,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 1,
+            "total": 2
+        }
+    },
+    "status": 200
+}

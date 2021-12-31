@@ -1,0 +1,68 @@
+<div class="layui-form" ng-controller="accSubSceneListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 核算子场景查询 -->
+		<form class="search_mian" >
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH400001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select class="layui-input" ng-model="accSubSceneList.params.operationMode"  jf-select="operationModeArr" name="operationMode"
+					  maxlength="3">
+					</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'YYH5400045' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text" name="masterSceneSequence"
+						ng-model="accSubSceneList.params.masterSceneSequence" maxlength="14" >
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="accSubSceneList.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn" ng-click="accSubSceneAdd()" ng-show="addBtnFlag"> 
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</form>
+		<!-- 核算子场景列表 -->
+		<div jf-grid="accSubSceneList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH400001' | translate}}</th>
+						<th>{{'YYH5400046' | translate}}</th>
+						<th>{{'YYH5400057' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.operationMode"></td>
+						<td align="center" ng-bind="item.subTableSequence"></td>
+						<td align="center" ng-bind="item.subTableSequenceDesc"></td>
+						
+						<td align="center">
+							 <button class="layui-btn layui-btn-mini"
+								ng-click="checkAccSubSceneInf(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateAccSubSceneInf(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" 
+								ng-click="deleteAccSubSceneInf(item)" ng-show="delBtnFlag">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

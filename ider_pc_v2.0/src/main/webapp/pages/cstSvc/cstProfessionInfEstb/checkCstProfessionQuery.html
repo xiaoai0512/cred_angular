@@ -1,0 +1,51 @@
+<div ng-controller="checkCstProfessionQueryCtrl">
+	<div class="layui-form">
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8100004' | translate}} ：</div>
+            <div class="wd190 float_left" >
+                <select ng-model="csInfEstbInfo.position" name="position"
+                        lay-filter="getPosition" jf-select="positionTypeList" >
+                </select>
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8100005' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="corporationName"
+                       ng-model="csInfEstbInfo.corporationName" maxlength="100"
+                       validator="required">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8100006' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="department"
+                       ng-model="csInfEstbInfo.department" maxlength="50"
+                       validator="required,number">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8100007' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text"
+                       name="station"
+                       ng-model="csInfEstbInfo.station" maxlength="50"
+                       validator="required,number">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8100008' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="employmentYears" maxlength="2"
+                       ng-model="csInfEstbInfo.employmentYears" validator="required">
+            </div>
+        </div>
+        <div class="col_td">
+            <div class="col4 text_right">{{'KHH8100009' | translate}} ：</div>
+            <div class="wd190 float_left">
+                <input class="layui-input" type="text" name="employmentMonths" maxlength="2"
+                       ng-model="csInfEstbInfo.employmentMonths" validator="required">
+            </div>
+        </div>
+	</div>
+</div>

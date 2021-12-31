@@ -1,0 +1,133 @@
+<div ng-controller="holidayEstCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+    <div id="myrl" style="width:90%; margin-left:auto; margin-right:auto; min-height:405px; max-height:500px;">
+		<form name=CLD>
+            <TABLE class="biao" style="table-layout:fixed" width="100%">
+                <TBODY id="calTbody">
+                <TR>
+                    <TD class="calTit" colSpan=7 style="height:30px;padding-top:3px;text-align:center;">
+                        <div style="width:100%; text-align:center">
+                              <span id="dateSelectionRili" class="dateSelectionRili"
+                                    style="cursor: pointer;color: white; border-bottom: 1px solid white;"
+                                    ng-click="dateSelection.show()">
+							 <span id="nian" class="topDateFont"></span>
+							 <span class="topDateFont">{{'PZH1600001' | translate}}</span>
+							 <span id="yue" class="topDateFont"></span>
+							 <span class="topDateFont">{{'PZH1600002' | translate}}</span>
+							<span class="dateSelectionBtn cal_next"
+                                       ng-click="dateSelection.show()">▼</span></span> &nbsp;&nbsp;<font id=GZ class="topDateFont"></font>
+                        </div>
+
+                        <!--新加导航功能-->
+                        <div style="left: 37%; display: none;" id="dateSelectionDiv">
+                            <div id="dateSelectionHeader"></div>
+                            <div id="dateSelectionBody">
+                                <div id="yearList">
+                                    <div id="yearListPrev" ng-click="dateSelection.prevYearPage()">&lt;</div>
+                                    <div id="yearListContent"></div>
+                                    <div id="yearListNext" ng-click="dateSelection.nextYearPage()">&gt;</div>
+                                </div>
+                                <div id="dateSeparator"></div>
+                                <div id="monthList">
+                                    <div id="monthListContent"><span id="SM0" class="month"
+                                                                     ng-click="dateSelection.setMonth(0)">1</span><span
+                                            id="SM1" class="month" ng-click="dateSelection.setMonth(1)">2</span><span
+                                            id="SM2" class="month" ng-click="dateSelection.setMonth(2)">3</span><span
+                                            id="SM3" class="month" ng-click="dateSelection.setMonth(3)">4</span><span
+                                            id="SM4" class="month" ng-click="dateSelection.setMonth(4)">5</span><span
+                                            id="SM5" class="month" ng-click="dateSelection.setMonth(5)">6</span><span
+                                            id="SM6" class="month" ng-click="dateSelection.setMonth(6)">7</span><span
+                                            id="SM7" class="month" ng-click="dateSelection.setMonth(7)">8</span><span
+                                            id="SM8" class="month" ng-click="dateSelection.setMonth(8)">9</span><span
+                                            id="SM9" class="month" ng-click="dateSelection.setMonth(9)">10</span><span
+                                            id="SM10" class="month" ng-click="dateSelection.setMonth(10)">11</span><span
+                                            id="SM11" class="month curr" ng-click="dateSelection.setMonth(11)">12</span>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </div>
+                                <div id="dateSelectionBtn">
+                                    <div id="dateSelectionTodayBtn" ng-click="dateSelection.goToday()">{{'PZH1600003' | translate}}</div>
+                                    <div id="dateSelectionOkBtn" ng-click="dateSelection.go()">{{'F00107' | translate}}</div>
+                                    <div id="dateSelectionCancelBtn" ng-click="dateSelection.hide()">{{'F00108' | translate}}</div>
+                                </div>
+                            </div>
+                            <div id="dateSelectionFooter"></div>
+                        </div>
+                    </TD>
+                </TR>
+                <TR class="calWeekTit" style="font-size:12px; height:20px;text-align:center;" id="calWeekTit">
+                    <TD width="100" class="red">{{'PZH1600004' | translate}}</TD>
+                    <TD width="100">{{'PZH1600005' | translate}}</TD>
+                    <TD width="100">{{'PZH1600006' | translate}}</TD>
+                    <TD width="100">{{'PZH1600007' | translate}}</TD>
+                    <TD width="100">{{'PZH1600008' | translate}}</TD>
+                    <TD width="100">{{'PZH1600009' | translate}}</TD>
+                    <TD width="100" class="red">{{'PZH1600010' | translate}}</TD>
+                </TR>
+                </tbody>
+            </TABLE>
+            </form>
+           </div>
+           <form name="holidForm" class="layui-form">
+           <div ng-show="isShow">
+            <!-- <div id="holiday" class="cc">
+	           			<p id="setholiday"><span style="font-weight: 600;">已选日期</span>: </p>
+	           			<input class="form-control" type="hidden"  id="txtDestNum" name="txtDestNum" value="" >
+	          		</div> --> 
+            <div class="search_mian" style="padding-left: 5%;">
+				<div class="mainname">{{'PZH1600011' | translate}}</div>
+			</div>
+            <div class="holidaydiv">
+            	<div class="col_td">
+					<div class="col2 text_right"><span class="red">*</span>{{'PZH1600012' | translate}} ：</div>
+					<div class="float_left" ng-show="isSelect">
+						<select ng-model="holidayNoSelect" class="layui-input" jf-select="holidayNoArr" name="holidayNoN"  lay-search=""></select>
+					</div>
+					<div class="float_left" ng-show="isInput">
+						<input class="layui-input" name="holidayNoN"  ng-model="holidayNoInfut"  type="text" validator="minlength,maxlength" minlength="5" maxlength="5" >
+					</div>
+					<button class="layui-btn" ng-click="addHolidayInfut()" style="margin-left:10px;" ng-show = "isAddBtn">
+						{{'F00010' | translate}}
+					</button>
+					<button class="layui-btn" ng-click="selHolidayInfut()" style="margin-left:10px;" ng-show = "isCanBtn">
+						{{'F00108' | translate}}
+					</button>
+				</div>
+	            <table border="0" cellspacing="0" cellpadding="0"
+					class="layui-table dataTable no-footer" lay-even="" lay-skin="nob">
+		            <thead>
+			            <tr>
+			              <th style="width:100px;">{{'F00013' | translate}}</th>
+			              <th>{{'PZH1600013' | translate}}</th>
+			              <th style="width:80px;">{{'PZH1600014' | translate}}</th>
+			              <th style="width:150px;">{{'F00017' | translate}}</th>
+			            </tr>
+		            </thead>
+		            <tbody>
+			            <tr ng-repeat = "item in hDays">
+			            	<td align="center" style="width:100px;" ng-bind="$index+1"></td>
+			            	<td align="center" ng-bind="item.ymd"></td>
+		                    <td align="center" >
+		                    	<select ng-model="item.holidayStatus" class="layui-input" jf-select="holidayArray" name="levelFlagN" validator="required"></select>
+		                    </td>
+		                    <td align="center">
+			                    <button class="layui-btn layui-btn-mini" ng-click="delInfo(item,$index)">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+		                    </td>
+			            </tr>
+			        </tbody>
+	          </table>
+	         </div>
+          </div>
+	      	<div class="col_tr text_center" style="margin-top: 20px">
+				<button class="layui-btn" ng-click="saveHoliday()" validation-submit="holidForm">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<div ng-controller="userAndDeptRelManageCtrl">
+	<div>
+		<div class="centermenu_navtitle_line" style="margin: 0"></div>
+		<div jf-grid="grid" name="userAndDeptRelMang">
+			<div class="layui-form">
+				<table>
+					<thead>
+						<tr>
+							<th>部门名称</th>
+							<th>机构名称</th>
+							<th>部门用户关联状态</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.deptName"></td>
+							<td align="center" ng-bind="item.orgName"></td>
+							<td align="center"
+								ng-bind="item.statusCd | jfConvert : 'dict' : 'StCd'"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="scrbtn">
+	 		<button class="layui-btn" ng-click="turn('/helpDemo')"> <i class="layui-icon">&#x1006;</i> 返回</button>
+		</div>
+	</div>
+</div>

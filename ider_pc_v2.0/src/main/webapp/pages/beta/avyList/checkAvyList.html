@@ -1,0 +1,76 @@
+<div ng-controller="checkAvyCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<div class="layui-form">
+				<div class="layui-form">
+					<!--web_body-->
+					<div class="mainname titleInfo">{{'PZH200015' | translate}}</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH200001' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="activityNo"" ng-model="evtInfo.activityNo""
+								type="text" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH200002' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="activityDesc"
+								ng-model="evtInfo.activityDesc" type="text" readonly>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH200003' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="logLevel" 
+						jf-select="logLevelArr" name="logLevel"  maxlength="1" disabled>
+					</select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH200004' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="logType" 
+						jf-select="logTypeArr" name="logType"  maxlength="1" disabled>
+					</select>
+						</div>
+					</div>
+					<div class="col_td">
+						<div class="col4 text_right">{{'PZH200005' | translate}}：</div>
+						<div class="wd190 float_left">
+							<input class="layui-input bnone" name="lifecycleNode" ng-model="evtInfo.lifecycleNode"
+								type="text" readonly>
+						</div>
+					</div>
+					<!-- <div class="col_td">
+						<div class="col4 text_right">{{'PZH200016' | translate}}：</div>
+						<div class="wd190 float_left">
+							<select  class="layui-input" ng-model="accountingUseFlag" disabled
+								jf-select="accountingUseFlagArr" name="accountingUseFlag"  maxlength="1">
+							</select>
+						</div>
+					</div> -->
+					<div class="clearboth"></div>
+					<div class="mainname" >{{'PZH200039' | translate}}</div>
+					<div jf-grid="itemList">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'PZH200039' | translate}}</th>
+									<th>{{'PZH200041' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.eventNo"></td>
+									<td align="center" ng-bind="item.eventDesc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

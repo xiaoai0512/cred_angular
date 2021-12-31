@@ -1,0 +1,28 @@
+<div ng-controller="cstEventViewCtrl">
+		<div jf-grid="blockEventNoTable">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'KHH5200006' | translate}}</th>
+							<th>{{'KHH5200028' | translate}}</th>
+							<th>{{'KHH5200029' | translate}}</th>
+							<th>{{'KHH5200047' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center">
+								<span ng-bind="item.controlProjectNo"></span>
+								<span ng-bind="item.controlDesc" ></span>
+							</td>
+							<td align="center">
+								<span ng-if="item.controlField == 'NE' ">{{'KHH5200030' | translate}}</span>
+								<span ng-if="item.controlField == 'IE' ">{{'KHH5200031' | translate}}</span>
+							</td>
+							<td align="center" ng-bind="item.eventNo"></td>
+							<td align="center" ng-bind="item.eventDesc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+</div>

@@ -1,0 +1,70 @@
+<div class="mainname">不带分页的列表使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">不带分页的列表
+通过paging参数设置是否带分页，默认是ture带分页效果，此处我们设置paging:false即可</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+<div jf-grid="grid1">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th>融资日期</th>
+                    <th>上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  $scope.grid1 = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : false ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      }
+  };
+</pre>
+<div class="mainname">列表例子</div>
+<div jf-grid="grid1" ng-controller="listDemoCtrl">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th>融资日期</th>
+                    <th>上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+              </tr>
+          </tbody>
+     </table>
+</div>

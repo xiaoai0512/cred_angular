@@ -1,0 +1,85 @@
+<div class="layout_body" ng-controller="quotaHistoryListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+			<form class="layui-form">
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00158' | translate}}：</label>
+					<div class="wd190 float_left">
+						<select ng-model="idType" jf-select="certificateTypeArray" name="idTypeN"></select>
+					</div>
+				</div>
+				<div class="col_td">
+					<label class="col4 text_right">{{'F00112' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input" type="text"	ng-model="idNumber">
+					</div>
+				</div>
+				<div class="col_td">
+				<label class="col4 text_right">{{'F00111' | translate}}：</label>
+				<div class="wd190 float_left">
+					<input class="layui-input" type="text"	ng-model="externalIdentificationNo">
+				</div>
+			   </div>
+			   <div class="col_td" style="width:70%">
+			   <div class="col4 text_right" style="width:28.5%">{{'SQH1100022' | translate}}：</div>
+				<div class="float_left" style="width:400px">
+					<input class="layui-input icon_date" style="width:48.5%;float:left;" name="fromDataName" id="LAY_start_Add" type="text" ng-model="itemList.params.startDate" autocomplete="off">
+					<div class="col4 text_right" style="width:50%;display:-webkit-box;">
+						<span>~</span>	
+						<input class="layui-input icon_date" style="width:90%;" name="toDateName" id="LAY_end_Add" type="text" ng-model="itemList.params.endDate" autocomplete="off"> 
+					</div>
+					</div>
+                </div>
+				<div class="col_tr text_center">
+					<div class="search_button">
+					  <button class="layui-btn" type="button"   ng-click="getCreditNodeList($event)" moreClick>
+					      <i class="layui-icon">&#xe61a;</i> {{'SQH1100003' | translate}}
+				      </button>
+						<button class="layui-btn" ng-click="selectList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+				<div class="search_width"  style="display: none;" id="search_width">
+					<div class="col_td">
+						<div class="col4 text_right">{{'SQH1100003' | translate}} ：</div><!-- 额度节点 -->
+						<div class="wd190 float_left">
+							 <select ng-model="differentType" class="layui-input"
+										jf-select="differentTypeArray" name="aatype" ></select> 
+						</div>
+					</div>
+				</div>
+			</form>
+	<div ng-show="showQuotaTable" >	
+		<div jf-grid="itemList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'SQH1100022' | translate}}</th><!--累计日期-->
+						<th>{{'SQH1100003' | translate}}</th><!--管控场景码-->
+						<th>{{'SQH1100005' | translate}}</th><!--限制层级-->
+						<th>{{'SQH1100001' | translate}}</th><!--累计识别码-->
+						<th>{{'SQH1100004' | translate}}</th><!--币种 -->
+						<th>{{'SQH1100025' | translate}}</th><!--当月累计-->
+						<th>{{'SQH1100026' | translate}}</th><!--当月累计笔数-->
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.accumultEndDate"></td>
+						<td align="center">{{item.transLimitCode}} {{item.transLimitDesc}}</td>
+						<td align="center" ng-bind="item.accumultTypDesc"></td>
+						<td align="center" ng-bind="item.accumultIndentitCde"></td>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.accumultMonthTrans"></td>
+						<td align="center" ng-bind="item.accumultMonthTransNum"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</div>
+</div>

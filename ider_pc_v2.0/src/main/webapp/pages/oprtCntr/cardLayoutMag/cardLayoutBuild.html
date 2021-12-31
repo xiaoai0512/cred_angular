@@ -1,0 +1,34 @@
+<div ng-controller="cardLayoutBuildCtrl">
+	<div class=" layui-form">
+		<form name="cardLayoutInfForm"  class="layui-form">
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH700001' | translate}}：</div>
+				<div class="wd190 float_left">
+					<select  class="layui-input" ng-model="cardLayoutInf.operationMode" validator="required"
+							jf-select="operationModeArr" name="operationMode"  maxlength="3">
+						</select>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'F00155' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardLayoutInf.formatCode" maxlength="4" validator="required"
+						name="formatCode" type="text">
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">{{'F00131' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" ng-model="cardLayoutInf.formatDescribe" maxlength="50" 
+						name="description" type="text">
+				</div>
+			</div>
+			<!-- <div class="col_tr text_center">
+				<button class="layui-btn layui-btn-radius" validation-submit="cardLayoutInfForm"
+					ng-click="savecardLayoutInf()">
+					<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+				</button>
+			</div> -->
+		</form>
+	</div>
+</div>

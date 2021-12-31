@@ -1,0 +1,31 @@
+<div ng-controller="layerProlistCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div jf-grid="proList">
+						<table>
+							<thead>
+								<tr>
+									<th style="width:20%">产品对象代码</th>
+									<th>产品描述</th>
+									<th>产品类型</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="width:20%" align="center" ng-bind="item.productObjectCode"></td>
+									<td align="center" ng-bind="item.productDesc"></td>
+									<td align="center" ng-bind="item.productType"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<div ng-controller="selectElementCtrl">
+	<form   class="layui-form">
+		<div jf-grid="elementTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'YYH200015' | translate}}</th>
+						<th>{{'YYH200016' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.elementNo" ></td>
+						<td align="center" ng-bind="item.elementDesc"  ></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

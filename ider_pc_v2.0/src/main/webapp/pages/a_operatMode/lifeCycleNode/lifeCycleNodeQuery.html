@@ -1,0 +1,67 @@
+<div ng-controller="lifeCycleNodeQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div >
+			<div class="col_td">
+				<label class="col4 text_right">{{'PZH800001' | translate}}：</label>
+				<div class="wd190 float_left">
+						<select  class="layui-input" ng-model="lifeCycleNodeList.params.nodeTyp" 
+					jf-select="nodeTypArr" name="nodeTyp"  maxlength="2">
+				</select>
+				</div>
+			</div>
+			<div class="col_td" >
+				<label class="col4 text_right">{{'PZH800002' | translate}} ：</label>
+				<div class="wd190 float_left">
+						<input class="layui-input" type="text"  name="nodeSerialNumbr" min="0" max="99"   minlength="0" maxlength="2"
+						ng-model="lifeCycleNodeList.params.nodeSerialNumbr">
+				</div>
+			</div>
+			<div class="col_tr text_center">
+				<button class="layui-btn" ng-click="lifeCycleNodeList.search()" ng-if="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+	
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="addLifeCycleNode()" ng-if="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		
+		</div>
+		
+
+		<div jf-grid="lifeCycleNodeList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH800001' | translate}}</th>
+						<th>{{'PZH800002' | translate}}</th>
+						<th>{{'PZH800003' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.nodeTypDesc"></td>
+						<td align="center" ng-bind="item.nodeSerialNumbr"></td>
+						<td align="center" ng-bind="item.nodeDesc"></td>
+						<td align="center" ng-if="item.nodeTyp != '' && item.nodeSerialNumbr != null">
+							 <button class="layui-btn layui-btn-mini" ng-click="checkLifeCycleNode(item)" ng-show="selBtnFlag">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button> 
+							<button class="layui-btn layui-btn-mini" ng-click="updateLifeCycleNode(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							
+					</td>
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

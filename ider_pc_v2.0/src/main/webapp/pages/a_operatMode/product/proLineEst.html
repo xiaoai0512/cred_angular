@@ -1,0 +1,502 @@
+<div ng-controller="proLineEstCtrl">
+		<div ng-show="newCodeShow">
+			<form name="proLineInfoForm"  class="layui-form">
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH100001' | translate}} ：</div>
+					<div class="wd330 float_left">
+						<select ng-model="proLineInf.operationMode" class="layui-input step1S"  jf-select="operationModeArr"name="operationMode" maxlength="3" validator="required" lay-filter="getOperationModeAdd" >
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH100002' | translate}}：</div>
+					<div class="wd330 float_left">
+						<span style="display: inline-block;width:24%">MODG</span><input style="display: inline-block;width: 76%;" class="layui-input step1I"  type="text" name="businessProgramNo"  ng-model="proLineInf.businessProgramNoHalf" validator="required,minlength,maxlength,number" minlength="5" maxlength="5" autocomplete="off">
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'YYH100003' | translate}}：</div>
+					<div class="wd330 float_left">
+						<input class="layui-input step1I"  type="text" name="programDesc"  ng-model="proLineInf.programDesc" maxlength="50" validator="required" autocomplete="off">
+					</div>
+				</div>
+				<!-- <div class="col_td">
+					<div class="col4 text_right">{{'YYH100004' | translate}} ：</div>
+					<div class="wd330 float_left">
+						<select ng-model="proLineInf.disputeBusinessType"   jf-select="busTypeArr"name="disputeBusinessType"  >
+						</select>
+					</div>
+				</div> -->
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH100005' | translate}}：</div>
+					<div class="wd330 float_left">
+						<!-- <select ng-model="proLineInf.defaultBusinessType"   jf-select="busTypeArr"name="defaultBusinessType" lay-search>
+						</select>  -->
+						<input class="layui-input bnone"  type="text" name="defaultBusinessTypeN"  ng-model="proLineInf.defaultBusinessType" readonly>
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH100006' | translate}}：</div>
+					<div class="wdper35 float_left" style="margin-right:3%">
+						<input class="layui-input step1I"  type="text" name="paymentPriority"  ng-model="proLineInf.paymentPriority" validator="number" maxlength="3" autocomplete="off">
+					</div>
+					<div class="search_button">
+						<button class="layui-btn" ng-click="choseBtnPriority()" >
+							<i class="layui-icon">&#xe615;</i>{{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+				
+				<div class="col_td">
+					<div class="col4 text_right">{{'YYH100016' | translate}}：</div>
+					<div class="wd330 float_left">
+						<select ng-model="proLineInf.responseType" class="layui-input step1S"  jf-select="responseTypeArr"name="responseType" maxlength="3" autocomplete="off">
+						</select>
+					</div>
+				</div>
+				<div class="col_td">
+					<div class="col4 text_right"><span class="red">*</span>{{'F00140' | translate}}：</div>
+					<div class="wd330 float_left">	
+						<select ng-model="proLineInf.programType" class="layui-input step1S"  jf-select="productTypeArr"name="programType" validator="required">
+						</select>
+					</div>
+				</div> 
+				<div class="col_tr text_center" ng-show="step1Btn">
+					<button class="layui-btn layui-btn-radius" ng-click="nextStep1()" validation-submit="proLineInfoForm">
+						<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+					</button>
+				</div>
+			</form>
+		</div>
+		
+		<!-- 业务类型 -->
+		<div ng-show = "selInfo">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH510032' | translate}}</div>
+			<div ng-show ="selInfo" style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH400031' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="businessTypeCode"  ng-model="proLineInf.businessTypeCode" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH100009' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="businessDesc"  ng-model="proLineInf.businessDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryBusinessList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+				<div class="row">
+					<div class="colFive">
+						<h7>{{'YYH510056' | translate}}：</h7>
+						<button class="layui-btn" style="margin-left:8%" id="addBusTypeNewId" ng-click="addBusTypeNew()">
+							<i class="layui-icon">&#xe654;</i> {{'YYH510034' | translate}}
+						</button>
+					</div>
+					<div class="colSix">
+						<h7>{{'YYH510035' | translate}}</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s13" size="10" multiple="multiple" id="s35" class="form_selectgro">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add35" value="">
+							{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+						</button>
+						<br />
+						<button type="button" class="layui-btn mb15" name="addall" id="addall35" value="">
+							{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+						</button>
+						<br />
+						<button type="button" name="remove" id="remove35" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+						</button>
+						<br />
+						<button type="button" name="removeall" id="removeall35" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+						</button>
+						<button type="button" name="transIdentyN" id="transIdenty35" value="" class="layui-btn mb15">
+							{{'YYH510036' | translate}}
+						</button>
+						<button type="button" name="setDefault" id="setDefaultId351" value="" class="layui-btn mb15">
+							{{'YYH510037' | translate}}
+						</button>
+					</div>
+					<div class="colThree">
+						<select name="s14" size="10" multiple="multiple" id="s36" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+		<div class="col_tr text_center" ng-show="step2Btn">
+			<button class="layui-btn layui-btn-radius"  ng-click="stepBackOne()">
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button>
+			<button class="layui-btn layui-btn-radius" ng-click="saveProLine()">
+				<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+			</button>
+			<!-- <button class="layui-btn layui-btn-radius" ng-show="step3Btn" ng-click="stepTo2()">
+				<i class="layui-icon">&#xe61a;</i> 下一步排除构件
+			</button> -->
+		</div>
+	</div>
+	
+	<!-- 余额对象模块 -->
+	<div ng-show = "BPInfo">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH100024' | translate}}</div>
+			<div ng-show ="BPInfo" style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH100022' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="businessTypeCode"  ng-model="bpInf.balanceObjectCode" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'YYH100023' | translate}}：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="businessDesc"  ng-model="bpInf.objectDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryBPList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+				<div class="row">
+					<div class="colFive">
+						<h7>{{'YYH100025' | translate}}：</h7>
+						<button class="layui-btn" style="margin-left:8%" ng-click="balanceObjectTypeAdd()">
+							<i class="layui-icon">&#xe654;</i> {{'YYH100026' | translate}}
+						</button>
+					</div>
+					<div class="colSix">
+						<h7>{{'YYH100021' | translate}}</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s13" size="10" multiple="multiple" id="s21" class="form_selectgro">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add21" value="">
+							{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+						</button>
+						<!-- <br />
+						<button type="button" class="layui-btn mb15" name="addall" id="addall21" value="">
+							{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+						</button> -->
+						<br />
+						<button type="button" name="remove" id="remove21" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+						</button>
+						<!-- <br />
+						<button type="button" name="removeall" id="removeall21" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+						</button> -->
+						<button type="button" name="transIdentyN" id="BPinstantiationInf" class="layui-btn mb15">
+							{{'YYH100027' | translate}}
+						</button>
+					</div>
+					<div class="colThree">
+						<select name="s14" size="10" multiple="multiple" id="s22" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+		<div class="col_tr text_center" ng-show="step3Btn">
+			<button class="layui-btn layui-btn-radius"   ng-click="stepBackTwo()">
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button>
+			<!-- 
+			//选择余额对象后去实例化业务项目
+			<button class="layui-btn layui-btn-radius" ng-click="stepToThree()">
+				<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+			</button> -->
+			<button class="layui-btn layui-btn-radius" 	ng-click="nextAndFeeItem()">
+				<i class="layui-icon">&#xe61a;</i> {{'F00181' | translate}}
+			</button>
+		</div>
+	</div>
+	<!-- 选择收费项目 -->
+	<div class="mainname" ng-show="step4Info">{{'YYJ1300015' | translate}}</div>
+	<form name="feeTypeForm2" ng-show="step4Info" class="layui-form">
+	<div style="margin-bottom: 15px;margin-left: 5%;">
+		<div class="layui-inline">
+			<label class="layui-form-label">{{'YYH1200001' | translate}}：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="feeItemNo"  ng-model="proObjBusInsInf.feeItemNo" maxlength="8" >
+			</div>
+		</div>
+		<div class="layui-inline">
+			<label class="layui-form-label">{{'YYH1200002' | translate}}：</label>
+			<div class="wd190 float_left">
+				<select jf-select="feeTypeArr" name="feeType"
+				ng-model="proObjBusInsInf.feeType"></select>
+			</div>
+		</div>
+		<div class="layui-inline" style="margin-left: 5%;">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="queryFeeItemList()">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+	</form>
+	<div class="modalmain" ng-show="step4Info">
+		<div class="row">
+			<div class="colFive">
+				<h7>{{'F00179' | translate}}</h7>
+			</div>
+			<div class="colSix">
+				<h7>{{'F00180' | translate}}</h7>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+		<div class="row">
+			<div class="colOne">
+				<select name="s1" size="10" multiple="multiple" id="s7" class="form_selectgro">
+					
+				</select>
+			</div>
+			<div class="colTwo4 text-center">
+				<button type="button" class="layui-btn mb15" name="add" id="add7" value="">
+					{{'F00036' | translate}} <i class="layui-icon">&#xe602;</i>
+				</button>
+				<br />
+				<button type="button" class="layui-btn mb15" name="addall" id="addall7" value="">
+					{{'F00120' | translate}} <i class="layui-icon">&#xe65b;</i>
+				</button>
+				<br />
+				<button type="button" name="remove" id="remove7" class="layui-btn mb15">
+					<i class="layui-icon">&#xe603;</i> {{'F00122' | translate}}
+				</button>
+				<br />
+				<button type="button" name="removeall" id="removeall7" value="" class="layui-btn mb15">
+					<i class="layui-icon">&#xe65a;</i> {{'F00123' | translate}}
+				</button>
+			</div>
+			<div class="colThree">
+				<select name="s2" size="10" multiple="multiple" id="s8" class="form_selectgro">
+				</select>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+		<div class="col_tr text_center" ng-show="step4Btn">
+			<button class="layui-btn layui-btn-radius" ng-click="stepBackBP()" >
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button>
+			<button class="layui-btn layui-btn-radius" 	ng-click="nextAndBusInstan()">
+				<i class="layui-icon">&#xe61a;</i> {{'F00085' | translate}}
+			</button>
+		</div>
+	</div><!-- 选择收费项目end -->
+	
+<!-- 	<div ng-show = "selInfoTwo">
+		<div class="clearboth"></div>
+		<div class="mainname">选择项目类型排除构件</div>
+			<div style="margin-bottom: 15px;margin-left: 5%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">排除构件：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactNo"  ng-model="proLineInf.artifactNo" maxlength="50" >
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">排除构件描述：</label>
+					<div class="wd190 float_left">
+						<input class="layui-input"  type="text" name="artifactDesc"  ng-model="proLineInf.artifactDesc" maxlength="50">
+					</div>
+				</div>
+				<div class="layui-inline" style="margin-left: 5%;">
+					<div class="search_button">
+						<button class="layui-btn" ng-click="queryComponentList()">
+							<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="modalmain">
+				<div class="row">
+					<div class="colFive">
+						<h7>可选择构件</h7>
+					</div>
+					<div class="colSix">
+						<h7>已经选择的排除构件</h7>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+				<div class="row">
+					<div class="colOne">
+						<select name="s51" size="10" multiple="multiple" id="s51" class="form_selectgro">
+							
+						</select>
+					</div>
+					<div class="colTwo4 text-center">
+						<button type="button" class="layui-btn mb15" name="add" id="add51" value="">
+							选择 <i class="layui-icon">&#xe602;</i>
+						</button>
+						<br />
+						<button type="button" class="layui-btn mb15" name="addall" id="addall51" value="">
+							全选 <i class="layui-icon">&#xe65b;</i>
+						</button>
+						<br />
+						<button type="button" name="remove" id="remove51" class="layui-btn mb15">
+							<i class="layui-icon">&#xe603;</i> 移除
+						</button>
+						<br />
+						<button type="button" name="removeall" id="removeall51" value="" class="layui-btn mb15">
+							<i class="layui-icon">&#xe65a;</i> 全删
+						</button>
+					</div>
+					<div class="colThree">
+						<select name="s52" size="10" multiple="multiple" id="s52" class="form_selectgro">
+						</select>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn layui-btn-radius" ng-click="stepBackThree()">
+				<i class="layui-icon">&#xe619;</i> 上一步
+			</button>
+			<button class="layui-btn layui-btn-radius" ng-click="saveProLine()">
+				<i class="layui-icon">&#xe61a;</i> 下一步实例化
+			</button>
+		</div>
+	</div> -->
+		<!-- 授权业务交易识别码表 -->
+		<div class="clearboth"></div>
+		<div ng-show="authBusTransShow">
+			<div class="mainname">{{'YYJ100014' | translate}}</div>
+			<div jf-grid="queryAuthBusTrans">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'YYH100001' | translate}}</th>
+							<th>{{'YYH100002' | translate}}</th>
+							<th>{{'YYH100010' | translate}}</th>
+							<th>{{'YYJ100013' | translate}}</th>
+							<th>{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" ng-bind="item.operationMode"></td>
+							<td align="center" ng-bind="item.businessProgramNo"></td>
+							<td align="center" ng-bind="item.transIdentifiNo"></td>
+					  		<td align="center" ng-bind="item.creditNodeNo"></td>
+					  		<td align="center">
+								<button class="layui-btn layui-btn-mini" ng-click="updateControl(item)">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<!-- <button class="layui-btn layui-btn-mini" ng-click="delControl(item)">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>  楠哥建议不要删除，因为不会同步给授权-->
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- <div class="col_tr text_center" style="margin-top: 20px;" >
+				<button class="layui-btn layui-btn-radius"  ng-click="saveProInstan()" >
+					<i class="layui-icon">&#xe624;</i> 保存
+				</button>
+			</div> -->
+		</div>
+		
+		<!-- 项目实例化 -->
+		<div ng-show="instanCodeShow">
+		<div class="clearboth"></div>
+		<div class="mainname">{{'YYH100012' | translate}}</div>
+			<!-- <div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH100001' | translate}} ：</div>
+				<div class="wd190 float_left">
+					 <input class="layui-input"  type="text" name="operationMode"  ng-model="proObjInstan.operationMode"  disabled maxlength="3" > 
+				</div>
+			</div> -->
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH100002' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="businessProgramNo"  ng-model="proObjInstan.businessProgramNo" disabled   maxlength="9" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right"><span class="red">*</span>{{'YYH100003' | translate}}：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input"  type="text" name="programDesc"  ng-model="proObjInstan.programDesc" disabled   maxlength="50" >
+				</div>
+			</div>
+		<div jf-grid="queryMODG">
+			<table>
+				<thead>
+					<tr>
+						<th align="left" style="width:60%">{{'F00079' | translate}}</th>
+						<!-- <th>PCD描述</th> -->
+						<th  align="left" style="width:40%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="right">
+							<div class="tdDivL">{{item.artifactDesc}}&nbsp;&nbsp;:</div>
+							<div class="tdDivR">&nbsp;&nbsp;{{item.elementNo}}&nbsp;&nbsp;{{item.elementDesc}}</div>
+						</td>
+						<td align="left">
+							<button class="layui-btn cancel-btn" type="button"
+								ng-click="updateBusProB(item,$index)">
+								<i class="layui-icon"></i> {{'F00081' | translate}}
+							</button>
+							<button class="layui-btn cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc == '' && item.supportPcd == 'Y'"
+								ng-click="setBusProB(item,$index)">
+								<i class="layui-icon"></i> {{'F00082' | translate}}
+							</button>
+							<button class="layui-btn1 cancel-btn" type="button" ng-if="item.pcdNo != null && item.pcdDesc != '' && item.supportPcd == 'Y'"
+								ng-click="setBusProB(item,$index)">
+								<i class="layui-icon"></i> {{'F00083' | translate}}{{item.pcdDesc}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+		 <div class="col_tr text_center" style="margin-top: 10px;">
+		 	<!-- //从业务项目实例化返回选择余额对象这块
+		 	<button class="layui-btn layui-btn-radius"  ng-click="stepBackThree()">
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button> -->
+			<button class="layui-btn layui-btn-radius" ng-click="stepBackFeePro()" >
+				<i class="layui-icon">&#xe619;</i> {{'F00078' | translate}}
+			</button>
+			<button class="layui-btn layui-btn-radius"  
+				ng-click="nextInstanSave()" >
+				<i class="layui-icon">&#xe624;</i> {{'F00031' | translate}}
+			</button>
+		</div>
+	</div>
+</div>

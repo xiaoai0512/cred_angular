@@ -1,0 +1,97 @@
+<div class="mainname">列表显示字段扩展使用 - 入门指南</div>
+<blockquote class="layui-elem-quote">
+使用包含两部分</br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.字段过多其他字段默认隐藏，点击后再显示的操作.</br>
+&nbsp;&nbsp;&nbsp;&nbsp;将隐藏字段写在class="title_messages"之后，详细写法看html代码</br>
+&nbsp;&nbsp;&nbsp;&nbsp;框架保持7列字段不变形，根据需求使用这类说明</br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.显示使用数据字典转换显示出真实值</br>
+&nbsp;&nbsp;&nbsp;&nbsp;ng-bind="字段名| jfConvert : 'dict' : '数据字典名称'"</br>
+&nbsp;&nbsp;&nbsp;&nbsp; 如：ng-bind="item.processDefineName | jfConvert : 'dict' : 'AbvQtPcsgModCd'"</br>
+</blockquote>
+<div class="mainname">html代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+&lt;div jf-grid="grid"&gt;
+     &lt;table&gt;
+          &lt;thead&gt;
+              &lt;tr&gt;
+                    &lt;th>流程名称&lt;/th&gt;
+                    &lt;th&gt;主题&lt;/th&gt;
+                    &lt;th&gt;融资人&lt;/th&gt;
+                    &lt;th order="preEndDate"&gt;融资日期&lt;/th&gt;
+                    &lt;th order="preActivitiName"&gt;上一环节&lt;/th&gt;
+                    &lt;th&gt;当前所在环节&lt;/th&gt;
+                    &lt;th&gt;提示&lt;/th&gt;
+                    &lt;th width="4%"&gt;&lt;/th&gt;
+              &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+              &lt;&lt;tr&gt;
+                    &lt;td align="left" ng-bind="item.processDefineName | jfConvert : 'dict' : 'AbvQtPcsgModCd'"&gt;&lt;/td&gt;
+                   &lt;td align="left"  ng-bind="item.processTitle"&gt;&lt;/td&gt;
+                    &lt;td align="left"  ng-bind="item.preUserName"&gt;&lt;/td&gt;
+                    &lt;td align="left"  ng-bind="item.preEndDate"&gt;&lt;/td&gt;
+                    &lt;td align="left"  ng-bind="item.preActivitiName"&gt;&lt;/td&gt;
+                    &lt;td align="left"  ng-bind="item.activityName"&gt;&lt;/td&gt;
+                    &lt;td align="left"  ng-bind="item.processDefinitionId"&gt;&lt;/td&gt;
+                    &lt;td&gt;
+                          &lt;div class="title_messages"&gt;
+                          &lt;div class="tablemore"&gt;&lt;/div&gt;
+                          &lt;div class="title_content"&gt;
+                            &lt;span class="text_color"&gt;流程名称：&lt;/span&gt;{{item.processDefineName}}&lt;br&gt;
+                            &lt;span class="text_color"&gt;发送时间：&lt;/span&gt;{{item.preEndDate | jfDate}}
+                          &lt;/div&gt;
+                      &lt;/div&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+          &lt;/tbody&gt;
+     &lt;/table&gt;
+&lt;/div&gt;
+</pre>
+<div class="mainname">js代码</div>
+<pre class="layui-code" lay-title="Code" lay-encode="true" >
+  $scope.grid = {
+      checkType : 'radio', //当为checkbox时为多选
+      params : {}, //表格查询时的参数信息
+      paging : true ,//默认true,是否分页
+      resource : 'tableDemo.query' ,//列表的资源
+      callback : function() { //表格查询后的回调函数
+      }
+  };
+</pre>
+<div class="mainname">列表例子</div>
+<div jf-grid="grid" ng-controller="listDemoCtrl">
+     <table>
+          <thead>
+              <tr>
+                    <th>流程名称</th>
+                    <th>主题</th>
+                    <th>融资人</th>
+                    <th order="preEndDate">融资日期</th>
+                    <th order="preActivitiName">上一环节</th>
+                    <th>当前所在环节</th>
+                    <th>提示</th>
+                    <th width="4%"></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td align="left"  ng-bind="item.processDefineName"></td>
+                    <td align="left"  ng-bind="item.processTitle"></td>
+                    <td align="left"  ng-bind="item.preUserName"></td>
+                    <td align="left"  ng-bind="item.preEndDate"></td>
+                    <td align="left"  ng-bind="item.preActivitiName"></td>
+                    <td align="left"  ng-bind="item.activityName"></td>
+                    <td align="left"  ng-bind="item.processDefinitionId | jfConvert : 'dict' : 'AbvQtPcsgModCd'"></td>
+                    <td>
+                    <div class="title_messages">
+                        <div class="tablemore"></div>
+                        <div class="title_content">
+                            <span class="text_color">流程名称：</span>{{item.processDefineName}}<br>
+                            <span class="text_color">发送时间：</span>{{item.preEndDate | jfDate}}
+                        </div>
+                    </div>
+                </td>
+              </tr>
+          </tbody>
+     </table>
+</div>

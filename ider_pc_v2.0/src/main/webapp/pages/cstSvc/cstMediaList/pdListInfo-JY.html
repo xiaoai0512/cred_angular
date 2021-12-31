@@ -1,0 +1,69 @@
+<div class="layout_body" ng-controller="cstMediaListCtrl1">
+	<!-- <div class="subposition">
+		<i class="position_icon"></i>当前位置：客户媒介列表查询
+	</div> -->
+	<div class="search_mian">
+		<div class="layui-form-item">
+			
+			<div class="layui-inline">
+				<label class="layui-form-label">证件号码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.cstID">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">外部识别号：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.cst">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">客户代码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.cst">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">手机号码：</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" type="text"
+						ng-model="itemList.params.cst">
+				</div>
+			</div>
+		</div>
+		<div class="search_button">
+			<button class="layui-btn" ng-click="itemList.search()">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="itemList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	</div>
+	<div class="search_mian">
+		<div class="mainname">客户媒介信息</div>	
+	</div>
+	<div jf-grid="cstMediaListList">
+		<table>
+			<thead>
+				<tr>
+					<th>产品单元代码</th>
+					<th>产品对象代码</th>
+					<th>描述</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center" ng-bind="item.pdUnitCd"></td>
+					<td align="center" ng-bind="item.pdObjCd"></td>
+					<td align="center" ng-bind="item.dsc"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

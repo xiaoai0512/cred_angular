@@ -1,0 +1,54 @@
+<div ng-controller="searchMediaListCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			<form action="" class="layui-form">
+				<div class="" class="layui-form">
+					<div class="mainname">{{'KHH4000044' | translate}}</div>
+					<div jf-grid="cstMediaTable">
+						<table>
+							<thead>
+								<tr>
+									<th>{{'KHH4000010' | translate}}</th>
+									<th>{{'F00111' | translate}}</th>
+									<th>{{'KHH4000045' | translate}}</th>
+									<th>{{'KHH4000046' | translate}}</th>
+									<th>{{'KHH4000035' | translate}}</th>
+									<th>{{'KHH4000036' | translate}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.mediaObjectCode"></td>
+									<td align="center" ng-bind="item.externalIdentificationNo"></td>
+									<td align="center" >
+										<span ng-if="item.mainSupplyIndicator==1">{{'KHJ4000015' | translate}}</span>
+										<span ng-if="item.mainSupplyIndicator==2">{{'KHJ4000016' | translate}}</span>
+									</td>
+									<td align="center" ng-bind="item.mediaObjectDesc">
+										<!-- <button class="layui-btn layui-btn-mini" ng-click="veiwMediaDetail(item)" type="button">
+											<i class="layui-icon layui-icon-more">选择</i>
+										</button> -->
+									</td>
+									<td align="center">
+									    <span ng-if="item.invalidFlag=='N'">{{'KHJ4000017' | translate}}</span>
+									    <span ng-if="item.invalidFlag=='Y'">{{'KHJ4000022' | translate}}</span>
+									</td>
+									<td align="center">
+										<span ng-if="item.invalidFlag=='TRF'">{{'KHJ4000018' | translate}}</span>
+									    <span ng-if="item.invalidFlag=='EXP'">{{'KHJ4000019' | translate}}</span>
+									    <span ng-if="item.invalidFlag=='BRK'">{{'KHJ4000020' | translate}}</span>
+									    <span ng-if="item.invalidFlag=='CLS'">{{'KHJ4000021' | translate}}</span>
+									    <span ng-if="item.invalidFlag=='RNA'">{{'KHJ4000027' | translate}}</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+			</form>
+			
+			
+		</div>
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<div ng-controller="proQuotaNodeCtrl" class="layui-form">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH800001' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="quotaNodeList.params.trustNum" 
+					 name="fundNum" type="text" maxlength="10" id="fundNumId">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH800002' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="quotaNodeList.params.trustName" 
+					 name="fundName" type="text" maxlength="10" id="fundNameId">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH800098' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<select class="layui-input step1S" ng-model="quotaNodeList.params.operationMode" id="operationModeId" jf-select="operationModeArr"name="operationModeN"  lay-filter="getoperationMods">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'FQH800010' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="quotaNodeList.params.status"
+					jf-select="statusArray" name="status">
+				</select>
+			</div>
+		</div>
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="quotaNodeList.search()">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+			<!-- <button class="layui-btn" ng-click="addCapitalAgreement()">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button> -->
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="resetChose()">
+				<i class="layui-icon">&#x1002;</i> {{'F00018' | translate}}
+			</button>
+		</div>
+		<div jf-grid="quotaNodeList">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'FQH800001' | translate}}</th>
+						<th>{{'FQH800002' | translate}}</th>
+						<th>{{'FQH800003' | translate}}</th>
+						<th>{{'FQH800004' | translate}}</th>
+						<th>{{'FQH800005' | translate}}</th>
+						<th>{{'FQH800006' | translate}}</th>
+						<th>{{'FQH800007' | translate}}</th>
+						<th>{{'FQH800008' | translate}}</th>
+						<th>{{'FQH800009' | translate}}</th>
+						<th>{{'FQH800010' | translate}}</th>
+						<th width="14%">{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr >
+						<td align="center" ng-bind="item.trustNum"></td>
+						<td align="center" ng-bind="item.trustName"></td>
+						<td align="center" ng-bind="item.trustTypeDesc"></td>
+						<td align="center" ng-bind="item.loanAmt"></td>
+						<td align="center" ng-bind="item.isMulitTrustDesc"></td>
+						<td align="center" ng-bind="item.isAutoTrunDesc"></td>
+						<td align="center" ng-bind="item.fundsTypeDesc"></td>
+						<td align="center" ng-bind="item.effectiveDate"></td>
+						<td align="center" ng-bind="item.expireDate"></td>
+						<td align="center" ng-bind="item.statusDesc"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini"
+								ng-click="quotaDetails(item)">
+								<i class="layui-icon">&#xe60b;</i> {{'F00009' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini"
+								ng-click="updateQuotaDetails(item)">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

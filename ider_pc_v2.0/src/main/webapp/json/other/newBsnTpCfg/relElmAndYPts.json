@@ -1,0 +1,73 @@
+{
+    "data": {
+        "grid": {
+            "endRow": 0,
+            "firstPage": 0,
+            "hasNextPage": false,
+            "hasPreviousPage": false,
+            "isFirstPage": false,
+            "isLastPage": false,
+            "lastPage": 0,
+            "list": [
+                {
+				"elmNumb" :"901",
+				"elmDsc" :"自动扣款规则",
+				"elmBaseYPts" :"901AAA0101",
+				"yPtsDsc" :"有自动扣款",
+				"elmOptYPts" :"901AAA0100",
+				"optYPtsDsc" :"无自动扣款",
+				"pcdNumb" :""
+                },
+                {
+				"elmNumb" :"901",
+				"elmDsc" :"自动扣款规则",
+				"elmBaseYPts" :"901AAA0200",
+				"yPtsDsc" :"还款日自动扣款",
+				"elmOptYPts" :"901AAA0201",
+				"optYPtsDsc" :"账单日自动扣款",
+				"pcdNumb" :"901AAA02"
+                },
+                {
+				"elmNumb" :"902",
+				"elmDsc" :"滞纳金处理规则",
+				"elmBaseYPts" :"918AAA0300",
+				"yPtsDsc" :"迟缴日产生",
+				"elmOptYPts" :"902AAA0101",
+				"optYPtsDsc" :"账单日产生",
+				"pcdNumb" :"918AAA03"
+                },
+                 {
+				"elmNumb" :"902",
+				"elmDsc" :"滞纳金计算规则",
+				"elmBaseYPts" :"902AAA0200",
+				"yPtsDsc" :"按最低还款计算",
+				"elmOptYPts" :"902AAA0101",
+				"optYPtsDsc" :"按账单金额计算",
+				"pcdNumb" :"902AAA02"
+                },
+                
+                {
+				"elmNumb" :"918",
+				"elmDsc" :"免息处理标识",
+				"elmBaseYPts" :"918AAA0300",
+				"yPtsDsc" :"周期免息",
+				"elmOptYPts" :"918AAA0100",
+				"optYPtsDsc" :"全额还款容差免息",
+				"pcdNumb" :"918AAA01"
+                }
+               
+            ],
+            "navigatePages": 0,
+            "nextPage": 2,
+            "pageNum": 1,
+            "pageSize": 10,
+            "pages": 1,
+            "prePage": 0,
+            "size": 10,
+            "startRow": 0,
+            "total": 112
+        }
+        
+    },
+    "status": 200
+}

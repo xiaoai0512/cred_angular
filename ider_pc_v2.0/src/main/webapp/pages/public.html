@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>IDER CreditX</title>
+<script src="../js/libs/jquery1.10.2.js"></script>
+<style type="text/css">
+	@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
+</style>
+ <script>
+ctx = getContextPath();
+function getContextPath(){
+    var pathName = document.location.pathname;
+    var index = pathName.substr(1).indexOf("/");
+    var result = pathName.substr(0,index+1);
+    return result;
+}
+function getRequestURL() {
+	var localHref = window.location.href;
+	var requestURL = '' ;
+	if(localHref.indexOf('#') >= 0){
+		requestURL = localHref.split("#")[1];
+	}else {
+		requestURL = document.location.pathname ;
+	}
+	return requestURL ;
+}
+document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/require.js\" data-main=\"" +ctx+"/js/main\"> <\/script>");
+document.write("<base href=\""+ ctx + "/\"" + ">");
+//document.write("<script type=\"text/javascript\" src=\"" +ctx+"/js/libs/jquery1.10.2.js\" > <\/script>");
+
+document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider/index.css\" type=\"text/css\"/>");
+document.write("<link rel=\"stylesheet\" href=\"" +ctx+"/theme/default/css/ider/ider.css\" type=\"text/css\"/>");
+document.write("<link rel=\"icon\" href=\"" +ctx+"/theme/default/images/ider/tubiao.png\" type=\"image/x-icon\"/>");
+document.write("<link rel=\"shortcut icon\" href=\"" +ctx+"/theme/default/images/ider/tubiao.png\" type=\"image/x-icon\"/>");
+
+</script>
+
+</head>
+<body class=" ng-cloak ider" ng-cloak>
+	<div class="layui-container mainMenu_container">
+		<div ng-include="ctx+'/pages/template/homeHead.html'"></div> 
+         <div ng-include="ctx+'/pages/template/homeMenu.html' "></div>
+	</div>
+</body>
+</html>

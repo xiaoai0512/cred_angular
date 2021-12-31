@@ -1,0 +1,80 @@
+<div ng-controller="csrUnifyInfCtrl-JY">
+	<!-- <div class="leftmenu_navtitle">客户级统一信息查询</div> -->
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：客户级统一信息查询
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<div class="col4 text_right">证件号码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text" validator="required"  ng-model="csrUnifyInfList.params.idNumber" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">外部识别号：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+							ng-model="csrUnifyInfList.params.externalIdentificationNo">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">手机号码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"
+							ng-model="csrUnifyInfList.params.contactMobilePhone"
+							name="contactMobilePhone" type="text">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">客户代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input" type="text"
+							ng-model="csrUnifyInfList.params.customerNo">
+			</div>
+		</div>
+		
+		
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="searchCstAdrQuery()" type="button">
+				<i class="layui-icon">&#xe615;</i> 查询
+			</button>
+			<button class="layui-btn cancel-btn" type="button" ng-click="csrUnifyInfList.params={}">
+				<i class="layui-icon">&#x1002;</i> 重置
+			</button>
+		</div>
+	<div class="clearboth"></div>
+<div ng-show="showItemList">
+		<div jf-grid="csrUnifyInfList">
+			<table>
+				<thead>
+					<tr>
+						<th>产品线</th>
+						<th>账单日</th>
+						<th>下一账单日期</th>
+						<th>当前周期号</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.productLineCode"></td>
+						<td align="center" ng-bind="item.billDay"></td>
+						<td align="center" ng-bind="item.nextBillDate"></td>
+						<td align="center" ng-bind="item.currentCycleNumber"></td>
+						<td align="center">
+							<button class="layui-btn layui-btn-mini" ng-click="checkCsrUnifyInf(item)" type="button">
+								<i class="layui-icon"></i> 查询
+							</button>
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<!-- <button class="layui-btn layui-btn-mini" type="button" 
+				ng-click="newBillDate()">
+				<i class="layui-icon layui-icon-more">新增</i>
+		</button> -->
+	</div>
+</div>

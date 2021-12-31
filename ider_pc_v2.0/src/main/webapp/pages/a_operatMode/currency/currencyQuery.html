@@ -1,0 +1,53 @@
+<div ng-controller="currencyQueryCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent layui-form">
+		<div class="col_td">
+			<label class="col4 text_right">{{'PZH900001' | translate}} ：</label>
+			<div class="wd190 float_left">
+				<input class="layui-input" ng-model="currencyTable.params.currencyCode"   name="currencyCode" type="text">
+			</div>
+		</div> 
+		<div class="col_tr text_center">
+			<button class="layui-btn" ng-click="currencyTable.search()" ng-show="selBtnFlag">
+				<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+			</button>
+
+			<button class="layui-btn cancel-btn" type="button"
+				ng-click="addCurrency()" ng-if="addBtnFlag">
+				<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+			</button>
+		</div>
+		<div jf-grid="currencyTable">
+			<table>
+				<thead>
+					<tr>
+						<th>{{'PZH900001' | translate}}</th>
+						<th>{{'PZH900002' | translate}}</th>
+						<th>{{'PZH900003' | translate}}</th>
+						<th>{{'PZH900004' | translate}}</th>
+						<th>{{'PZH900008' | translate}}</th>
+						<th>{{'PZH900006' | translate}}</th>
+						<th>{{'F00017' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center" ng-bind="item.currencyCode"></td>
+						<td align="center" ng-bind="item.currencyDesc"></td>
+						<td align="center" ng-bind="item.decimalPosition"></td>
+						<td align="center" ng-bind="item.referred"></td>
+						<td align="center" ng-bind="item.freeExchangeFlagDesc"></td>
+						<td align="center" ng-bind="item.countryCode"></td>
+						<td align="center" ng-if="item.currencyCode != '' && item.currencyCode != null">
+							<button class="layui-btn layui-btn-mini" ng-click="updateCurrency(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

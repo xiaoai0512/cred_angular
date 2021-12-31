@@ -1,0 +1,70 @@
+<div ng-controller="docAtchListCtrl">
+    <div>
+        <strong>相关文档</strong>
+    </div>
+    <div class="layui-form layui-form-pane">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">文档名称</label>
+                <div class="layui-input-inline">
+                    <input ng-model="fileList.params.fileNm" class="layui-input" type="text" autocomplete="off">
+                </div>
+            </div>
+        </div>
+        <div class="search_button">
+            <button class="layui-btn layui-btn-primary" notHide ng-click="fileList.search();">
+                <i class="layui-icon">&#xe615;</i> 查询
+            </button>
+            <button class="layui-btn layui-btn-primary" notHide ng-click="fileList.params.fileNm=''">
+                <i class="layui-icon">&#x1002;</i> 重置
+            </button>
+        </div>
+    </div>
+    <div class="button_contain" style="float:left;">
+        <button class="layui-btn layui-btn-primary" notHide ng-click="fileList.modal('/common/docAtch.html',{title :'文件上传',buttons : ['提交','取消'],size : ['700px','400px'],callbacks : [confirm]})"  >
+            <i class="layui-icon">&#xe62f;</i> 上传
+        </button>
+        <button class="layui-btn layui-btn-primary" notHide ng-click="download()">
+            <i class="layui-icon">&#xe601;</i> 下载
+        </button>
+        <!--  <button class="layui-btn layui-btn-primary" ng-click="onlinePreview()" notHide>
+            <i class="layui-icon">&#xe601;</i> 预览
+        </button> -->
+        <button class="layui-btn layui-btn-primary" notHide ng-click="fileList.request('file.delete?id')"  >
+            <i class="layui-icon">&#xe640;</i> 删 除
+        </button>
+    </div>
+    <div jf-grid="fileList" >
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th align="left">文档编号</th>
+                    <th align="left">文档名称</th>
+                    <th align="left">文档类型</th>
+                    <th align="left">上传日期</th>
+                    <th align="left">上传人</th>
+                </tr>
+                </thead>
+                <tbody class="tbody">
+                <tr>
+                    <td align="left" ng-bind="item.fileId"></td>
+                    <td align="left" ng-bind="item.fileNm"></td>
+                    <td align="left" ng-bind="item.fileTpCd | jfConvert : 'dict' : 'DocType'"></td>
+                    <td align="left" ng-bind="item.createTime | jfDate : 'yyyy-MM-dd HH:mm:ss'"></td>
+                    <td align="left" ng-bind="item.createName"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="float_btnfoot">
+         <button class="layui-btn"
+                 ng-click="back()">
+             <i class="layui-icon">&#xe60c;</i> 返回
+         </button>
+    </div>
+    <div class="float_btnfoot">
+    </div>
+</div>
+

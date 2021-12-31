@@ -1,0 +1,32 @@
+<div ng-controller="updateElementCtrl">
+	<div class="layui-form">
+	<form name="elementForm"  class="layui-form">
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300024' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="elementNo"  ng-model="updateElementInfo.elementNo" disabled >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300025' | translate}}：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="elementDesc"  ng-model="updateElementInfo.elementDesc" maxlength="50" validator="required,maxlength,minlength" minlength='0'>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH300046' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="supportPersonalU" class="layui-input" jf-select="supportPersonalArr" name="supportPersonal" validator="required">
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>{{'PZH410050' | translate}}：</div>
+			<div class="wd190 float_left">
+				<select ng-model="supportPcdU" class="layui-input" jf-select="supportPcdArr" name="supportPcdN" validator="required">
+				</select>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>

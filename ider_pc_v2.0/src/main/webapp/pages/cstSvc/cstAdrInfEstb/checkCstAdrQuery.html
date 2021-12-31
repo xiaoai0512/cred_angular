@@ -1,0 +1,36 @@
+<div ng-controller="checkCstAdrQueryCtrl">
+	<div class="">
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH3600013' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.typeTrans" name="typeTrans" type="text" disabled>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right">{{'KHH3600014' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.city" name="city" type="text" maxlength="30" >
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH3600006' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.contactPostCode" name="contactPostCode" type="text" maxlength="6">
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"> {{'KHH3600007' | translate}} ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  ng-model="csInfEstbInfo.contactMobilePhone" name="contactMobilePhone" type="text" maxlength="13">
+			</div>
+		</div>
+		<div class="col_td" style="width:100%">
+			<div class="col2 text_right"> {{'KHH3600005' | translate}} ：</div>
+			<div class="float_left" style="width:74%">
+				<textarea  class="layui-textarea"  ng-model="csInfEstbInfo.contactAddress" name="contactAddress" style="min-height: 60px;" maxlength="90"></textarea>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>

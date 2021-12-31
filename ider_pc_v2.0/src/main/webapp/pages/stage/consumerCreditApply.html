@@ -1,0 +1,146 @@
+<div class="layout_body" ng-controller="consumerLoanApplyCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>当前位置：消费信贷申请
+	</div>
+	<div class="allcontent layui-form">
+	<div class="search_mian">
+		
+		<div class="col_td">
+			<div class="col4 text_right">证件号码 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  id="idNumber" name="idNumber" type="text" ng-model="queryParams.idNumber">
+			</div>
+		</div>
+		<!-- <div class="col_td">
+			<div class="col4 text_right">外部识别号 ：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  id="externalIdentificationNoId"  name="eventNo" type="text" ng-model="queryParams.externalIdentificationNo">
+			</div>
+		</div> -->
+		<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="searchHandle()" type="button">
+					<i class="layui-icon">&#xe615;</i> 查询
+				</button>
+
+				<button class="layui-btn cancel-btn" type="button"
+					ng-click="reset()">
+					<i class="layui-icon">&#x1002;</i> 重置
+				</button>
+			</div>
+		</div>
+		</div>
+		</div>
+	
+	<div class="allcontent"  ng-show="loanApplyDiv">
+		<div class="clearboth"></div>
+		<div class="mainname">1. 客户基本信息</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户姓名：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="customerName" type="text" ng-model="cstmerInf.customerName" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">客户代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="customerNo" type="text" ng-model="cstmerInf.customerNo" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">证件号码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="idNumber" type="text" ng-model="cstmerInf.idNumber" disabled>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">2. 客户产品信息</div>
+			<div class="col_td">
+				<div class="col4 text_right">产品代码 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="productObjectCode" type="text" ng-model="cstproInf.productObjectCode" disabled>
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">产品描述 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input bnone" name="productDesc" type="text" ng-model="cstproInf.productDesc" disabled>
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="mainname">3. 申请放款信息</div>
+			<div class="col_td">
+				<div class="col4 text_right">贷款金额 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billInterestBalance" type="text" ng-model="billInterestBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">贷款币种 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="currCostBalance" type="text" ng-model="currCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">还款方式 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			
+			
+			<div class="col_td">
+				<div class="col4 text_right">贷款编号 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">贷款期限 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">贷款期限单位 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">贷款开始日 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">贷款到期日 ：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">收款账户：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input " name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			<div class="col_td">
+				<div class="col4 text_right">收款开户行：</div>
+				<div class="wd190 float_left">
+					<input class="layui-input" name="billCostBalance" type="text" ng-model="billCostBalance" >
+				</div>
+			</div>
+			
+			<div class="col_tr text_center">
+			<div class="search_button">
+				<button class="layui-btn" ng-click="sureApply()" type="button">
+					<i class="layui-icon">&#xe624;</i> 确认申请
+				</button>
+			</div>
+		</div>
+			
+			
+			
+	</div>
+</div>

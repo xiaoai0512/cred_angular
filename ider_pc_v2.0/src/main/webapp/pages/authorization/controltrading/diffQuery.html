@@ -1,0 +1,181 @@
+<div class="layout_body" ng-controller="controlDiffListCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<!-- 交易管控查询 -->
+			<from class="layui-form">
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1700040' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="operationMode" class="layui-input" jf-select="coArray" name="aatype" lay-filter="operationModeNe"></select>
+						</div>
+					</div>
+					<!--<div class="col_td">
+						<div class="col4 text_right"><span class="red">*</span>{{'SQH1700095' | translate}} ：</div>
+						<div class="wd190 float_left">
+							<select class="layui-input " id="creditNodeNoId" jf-select="creditNodeNoArrayAdd" name="creditNodeNoN" ng-model="creditNodeNo"  lay-search=""></select>
+						</div>
+				    </div>-->
+					<div class="col_td">
+						<label class="col4 text_right">{{'SQH1700081' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="differentType" class="layui-input"
+									jf-select="differentTypeArray" name="differentTypeN" lay-filter="getDifferentType"></select>
+						</div>
+					</div>
+					<div class="col_td" ng-show="isCusListNo">
+						<label class="col4 text_right">{{'F00158' | translate}}：</label>
+						<div class="wd190 float_left">
+							<select ng-model="idTypeList" jf-select="certificateTypeArray" name="idTypeN"></select>
+						</div>
+					</div>
+					<div class="col_td" ng-show="isCusListNo">
+						<label class="col4 text_right">{{'F00112' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text"	ng-model="idNumberList">
+						</div>
+					</div>
+					<div class="col_td" ng-show="isExtListNo">
+						<label class="col4 text_right">{{'F00111' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" ng-model="externalIdentificationNoList">
+						</div>
+					</div>
+					<div class="col_td" ng-show="isrisListNo">
+						<label class="col4 text_right">{{'SQH1700076' | translate}}：</label>
+						<div class="wd190 float_left">
+							<input class="layui-input" type="text" ng-model="riskLevelList">
+						</div>
+					</div>
+					<div class="col_td" ng-show="isProNo">
+						<label class="col4 text_right">{{'SQJ1700029' | translate}}：</label>
+						<div class="wd190 float_left">
+							<!--<input class="layui-input" type="text" ng-model="projectCode">-->
+							<select class="layui-input" ng-model="projectCode" lay-filter="getIdType" id="projectCodeAddId"
+					            jf-select="proArray" name="projectCodeN"></select>
+						</div>
+					</div>
+					<div class="col_tr text_center">
+						<div class="search_button">
+								 <button class="layui-btn" type="button"   ng-click="getCreditNodeList1($event)" moreClick>
+								    <i class="layui-icon">&#xe61a;</i> {{'SQH1100003' | translate}}
+							    </button>
+								<button class="layui-btn" ng-click="seachQuota()" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+								</button>
+								<button class="layui-btn" ng-click="difftradAdd()" ng-show="addBtnFlag"> 
+									<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+								</button>
+						</div>
+					</div>
+					<div class="search_width"  style="display: none;" id="search_width1">
+						<div class="col_td">
+							<div class="col4 text_right">{{'SQH1100003' | translate}} ：</div>
+							<div class="wd190 float_left">
+								 <select ng-model="contrlSceneType" class="layui-input"
+											jf-select="contrlSceneArray" name="aatype" ></select> 
+							</div>
+						</div>
+					</div>
+			</from>
+		<!-- 交易管控列表 -->
+		<div ng-show="isShowa">
+			<div jf-grid="itemLista">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH1700043' | translate}}</th>
+							<!--<th>{{'SQH1700095' | translate}}</th>-->
+							<th>{{'SQH1700045' | translate}}</th>
+							<th>{{'SQH1700081' | translate}}</th>
+							<th>{{'SQH1700042' | translate}}</th>
+							<th>{{'SQH1700073' | translate}}</th>
+							<th style="width: 17%">{{'SQH1700046' | translate}}</th>
+							<th  style="width:32%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<!--<td align="center" ng-bind="item.creditNodeNo"></td>-->
+							<td align="center" ng-bind="item.contrlSceneCode"></td>
+							<td align="center" ng-bind="item.differentTypeDesc"></td>
+							<td align="center" ng-bind="item.differentCode"></td>
+							 <td align="center" ng-bind="item.independentFlagDesc"></td>
+					        <td style="width: 17%;" align="center" ng-bind="item.contrlSceneDesc"></td>
+					       
+					        <td align="left"  style="width:32%">
+								<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="copyListCon(item)" ng-show="addBtnFlag">
+									<i class="layui-icon">&#xe654;</i> {{'SQH1700120' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateDiff(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delDiff(item)" ng-show="delBtnFlag">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+								<span ng-if = "item.independentFlag == '0'">
+								<button class="layui-btn layui-btn-mini" ng-click="authTradInfo(item)" ng-show="selTwoBtnFlag">
+									<i class="layui-icon">&#xe602;</i> {{'F00062' | translate}}
+								</button>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div ng-show="isShowb">
+			<div jf-grid="itemListb">
+				<table>
+					<thead>
+						<tr>
+							<th>{{'SQH1700043' | translate}}</th>
+							<!--<th>{{'SQH1700095' | translate}}</th>-->
+							<th>{{'SQH1700045' | translate}}</th>
+							<th>{{'SQH1700081' | translate}}</th>
+							<th>{{'SQH1700042' | translate}}</th>
+							<th>{{'SQH1700073' | translate}}</th>
+							<th style="width: 17%;">{{'SQH1700046' | translate}}</th>
+							<th  style="width:32%">{{'F00017' | translate}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center"  ng-bind="$index+1"></td>
+							<!--<td align="center" ng-bind="item.creditNodeNo"></td>-->
+							<td align="center" ng-bind="item.contrlSceneCode"></td>
+							<td align="center" ng-bind="item.differentTypeDesc"></td>
+							<td align="center" ng-bind="item.differentCode"></td>
+							 <td align="center" ng-bind="item.independentFlagDesc"></td>
+							<td style="width: 17%;" align="center" ng-bind="item.contrlSceneDesc"></td>
+							<td align="left"  style="width:32%">
+								<button class="layui-btn layui-btn-mini" ng-click="selectList(item)" ng-show="selBtnFlag">
+									<i class="layui-icon">&#xe60b;</i> {{'F00014' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="copyListCon(item)" ng-show="addBtnFlag">
+									<i class="layui-icon">&#xe654;</i> {{'SQH1700120' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="updateDiff(item)" ng-show="updBtnFlag">
+									<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+								</button>
+								<button class="layui-btn layui-btn-mini" ng-click="delDiff(item)" ng-show="delBtnFlag"   ng-if="item.differentType != '0'">
+									<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+								</button>
+								<span ng-if = "item.independentFlag == '0'">
+								<button class="layui-btn layui-btn-mini" ng-click="authTradInfo(item)" ng-show="selTwoBtnFlag">
+									<i class="layui-icon">&#xe602;</i> {{'F00062' | translate}}
+								</button>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

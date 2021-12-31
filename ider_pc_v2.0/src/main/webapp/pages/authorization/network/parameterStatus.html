@@ -1,0 +1,69 @@
+<div class="layout_body" ng-controller="pStatusCtrl">
+	<div class="subposition">
+		<i class="position_icon"></i>{{'F00008' | translate}}：{{menuName}}
+	</div>
+	<div class="allcontent">
+		<form name="mdmInfoFormS"  class="layui-form">
+			<div class="col_tr text_center">
+				<button class="layui-btn cancel-btn" type="button" ng-click="itemList.search()" ng-show="selBtnFlag">
+					<i class="layui-icon">&#xe615;</i> {{'F00009' | translate}}
+				</button>
+				<button class="layui-btn cancel-btn" type="button" ng-click="addException()" ng-show="addBtnFlag">
+					<i class="layui-icon">&#xe654;</i> {{'F00010' | translate}}
+				</button>
+			</div>
+		</form>
+			<div jf-grid="itemList">
+			  <table>
+			    <thead>
+			      <tr>
+					<th>{{'F00013' | translate}}</th>
+					<th>{{'SQH3200009' | translate}}</th>
+					<th>{{'SQH3200005' | translate}}</th><!--4角色-->
+					<th>{{'SQH3200016' | translate}}</th><!--4连接模式-->
+					<th>{{'SQH3200003' | translate}}</th><!--2本地IP-->
+					<th>{{'SQH3200004' | translate}}</th><!--3本地端口-->
+					<th>{{'SQH3200006' | translate}}</th><!--5远程IP-->
+					<th>{{'SQH3200007' | translate}}</th><!--6远程端口-->
+					<th>{{'SQH3200008' | translate}}</th><!--7连接状态-->
+					<th style="width:25%">{{'F00017' | translate}}</th>
+			     </tr> 
+			   </thead>
+			   <tbody>
+					   <tr>
+						<td align="center"  ng-bind="$index+1"></td>
+						<td align="center" ng-bind="item.remoteSystemInd"></td>
+						<td align="center" ng-bind="item.serverClientIndDesc"></td>
+						<td align="center" ng-bind="item.connModelDesc"></td>
+						<td align="center" ng-bind="item.localIp"></td>
+						<td align="center" ng-bind="item.localPort"></td>
+						<td align="center" ng-bind="item.remoteIp"></td>
+						<td align="center" ng-bind="item.remotePort"></td>
+						<td align="center" ng-bind="item.connStatusDesc"></td>
+						<td style="width:25%" align="center">
+						    <button class="layui-btn layui-btn-mini" ng-click="selInfo(item)" ng-show="selBtnFlag">
+						        <i class="layui-icon">&#xe642;</i> {{'F00014' | translate}}
+					        </button>
+							<button class="layui-btn layui-btn-mini" ng-click="updateInfo(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+							</button>
+							<button class="layui-btn layui-btn-mini" ng-click="delInfo(item)" ng-show="updBtnFlag">
+								<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+							</button>
+							<span ng-if="item.connStatus == '0'" >
+							<button class="layui-btn layui-btn-mini" ng-click="updateStatusY(item)" ng-show="delBtnFlag">
+							    <i class="layui-icon">&#xe60b;</i> {{'SQJ3200002' | translate}}
+						    </button>
+						    </span>
+						    <span ng-if="item.connStatus != '0'" >
+						    <button class="layui-btn layui-btn-mini" ng-click="updateStatusN(item)" ng-show="delBtnFlag">
+						        <i class="layui-icon">&#xe60b;</i> {{'SQJ3200003' | translate}}
+					        </button>
+					        </span>
+						</td>
+					</tr>
+			   </tbody>
+			  </table>
+			</div>
+		</div>
+</div>

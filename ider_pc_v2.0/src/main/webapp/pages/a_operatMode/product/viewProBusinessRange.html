@@ -1,0 +1,33 @@
+<div ng-controller="viewProBusinessRangeCtrl">
+
+	<div class="layui-form">
+		<form name="proObjectRangeInfoForm"  >
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>运营模式 ：</div>
+			<div class="wd190 float_left">
+				<select ng-model="proObjectRangeInf.operationMode"   jf-select="operationModeArr" name="operationMode" maxlength="3" validator="required" disabled>
+				</select>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>产品对象代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="productLineCode"  ng-model="proObjectRangeInf.productLineCode" maxlength="9" validator="required" readony>
+			</div>
+		</div>
+		<div class="col_td">
+			<div class="col4 text_right"><span class="red">*</span>业务类型代码：</div>
+			<div class="wd190 float_left">
+				<input class="layui-input"  type="text" name="businessTypeCode"  ng-model="proObjectRangeInf.businessTypeCode" maxlength="9"  validator="required" readony>
+			</div>
+		</div>
+		
+		<div class="col_tr text_center">
+			<button class="layui-btn" style="margin-right:75px" 
+				ng-click="saveProLineRange()" validation-submit="proObjectRangeInfoForm">
+				<i class="layui-icon">&#xe624;</i> 确定
+			</button>
+		</div>
+		</form>
+	</div>
+</div>

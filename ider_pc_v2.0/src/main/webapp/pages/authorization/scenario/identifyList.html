@@ -1,0 +1,75 @@
+<div class="layout_body" ng-controller="identifyListCtrl">
+	<div class="search_mian layui-form">
+			<div class="layui-form-item" style="width: 100%;">
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'F00077' | translate}}：</label>
+					<div class="layui-input-inline">
+						<select class="layui-input"	jf-select="coArray" name="operationModeNa" ng-model="operationModeiden" disabled></select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"></label>
+					<div class="layui-input-inline"></div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH1500060' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input  bnone" type="text" ng-model="itemscen.authSceneCode"  readonly>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label"></label>
+					<div class="layui-input-inline"></div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">{{'SQH1500061' | translate}}：</label>
+					<div class="layui-input-inline">
+						<input class="layui-input bnone" type="text" ng-model="itemscen.sceneDesc" readonly>
+					</div>
+				</div>
+				<div class="layui-inline" style="float: right;">
+					<div class="search_button">
+						<button class="layui-btn" style="margin-right:30px" ng-click="addIdentify(itemscen)" ng-show="twoBtnAddFlag">
+							<i class="layui-icon">&#xe654;</i>{{'F00010' | translate}}
+						</button>
+						<button class="layui-btn" ng-click="delAllIdentify(itemscen)" ng-show="twoBtnUpdFlag">
+							<i class="layui-icon">&#xe640;</i>{{'F00060' | translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div jf-grid="idenList" >
+		<table>
+			<thead>
+				<tr>
+					<th style="padding: 0px 4px;">{{'SQH1500077' | translate}}</th>
+					<th style="padding: 0px 4px;">MTI</th>
+					<th style="padding: 0px 4px;">PROCESSING CODE</th>
+					<th style="width:20%;padding: 0px 4px;">POS CONDTION CODE</th>
+					<th style="padding: 0px 4px;">{{'SQH1500075' | translate}}</th>
+					<th style="padding: 0px 4px;">{{'SQH1500076' | translate}}</th>
+					<th style="width:16%;padding: 0px 4px;">{{'F00017' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="center"  ng-bind="$index+1"></td>
+					<td align="center" ng-bind="item.messageTyp"></td>
+					<td align="center" ng-bind="item.processCode"></td>
+					<td align="center" ng-bind="item.posConditionCode"></td>
+					<td align="center" ng-bind="item.cardAssociations"></td>
+					<td align="center" ng-bind="item.transSceneCodeDesc"></td>
+					<td align="center">
+						<button class="layui-btn layui-btn-mini" ng-click="updateIdentify(item)" ng-show="twoBtnUpdFlag">
+							<i class="layui-icon">&#xe642;</i> {{'F00015' | translate}}
+						</button>
+						<button class="layui-btn layui-btn-mini" ng-click="delIdentify(item)" ng-show="twoBtnUpdFlag">
+							<i class="layui-icon">&#xe640;</i> {{'F00016' | translate}}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<div ng-controller="replaceMemberCtrl">
+	<div class="section">
+		<div class="layui-tab-content">
+			
+				<div class="allcontent" class="layui-form">
+					<div class="search_mian">
+						<div class="mainname">替换元件详情</div>
+					</div>
+					<div jf-grid="replaceMemberTable">
+						<table>
+							<thead>
+								<tr>
+									<th>元件</th>
+									<th>元件描述</th>
+								
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center" ng-bind="item.actNo"></td>
+									<td align="center" ng-bind="item.actDesc"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+		</div>
+	</div>
+</div>
